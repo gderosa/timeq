@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{article}
 \usepackage{hyperref}
+\usepackage{amssymb}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
 \title{Pauli's Theorem}
@@ -23,6 +24,17 @@ to the Hamiltonian $H$, i.e.
 
 $$
 [T, H] = i\hbar
+$$
+Since T is self-adjoint, then for all
+$\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
+is unitary. A formal
+expansion of the exponential yields the commutator
+
+$$
+[U_{\beta}, H] = 
+\left[
+    \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+\right]
 $$
 
 \bibliographystyle{abbrv}
