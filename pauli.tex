@@ -1,0 +1,92 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\include{theorems}
+
+\author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
+\title{Pauli's Theorem}
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+A proof is detailed of the (in)famous Pauli's ``theorem''~\cite[footnote~2]{PauliFootnote}.
+\end{abstract}
+
+\section{Introduction}
+
+In a footnote in~\cite{PauliFootnote} Pauli says there's no time in QM. But he
+doesn't give an explicit proof. We'll follow (and expand)~\cite{Galapon2002}.
+
+\section{Proof of Pauli's formal argument}\label{proof}
+
+Let's assume that there exists a self-adjoint time operator, $T$, canonically conjugate
+to the Hamiltonian $H$, i.e.
+
+$$
+[T, H] = i\hbar
+$$\label{THcommutator}
+Since T is self-adjoint, then for all
+$\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
+is unitary. A formal
+expansion of the exponential yields the commutator
+
+$$
+[U_{\beta}, H]  = 
+\left[
+    \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+\right]         =
+\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
+$$.
+
+As the commutator $[T, H]$ itself commutes with its operators $T$ and $H$,
+the following identity holds (See (\ref{CommProp})):
+
+$$
+[T^k, H] = kT^{k-1}[T, H]
+$$
+hence:
+
+\begin{multline}
+[U_{\beta}, H]  = 
+\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] =
+-\beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} \\ =
+-\beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta}{\hbar} \right)^{\kappa} T^{\kappa} =
+-\beta U_{\beta}
+\end{multline}
+where the term for $k=0$ in the first sum clearly vanishes, hence we can start the sum from 
+$k=1$ then set $\kappa=k-1$.
+
+Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+
+$$
+HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
+EU_{\beta}\varphi_{E} + \beta U_{\beta}\varphi_{E} = (E+\beta)U_{\beta}\varphi_{E}
+$$
+showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
+$E+\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
+hence the spectrum of a generic Hamiltonian $H$ should
+be the whole real line, which contradicts the discrete and semi-bounded energy spectrum
+in fact found in most physical systems.
+
+\appendix\section{Commutator properties}\label{CommProp}
+\begin{lemma}
+If the commutator $[T, H]$ of two operators commute with its operators i.e. If
+$[[T, H], T] = [[T, H], H] = 0$, then the following holds:
+$$
+[T^k, H] = kT^{k-1}[T, H]
+$$
+\end{lemma}
+This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
+$T$ and $H$ are the time and energy operator respectively.
+\begin{proof}
+TODO
+\end{proof}
+
+\bibliographystyle{abbrv}
+\bibliography{pauli}
+
+\end{document}
+\end{document}
