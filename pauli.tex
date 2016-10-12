@@ -57,6 +57,18 @@ hence:
 where the term for $k=0$ in the first sum clearly vanishes, hence we can start the sum from 
 $k=1$ then set $\kappa=k-1$.
 
+Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+
+$$
+HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
+EU_{\beta}\varphi_{E} + \beta U_{\beta}\varphi_{E} = (E+\beta)U_{\beta}\varphi_{E}
+$$
+showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
+$E+\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
+hence the spectrum of a generic Hamiltonian $H$ should
+be the whole real line, which contradicts the discrete and semi-bounded energy spectrum
+in fact found in most physical systems.
+
 \appendix\section{Commutator properties}\label{CommProp}
 $$
 [T^k, H] = kT^{k-1}[T, H]
