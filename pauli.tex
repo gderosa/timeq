@@ -3,6 +3,8 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+\include{theorems}
+
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
 \title{Pauli's Theorem}
 \begin{document}
@@ -25,7 +27,7 @@ to the Hamiltonian $H$, i.e.
 
 $$
 [T, H] = i\hbar
-$$
+$$\label{THcommutator}
 Since T is self-adjoint, then for all
 $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
 is unitary. A formal
@@ -40,7 +42,7 @@ $$
 $$.
 
 As the commutator $[T, H]$ itself commutes with its operators $T$ and $H$,
-the following identity holds (See \ref{CommProp}):
+the following identity holds (See (\ref{CommProp})):
 
 $$
 [T^k, H] = kT^{k-1}[T, H]
@@ -70,11 +72,18 @@ be the whole real line, which contradicts the discrete and semi-bounded energy s
 in fact found in most physical systems.
 
 \appendix\section{Commutator properties}\label{CommProp}
+\begin{lemma}
+If the commutator $[T, H]$ of two operators commute with its operators i.e. If
+$[[T, H], T] = [[T, H], H] = 0$, then the following holds:
 $$
 [T^k, H] = kT^{k-1}[T, H]
 $$
-TODO.
-
+\end{lemma}
+This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
+$T$ and $H$ are the time and energy operator respectively.
+\begin{proof}
+TODO
+\end{proof}
 
 \bibliographystyle{abbrv}
 \bibliography{pauli}
