@@ -74,8 +74,8 @@ in fact found in most physical systems.
 
 \appendix\section{Commutator properties}\label{CommProp}
 \begin{lemma}
-If the commutator $[T, H]$ of two operators commute with its operators i.e. if
-$[[T, H], T] = [[T, H], H] = 0$, then the following holds:
+If the commutator $[T, H]$ commutes with $T$ i.e.
+$$[T, H]T~=~T[T, H],$$ then the following holds:
 \begin{equation}
 [T^k, H] = kT^{k-1}[T, H]\label{eq:tkh}
 \end{equation}
@@ -83,6 +83,8 @@ $[[T, H], T] = [[T, H], H] = 0$, then the following holds:
 This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
 $T$ and $H$ are the time and energy operator respectively.
 \begin{proof}
+First of all, the \ref{eq:tkh} is trivially valid for $k = 1$.
+
 For an arbitrary positive integer $k$ there has:
 \begin{multline}\label{tkhrecur}
 [T^k, H] = T^{k-1}TH - HT^{k-1}T = T^{k-1}TH - T^{k-1}HT + T^{k-1}HT - HT^{k-1}T \\
@@ -97,7 +99,7 @@ Now, iterating the result in \ref{tkhrecur},
 = \hdots \\
 = nT^{k-1}[T, H] + [T^{k-n}, H]T^n = \hdots
 \end{multline}
-where $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
+where the commutativity hypothesis $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
 
 Now, \ref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
 $[T^{k-n}, H]T^n$ vanishes and a result of $nT^{k-1}[T, H]$ follows. \qed  
