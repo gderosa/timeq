@@ -2,11 +2,12 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
-
+\usepackage{breqn}
 \include{theorems}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
 \title{Pauli's Theorem}
+
 \begin{document}
 
 \maketitle
@@ -43,7 +44,7 @@ expansion of the exponential yields the commutator
 \end{equation}.
 
 As the commutator $[T, H]$ itself commutes with its operators $T$ and $H$,
-the following identity holds (See \ref{CommProp}):
+the following identity holds (See Lemma \ref{CommProp}):
 
 $$
 [T^k, H] = kT^{k-1}[T, H]
@@ -52,8 +53,8 @@ hence:
 
 \begin{multline}
 [U_{\beta}, H]  = 
-\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] =
--\beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} \\ =
+\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] \\ =
+-\beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} =
 -\beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta}{\hbar} \right)^{\kappa} T^{\kappa} =
 -\beta U_{\beta}
 \end{multline}
@@ -72,25 +73,25 @@ hence the spectrum of a generic Hamiltonian $H$ should
 be the whole real line, which contradicts the discrete and semi-bounded energy spectrum
 in fact found in most physical systems.
 
-\appendix\section{Commutator properties}\label{CommProp}
-\begin{lemma}
+\appendix\section{Commutator properties}
+\begin{lemma}\label{CommProp}
 If the commutator $[T, H]$ commutes with $T$ i.e.
 $$[T, H]T~=~T[T, H]\,,$$ then the following holds:
 \begin{equation}\label{eq:tkh}
 [T^k, H] = kT^{k-1}[T, H]\,.
 \end{equation}
 \end{lemma}
-This is particularly true when $[T, H]$ is a \emph{number} as in \ref{THcommutator} where
+This is particularly true when $[T, H]$ is a \emph{number} as in \eqref{THcommutator} where
 $T$ and $H$ are the time and energy operator respectively.
 \begin{proof}
-First of all, the \ref{eq:tkh} is trivially valid for $k = 1$.
+First of all, the \eqref{eq:tkh} is trivially valid for $k = 1$.
 
 For an arbitrary positive integer $k$ there has:
-\begin{multline}\label{tkhrecur}
+\begin{dmath}\label{tkhrecur}
 [T^k, H] = T^{k-1}TH - HT^{k-1}T = T^{k-1}TH - T^{k-1}HT + T^{k-1}HT - HT^{k-1}T \\
     = T^{k-1}[T, H] + [T^{k-1}, H]T
-\end{multline}
-Now, iterating the result in \ref{tkhrecur},
+\end{dmath}
+Now, iterating the result in \eqref{tkhrecur},
 \begin{multline}\label{tkhrecurplus}
 [T^k, H] = T^{k-1}[T, H] + [T^{k-1}, H]T \\
 = T^{k-1}[T, H] + (T^{k-2}[T, H] + [T^{k-2}, H]T)T \\
@@ -101,7 +102,7 @@ Now, iterating the result in \ref{tkhrecur},
 \end{multline}
 where the commutativity hypothesis $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
 
-Now, \ref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
+Now, \eqref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
 $[T^{k-n}, H]T^n$ vanishes and a result of $kT^{k-1}[T, H]$ follows. \qed
 \end{proof}
 
