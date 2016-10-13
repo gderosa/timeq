@@ -83,7 +83,13 @@ $[[T, H], T] = [[T, H], H] = 0$, then the following holds:
 This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
 $T$ and $H$ are the time and energy operator respectively.
 \begin{proof}
-First, the \ref{eq:tkh} can be proven for $k=2$.
+First, the \ref{eq:tkh} can be proven for $k=2$:
+\begin{multline}
+[T^2, H] = TTH - HTT = TTH - THT + THT - HTT \\ = T[T, H] + [T, H]T = 2T[T, H]  
+\end{multline}
+where the commutativity of $[T, H]$ with $T$ has been used in the last equality.
+
+TBC
 \end{proof}
 
 \bibliographystyle{abbrv}
