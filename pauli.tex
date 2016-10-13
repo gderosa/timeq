@@ -26,8 +26,9 @@ Let's assume that there exists a self-adjoint time operator, $T$, canonically co
 to the Hamiltonian $H$, i.e.
 
 $$
+\label{THcommutator}
 [T, H] = i\hbar
-$$\label{THcommutator}
+$$
 Since T is self-adjoint, then for all
 $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
 is unitary. A formal
@@ -75,14 +76,14 @@ in fact found in most physical systems.
 \begin{lemma}
 If the commutator $[T, H]$ of two operators commute with its operators i.e. if
 $[[T, H], T] = [[T, H], H] = 0$, then the following holds:
-$$
-[T^k, H] = kT^{k-1}[T, H]
-$$
+\begin{equation}
+[T^k, H] = kT^{k-1}[T, H]\label{eq:tkh}
+\end{equation}
 \end{lemma}
 This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
 $T$ and $H$ are the time and energy operator respectively.
 \begin{proof}
-TODO
+First, the \ref{eq:tkh} can be proven for $k=2$.
 \end{proof}
 
 \bibliographystyle{abbrv}
