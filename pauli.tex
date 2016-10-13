@@ -83,13 +83,24 @@ $[[T, H], T] = [[T, H], H] = 0$, then the following holds:
 This is particularly true when $[T, H]$ is a ``number'' as in (\ref{THcommutator}) where
 $T$ and $H$ are the time and energy operator respectively.
 \begin{proof}
-First, the \ref{eq:tkh} can be proven for $k=2$:
-\begin{multline}
-[T^2, H] = TTH - HTT = TTH - THT + THT - HTT \\ = T[T, H] + [T, H]T = 2T[T, H]  
+For an arbitrary positive integer $k$ there has:
+\begin{multline}\label{tkhrecur}
+[T^k, H] = T^{k-1}TH - HT^{k-1}T = T^{k-1}TH - T^{k-1}HT + T^{k-1}HT - HT^{k-1}T \\
+    = T^{k-1}[T, H] + [T^{k-1}, H]T
 \end{multline}
-where the commutativity of $[T, H]$ with $T$ has been used in the last equality.
+Now, iterating the result in \ref{tkhrecur},
+\begin{multline}\label{tkhrecurplus}
+[T^k, H] = T^{k-1}[T, H] + [T^{k-1}, H]T \\
+= T^{k-1}[T, H] + (T^{k-2}[T, H] + [T^{k-2}, H]T)T \\
+= T^{k-1}[T, H] +  T^{k-1}[T, H] + [T^{k-2}, H]T^2 \\
+= 2T^{k-1}[T, H] + [T^{k-2}, H]T^2 \\
+= \hdots \\
+= nT^{k-1}[T, H] + [T^{k-n}, H]T^n = \hdots
+\end{multline}
+where $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
 
-TBC
+Now, \ref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
+$[T^{k-n}, H]T^n$ vanishes and a result of $nT^{k-1}[T, H]$ follows. \qed  
 \end{proof}
 
 \bibliographystyle{abbrv}
