@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{article}
+\documentclass[a4paper]{article}
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -92,14 +92,14 @@ For an arbitrary positive integer $k$ there has:
     = T^{k-1}[T, H] + [T^{k-1}, H]T
 \end{dmath}
 Now, iterating the result in \eqref{tkhrecur},
-\begin{multline}\label{tkhrecurplus}
-[T^k, H] = T^{k-1}[T, H] + [T^{k-1}, H]T \\
-= T^{k-1}[T, H] + (T^{k-2}[T, H] + [T^{k-2}, H]T)T \\
-= T^{k-1}[T, H] +  T^{k-1}[T, H] + [T^{k-2}, H]T^2 \\
-= 2T^{k-1}[T, H] + [T^{k-2}, H]T^2 \\
-= \hdots \\
+\begin{dmath}\label{tkhrecurplus}
+[T^k, H] = T^{k-1}[T, H] + [T^{k-1}, H]T
+= T^{k-1}[T, H] + (T^{k-2}[T, H] + [T^{k-2}, H]T)T
+= T^{k-1}[T, H] +  T^{k-1}[T, H] + [T^{k-2}, H]T^2
+= 2T^{k-1}[T, H] + [T^{k-2}, H]T^2
+= \hdots
 = nT^{k-1}[T, H] + [T^{k-n}, H]T^n = \hdots
-\end{multline}
+\end{dmath}
 where the commutativity hypothesis $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
 
 Now, \eqref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
