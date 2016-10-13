@@ -25,25 +25,25 @@ doesn't give an explicit proof. We'll follow (and expand)~\cite{Galapon2002}.
 Let's assume that there exists a self-adjoint time operator, $T$, canonically conjugate
 to the Hamiltonian $H$, i.e.
 
-$$
+\begin{equation}
 \label{THcommutator}
 [T, H] = i\hbar
-$$
+\end{equation}
 Since T is self-adjoint, then for all
 $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
 is unitary. A formal
 expansion of the exponential yields the commutator
 
-$$
+\begin{equation}
 [U_{\beta}, H]  = 
 \left[
     \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
 \right]         =
 \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
-$$.
+\end{equation}.
 
 As the commutator $[T, H]$ itself commutes with its operators $T$ and $H$,
-the following identity holds (See (\ref{CommProp})):
+the following identity holds (See \ref{CommProp}):
 
 $$
 [T^k, H] = kT^{k-1}[T, H]
