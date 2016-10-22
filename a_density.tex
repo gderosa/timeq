@@ -10,7 +10,7 @@ For a given observable represented by an operator $A$ with a
 outcome $a$ of a
 measurement on a system in the pure state $\ket{\psi}$ is given by
 $$
-\pi_{a} = \norm{\braket{a}{\psi}}^2 
+\pi_{a} = \norm{\braket{a}{\psi}}^2
         = \bra{\psi}\ket{a}\bra{a}\ket{\psi}
         = \mel{\psi}{P_{a}}{\psi}
 $$
@@ -20,7 +20,7 @@ one-dimensional eigenspace of  $a$.
 If $a$ is degenerate, and $j = 1, \dots, J$ its degeneracy index,
 such probability shall sum over it:
 $$
-\pi_{a} = \sum_{j=1}^{J}\norm{\braket{aj}{\psi}}^2 
+\pi_{a} = \sum_{j=1}^{J}\norm{\braket{aj}{\psi}}^2
         = \sum_{j=1}^{J}\bra{\psi}\ket{aj}\bra{aj}\ket{\psi}
         = \mel{\psi}{P_{a}}{\psi}
 $$
@@ -30,12 +30,12 @@ still is the projector on the
 
 Generally, the probability that the outcome of a measuremen falls in
 the set of eigenvalues $\sigma = \{a_{1}, \dots, a_{S}\}$ is
-$$
-\pi_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\norm{\braket{sj}{\psi}}^2 
-        = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\bra{\psi}\ket{sj}\bra{sj}\ket{\psi}
-        = \mel{\psi}{P_{\sigma}}{\psi}
-        ,
-$$
+\begin{equation}\label{eq:pi_sigma}
+\pi_{\sigma}  = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\norm{\braket{sj}{\psi}}^2
+              = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\bra{\psi}\ket{sj}\bra{sj}\ket{\psi}
+              = \mel{\psi}{P_{\sigma}}{\psi}
+              ,
+\end{equation}
 where $P_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\ketbra{sj}$
 is once again a projector --- on the ``generalized eigenspace'' spanned by all
 eigenvectors $\{\ket{sj}\}$ above.
@@ -43,12 +43,16 @@ eigenvectors $\{\ket{sj}\}$ above.
 \subsection[Measure]{Measure\footnote{Not to be confused with \emph{measurement}.}}
 
 Being $\pi_{\sigma}$ the \emph{probability} of the outcome of a measurement to
-fall in the set $\sigma$, it has to be:
-\begin{itemize}
-\item $0$ on the empty set
-\item \term{additive} on disjoint sets
-\end{itemize}
+fall in a given set $\sigma$, it has to be:
+\begin{enumerate}\label{measure_properties}
+  \item $0$ on the empty set
+  \item non negative
+  \item \term{additive} on disjoint sets
+\end{enumerate}
 and additionally
 \begin{itemize}
-\item equal to $1$ if $\sigma$ includes the whole spectrum of $A$
+  \item equal to $1$ if $\sigma$ includes the whole spectrum of $A$.
 \end{itemize}
+
+Properties \ref{measure_properties} are the defining properties of a
+\term{measure}.
