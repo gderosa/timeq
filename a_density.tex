@@ -1,5 +1,7 @@
 \section{Density operators, projectors and measurement}
 
+\subsection{Projectors}
+
 We shall assume, unless otherwise stated, that all vectors are
 normalized to unity.
 
@@ -32,7 +34,21 @@ $$
 \pi_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\norm{\braket{sj}{\psi}}^2 
         = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\bra{\psi}\ket{sj}\bra{sj}\ket{\psi}
         = \mel{\psi}{P_{\sigma}}{\psi}
+        ,
 $$
 where $P_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\ketbra{sj}$
 is once again a projector --- on the ``generalized eigenspace'' spanned by all
 eigenvectors $\{\ket{sj}\}$ above.
+
+\subsection[Measure]{Measure\footnote{Not to be confused with \emph{measurement}.}}
+
+Being $\pi_{\sigma}$ the \emph{probability} of the outcome of a measurement to
+fall in the set $\sigma$, it has to be:
+\begin{itemize}
+\item $0$ on the empty set
+\item \term{additive} on disjoint sets
+\end{itemize}
+and additionally
+\begin{itemize}
+\item equal to $1$ if $\sigma$ includes the whole spectrum of $A$
+\end{itemize}
