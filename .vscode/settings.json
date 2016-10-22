@@ -1,4 +1,4 @@
-// Place your settings in this file to overwrite default and user settings.
+// Place your settings in this file to overfrite default and user settings.
 {
     "files.exclude": {
         "**/.git": true,
@@ -10,5 +10,6 @@
         "*.blg": true,
         "*.dvi": true,
         "*.out": true
-    }
+    },
+    "editor.wrappingColumn": 86
 }
