@@ -70,8 +70,13 @@ by the following \cite{VonNeumann, Ballentine}
 \begin{theorem}[spectral resolution]
   If $A$ is a self-adjoint operator,
   there is a unique projector-valued measure $E$
-  defined on Borel sets of $\mathbb{R}$
+  defined on the Borel sets of $\mathbb{R}$
   such that
+  \footnote{
+    In \eqref{eq:spectral}, $a$ is a real number (not a set),
+    but it's intended $E$ to be evaluated
+    on the~\emph{interval}~from $-\infty$ to $a$.
+  }
   \begin{equation}\label{eq:spectral}
     A=\int_{-\infty}^{\infty}a\, dE(a)
   \end{equation}
@@ -81,8 +86,6 @@ by the following \cite{VonNeumann, Ballentine}
     E(B_{1}\cap B_{2}) & =E(B_{1})E(B_{2})\,.
   \end{align*}
 \end{theorem}
-Whereas in \eqref{eq:spectral} $a$ is a number (not a set)
-but it's intended $E(a) = E\left(\left]-\infty, a\right[\right)$.
 
 In terms of this theorem, the projector in \eqref{eq:pi_sigma} is
 $$
