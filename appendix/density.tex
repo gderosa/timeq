@@ -62,6 +62,34 @@ The probability $\pi_{\sigma}$ in \eqref{eq:pi_sigma} is linear with respect to 
 $P_{\sigma}$ hence it's not difficult to derive that the same properties in
 \autoref{measure_properties} applies to $P_{\sigma}$, \emph{in the operator sense}.
 In fact, the map $\sigma \subseteq \mathbb{R} \rightarrow P_{\sigma}$
-implicitly defined in \eqref{eq:pi_sigma} is a \term{projector-valued measure}
-and the result is generalized in such a way to include both discrete and continous
-spectra by the \emph{spectral theorem} (see \cite{VonNeumann, Ballentine}).
+implicitly defined in~\eqref{eq:pi_sigma} is a \term{projector-valued measure}.
+
+The result is generalized,
+in such a way to include both discrete and continous spectra,
+by the following \cite{VonNeumann, Ballentine}
+\begin{theorem}[spectral resolution]
+  If $A$ is a self-adjoint operator,
+  there is a unique projector-valued measure $E$
+  defined on Borel sets of $\mathbb{R}$
+  such that
+  \begin{equation}\label{eq:spectral}
+    A=\int_{-\infty}^{\infty}a\, dE(a)
+  \end{equation}
+  and satisfying:
+  \begin{align*}
+    E(\mathbb{R})       & =\mathbf{1},\\
+    E(B_{1}\cap B_{2}) & =E(B_{1})E(B_{2})\,.
+  \end{align*}
+\end{theorem}
+Whereas in \eqref{eq:spectral} $a$ is a number (not a set)
+but it's intended $E(a) = E\left(\left]-\infty, a\right[\right)$.
+
+In terms of this theorem, the projector in \eqref{eq:pi_sigma} is
+$$
+P_{\sigma} = E(\sigma) = \int_{a\in\sigma}dE(a)
+$$
+and $dE(a)$ is
+---informally speaking---
+infinitesimal if $a$ belongs to the continous spectrum,
+finite if $a$ is a discrete eigenvalue
+and zero otherwise.
