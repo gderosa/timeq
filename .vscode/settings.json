@@ -5,11 +5,10 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "*.aux": true,
+        "**/*.aux": true,
         "*.bbl": true,
         "*.blg": true,
         "*.dvi": true,
         "*.out": true
-    },
-    "editor.wrappingColumn": 86
+    }
 }
