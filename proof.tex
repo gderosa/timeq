@@ -1,34 +1,3 @@
-\documentclass[a4paper]{article}
-\usepackage[colorlinks,citecolor=blue]{hyperref}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{physics}
-\usepackage{breqn}
-
-\include{theorems}
-
-\newcommand{\term}[1]{\emph{#1}}
-
-\author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
-\title{Pauli's Theorem}
-
-\begin{document}
-
-\maketitle
-
-\begin{abstract}
-A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
-on the impossibility of a time observable in quantum mechanics. Some possible
-approaches towards overcoming Pauli's objections are reviewd and expanded as well.
-\end{abstract}
-
-\section{Introduction}
-
-In a footnote in~\cite{PauliFootnote}, W. Pauli excluded the possibility
-of a self-adjoint operator representing time as a quantum observable.
-However, he did not provide an explicit proof.
-Here a proof is given, based on~\cite{Galapon2002}, but expanded in more detail.
-
 \section{Proof of Pauli's formal argument}\label{proof}
 
 Let's assume that there exists a self-adjoint time operator, $T$, canonically conjugate
@@ -80,13 +49,3 @@ $E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hami
 hence the spectrum of a generic Hamiltonian $H$ should
 be the whole real line, which contradicts the discrete and semi-bounded energy spectrum
 in fact found in most physical systems.
-
-\appendix
-\include{a_commutator}
-\include{a_density}
-
-\bibliographystyle{IEEEtran}
-\bibliography{pauli}
-
-\end{document}
-\end{document}

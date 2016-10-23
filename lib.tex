@@ -1,18 +1,25 @@
+%% General dependencies
+\usepackage[colorlinks,citecolor=blue]{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{breqn}
+
+%% Theorem-like environments
 %% http://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/Theorems.html
 %% https://www.sharelatex.com/learn/Theorems_and_proofs
 %% http://tex.stackexchange.com/a/46262
-
 \usepackage{amsthm}
-
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{remark}{Remark}[subsection]
-
 \newenvironment{definition}[1][Definition]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
 \newenvironment{example}[1][Example]{\begin{trivlist}
 \item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
-
 \newcommand{\remarkautorefname}{Remark}
+
+%% Misc
+\newcommand{\term}[1]{\emph{#1}}
