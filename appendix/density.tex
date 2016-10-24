@@ -131,7 +131,8 @@ Hence we can derive:
   or, more generally, in \eqref{eq:P_sigma_spectral}.
 \end{proposition}
 
-\subsubsection{Properties of the density operator}
+\section{Properties of the density operator}
+\subsection{Additivity}
 The general expression for a density operator $\rho$ is
 $$
   \rho = \sum_{k}p_{k}\ketbra{\psi_{k}}
@@ -171,3 +172,8 @@ The condition is not restrictive to prevent proving the following
     and so is consequently the operator $A$ itself.
   \end{proof}
 \end{proposition}
+
+\begin{corollary}
+If $\tr(A\rho) + \tr(B\rho) = \tr(C\rho)$ for any density operator $\rho$,
+then $A + B = C$.
+\end{corollary}
