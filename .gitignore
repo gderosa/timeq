@@ -181,3 +181,6 @@ TSWLatexianTemp*
 
 # pdflatex
 *.pdf
+
+# Mac
+.DS_Store

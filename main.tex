@@ -1,26 +1,36 @@
-\documentclass[a4paper]{article}
+\documentclass{book}
 
 \input{lib}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
-\title{Pauli's Theorem}
+\title{Time as a quantum observable: from Pauli objection to Page and Wootters model --- improvements and applications}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-  A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
-  on the impossibility of a time observable in quantum mechanics. Some possible
-  approaches towards overcoming Pauli's objections are reviewd and expanded as well.
-\end{abstract}
+\chapter*{Abstract}
+A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
+on the impossibility of a time observable in quantum mechanics. Some possible
+approaches towards overcoming Pauli's objections are reviewd and expanded as well.
 
-\input{section/intro}
-\input{section/proof}
-\input{section/approaches}
+\chapter{Pauli's objection}
+% sections
+\input{pauli/intro}
+\input{pauli/proof}
+
+\chapter{Approaches}
+% section
+\input{approaches/approaches}
+
+\chapter{Critical review of Page and Wootters mechanism and proposed improvements}
+% section
+\input{review/review}
 
 \appendix
+\chapter{Commutator properties}
 \input{appendix/commutator}
+\chapter{Density operators, projectors and measurement}
 \input{appendix/density}
 
 \bibliographystyle{IEEEtran}
