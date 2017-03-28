@@ -9,6 +9,9 @@
         "*.bbl": true,
         "*.blg": true,
         "*.dvi": true,
-        "*.out": true
+        "*.out": true,
+        "*.fls": true,
+        "*.log": true,
+        "*.fdb_latexmk": true
     }
 }

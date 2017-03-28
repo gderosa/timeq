@@ -1,29 +1,55 @@
-\documentclass[a4paper]{article}
+\documentclass{book}
 
-\input{lib}
+\input{tex/lib}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
-\title{Pauli's Theorem}
+\title{Time as a quantum observable: from Pauli objection to Page and Wootters model --- improvements and applications}
+
+\addbibresource{biblio.bib}
 
 \begin{document}
 
 \maketitle
 
-\begin{abstract}
-  A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
-  on the impossibility of a time observable in quantum mechanics. Some possible
-  approaches towards overcoming Pauli's objections are reviewd and expanded as well.
-\end{abstract}
+\tableofcontents
 
-\input{section/intro}
-\input{section/proof}
-\input{section/approaches}
+\chapter*{Abstract}
+A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
+on the impossibility of a time observable in quantum mechanics. Some possible
+approaches towards overcoming Pauli's objections are reviewd and expanded as well.
+
+\chapter{Pauli's objection}
+% sections
+\input{tex/pauli/intro}
+\input{tex/pauli/proof}
+
+\chapter{Approaches}
+% section
+\input{tex/approaches/approaches}
+
+\chapter{Critical review of Page and Wootters mechanism and proposed improvements}
+\chaptermark{Critical review of Page and Wootters \dots}
+\input{tex/pw/review}
+\input{tex/pw/lg}
+
+\chapter{When Time Crystals come into play}
+% sections
+\input{tex/crystals/crystals}
+
+\chapter{Thermal time hypothesis}
+% sections
+\input{tex/therm/connes-rovelli.tex}
+
+\chapter{Extras}
+% sections
+\input{tex/misc/misc.tex}
 
 \appendix
-\input{appendix/commutator}
-\input{appendix/density}
+\chapter{Commutator properties}
+\input{tex/appendix/commutator}
+\chapter{Density operators, projectors and measurement}
+\input{tex/appendix/density}
 
-\bibliographystyle{IEEEtran}
-\bibliography{biblio}
+\printbibliography[title=References]
 
 \end{document}
