@@ -2,12 +2,17 @@
 Time in QM?
 
 ## Build
+If you have `make` and a full LaTeX installation, just run
 ```bash
-# "make" with
-latexmk -pdf main
+make
+```
+in the project root directory, and A PDF output document will be generated.
 
-# "make clean" with
-latexmk -C
+### Cleanup
+Cleanup with
+```bash
+make clean
 ```
 
-Please note a convenience "make proxy" (`Makefile`) is provided as well.
+### If you don't have `make` (non-Unix systems etc.)
+Look into [`Makefile`](Makefile) to see the underlying command lines you can run (currently based on `latekmx`).

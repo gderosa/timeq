@@ -5,4 +5,3 @@ all:
 
 clean:
 	latexmk -C
-
