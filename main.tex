@@ -77,7 +77,7 @@ Off-diagonal terms in the density matrix indicates ``quantum purity''.
 In some sense, measurement turned a q-statistical distribution of values for the observable,
 into a classical probability distribution.
 
-Recommended read: \cite{Zurek_Decoherence}.
+Recommended read: \cite{Zurek_Decoherence, Zurek_Decoherence2}.
 
 \chapter{Critical review of Page and Wootters mechanism and proposed improvements}
 \chaptermark{Critical review of Page and Wootters \dots}
@@ -85,10 +85,23 @@ Recommended read: \cite{Zurek_Decoherence}.
 \input{tex/pw/lg}
 
 \chapter{Reconciling the Detector Model with the Page and Wootters mechanism?}
-\section{Can a POVM on a system, if then we see it as part of a bipartite one, equivalent to a PVM on the other, entangled, system?}
+\section{Can a POVM on a system, if then we see it as part of a bipartite one,
+equivalent to a PVM on the other, entangled, system?}
 This will show an equivalence of models based on POVM with the Page and Wootters...?
 
-PLAN: exponential decay from \url{https://arxiv.org/abs/1704.07236},
+Not exactly, but a POVM on a subsystems corresponds to a PVM on the tensor product space.
+
+From \cite{PreskillNotes}, Ch.3 
+\begin{quotation}
+We have seen that
+a pure state of the bipartite system AB may behave like a mixed state
+when we observe subsystem A alone, and that an orthogonal measurement
+of the bipartite system can realize a (nonorthogonal) POVM on A alone.
+\end{quotation}
+
+The same chapter talks about quantum operations, quantum channels and Kraus opertators.
+
+We might want to look at exponential decay from \url{https://arxiv.org/abs/1704.07236},
 then compare with exponential decay with P and W using Lloyd Giovannetti and Maccone (ref).
 
 \subsection{4-partite universe?}
