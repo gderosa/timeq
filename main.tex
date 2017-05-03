@@ -15,9 +15,7 @@
 \tableofcontents
 
 \chapter*{Abstract}
-A proof is detailed of the (in)famous Pauli's ``theorem''~\cite{PauliFootnote}
-on the impossibility of a time observable in quantum mechanics. Some possible
-approaches towards overcoming Pauli's objections are reviewd and expanded as well
+\input{tex/abstract}
 
 \chapter{Motivation and experiments}
 \input{tex/intro/intro}
@@ -30,56 +28,7 @@ approaches towards overcoming Pauli's objections are reviewd and expanded as wel
 \input{tex/approaches/approaches}
 
 \chapter{Entanglement, decoherence, and measurement}
-The environment is watching, Haroce-Raimond, from ``Exploring the quantum'', ch.4
-
-Environment-Induced Decoherence and the Transition from Quantum to Classical
-
-Partial trace, which is not a number, check wikipedia $\rightarrow$ consistent histories.
-J. P. Paz W. H. Zurek
-
-Von Neumann and Shanon entropy.
-
-MIKIO NAKAHARA: QUANTUM COMPUTING: AN OVERVIEW
-
-See also \cite{Schlosshauer_Decoherence}.
-
-\section{Maximally mixed state of $\ket{e_1}$ and $\ket{e_1}$
-Vs their maximal coherent superposition: density matrices}
-
-See Nakahara notes, example II.2.
-
-$$
-\frac{1}{2}\begin{bmatrix}
-  1 &0  \\
-  0 &1  \\
-\end{bmatrix}
-\text{ Vs }
-\frac{1}{2}\begin{bmatrix}
-  1 &1  \\
-  1 &1  \\
-\end{bmatrix}
-$$
-
-The off-diagonal terms in the coherent superposition case indicate
-``quantumness''. (explain)
-
-\begin{remark}
-  The density matrix of a pure state is either diag(000\dots1\dots000) or non-diagonal.
-
-  It can be easily proven reasoning on eigenvalues\dots
-
-  So, except the special/trivial case above, a pure state must have off-diagonal terms.
-\end{remark}
-
-Measurement destroys off-diagonal terms and turns a pure state into a mixed one.
-
-Off-diagonal terms in the density matrix indicates ``quantum purity''.
-(Or internal Entanglement as well, if the system being detected was bipartite itself?)
-
-In some sense, measurement turned a q-statistical distribution of values for the observable,
-into a classical probability distribution.
-
-Recommended read: \cite{Zurek_Decoherence, Zurek_Decoherence2}.
+\input{tex/decohere/decohere.tex}
 
 \chapter{Critical review of Page and Wootters mechanism and proposed improvements}
 \chaptermark{Critical review of Page and Wootters \dots}
@@ -87,42 +36,7 @@ Recommended read: \cite{Zurek_Decoherence, Zurek_Decoherence2}.
 \input{tex/pw/lg}
 
 \chapter{Reconciling the Detector Model with the Page and Wootters mechanism?}
-\section{Can a POVM on a system, if then we see it as part of a bipartite one,
-equivalent to a PVM on the other, entangled, system?}
-This will show an equivalence of models based on POVM with the Page and Wootters...?
-
-Well, yes.
-
-From \cite{PreskillNotes}, Ch.3 
-\begin{quotation}
-We have seen that
-a pure state of the bipartite system AB may behave like a mixed state
-when we observe subsystem A alone, and that an orthogonal measurement
-of the bipartite system can realize a (nonorthogonal) POVM on A alone.
-\end{quotation}
-
-and
-
-\begin{quotation}
-A POVM in $H_A$ can be realized as a unitary transformation on the tensor
-product $H_A \otimes H_B$, followed by an orthogonal measurement in $H_B$.
-\end{quotation}
-
-The same chapter talks about quantum operations, quantum channels and Kraus opertators.
-
-We might want to look at exponential decay from \url{https://arxiv.org/abs/1704.07236},
-then compare with exponential decay with P and W using Lloyd Giovannetti and Maccone (ref).
-
-\subsection{4-partite universe?}
-\begin{itemize}
-  \item{The system being measured/detected}
-  \item{The Ruschhaupt detector --- which does not measure time, but whose detection happens at a certain time}
-  \item{The Page and Wootters clock, entangled with the system and/or the detector}
-  \item{The rest of the Universe, aka the Environment, aka the Termal Bath or Reservoir}
-\end{itemize}
-
-Can any of the above be identified? If the lab is isolated enough,
-the detector is the only macro object and can act as a Universe/bath/environment/reservoir\dots?
+\input{text/pw/detector.tex}
 
 \chapter{When Time Crystals come into play}
 \input{tex/crystals/crystals}
