@@ -1,0 +1,64 @@
+\input{tex/preamble}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% main content
+\chapter*{Abstract}
+\input{tex/abstract}
+
+\chapter{Motivation and experiments}
+\input{tex/intro/intro}
+
+\chapter{Pauli's objection --- TODO: make this Historical Introduction?}
+\input{tex/pauli/intro}
+\input{tex/pauli/proof}
+
+\chapter{Approaches}
+\input{tex/approaches/approaches}
+
+\chapter{Decoherence and Measurement}
+\input{tex/decohere/decohere.tex}
+
+\chapter{Critical review of Page and Wootters mechanism and proposed improvements}
+\chaptermark{Critical review of Page and Wootters \dots}
+\input{tex/pw/review}
+\input{tex/pw/lg}
+
+\chapter{Reconciling the Detector Model with the Page and Wootters mechanism?}
+\input{tex/pw/detector.tex}
+
+\chapter{When Time Crystals come into play}
+\input{tex/crystals/crystals}
+
+\chapter{Thermal time hypothesis}
+\input{tex/therm/connes-rovelli}
+
+\chapter{Gravitation and High Energy}
+\input{tex/grav-he/feynm}
+\input{tex/grav-he/grav}
+
+\chapter{Extras}
+\input{tex/misc/misc.tex}
+
+\chapter{Pedagogical remarks (TODO: move to Intro? move to Conclusions?)}
+A computation/information approach for a better understanding of quantum
+physics.\footnote{
+  Namely, Preskill notes \cite{PreskillNotes} as a better way of looking at QM,
+  especially \textbf{measurement}.
+}
+
+% appendices
+\appendix
+\chapter{Commutator properties}
+\input{tex/appendix/commutator}
+\chapter{Density operators, projectors and measurement}
+\input{tex/appendix/density}
+
+% references
+\printbibliography[heading=bibintoc]
+
+\end{document}

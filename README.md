@@ -6,7 +6,8 @@ If you have `make` and a full LaTeX installation, just run
 ```bash
 make
 ```
-in the project root directory, and A PDF output document will be generated.
+in the project root directory, and A PDF output document will be generated
+under `build/`.
 
 ### Cleanup
 Cleanup with
