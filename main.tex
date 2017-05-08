@@ -16,6 +16,7 @@
 
 \tableofcontents
 
+% main content
 \chapter*{Abstract}
 \input{tex/abstract}
 
@@ -60,13 +61,14 @@ physics.\footnote{
   especially \textbf{measurement}.
 }
 
+% appendices
 \appendix
 \chapter{Commutator properties}
 \input{tex/appendix/commutator}
 \chapter{Density operators, projectors and measurement}
 \input{tex/appendix/density}
 
-\printbibliography[title=References]
-\chaptermark{References}
+% references
+\printbibliography[heading=bibintoc,title=References]
 
 \end{document}
