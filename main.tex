@@ -1,17 +1,15 @@
-\documentclass{book}
+%% oneside and geometry (in tex/setup) only in development
 
-\input{tex/lib}
+\documentclass[oneside]{book}
 
+% document meta
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
 \title{Time as a quantum observable: from Pauli objection to Page and Wootters model --- improvements and applications}
 
-\usepackage[
-  safeinputenc,
-  style=authoryear,
-  citestyle=authoryear-icomp
-]{biblatex}
-\addbibresource{biblio.bib}
+% setup
+\input{tex/setup}
 
+% document
 \begin{document}
 
 \maketitle
@@ -31,7 +29,7 @@
 \chapter{Approaches}
 \input{tex/approaches/approaches}
 
-\chapter{Entanglement, decoherence, and measurement}
+\chapter{Decoherence and Measurement}
 \input{tex/decohere/decohere.tex}
 
 \chapter{Critical review of Page and Wootters mechanism and proposed improvements}
@@ -69,5 +67,6 @@ physics.\footnote{
 \input{tex/appendix/density}
 
 \printbibliography[title=References]
+\chaptermark{References}
 
 \end{document}
