@@ -6,12 +6,15 @@
         "**/.hg": true,
         "**/.DS_Store": true,
         "**/*.aux": true,
-        "*.bbl": true,
-        "*.blg": true,
-        "*.dvi": true,
-        "*.out": true,
-        "*.fls": true,
-        "*.log": true,
-        "*.fdb_latexmk": true
+        "**/*.bbl": true,
+        "**/*.bcf": true,
+        "**/*.blg": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.log": true,
+        "**/*.fls": true,
+        "**/*.out": true,
+        "**/*.pdf": true,
+        "**/*.run.xml": true,
+        "**/*.toc": true
     }
 }

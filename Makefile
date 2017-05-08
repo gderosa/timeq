@@ -1,7 +1,9 @@
-# This is just a convenience proxy to latexmk
+OUTPUT=build/timeqm
+FORMAT=pdf
+JOBOPTS=-jobname=${OUTPUT}
 
 all:
-	latexmk -pdf main
+	latexmk -${FORMAT} main ${JOBOPTS}
 
 clean:
-	latexmk -C
+	latexmk -C ${JOBOPTS}
