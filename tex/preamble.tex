@@ -1,6 +1,4 @@
-%% oneside and geometry only in development
-
-\documentclass[oneside]{book}
+  \documentclass{book}
 
 \usepackage{xcolor}
 \usepackage[
@@ -18,11 +16,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}
-\usepackage[
-  safeinputenc,
-  style=authoryear,
-  citestyle=authoryear-icomp
-]{biblatex}
+%\usepackage[
+%  safeinputenc,
+%  style=authoryear,
+%  citestyle=authoryear-icomp
+%]{biblatex}
+\usepackage[safeinputenc,authordate,backend=biber]{biblatex-chicago}
 
 \input{tex/lib}
 
