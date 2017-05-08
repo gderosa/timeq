@@ -1,6 +1,6 @@
 # Just a simple proxy to latexmk
 
-INPUT=main
+INPUT=document
 OUTPUT=build/timeqm
 FORMAT=pdf
 JOBOPTS=-jobname=${OUTPUT}
