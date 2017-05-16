@@ -42,9 +42,9 @@ In general, given the above property yet the fact that not all states
 in a tensor product space are separable, we can still express any
 (generally not separable) state vector of $\hilb{H}_S$
 as a \emph{superposition} of separable base vectors
-\[\label{eq:bipartite_expansion}
+\begin{equation}\label{eq:bipartite_expansion}
   \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i_A}\otimes\ket{\mu_B} \neq \ket{\psi_A}\otimes\ket{\psi_B},
-\]
+\end{equation}
 meaning that the
 ``total'' $\ket{\psi_A}$ and $\ket{\psi_B}$ don't necessarily exist.
 
@@ -80,9 +80,12 @@ It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
 \[
   M_A \otimes \idop_B\, .
 \]
-Its expectation value is (using the expansion in \eqref{eq:bipartite_expansion})
+Its expectation value is
+(using the expansion in eq. \ref{eq:bipartite_expansion},
+and the notation of latin indices for system $A$ and greek ones for system $B$)
 \[
-  \expval{M_A} = 
+  \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} =
+  \sum_{j,\nu}a^{*}_{j\nu}\left(\bra{j}\otimes\bra{\nu}\right)\left(M_A\otimes\idop_B\right)\sum_{i,\mu}a_{i\mu}\left(\ket{i}\otimes\ket{\mu}\right)
 \]
 
 \texttt{REMOVEME}. The partial trace is in \cite[sec. 2.3.1]{PreskillNotes}.
