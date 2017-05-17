@@ -83,14 +83,19 @@ It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
 Its expectation value is
 (using the expansion in eq. \ref{eq:bipartite_expansion},
 and the notation of latin indices for system $A$ and greek ones for system $B$)
-\begin{multline}
+\begin{multline}\label{exp_subsys}
   \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} =
   \sum_{j,\nu}a^{*}_{j\nu}\left(\bra{j}\otimes\bra{\nu}\right)\left(M_A\otimes\idop_B\right)\sum_{i,\mu}a_{i\mu}\left(\ket{i}\otimes\ket{\mu}\right) = \\
   \sum_{j,\nu,i,\mu}a^{*}_{j\nu}a_{i\mu}\matrixel{j}{M}{i}\matrixel{\mu}{\idop}{\nu} =
-  \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i}
+  \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i} =
+  \tr(M_A\rho_a)
 \end{multline}
 
-\texttt{REMOVEME}. The partial trace is in \cite[sec. 2.3.1]{PreskillNotes}.
+To prove the last equality in \eqref{exp_subsys} we need to define the
+\term{density operator} $\rho_A$ for an open system $A$ and to understand its
+relation with the whole (closed) system $A+B$.
+
+
 
 \section{The rest aka TODO}
 
