@@ -66,6 +66,12 @@ namely two spin-$\frac{1}{2}$ particles in a singlet state:
 In a bipartite (entangled) systems, one subsystem considered alone is an
 \emph{open quantum system} \parencite{open_systems},
 while the system as a whole is still a closed systems.
+
+In this and following sections, unless differently noted,
+we shall stick with the convetion of \eqref{eq:bipartite_expansion},
+of using
+latin indices for subsystem $A$ and greek ones for subsystem $B$.
+
 As pointed out in
 \cite[sec. 2.3.1]{PreskillNotes}, when we limit our attention to
 just part of a larger system, contrary to the axioms of closed systems:
@@ -93,8 +99,22 @@ and the notation of latin indices for system $A$ and greek ones for system $B$)
 
 To prove the last equality in \eqref{exp_subsys} we need to define the
 \term{density operator} $\rho_A$ for an open system $A$ and to understand its
-relation with the whole (closed) system $A+B$.
+relation with the whole (closed) system $A+B$.\footnote{
+  For some general properties of density operators, see \ref{app:density}.
+}
 
+Let's start with the following
+\begin{definition}
+  The \term{partial trace} operation
+  is a linear map
+  that takes an operator
+  $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
+  to an operator on $\hilb{H}_A$ defined as
+  \[
+    \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_AB}{\mu}
+    \, .
+  \]
+\end{definition}
 
 
 \section{The rest aka TODO}
