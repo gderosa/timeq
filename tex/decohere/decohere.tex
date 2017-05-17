@@ -1,8 +1,132 @@
+\section{Bipartite systems, separable and entangled states}
+
+Consider a \term{bipartite quantum system}
+i.e. a composite system $S$
+made up of two parts, $A$ and~$B$,
+described by their respective Hilbert spaces
+$\hilb{H}_A$ and $\hilb{H}_B$ \parencite{Haroche_Exploring}.
+
+Notably, in \cite{Haroche_Exploring},
+notation does not treat the two spaces
+on perfectly equal footing,
+in the sense that a basis for $\hilb{H}_A$ and a basis for $\hilb{H}_B$
+are indicated as
+$$
+  \setof{\ket{i_A}} \text{ and } \setof{\ket{\mu_B}}\,
+$$
+with latin and greek indices to label base vectors in the two spaces.
+
+This indicates different physical roles for the two spaces,
+such as the \emph{system of interest} and the surrounding \emph{environment},
+or the \emph{system being measured} and the \emph{measurement apparatus}.
+
+If the two subsystems are independent, all states of $S$ are of the form
+\begin{equation}\label{eq:separableAB}
+  \ket{\psi_S} = \ket{\psi_A}\otimes\ket{\psi_A}
+\end{equation}
+i.e. they form a strict \emph{subspace} of $\hilb{H}_A\otimes\hilb{H}_B$.
+
+It's worth recalling that in a tensor product space $\hilb{H}_A\otimes\hilb{H}_B$
+not all vectors can be expressed as a tensor product as in \eqref{eq:separableAB}.
+When a vector in a tensor product space
+can be expressed in the form \eqref{eq:separableAB},
+it's said \term{separable} \parencite{Nakahara}.
+
+\begin{proposition}\label{TensorBase}
+The set of tensor products of base vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
+i.e. $$\setof{\ket{i_A} \otimes \ket{\mu_B}}_{i\mu},$$
+is a basis for $\hilb{H}_A \otimes \hilb{H}_B$
+\end{proposition}
+
+In general, given the above property yet the fact that not all states
+in a tensor product space are separable, we can still express any
+(generally not separable) state vector of $\hilb{H}_S$
+as a \emph{superposition} of separable base vectors
+\begin{equation}\label{eq:bipartite_expansion}
+  \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i_A}\otimes\ket{\mu_B} \neq \ket{\psi_A}\otimes\ket{\psi_B},
+\end{equation}
+meaning that the
+``total'' $\ket{\psi_A}$ and $\ket{\psi_B}$ don't necessarily exist.
+
+Non separable states are said \term{entangled}.
+Physically,
+$\ket{\psi_S}$ contains information
+not only about the results of measurements on $A$ and $B$ separately,
+but also on correlations between these measurements
+\parencite{Haroche_Exploring}.
+
+The simplest example of entangled system is given by two two-level systems,
+namely two spin-$\frac{1}{2}$ particles in a singlet state:
+\[
+  \ket{\psi_{\text{singlet}}} = \frac{1}{\sqrt{2}} \left(\ket{\uparrow, \downarrow} - \ket{\downarrow, \uparrow}\right).
+\]
+
+\section{Partial trace and open systems}
+
+In a bipartite (entangled) systems, one subsystem considered alone is an
+\emph{open quantum system} \parencite{open_systems},
+while the system as a whole is still a closed systems.
+
+In this and following sections, unless differently noted,
+we shall stick with the convetion of \eqref{eq:bipartite_expansion},
+of using
+latin indices for subsystem $A$ and greek ones for subsystem $B$.
+
+As pointed out in
+\cite[sec. 2.3.1]{PreskillNotes}, when we limit our attention to
+just part of a larger system, contrary to the axioms of closed systems:
+\begin{enumerate}
+  \item States are not rays.
+  \item Measurements are not orthogonal projections.
+  \item Evolution is not unitary.
+\end{enumerate}
+
+Now, let's consider an observable $M_A$, acting only on subsystems $A$.
+It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
+\[
+  M_A \otimes \idop_B\, .
+\]
+Its expectation value is
+(using the expansion in eq. \ref{eq:bipartite_expansion},
+and the notation of latin indices for system $A$ and greek ones for system $B$)
+\begin{multline}\label{exp_subsys}
+  \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} =
+  \sum_{j,\nu}a^{*}_{j\nu}\left(\bra{j}\otimes\bra{\nu}\right)\left(M_A\otimes\idop_B\right)\sum_{i,\mu}a_{i\mu}\left(\ket{i}\otimes\ket{\mu}\right) = \\
+  \sum_{j,\nu,i,\mu}a^{*}_{j\nu}a_{i\mu}\matrixel{j}{M}{i}\matrixel{\mu}{\idop}{\nu} =
+  \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i} =
+  \tr(M_A\rho_a)
+\end{multline}
+
+To prove the last equality in \eqref{exp_subsys} we need to define the
+\term{density operator} $\rho_A$ for an open system $A$ and to understand its
+relation with the whole (closed) system $A+B$.\footnote{
+  For some general properties of density operators, see \ref{app:density}.
+}
+
+Let's start with the following
+\begin{definition}
+  The \term{partial trace} operation
+  is a linear map
+  that takes an operator
+  $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
+  to an operator on $\hilb{H}_A$ defined as
+  \[
+    \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_AB}{\mu}
+    \, .
+  \]
+\end{definition}
+
+
+\section{The rest aka TODO}
 
 The environment is watching, from ``Exploring the quantum''
 \parencite[Ch. 4]{Haroche_Exploring}. Start with subsect. 2.4.1.
 
-Environment-Induced Decoherence and the Transition from Quantum to Classical
+2.5.4 The quantum–classical boundary
+Decoherence models versus Copenhagen interpretation.
+
+Environment-Induced Decoherence and the Transition from Quantum to Classical,
+\cite{Zurek_Fundamentals}.
 
 Partial trace, which is not a number, check wikipedia $\rightarrow$ consistent histories.
 J. P. Paz W. H. Zurek
@@ -57,4 +181,4 @@ Off-diagonal terms in the density matrix indicates ``quantum purity''.
 In some sense, measurement turned a q-statistical distribution of values for the observable,
 into a classical probability distribution.
 
-Recommended read: \cite{Zurek_Decoherence, Zurek_Decoherence2}.
+Recommended read: \cite{Zurek_Decoherence, Zurek_Fundamentals}.
