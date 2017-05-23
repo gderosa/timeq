@@ -121,14 +121,30 @@ its value is not a scalar as opposed to the \emph{trace}.
 
 Another problem with the \eqref{eq:ptrdef} is that $\bra{\mu}$
 is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
-so what's the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
+so what is the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
 
-Reusing the symbol,
-$\bra{\mu}$ can be defined as a bra in $\hilb{H}_A\otimes\hilb{H}_B$
-by specifying its action on a basis ket.
+With a slight abuse of notation,
+$\bra{\mu}$ can be re-defined as acting upon kets in
+$\hilb{H}_A\otimes\hilb{H}_B$ by specifying its action on a basis element.
 
+\begin{definition}
+\begin{equation}
+  \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) := \delta_{\mu\nu}\ket{i}
+\end{equation}
+\end{definition}
 
-
+Intuitively, $\bra{\mu}$ is a ``partial bra'', as it doesn't map a ket
+of $\hilb{H}_A\otimes\hilb{H}_B$ to
+a complex number, but to another ket (in $\hilb{H}_A$ though!).
+In some sense, it only maps the ``$\ket{\nu}$'' part of
+$\ket{i}\otimes\ket{\nu}$
+to a number. This is consistent with the idea of
+``tracing out the environment'' (TODO: cite anything?) (within an interpretation where
+$\hilb{H}_B$ is the environment). And ultimately with the goal of
+studying subsistem $A$ alone, in spite of its entanglement with the 
+``environment'' (or measurement apparatus etc.) modeled by
+subsystem $B$.
+ 
 \section{The rest aka TODO}
 
 The environment is watching, from ``Exploring the quantum''
