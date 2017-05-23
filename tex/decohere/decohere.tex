@@ -110,11 +110,23 @@ Let's start with the following
   that takes an operator
   $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
   to an operator on $\hilb{H}_A$ defined as
-  \[
+  \begin{equation}\label{eq:ptrdef}
     \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_{AB}}{\mu}
     \, .
-  \]
+  \end{equation}
 \end{definition}
+
+The first thing to note is that the \emph{partial} trace is \emph{operator-valued},
+its value is not a scalar as opposed to the \emph{trace}.
+
+Another problem with the \eqref{eq:ptrdef} is that $\bra{\mu}$
+is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
+so what's the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
+
+Reusing the symbol,
+$\bra{\mu}$ can be defined as a bra in $\hilb{H}_A\otimes\hilb{H}_B$
+by specifying its action on a basis ket.
+
 
 
 \section{The rest aka TODO}
