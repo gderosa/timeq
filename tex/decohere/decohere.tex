@@ -137,15 +137,25 @@ Intuitively, $\bra{\mu}$ is a ``partial bra'', as it doesn't map a ket
 of $\hilb{H}_A\otimes\hilb{H}_B$ to
 a complex number, but to another ket (in $\hilb{H}_A$ though!).
 In some sense, it only maps the ``$\ket{\nu}$'' part of
-$\ket{i}\otimes\ket{\nu}$
-to a number. This is consistent with the idea of
-``tracing out the environment'' (TODO: cite anything?) (within an interpretation where
-$\hilb{H}_B$ is the environment). And ultimately with the goal of
-studying subsistem $A$ alone, in spite of its entanglement with the 
+``$\ket{i}\otimes\ket{\nu}$''
+to a number.
+\[
+  \begin{array}{cccc}
+    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \ket{i}\cdot\delta_{\mu\nu}           \\
+                & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A
+  \end{array}
+\]
+This is consistent with the idea of
+``tracing out the environment'' \parencite{Nakahara} within an interpretation where
+$\hilb{H}_B$ is the environment, and ultimately with the goal of
+studying subsistem $A$ alone in spite of its entanglement with the 
 ``environment'' (or measurement apparatus etc.) modeled by
 subsystem $B$.
  
 \section{The rest aka TODO}
+
+Nakahara, Ch. 9 book, ``Tracing out the extra degrees of freedom makes it impossible to invert a quantum operation.''
 
 The environment is watching, from ``Exploring the quantum''
 \parencite[Ch. 4]{Haroche_Exploring}. Start with subsect. 2.4.1.
