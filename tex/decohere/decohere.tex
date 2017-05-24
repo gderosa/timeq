@@ -104,22 +104,22 @@ relation with the whole (closed) system $A+B$.\footnote{
 }
 
 Let's start with the following
-\begin{definition}
+\begin{definition}\label{def:pTr}
   The \term{partial trace} operation
   is a linear map
   that takes an operator
   $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
   to an operator on $\hilb{H}_A$ defined as
-  \begin{equation}\label{eq:ptrdef}
+  \[
     \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_{AB}}{\mu}
     \, .
-  \end{equation}
+  \]
 \end{definition}
 
 The first thing to note is that the \emph{partial} trace is \emph{operator-valued},
 its value is not a scalar as opposed to the \emph{trace}.
 
-Another problem with the \eqref{eq:ptrdef} is that $\bra{\mu}$
+Another problem with the \ref{def:pTr} is that $\bra{\mu}$
 is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
 so what is the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
 
@@ -128,9 +128,9 @@ $\bra{\mu}$ can be re-defined as acting upon kets in
 $\hilb{H}_A\otimes\hilb{H}_B$ by specifying its action on a basis element.
 
 \begin{definition}
-\begin{equation}
+\[
   \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) := \delta_{\mu\nu}\ket{i}
-\end{equation}
+\]
 \end{definition}
 
 Intuitively, $\bra{\mu}$ is a ``partial bra'', as it doesn't map a ket
