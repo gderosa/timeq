@@ -16,4 +16,4 @@ make clean
 ```
 
 ### If you don't have `make` (non-Unix systems etc.)
-Look into [`Makefile`](Makefile) to see the underlying command lines you can run (currently based on `latexmx`).
+Look into [`Makefile`](Makefile) to see the underlying command lines you can run (currently based on `latexmk`).
