@@ -104,20 +104,98 @@ relation with the whole (closed) system $A+B$.\footnote{
 }
 
 Let's start with the following
-\begin{definition}
+\begin{definition}\label{def:pTr}
   The \term{partial trace} operation
   is a linear map
   that takes an operator
   $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
   to an operator on $\hilb{H}_A$ defined as
   \[
-    \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_AB}{\mu}
+    \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_{AB}}{\mu}
     \, .
   \]
 \end{definition}
 
+The first thing to note is that the \emph{partial} trace is \emph{operator-valued},
+its value is not a scalar as opposed to the \emph{trace}.
+
+Another problem with the \ref{def:pTr} is that $\bra{\mu}$
+is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
+so what is the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
+
+With a slight abuse of notation,
+$\bra{\mu}$ can be re-defined as acting upon kets in
+$\hilb{H}_A\otimes\hilb{H}_B$ by specifying its action on a basis element.
+
+\begin{definition}\label{def:pBra}
+\[
+  \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) := \delta_{\mu\nu}\ket{i}
+\]
+\end{definition}
+
+Intuitively, $\bra{\mu}$ is a ``partial bra'', as it doesn't map a ket
+of $\hilb{H}_A\otimes\hilb{H}_B$ to
+a complex number, but to another ket (in $\hilb{H}_A$ though!).
+In some sense, it only maps the ``$\ket{\nu}$'' part of
+``$\ket{i}\otimes\ket{\nu}$''
+to a number.
+\[
+  \begin{array}{cccc}
+    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \ket{i}\cdot\delta_{\mu\nu}           \\
+                & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A
+  \end{array}
+\]
+This is consistent with the idea of
+``tracing out the environment'' \parencite{Nakahara} within an interpretation where
+$\hilb{H}_B$ is the environment, and ultimately with the goal of
+studying subsistem $A$ alone in spite of its entanglement with the 
+``environment'' (or measurement apparatus etc.) modeled by
+subsystem $B$.
+
+By analogy, it is straightforward to re-define a basis ket $\ket{\mu} \in \hilb{H}_B$
+as a basis ket in $\hilb{H}_A \ox \hilb{H}_B$ by stating how it ``acts upon''
+a general basis bra $\bra{i\mu} = \bra{i}\ox\bra{\mu}$ :
+\begin{definition}\label{def:pKet}
+  \[
+    \braket{i\nu}{\mu} := \delta_{\mu\nu}\bra{i}
+  \]
+\end{definition}
+
+We are now in the position to define the density operator for a ``state''
+of subsystem $A$, in terms of partial trace.
+\begin{definition}\label{def:density_A}
+  \[
+    \rho_A = \tr_B(\rho) = \tr_B(\ketbra{\psi_S}{\psi_S})
+  \]
+\end{definition}
+and prove the last equality in \eqref{exp_subsys}.
+
+First, using the definitions \ref{def:pBra} and \ref{def:pKet}
+and the expansion \eqref{eq:bipartite_expansion}, we obtain
+\begin{align*}
+  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \\
+  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \ \text{,}
+\end{align*}
+which allows us to expand the definition \ref{def:density_A} as
+\[
+  \rho_A = \tr_B(\ketbra{\psi_S}{\psi_S}) =
+    \sum_{\mu}\braket{\mu}{\psi_S}\braket{\psi_S}{\mu} =
+    \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j} \text{.}
+\]
+Finally, we can see that
+\begin{multline*}
+  \tr(M_A \rho_A) = \sum_k \mel{k}{M_A \rho_A}{k} =
+    \sum_k \mel {k} {M_A \left(\sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j}\right)} {k} = \\
+    \sum_{ijk\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{k}{M_A}{i} \braket{j}{k} =
+    \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{j}{M_A}{i}
+  \qed
+\end{multline*}
+
 
 \section{The rest aka TODO}
+
+Nakahara, Ch. 9 book, ``Tracing out the extra degrees of freedom makes it impossible to invert a quantum operation.''
 
 The environment is watching, from ``Exploring the quantum''
 \parencite[Ch. 4]{Haroche_Exploring}. Start with subsect. 2.4.1.
