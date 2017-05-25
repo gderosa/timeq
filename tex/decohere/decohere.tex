@@ -127,7 +127,7 @@ With a slight abuse of notation,
 $\bra{\mu}$ can be re-defined as acting upon kets in
 $\hilb{H}_A\otimes\hilb{H}_B$ by specifying its action on a basis element.
 
-\begin{definition}
+\begin{definition}\label{def:pBra}
 \[
   \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) := \delta_{\mu\nu}\ket{i}
 \]
@@ -156,20 +156,42 @@ subsystem $B$.
 By analogy, it is straightforward to re-define a basis ket $\ket{\mu} \in \hilb{H}_B$
 as a basis ket in $\hilb{H}_A \ox \hilb{H}_B$ by stating how it ``acts upon''
 a general basis bra $\bra{i\mu} = \bra{i}\ox\bra{\mu}$ :
-\begin{definition}
+\begin{definition}\label{def:pKet}
   \[
     \braket{i\nu}{\mu} := \delta_{\mu\nu}\bra{i}
   \]
 \end{definition}
 
 We are now in the position to define the density operator for a ``state''
-of subsystem $A$:
+of subsystem $A$, in terms of partial trace.
 \begin{definition}\label{def:density_A}
   \[
     \rho_A = \tr_B(\rho) = \tr_B(\ketbra{\psi_S}{\psi_S})
   \]
 \end{definition}
-and prove the last equality in \eqref{exp_subsys}:
+and prove the last equality in \eqref{exp_subsys}.
+
+First, using the definitions \ref{def:pBra} and \ref{def:pKet}
+and the expansion \eqref{eq:bipartite_expansion}, we obtain
+\begin{align*}
+  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \\
+  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \ \text{,}
+\end{align*}
+which allows us to expand the definition \ref{def:density_A} as
+\[
+  \rho_A = \tr_B(\ketbra{\psi_S}{\psi_S}) =
+    \sum_{\mu}\braket{\mu}{\psi_S}\braket{\psi_S}{\mu} =
+    \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j} \text{.}
+\]
+Finally, we can see that
+\begin{multline*}
+  \tr(M_A \rho_A) = \sum_k \mel{k}{M_A \rho_A}{k} =
+    \sum_k \mel {k} {M_A \left(\sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j}\right)} {k} = \\
+    \sum_{ijk\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{k}{M_A}{i} \braket{j}{k} =
+    \sum_{ijk} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{j}{M_A}{i}
+  \qed
+\end{multline*}
+
 
 \section{The rest aka TODO}
 
