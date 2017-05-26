@@ -178,11 +178,11 @@ and the expansion \eqref{eq:bipartite_expansion}, we obtain
   \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \ \text{,}
 \end{align*}
 which allows us to expand the definition \ref{def:density_A} as
-\[
+\begin{equation}\label{eq:density_A_expand}
   \rho_A = \tr_B(\ketbra{\psi_S}{\psi_S}) =
     \sum_{\mu}\braket{\mu}{\psi_S}\braket{\psi_S}{\mu} =
     \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j} \text{.}
-\]
+\end{equation}
 Finally, we can see that
 \begin{multline*}
   \tr(M_A \rho_A) = \sum_k \mel{k}{M_A \rho_A}{k} =
@@ -191,6 +191,41 @@ Finally, we can see that
     \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{j}{M_A}{i}
   \qed
 \end{multline*}
+
+It's clear from \eqref{eq:density_A_expand} that $\rho_A$ is self-adjoint,
+hence it can be diagonalized:
+\begin{equation}\label{eq:rho_diag}
+  \rho_A = \sum_a p_a \ketbra{a}{a} \text{.}
+\end{equation}
+
+From \eqref{eq:density_A_expand} we can also derive that
+\begin{equation}
+  \tr\rho_A = \sum_k \mel{k}{\rho_A}{k} =
+    \sum_{ijk\mu}\alpha_{i\mu}\alpha_{j\mu}^{*}\braket{k}{i}\braket{j}{k} =
+    \sum_{k\mu}\abs{\alpha_{k\mu}}^2 = 1
+\end{equation}
+where the last equality is justified by the normalization of $\ket{\psi_S}$
+in \eqref{eq:bipartite_expansion}.
+
+The trace, i.e. the sum of matrix diagonal elements, is independent
+from the chosen basis, hence $\tr\rho_A = 1$ is valid in particular
+for the diagonal form \eqref{eq:rho_diag}, meaning
+\[
+  \sum_a p_a = 1
+\]
+and providing a necessary condition to interpret $p_a$ as a probability
+---that the subsystem $A$ is in the pure state $\ketbra{a}{a}$.
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{The rest aka TODO}
