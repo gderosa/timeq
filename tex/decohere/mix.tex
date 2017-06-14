@@ -9,7 +9,19 @@ states $\ket{0}$ and $\ket{1}$, again with equal probability, but
 
 A natural example of such coherent superposition is \parencite[Example 2.4]{Nakahara}
 \[
-  \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}
+  \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}\text{.}
+\]
+
+The corresponding density operator is
+\[
+  \rho = \ketbra{\psi}{\psi} =
+  \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
+  \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
+  \frac{1}{2}
+    \begin{pmatrix}
+      1 &1  \\
+      1 &1  \\
+    \end{pmatrix}
 \]
 
 We have seen how a density 
@@ -22,10 +34,7 @@ $$
   0 &1  \\
 \end{bmatrix}
 \text{ Vs }
-\frac{1}{2}\begin{bmatrix}
-  1 &1  \\
-  1 &1  \\
-\end{bmatrix}
+\textit{removed}
 $$
 
 The off-diagonal terms in the coherent superposition case indicate
