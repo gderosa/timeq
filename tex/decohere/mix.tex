@@ -9,11 +9,10 @@ states $\ket{0}$ and $\ket{1}$, again with equal probability, but
 
 A natural example of such coherent superposition is \parencite[Example 2.4]{Nakahara}
 \[
-  \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}\text{.}
+  \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}\text{,}
 \]
-
-The corresponding density operator is
-\[
+and the corresponding density operator is
+\begin{equation}\label{eq:matrix:pure}
   \rho = \ketbra{\psi}{\psi} =
   \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
   \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
@@ -22,23 +21,24 @@ The corresponding density operator is
       1 &1  \\
       1 &1  \\
     \end{pmatrix}
-\]
+  \text{.}
+\end{equation}
+For the statistical mixture, the density operator is, by definition,
+\begin{equation}\label{eq:matrix:mix}
+  \rho = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
+  \frac{1}{2}
+    \begin{pmatrix}
+      1 &0  \\
+      0 &1  \\
+    \end{pmatrix}
+  \text{.}
+\end{equation}
 
-We have seen how a density 
+By comparing matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
+we may conclude that the off-diagonal terms in the coherent superposition case
+indicate ``quantumness'' or \emph{coherence}; and diagonal
 
-See Nakahara notes, example II.2.
 
-$$
-\frac{1}{2}\begin{bmatrix}
-  1 &0  \\
-  0 &1  \\
-\end{bmatrix}
-\text{ Vs }
-\textit{removed}
-$$
-
-The off-diagonal terms in the coherent superposition case indicate
-``quantumness''. (explain) (Andreas: not really: change of basis\dots)
 
 --- On non-othogonal mixture and non uniqueness of density matrix representations
 \url{https://arxiv.org/pdf/quant-ph/0512125.pdf}. See also: relative states.
