@@ -40,13 +40,23 @@ indicate \emph{coherence}; however, density operators are self-adjoint operators
 (as linear combination of projectors) and can always be expressed in
 diagonal form, including density operators of pure states: but it would be
 a particular case of diagonal matrix, where all diagonal elements are zero
-except one.
-
-
---- On non-othogonal mixture and non uniqueness of density matrix representations
-\url{https://arxiv.org/pdf/quant-ph/0512125.pdf}. See also: relative states.
-
-But also Nielsen and Chuang excercise  2.71.
+except one. Indeed, for a pure state:
+\[
+  \rho = \ketbra{\psi}{\psi}\text{,}
+\]
+and recalling the assumption that $\ket{\psi}$ is normalized,
+we can always build a basis $\qty{\ket{e_j}}$ including $\ket{e_{j_0}} = \ket{\psi}$
+among its elements, therefore the diagonal representation is
+\[
+  \begin{pmatrix}
+    0           &       &       &       &       &           \\
+                &\ddots &       &       &       &           \\
+                &       &1      &       &       &           \\
+                &       &       &\ddots &       &           \\
+                &       &       &       &\ddots &           \\
+                &       &       &       &       &0
+  \end{pmatrix}\text{.}
+\]
 
 \begin{remark}
   The density matrix of a pure state is either diag(000\dots1\dots000) or non-diagonal.
@@ -55,6 +65,13 @@ But also Nielsen and Chuang excercise  2.71.
 
   So, except the special/trivial case above, a pure state must have off-diagonal terms.
 \end{remark}
+
+Nielsen and Chuang excercise  2.71 on diagonalized density matrix.
+
+--- On non-othogonal mixture and non uniqueness of density matrix representations
+\url{https://arxiv.org/pdf/quant-ph/0512125.pdf}. See also: relative states.
+
+
 
 Measurement destroys off-diagonal terms and turns a pure state into a mixed one.
 
