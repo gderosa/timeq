@@ -1,4 +1,4 @@
-# Just a simple proxy to latexmk
+# A proxy to latexmk
 
 INPUT=main
 OUTPUT=build/timeqm
@@ -10,3 +10,9 @@ all:
 
 clean:
 	latexmk -C ${JOBOPTS}
+
+# Likely to only work on MacOS. TODO: find a way to degrade gracefully
+# if unavailable on other platforms, allowing ths to be part of default
+# 'make'.
+open:
+	open build/*.pdf
