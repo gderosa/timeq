@@ -5,14 +5,12 @@ OUTPUT=build/timeqm
 FORMAT=pdf
 JOBOPTS=-jobname=${OUTPUT}
 
+# This will also open the default previewer (-pv).
+#
+# Replace -pv with -pvc if you wish to continuously check source files for
+# changes and recompile. See http://mg.readthedocs.io/latexmk.html .
 all:
-	latexmk -${FORMAT} ${INPUT} ${JOBOPTS}
+	latexmk -pv -${FORMAT} ${INPUT} ${JOBOPTS}
 
 clean:
 	latexmk -C ${JOBOPTS}
-
-# Likely to only work on MacOS. TODO: find a way to degrade gracefully
-# if unavailable on other platforms, allowing ths to be part of default
-# 'make'.
-open:
-	open build/*.pdf
