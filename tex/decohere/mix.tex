@@ -94,7 +94,17 @@ case of a theorem.
   generate the same density operator
   $\rho = \sum_i p_i \ketbra{\psi_i} = \sum_j q_j \ketbra{\phi_j}$
   if and only if there exists
-  a unitary matrix $\setof{u_{ij}}$ such that
+  a unitary matrix\footnote{
+    The transformation represented by the unitary matrix $\setof{u_{ij}}$
+    does not preserve the orthogonality of the vectors sets,
+    which seems to contradict a fundamental property of unitary
+    transofrmations: however, it should be noted that the coefficients
+    $u_{ij}$ do not act on components of each state vector; in other
+    words, $\setof{u_{ij}}$ represent a transformation acting
+    on ``vectors of vectors'' and therefore is not really a unitary
+    transformation in a Hilbert space.
+  }
+  $\setof{u_{ij}}$ such that
   \[
     \tilde{\ket{\psi_i}} = \sum_j u_{ij}\tilde{\ket{\phi_j}}
   \]
