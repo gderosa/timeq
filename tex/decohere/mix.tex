@@ -1,0 +1,107 @@
+\section{(Maximally) mixed state vs (maximally) coherent superposition; diagonal density matrices}
+
+Given, for simplicity, a two-level system (a qubit), and a basis
+$\{\ket{0}, \ket{1}\}$, it may be of interest to compare a \term{coherent superposition}
+of the two pure states $\ket{0}$ and $\ket{1}$, with equal probability on the outcome of
+a measurement (but in a well-defined quantum state); with a statistical mixture of
+states $\ket{0}$ and $\ket{1}$, again with equal probability, but 
+\emph{in the determination of the quantum state}.
+
+A natural example of such coherent superposition is \parencite[Example 2.4]{Nakahara}
+\[
+  \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}\text{,}
+\]
+and the corresponding density operator is
+\begin{equation}\label{eq:matrix:pure}
+  \rho = \ketbra{\psi}{\psi} =
+  \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
+  \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
+  \frac{1}{2}
+    \begin{pmatrix}
+      1 &1  \\
+      1 &1  \\
+    \end{pmatrix}
+  \text{.}
+\end{equation}
+For the statistical mixture, the density operator is, by definition,
+\begin{equation}\label{eq:matrix:mix}
+  \rho = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
+  \frac{1}{2}
+    \begin{pmatrix}
+      1 &0  \\
+      0 &1  \\
+    \end{pmatrix}
+  \text{.}
+\end{equation}
+
+By comparing matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
+we may conclude that the off-diagonal terms in the coherent superposition case
+indicate \emph{coherence}; however, density operators are self-adjoint operators
+(as linear combination of projectors) and can always be expressed in
+diagonal form, including density operators of pure states: but it would be
+a particular case of diagonal matrix, where all diagonal elements are zero
+except one. Indeed, for a pure state:
+\[
+  \rho = \ketbra{\psi}{\psi}\text{,}
+\]
+and recalling the assumption that $\ket{\psi}$ is normalized,
+we can always build a basis $\qty{\ket{e_j}}$ including $\ket{e_{j_0}} = \ket{\psi}$
+among its elements, therefore the diagonal representation is
+\[
+  \begin{pmatrix}
+    0           &       &       &       &       &           \\
+                &\ddots &       &       &       &           \\
+                &       &1      &       &       &           \\
+                &       &       &\ddots &       &           \\
+                &       &       &       &\ddots &           \\
+                &       &       &       &       &0
+  \end{pmatrix}\text{.}
+\]
+
+All the above allows us to conclude what follows:
+\begin{remark}
+  The density matrix of a pure state is either diag(000\dots1\dots000) or non-diagonal.
+
+  So, except the special/trivial case above, a pure state must have off-diagonal terms.
+\end{remark}
+
+It's interesting, as well, to look at ensambles (mixtures)
+which are not necessarily made up of orthonormal pure states.
+In fact, an ensamble of orthonormal states has ``nothing special'',
+and different ensambles may lead to the same density operator.
+The diagonalized density matrix just shows the ``orthonormal''
+ensamble which, again, has no special physical meaning.
+
+For example, let's consider this orthogonal ensamble (diagonal density matrix):
+\[
+  \rho_1 = \frac{3}{4}\ketbra{0}{0} + \frac{1}{4}\ketbra{1}{1}
+\]
+and
+\[
+  \rho_2 = \frac{1}{2}\ketbra{a}{a} + \frac{1}{2}\ketbra{b}{b}\text{.}
+\]
+with
+\begin{align*}
+  \ket{a} &= \frac{4}{4}\ket{0} + \frac{1}{4}\ket{1} \\
+  \ket{b} &= \frac{4}{4}\ket{0} - \frac{1}{4}\ket{1}
+\end{align*}
+It's easy to prove that $\rho_1 = \rho_2$. This is just a particular
+case of a theorem.
+\begin{theorem}{(Unitary freedom in the ensemble for density matrices).}
+  The sets $\setof{\tilde{\ket{\psi_i}}}$ and $\setof{\tilde{\ket{\phi_j}}}$
+  generate the same density operator if and only if there exists
+  a unitary matrix $\setof{u_{ij}}$ such that
+  \[
+    \tilde{\ket{\psi_i}} = \sum_j u_{ij}\tilde{\ket{\phi_j}}
+  \]
+  where $\tilde{\psi_i}$ and $\tilde{\phi_j}$ are not normalized and
+  ``embed'' their probabilities $p_i$ and $q_j$ in their respective ensambles,
+  i.e.
+  \[
+    \tilde{\ket{\psi_i}} = p_{i}\ket{\psi_i}
+    \text{ and }\,
+    \tilde{\ket{\phi_j}} = q_{j}\ket{\phi_j}
+  \]
+\end{theorem}
+See \cite{NielsenChuang}{Theorem 2.6 and introductory example}
+for a more detailed description and a proof of the theorem.
