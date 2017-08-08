@@ -1,7 +1,8 @@
 \section{(Maximally) mixed state vs (maximally) coherent superposition; diagonal density matrices}
+\label{sec:mix}
 
-Given, for simplicity, a two-level system (a qubit), and a basis
-$\{\ket{0}, \ket{1}\}$, it may be of interest to compare a \term{coherent superposition}
+Given, for simplicity, a two-level system (a qubit), and an orthonormal basis
+$\setof{\ket{0}, \ket{1}}$, it may be of interest to compare a \term{coherent superposition}
 of the two pure states $\ket{0}$ and $\ket{1}$, with equal probability on the outcome of
 a measurement (but in a well-defined quantum state); with a statistical mixture of
 states $\ket{0}$ and $\ket{1}$, again with equal probability, but 
@@ -36,7 +37,8 @@ For the statistical mixture, the density operator is, by definition,
 
 By comparing matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
 we may conclude that the off-diagonal terms in the coherent superposition case
-indicate \emph{coherence}; however, density operators are self-adjoint operators
+indicate \emph{coherence}, or ``'quantum purity'';
+however, density operators are self-adjoint operators
 (as linear combination of projectors) and can always be expressed in
 diagonal form, including density operators of pure states: but it would be
 a particular case of diagonal matrix, where all diagonal elements are zero
@@ -88,20 +90,32 @@ with
 It's easy to prove that $\rho_1 = \rho_2$. This is just a particular
 case of a theorem.
 \begin{theorem}{(Unitary freedom in the ensemble for density matrices).}
-  The sets $\setof{\tilde{\ket{\psi_i}}}$ and $\setof{\tilde{\ket{\phi_j}}}$
-  generate the same density operator if and only if there exists
-  a unitary matrix $\setof{u_{ij}}$ such that
+  The ensambles
+  $\setof{p_i, \ket{\psi_i}}$ and $\setof{q_{j}, \ket{\phi_j}}$
+  generate the same density operator
+  $\rho = \sum_i p_i \ketbra{\psi_i} = \sum_j q_j \ketbra{\phi_j}$
+  if and only if there exists
+  a unitary matrix\footnote{
+    The transformation represented by the unitary matrix $\setof{u_{ij}}$
+    does not preserve the orthogonality of the vectors sets,
+    which seems to contradict a fundamental property of unitary
+    transofrmations: however, it should be noted that the coefficients
+    $u_{ij}$ do not act on components of each state vector; in other
+    words, $\setof{u_{ij}}$ represent a transformation acting
+    on ``vectors of vectors'' and therefore is not really a unitary
+    transformation in a Hilbert space.
+  }
+  $\setof{u_{ij}}$ such that
   \[
     \tilde{\ket{\psi_i}} = \sum_j u_{ij}\tilde{\ket{\phi_j}}
   \]
-  where $\tilde{\psi_i}$ and $\tilde{\phi_j}$ are not normalized and
-  ``embed'' their probabilities $p_i$ and $q_j$ in their respective ensambles,
-  i.e.
+  where $\tilde{\ket{\psi_i}}$ and $\tilde{\ket{\phi_j}}$
+  are the (not normalized) vectors defined as
   \[
     \tilde{\ket{\psi_i}} = p_{i}\ket{\psi_i}
     \text{ and }\,
     \tilde{\ket{\phi_j}} = q_{j}\ket{\phi_j}
   \]
 \end{theorem}
-See \cite{NielsenChuang}{Theorem 2.6 and introductory example}
+See \cite[Theorem 2.6 and introductory example]{NielsenChuang}
 for a more detailed description and a proof of the theorem.
