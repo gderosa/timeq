@@ -5,16 +5,16 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/*.aux": true,
-        "**/*.bbl": true,
-        "**/*.bcf": true,
-        "**/*.blg": true,
-        "**/*.fdb_latexmk": true,
-        "**/*.log": true,
-        "**/*.fls": true,
-        "**/*.out": true,
-        "**/*.pdf": true,
-        "**/*.run.xml": true,
-        "**/*.toc": true
+        "build/*.aux": true,
+        "build/*.bbl": true,
+        "build/*.bcf": true,
+        "build/*.blg": true,
+        "build/*.fdb_latexmk": true,
+        "build/*.log": true,
+        "build/*.fls": true,
+        "build/*.out": true,
+        "build/*.pdf": true,
+        "build/*.run.xml": true,
+        "build/*.toc": true
     }
 }
