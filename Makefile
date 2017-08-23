@@ -5,23 +5,24 @@ OUTPUT=build/timeqm
 FORMAT=pdf
 JOBOPTS=-jobname=${OUTPUT}
 BUILDOPTS=-${FORMAT} ${INPUT} ${JOBOPTS}
+CLEANROOT=latexmk -C; rm -f *.fdb_latexmk
 
 # This will also open the default previewer (-pv).
 all:
 	latexmk ${BUILDOPTS} -pv
-	latexmk -C
+	${CLEANROOT}
 	@echo 'Run "make cont" if you want to continuously build.'
 
 # Continuously build and check source files for
 # changes. See http://mg.readthedocs.io/latexmk.html .
 cont:
 	latexmk ${BUILDOPTS} -pvc
-	latexmk -C
+	${CLEANROOT}
 
 # Clean up
 clean:
 	latexmk ${JOBOPTS} -C
-	latexmk -C
+	${CLEANROOT}
 
 # Extra latexmk -C above (with no additional options) are to
 # remove file created in the root, even if they were expected
