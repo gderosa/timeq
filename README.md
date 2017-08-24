@@ -16,7 +16,7 @@ Run
 ```
 make cont
 ```
-to continuously build and monitor fils for updates.
+to continuously build and monitor files for updates.
 
 ### Cleanup
 Cleanup with
@@ -32,6 +32,8 @@ For example, adapt something like this to your system:
 
 ```
 make PDF_PREVIEWER='"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe"'
+
+make PDF_PREVIEWER=texshop
 ```
 
 but you can store the variable in the system or user shell environment and just run `make`,
