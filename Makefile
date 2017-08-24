@@ -1,21 +1,22 @@
 # A proxy to latexmk
 
-INPUT=main
-OUTPUT=build/timeqm
-FORMAT=pdf
-JOBOPTS=-jobname=${OUTPUT}
-BUILDOPTS=-${FORMAT} ${INPUT} ${JOBOPTS}
+# $out_dir is set in .latexmk, seems more effective than -outdir
+
+# WARNING: Some auto-build plugins enabled in your editor/IDE
+# WARNING: may conflict with use of `make` and `make cont`.
+
+BUILDOPTS=-pdf
 
 # This will also open the default previewer (-pv).
 all:
-	latexmk -pv ${BUILDOPTS}
+	latexmk ${BUILDOPTS} -pv
 	@echo 'Run "make cont" if you want to continuously build.'
 
 # Continuously build and check source files for
 # changes. See http://mg.readthedocs.io/latexmk.html .
 cont:
-	latexmk -pvc ${BUILDOPTS}
+	latexmk ${BUILDOPTS} -pvc
 
 # Clean up
 clean:
-	latexmk -C ${JOBOPTS}
+	latexmk -C
