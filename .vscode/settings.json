@@ -1,21 +1,22 @@
 // Place your settings in this file to overfrite default and user settings.
 {
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/.DS_Store": true,
-        "build/*.aux": true,
-        "build/*.bbl": true,
-        "build/*.bcf": true,
-        "build/*.blg": true,
-        "build/*.fdb_latexmk": true,
-        "build/*.log": true,
-        "build/*.fls": true,
-        "build/*.out": true,
-        "build/*.pdf": true,
-        "build/*.run.xml": true,
-        "build/*.toc": true,
-        "build/*.synctex.gz": true
-    }
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "build/*.aux": true,
+    "build/*.bbl": true,
+    "build/*.bcf": true,
+    "build/*.blg": true,
+    "build/*.fdb_latexmk": true,
+    "build/*.log": true,
+    "build/*.fls": true,
+    "build/*.out": true,
+    "build/*.pdf": true,
+    "build/*.run.xml": true,
+    "build/*.toc": true,
+    "build/*.synctex.gz": true
+  },
+  "editor.tabSize": 2
 }
