@@ -18,13 +18,13 @@ make cont
 ```
 to continuously build and monitor fils for updates.
 
-## Cleanup
+### Cleanup
 Cleanup with
 ```bash
 make clean
 ```
 
-## PDF viewer
+### PDF viewer
 
 You can set/customise the PDF viewer via PDF_PREVIEWER environment variable.
 
@@ -38,7 +38,7 @@ but you can store the variable in the system or user shell environment and just 
 once this works.
 
 
-## If you don't have `make`
+## If you don't have `make` (and when not to use it)
 GNU `make` is easily available in most Unix-like platforms.
 
 Windows users can install it, for example, from
@@ -47,6 +47,17 @@ Windows users can install it, for example, from
 Alternatively, you can look into [`Makefile`](Makefile)
 to see the underlying command lines you can run manually
 (currently based on `latexmk`).
+
+Or just rely on your IDE or editor (see below).
+
+### Conflicts
+
+Don't use `make` or `latexmk` from the command line
+(especially consinuous build)
+if you have an auto-build plugin or functionality
+enabled in your editor or IDE.
+
+Either disable the functionality, or use it exclusively (especially if based on `latexmk`).
 
 ## LaTeX
 A full LaTeX installation is assumed in this document.
