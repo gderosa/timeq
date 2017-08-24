@@ -31,7 +31,7 @@ You can set/customise the PDF viewer via PDF_PREVIEWER environment variable.
 For example, adapt something like this to your system:
 
 ```
-make PDF_PREVIEWER='"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe" %O %S'
+make PDF_PREVIEWER='"C:\Program Files (x86)\Adobe\Reader 11.0\Reader\AcroRd32.exe"'
 ```
 
 but you can store the variable in the system or user shell environment and just run `make`,
