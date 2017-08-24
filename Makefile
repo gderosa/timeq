@@ -2,8 +2,8 @@
 
 # $out_dir is set in .latexmk, seems more effective than -outdir
 
-# WARNING: Don't use `make`, and particularly `make cont`
-# WARNING: if auto-build plugins are enabled in your editor/IDE
+# WARNING: Some auto-build plugins enabled in your editor/IDE
+# WARNING: may conflict with use of `make` and `make cont`.
 
 BUILDOPTS=-pdf
 
