@@ -1,6 +1,6 @@
 # A proxy to latexmk
 
-# Output directoru and PDF format are set in .latexmk
+# Output directory and PDF format are set in .latexmk
 
 # WARNING: Some auto-build plugins enabled in your editor/IDE
 # WARNING: may conflict with use of `make` and `make cont`.
