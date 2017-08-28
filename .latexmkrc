@@ -1,5 +1,8 @@
 #!perl
 
+# Use pdflatex
+$pdf_mode = 1;
+
 # Extra file extensions for lakexmk -C
 $clean_ext = 'run.xml bbl fdb_latexmk';
 
@@ -9,4 +12,7 @@ $out_dir = "build";
 # Allow using a OS environment variable change previewer
 if ($ENV{'PDF_PREVIEWER'}) {
     $pdf_previewer = "$ENV{'PDF_PREVIEWER'} \%O \%S";
+} else {
+    # Should be available in all full standard LaTeX installations in most platforms
+    $pdf_previewer = "texworks";
 }
