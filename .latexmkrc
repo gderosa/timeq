@@ -18,4 +18,8 @@ if ($ENV{'PDF_PREVIEWER'}) {
     # Try a common option:
     #
     $pdf_previewer = "texworks \%O \%S";
-} # else just open with the system defaults (don't set $pdf_previewer)
+} elsif ($^O =~ /MSWin/) {
+    # On Windows, override the latexmk defaults of "acroread",
+    # use OS defaults instead.
+    $pdf_previewer = "start \%O \%S"
+} # else keep whatever latexmk defaults for Linux or MacOS
