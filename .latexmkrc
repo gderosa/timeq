@@ -15,9 +15,7 @@ if ($ENV{'PDF_PREVIEWER'}) {
 } elsif (!system("which texworks")) {
     # system() is falsey on success.
     #
-    # Try other common options:
+    # Try a common option:
     #
     $pdf_previewer = "texworks \%O \%S";
-} else {
-    $pdf_previewer = "open \%O \%S";
-}
+} # else just open with the system defaults (don't set $pdf_previewer)
