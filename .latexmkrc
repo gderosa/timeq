@@ -12,7 +12,7 @@ $out_dir = "build";
 if ($ENV{'PDF_PREVIEWER'}) {
     # Allow using a OS environment variable to change previewer
     $pdf_previewer = "$ENV{'PDF_PREVIEWER'} \%O \%S";
-} elsif (!system("which texworks")) {
+} elsif (!system("which no-texworks")) {
     # system() is falsey on success.
     #
     # Try a common option:
