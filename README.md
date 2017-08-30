@@ -37,6 +37,13 @@ If you have `make` in your system, you can use convenient shortcuts for the abov
 like `make` for build and preview, `make cont` for continuous build, and `make clean` to cleanup;
 see `Makefile` for more details.
 
+### Windows
+
+A [Cygwin](https://www.cygwin.com/) environment,
+with `make`, `git`, `perl` and maybe `vim`,
+plus [MikTeX](https://miktex.org/),
+seems at the moment the best combination to build this project from the command line on Windows.
+
 ### Conflicts
 
 Don't use `latexmk` or `make` from the command line
