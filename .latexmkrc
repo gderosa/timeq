@@ -18,4 +18,4 @@ if ($ENV{'PDF_PREVIEWER'}) {
     # Try a common option:
     #
     $pdf_previewer = "texworks \%O \%S";
-} # else just open with the system defaults (don't set $pdf_previewer)
+} # else just open with the default (don't set $pdf_previewer)
