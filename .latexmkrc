@@ -21,10 +21,12 @@ if ($ENV{'PDF_PREVIEWER'}) {
     # use OS defaults instead.
     $pdf_previewer = '%S';
     # PLEASE NOTE the above doesn't work with GitHub Shell for Windows
-    # (maybe with MSys in general?) as "build/*.pdf" is run as a shell script :-o
+    # (possibly with MSys in general) as "build/*.pdf" is run as a shell script :-o
     #
-    # For such reason, the above regex does not capture msys.
-    #
-    # Better to use a CygWin environment or even plain PowerShell.
+    # For such reason, the above regex does not capture msys. See below
+    # for a possible solution.
+} elsif ($^O =~ /msys/i) {
+    # In MSys, sh is available...
+    $pdf_previewer = q[sh -c 'start %S'];
 }
 # Else keep whatever latexmk defaults for Linux or MacOS
