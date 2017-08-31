@@ -1,5 +1,5 @@
 ## Build
-If you have a full LaTeX installation, just run
+If you have a full [LaTeX](https://www.latex-project.org/) installation, just run
 ```bash
 latexmk
 ```
@@ -30,9 +30,9 @@ latexmk -C
 
 ### "Make"
 
-If you have `make` in your system, you can use convenient shortcuts for the above operations
+If you have [`make`](https://www.gnu.org/software/make/) in your system, you can use convenient shortcuts for the above operations
 like `make` for build and preview, `make cont` for continuous build, and `make clean` to cleanup;
-see `Makefile` for more details.
+see [`Makefile`](Makefile) for more details.
 
 ### Conflicts
 
