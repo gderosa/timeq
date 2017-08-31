@@ -1,6 +1,3 @@
-# timeqm
-Time in QM?
-
 ## Build
 If you have a full LaTeX installation, just run
 ```bash
