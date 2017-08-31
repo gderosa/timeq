@@ -2,7 +2,9 @@
 Time in QM?
 
 ## Build
-If you have a full LaTeX installation, just run
+If you have a full [LaTeX](https://www.latex-project.org/) installation,
+including [latexmk](https://www.ctan.org/pkg/latexmk/),
+just run
 ```bash
 latexmk
 ```
