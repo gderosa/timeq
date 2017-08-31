@@ -1,4 +1,5 @@
 ## Build and development environment
+
 If you have a full [LaTeX](https://www.latex-project.org/) installation,
 including [latexmk](https://www.ctan.org/pkg/latexmk/),
 just run
@@ -46,6 +47,17 @@ Inverse search: in [SumatraPDF](https://www.sumatrapdfreader.org/free-pdf-reader
 cmd /c code --goto %f:%l:%c
 ```
 (assuming VSCode is in the PATH &mdash; replace `code` with full path otherwise).
+
+#### ...and Skim on MacOS
+
+Inverse search: in [Skim](http://skim-app.sourceforge.net):
+*Skim* -> *Preferences...* -> *Sync*:
+
+*PDF-TeX Sync support:*
+
+* *Preset*: `custom`
+* *Command:* `code` (or full path to `code.exe`)
+* *Arguments:* `--goto "%file":%line`
 
 ### Conflicts
 
