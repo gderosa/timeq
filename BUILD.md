@@ -45,7 +45,7 @@ Inverse search: in [SumatraPDF](https://www.sumatrapdfreader.org/free-pdf-reader
 ```
 cmd /c code --goto %f:%l:%c
 ```
-(assuming VSCode is in the PATH, replace `code` with full path otherwise).
+(assuming VSCode is in the PATH &mdash; replace `code` with full path otherwise).
 
 ### Conflicts
 
