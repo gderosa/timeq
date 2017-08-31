@@ -13,10 +13,21 @@
     "build/*.log": true,
     "build/*.fls": true,
     "build/*.out": true,
-    "build/*.pdf": true,
+    "build/*.pdf": false,
     "build/*.run.xml": true,
     "build/*.toc": true,
     "build/*.synctex.gz": true
   },
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+
+  // if you use Latex Workshop extension instead of building from cmdline:
+  // a possible benefit is forward synctex search. On Windows, TeXlive
+  // is recommended over MiKTex, as the latter doesn't ship with a synctex executable.
+  "latex-workshop.latex.toolchain": [
+    {
+      "command": "latexmk",
+      "args": []
+    }
+  ],
+  "latex-workshop.latex.outputDir": "./build/"
 }
