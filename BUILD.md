@@ -1,4 +1,4 @@
-## Build and development environment
+# Build and development environment
 
 If you have a full [LaTeX](https://www.latex-project.org/) installation,
 including [latexmk](https://www.ctan.org/pkg/latexmk/),
