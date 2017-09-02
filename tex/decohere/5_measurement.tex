@@ -34,8 +34,7 @@ of the system being measured:
 \[
   E_0 \dots E_{N-1} \,\text{;}
 \]
-a fiducial
-\footnote{
+a fiducial\footnote{
   In the sense that it's assumed
   that we can arbitrarily ``reset'' (prepare) the device,
   for example at state $\ket{0}$,
@@ -52,9 +51,15 @@ a fiducial
 }
 basis for the Hilbert space of the measurement device:
 \[
-  \setof{\ket{0} \dots \ket{N-1}} \,\text{.}
+  \setof{\ket{0} \dots \ket{N-1}} \text{;}
 \]
-
+and a unitary transformation describing how the
+system being measured and the measurement apparatus
+are changed by their coupling (i.e. the performing of the measurement):
+\[
+  U = \sum_{a, b = 0}^{N-1} E_a \ox \ketbra{b+a}{b} \text{,}
+\]
+where the sum $b+a$ is \emph{modulo N}.
 
 \section{TODO}
 
