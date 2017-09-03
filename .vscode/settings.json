@@ -18,18 +18,18 @@
     "build/*.toc": true,
     "build/*.synctex.gz": true
   },
+
   "editor.tabSize": 2,
 
-  // if you use Latex Workshop extension instead of building from cmdline:
-  // a possible benefit is forward synctex search. On Windows, TeXlive
-  // is recommended over MiKTex, as the latter doesn't ship with a synctex executable
-  // (but not recommended if running `latexmk` manually from the command line with
-  // MSys/GitHub shell).
   "latex-workshop.latex.toolchain": [
     {
       "command": "latexmk",
       "args": []
     }
   ],
-  "latex-workshop.latex.outputDir": "./build/"
+  "latex-workshop.latex.outputDir": "./build/",
+  // Disabled to allow use of `make` end especially `make cont` (`latexmk -pvc`)
+  // from the command line and prevent conflicts (LaTeX Workshop has many other
+  // useful features anyway, but YMMV).
+  "latex-workshop.latex.autoBuild.onSave.enabled": false
 }
