@@ -56,9 +56,9 @@ basis for the Hilbert space of the measurement device:
 and a unitary transformation describing how the
 system being measured and the measurement apparatus
 are changed by their coupling (i.e. the performing of the measurement):
-\[
+\begin{equation}\label{eq:unitary_measurement}
   U = \sum_{a, b = 0}^{N-1} E_a \ox \ketbra{b+a}{b} \text{,}
-\]
+\end{equation}
 where the sum $b+a$ is \emph{modulo N}.
 
 \begin{eqsplit}\label{eq:explicit_measurement_evolution}
@@ -69,9 +69,25 @@ where the sum $b+a$ is \emph{modulo N}.
 In the \ref{eq:explicit_measurement_evolution} only terms with $b=0$ survive.
 Therefore
 \begin{align*}
-  \ket{\Psi^{\prime}} &= \sum_a \qty(E_a\ox\ketbra{a}{0}) \qty(\ket{\psi}\ox\ket{0}) \\
+  \ket{\Psi^{\prime}} &= \sum_a \qty\Big(E_a\ox\ketbra{a}{0}) \qty\Big(\ket{\psi}\ox\ket{0}) \\
                       &= \sum_a E_a \ket{\psi} \ox \ket{a}
 \end{align*}
+
+If we measure the pointer in the fiducial basis
+(Hilbert space of the measurement apparatus),
+the probability of an outcome $a$ is
+\begin{multline*}
+  \Pr(a) = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} =
+    \sum_{b,c}
+      \qty(\bra{\psi}E_{b}\ox\bra{b})
+      \qty\Big(\idop\ox\ketbra{a})
+      \qty(E_{c}\ket{\psi}\ox\ket{c}) = \\
+    \sum_{b,c}\qty\Big(\expval{E_bE_c}{\psi} \braket{b}{a} \braket{a}{c}) =
+    \expval{E_a}{\psi}
+\end{multline*}
+which shows that the Born's rule has been ``transfered'', from the system being
+measured, to the measurement device and therefore the
+\eqref{eq:unitary_measurement} is a correct description of measurement.
 
 \section{TODO}
 
