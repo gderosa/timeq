@@ -61,6 +61,18 @@ are changed by their coupling (i.e. the performing of the measurement):
 \]
 where the sum $b+a$ is \emph{modulo N}.
 
+\begin{align}\label{eq:explicit_measurement_evolution}
+  U:  &\ket{\Psi}           =\ket{\psi} \ox \ket{0} \rightarrow \\
+      &\ket{\Psi^{\prime}}  =\sum_{a, b} E_A \ox \ketbra{b+a}{b} \qty(\ket{\psi} \ox \ket{0})
+\end{align}
+
+In the \ref{eq:explicit_measurement_evolution} only terms with $b=0$ survive.
+Therefore
+\begin{align*}
+  \ket{\Psi^{\prime}} &= \sum_a \qty(E_a\ox\ketbra{a}{0}) \qty(\ket{\psi}\ox\ket{0}) \\
+                      &= \sum_a E_a \ket{\psi} \ox \ket{a}
+\end{align*}
+
 \section{TODO}
 
 \texttt{img/kraus-andreas/} from sources,
