@@ -68,10 +68,10 @@ where the sum $b+a$ is \emph{modulo N}.
 
 In the \ref{eq:explicit_measurement_evolution} only terms with $b=0$ survive.
 Therefore
-\begin{align*}
+\begin{align}\label{eq:measurement_entangled}
   \ket{\Psi^{\prime}} &= \sum_a \qty\Big(E_a\ox\ketbra{a}{0}) \qty\Big(\ket{\psi}\ox\ket{0}) \\
                       &= \sum_a E_a \ket{\psi} \ox \ket{a}
-\end{align*}
+\end{align}
 
 If we measure the pointer in the fiducial basis
 (Hilbert space of the measurement apparatus),
@@ -88,6 +88,9 @@ the probability of an outcome $a$ is
 which shows that the Born's rule has been ``transfered'', from the system being
 measured, to the measurement device and therefore the
 \eqref{eq:unitary_measurement} is a correct description of measurement.
+
+The \eqref{eq:measurement_entangled} clearly shows that the system
+and the measurement device are completely correlated (entangled).
 
 \section{TODO}
 
