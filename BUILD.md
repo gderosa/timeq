@@ -18,8 +18,8 @@ make prod
 ### Continuous build
 
 Run
-```
-latexmk -pvc
+```bash
+make cont
 ```
 to continuously build and monitor files for updates.
 
@@ -36,9 +36,9 @@ Cleanup with
 make clean
 ```
 
-### If "Make" in unavailable
+### If "Make" is unavailable
 
-Read the [`Makefile`](Makefile) to see the underlying [latexmk](https://www.ctan.org/pkg/latexmk/) commands:
+Read the [`Makefile`](Makefile) to see the underlying [`latexmk`](https://www.ctan.org/pkg/latexmk/) commands:
 you may want to use them directly.
 
 ### [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
