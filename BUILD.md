@@ -1,21 +1,19 @@
 # Build and development environment
 
 If you have a full [LaTeX](https://www.latex-project.org/) installation,
-including [latexmk](https://www.ctan.org/pkg/latexmk/),
-just run
+and [`make`](https://www.gnu.org/software/make/), just run
 ```bash
-latexmk
+make
 ```
 in the project root directory.
 A PDF output document will be generated in the `build/` directory.
 
-### PDF previewer
+### "Production" output
 
-To automatically open the default PDF viewer after build:
+Another PDF will be generated, named `prod.pdf`, with TODOs removed, by issuing
 ```bash
-latexmk -pv
+make prod
 ```
-You can choose a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
 ### Continuous build
 
@@ -25,17 +23,23 @@ latexmk -pvc
 ```
 to continuously build and monitor files for updates.
 
+### PDF previewer
+
+In all the above, when available, a default PDF viewer is automatically opened on the generated PDF.
+
+You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
+
+
 ### Cleanup
 Cleanup with
 ```bash
-latexmk -C
+make clean
 ```
 
-### "Make"
+### If "Make" in unavailable
 
-If you have [`make`](https://www.gnu.org/software/make/) in your system, you can use convenient shortcuts for the above operations
-like `make` for build and preview, `make cont` for continuous build, and `make clean` to cleanup;
-see [`Makefile`](Makefile) for more details.
+Read the [`Makefile`](Makefile) to see the underlying [latexmk](https://www.ctan.org/pkg/latexmk/) commands:
+you may want to use them directly.
 
 ### [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
 
