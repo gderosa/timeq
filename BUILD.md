@@ -18,6 +18,11 @@ Another PDF will be generated, named `prod.pdf`, with TODOs removed, by issuing
 make prod
 ```
 
+You may also compile (and preview) both versions for quick comparison etc.:
+```bash
+make dev prod
+```
+
 ### Continuous build
 
 Run
