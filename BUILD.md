@@ -1,4 +1,6 @@
-# Build and development environment
+# Build environment
+
+### "Development" output
 
 If you have a full [LaTeX](https://www.latex-project.org/) installation,
 and [`make`](https://www.gnu.org/software/make/), just run
@@ -6,7 +8,8 @@ and [`make`](https://www.gnu.org/software/make/), just run
 make
 ```
 in the project root directory.
-A PDF output document will be generated in the `build/` directory.
+
+This will generate `build/dev.pdf`.
 
 ### "Production" output
 
@@ -21,11 +24,11 @@ Run
 ```bash
 make cont
 ```
-to continuously build and monitor files for updates.
+to continuously build and monitor files for updates (development only).
 
 ### PDF previewer
 
-In all the above, when available, a default PDF viewer is automatically opened on the generated PDF.
+In all the above, when available, a default PDF viewer is automatically opened on the generated document.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
@@ -41,7 +44,7 @@ make clean
 Read the [`Makefile`](Makefile) to see the underlying [`latexmk`](https://www.ctan.org/pkg/latexmk/) commands:
 you may want to use them directly.
 
-### [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
+### Optional: [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
 
 #### Visual Studio Code and SumatraPDF on Windows
 
