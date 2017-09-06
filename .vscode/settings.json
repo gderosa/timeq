@@ -24,7 +24,7 @@
   "latex-workshop.latex.toolchain": [
     {
       "command": "latexmk",
-      "args": []
+      "args": ["%DOC%.tex"]
     }
   ],
   "latex-workshop.latex.outputDir": "./build/",
