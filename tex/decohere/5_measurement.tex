@@ -144,6 +144,26 @@ but still described by the \eqref{eq:irreversible_measurement}.
 A generalization to observables with a continuous spectrum is also possible.
 See e.g. \cite[Sec. 3.1.1]{PreskillNotes} for more details.
 
+\subsection{Generalized measurement}
+
+Let's start considering, for simplicity, a 2-level system,
+the corresponding 2-level pointer space,
+and the unitary transformation describing the measurement process:
+\begin{equation*}
+  U:
+    \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B
+    \rightarrow
+    \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A \ox \ket{1}_B
+\end{equation*}
+with subscripts $A$ and $B$ designating the system of interest and
+the measurement apparatus (pointer space) repectively.
+
+But when we observe the pointer, let's assume we're not
+able to ``measure'' it with respect to the fiducial basis
+$\setof{\ket{0}, \ket{1}}$,
+but with respect to another basis, say,
+$\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty(\ket{0} \pm \ket{1})}$.
+
 \iftodo
 \section{TODO}
 \texttt{img/kraus-andreas/} from sources,
