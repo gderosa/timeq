@@ -215,6 +215,19 @@ Moreover, $M_+$ and $M_-$ are not generally idempotent,
 therefore if we repeat the measurement we don't generally
 obtain the same result (and don't leave the system $A$ in the same state).
 
+Besides this particular example, $M_+$ and $M_-$ are not even necessarily
+self-adjoint, and we'll see that, while $M$ generalize the projector $E$
+in terms of ``collapsing'' (or ``preparing'') the system under measurement,
+in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
+  Such distinction is inessential for a projector $P$,
+  as $P^{\dagger}P = P^2 = P$.
+}, particularly in the sense of \term{decomposition of the identity}:
+$\sum_a M_a^{\dagger}M_a = \idop$.
+
+The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
+or a particularly ``overlapping'' decomposition of the identity,
+because $M_+^{\dagger}M_+ = M_-^{\dagger}M_- = \frac{1}{2}\idop$.
+
 \iftodo
 \section{TODO}
 \texttt{img/kraus-andreas/} from sources,
