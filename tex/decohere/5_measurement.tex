@@ -197,9 +197,23 @@ where we have defined:
   M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
   &
   M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat{1, -1})
-  \,\text{.}
 \end{align*}
 with respect to the basis $\setof{\ket{0}, \ket{1}}_A$.
+
+If we compare \eqref{eq:qubit_gen_measurement}
+with \eqref{eq:qubit_ortho_measurement},
+we see that operators $M_{\pm}$
+are a generalization of projectors $E_{0,1}$,
+but are not projectors on eigenspaces themselves.
+
+After measurement, sistem $A$ is ``prepared''
+(up to a normalization factor)
+in one of the states $M_{\pm}\ket{\psi}$,
+that are not necessarily orthogonal.
+
+Moreover, $M_+$ and $M_-$ are not generally idempotent,
+therefore if we repeat the measurement we don't generally
+obtain the same result (and don't leave the system $A$ in the same state).
 
 \iftodo
 \section{TODO}
