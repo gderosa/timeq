@@ -216,17 +216,56 @@ therefore if we repeat the measurement we don't generally
 obtain the same result (and don't leave the system $A$ in the same state).
 
 Besides this particular example, $M_+$ and $M_-$ are not even necessarily
-self-adjoint, and we'll see that, while $M$ generalize the projector $E$
+self-adjoint, and we can see that, while $M$ generalize the projector $E$
 in terms of ``collapsing'' (or ``preparing'') the system under measurement,
 in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
   Such distinction is inessential for a projector $P$,
   as $P^{\dagger}P = P^2 = P$.
 }, particularly in the sense of \term{decomposition of the identity}:
-$\sum_a M_a^{\dagger}M_a = \idop$.
+$\sum_a M_a^{\dagger}M_a = \idop$ \parencite[Sec. 3.1]{PreskillNotes}.
 
 The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
 or a particularly ``overlapping'' decomposition of the identity,
 because $M_+^{\dagger}M_+ = M_-^{\dagger}M_- = \frac{1}{2}\idop$.
+
+Generalizing to $N$-dimensional Hilbert spaces, we can replace
+$\setof{\ket{\pm}}$ basis with
+\[
+  \setof{\ket{a}, a = 0\ldots N-1}
+\]
+and \eqref{eq:qubit_gen_measurement} with
+\[
+  U: \ket{\psi}_A \ox \ket{0}_B \rightarrow \sum_a M_a\ket{\psi}_A \ox \ket{a}_B
+  \,\text{.}
+\]
+Let's also use sometimes
+\[
+  E_a = M^{\dagger}M \,\text{,}
+\]
+hence emphasizing the comparison with the projectors in the
+Von Neumann measurement \eqref{eq:measurement_entangled}.
+
+With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
+\begin{itemize}
+  \item 
+    Hermiticity: $E_a = E_a^{\dagger}$
+  \item
+    \term{Positivity}: $\expval{E_a}{\psi} \geq 0$  
+  \item
+    Decomposition of the identity (\term{completeness}):
+    $\sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop$
+  \item
+    Probability of outcome $a$ of a measurement:
+    $\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}$
+  \item
+    Probability of obtaining $b$ in a second measurement:
+    $\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}$
+    (would be $\delta_{ab}$ if orthogonal)
+  \item
+    Probability of outcome, density operator form:
+    $\Pr(a) = \tr(\rho E_a)$,
+    also valid for mixed states.
+\end{itemize}
 
 \iftodo
 \section{TODO}
