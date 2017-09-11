@@ -4,19 +4,7 @@
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
-    "**/.DS_Store": true,
-    "build/*.aux": true,
-    "build/*.bbl": true,
-    "build/*.bcf": true,
-    "build/*.blg": true,
-    "build/*.fdb_latexmk": true,
-    "build/*.log": true,
-    "build/*.fls": true,
-    "build/*.out": true,
-    "build/*.pdf": false,
-    "build/*.run.xml": true,
-    "build/*.toc": true,
-    "build/*.synctex.gz": true
+    "**/.DS_Store": true
   },
 
   "editor.tabSize": 2,
@@ -24,7 +12,7 @@
   "latex-workshop.latex.toolchain": [
     {
       "command": "latexmk",
-      "args": ["%DOC%.tex"]
+      "args": ["dev"]
     }
   ],
   "latex-workshop.latex.outputDir": "./build/",
