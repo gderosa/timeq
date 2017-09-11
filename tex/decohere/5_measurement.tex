@@ -150,20 +150,25 @@ See e.g. \cite[Section 3.1.1]{PreskillNotes} for more details.
 Let's start considering, for simplicity, a 2-level system,
 the corresponding 2-level pointer space,
 and the unitary transformation describing the measurement process:
-\begin{equation*}
+\begin{multline}\label{eq:qubit_ortho_measurement}
   U:
-    \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B
-    \rightarrow
-    \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A \ox \ket{1}_B
-\end{equation*}
+    \ket{\psi} \ox \ket{0}_B
+    {\color{gray}= \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B}
+    \rightarrow \\
+    {\color{gray}\alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B =}
+    \:
+    E_0\ket{\psi}_A \ox \ket{0}_B + E_1\ket{\psi}_A \ox \ket{1}_B
+\end{multline}
 with subscripts $A$ and $B$ designating the system of interest and
 the measurement apparatus (pointer space) repectively.
 
-But when we observe the pointer, let's assume we're not
+When we observe the pointer, let's assume we're not
 able to ``measure'' it with respect to the fiducial basis
 $\setof{\ket{0}, \ket{1}}$,
 but with respect to another basis, say,
-$\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty(\ket{0} \pm \ket{1})}$.
+\begin{equation}\label{eq:pmbasis}
+\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0} \pm \ket{1})} \,\text{.}
+\end{equation}
 
 \iftodo
 \section{TODO}
