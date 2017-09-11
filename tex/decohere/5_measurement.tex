@@ -145,6 +145,7 @@ See e.g. \cite[Section 3.1.1]{PreskillNotes} for more details.
 
 
 \subsection{Generalized measurement (\term{POVM})}
+\label{subsec:POVM}
 
 Let's start considering, for simplicity, a 2-level system,
 the corresponding 2-level pointer space,
@@ -299,8 +300,20 @@ in a well defined state
 even after a measurement with a
 well-defined outcome.
 
+\subsection{Quantum channels}
 
-
+We have seen so far that:
+\begin{enumerate}
+\item
+  A pure state of the bipartite system $\hilb{H}_A\ox\hilb{H}_B$
+  may behave like a mixed state when we observe $\hilb{H}_A$ alone
+  (Sec. \ref{sec:p_tr}).
+\item
+  An orthogonal measurement of the bipartite system can realize a
+  (nonorthogonal) POVM on $\hilb{H}_A$ alone (Subsec. \ref{subsec:POVM}).
+\end{enumerate}
+Now, how about the evolution of subsystem $A$ alone,
+when the bipartite system as a whole evolve unitarily?
 
 
 
