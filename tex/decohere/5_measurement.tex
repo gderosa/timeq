@@ -234,11 +234,12 @@ $\setof{\ket{\pm}}$ basis with
   \setof{\ket{a}, a = 0\ldots N-1}
 \]
 and \eqref{eq:qubit_gen_measurement} with
-\[
+\begin{equation}\label{eq:gen_measurement}
   U: \ket{\psi}_A \ox \ket{0}_B \rightarrow \sum_a M_a\ket{\psi}_A \ox \ket{a}_B
   \,\text{.}
-\]
-Let's also use sometimes
+\end{equation}
+
+Let's also define
 \[
   E_a = M^{\dagger}M \,\text{,}
 \]
@@ -272,6 +273,37 @@ With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
 This partition of the identity by positive operators
 as expressed in \ref{listitem:POVM} \eqref{eq:POVM} is called
 \term{positive operator-valued measure}, or \term{POVM}.
+It generalizes the \term{projector-valued measure} (PVM)
+found in Von Neumann's theory.
+
+It's worth noting that the reverse reaosoning is always possible,
+but not uniquely:
+given a POVM $\setof{E_a}$, operators $M_a$
+suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
+can always be found \parencite[Sec. 3.1]{PreskillNotes}
+but then
+$UM_a$ are also vaild
+for any unitary operator $U$.
+
+Therefore, this formulation leaves the state after a measurement
+with outcome $a$
+\[
+  \frac{M_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+  \leftrightarrow
+  \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+\]
+in fact indetermined.
+
+In Copenhagen terms, the wavefunction does not collapse anymore
+in a well defined state
+(or it's not determined by this formulation),
+even after a measurement with a
+well-defined outcome.
+
+
+
+
+
 
 \iftodo
 \section{TODO}
