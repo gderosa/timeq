@@ -145,7 +145,7 @@ A generalization to observables with a continuous spectrum is also possible.
 See e.g. \cite[Section 3.1.1]{PreskillNotes} for more details.
 
 
-\subsection{Generalized measurement}
+\subsection{Generalized measurement (\term{POVM})}
 
 Let's start considering, for simplicity, a 2-level system,
 the corresponding 2-level pointer space,
@@ -196,7 +196,7 @@ where we have defined:
   &
   M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
   &
-  M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat{1, -1})
+  M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat[0]{1, -1})
 \end{align*}
 with respect to the basis $\setof{\ket{0}, \ket{1}}_A$.
 
@@ -246,26 +246,32 @@ hence emphasizing the comparison with the projectors in the
 Von Neumann measurement \eqref{eq:measurement_entangled}.
 
 With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
-\begin{itemize}
+\begin{enumerate}
   \item 
-    Hermiticity: $E_a = E_a^{\dagger}$
+    Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
   \item
-    \term{Positivity}: $\expval{E_a}{\psi} \geq 0$  
-  \item
+    \term{Positivity}: \[\expval{E_a}{\psi} \geq 0\,\text{;}\]  
+  \item\label{listitem:POVM}
     Decomposition of the identity (\term{completeness}):
-    $\sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop$
+    \begin{equation}\label{eq:POVM}
+      \sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop \,\text{;}
+    \end{equation}
   \item
     Probability of outcome $a$ of a measurement:
-    $\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}$
+    \[\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}\,\text{;}\]
   \item
     Probability of obtaining $b$ in a second measurement:
-    $\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}$
-    (would be $\delta_{ab}$ if orthogonal)
+    \[\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}\]
+    (would be $\delta_{ab}$ if orthogonal);
   \item
     Probability of outcome, density operator form:
-    $\Pr(a) = \tr(\rho E_a)$,
+    \[\Pr(a) = \tr(\rho E_a)\,\text{,}\]
     also valid for mixed states.
-\end{itemize}
+\end{enumerate}
+
+This partition of the identity by positive operators
+as expressed in \ref{listitem:POVM} \eqref{eq:POVM} is called
+\term{positive operator-valued measure}, or \term{POVM}.
 
 \iftodo
 \section{TODO}
