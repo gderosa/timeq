@@ -152,15 +152,15 @@ the corresponding 2-level pointer space,
 and the unitary transformation describing the measurement process:
 \begin{multline}\label{eq:qubit_ortho_measurement}
   U:
-    \ket{\psi} \ox \ket{0}_B
+    \ket{\psi}_A \ox \ket{0}_B
     {\color{gray}= \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B}
-    \rightarrow \\
+  \rightarrow \\
     {\color{gray}\alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B =}
     \:
     E_0\ket{\psi}_A \ox \ket{0}_B + E_1\ket{\psi}_A \ox \ket{1}_B
 \end{multline}
 with subscripts $A$ and $B$ designating the system of interest and
-the measurement apparatus (pointer space) repectively.
+the measurement apparatus (pointer space) respectively.
 
 When we observe the pointer, let's assume we're not
 able to ``measure'' it with respect to the fiducial basis
@@ -169,6 +169,37 @@ but with respect to another basis, say,
 \begin{equation}\label{eq:pmbasis}
 \setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0} \pm \ket{1})} \,\text{.}
 \end{equation}
+
+We can rewrite \eqref{eq:qubit_ortho_measurement} as
+\footnote{
+  When subscripts $A$ and $B$ are omitted, it's understood that
+  $\ket{0}$ and $\ket{1}$ are in $\hilb{H}_A$, and
+  $\ket{+}$ and $\ket{-}$ are in~$\hilb{H}_B$.
+}
+\begin{multline}\label{eq:qubit_gen_measurement}
+  U: \ket{\psi}_A \ox \ket{0}_B                   \rightarrow \\
+  \color{gray}
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \alpha\ket{0} \ox \qty(\ket{+}+\ket{-}) +
+    \beta \ket{1} \ox \qty(\ket{+}-\ket{-})
+  )                                               =           \\
+  \color{gray}
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \qty(\alpha\ket{0} + \beta\ket{1}) \ox \ket{+} +
+    \qty(\alpha\ket{0} - \beta\ket{1}) \ox \ket{-}
+  )                                               \eqdef      \\
+  M_+\ket{\psi}_A \ox \ket{+}_A + M_-\ket{\psi}_A \ox \ket{-}_B
+  \,\text{,}
+\end{multline}
+where we have defined:
+\begin{align*}
+  &
+  M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
+  &
+  M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat{1, -1})
+  \,\text{.}
+\end{align*}
+with respect to the basis $\setof{\ket{0}, \ket{1}}_A$.
 
 \iftodo
 \section{TODO}
