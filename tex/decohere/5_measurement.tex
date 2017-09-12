@@ -1,5 +1,4 @@
-\section[Channels, operations and generalized measurement]
-  {Quantum channels, quantum operations and generalized measurement}
+\section{Generalized measurement and quantum channels}
 
 Decoherence,
 or more generally the interaction of a system with the environment,
@@ -145,28 +144,245 @@ A generalization to observables with a continuous spectrum is also possible.
 See e.g. \cite[Section 3.1.1]{PreskillNotes} for more details.
 
 
-\subsection{Generalized measurement}
+\subsection{Generalized measurement (\term{POVM})}
+\label{subsec:POVM}
 
 Let's start considering, for simplicity, a 2-level system,
 the corresponding 2-level pointer space,
 and the unitary transformation describing the measurement process:
-\begin{equation*}
+\begin{multline}\label{eq:qubit_ortho_measurement}
   U:
-    \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B
-    \rightarrow
-    \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A \ox \ket{1}_B
-\end{equation*}
+    \ket{\psi}_A \ox \ket{0}_B
+    {\color{gray}= \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B}
+  \rightarrow \\
+    {\color{gray}\alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B =}
+    \:
+    E_0\ket{\psi}_A \ox \ket{0}_B + E_1\ket{\psi}_A \ox \ket{1}_B
+\end{multline}
 with subscripts $A$ and $B$ designating the system of interest and
-the measurement apparatus (pointer space) repectively.
+the measurement apparatus (pointer space) respectively.
 
-But when we observe the pointer, let's assume we're not
+When we observe the pointer, let's assume we're not
 able to ``measure'' it with respect to the fiducial basis
 $\setof{\ket{0}, \ket{1}}$,
 but with respect to another basis, say,
-$\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty(\ket{0} \pm \ket{1})}$.
+\begin{equation}\label{eq:pmbasis}
+\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0} \pm \ket{1})} \,\text{.}
+\end{equation}
+
+We can rewrite \eqref{eq:qubit_ortho_measurement} as
+\footnote{
+  When subscripts $A$ and $B$ are omitted, it's understood that
+  $\ket{0}$ and $\ket{1}$ are in $\hilb{H}_A$, and
+  $\ket{+}$ and $\ket{-}$ are in~$\hilb{H}_B$.
+}
+\begin{multline}\label{eq:qubit_gen_measurement}
+  U: \ket{\psi}_A \ox \ket{0}_B                   \rightarrow \\
+  \color{gray}
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \alpha\ket{0} \ox \qty(\ket{+}+\ket{-}) +
+    \beta \ket{1} \ox \qty(\ket{+}-\ket{-})
+  )                                               =           \\
+  \color{gray}
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \qty(\alpha\ket{0} + \beta\ket{1}) \ox \ket{+} +
+    \qty(\alpha\ket{0} - \beta\ket{1}) \ox \ket{-}
+  )                                               \eqdef      \\
+  M_+\ket{\psi}_A \ox \ket{+}_A + M_-\ket{\psi}_A \ox \ket{-}_B
+  \,\text{,}
+\end{multline}
+where we have defined:
+\begin{align*}
+  &
+  M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
+  &
+  M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat[0]{1, -1})
+\end{align*}
+with respect to the basis $\setof{\ket{0}, \ket{1}}_A$.
+
+If we compare \eqref{eq:qubit_gen_measurement}
+with \eqref{eq:qubit_ortho_measurement},
+we see that operators $M_{\pm}$
+are a generalization of projectors $E_{0,1}$,
+but are not projectors on eigenspaces themselves.
+
+After measurement, sistem $A$ is ``prepared''
+(up to a normalization factor)
+in one of the states $M_{\pm}\ket{\psi}$,
+that are not necessarily orthogonal.
+
+Moreover, $M_+$ and $M_-$ are not generally idempotent,
+therefore if we repeat the measurement we don't generally
+obtain the same result (and don't leave the system $A$ in the same state).
+
+Besides this particular example, $M_+$ and $M_-$ are not even necessarily
+self-adjoint, and we can see that, while $M$ generalize the projector $E$
+in terms of ``collapsing'' (or ``preparing'') the system under measurement,
+in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
+  Such distinction is inessential for a projector $P$,
+  as $P^{\dagger}P = P^2 = P$.
+}, particularly in the sense of \term{decomposition of the identity}:
+$\sum_a M_a^{\dagger}M_a = \idop$ \parencite[Sec. 3.1]{PreskillNotes}.
+
+The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
+or a particularly ``overlapping'' decomposition of the identity,
+because $M_+^{\dagger}M_+ = M_-^{\dagger}M_- = \frac{1}{2}\idop$.
+
+Generalizing to $N$-dimensional Hilbert spaces, we can replace
+$\setof{\ket{\pm}}$ basis with
+\[
+  \setof{\ket{a}, a = 0\ldots N-1}
+\]
+and \eqref{eq:qubit_gen_measurement} with
+\begin{equation}\label{eq:gen_measurement}
+  U: \ket{\psi}_A \ox \ket{0}_B \rightarrow \sum_a M_a\ket{\psi}_A \ox \ket{a}_B
+  \,\text{.}
+\end{equation}
+
+Let's also define
+\[
+  E_a = M^{\dagger}M \,\text{,}
+\]
+hence emphasizing the comparison with the projectors in the
+Von Neumann measurement \eqref{eq:measurement_entangled}.
+
+With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
+\begin{enumerate}
+  \item 
+    Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
+  \item
+    \term{Positivity}: \[\expval{E_a}{\psi} \geq 0\,\text{;}\]  
+  \item\label{listitem:POVM}
+    Decomposition of the identity (\term{completeness}):
+    \begin{equation}\label{eq:POVM}
+      \sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop \,\text{;}
+    \end{equation}
+  \item
+    Probability of outcome $a$ of a measurement:
+    \[\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}\,\text{;}\]
+  \item
+    Probability of obtaining $b$ in a second measurement:
+    \[\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}\]
+    (would be $\delta_{ab}$ if orthogonal);
+  \item
+    Probability of outcome, density operator form:
+    \[\Pr(a) = \tr(\rho E_a)\,\text{,}\]
+    also valid for mixed states.
+\end{enumerate}
+
+This partition of the identity by positive operators
+as expressed in \ref{listitem:POVM} \eqref{eq:POVM} is called
+\term{positive operator-valued measure}, or \term{POVM}.
+It generalizes the \term{projector-valued measure} (PVM)
+found in Von Neumann's theory.
+
+It's worth noting that the reverse reaosoning is always possible,
+but not uniquely:
+given a POVM $\setof{E_a}$, operators $M_a$
+suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
+can always be found \parencite[Sec. 3.1]{PreskillNotes}
+but then
+$UM_a$ are also vaild
+for any unitary operator $U$.
+
+Therefore, this formulation leaves the state after a measurement
+with outcome $a$
+\[
+  \frac{M_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+  \leftrightarrow
+  \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+\]
+in fact indetermined.
+
+In Copenhagen terms, the wavefunction does not collapse anymore
+in a well defined state
+(or it's not determined by this formulation),
+even after a measurement with a
+well-defined outcome.
+
+\subsection{Quantum channels and Kraus operators}
+
+We have seen so far that:
+\begin{enumerate}
+\item
+  A pure state of the bipartite system $\hilb{H}_A\ox\hilb{H}_B$
+  may behave like a mixed state when we observe $\hilb{H}_A$ alone
+  (Sec. \ref{sec:p_tr}).
+\item
+  An orthogonal measurement of the bipartite system can realize a
+  (nonorthogonal) POVM on $\hilb{H}_A$ alone (Subsec. \ref{subsec:POVM}).
+\end{enumerate}
+Now, how about the evolution of subsystem $A$ alone,
+when the bipartite system as a whole evolve unitarily?
+
+In fact, the measurement described in Subsec. \ref{subsec:POVM}
+is a particular case of generalized evolution, and the unitary operator $U$
+in \eqref{eq:gen_measurement} is a particular example of
+evolution operator for the whole bipartite system.
+
+The system $A$ alone
+(initially described by the density operator $\rho=\ketbra{\psi}$)
+can be studyied by tracing out $B$
+(in the sense of Sec. \ref{sec:p_tr}),
+or equivalently by measuring $B$ in the basis $\setof{\ket{a}}$
+but without recording an outcome $a$, therefore leaving the system
+in a statistical mixture.
+In either ways, there has:
+\begin{equation}\label{eq:channel}
+  \rho \rightarrow \superop{E}(\rho) \eqdef \sum_a M_a \rho M_a^{\dagger}
+\end{equation}
+which generalizes the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
+
+The linear map, or ``superoperator'', $\superop{E}$
+is called \term{quantum channel}.\footnote{
+  Another name for it is
+  \term{trace-preserving completely positive map},
+  or \term{TPCP map} for short. \parencite[Sec. 3.2]{PreskillNotes}
+}
+
+Expressing $\superop{E}$ in terms of operators $M_a$
+satisying the partition of the identity \eqref{eq:POVM}
+is called
+\term{operator-sum representation} of the quantum channel.
+
+The operators $\setof{M_a}$ are called the \term{Kraus operators}
+of the channel.
+
+Similarly to POVM $\setof{E_a}$, given a particular channel $\superop{E}$,
+the set $\setof{M_a}$ is not uniquely determined, but
+generally exists.
+
+A fundamental comparison with unitary evolution is that
+quantum channels can be \emph{composed} too, but an inverse
+does not generally exists.
+This mathematically corresponds to the concept of \term{semigroup},
+and physically to the \emph{irreveribility} of the process
+of entanglement of subsystem $A$ with the environment. In other words,
+there isn't a quantum channel that will bring back an entangled,
+mixed state back to its initial pure state;
+but a generalized evolution from time $t_0$ to time $t_1$,
+described by $\superop{E}_1$,
+and another from $t_1$ to $t_2$ described by $\superop{E}_2$
+can be combined to describe the evolution from $t_0$ to $t_2$:
+\[
+  \rho \rightarrow \qty(\superop{E}_1 \circ \superop{E}_2) (\rho) =
+  \sum_{\mu,a} N_{\mu} M_a \rho M_a^{\dagger} N_{\mu}^{\dagger}
+  \,\text{.}
+\]
+If we demand that $\superop{E}_1 \circ \superop{E}_2$
+is the identity (or ``superidentity'', should we say),
+in other words that $\superop{E}_2$
+is the \term{inverse} of $\superop{E}_1$,
+we can prove that the channel must be unitary i.e.
+$\superop{E}_1(\rho) = U \rho U^{\dagger}$
+for some unitary evolution operator $U$.
+This excludes decoherence,
+or entanglement with environment from an initial pure state,
+from being reversible.
+See \cite[Sec. 3.2]{PreskillNotes} for a detailed proof,
+and general properties of quantum channels.
 
 \iftodo
 \section{TODO}
-\texttt{img/kraus-andreas/} from sources,
-then delete scans.
+Emphasize trace-preserving property! Check Andrea's notes, now on UCC Google Drive.
 \fi
