@@ -315,6 +315,26 @@ We have seen so far that:
 Now, how about the evolution of subsystem $A$ alone,
 when the bipartite system as a whole evolve unitarily?
 
+In fact, the measurement described in Subsec. \ref{subsec:POVM}
+is a particular case of generalized evolution, and the unitary operator $U$
+in \eqref{eq:gen_measurement} is a particular example of
+evolution operator for the whole bipartite system.
+
+The system $A$ alone
+(initially described by the density operator $\rho=\ketbra{\psi}$)
+can be studyied by tracing out $B$
+(in the sense of Sec. \ref{sec:p_tr}),
+or equivalently by measuring $B$ in the basis $\setof{\ket{a}}$
+but without recording an outcome $a$, therefore leaving the system
+in a statistical mixture.
+In either ways, there has:
+\begin{equation}\label{eq:channel}
+  \rho \rightarrow \superop{E}(\rho) \eqdef \sum_a M_a \rho M_a^{\dagger}
+\end{equation}
+which generalizes the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
+
+
+
 
 
 \iftodo
