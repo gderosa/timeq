@@ -300,7 +300,7 @@ in a well defined state
 even after a measurement with a
 well-defined outcome.
 
-\subsection{Quantum channels}
+\subsection{Quantum channels and Kraus operators}
 
 We have seen so far that:
 \begin{enumerate}
@@ -333,9 +333,51 @@ In either ways, there has:
 \end{equation}
 which generalizes the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
 
+The linear map, or ``superoperator'', $\superop{E}$
+is called \term{quantum channel}.\footnote{
+  Another name for it is
+  \term{trace-preserving completely positive map},
+  or \term{TPCP map} for short. \parencite[Sec. 3.2]{PreskillNotes}
+}
 
+Expressing $\superop{E}$ in terms of operators $M_a$
+satisying the partition of the identity \eqref{eq:POVM}
+is called
+\term{operator-sum representation} of the quantum channel.
 
+The operators $\setof{M_a}$ are called the \term{Kraus operators}
+of the channel.
 
+Similarly to POVM $\setof{E_a}$, given a particular channel $\superop{E}$,
+the set $\setof{M_a}$ is not uniquely determined, but
+generally exists.
+
+A fundamental comparison with unitary evolution is that
+quantum channels can be \emph{composed} too, but an inverse
+does not generally exists.
+This mathematically corresponds to the concept of \term{semigroup},
+and physically to the \emph{irreveribility} of the process
+of entanglement of subsystem $A$ with the environment. In other words,
+there isn't a quantum channel that will bring back an entangled,
+mixed state back to its initial pure state;
+but a generalized evolution from time $t_0$ to time $t_1$,
+described by $\superop{E}_1$,
+and another from $t_1$ to $t_2$ described by $\superop{E}_2$
+can be combined to describe the evolution from $t_0$ to $t_2$:
+\[
+  \rho \rightarrow \qty(\superop{E}_1 \circ \superop{E}_2) (\rho) =
+  \sum_{\mu,a} N_{\mu} M_a \rho M_a^{\dagger} N_{\mu}^{\dagger}
+  \,\text{.}
+\]
+If we demand that $\superop{E}_1 \circ \superop{E}_2$
+is the identity (or ``superidentity'', should we say),
+in other words that $\superop{E}_2$
+is the \term{inverse} of $\superop{E}_1$,
+we can prove that the channel must be unitary i.e.
+$\superop{E}_1(\rho) = U \rho U^{\dagger}$
+for some unitary evolution operator $U$.
+See \cite[Sec. 3.2]{PreskillNotes} for a detaild proof,
+and general properties of quantum channels.
 
 \iftodo
 \section{TODO}
