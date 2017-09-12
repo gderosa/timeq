@@ -27,5 +27,7 @@ if ($ENV{'PDF_PREVIEWER'}) {
 } elsif ($^O =~ /msys/i) {
     # In MSys, sh is available...
     $pdf_previewer = q[sh -c 'start %S'];
+} elsif ($^O == 'linux') {
+    $pdf_previewer = q[xdg-open %O %S];
 }
-# Else keep whatever latexmk defaults for Linux or MacOS
+# Keep defaults for MacOS
