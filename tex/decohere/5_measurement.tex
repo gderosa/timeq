@@ -283,22 +283,22 @@ follows:\footnote{
   Given a (Borel) $\sigma$-algebra $\mathcal{B}(\mathbb{R})$ of subsets of $\mathbb{R}$,
   and the space $\mathcal{F}(\hilb{H})$ of positive, self-adjoint operators on a Hilbert space,
   a \term{positive operator-valued measure} (\term{POVM})
-  is a map $F: \mathcal{B}(\mathbb{R}) \rightarrow \mathcal{F}(\hilb{H})$
+  is a map $E: \mathcal{B}(\mathbb{R}) \rightarrow \mathcal{F}(\hilb{H})$
   such that
   \begin{itemize}
-    \item $F(\mathbb{R}) = \idop$ (completeness)
-    \item $F\qty(\bigcup\limits_{n} \Delta_n) = \sum\limits_{n} F\qty(\Delta_n)$ (additivity) 
+    \item $E(\mathbb{R}) = \idop$ (completeness)
+    \item $E\qty(\bigcup\limits_{n} \Delta_n) = \sum\limits_{n} E\qty(\Delta_n)$ (additivity) 
   \end{itemize}
   where $\setof{\Delta_n}$ is a countable family of disjoint sets in
   $\mathcal{B}(\mathbb{R})$.
 \end{definition}
 
-It's worth noting that the reverse reasoning is always possible,
-but not uniquely:
-given a POVM $\setof{E_a}$, operators $M_a$
+It's worth noting that,
+given a POVM $E$, operators $M$
 suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
-can always be found \parencite[Sec. 3.1]{PreskillNotes}
-but then
+and following generalization
+can always be found \parencite[Sec. 3.1]{PreskillNotes},
+but not uniquely, in the sense that
 $UM_a$ are also valid
 for any unitary operator $U$.
 
@@ -309,13 +309,7 @@ with outcome $a$
   \leftrightarrow
   \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
 \]
-in fact undetermined.
-
-In Copenhagen terms, the wave function does not collapse anymore
-in a well defined state
-(or it's not determined by this formulation),
-even after a measurement with a
-well-defined outcome.
+in fact \emph{undetermined}.
 
 \subsection{Quantum channels and Kraus operators}
 
