@@ -202,12 +202,6 @@ where we have defined:
 \end{align*}
 with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
 
-If we compare \eqref{eq:qubit_gen_measurement}
-with \eqref{eq:qubit_ortho_measurement},
-we see that operators $M_{\pm}$
-are a generalization of projectors $E_{0,1}$,
-but are not projectors on eigenspaces themselves.
-
 After measurement, system $A$ is ``prepared''
 (up to a normalization factor)
 in one of the states $M_{\pm}\ket{\psi}$,
@@ -216,9 +210,10 @@ that are not necessarily orthogonal.
 Moreover, $M_+$ and $M_-$ are not generally idempotent,
 therefore if we repeat the measurement we don't generally
 obtain the same result (and don't leave the system $A$ in the same state).
+This is a fundamental difference with projective measurement.
 
 Besides this particular example, $M_+$ and $M_-$ are not even necessarily
-self-adjoint, and we can see that, while $M$ generalise the projector $E$
+self-adjoint, and we can see that, while $M$ generalise the projector $P$
 in terms of ``collapsing'' (or ``preparing'') the system under measurement,
 in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
   Such distinction is inessential for a projector $P$,
@@ -241,14 +236,12 @@ and \eqref{eq:qubit_gen_measurement} with
   \,\text{.}
 \end{equation}
 
-Let's also define
+So, let's define
 \[
-  E_a = M^{\dagger}M \,\text{,}
+  E_a = M^{\dagger}M \,\text{.}
 \]
-hence emphasising the comparison with the projectors in the
-Von Neumann measurement \eqref{eq:measurement_entangled}.
 
-With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
+All the following holds \parencite[Sec. 3.1]{PreskillNotes}:
 \begin{enumerate}
   \item 
     Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
@@ -273,10 +266,32 @@ With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
 \end{enumerate}
 
 This partition of the identity by positive operators
-as expressed in \ref{listitem:POVM} \eqref{eq:POVM} is called
+as expressed in \eqref{eq:POVM} is called
 \term{positive operator-valued measure}, or \term{POVM}.
 It generalises the \term{projector-valued measure} (PVM)
 found in Von Neumann's theory.
+
+For the sake if simplicity, we're referring to the finite dimensional case,
+but the above can be extened to inifinite dimensions and continuous spectra,
+where the decomposition of the identity can be expressed as
+$\int_{-\infty}^{\infty} dx M^{\dagger}(x)M(x) = \idop $.
+A more abstract and general definition of POVM is as
+follows:\footnote{
+  See e.g. \cite{BeneduciPhD, Berberian} --- the level of generalization may vary.
+}
+\begin{definition}
+  Given a (Borel) $\sigma$-algebra $\mathcal{B}(\mathbb{R})$ of subsets of $\mathbb{R}$,
+  and the space $\mathcal{F}(\hilb{H})$ of positive, self-adjoint operators on a Hilbert space,
+  a \term{positive operator-valued measure} (\term{POVM})
+  is a map $F: \mathcal{B}(\mathbb{R}) \rightarrow \mathcal{F}(\hilb{H})$
+  such that
+  \begin{itemize}
+    \item $F(\mathbb{R}) = \idop$ (completeness)
+    \item $F\qty(\bigcup\limits_{n} \Delta_n) = \sum\limits_{n} F\qty(\Delta_n)$ (additivity) 
+  \end{itemize}
+  where $\setof{\Delta_n}$ is a countable family of disjoint sets in
+  $\mathcal{B}(\mathbb{R})$.
+\end{definition}
 
 It's worth noting that the reverse reasoning is always possible,
 but not uniquely:
