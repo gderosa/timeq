@@ -85,11 +85,11 @@ the probability of an outcome $a$ is
 \begin{multline}\label{eq:measurement_probability}
   \Pr(a) = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} =
     \sum_{b,c}
-      \qty(\bra{\psi}E_{b}\ox\bra{b})
+      \qty(\bra{\psi}P_{b}\ox\bra{b})
       \qty\Big(\idop\ox\ketbra{a})
-      \qty(E_{c}\ket{\psi}\ox\ket{c}) = \\
-    \sum_{b,c}\qty\Big(\expval{E_bE_c}{\psi} \braket{b}{a} \braket{a}{c}) =
-    \expval{E_a}{\psi}
+      \qty(P_{c}\ket{\psi}\ox\ket{c}) = \\
+    \sum_{b,c}\qty\Big(\expval{P_bP_c}{\psi} \braket{b}{a} \braket{a}{c}) =
+    \expval{P_a}{\psi}
 \end{multline}
 which shows that the Born's rule has been ``transfered'', from the system being
 measured, to the measurement device and therefore the
@@ -102,8 +102,8 @@ If the measurement apparatus is observed in state $\ket{a}$
 then the system being measured is in state $E_{a}\ket{\psi}$
 or, in normalized form:
 \begin{equation}\label{eq:normalized_collapse}
-  \ket{\psi^\prime_a} \eqdef \frac{E_{a}\ket{\psi}}{\norm{E_{a}\ket{\psi}}}
-    = \frac{E_{a}\ket{\psi}}{\sqrt{\expval{E_a}{\psi}}} \,\text{.}
+  \ket{\psi^\prime_a} \eqdef \frac{P_{a}\ket{\psi}}{\norm{P_{a}\ket{\psi}}}
+    = \frac{P_{a}\ket{\psi}}{\sqrt{\expval{P_a}{\psi}}} \,\text{.}
 \end{equation}
 
 This is the \term{wavefunction collapse} \emph{derived} in terms of a unitary
@@ -132,8 +132,8 @@ By using both \eqref{eq:measurement_probability} and \eqref{eq:normalized_collap
 and the definition of the density operator for the initial pure state
 $\rho = \ketbra{\psi}$:
 \[
-  \rho^{\prime} = \sum_a \Pr(a) \ketbra{\psi^{\prime}_a} = \sum_a E_a \ketbra{\psi} E_a
-    = \sum_a E_a \rho E_a \,\text{.}
+  \rho^{\prime} = \sum_a \Pr(a) \ketbra{\psi^{\prime}_a} = \sum_a P_a \ketbra{\psi} P_a
+    = \sum_a P_a \rho P_a \,\text{.}
 \]
 So, the initial pure state $\rho$ is transformed by the measurement process into a mixed one.
 It is said that the initial, coherent superposition of eigenstates represented by $\rho = \ketbra{\psi}$
@@ -142,7 +142,7 @@ It is said that the initial, coherent superposition of eigenstates represented b
 
 It can be proven that the transformation
 \begin{equation}\label{eq:irreversible_measurement}
-  \rho \rightarrow \sum_a E_a \rho E_a
+  \rho \rightarrow \sum_a P_a \rho P_a
 \end{equation}
 is also valid in the more general case of $\rho$ being a mixed state before the measurement
 ---in this case, it's transformed into another mixed state,
