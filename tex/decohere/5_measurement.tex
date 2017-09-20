@@ -27,7 +27,7 @@ on each subsystem~\parencite[Ch. 3]{PreskillNotes}.
 
 \subsection{Projective measurement (Von Neumann)}
 
-Let's consider a \term{complete}, \term{othogonal} set of $N$ projectors
+Let's consider a \term{complete}, \term{orthogonal} set of $N$ projectors
 $P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$
 of the system being measured;
 by definition they have the properties:
@@ -91,7 +91,7 @@ the probability of an outcome $a$ is
     \sum_{b,c}\qty\Big(\expval{P_bP_c}{\psi} \braket{b}{a} \braket{a}{c}) =
     \expval{P_a}{\psi}
 \end{multline}
-which shows that the Born's rule has been ``transfered'', from the system being
+which shows that the Born's rule has been ``transferred'', from the system being
 measured, to the measurement device and therefore the
 \eqref{eq:unitary_measurement} is a correct description of measurement.
 
@@ -106,7 +106,7 @@ or, in normalized form:
     = \frac{P_{a}\ket{\psi}}{\sqrt{\expval{P_a}{\psi}}} \,\text{.}
 \end{equation}
 
-This is the \term{wavefunction collapse} described in terms of a unitary
+This is the \term{wave function collapse} described in terms of a unitary
 transformation \eqref{eq:unitary_measurement}
 acting on the system + detector compound system and describing
 the measurement process
@@ -127,7 +127,7 @@ as it still needs to be postulated for the measurement apparatus.
 Finally, if the measurement apparatus is not observed,
 therefore an outcome $a$ is not known,
 the system after measurement is in a statistical mixture
-of ``all possible collapses'' weighted on the probabilty $\Pr(a)$.
+of ``all possible collapses'' weighted on the probability $\Pr(a)$.
 By using both \eqref{eq:measurement_probability} and \eqref{eq:normalized_collapse},
 and the definition of the density operator for the initial pure state
 $\rho = \ketbra{\psi}$:
@@ -174,28 +174,23 @@ able to ``measure'' it with respect to the fiducial basis
 $\setof{\ket{0}, \ket{1}}$,
 but with respect to another basis, say,
 \begin{equation}\label{eq:pmbasis}
-\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0} \pm \ket{1})} \,\text{.}
+\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_B \pm \ket{1}_B)} \,\text{.}
 \end{equation}
 
 We can rewrite \eqref{eq:qubit_ortho_measurement} as
-\footnote{
-  When subscripts $A$ and $B$ are omitted, it's understood that
-  $\ket{0}$ and $\ket{1}$ are in $\hilb{H}_A$, and
-  $\ket{+}$ and $\ket{-}$ are in~$\hilb{H}_B$.
-}
 \begin{multline}\label{eq:qubit_gen_measurement}
   U: \ket{\psi}_A \ox \ket{0}_B                   \rightarrow \\
   \color{gray}
   \frac{1}{\sqrt{2}} \qty\Big(
-    \alpha\ket{0} \ox \qty(\ket{+}+\ket{-}) +
-    \beta \ket{1} \ox \qty(\ket{+}-\ket{-})
+    \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
+    \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
   )                                               =           \\
   \color{gray}
   \frac{1}{\sqrt{2}} \qty\Big(
-    \qty(\alpha\ket{0} + \beta\ket{1}) \ox \ket{+} +
-    \qty(\alpha\ket{0} - \beta\ket{1}) \ox \ket{-}
+    \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
+    \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
   )                                               \eqdef      \\
-  M_+\ket{\psi}_A \ox \ket{+}_A + M_-\ket{\psi}_A \ox \ket{-}_B
+  M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
   \,\text{,}
 \end{multline}
 where we have defined:
@@ -205,7 +200,7 @@ where we have defined:
   &
   M_- \repr \frac{1}{\sqrt{2}}\mqty(\dmat[0]{1, -1})
 \end{align*}
-with respect to the basis $\setof{\ket{0}, \ket{1}}_A$.
+with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
 
 If we compare \eqref{eq:qubit_gen_measurement}
 with \eqref{eq:qubit_ortho_measurement},
@@ -213,7 +208,7 @@ we see that operators $M_{\pm}$
 are a generalization of projectors $E_{0,1}$,
 but are not projectors on eigenspaces themselves.
 
-After measurement, sistem $A$ is ``prepared''
+After measurement, system $A$ is ``prepared''
 (up to a normalization factor)
 in one of the states $M_{\pm}\ket{\psi}$,
 that are not necessarily orthogonal.
@@ -223,7 +218,7 @@ therefore if we repeat the measurement we don't generally
 obtain the same result (and don't leave the system $A$ in the same state).
 
 Besides this particular example, $M_+$ and $M_-$ are not even necessarily
-self-adjoint, and we can see that, while $M$ generalize the projector $E$
+self-adjoint, and we can see that, while $M$ generalise the projector $E$
 in terms of ``collapsing'' (or ``preparing'') the system under measurement,
 in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
   Such distinction is inessential for a projector $P$,
@@ -235,7 +230,7 @@ The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
 or a particularly ``overlapping'' decomposition of the identity,
 because $M_+^{\dagger}M_+ = M_-^{\dagger}M_- = \frac{1}{2}\idop$.
 
-Generalizing to $N$-dimensional Hilbert spaces, we can replace
+Generalising to $N$-dimensional Hilbert spaces, we can replace
 $\setof{\ket{\pm}}$ basis with
 \[
   \setof{\ket{a}, a = 0\ldots N-1}
@@ -250,7 +245,7 @@ Let's also define
 \[
   E_a = M^{\dagger}M \,\text{,}
 \]
-hence emphasizing the comparison with the projectors in the
+hence emphasising the comparison with the projectors in the
 Von Neumann measurement \eqref{eq:measurement_entangled}.
 
 With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
@@ -280,16 +275,16 @@ With this, all the following holds \parencite[Sec. 3.1]{PreskillNotes}:
 This partition of the identity by positive operators
 as expressed in \ref{listitem:POVM} \eqref{eq:POVM} is called
 \term{positive operator-valued measure}, or \term{POVM}.
-It generalizes the \term{projector-valued measure} (PVM)
+It generalises the \term{projector-valued measure} (PVM)
 found in Von Neumann's theory.
 
-It's worth noting that the reverse reaosoning is always possible,
+It's worth noting that the reverse reasoning is always possible,
 but not uniquely:
 given a POVM $\setof{E_a}$, operators $M_a$
 suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
 can always be found \parencite[Sec. 3.1]{PreskillNotes}
 but then
-$UM_a$ are also vaild
+$UM_a$ are also valid
 for any unitary operator $U$.
 
 Therefore, this formulation leaves the state after a measurement
@@ -299,9 +294,9 @@ with outcome $a$
   \leftrightarrow
   \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
 \]
-in fact indetermined.
+in fact undetermined.
 
-In Copenhagen terms, the wavefunction does not collapse anymore
+In Copenhagen terms, the wave function does not collapse anymore
 in a well defined state
 (or it's not determined by this formulation),
 even after a measurement with a
@@ -316,8 +311,8 @@ We have seen so far that:
   may behave like a mixed state when we observe $\hilb{H}_A$ alone
   (Sec. \ref{sec:p_tr}).
 \item
-  An orthogonal measurement of the bipartite system can realize a
-  (nonorthogonal) POVM on $\hilb{H}_A$ alone (Subsec. \ref{subsec:POVM}).
+  An orthogonal measurement of the bipartite system can realise a
+  (non-orthogonal) POVM on $\hilb{H}_A$ alone (Subsec. \ref{subsec:POVM}).
 \end{enumerate}
 Now, how about the evolution of subsystem $A$ alone,
 when the bipartite system as a whole evolve unitarily?
@@ -329,7 +324,7 @@ evolution operator for the whole bipartite system.
 
 The system $A$ alone
 (initially described by the density operator $\rho=\ketbra{\psi}$)
-can be studyied by tracing out $B$
+can be studied by tracing out $B$
 (in the sense of Sec. \ref{sec:p_tr}),
 or equivalently by measuring $B$ in the basis $\setof{\ket{a}}$
 but without recording an outcome $a$, therefore leaving the system
@@ -338,7 +333,7 @@ In either ways, there has:
 \begin{equation}\label{eq:channel}
   \rho \rightarrow \superop{E}(\rho) \eqdef \sum_a M_a \rho M_a^{\dagger}
 \end{equation}
-which generalizes the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
+which generalises the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
 
 The linear map, or ``superoperator'', $\superop{E}$
 is called \term{quantum channel}.\footnote{
@@ -348,7 +343,7 @@ is called \term{quantum channel}.\footnote{
 }
 
 Expressing $\superop{E}$ in terms of operators $M_a$
-satisying the partition of the identity \eqref{eq:POVM}
+satisfying the partition of the identity \eqref{eq:POVM}
 is called
 \term{operator-sum representation} of the quantum channel.
 
@@ -363,7 +358,7 @@ A fundamental comparison with unitary evolution is that
 quantum channels can be \emph{composed} too, but an inverse
 does not generally exists.
 This mathematically corresponds to the concept of \term{semigroup},
-and physically to the \emph{irreveribility} of the process
+and physically to the \emph{irreversibility} of the process
 of entanglement of subsystem $A$ with the environment. In other words,
 there isn't a quantum channel that will bring back an entangled,
 mixed state back to its initial pure state;
