@@ -25,6 +25,105 @@ measurement is performed on a multipartite system,
 it does not necessarily correspond to a projective measurement
 on each subsystem~\parencite[Ch. 3]{PreskillNotes}.
 
+\subsection{Review on projectors}
+
+We shall assume, unless otherwise stated, that all vectors are
+normalized to unity.
+
+For a given observable represented by an operator $A$ with a
+\emph{discrete, non degenerate spectrum}, the probability of the
+outcome $a$ of a
+measurement on a system in the pure state $\ket{\psi}$ is given by
+$$
+\pi_{a} = \norm{\braket{a}{\psi}}^2
+        = \bra{\psi}\ket{a}\bra{a}\ket{\psi}
+        = \mel{\psi}{P_{a}}{\psi}
+$$
+where $P_{a} = \ketbra{a}$ appears as the \term{projector} on the
+one-dimensional eigenspace of  $a$.
+
+If $a$ is degenerate, and $j = 1, \dots, J$ its degeneracy index,
+such probability shall sum over it:
+$$
+\pi_{a} = \sum_{j=1}^{J}\norm{\braket{aj}{\psi}}^2
+        = \sum_{j=1}^{J}\bra{\psi}\ket{aj}\bra{aj}\ket{\psi}
+        = \mel{\psi}{P_{a}}{\psi}
+$$
+where $P_{a} = \sum_{j=1}^{J}\ketbra{aj}$
+still is the projector on the
+($J$-dimensional) eigenspace of $a$.
+
+Generally, the probability that the outcome of a measuremen falls in
+the set of eigenvalues $\sigma = \{a_{1}, \dots, a_{S}\}$ is
+\begin{equation}\label{eq:pi_sigma}
+\pi_{\sigma}  = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\norm{\braket{sj}{\psi}}^2
+              = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\bra{\psi}\ket{sj}\bra{sj}\ket{\psi}
+              = \mel{\psi}{P_{\sigma}}{\psi}
+              ,
+\end{equation}
+where $P_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\ketbra{sj}$
+is once again a projector --- on the ``generalized eigenspace'' spanned by all
+eigenvectors $\{\ket{sj}\}$ above.
+
+
+\subsection[Measure]{Measure\footnote{Not to be confused with \emph{measurement}.}}
+
+\begin{remark}\label{measure_properties}
+  Being $\pi_{\sigma}$ the \emph{probability} of the outcome of a measurement to
+  fall in a given set $\sigma$, it has to be:
+  \begin{enumerate}
+    \item \label{measure_properties:first} $0$ on the empty set
+    \item non negative
+    \item \label{measure_properties:last} \term{additive} on disjoint sets
+    \item equal to $1$ if $\sigma$ includes the whole spectrum of $A$.
+  \end{enumerate}
+\end{remark}
+
+\begin{remark}
+  Properties \ref{measure_properties:first}\dots\ref{measure_properties:last}
+  are the defining properties of a \term{measure} \parencite{EncMath_Measure}.
+\end{remark}
+
+The probability $\pi_{\sigma}$ in \eqref{eq:pi_sigma} is linear with respect to the projector
+$P_{\sigma}$ hence it's not difficult to derive that the same properties in
+\autoref{measure_properties} applies to $P_{\sigma}$, \emph{in the operator sense}.
+In fact, the map $\sigma \subseteq \mathbb{R} \rightarrow P_{\sigma}$
+implicitly defined in~\eqref{eq:pi_sigma} is a \term{projector-valued measure}.
+
+The result is generalized,
+in such a way to include both discrete and continous spectra,
+by the following \cite{VonNeumann, Ballentine}
+\begin{theorem}[spectral resolution]
+  If $A$ is a self-adjoint operator,
+  there is a unique projector-valued measure $E$
+  defined on the Borel sets of $\mathbb{R}$
+  such that
+  \footnote{
+    In \eqref{eq:spectral}, $a$ is a real number (not a set),
+    but it's intended $E$ to be evaluated
+    on the~\emph{interval}~from $-\infty$ to $a$.
+  }
+  \begin{equation}\label{eq:spectral}
+    A=\int_{-\infty}^{\infty}a\, dE(a)
+  \end{equation}
+  and satisfying:
+  \begin{align*}
+    E(\mathbb{R})       & =\mathbf{1},\\
+    E(B_{1}\cap B_{2}) & =E(B_{1})E(B_{2})\,.
+  \end{align*}
+\end{theorem}
+
+In terms of this theorem, the projector in \eqref{eq:pi_sigma} is
+\begin{equation}\label{eq:P_sigma_spectral}
+  P_{\sigma} = E(\sigma) = \int_{a\in\sigma}dE(a)
+\end{equation}
+and $dE(a)$ is
+---informally speaking---
+infinitesimal if $a$ belongs to the continous spectrum,
+finite if $a$ is a discrete eigenvalue
+and zero otherwise.
+
+
 \subsection{Projective measurement (Von Neumann)}
 
 Let's consider a \term{complete}, \term{orthogonal} set of $N$ projectors
