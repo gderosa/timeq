@@ -4,8 +4,7 @@ Consider a \term{bipartite quantum system}
 i.e. a composite system $S$
 made up of two parts, $A$ and~$B$,
 described by their respective Hilbert spaces
-$\hilb{H}_A$ and $\hilb{H}_B$
-(see, for example, \cite{Haroche_Exploring}).
+$\hilb{H}_A$ and $\hilb{H}_B$.
 
 Notably, in \cite{Haroche_Exploring},
 notation does not treat the two spaces
@@ -16,31 +15,28 @@ $$
   \setof{\ket{i_A}} \text{ and } \setof{\ket{\mu_B}}\,
 $$
 with latin and greek indices to label base vectors in the two spaces.
+We will follow such convention unless otherwise specified.
 
 This indicates different physical roles for the two spaces,
 such as the \emph{system of interest} and the surrounding \emph{environment},
 or the \emph{system being measured} and the \emph{measurement apparatus}.
 
-If the two subsystems are independent, all states of $S$ are of the form
+If the two subsystems are prepared independently and not let interact with each other,
+the system is in a \term{product state} or \term{separable state}:
 \begin{equation}\label{eq:separableAB}
-  \ket{\psi_S} = \ket{\psi_A}\otimes\ket{\psi_A}
+  \ket{\psi_S} = \ket{\psi_A}\otimes\ket{\psi_A} \,\text{.}
 \end{equation}
-i.e. they form a strict \emph{subspace} of $\hilb{H}_A\otimes\hilb{H}_B$.
 
 It's worth recalling that in a tensor product space $\hilb{H}_A\otimes\hilb{H}_B$
 not all vectors can be expressed as a tensor product as in \eqref{eq:separableAB}.
-When a vector in a tensor product space
-can be expressed in the form \eqref{eq:separableAB},
-it's said \term{separable} \parencite{Nakahara}.
+However, the following holds:
 
 \begin{proposition}\label{TensorBase}
 The set of tensor products of base vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
 i.e. $$\setof{\ket{i_A} \otimes \ket{\mu_B}}_{i\mu},$$
 is a basis for $\hilb{H}_A \otimes \hilb{H}_B$
 \end{proposition}
-
-In general, given the above property yet the fact that not all states
-in a tensor product space are separable, we can still express any
+Therefore, we can express any
 (generally not separable) state vector of $\hilb{H}_S$
 as a \emph{superposition} of separable base vectors
 \begin{equation}\label{eq:bipartite_expansion}
@@ -50,11 +46,11 @@ meaning that the
 ``total'' $\ket{\psi_A}$ and $\ket{\psi_B}$ don't necessarily exist.
 
 Non separable states are said \term{entangled}.
+
 Physically,
 $\ket{\psi_S}$ contains information
 not only about the results of measurements on $A$ and $B$ separately,
-but also on correlations between these measurements
-\parencite{Haroche_Exploring}.
+but also on correlations between these measurements.
 
 The simplest example of entangled system is given by two two-level systems,
 namely two spin-$\frac{1}{2}$ particles in a singlet state:

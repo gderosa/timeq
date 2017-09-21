@@ -75,6 +75,16 @@ Inverse search: in [Skim](http://skim-app.sourceforge.net):
 
 Cmd+Shift+click on a point in the PDF and you will get at the editor at the corresponding line in source.
 
+#### ...and Okular on Linux
+
+Inverse search: in [Okular](https://okular.kde.org/):
+*Settings* -> *Configure Okular...* -> *Editor*:
+
+* *Editor*: `Custom Text Editor`
+* *Command:* `code --goto %f:%l:%c`
+
+Shift+click on a point in the PDF and you will get the editor at the corresponding line in source.
+
 ### Known conflicts and limitations
 
 #### IDE/editor autobuild
