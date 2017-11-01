@@ -25,7 +25,7 @@ It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
   M_A \otimes \idop_B\, .
 \]
 Its expectation value is
-(using the expansion in eq. \ref{eq:bipartite_expansion},
+(using the expansion in eq. \eqref{eq:bipartite_expansion},
 and the notation of Latin indices for system $A$ and Greek ones for system $B$)
 \begin{multline}\label{eq:exp_subsys}
   \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} =
@@ -113,6 +113,8 @@ Next, we can introduce the \term{reduced density operator}
 of system $A$, which is obtained by \emph{tracing out the environment} B,
 via the partial trace:
 \begin{definition}\label{def:density_A}
+  If $\rho$ is the density operator of a whole bipartite system, composed of two parts $A$ and $B$,
+  the \term{reduced density operator} related to subsystem $A$ is defined as
   \[
     \rho_A = \tr_B(\rho) \, \text{.}
   \]
