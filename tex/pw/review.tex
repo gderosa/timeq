@@ -1,12 +1,18 @@
 \section{Introduction}
 
-Three papers \cite{Lloyd:Time, Marletto:Evolution, Prvanovic}.
+Papers: \cite{Lloyd:Time, Marletto:Evolution, Prvanovic, Maccone:Pauli, RealisticClocks}.
+
+% Extra: \cite{TimeAnyons}.
 
 And an experiment: \cite{Moreva:synthetic,Moreva:illustration}.
+Some theoretical implications of the experiment are reviewed in
+\cite{LeggettGarg+PageWootters}.
+
+And a NEW experiment! \parencite{Moreva_position}.
 
 The basic idea is an additional Hilbert space $\mathcal{H}_T$ where time is an observable
 corresponding to
-a self-adjoint operator whose mathematical properties are the same of position in the
+a self-adjoint operator whose mathematical properties are the same of position  n the
 ordinary Hilbert space of a quantum particle in one dimension.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
@@ -26,46 +32,36 @@ respectively.
 
 \iftodo
 
-\section{Questions and observations on Lloyd's paper}
+\section{Prvanovic and P\&W}
+In \cite{Prvanovic}, essentially the clock observable is the Hamiltonian.
+The two example clocks are an harmonic oscillator and a free particle.
+The harmonic oscillator features discrete time. Generally a time which is
+{bounded from below}
+is consistent with the Big Bang...
 
-With regards to \cite{Lloyd:Time}, section B, \textit{Measurement}.
+Prvanovic uses ``relativisitc'' constants...
 
-\begin{enumerate}
-  \item What is a memory system in quantum mechanics? Search for ``weak measurement'': the ancilla as a memory system (see Wikipedia on weak measurement). It also defines Kraus operators.
-  \begin{itemize}
-    \item Do they mean a non-Markovian system? Look at \cite{MeasurementMarkovian}\dots
-    \item Memory in the sense of the Maxwell daemon?
-    \item
-      Any general theory of quantum memory systems? Fiducial states?
-      Yes, see \ref{sec:qmemory} or most importantly \cite[Ch.~3]{PreskillNotes}.
-    \item memory kernels \cite{CarmichaelOQS2017}
-  \end{itemize}
-  \item ``\emph{the case where a measurement is performed at time t1}'' suggests they are back to time as an external parameter\dots
-\end{enumerate}
+Ciao.
 
-\section{Memory systems (and fiducial state?)}\label{sec:qmemory}
+\section{Analyze latest Moreva experiment with previous ones}
 
-Fiducial state: generally an initial state, "reset", or
-preparation of the system at a well-known, well-defined state
-e.g. a $\ket{000000}$.
+Let's consider a photon, as a two level system with its two linear polarization
+sates $\ket{H}, \ket{V}$;
+and the Hamiltonian
+\begin{equation}
+  \mathcal{H}=i\hbar\omega\qty(\ket{H}\ket{V}-\ket{V}\ket{H})\,\text{.}
+\end{equation}
+There has:
+\[
+  \mathcal{H}^n \ket{H, V} = \begin{cases}
+      \hbar^n\omega^n\ket{H, V} &\text{for n even} \\
+    -i\hbar^n\omega^n\ket{V, H} &\text{for n odd}
+  \end{cases}
+\]
 
-Besides, and perhaps better than the below, see \cite[Ch.~3]{PreskillNotes},
-which cover and expands topics discussed in \cite{open_systems}. Chapter 2
-of Preskill \cite{PreskillNotes} also is insightful, particularly
-subsection 2.3.1 The bipartite quantum system --- ancillary systems. Chapter 3
-also defines Kraus operators. We believe that \cite{Lloyd:Time} should
-have cited \cite{PreskillNotes} --- although they're just \emph{lecture notes}.
+\url{http://physweb.bgu.ac.il/COURSES/PHYSICS3_physics/CLASS_ymeir/polarization.pdf}
 
-\subsection{TODO: get some content from the folowing scans in source tree}
-\begin{verbatim}
-%\clearpage\includegraphics[width=\linewidth]{img/pw/qmem/1.jpg}
-%\clearpage\includegraphics[width=\linewidth]{img/pw/qmem/2.jpg}
-%\clearpage\includegraphics[width=\linewidth]{img/pw/qmem/3.jpg}
-%\clearpage\includegraphics[width=\linewidth]{img/pw/qmem/4.jpg}
-%\clearpage\includegraphics[width=\linewidth]{img/pw/qmem/nonmarkov.jpg}
-\end{verbatim}
-
-\section{Entanglement and decoherence}
+\section{Entanglement and decoherence (Arrow of time)}
 See also \cite{EntanglementVsDecoherence}.
 
 Decoherence is an irreversible process, it also happens in measurement.
@@ -77,17 +73,30 @@ So, there seems to be a contradiction: is entanglement ``decreasing''
 (i.e. destroyed by decoherence) with time
 or increasing?
 
-Perhaps we can avoid the contradiction saying that
+We can avoid the contradiction saying that
 entanglement between two finite systems is
 destroyed while the entanglement of each of them with the universe
-is increasing?
-
-Or in other words, the entanglement of two clocks with the rest of universe
-is increasing at the expenses of the entanglement between them?
-
-And maybe we can conclude that two systems  of which we successfully
-protect the entanglement from decoherence are not good clocks?
-
-Or perhaps there's no relation\dots
+is increasing.
 
 \fi
+
+\iftodo
+\section{Further TODOs}
+
+\cite{HarmonicClocks} concludes ``Classical clock can be described by an Hamiltonian linear in momentum''\dots
+like in relativity?
+
+TODO: use the harmonic oscillator in \cite{HarmonicClocks}
+as a PaW clock for the same packet that is measured in
+Ruschhaupt's detector model.
+Therein, fading wave function: is minus derivative an event?
+L4 normalized?
+
+Other systems of interest: decays. Prvanovic new.
+
+TQM Book: time of residence: applicable to qubits, therefore Moreva experiment.
+
+https://arxiv.org/abs/1708.04302 majorization, thermo.
+
+\fi
+

@@ -1,4 +1,4 @@
-\section{Generalized measurement and quantum channels}
+\section{Standard measurement and generalizations}
 
 Decoherence,
 or more generally the interaction of a system with the environment,
@@ -66,6 +66,42 @@ is once again a projector --- on the ``generalized eigenspace'' spanned by all
 eigenvectors $\{\ket{sj}\}$ above.
 
 
+
+
+%%%%%%%%%%% MOVE TO SOMEWHERE HERE %%%%%%%%%%%%%%%%%%
+
+Looking back at \eqref{eq:expvalA_rho},
+it is valid for \emph{any} hermitean operator,
+therefore it's also valid for projectors.
+
+Hence, can replace $A$ with the projector $P_{\sigma}$,
+associated to the set of eigenvalues $\sigma$
+according to \eqref{eq:pi_sigma} and \eqref{eq:P_sigma_spectral}.
+
+This is of particular interest
+because its mean value equates the probability that the outcome of a measurement
+falls in a given subset of the spectrum of a given observable.
+So we can derive:
+
+\begin{proposition}\label{probability_rho}
+  The probability $\pi_{\sigma}$
+  that the outcome of a measurement of the observable $A$
+  on the system described by the state operator $\rho$
+  falls in the set $\sigma$
+  is given by:
+  \begin{equation}\label{eq:probability_rho}
+    \pi_{\sigma} = \expval{P_{\sigma}} = \tr(P_{\sigma}\rho)
+  \end{equation}
+  with $P_{\sigma}$ defined as in \eqref{eq:pi_sigma}
+  or, more generally, in \eqref{eq:P_sigma_spectral}.
+\end{proposition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
 \subsection[Measure]{Measure\footnote{Not to be confused with \emph{measurement}.}}
 
 \begin{remark}\label{measure_properties}
@@ -92,7 +128,7 @@ implicitly defined in~\eqref{eq:pi_sigma} is a \term{projector-valued measure}.
 
 The result is generalized,
 in such a way to include both discrete and continous spectra,
-by the following \cite{VonNeumann, Ballentine}
+by the following \parencite{VonNeumann, Ballentine}
 \begin{theorem}[spectral resolution]
   If $A$ is a self-adjoint operator,
   there is a unique projector-valued measure $E$
@@ -210,7 +246,7 @@ transformation \eqref{eq:unitary_measurement}
 acting on the system + detector compound system and describing
 the measurement process
 (instead of just being postulated as part of the Born's rule).
-See \cite[sec. 2.5.4, \emph{Decoherence models versus Copenhagen interpretation}]{Haroche_Exploring},
+See \cite[\S 2.5.4, \emph{Decoherence models versus Copenhagen interpretation}]{Haroche_Exploring},
 for a closer conceptual examination.
 
 Indeed,
@@ -318,7 +354,7 @@ in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
   Such distinction is inessential for a projector $P$,
   as $P^{\dagger}P = P^2 = P$.
 }, particularly in the sense of \term{decomposition of the identity}:
-$\sum_a M_a^{\dagger}M_a = \idop$ \parencite[Sec. 3.1]{PreskillNotes}.
+$\sum_a M_a^{\dagger}M_a = \idop$ \parencite[\S 3.1]{PreskillNotes}.
 
 The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
 or a particularly ``overlapping'' decomposition of the identity,
@@ -340,7 +376,7 @@ So, let's define
   E_a = M^{\dagger}M \,\text{.}
 \]
 
-All the following holds \parencite[Sec. 3.1]{PreskillNotes}:
+All the following holds \parencite[\S 3.1]{PreskillNotes}:
 \begin{enumerate}
   \item 
     Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
@@ -396,7 +432,7 @@ It's worth noting that,
 given a POVM $E$, operators $M$
 suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
 and following generalization
-can always be found \parencite[Sec. 3.1]{PreskillNotes},
+can always be found \parencite[\S 3.1]{PreskillNotes},
 but not uniquely, in the sense that
 $UM$ are also valid
 for any unitary operator $U$.
@@ -409,106 +445,3 @@ with outcome $a$
   \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
 \]
 in fact \emph{undetermined}.
-
-\subsection{Quantum channels and Kraus operators}
-
-We have seen so far that:
-\begin{enumerate}
-\item
-  A pure state of the bipartite system $\hilb{H}_A\ox\hilb{H}_B$
-  may behave like a mixed state when we observe $\hilb{H}_A$ alone
-  (Sec. \ref{sec:p_tr}).
-\item
-  An orthogonal measurement of the bipartite system can realise a
-  (non-orthogonal) POVM on $\hilb{H}_A$ alone (Subsec. \ref{subsec:POVM}).
-\end{enumerate}
-Now, how about the evolution of subsystem $A$ alone,
-when the bipartite system as a whole evolve unitarily?
-
-In fact, the measurement described in Subsec. \ref{subsec:POVM}
-is a particular case of generalized evolution, and the unitary operator $U$
-in \eqref{eq:gen_measurement} is a particular example of
-evolution operator for the whole bipartite system.
-
-The system $A$ alone
-(initially described by the density operator $\rho=\ketbra{\psi}$)
-can be studied by tracing out $B$
-(in the sense of Sec. \ref{sec:p_tr}),
-or equivalently by measuring $B$
-but without recording an outcome, therefore leaving the system
-in a statistical mixture.
-In either ways, there has:
-\begin{equation}\label{eq:channel}
-  \rho \rightarrow \superop{E}(\rho) \eqdef \sum_a M_a \rho M_a^{\dagger}
-\end{equation}
-which generalises the unitary evolution $\rho \rightarrow U \rho U^{\dagger}$.
-
-The linear map, or ``superoperator'',\footnote{
-  A \emph{superoperator} is a linear map that associates an operator
-  in a Hilbert space to another operator (instead of a vector to another vector).
-}
-$\superop{E}$
-is called \term{quantum channel}.\footnote{
-  Another name for it is
-  \term{trace-preserving completely positive map},
-  or \term{TPCP map} for short. \parencite[Sec. 3.2]{PreskillNotes}
-}
-The word ``channel'' is drawn from communication theory,
-as the state $\rho$ can be interpreted as being \emph{transmitted}
-through
-a communication link from a sender to another party
-who receives it modified into the state $\superop{E}(\rho)$.
-
-A quantum channel $\superop{E}$
-\begin{enumerate}
-  \item is linear:
-    $\superop{E}(\alpha\rho_1+\beta\rho_2) = \alpha\superop{E}(\rho_1) + \beta\superop{E}(\rho_2)$;
-  \item preserves hermiticity:
-    $\rho = \rho^{\dagger} \implies \superop{E}(\rho) = \superop{E}(\rho)^{\dagger}$;
-  \item preserves positivity:
-    $\rho = \rho^{\dagger} \geq 0 \implies \superop{E}(\rho) \geq 0$;
-  \item preserves trace:
-    $\tr(\superop{E}(\rho)) = \tr(\rho)$.  
-\end{enumerate}
-
-Expressing $\superop{E}$ in terms of operators $M_a$
-satisfying the partition of the identity \eqref{eq:POVM}
-is called
-\term{operator-sum representation} of the quantum channel.
-
-The operators $\setof{M_a}$ are called the \term{Kraus operators}
-of the channel.
-
-Similarly to POVM $\setof{E_a}$, given a particular channel $\superop{E}$,
-the set $\setof{M_a}$ is not uniquely determined, but
-generally exists.
-
-A fundamental comparison with unitary evolution is that
-quantum channels can be \emph{composed} too, but an inverse
-does not generally exists.
-This mathematically corresponds to the concept of \term{semigroup},
-and physically to the \emph{irreversibility} of the process
-of entanglement of subsystem $A$ with the environment. In other words,
-there isn't a quantum channel that will bring back an entangled,
-mixed state back to its initial pure state;
-but a generalized evolution from time $t_0$ to time $t_1$,
-described by $\superop{E}_1$,
-and another from $t_1$ to $t_2$ described by $\superop{E}_2$
-can be combined to describe the evolution from $t_0$ to $t_2$:
-\[
-  \rho \rightarrow \qty(\superop{E}_1 \circ \superop{E}_2) (\rho) =
-  \sum_{\mu,a} N_{\mu} M_a \rho M_a^{\dagger} N_{\mu}^{\dagger}
-  \,\text{.}
-\]
-If we demand that $\superop{E}_1 \circ \superop{E}_2$
-is the identity (or ``superidentity'', should we say),
-in other words that $\superop{E}_2$
-is the \term{inverse} of $\superop{E}_1$,
-we can prove that the channel must be unitary i.e.
-$\superop{E}_1(\rho) = U \rho U^{\dagger}$
-for some unitary evolution operator $U$.
-This excludes decoherence,
-or entanglement with environment from an initial pure state,
-from being reversible.
-See \cite[Sec. 3.2]{PreskillNotes} for a detailed proof,
-and general properties of quantum channels.

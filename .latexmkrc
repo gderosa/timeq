@@ -18,7 +18,7 @@ $out_dir = 'build';
 if ($ENV{'PDF_PREVIEWER'}) {
     # Allow using a OS environment variable to change previewer
     $pdf_previewer = "$ENV{'PDF_PREVIEWER'} \%O \%S";
-} elsif ($^O eq /mswin/i) {
+} elsif ($^O =~ /mswin/i) {
     # On Windows, override the latexmk defaults of "acroread",
     # use OS defaults instead.
     $pdf_previewer = '%S';
@@ -27,7 +27,7 @@ if ($ENV{'PDF_PREVIEWER'}) {
     #
     # For such reason, the above regex does not capture msys. See below
     # for a possible solution.
-} elsif ($^O eq /msys/i) {
+} elsif ($^O =~ /msys/i) {
     # In MSys, sh is available...
     $pdf_previewer = q[sh -c 'start %S'];
 } elsif ($^O eq 'linux') {

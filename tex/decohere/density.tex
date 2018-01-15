@@ -2,44 +2,35 @@
 
 A quantum state (either pure or \term{mixed}),
 is generally described by a \term{density} (or \term{state}) operator $\rho$.
-It's a well known result (see, for example, \cite{open_systems})
-that the expectation value of an observable represented by the operator $A$
-is given in this description by
-\begin{equation}\label{eq:expvalA_rho}
-  \expval{A} = \tr(A\rho)\,.
-\end{equation}
 
-The \eqref{eq:expvalA_rho} is valid for any hermitean operator $A$,
-hence we can replace it with the projector $P_{\sigma}$,
-associated to the set of eigenvalues $\sigma$
-according to \eqref{eq:pi_sigma} and \eqref{eq:P_sigma_spectral},
-which is of particular interest
-because its mean value equates the probability that the outcome of a measurement
-falls in a given subset of the spectrum of a given observable.
-Hence we can derive:
-
-\begin{proposition}\label{probability_rho}
-  The probability $\pi_{\sigma}$
-  that the outcome of a measurement of the observable $A$
-  on the system described by the state operator $\rho$
-  falls in the set $\sigma$
-  is given by:
-  \begin{equation}\label{eq:probability_rho}
-    \pi_{\sigma} = \expval{P_{\sigma}} = \tr(P_{\sigma}\rho)
-  \end{equation}
-  with $P_{\sigma}$ defined as in \eqref{eq:pi_sigma}
-  or, more generally, in \eqref{eq:P_sigma_spectral}.
-\end{proposition}
-
-\subsection{Properties of the density operator}
-\subsubsection{Additivity}
 The general expression for a density operator $\rho$ is
 $$
   \rho = \sum_{k}p_{k}\ketbra{\psi_{k}}
 $$
-with $p_{k}$ non negative and $\sum_{k}p_{k} = 1$.
+with $p_{k}$ non negative and $\sum_{k}p_{k} = 1$;
+where $p_k$ indicates probability of the system to be in state $\ket{\psi_{k}}$.
 
-The condition is not restrictive to prevent proving the following
+For a pure state corresponding to ket $\ket{\psi}$ it reduces to just
+\[
+  \rho_{(\text{pure})} = \ketbra{\psi}\,\text{.}
+\]
+
+It's a well known result (see, for example, \cite{open_systems})
+that the expectation value of an observable represented by the operator $A$
+is given by
+\begin{equation}\label{eq:expvalA_rho}
+  \expval{A} = \tr(A\rho)\,.
+\end{equation}
+
+The \eqref{eq:expvalA_rho} is valid for any hermitean operator $A$. Particularly,
+it's also valid for \emph{projectors} and we will use this
+e.g. in Proposition \ref{probability_rho}.
+
+\subsection{Properties of the density operator}
+\subsubsection{Additivity}
+
+
+We can prove the following
 \begin{proposition}
   Let $A$ be an hermitean operator such that
   $$
@@ -72,6 +63,8 @@ The condition is not restrictive to prevent proving the following
     and so is consequently the operator $A$ itself.
   \end{proof}
 \end{proposition}
+
+The \emph{additivity} property follows immediately:
 
 \begin{corollary}
 If $\tr(A\rho) + \tr(B\rho) = \tr(C\rho)$ for any density operator $\rho$,

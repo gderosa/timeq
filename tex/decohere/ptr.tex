@@ -11,7 +11,7 @@ of using
 Latin indices for subsystem $A$ and Greek ones for subsystem $B$.
 
 As pointed out in
-\cite[sec. 2.3.1]{PreskillNotes}, when we limit our attention to
+\cite[\S 2.3.1]{PreskillNotes}, when we limit our attention to
 just part of a larger system, contrary to the axioms of closed systems:
 \begin{enumerate}
   \item States are not rays.
@@ -25,7 +25,7 @@ It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
   M_A \otimes \idop_B\, .
 \]
 Its expectation value is
-(using the expansion in eq. \ref{eq:bipartite_expansion},
+(using the expansion in eq. \eqref{eq:bipartite_expansion},
 and the notation of Latin indices for system $A$ and Greek ones for system $B$)
 \begin{multline}\label{eq:exp_subsys}
   \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} =
@@ -51,7 +51,7 @@ the generic basis bra in $\hilb{H}_B$,
 that we have eliminated from the \eqref{eq:exp_subsys}, 
 no longer as a linear form $\hilb{H}_B \rightarrow \mathbb{C}$,
 but as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$
-(like if we have added the degrees of freedom asociated
+(like if we have added the degrees of freedom associated
 with the other Hilbert space).
 
 A formal definition can be given in terms of how it acts upon a generic
@@ -110,9 +110,11 @@ This is similar to the ``partial'' $\bra{\mu}$, whose value is a vector in $\hil
 instead of a number.
 
 Next, we can introduce the \term{reduced density operator}
-of system $A$, which is obtained by \emph{tracing out the envirnment} B,
+of system $A$, which is obtained by \emph{tracing out the environment} B,
 via the partial trace:
 \begin{definition}\label{def:density_A}
+  If $\rho$ is the density operator of a whole bipartite system, composed of two parts $A$ and $B$,
+  the \term{reduced density operator} related to subsystem $A$ is defined as
   \[
     \rho_A = \tr_B(\rho) \, \text{.}
   \]
@@ -203,5 +205,5 @@ entangled with the rest (``B'') such that the total system
 $A+B$ is in a pure state.
 \end{proposition}
 
-The above is called \term{purification} (see e.g. \cite[Sec. 2.5]{NielsenChuang}).
+The above is called \term{purification} (see e.g. \cite[\S 2.5]{NielsenChuang}).
 
