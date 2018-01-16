@@ -31,18 +31,43 @@ the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolut
 
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
-\begin{equation}
+\begin{equation}\label{eq:pwHamiltonian}
   \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
 \end{equation}
 while the \term{Wheeler-DeWitt equation} holds:
-\begin{equation}
+\begin{equation}\label{eq:Wheeler-DeWitt}
   \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
 \end{equation}
 describing a \emph{static} universe, where evolution is only
 in terms of relations between parts of a multipartite system
 (a ``clock'' and ``the rest'').
 
+Using the $t$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}
+  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
+    = -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
+Details of this derivation are in the reference aforementioned.
 
+Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those only evolving in time with a phase factor $e^{-i \omega t}$.
+
+Canonical commutation relation holds and can be easily verified
+between $\hat{t}$ and $\hat{\Omega}$
+i.e. $[\hat{t}, \hat{\Omega}] = i$,
+therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+In the bipartite universe, physical kets $\dket{\Psi}$ have a Schmidt decomposition
+made up
+with
+eigenstates of $\hbar\hat{\Omega}$ in $\hilb{H}_T$
+entangled, respectively, with
+eigenstates of $\hat{H}_S$ in $\hilb{H}_T$.
 
 \section{Theoretical developments following Moreva et al. experiment}
 
