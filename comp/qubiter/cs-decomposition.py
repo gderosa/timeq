@@ -34,7 +34,7 @@ init_unitary_mat = np.array([
   [0, 0, 0, 0,-1, 0, 0, 0]
 ], dtype=np.complex_)
 
-
+'''
 init_unitary_mat = np.array([
   [0, 0, 0, 0, 0, 0, 0, 1],
   [0, 0, 0, 0, 0, 0, 1, 0],
@@ -45,7 +45,7 @@ init_unitary_mat = np.array([
   [0, 1, 0, 0, 0, 0, 0, 0],
   [1, 0, 0, 0, 0, 0, 0, 0]
 ], dtype=np.complex_)
-
+'''
 
 emb = CktEmbedder(num_bits, num_bits)
 file_prefix = os.path.dirname(__file__) + '/io_folder/csd_test'
