@@ -16,6 +16,10 @@ from quantum_CSD_compiler.DiagUnitarySEO_writer import *
 from quantum_CSD_compiler.MultiplexorSEO_writer import *
 import pandas as pd
 
+# https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
+from CGateExpander import *
+from SEO_writer import *
+
 num_bits = 3
 #init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
 
@@ -30,18 +34,17 @@ init_unitary_mat = np.array([
   [0, 0, 0, 0,-1, 0, 0, 0]
 ], dtype=np.complex_)
 
-'''
+
 init_unitary_mat = np.array([
-  [1, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 1, 0, 0, 0, 0],
-  [0, 0, 0, 0, 1, 0, 0, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 1],
   [0, 0, 0, 0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1]
+  [0, 0, 0, 0, 0, 1, 0, 0],
+  [0, 0, 0, 0, 1, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 0],
+  [0, 0, 1, 0, 0, 0, 0, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0],
+  [1, 0, 0, 0, 0, 0, 0, 0]
 ], dtype=np.complex_)
-'''
 
 
 emb = CktEmbedder(num_bits, num_bits)
@@ -53,77 +56,39 @@ t.close_files()
 The above code automatically creates an expansion of $U$ into DIAG and MP_Y lines.
 """
 
-exit(0)
 
-# Further decomposition inso real qu-gates
+
+# Gate expansion
+
+# commenting out what seems unnecessary for now...
+
+'''
+# DiagUnitary expander
 num_angles = (1 << num_bits)
 emb = CktEmbedder(num_bits, num_bits)
 rad_angles = list(np.random.rand(num_angles)*2*np.pi)
 wr = DiagUnitarySEO_writer(file_prefix, emb, 'exact', rad_angles)
 wr.write()
 wr.close_files()
-file = file_prefix + '_3_ZLpic.txt'
-with open(file) as f:
-    print(f.read())
-
-"""
-We can check that our exact expansion is correct as follows.
-We can multiply the gates of the expansion using the class SEO_MatrixProduct.
-Call the gate product matpro.prod_arr. Using the angles rad_angles that we stored,
-we can construct the exact diagonal unitary, call it exact_mat.
-Call err the norm of matpro.prod_arr - exact_mat, and print err.
-"""
-
+# Check
 matpro = SEO_MatrixProduct(file_prefix, num_bits)
 exact_mat = DiagUnitarySEO_writer.du_mat(rad_angles)
 err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("diag unitary error=", err)
+'''
 
-"""
-Next, we create English and Picture files containing an expansion of the 4 qubit gate
-  Ry--%---%---%
-This represents a multiplexor matrix. The angles are chosen at random and stored in the variable rad_angles. We then print the Picture file.
-
-"""
-
-num_angles = (1 << (num_bits-1))
+# Multiplexor expander
+num_angles = (1 << num_bits-1)
 emb = CktEmbedder(num_bits, num_bits)
 rad_angles = list(np.random.rand(num_angles)*2*np.pi)
 wr = MultiplexorSEO_writer(file_prefix, emb, 'exact', rad_angles)
 wr.write()
 wr.close_files()
-file = file_prefix + '_3_ZLpic.txt'
-with open(file) as f:
-    print(f.read())
-
-"""
-We can check that our exact expansion is correct as follows.
-We can multiply the gates of the expansion using the class SEO_MatrixProduct.
-Call the gate product matpro.prod_arr.
-Using the angles rad_angles that we stored, we can construct the exact multiplexor matrix,
-call it exact_mat. Call err the norm of matpro.prod_arr - exact_mat, and print err.
-"""
-
+# Check
 matpro = SEO_MatrixProduct(file_prefix, num_bits)
 exact_mat = MultiplexorSEO_writer.mp_mat(rad_angles)
 err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("multiplexor error=", err)
 
-"""
-A moral of the above calculations is that using CSD quantum compiling blindly
-will give a SEO for a quantum Fourier Transform QFT that is exponential
-in the number of qubits $n$.
-And yet we know that Coppersmith came up with an expansion for the QFT that
-is polynomial in $n$. But there is hope: CSD is not a unique decomposition.
-Ref.3 explains how one can coax a CSD compiler to yield Coppersmith's decompostion.
-"""
 
-"""
-Refs.:
-
-    1. R.R. Tucci, A Rudimentary Quantum Compiler(2cnd Ed.) https://arxiv.org/abs/quant-ph/9902062
-
-    2. Qubiter 1.11, a C++ program whose first version was released together with Ref.1 above. Qubiter 1.11 is included in the quantum_CSD_compiler/LEGACY folder of this newer, pythonic version of Qubiter
-
-    3. R.R. Tucci, Quantum Fast Fourier Transform Viewed as a Special Case of Recursive Application of Cosine-Sine Decomposition, https://arxiv.org/abs/quant-ph/0411097
-"""
+#CGateExpander(file_prefix, num_bits)
