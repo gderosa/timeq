@@ -25,13 +25,13 @@ init_unitary_mat = np.array([
   [0, 1, 0, 0, 0, 0, 0, 0],
   [-1,0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 1, 0, 0, 0, 0],
-  [0,, -1, 0, 0, 0, 0, 0],
+  [0, 0,-1, 0, 0, 0, 0, 0],
   [0, 0,-1, 0, 0, 0, 0, 0],
   [0, 0, 0,-1, 0, 0, 0, 0]
 ], dtype=np.complex_)
 
 emb = CktEmbedder(num_bits, num_bits)
-file_prefix = 'io_folder/csd_test'
+file_prefix = os.path.dirname(__file__) + '/io_folder/csd_test'
 t = Tree(True, file_prefix, emb, init_unitary_mat, verbose=False)
 t.close_files()
 
@@ -47,7 +47,7 @@ file = file_prefix + '_3_eng.txt'
 df = pd.read_csv(file, delim_whitespace=True, header=None)
 print(df)
 
-file_prefix = "io_folder/d_unitary_exact_check"
+#file_prefix = "io_folder/d_unitary_exact_check"
 num_bits = 4
 num_angles = (1 << num_bits)
 emb = CktEmbedder(num_bits, num_bits)
@@ -94,7 +94,7 @@ This represents a multiplexor matrix. The angles are chosen at random and stored
 
 """
 
-file_prefix = "io_folder/plexor_exact_check"
+#file_prefix = "io_folder/plexor_exact_check"
 num_bits = 4
 num_angles = (1 << (num_bits-1))
 emb = CktEmbedder(num_bits, num_bits)
