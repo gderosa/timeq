@@ -17,7 +17,19 @@ from quantum_CSD_compiler.MultiplexorSEO_writer import *
 import pandas as pd
 
 num_bits = 3
-init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
+#init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
+
+init_unitary_mat = np.array([
+  [0, 0, 0, 0, 0, 0, 0, 1],
+  [0, 0, 0, 0, 0, 0,-1, 0],
+  [0, 1, 0, 0, 0, 0, 0, 0],
+  [-1,0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 1, 0, 0, 0, 0],
+  [0,, -1, 0, 0, 0, 0, 0],
+  [0, 0,-1, 0, 0, 0, 0, 0],
+  [0, 0, 0,-1, 0, 0, 0, 0]
+], dtype=np.complex_)
+
 emb = CktEmbedder(num_bits, num_bits)
 file_prefix = 'io_folder/csd_test'
 t = Tree(True, file_prefix, emb, init_unitary_mat, verbose=False)
