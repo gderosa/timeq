@@ -90,5 +90,5 @@ exact_mat = MultiplexorSEO_writer.mp_mat(rad_angles)
 err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("multiplexor error=", err)
 
-
+# https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
 #CGateExpander(file_prefix, num_bits)
