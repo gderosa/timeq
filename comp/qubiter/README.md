@@ -7,9 +7,9 @@ I would suggest installing
 [Miniconda](https://conda.io/miniconda.html)
 and accept PATH variable mangling when running the install script.
 
-Then you need to install *numpy*:
+Then you need to install *numpy* and *pandas*:
 ```bash
-conda install numpy
+conda install numpy pandas
 ```
 and a Fortran library e.g.
 ```bash
