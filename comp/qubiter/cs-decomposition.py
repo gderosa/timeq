@@ -20,10 +20,20 @@ import pandas as pd
 from CGateExpander import *
 from SEO_writer import *
 
-num_bits = 3
+num_bits = 5
 #init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
 
-init_unitary_mat = np.array([
+def expand_with_identity(ml, n):
+    # on the right
+    for i in range(len(ml)):
+        ml[i].extend([0]*(n-len(ml)))
+    for i in range(len(ml),n):
+        row = [0]*n
+        row[i] = 1
+        ml.append(row)
+        
+
+init_unitary_mat_l = [
   [0, 0, 0, 0, 0, 0, 0, 1],
   [0, 0, 0, 0, 0, 0,-1, 0],
   [0, 1, 0, 0, 0, 0, 0, 0],
@@ -32,20 +42,15 @@ init_unitary_mat = np.array([
   [0, 0,-1, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 1, 0, 0],
   [0, 0, 0, 0,-1, 0, 0, 0]
-], dtype=np.complex_)
+]
 
-'''
-init_unitary_mat = np.array([
-  [0, 0, 0, 0, 0, 0, 0, 1],
-  [0, 0, 0, 0, 0, 0, 1, 0],
-  [0, 0, 0, 0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 1, 0, 0, 0],
-  [0, 0, 0, 1, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 0, 0, 0, 0],
-  [1, 0, 0, 0, 0, 0, 0, 0]
-], dtype=np.complex_)
-'''
+expand_with_identity(init_unitary_mat_l, 2**num_bits)
+
+init_unitary_mat = np.array(init_unitary_mat_l, dtype=np.complex_)
+
+print(init_unitary_mat)
+
+print(init_unitary_mat.shape)
 
 emb = CktEmbedder(num_bits, num_bits)
 file_prefix = os.path.dirname(__file__) + '/io_folder/csd_test'
@@ -92,3 +97,12 @@ print("multiplexor error=", err)
 
 # https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
 #CGateExpander(file_prefix, num_bits)
+
+
+# IBM
+
+from for_IBM_devices.Qubiter_to_IBMqasm2 import Qubiter_to_IBMqasm2
+import for_IBM_devices.ibm_chip_couplings as ibm
+
+c_to_t = ibm.ibmqx4_edges
+q2i = Qubiter_to_IBMqasm2(file_prefix, num_bits, c_to_t, write_qubiter_files=True)

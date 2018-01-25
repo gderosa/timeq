@@ -9,7 +9,7 @@ and accept PATH variable mangling when running the install script.
 
 Then you need to install *numpy* and *pandas*:
 ```bash
-conda install numpy pandas
+conda install numpy pandas networkx matplotlib
 ```
 and a Fortran library e.g.
 ```bash
