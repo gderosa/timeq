@@ -14,14 +14,18 @@ from FouSEO_writer import *
 from quantum_CSD_compiler.Tree import *
 from quantum_CSD_compiler.DiagUnitarySEO_writer import *
 from quantum_CSD_compiler.MultiplexorSEO_writer import *
+from quantum_CSD_compiler.DiagUnitaryExpander import *
+from quantum_CSD_compiler.MultiplexorExpander import *
+
 import pandas as pd
 
 # https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
 from CGateExpander import *
 from SEO_writer import *
 
-num_bits = 3 # 5
-#init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
+num_bits = 3
+file_prefix = os.path.dirname(__file__) + '/io_folder/csd'
+
 
 def expand_with_identity(ml, n):
     # on the right
@@ -53,7 +57,6 @@ print(init_unitary_mat)
 print(init_unitary_mat.shape)
 
 emb = CktEmbedder(num_bits, num_bits)
-file_prefix = os.path.dirname(__file__) + '/io_folder/csd_test'
 t = Tree(True, file_prefix, emb, init_unitary_mat, verbose=False)
 t.close_files()
 
@@ -61,49 +64,17 @@ t.close_files()
 The above code automatically creates an expansion of $U$ into DIAG and MP_Y lines.
 """
 
-
-
 # Gate expansion
 
-# some expansions may be redundant...
+
+DiagUnitaryExpander(file_prefix, num_bits, 'exact')
 
 
-'''
-# DiagUnitary expander
-num_angles = (1 << num_bits)
-emb = CktEmbedder(num_bits, num_bits)
-rad_angles = list(np.random.rand(num_angles)*2*np.pi)
-wr = DiagUnitarySEO_writer(file_prefix, emb, 'exact', rad_angles)
-wr.write()
-wr.close_files()
-# Check
-matpro = SEO_MatrixProduct(file_prefix, num_bits)
-exact_mat = DiagUnitarySEO_writer.du_mat(rad_angles)
-err = np.linalg.norm(matpro.prod_arr - exact_mat)
-print("diag unitary error=", err)
-'''
-
-exit()
-
-# Multiplexor expander
-file_prefix = file_prefix+'__blah_'
-
-num_angles = (1 << num_bits-1)
-emb = CktEmbedder(num_bits, num_bits)
-rad_angles = list(np.random.rand(num_angles)*2*np.pi)
-rad_angles = [np.pi/4] * num_angles
-rad_angles = [np.pi/6, np.pi/3, np.pi/2, (2/3)*np.pi]
-wr = MultiplexorSEO_writer(file_prefix, emb, 'exact', rad_angles)
-wr.write()
-wr.close_files()
-# Check
-matpro = SEO_MatrixProduct(file_prefix, num_bits)
-exact_mat = MultiplexorSEO_writer.mp_mat(rad_angles)
-err = np.linalg.norm(matpro.prod_arr - exact_mat)
-print("multiplexor error=", err)
+MultiplexorExpander(file_prefix + '_X1', num_bits, 'exact')
 
 # https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
-#CGateExpander(file_prefix, num_bits)
+# Seems redundant
+# CGateExpander(file_prefix + '_X2', num_bits)
 
 
 #  IBM
