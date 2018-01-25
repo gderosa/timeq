@@ -68,6 +68,7 @@ The above code automatically creates an expansion of $U$ into DIAG and MP_Y line
 # some expansions may be redundant...
 
 
+'''
 # DiagUnitary expander
 num_angles = (1 << num_bits)
 emb = CktEmbedder(num_bits, num_bits)
@@ -80,11 +81,18 @@ matpro = SEO_MatrixProduct(file_prefix, num_bits)
 exact_mat = DiagUnitarySEO_writer.du_mat(rad_angles)
 err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("diag unitary error=", err)
+'''
+
+exit()
 
 # Multiplexor expander
+file_prefix = file_prefix+'__blah_'
+
 num_angles = (1 << num_bits-1)
 emb = CktEmbedder(num_bits, num_bits)
 rad_angles = list(np.random.rand(num_angles)*2*np.pi)
+rad_angles = [np.pi/4] * num_angles
+rad_angles = [np.pi/6, np.pi/3, np.pi/2, (2/3)*np.pi]
 wr = MultiplexorSEO_writer(file_prefix, emb, 'exact', rad_angles)
 wr.write()
 wr.close_files()
@@ -95,7 +103,7 @@ err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("multiplexor error=", err)
 
 # https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
-CGateExpander(file_prefix, num_bits)
+#CGateExpander(file_prefix, num_bits)
 
 
 #  IBM
