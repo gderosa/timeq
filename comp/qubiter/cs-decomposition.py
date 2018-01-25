@@ -67,7 +67,6 @@ The above code automatically creates an expansion of $U$ into DIAG and MP_Y line
 
 # commenting out what seems unnecessary for now...
 
-'''
 # DiagUnitary expander
 num_angles = (1 << num_bits)
 emb = CktEmbedder(num_bits, num_bits)
@@ -80,7 +79,6 @@ matpro = SEO_MatrixProduct(file_prefix, num_bits)
 exact_mat = DiagUnitarySEO_writer.du_mat(rad_angles)
 err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("diag unitary error=", err)
-'''
 
 # Multiplexor expander
 num_angles = (1 << num_bits-1)
@@ -96,13 +94,16 @@ err = np.linalg.norm(matpro.prod_arr - exact_mat)
 print("multiplexor error=", err)
 
 # https://github.com/artiste-qb-net/qubiter/blob/master/jupyter-notebooks/gate-expansions.ipynb
-#CGateExpander(file_prefix, num_bits)
+CGateExpander(file_prefix, num_bits)
 
 
 # IBM
 
-from for_IBM_devices.Qubiter_to_IBMqasm2 import Qubiter_to_IBMqasm2
+from for_IBM_devices.Qubiter_to_IBMqasm2 import *
+from ForbiddenCNotExpander import *
+
 import for_IBM_devices.ibm_chip_couplings as ibm
 
 c_to_t = ibm.ibmqx4_edges
+ForbiddenCNotExpander(file_prefix, num_bits, c_to_t)
 q2i = Qubiter_to_IBMqasm2(file_prefix, num_bits, c_to_t, write_qubiter_files=True)
