@@ -65,7 +65,8 @@ The above code automatically creates an expansion of $U$ into DIAG and MP_Y line
 
 # Gate expansion
 
-# commenting out what seems unnecessary for now...
+# some expansions may be redundant...
+
 
 # DiagUnitary expander
 num_angles = (1 << num_bits)
@@ -97,7 +98,7 @@ print("multiplexor error=", err)
 CGateExpander(file_prefix, num_bits)
 
 
-# IBM
+#  IBM
 
 from for_IBM_devices.Qubiter_to_IBMqasm2 import *
 from ForbiddenCNotExpander import *
@@ -106,4 +107,4 @@ import for_IBM_devices.ibm_chip_couplings as ibm
 
 c_to_t = ibm.ibmqx4_edges
 ForbiddenCNotExpander(file_prefix, num_bits, c_to_t)
-q2i = Qubiter_to_IBMqasm2(file_prefix, num_bits, c_to_t, write_qubiter_files=True)
+q2i = Qubiter_to_IBMqasm2(file_prefix + '_X1', num_bits, c_to_t, write_qubiter_files=True)
