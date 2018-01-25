@@ -20,7 +20,7 @@ import pandas as pd
 from CGateExpander import *
 from SEO_writer import *
 
-num_bits = 5
+num_bits = 3 # 5
 #init_unitary_mat = FouSEO_writer.fourier_trans_mat(1 << num_bits)
 
 def expand_with_identity(ml, n):
@@ -44,7 +44,7 @@ init_unitary_mat_l = [
   [0, 0, 0, 0,-1, 0, 0, 0]
 ]
 
-expand_with_identity(init_unitary_mat_l, 2**num_bits)
+#expand_with_identity(init_unitary_mat_l, 2**num_bits)
 
 init_unitary_mat = np.array(init_unitary_mat_l, dtype=np.complex_)
 
@@ -99,7 +99,7 @@ CGateExpander(file_prefix, num_bits)
 
 
 #  IBM
-
+'''
 from for_IBM_devices.Qubiter_to_IBMqasm2 import *
 from ForbiddenCNotExpander import *
 
@@ -108,3 +108,4 @@ import for_IBM_devices.ibm_chip_couplings as ibm
 c_to_t = ibm.ibmqx4_edges
 ForbiddenCNotExpander(file_prefix, num_bits, c_to_t)
 q2i = Qubiter_to_IBMqasm2(file_prefix + '_X1', num_bits, c_to_t, write_qubiter_files=True)
+'''
