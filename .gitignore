@@ -1,2 +1,5 @@
+# Compute output
+comp/qubiter/io_folder/
+
 # MacOS
 .DS_Store
