@@ -77,7 +77,7 @@ from ForbiddenCNotExpander import *
 import for_IBM_devices.ibm_chip_couplings as ibm
 
 #num_bits =5
-c_to_t = ibm.simulator_edges(num_bits)
+c_to_t = None
 
 #expand_with_identity(init_unitary_mat_l, 2**num_bits)
 
