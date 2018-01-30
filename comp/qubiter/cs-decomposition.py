@@ -20,6 +20,7 @@ import pandas as pd
 from CGateExpander import *
 
 num_bits = 3
+num_bits = 2
 file_prefix = os.path.dirname(__file__) + '/io_folder/csd'
 
 
@@ -42,6 +43,13 @@ init_unitary_mat_l = [
   [0, 0,-1, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 1, 0, 0],
   [0, 0, 0, 0,-1, 0, 0, 0]
+]
+
+init_unitary_mat_l = [
+    [0,1,0,0],
+    [0,0,1,0],
+    [0,0,0,1],
+    [1,0,0,0]
 ]
 
 #expand_with_identity(init_unitary_mat_l, 2**num_bits)
