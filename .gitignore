@@ -1,5 +1,6 @@
 # Compute output
 comp/qubiter/io_folder/
+.ipynb_checkpoints/
 
 # MacOS
 .DS_Store
