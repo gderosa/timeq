@@ -1,19 +1,12 @@
 \section{Introduction}
 
-Papers: \cite{Lloyd:Time, Marletto:Evolution, Prvanovic, Maccone:Pauli, RealisticClocks}.
-
-% Extra: \cite{TimeAnyons}.
-
-And an experiment: \cite{Moreva:synthetic,Moreva:illustration}.
-Some theoretical implications of the experiment are reviewed in
-\cite{LeggettGarg+PageWootters}.
-
-And a NEW experiment! \parencite{Moreva_position}.
-
-The basic idea is an additional Hilbert space $\mathcal{H}_T$ where time is an observable
-corresponding to
-a self-adjoint operator whose mathematical properties are the same of position  n the
-ordinary Hilbert space of a quantum particle in one dimension.
+The Page and Wootters model is based on
+an additional Hilbert space $\mathcal{H}_T$,
+where time is an observable
+represented by a self-adjoint operator
+whose properties are similar to the ones of position
+in ordinary quantum mechanics
+\parencite{Lloyd:Time, Maccone:Pauli}.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
@@ -29,6 +22,140 @@ respectively.
   Lorentz transformations as unitary transformations in
   $\mathcal{H}_T \otimes \mathcal{H}_S$.
 \end{remark}
+
+The Page and Wootters mechanism is rooted in the ``problem of time''
+in quantum cosmology.
+In principle, an approriate system (a ``clock'') can be identified in such a way
+to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
+the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolution}.
+
+As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+encompassing both position and time as observables, is given by
+\begin{equation}\label{eq:pwHamiltonian}
+  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
+\end{equation}
+while the \term{Wheeler-DeWitt equation} holds:
+\begin{equation}\label{eq:Wheeler-DeWitt}
+  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+\end{equation}
+describing a \emph{static} universe, where evolution is only
+in terms of relations between parts of a multipartite system
+(a ``clock'' and ``the rest'').
+
+Using the $t$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}
+  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
+    = -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
+Details of this derivation are in the reference aforementioned.
+
+Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those functions evolving in time with a phase factor $e^{-i \omega t}$ only.
+
+Canonical commutation relation holds and can be easily verified
+between $\hat{t}$ and $\hat{\Omega}$
+i.e. $[\hat{t}, \hat{\Omega}] = i$,
+therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+From another point of view, $\hbar\hat{\Omega}$ is the ``hamiltonian'' of $\hilb{H}_T$,
+in that it plays a similar role of $H_S$ in the construction of
+$\hat{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. This dual role doesn't hold
+for $H_S$. It would be interesting to a study relativistic extension of the
+Page and Wootters model that allows, for example, the derivation of the Klein-Gordon
+equation, thus eliminating the asimmetry between
+$\hilb{H}_T$ and $\hilb{H}_S$ (and momentum and energy as well).
+
+In the bipartite universe, physical kets $\dket{\Psi}$ have a Schmidt decomposition
+made up of
+eigenstates of $\hat{\Omega}$ in $\hilb{H}_T$
+entangled, respectively, with
+eigenstates of $\hat{H}_S$ in $\hilb{H}_S$;
+or eigenstates of $\hat{t}$ in $\hilb{H}_T$
+entangled with time-evolved spatial states $\ket{\psi(t)}_S$ in $\hilb{H}_S$
+(according to the evolution that is embedded in $\hat{\mathbb{J}}$):
+\begin{equation}
+  \dket{\Psi} = \int d\mu(\omega) \ket{\omega}_{T}\ox\ket{\psi(\omega)}_{S} = \int dt \ket{t}_{T} \ox \ket{\psi(t)}_{S}\,\text{.} 
+\end{equation}
+In principle, different and less obvious decompositions are possible for other purposes.
+
+\section{One qubit universe: experimental realization and theoretical developments}
+
+The Page and Wootters model has been illustrated experimentally in recent years,
+with a very simple toy universe consisting of just one qubit acting as ``the system'' (or
+``the rest of the universe'' if we will), and the clock being immplemented by another qubit ---
+physically, the polarization states of two photons \parencite{Moreva:synthetic,Moreva:illustration}).
+
+In another experiment by the same authors \parencite{Moreva_position}, $\hilb{H}_S$ is still implemented with 
+polarizations $\ket{H}$ or $\ket{V}$ of a photon, while the clock states in $\hilb{H}_T$
+are given by the \emph{position} of the same photon along the conventional $x$ axis.
+
+The latter is interesting because it implements a continuous time,
+which, among other things, allows identifying a canonically conjugate observable
+$\hat{\Omega}$. Or, conversely, a time operator $\hat{T}$, once $\hat{\Omega}$ is given.
+More precisely, it is impossible to satisfy $[\hat{t}, \hat{\Omega}] = i$
+in a finite-dimension Hilbert space, because the operators
+cannot be both bounded \parencite{Weyl1927}.
+
+On the other hand, one problematic aspect of the experiment with continuous time
+is that
+it relies on \term{photon position} which is another
+still controversial topic (see, for example, \cite{HawtonPhotonPosition}),
+similar, in that regards, to the quest for a quantum time operator that the experiment is trying to solve.
+
+Just like time in quantum mechanics, position coordinates in quantum optics and other field theories
+are (classical) external parameters and not quantum observables. 
+
+However, the experiment in \cite{Moreva_position} verifies the violation of
+\term{Legget-Garg inequalities}, as previously suggested in \cite{LeggettGarg+PageWootters},
+for ``time'' measurement results
+(In our notation, Leggett-Garg inequalities are to $\hilb{H}_T$ what the well known Bell inequalities
+  are to $\hilb{H}_S$).
+This proves the ``quantumness'' of this realization of Page and Wootters time,
+regardless of the explicit expression of the corresponding operator (which, unsurprisingly,
+is not given). It's tempting to infer that the experiment
+rather tests Bell/Leggett-Garg inequalities for photon position.
+
+The first experiment, on the other hand \parencite{Moreva:illustration,Moreva:synthetic},
+uses (uncontroversial)
+two-level quantum systems for both the clock and the rest of the universe.
+While we can't derive a $\hat{t}$ such that $[t, \Omega] = i$
+because of the finite dimension of the space, both $\Omega$
+and $H_S$ are given an explicit expression:
+\begin{align}
+  \Omega            &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_T \\
+  H_S/{\hbar}       &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_S
+  \,\text{,}
+\end{align} 
+as well as a zero-eigenstate of $\mathbb{J}$ (as in eq. \ref{eq:pwHamiltonian}):
+\begin{equation}
+  \dket{\Psi} = \frac{1}{\sqrt{2}}\qty(\ket{H}_T\ket{V}_S-\ket{V}_T\ket{H}_S)
+  \,\text{.}
+\end{equation}
+
+It can be easily verified that the Wheeler-DeWitt condition
+\eqref{eq:Wheeler-DeWitt} is satisfied.
+
+In general, given a clock ($\Omega$), the problem of finding a
+``rest of the universe'' ($H_S$) such that
+$\hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S = 0$
+(and vice versa)
+is not trivial
+(and it's particularly cumbersome in non-relativisitc
+quantum mechanics where we can't avail of negative energies etc.).
+Most literature focuses their examples on clocks only \parencite{Prvanovic,RealisticClocks,HarmonicClocks},
+implicitly relying on the scale of a realistic universe
+in order to have the \eqref{eq:Wheeler-DeWitt} satisfied
+(which was originally derived using General Relativity arguments)
+but missing the opportunity to illustrate the entanglement mechanism in detail,
+which is aimed at, instead, in the present work, to some extent.
+
+\subsection{Overcoming limitations of finite-dimension spaces}
+See \cite{FiniteHilb}.
 
 \iftodo
 
@@ -81,22 +208,34 @@ is increasing.
 \fi
 
 \iftodo
-\section{Further TODOs}
+\section{TODOs}
+
+TODO: \cite{Lloyd:Time} does not only deal with improper eigenstates in $\hilb{H}_T$
+(full evolutions?)
+but also normalized ones (in $\hilb{H}_T$! \emph{``Events''}?)
+
+TODO: \cite{RealisticClocks}.
 
 \cite{HarmonicClocks} concludes ``Classical clock can be described by an Hamiltonian linear in momentum''\dots
 like in relativity?
 
+Extra: \cite{TimeAnyons}.
+
 TODO: use the harmonic oscillator in \cite{HarmonicClocks}
 as a PaW clock for the same packet that is measured in
 Ruschhaupt's detector model.
+
 Therein, fading wave function: is minus derivative an event?
 L4 normalized?
+
+TODO: qubit PW vs Ruschhaupt detector on 2-level system  i.e. \url{https://arxiv.org/pdf/1109.5087.pdf},
+particularly ``EMISSION FROM A TWO-LEVEL SYSTEM''.
 
 Other systems of interest: decays. Prvanovic new.
 
 TQM Book: time of residence: applicable to qubits, therefore Moreva experiment.
 
-https://arxiv.org/abs/1708.04302 majorization, thermo.
+\url{https://arxiv.org/abs/1708.04302} majorization, thermo.
 
 \fi
 

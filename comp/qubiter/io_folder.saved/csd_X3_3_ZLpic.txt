@@ -1,0 +1,108 @@
+NOTA	IBMQASM 2.0;
+NOTA	include "qelib1.inc";
+NOTA	qreg q[5];
+NOTA	creg c[5];
+NOTA	PHAS	-22.499999373880463	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+@---X   |   
+|   Rz  |   
+@---X   |   
+|   @---X   
+@---+---X   
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+@---+---X   
+Rz  |   |   
+|   |   Ry  
+|   @---X   
+|   |   Ry  
+@---+---X   
+|   |   Ry  
+|   @---X   
+|   |   Ry  
+@---+---X   
+NOTA	PHAS	-22.499999373880463	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+@---X   |   
+|   Rz  |   
+@---X   |   
+|   @---X   
+@---+---X   
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+@---+---X   
+Rz  |   |   
+NOTA	PHAS	-67.49999812164138	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+@---X   |   
+|   Rz  |   
+@---X   |   
+|   @---X   
+@---+---X   
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+@---+---X   
+Rz  |   |   
+NOTA	barren node
+Ry  |   |   
+X---@   |   
+Ry  |   |   
+X---@   |   
+NOTA	PHAS	-44.99999874776093	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+|   |   Ry  
+|   @---X   
+|   |   Ry  
+@---+---X   
+|   |   Ry  
+|   @---X   
+|   |   Ry  
+@---+---X   
+NOTA	PHAS	-22.499999373880463	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+@---X   |   
+|   Rz  |   
+@---X   |   
+|   @---X   
+@---+---X   
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+@---+---X   
+Rz  |   |   
+|   Ry  |   
+NOTA	barren node
+|   |   Ry  
+|   @---X   
+|   |   Ry  
+|   @---X   
+NOTA	PHAS	-44.99999874776093	AT	0
+|   |   Rz  
+|   @---X   
+|   |   Rz  
+|   @---X   
+|   Rz  |   
+NOTA	measure q -> c;
