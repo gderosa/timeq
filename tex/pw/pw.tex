@@ -97,7 +97,10 @@ are given by the \emph{position} of the same photon along the conventional $x$ a
 The latter is interesting because it implements a continuous time,
 which, among other things, allows identifying a canonically conjugate observable
 $\hat{\Omega}$. Or, conversely, a time operator $\hat{T}$, once $\hat{\Omega}$ is given.
-More precisely, it is impossible to satisfy $[\hat{t}, \hat{\Omega}] = i$
+More precisely, it is impossible to satisfy
+\begin{equation}\label{eq:canonical_commutation_in_time}
+  [\hat{t}, \hat{\Omega}] = i
+\end{equation}
 in a finite-dimension Hilbert space, because the operators
 cannot be both bounded \parencite{Weyl1927}.
 
@@ -155,12 +158,19 @@ but missing the opportunity to illustrate the entanglement mechanism in detail,
 which is aimed at, instead, in the present work, to some extent.
 
 \subsection{Overcoming limitations of finite-dimension spaces}
-See \cite{FiniteHilb}\footnote{
+This has been tackled, for example in 
+\cite{FiniteHilb}\footnote{
   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
   where $ p = F x F^{\dagger} $,
   it can be easily verified that the correct inverse relation is
   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
-}.
+},
+where it has been shown that the lack of operators satisfying the canonical
+commutation relation \eqref{eq:canonical_commutation_in_time}
+is not essential to build operators representing physical observables
+with the same role of position and momentum (or $t$ and $\hbar\Omega$
+in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model).
+
 
 
 \iftodo
