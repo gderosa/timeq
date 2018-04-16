@@ -24,7 +24,7 @@ to mere (classical) \emph{parameters}. However, consistently to relativistic cov
 time and space coordinates are treated on equal footing. The Page and Wootters model
 offers the opportunity to do the same, but both time and position are operators!
 
-\subsection{Page and Wooters squared}
+\subsection{Page and Wootters squared}
 
 From the \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
 \begin{equation}\label{eq:pw_to_be_squared}
@@ -37,3 +37,11 @@ Squaring the operators on both sides, we have:
 \end{equation}
 where the last equality is due to the ``quantization'' of the relation $E^2 = p^2 c^2 + m_0^2 c^4$
 into $\hat{H}_S^{2} = \hat{p}^2 c^2 + m_0^2 c^4$.
+
+We know from previous sections that in the $\qty{\ket{t}}_T$ basis $\hat{\Omega}$ is represented as
+$-i\hbar\pdv{t}$. We know from standard quantum mechanics that in the $\qty{\ket{x}\ket{y}\ket{z}}_S$
+basis is $\hat{p} \repr -i\hbar\nabla$. Therefore in the product basis the \eqref{eq:pw_squared} yields:
+\begin{equation}\label{eq:proto_kg}
+  -\hbar^2\pdv[2]{t}\Psi = \qty(-\hbar^2\nabla^2 + m_0^2 c^4)\Psi
+\end{equation}
+which, up to some elementary algebra, is the well known \term{Klein-Gordon equation}.
