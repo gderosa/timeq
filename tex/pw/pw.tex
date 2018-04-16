@@ -54,7 +54,7 @@ Details of this derivation are in the reference aforementioned.
 
 Here $\hat{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
-those functions evolving in time with a phase factor $e^{-i \omega t}$ only.
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 Canonical commutation relation holds and can be easily verified
 between $\hat{t}$ and $\hat{\Omega}$
@@ -173,18 +173,18 @@ in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model).
 
 Discrete, bounded position and momentum operators can be derived from
 each other via
-the \term{finite Fourier transform}\footnote{
-  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
-  where $ p = F x F^{\dagger} $,
-  it can be easily verified that the correct inverse relation is
-  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
-}.
+the \term{finite Fourier transform}.
 In our case, we are particularly interested in relating the
 time operator $\hat{t}$ and the ``energy'' operator $\hbar\hat{\Omega}$
 in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
 \eqref{eq:canonical_commutation_in_time} exactly.
 
-It holds \parencite{FiniteHilb}:
+It holds\footnote{
+  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
+  where $ p = F x F^{\dagger} $,
+  it can be easily verified that the correct inverse relation is
+  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+} \parencite{FiniteHilb}:
 \begin{gather}
   \Omega = F t F^{\dagger}\text{;} \quad
   t = F^{\dagger} \Omega F
