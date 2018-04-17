@@ -42,6 +42,20 @@ We know from previous sections that in the $\qty{\ket{t}}_T$ basis $\hat{\Omega}
 $-i\hbar\pdv{t}$. We know from standard quantum mechanics that in the $\qty{\ket{x}\ket{y}\ket{z}}_S$
 basis is $\hat{p} \repr -i\hbar\nabla$. Therefore in the product basis the \eqref{eq:pw_squared} yields:
 \begin{equation}\label{eq:proto_kg}
-  -\hbar^2\pdv[2]{t}\Psi = \qty(-\hbar^2\nabla^2 + m_0^2 c^4)\Psi
+  -\hbar^2\pdv[2]{t}\Psi = \qty(-\hbar^2 c^2 \nabla^2 + m_0^2 c^4)\Psi
 \end{equation}
 which, up to some elementary algebra, is the well known \term{Klein-Gordon equation}.
+
+In standard quantum mechanics (first quantization, relativistic or not)
+\begin{equation}
+  \ket{\psi(t)} = \int \dd{x}\dd{y}\dd{z} \Psi(x,y,z;t) \ket{x}\ox\ket{y}\ox\ket{z} \,\text{.}
+\end{equation}
+In this formulation
+\begin{equation}
+  \dket{\Psi} = \int \dd{x}\dd{y}\dd{z}\dd{t} \Psi(x,y,z,t) \ket{x}\ox\ket{y}\ox\ket{z}\ox\ket{t} \,\text{,}
+\end{equation}
+and $t$ is no longer a classical parameter, but an eigenvalue of the time operator,
+or a label for time basis elements. Please note that, as a function of four variables,
+$\Psi$ is not normalizable i.e. it's not a proper element of
+$\mathcal{L}^2(\mathbb{R}^4)$
+(normalization issues are tackled in \cite[eq. 23 and following]{Lloyd:Time}).
