@@ -68,8 +68,25 @@ The \eqref{eq:proto_kg} can be rearranged and expressed in explicitly covariant 
 \begin{equation}
   \qty[\partial_{\mu}\partial^{\mu} + \qty(\frac{mc}{\hbar})^2]\Psi = 0
 \end{equation}
-with standard relativistic notation. Similarly, the \eqref{eq:pw_squared}
-can be rearranged:
+with standard relativistic notation.
+Similarly
+---at operator level, in the tensor product space---
+the \eqref{eq:pw_squared} can be rearranged:
 \begin{equation}
-  \texttt{todo}
+  \qty[- \hat{\mathrm{P}}_{\mu} \hat{\mathrm{P}}^{\mu} + \qty(\frac{mc}{\hbar})^2]\Psi = 0
+\end{equation}
+with
+\begin{equation}
+\begin{aligned}
+  \hat{\mathrm{P}}_0 &=& \frac{\hbar\hat{\Omega}}{c}  \ox \idop_x   \ox \idop_y   \ox \idop_z \\
+  \hat{\mathrm{P}}_1 &=& \idop_T                      \ox \hat{p}_x \ox \idop_y   \ox \idop_z \\
+  \hat{\mathrm{P}}_2 &=& \idop_T                      \ox \idop_x   \ox \hat{p}_y \ox \idop_z \\
+  \hat{\mathrm{P}}_3 &=& \idop_T                      \ox \idop_x   \ox \idop_y   \ox \hat{p}_z
+\end{aligned}
+\end{equation}
+and the usual relation between contravariant and covariant 4-vectors:
+\begin{equation}
+  a_\mu = \eta_{\nu}^{\mu} a^{\nu} \text{;} \quad
+  \eta = \mathrm{diag}(+1, -1, -1, -1)
+  \text{.}
 \end{equation}
