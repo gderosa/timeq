@@ -54,7 +54,7 @@ Details of this derivation are in the reference aforementioned.
 
 Here $\hat{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
-those functions evolving in time with a phase factor $e^{-i \omega t}$ only.
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 Canonical commutation relation holds and can be easily verified
 between $\hat{t}$ and $\hat{\Omega}$
@@ -83,7 +83,9 @@ entangled with time-evolved spatial states $\ket{\psi(t)}_S$ in $\hilb{H}_S$
 \end{equation}
 In principle, different and less obvious decompositions are possible for other purposes.
 
-\section{One qubit universe: experimental realization and theoretical developments}
+\section[
+  One qubit universe \dots
+]{One qubit universe: experimental realization and theoretical developments}
 
 The Page and Wootters model has been illustrated experimentally in recent years,
 with a very simple toy universe consisting of just one qubit acting as ``the system'' (or
@@ -97,7 +99,10 @@ are given by the \emph{position} of the same photon along the conventional $x$ a
 The latter is interesting because it implements a continuous time,
 which, among other things, allows identifying a canonically conjugate observable
 $\hat{\Omega}$. Or, conversely, a time operator $\hat{T}$, once $\hat{\Omega}$ is given.
-More precisely, it is impossible to satisfy $[\hat{t}, \hat{\Omega}] = i$
+More precisely, it is impossible to satisfy
+\begin{equation}\label{eq:canonical_commutation_in_time}
+  [\hat{t}, \hat{\Omega}] = i
+\end{equation}
 in a finite-dimension Hilbert space, because the operators
 cannot be both bounded \parencite{Weyl1927}.
 
@@ -155,9 +160,45 @@ but missing the opportunity to illustrate the entanglement mechanism in detail,
 which is aimed at, instead, in the present work, to some extent.
 
 \subsection{Overcoming limitations of finite-dimension spaces}
-See \cite{FiniteHilb}.
+
+\epigraph{\textelp{} discreteness in the world is simply the Fourier transform of compactness.}{
+  \emph{Physics and the Integers} \parencite{Tong_Integers}
+}
+
+\noindent{}This has been tackled, for example in
+\cite{FiniteHilb},
+where it has been shown that the lack of operators satisfying the canonical
+commutation relation \eqref{eq:canonical_commutation_in_time}
+is not essential to build operators representing physical observables
+with the same role of position and momentum (or $t$ and $\hbar\Omega$
+in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model).
+
+Discrete, bounded position and momentum operators can be derived from
+each other via
+the \term{finite Fourier transform}.
+In our case, we are particularly interested in relating the
+time operator $\hat{t}$ and the ``energy'' operator $\hbar\hat{\Omega}$
+in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
+\eqref{eq:canonical_commutation_in_time} exactly.
+
+It holds\footnote{
+  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
+  where $ p = F x F^{\dagger} $,
+  it can be easily verified that the correct inverse relation is
+  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+} \parencite{FiniteHilb}:
+\begin{gather}
+  \Omega = F t F^{\dagger}\text{;} \quad
+  t = F^{\dagger} \Omega F
+\end{gather}
+where, in the ``position'' (or \emph{time}) finite eigenbasis,
+\begin{equation}
+  F = \frac{1}{\sqrt{d}} \sum_{m,n=0}^{d-1} \exp[i\frac{2\pi mn}{d}] \ketbra{m}{n}
+\end{equation}
+with $d$ being the finite dimension of the Hilbert space.
 
 \iftodo
+
 
 \section{Prvanovic and P\&W}
 In \cite{Prvanovic}, essentially the clock observable is the Hamiltonian.
@@ -205,9 +246,9 @@ entanglement between two finite systems is
 destroyed while the entanglement of each of them with the universe
 is increasing.
 
-\fi
 
-\iftodo
+
+
 \section{TODOs}
 
 TODO: \cite{Lloyd:Time} does not only deal with improper eigenstates in $\hilb{H}_T$
@@ -237,5 +278,112 @@ TQM Book: time of residence: applicable to qubits, therefore Moreva experiment.
 
 \url{https://arxiv.org/abs/1708.04302} majorization, thermo.
 
-\fi
 
+
+\section{and paths}
+
+Both \cite{YearsleyHalliwell_Clocks} and \cite{Gambini_PW}
+reason in terms of paths and actions, maybe Feynmann stuff
+in following chapter... and maybe conistent historiesapproach can help
+towards linking PaW and ToA?
+
+Also \url{http://quantum.phys.cmu.edu/CHS/CHS_transp.pdf}.
+
+\section{and dwell time}
+
+\cite[\S 5]{TQM2}, \cite{YearsleyHalliwell_Clocks}.
+
+\section{In relation with the \term{time of residence}}
+
+Here we compare \cite{Moreva:synthetic, Moreva:illustration}
+(a Page and Wootters problem)
+with the ``standard'' \term{time of residence}
+treated in \cite[\S 5.5.2]{TQM2},
+the only usable concept since there is no notion of position
+for a qubit.
+
+\section{Comparison with (Kijowski/Aharonov-Bohm) time of arrival}
+
+Time of arrival is derived for non-relativistic \parencite{Delgado_TOA, Delgado_TOA2}
+and relativisitic \parencite{Leon_TOA_R}
+particle.
+
+Kijowski: \cite{Kijowski_Time, Kijowski_Comment}.
+
+A Page and Wootters time of arrival is mentioned in \cite{Gambini_PW}.
+
+Time of arrival and clocks: again, \cite{YearsleyHalliwell_Clocks}.
+Which maybe suggests we should not wory too much of $H\ket{\Psi} = 0$. 
+
+BUT please note \cite{YearsleyHalliwell_Clocks} uses a clock that is
+\emph{coupled} with the system, while in PaW they are ``only'' entangled.
+So their calculation may be unnecessarily complicated.
+Maybe the weakjly coupling case can be used?
+
+\section{In relation to Leggett-Garg inequalities}
+(Also mentioned in \cite{Moreva_position}).
+
+Ref \cite{LeggettGarg+PageWootters}.
+
+But also Lloyd: \url{https://arxiv.org/abs/1608.05672},
+\emph{Decoherent histories approach to the cosmological measure problem}.
+Lindbladt, Markov, Open Systems.
+
+Halliwell, \url{https://arxiv.org/abs/1604.01659}. Ancilla, decay (spontaneous emission?).
+
+A phylosophical object to decoherent histories / Everett (Everett mentioned in Marletto/ref)
+is at
+\url{https://arxiv.org/abs/1603.04845}.
+\section{Detector model}
+
+\cite{TQM2} (Kijowski and Detector) is cited and summarized well in
+\cite{Halliwell_Detector}.
+
+
+
+\section{Can a POVM on a system, if then we see it as part of a bipartite one,
+equivalent to a PVM on the other, entangled, system?}
+
+TODO: backflow effect in both models.
+
+This will show an equivalence of models based on POVM with the Page and Wootters...?
+
+Well, yes.
+
+From \cite{PreskillNotes}, Ch.3 
+\begin{quotation}
+We have seen that
+a pure state of the bipartite system AB may behave like a mixed state
+when we observe subsystem A alone, and that an orthogonal measurement
+of the bipartite system can realize a (nonorthogonal) POVM on A alone.
+\end{quotation}
+
+and
+
+\begin{quotation}
+A POVM in $H_A$ can be realized as a unitary transformation on the tensor
+product $H_A \otimes H_B$, followed by an orthogonal measurement in $H_B$.
+\end{quotation}
+
+The same chapter talks about quantum operations, quantum channels and Kraus opertators.
+
+We might want to look at exponential decay from \url{https://arxiv.org/abs/1704.07236},
+then compare with exponential decay with P and W using Lloyd Giovannetti and Maccone (ref).
+
+\subsection{Purification}
+
+See https://arxiv.org/pdf/quant-ph/0512125.pdf, P-W time as a purifying ancilla
+of the (Kijowski?) time.
+
+\subsection{4-partite universe?}
+\begin{itemize}
+  \item{The system being measured/detected}
+  \item{The Ruschhaupt detector --- which does not measure time, but whose detection happens at a certain time}
+  \item{The Page and Wootters clock, entangled with the system and/or the detector}
+  \item{The rest of the Universe, aka the Environment, aka the Termal Bath or Reservoir}
+\end{itemize}
+
+Can any of the above be identified? If the lab is isolated enough,
+the detector is the only macro object and can act as a Universe/bath/environment/reservoir\dots?
+
+\fi
