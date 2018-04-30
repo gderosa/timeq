@@ -14,12 +14,15 @@ dev:  # "Development" version built by default (with TODOs)
 
 # Continuously build and check source files for
 # changes. See http://mg.readthedocs.io/latexmk.html .
-cont:  # dev only
+cont:
 	latexmk -pvc dev
 
 prod:
 	latexmk -pv prod
 	@echo 'Production pdf out with TODOs removed'
+
+prodc:
+	latexmk -pvc prod
 
 # Clean up
 clean:
