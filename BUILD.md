@@ -18,25 +18,21 @@ Another PDF will be generated, named `prod.pdf`, with TODOs removed, by issuing
 make prod
 ```
 
-You may also compile (and preview) both versions for quick comparison etc.:
-```bash
-make dev prod
-```
-
 ### Continuous build
 
 Run
 ```bash
 make cont
 ```
-to continuously build and monitor files for updates (development only).
+to continuously build and monitor files for updates (developmet).
+
+`make prodc` is also available for continuous build of "production".
 
 ### PDF previewer
 
 In all the above, when available, a default PDF viewer is automatically opened on the generated document.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
-
 
 ### Cleanup
 Cleanup with

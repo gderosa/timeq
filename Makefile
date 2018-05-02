@@ -5,7 +5,9 @@
 # WARNING: Some auto-build plugins enabled in your editor/IDE
 # WARNING: may conflict with use of `make` and `make cont`.
 
-default: dev-pv
+default: dev
+
+cont: devc
 
 dev:
 	latexmk dev
