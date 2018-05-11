@@ -179,7 +179,7 @@ two-level quantum systems for both the clock and the rest of the universe.
 While we can't derive a $\hat{t}$ such that $[t, \Omega] = i$
 because of the finite dimension of the space, both $\Omega$
 and $H_S$ are given an explicit expression:
-\begin{align}
+\begin{align}\label{eq:MorevaOmegaT}
   \Omega            &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_T \\
   H_S/{\hbar}       &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_S
   \,\text{,}
@@ -253,4 +253,15 @@ with technology and engineering to the domain of signal processing. \parencite{F
 
 \subsection{The $1 + 1$ qubit experiment \parencite{Moreva:synthetic, Moreva:illustration}}
 
-In \cite{Moreva:illustration}, the frequency operator $\hat{\Omega} = H_T$
+In \cite{Moreva:illustration}, the frequency operator $\hat{\Omega} = H_T / \hbar$
+is given by the \eqref{eq:MorevaOmegaT}. With respect to the polarization basis
+$\qty{\ket{H}, \ket{V}}$ it assumes the matrix form
+\begin{equation}
+  \hat{\Omega} \repr {
+    i\omega
+    \begin{pmatrix}
+      0 & 1 \\
+      1 & 0
+    \end{pmatrix}
+  }
+\end{equation}
