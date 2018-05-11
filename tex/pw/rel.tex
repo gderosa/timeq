@@ -93,6 +93,35 @@ and the usual relation between contravariant and covariant 4-vectors:
 
 It's tempting to name the \eqref{eq:pwkg} and \eqref{eq:p0123} the \term{Page-Wootters-Klein-Gordon} equation.
 
-\iftodo
-TODO. Now we make a table which is better than Tables \ref{op_comparison_alg} and \ref{op_comparison_J}.
-\fi
+As anticipated, this resolves the asymmetry in Tables \ref{op_comparison_alg} and \ref{op_comparison_J},
+whereas we can write
+{
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{c||c|c|c}
+                                                                                &
+        $\hilb{H}_T$                                                            &
+        $\hilb{H}_S$                                                            &
+        {\footnotesize mass term}                                               \\
+      \hline
+      \hline
+        {\footnotesize spatio-temporal ``positions''}                           &
+        $\hat{t}$                                                               &
+        $\hat{x}$                                                               &
+                                                                                \\
+      \hline
+        {\footnotesize canonically conjugate}                                   & 
+        $\hat{P_0} = \frac{\hbar\hat{\Omega}}{c} = -i\partial_{0}$              &
+        $\hat{P}_{1,2,3} = -i\nabla$                                            &
+                                                                                \\
+      \hline
+        {\footnotesize dynamics}                                                &
+        $\hat{P}_{0}\hat{P}^{0} = -\hbar^2 \partial_{0}\partial^{0}$            &
+        $\hat{P}_{j}\hat{P}^{j} = -\hbar^2 \partial_{j}\partial^{j}$            &
+        $\qty(\frac{mc}{\hbar})^2$
+    \end{tabular}
+    \caption{
+      Operators in the space-time Hilbert spaces.
+    }
+  \end{table}
+}
