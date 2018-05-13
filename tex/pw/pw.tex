@@ -237,7 +237,7 @@ It holds\footnote{
   the correct inverse relation is
   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
 } \parencite{FiniteHilb}:
-\begin{gather}
+\begin{gather}\label{eq:FourierCanonicalRelations}
   \hat{\Omega} = F \hat{t} F^{\dagger}\text{;} \quad
   \hat{t} = F^{\dagger} \hat{\Omega} F
 \end{gather}
@@ -255,7 +255,7 @@ with technology and engineering to the domain of signal processing. \parencite{F
 
 In \cite{Moreva:illustration}, the frequency operator $\hat{\Omega} = H_T / \hbar$
 is given by the \eqref{eq:MorevaOmegaT}. With respect to the polarization basis
-$\qty{\ket{H}, \ket{V}}$ it assumes the matrix form
+$\qty{\ket{H}, \ket{V}}$ it is represented in the the matrix form
 \begin{equation}
   \hat{\Omega} \repr {
     i\omega
@@ -263,5 +263,33 @@ $\qty{\ket{H}, \ket{V}}$ it assumes the matrix form
       0 & 1 \\
       1 & 0
     \end{pmatrix}
-  }
+  } \, \text{.}
 \end{equation}
+By using the \eqref{eq:FourierCanonicalRelations} we can derive the time operator matrix
+in the polarization basis:
+\begin{equation}
+  \hat{T} \repr F^{\dagger} \Omega F
+  =
+  \frac{i\omega}{2}
+  \begin{pmatrix}
+    1 & 1 \\
+    1 & -1
+  \end{pmatrix}
+  \begin{pmatrix}
+    0 & 1 \\
+    1 & 0
+  \end{pmatrix}
+  \begin{pmatrix}
+    1 & 1 \\
+    1 & -1
+  \end{pmatrix}
+  =
+  i\omega
+  \begin{pmatrix}
+    0 & -1 \\
+    1 & 0
+  \end{pmatrix}
+  \,\text{.}
+\end{equation}
+
+Henve we notice that time is not diagonal in the polarization basis.
