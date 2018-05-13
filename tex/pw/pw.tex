@@ -249,7 +249,21 @@ with $d$ being the finite dimension of the Hilbert space.
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
-with technology and engineering to the domain of signal processing. \parencite{FiniteHilb}
+with technology and engineering to the domain of signal processing \parencite{FiniteHilb}.
+In \emph{ordinary} quantum mechanics, the Fourier transform (discrete or continuous)
+is generally used
+to associate wavefunctions in position and momendum space
+(whereas time and frequency are \emph{not} operators),
+while in communication engineering it is used to convert signals
+from the time to the frequency domain and vice versa.
+Thanks to the introduction of the Hilbert space $\hilb{H}_T$,
+the interpretation in terms of time and frequency
+(or time and energy, up to a factor $\hbar$)
+is applicable to quantum theory as well, not only formally
+i.e. not in the sense of a mere operation among (``classical'') parameters;
+but in the sense of conversion between representations of the
+same quantum state vector with respect to different eigenbasis,
+in full analogy with position and momentum in $\hilb{H}_S$.
 
 \subsection{The $1 + 1$ qubit experiment \parencite{Moreva:synthetic, Moreva:illustration}}
 
@@ -292,4 +306,4 @@ in the polarization basis:
   \,\text{.}
 \end{equation}
 
-Henve we notice that time is not diagonal in the polarization basis.
+Hence we notice that time is not diagonal in the polarization basis.
