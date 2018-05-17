@@ -233,19 +233,23 @@ in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
 It holds\footnote{
   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
   it can be easily verified that,
-  if $ p = F x F^{\dagger} $,
+  if $ \hat{p} = \hat{F} x \hat{F}^{\dagger} $,
   the correct inverse relation is
-  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+  $ x = \hat{F}^{\dagger} p \hat{F}$ and not $ -x = \hat{F} p \hat{F}^{\dagger} $.
 } \parencite{FiniteHilb}:
 \begin{gather}\label{eq:FourierCanonicalRelations}
-  \hat{\Omega} = F \hat{t} F^{\dagger}\text{;} \quad
-  \hat{t} = F^{\dagger} \hat{\Omega} F
+  \hat{\Omega} = \hat{F} \hat{T} \hat{F}^{\dagger}\text{;} \quad
+  \hat{T} = \hat{F}^{\dagger} \hat{\Omega} \hat{F}
 \end{gather}
 where, in the ``position'' (or \emph{time}) finite eigenbasis,
 \begin{equation}
-  F = \frac{1}{\sqrt{d}} \sum_{m,n=0}^{d-1} \exp[i\frac{2\pi mn}{d}] \ketbra{m}{n}
+  \hat{F} = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
 \end{equation}
-with $d$ being the finite dimension of the Hilbert space.
+while in the frequency eigenbasis
+\begin{equation}
+  \hat{F}^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\mu,\nu=0}^{N-1} \exp[-i\frac{2\pi \mu\nu}{N}] \ketbra{\mu}{\nu} \, \text{,}
+\end{equation}
+with $N$ being the finite dimension of the Hilbert space.
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
