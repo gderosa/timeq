@@ -9,8 +9,13 @@ default: dev
 
 cont: devc
 
+view: devv
+
 dev:
 	latexmk dev
+
+devv:
+	latexmk -pv dev
 
 devc:
 	latexmk -pvc dev
@@ -19,6 +24,9 @@ devc:
 
 prod:
 	latexmk prod
+
+prodv:
+	latexmk -pvc prod
 
 prodc:
 	latexmk -pvc prod

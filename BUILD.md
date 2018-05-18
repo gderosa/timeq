@@ -30,7 +30,7 @@ to continuously build and monitor files for updates (developmet).
 
 ### PDF previewer
 
-In all the above, when available, a default PDF viewer is automatically opened on the generated document.
+In  the above, when available, a default PDF viewer is automatically opened on the generated document.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
