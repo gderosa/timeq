@@ -313,6 +313,21 @@ $\qty{\ket{H}, \ket{V}}$ it is represented in the the matrix form
     \end{pmatrix}
   } \, \text{.}
 \end{equation}
+The Hamiltonian in $\hilb{H}_S$, in that particular experiment, is represented as
+\begin{equation}
+  \hat{H}_S \repr {
+    i\hbar\omega
+    \begin{pmatrix}
+      0 & 1 \\
+     -1 & 0
+    \end{pmatrix}
+  } \, \text{,}
+\end{equation}
+with respect to horizontal/vertical polarization \emph{of the second photon},
+acting as ``the rest of the universe''.
+There is no particular physical reason for being $H_S = H_T$
+(in principle they could even act on spaces of different dimensionality)
+other than simplicity of experimental realization.
 
 The spectrum of $\hat{\Omega}$ is $\qty{-\omega, \omega}$.
 Therefore, it's $N=2$ and $\delta\Omega = 2\omega$ in the sense of
@@ -368,15 +383,15 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
   \,\text{.}
 \end{equation}
 
-Therefore the clock can measure only two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$.
+Therefore the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$.
 
-Only if $\hat{T}$ is diagonal in a certain basis,
+Only if $\hat{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
 can be interpreted as a ``time evolution'':
 \begin{equation}
   \dket{\Psi}
-  \repr_{\mathcal{E}_T}
+  \repr_{\qty{t} \ox \qty{H,V}}
   \qty{\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1)}
 \end{equation}
 or, in general:
@@ -394,3 +409,17 @@ or, in general:
   } \,\text{,}
 \end{equation}
 with $N_{S}$ and $N_{T}-1$ being the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
+
+In $\hilb{H}_T \ox \hilb{H}_S$, if $\mathbb{J}$ is the matrix of
+$\hat{\mathbb{J}}$ of \eqref{eq:pwHamiltonian} in the polarization product basis:
+\begin{equation}
+  \hat{\mathbb{J}}
+  =
+  \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \repr_{\qty{H,V}^{\ox 2}} \mathbb{J}
+  \,\text{,}
+\end{equation}
+it can be diagonalized as
+\begin{equation}
+  \qty(\mathcal{E}_T \ox \idop_S)^\dagger \mathbb{J} \qty(\mathcal{E}_T \ox \idop_S)
+  \,\text{.}
+\end{equation}
