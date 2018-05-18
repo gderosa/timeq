@@ -27,7 +27,11 @@
 \newcommand{\hilb}[1]{\mathcal{#1}}       % Hilbert space
 \newcommand{\setof}[1]{\left\{#1\right\}}
 \newcommand{\ox}{\otimes}
-\newcommand{\repr}{\equiv}                % represented in a basis, or "has components..."
+
+%% Allows better formatting than \underset
+%% https://tex.stackexchange.com/a/130553
+\DeclareMathOperator*{\repr}{\equiv}      % represented in a basis, or "has components..."
+
 \renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
 %\newcommand{\eqdef}{\coloneq}
 \newcommand{\eqdef}{\triangleq}
