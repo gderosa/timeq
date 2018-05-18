@@ -344,7 +344,7 @@ We can thus derive the time operator matrix:
 We notice that time is not diagonal in the polarization basis.
 It can be diagonalized with:
 \begin{equation}
-  R^{\dagger} T R
+  \mathcal{E}_T^{\dagger} T \mathcal{E}_T
   =
 \frac{\pi}{4\omega}
 \begin{pmatrix}
@@ -353,9 +353,9 @@ It can be diagonalized with:
 \end{pmatrix}
 \,\text{,}
 \end{equation}
-and $R$ being the matrix of eigenvectors of T as columns
+and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
 \begin{equation}
-  R
+  \mathcal{E}_T
   =
   \frac{1}{\sqrt{2}}
   \begin{pmatrix}
@@ -366,3 +366,26 @@ and $R$ being the matrix of eigenvectors of T as columns
 \end{equation}
 
 Therefore the clock can measure only two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$.
+
+Only if $\hat{T}$ is diagonal in a certain basis,
+the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
+over that basis
+can be interpreted as a ``time evolution'':
+\begin{equation}
+  \dket{\Psi} \repr \qty{\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1)}
+\end{equation}
+or, in general:
+\begin{equation}
+  \dket{\Psi}
+  \repr
+  \qty{
+    \psi_0(t_0),
+    \dotsc,
+    \psi_{N_{S} - 1}(t_0),
+    \dots,
+    \psi_0(t_{N_{T}-1}),
+    \dotsc,
+    \psi_{N_{S} - 1}(t_{N_{T}-1})
+  } \,\text{,}
+\end{equation}
+with $N_{S}$ and $N_{T}-1$ being the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
