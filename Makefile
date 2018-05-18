@@ -26,7 +26,7 @@ prod:
 	latexmk prod
 
 prodv:
-	latexmk -pvc prod
+	latexmk -pv prod
 
 prodc:
 	latexmk -pvc prod
