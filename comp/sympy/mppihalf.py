@@ -26,4 +26,4 @@ Hs = I*omega*hbar*Matrix([
 
 J = TensorProduct(hbar*Omega, eye(2)) + TensorProduct(eye(2), Hs)
 
-pprint(J)
+pprint(J.eigenvects())
