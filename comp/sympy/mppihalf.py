@@ -10,11 +10,15 @@ from sympy.physics.quantum import TensorProduct
 
 init_printing(use_unicode=True)
 
+#Ta, Tb = symbols('Ta Tb', real=True)
+
+Ta, Tb = -Rational(1, 4), Rational(1, 4)
+
 F = mdft(2)
 
-T = (1/omega) * Matrix([
-    [-pi/4, 0],
-    [0, +pi/4]
+T = (pi/omega) * Matrix([
+    [Ta, 0],
+    [0, Tb]
 ])
 
 Omega = (4*omega**2/pi)*F*T*(F.adjoint())
