@@ -362,7 +362,7 @@ We can thus derive the time operator matrix:
 \end{equation}
 We notice that time is not diagonal in the polarization basis.
 It can be diagonalized with:
-\begin{equation}
+\begin{equation}\label{eq:moreva_diag_T}
   \mathcal{E}_T^{\dagger} T \mathcal{E}_T
   =
 \frac{\pi}{4\omega}
@@ -383,10 +383,18 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
   \end{pmatrix}
   \,\text{.}
 \end{equation}
+Thus the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$
+(or superpositions of them):
+\begin{align}
+  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqdef \ket{L} \\
+  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqdef \ket{R} \, \text{.}
+\end{align}
+In terms of the physics of the experiment,
+time is determined with quantum certainty when the clock photon is
+in one of the two circular polarization states.
 
-Therefore the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$.
-
-Only if $\hat{T}$ is diagonal in a certain basis $\qty{t}$,
+It's worth observing that
+only if $\hat{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
 can be interpreted as a ``time evolution'':
@@ -411,16 +419,25 @@ or, in general:
 \end{equation}
 with $N_{S}$ and $N_{T}-1$ being the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
 
-In $\hilb{H}_T \ox \hilb{H}_S$, if $\mathbb{J}$ is the matrix of
-$\hat{\mathbb{J}}$ of \eqref{eq:pwHamiltonian} in the polarization product basis:
+The basis of interest is therefore
 \begin{equation}
-  \hat{\mathbb{J}}
-  =
-  \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \repr_{\qty{H,V}^{\ox 2}} \mathbb{J}
-  \,\text{,}
+  \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
+  \, \text{.}
 \end{equation}
-it can be diagonalized as
+How does the matrix of $\hat{\Omega}$ transform? In general, it's
 \begin{equation}
-  \qty(\mathcal{E}_T \ox \idop_S)^\dagger \mathbb{J} \qty(\mathcal{E}_T \ox \idop_S)
-  \,\text{.}
+  \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
+  \, \text{,}
+\end{equation}
+but we already know $F^{\dagger} \Omega F = T$,
+and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
+(let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
+In conclusion, with some algebra, it's simply
+\begin{equation}
+  \Omega_{T_d} \eqdef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+\end{equation}
+and we are interested in the eigensystem of
+\begin{equation}
+  \mathbb{J}_{T_d} = \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S
+  \, \text{.}
 \end{equation}
