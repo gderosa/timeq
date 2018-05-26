@@ -437,7 +437,24 @@ In conclusion, with some algebra, it's simply
   \Omega_{T_d} \eqdef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
 \end{equation}
 and we are interested in the eigensystem of
-\begin{equation}
-  \mathbb{J}_{T_d} \eqdef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S
+\begin{multline}
+  \mathbb{J}_{T_d} \eqdef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S = \\
+    \hbar
+    \begin{pmatrix}0 & - \omega\\- \omega & 0\end{pmatrix}
+    \ox
+    \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
+    +
+    \hbar\omega
+    \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
+    \ox
+    \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+    =
+    \hbar\omega
+    \begin{pmatrix}
+      0   &i  &-1 &0  \\
+      -i  &0  &0  &-1 \\
+      -1  &0  &0  &i  \\
+      0   &-1 &-i &0  
+    \end{pmatrix}
   \, \text{.}
-\end{equation}
+\end{multline}
