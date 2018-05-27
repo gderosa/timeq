@@ -343,7 +343,9 @@ is the only Hilbert space under consideration.
 
 For each value of $t \in \mathbb{R}$ there is
 \begin{equation}\label{eq:ordinary_evolution}
-  \ket{\psi(t)} = \sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} = e^{-i\hat{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
+  \ket{\psi(t)}_{\text{Schr\"od.}} =
+  %\sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} =
+  e^{-i\hat{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
 \end{equation}
 
 In terms of the Page and Wootters model,
@@ -356,7 +358,7 @@ the following time evolution:
 \begin{equation}
   \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
   \quad \rightarrow \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})} =   \ket{H}
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} =   \ket{H}
   \, \text{,}
 \end{equation}
 while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
@@ -365,7 +367,31 @@ yields (see \ref{nb:jupyter:moreva:qm}):
 \begin{equation}
   \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
   \quad \rightarrow \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})} = -i\ket{H}
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{Schr\ddot{o}d.}} = -i\ket{H}
   \, \text{,}
 \end{equation}
-showing that the two theories are consistent \emph{up to a phase} factor.
+showing that the two theories are consistent \emph{up to a phase} factor
+$e^{i\omega'(t - t_{0})}$
+\begin{equation}
+  \ket{\psi(t)}_{\mathrm{PW}} e^{i\omega'(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}  
+\end{equation}
+with $\omega' = -\omega$ in this case.
+
+A pattern that emerges in the general case is
+\[
+  \omega' \eqdef \omega_{T_{0}} = \frac{\pi T_0}{(\delta T)^2} \,\text{,}
+\]
+where it is emphasized that this frequency shift is related to the clock starting
+with a ground eigenvalue $T_0 \ne 0$.
+
+A further generalization would consider non-zero eigenvalues $j$ of $\hat{\mathbb{J}}$
+(or $\epsilon$ in \cite[eq. 16]{Lloyd:Time}):
+\begin{equation}
+  \ket{\psi(t)}_{\mathrm{PW}} e^{i\omega_{j}(t - t_{0})} e^{i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}
+\end{equation}
+where $\hbar\omega_j = \epsilon$.
+
+Physically, both correction terms merely
+correspond to ``rigidly shifting the spectrum of $H_S$'' \parencite{Lloyd:Time}.
+Predictions about probability distribution $\abs{\braket{k}{\psi(t)}}^2$
+are identical in the two models with no need of any phase/frequency correction term.
