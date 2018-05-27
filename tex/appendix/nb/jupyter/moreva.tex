@@ -1,8 +1,6 @@
 \hypertarget{analysys-of-the-moreva-et-al.experiment}{%
-  \section{Analysys of the Moreva et al.~experiment}%
-  \label{analysys-of-the-moreva-et-al.experiment}%
-  \label{nb:jupyter:moreva}
-}
+\section{Analysys of the Moreva et
+al.~experiment}\label{analysys-of-the-moreva-et-al.experiment}}
 
 \hypertarget{preliminaries}{%
 \subsection{Preliminaries}\label{preliminaries}}
@@ -118,3 +116,36 @@ J.eigenvects()
 \end{lstlisting}
 
 \[\left [ \left ( 0, \quad 2, \quad \left [ \left[\begin{matrix}0\\- i\\1\\0\end{matrix}\right], \quad \left[\begin{matrix}i\\0\\0\\1\end{matrix}\right]\right ]\right ), \quad \left ( - 2 \hbar \omega, \quad 1, \quad \left [ \left[\begin{matrix}- i\\1\\- i\\1\end{matrix}\right]\right ]\right ), \quad \left ( 2 \hbar \omega, \quad 1, \quad \left [ \left[\begin{matrix}- i\\-1\\i\\1\end{matrix}\right]\right ]\right )\right ]\]
+
+\hypertarget{ordinary-quantum-theory}{%
+\subsection{Ordinary quantum theory}\label{ordinary-quantum-theory}}
+
+\begin{lstlisting}[language=Python]
+t = Symbol('t')
+t0 = Symbol('t_0')
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+exp(-I*Hs*(t-t0)/hbar)
+\end{lstlisting}
+
+\[\left[\begin{matrix}\frac{1}{2} e^{i \omega \left(t - t_{0}\right)} + \frac{1}{2} e^{- i \omega \left(t - t_{0}\right)} & - \frac{i}{2} e^{i \omega \left(t - t_{0}\right)} + \frac{i}{2} e^{- i \omega \left(t - t_{0}\right)}\\\frac{i}{2} e^{i \omega \left(t - t_{0}\right)} - \frac{i}{2} e^{- i \omega \left(t - t_{0}\right)} & \frac{1}{2} e^{i \omega \left(t - t_{0}\right)} + \frac{1}{2} e^{- i \omega \left(t - t_{0}\right)}\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+exp(-I*Hs*(t-t0)/hbar) * Matrix([0, -I])
+\end{lstlisting}
+
+\[\left[\begin{matrix}- i \left(- \frac{i}{2} e^{i \omega \left(t - t_{0}\right)} + \frac{i}{2} e^{- i \omega \left(t - t_{0}\right)}\right)\\- i \left(\frac{1}{2} e^{i \omega \left(t - t_{0}\right)} + \frac{1}{2} e^{- i \omega \left(t - t_{0}\right)}\right)\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+(exp(-I*Hs*(t-t0)/hbar) * Matrix([0, -I])).subs({t: pi/(4*omega), t0: -pi/(4*omega)})
+\end{lstlisting}
+
+\[\left[\begin{matrix}- i\\0\end{matrix}\right]\]
+
+There is consistency in predicting the probability (square modulus), but
+not probability amplitute: at \(t=\frac{\pi}{4\omega}\) P-W finds
+\((1, 0)\) instead of \((-i, 0)\). But the Rabi oscillation in terms of
+probability from 100\% \(\left|V\right>\) at
+\(t=t_0=-\frac{\pi}{4\omega}\), to 100\% \(\left|H\right>\) at
+\(t=\frac{\pi}{4\omega}\) is correctly predicted.
