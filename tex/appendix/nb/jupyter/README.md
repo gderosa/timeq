@@ -1,1 +1,1 @@
-See `tech.tex`.
+See instructions in [`tech.tex`](tech.tex).
