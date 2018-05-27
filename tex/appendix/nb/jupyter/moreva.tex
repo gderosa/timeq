@@ -1,0 +1,118 @@
+\hypertarget{analysys-of-the-moreva-et-al.experiment}{%
+\section{Analysys of the Moreva et
+al.~experiment}\label{analysys-of-the-moreva-et-al.experiment}}
+
+\hypertarget{preliminaries}{%
+\subsection{Preliminaries}\label{preliminaries}}
+
+\begin{lstlisting}[language=Python]
+# Symbolic computation
+from sympy import *
+from sympy.physics.matrices import mdft
+from sympy.physics.quantum import TensorProduct
+from sympy.physics.quantum.constants import hbar
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+# Remeber this to have LaTeX rendered output in Jupyter
+init_printing()
+\end{lstlisting}
+
+\hypertarget{computation}{%
+\subsection{Computation}\label{computation}}
+
+\begin{lstlisting}[language=Python]
+Omega = Symbol(r'\Omega')
+omega = Symbol(r'\omega', real=True)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+F = mdft(2)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Omega = I*omega*Matrix([
+    [0, 1],
+    [-1,0]
+])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Omega.eigenvects()
+\end{lstlisting}
+
+\[\left [ \left ( - \omega, \quad 1, \quad \left [ \left[\begin{matrix}- i\\1\end{matrix}\right]\right ]\right ), \quad \left ( \omega, \quad 1, \quad \left [ \left[\begin{matrix}i\\1\end{matrix}\right]\right ]\right )\right ]\]
+
+\begin{lstlisting}[language=Python]
+T = (pi / (2*omega)**2) * F.adjoint()*Omega*F
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+T
+\end{lstlisting}
+
+\[\left[\begin{matrix}0 & - \frac{i \pi}{4 \omega}\\\frac{i \pi}{4 \omega} & 0\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+T.eigenvects()
+\end{lstlisting}
+
+\[\left [ \left ( - \frac{\pi}{4 \omega}, \quad 1, \quad \left [ \left[\begin{matrix}i\\1\end{matrix}\right]\right ]\right ), \quad \left ( \frac{\pi}{4 \omega}, \quad 1, \quad \left [ \left[\begin{matrix}- i\\1\end{matrix}\right]\right ]\right )\right ]\]
+
+\begin{lstlisting}[language=Python]
+T_d = diag(-pi/(4*omega), pi/(4*omega))
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+T_d
+\end{lstlisting}
+
+\[\left[\begin{matrix}- \frac{\pi}{4 \omega} & 0\\0 & \frac{\pi}{4 \omega}\end{matrix}\right]\]
+
+Check: this is what we would obtain with matric of cols egeinv
+
+\begin{lstlisting}[language=Python]
+R = (1/sqrt(2)) * Matrix([
+    [I, -I],
+    [1, 1]
+])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+R.adjoint()*T*R
+\end{lstlisting}
+
+\[\left[\begin{matrix}- \frac{\pi}{4 \omega} & 0\\0 & \frac{\pi}{4 \omega}\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+Omega_T_d = (pi/((pi/(2*omega))**2))*F*T_d*F.adjoint()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Omega_T_d
+\end{lstlisting}
+
+\[\left[\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+Hs = I*hbar*omega*Matrix([
+    [0, 1],
+    [-1,0]
+])
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+J = TensorProduct(hbar*Omega_T_d, eye(2)) + TensorProduct(eye(2), Hs)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+J
+\end{lstlisting}
+
+\[\left[\begin{matrix}0 & \hbar i \omega & - \hbar \omega & 0\\- \hbar i \omega & 0 & 0 & - \hbar \omega\\- \hbar \omega & 0 & 0 & \hbar i \omega\\0 & - \hbar \omega & - \hbar i \omega & 0\end{matrix}\right]\]
+
+\begin{lstlisting}[language=Python]
+J.eigenvects()
+\end{lstlisting}
+
+\[\left [ \left ( 0, \quad 2, \quad \left [ \left[\begin{matrix}0\\- i\\1\\0\end{matrix}\right], \quad \left[\begin{matrix}i\\0\\0\\1\end{matrix}\right]\right ]\right ), \quad \left ( - 2 \hbar \omega, \quad 1, \quad \left [ \left[\begin{matrix}- i\\1\\- i\\1\end{matrix}\right]\right ]\right ), \quad \left ( 2 \hbar \omega, \quad 1, \quad \left [ \left[\begin{matrix}- i\\-1\\i\\1\end{matrix}\right]\right ]\right )\right ]\]
