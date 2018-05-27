@@ -339,11 +339,33 @@ See \ref{nb:jupyter:moreva} for more details.
 
 In ordinary quantum theory, time is an absolute, external, ``classical'' \emph{parameter},
 with respect to $\ket{\psi} \in \hilb{H}_S$; and $\hilb{H}_S$
-is the only Hilber space under consideration.
+is the only Hilbert space under consideration.
 
 For each value of $t \in \mathbb{R}$ there is
-\begin{equation}
+\begin{equation}\label{eq:ordinary_evolution}
   \ket{\psi(t)} = \sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} = e^{-i\hat{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
 \end{equation}
 
-Let's pick, as an example the first eigenstate in \eqref{eq:moreva:eigenJ0}.
+In terms of the Page and Wootters model,
+let's pick instead as an example the first eigenstate in \eqref{eq:moreva:eigenJ0}.
+It's related to a time operator whose eigenvalues are
+$-\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$
+per eq. \eqref{eq:moreva_diag_T}.
+The vector $(0, -i, 1, 0)$ indicates ---in ordinary quantum mechanics terms---
+the following time evolution:
+\begin{equation}
+  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
+  \quad \rightarrow \quad
+  \ket{\psi\qty( \frac{\pi}{4\omega})} =   \ket{H}
+  \, \text{,}
+\end{equation}
+while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
+$t_0 = -\frac{\pi}{4\omega}$, $t = \frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
+yields (see \ref{nb:jupyter:moreva:qm}):
+\begin{equation}
+  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
+  \quad \rightarrow \quad
+  \ket{\psi\qty( \frac{\pi}{4\omega})} = -i\ket{H}
+  \, \text{,}
+\end{equation}
+showing that the two theories are consistent \emph{up to a phase} factor.
