@@ -386,7 +386,7 @@ with a ground eigenvalue $T_0 \ne 0$.
 
 A further generalization would consider non-zero eigenvalues $j$ of $\hat{\mathbb{J}}$
 (or $\epsilon$ in \cite[eq. 16]{Lloyd:Time}):
-\begin{equation}
+\begin{equation}\label{eq:pw-vs-qm}
   \ket{\psi(t)}_{\mathrm{PW}} e^{i\omega_{j}(t - t_{0})} e^{i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}
 \end{equation}
 where $\hbar\omega_j = \epsilon$,
@@ -403,3 +403,56 @@ are identical in the two models with no need of any phase/frequency correction t
   the ``spatial'' Hilbert space $\hilb{H}_S$
   for the experiment.
 }
+
+\begin{spacing}{1.5}
+  In \ref{nb:moreva-vs-qm},
+  both sides of \eqref{eq:pw-vs-qm} are
+  explicitely computed numerically and compared graphically.
+  The left side (Page and Wootters)
+  for $t = -\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$ and also with
+  $t = \frac{3\pi}{4\omega}$, identified with $t = -\frac{\pi}{4\omega}$
+  to ``complete the cycle''.
+  The right side (Schr{\"o}dinger) for
+  $t \in \left[-\frac{\pi}{4\omega}, \frac{3\pi}{4\omega}\right[$.
+\end{spacing}
+
+Fig. \ref{fig:psi_H} and \ref{fig:psi_V} show
+Page-Wootters discrete points, along with
+ordinary Schr{\"o}dinger evolution (continuous curve)
+of the polarization components
+$\braket{H,V}{\psi(t)}$ of photon
+from time $t = -\frac{\pi}{4\omega}$
+to $t = \frac{3\pi}{4\omega}$. Time is on the $z$ axis,
+while $x, y$ axis represent real and imaginary part of
+the ``wavefunction'' values $\braket{H,V}{\psi(t)}$.
+The straight line along the $z$ axis
+spans the time period of interest
+and is intersected when\footnote{
+  ``When'' is a concept to be taken with a grain of salt in the Page-Wootters model.
+  An hypothetical super-observer, outside of the Universe,
+  who is real in our experiment ---being that just a toy universe---
+  will only see a mixed state of all times on the clock photon, and the other
+  photon being ``timed'' would represent its \emph{purification space}
+  via entanglement.
+}
+the probability of the photon being
+horizontally [vertically] polarized is zero.
+Phase correction as per \eqref{eq:pw-vs-qm} has been taken into account
+and we have scaled $\omega=1$.
+
+\begin{figure}
+  %\centering
+  \includegraphics[width=\textwidth]{img/psi_H.png}
+  \caption{
+    Evolution of $\braket{H}{\psi(t)}$ in the two models.
+  }
+  \label{fig:psi_H}
+\end{figure}
+
+\begin{figure}
+  %\centering
+  \includegraphics[width=\textwidth]{img/psi_V.png}
+  \caption{Evolution of $\braket{V}{\psi(t)}$ in the two models.}
+  \label{fig:psi_V}
+\end{figure}
+  
