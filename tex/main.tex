@@ -8,8 +8,13 @@
 
 \tableofcontents
 
+\listoffigures
+ 
+\listoftables
+
 % main content
-\chapter*{Abstract}
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
 \input{tex/abstract}
 
 \iftodo
@@ -37,8 +42,8 @@
 
 \chapter{Page and Wootters relational time, improvements and comparison with other models}
 \chaptermark{Page and Wootters relational time \dots}
-\input{tex/pw/pw}
-\input{tex/pw/rel}
+\input{tex/pw/intro}
+\input{tex/pw/qubit}
 \iftodo
 \input{tex/pw/todo}
 \fi
@@ -53,9 +58,10 @@
 \input{tex/therm/connes-rovelli}
 \fi
 
-\iftodo
 \chapter{Relativistic treatment}
-\input{tex/rel/rel}
+\input{tex/rel/pwkg}
+\iftodo
+\input{tex/rel/todo}
 \fi
 
 \iftodo
@@ -65,8 +71,23 @@
 
 % appendices
 \appendix
+
 \chapter{Commutator properties}
 \input{tex/appendix/commutator}
+
+\chapter[Jupyter (Python) Notebooks]{Jupyter (Python) Notebooks\footnote{
+  For a reference on the software tools utilized:
+  \cite{comp:python+sci};
+  \cite{comp:scipy};
+  \cite{comp:sympy};
+  \cite{comp:jupyter};
+  \cite{comp:matplotlib};
+  \cite{comp:numpy};
+  \cite{comp:python+sci+eng}.
+}}
+\input{tex/appendix/nb/jupyter/tech}
+\input{tex/appendix/nb/jupyter/moreva}
+\input{tex/appendix/nb/jupyter/moreva-vs-qm}
 
 % references
 \printbibliography[heading=bibintoc]

@@ -1,0 +1,17 @@
+\section*{Technical note}
+
+Original files available at \verb#comp/jupyter/# in this project source.
+
+Printable and embeddable \TeX{} files have been generated with
+\begin{itemize}
+  \item
+    ``Download as Markdown'' from Jupyter user interface
+  \item
+    Installing and running \verb#pandoc#\footnote{ \url{http://pandoc.org/}}
+    on the generated \verb#.md# file\footnote{ See also \url{https://tex.stackexchange.com/a/314785}.}
+    \begin{lstlisting}[language=Bash]
+      pandoc --listings -f markdown -t latex myfile.md -o myfile.tex
+    \end{lstlisting}
+  \item
+    Tweaking generated \verb#\label#'s and other references as needed to avoid inconsistencies and overlaps
+\end{itemize}
