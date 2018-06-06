@@ -1,48 +1,48 @@
+\section{Page-Wootters model: \texttt{NN}-level clock $+$ $2$-level system}
+
 \begin{lstlisting}
+NN := 32
+\end{lstlisting}
 
-Page-Wootters model: NN-level clock + 2-level system
+\begin{lstlisting}
+T := DiagonalMatrix[Range[0,NN-1]]
+\end{lstlisting}
 
+\begin{lstlisting}
+F := FourierMatrix[NN]
+\end{lstlisting}
 
-
-In[2]:= NN= 32
-
-Out[2]= 32
-
-
-
-In[3]:= T := DiagonalMatrix[Range[0,NN-1]]
-
-In[4]:= MatrixForm[T]
-(suppressed)
-
-
-In[5]:= F := FourierMatrix[NN]
-
-In[6]:= \[CapitalOmega] := F.T.F\[ConjugateTranspose] 
-
-In[7]:= 
-
+\begin{lstlisting}
+\[CapitalOmega] := F.T.F\[ConjugateTranspose] 
+\end{lstlisting}
 
 Hamiltonian in "ordinary" space
+\begin{lstlisting}
+Hs := \[ImaginaryI]{{0,1},{-1,0}}
+\end{lstlisting}
+\begin{lstlisting}
+MatrixForm[Hs]
+\end{lstlisting}
+\[
+  \left(
+    \begin{array}{cc}
+     0 & i \\
+     -i & 0 \\
+    \end{array}
+    \right)
+\]
 
-In[8]:= Hs := \[ImaginaryI]{{0,1},{-1,0}}
+Matrix representation of \cite[eq. 1]{Lloyd:Time}.
+We turn it into numeric (\verb!N[ ]!) as treating  it symbolically onwards would be unfeasible.
+\begin{lstlisting}
+J := N[KroneckerProduct[\[CapitalOmega],IdentityMatrix[2]] + KroneckerProduct[IdentityMatrix[NN],Hs]]
+\end{lstlisting}
+\begin{lstlisting}
+Chop[Eigenvalues[J]]
 
-In[9]:= MatrixForm[Hs]
-
-(suppressed)
-
-
-Matrix representation of eq. (1) in https://arxiv.org/abs/1504.04215 by Lloyd, Giovannetti and Maccone.
-We turn it into numeric as treating  it symbolically onwards would be unfeasible.
-
-In[10]:= J := N[KroneckerProduct[\[CapitalOmega],IdentityMatrix[2]] + KroneckerProduct[IdentityMatrix[NN],Hs]]
-
-In[11]:= 
-
-In[12]:= Chop[Eigenvalues[J]]
-
-Out[12]= {32.,31.,30.,30.,29.,29.,28.,28.,27.,27.,26.,26.,25.,25.,24.,24.,23.,23.,22.,22.,21.,21.,20.,20.,19.,19.,18.,18.,17.,17.,16.,16.,15.,15.,14.,14.,13.,13.,12.,12.,11.,11.,10.,10.,9.,9.,8.,8.,7.,7.,6.,6.,5.,5.,4.,4.,3.,3.,2.,2.,1.,1.,-1.,0}
-
+Out[*] = {32., 31., 30., 30., 29., 29., 28., 28., 27., 27., 26., 26., 25., 25., 24., 24., 23., 23., 22., 22., 21., 21., 20., 20., 19., 19., 18., 18., 17., 17., 16., 16., 15., 15., 14., 14., 13., 13., 12., 12., 11., 11., 10., 10., 9., 9., 8., 8., 7., 7., 6., 6., 5., 5., 4., 4., 3., 3., 2., 2., 1., 1., -1., 0}
+\end{lstlisting}
+\begin{lstlisting}
 In[13]:= chosenEigenvector := Eigenvectors[J][[ 40]]
 
 chosenEigenvectorB := Eigenvectors[J][[41]]
