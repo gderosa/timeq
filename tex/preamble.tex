@@ -1,16 +1,10 @@
 \documentclass{book}
 
 \usepackage{xcolor}
-\usepackage[
-  colorlinks,
-  citecolor=green!75!black,
-  linkcolor=red!75!black,
-  urlcolor=magenta!75!black
-]{hyperref}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{xparse}  % required by physics
+\usepackage{xparse}  %% required by physics
 \usepackage{physics}
 \usepackage{breqn}
 \usepackage{bbm}
@@ -19,7 +13,6 @@
 \usepackage[super]{nth}
 \usepackage{graphicx}
 \usepackage[margin=1.5in]{geometry}  % screen
-%\usepackage[safeinputenc,authordate,backend=biber]{biblatex-chicago}
 \usepackage[safeinputenc,citestyle=authoryear-icomp,bibstyle=authoryear,backend=biber]{biblatex}
 \usepackage{environ}
 \usepackage{epigraph}
@@ -37,6 +30,12 @@
     %identifierstyle=\color{green!40!black}
   }
 \usepackage{setspace}
+\usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
+  colorlinks,
+  citecolor=green!75!black,
+  linkcolor=red!75!black,
+  urlcolor=magenta!75!black
+]{hyperref}
 
 \input{tex/lib}
 

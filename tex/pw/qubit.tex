@@ -455,4 +455,36 @@ and we have scaled $\omega=1$.
   \caption{Evolution of $\braket{V}{\psi(t)}$ in the two models.}
   \label{fig:psi_V}
 \end{figure}
-  
+
+\subsection{Increasing the accuracy with a multi-level clock}
+
+A clock that can measure only two times in one cycle of a periodic evolution
+is of limited interest ---and limited falsifiability, as it can be easily
+interpolated by different models.
+In \cite{Moreva:synthetic} and related:
+\begin{quotation}
+  To obtain a more interesting clock, we perform the same conditional probability measurement
+  introducing varying time delays to the clock photon, implemented through quartz plates of
+  variable thickness.
+\end{quotation} 
+But it's worth noting that such delay is in fact a classical external parameter.
+
+In what follows, instead, our approach to a more interesting clock will be based on simply
+increasing the number of levels of the clock, or in other words increasing the
+finite dimension of the Hilbert space $\hilb{H}_T$. This is certainly feasible
+theoretically, possibly resorting to numerical computation.
+\begin{remark}
+  Experimentally,
+  besides looking for a suitable $N$-level system to act as a clock,
+  we may want to ``encode'' $2^{n}$ levels into the combined state of $n$
+  qubits and
+  decompose $\mathbb{J}$ ---or, actually, $e^{-i\mathbb{J}\tau/\hbar}$---
+  into simpler hamiltonians (evolutions)
+  acting on individual qubits (\term{gates}),
+  therefore allowing the experiment to be run on a quantum computer.
+  A decomposition method that can be considered for the purpose
+  is the Trotter-Suzuki scheme
+  \parencite{Trotter-Suzuki:exp, Trotter-Suzuki:GPU}.
+  This is a potential line of further study.
+\end{remark}
+
