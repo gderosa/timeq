@@ -126,7 +126,7 @@ Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2
     Schr{\"o}dinger evolution of
     $\qty|\braket{0}{\psi(t)}|^2$, $t \in (0, 2\pi) $
     picking the first two components of an eigenvector of $\hat{\mathbb{J}}$
-    as the two components of $\psi_0$ in ordinary Hilbert space.
+    as the two components of $\psi(0)$ in ordinary Hilbert space.
     Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
   }
 \end{figure}
@@ -176,3 +176,20 @@ zAxis := ParametricPlot3D[{0,0,t}, {t,0,2\[Pi]}, PlotStyle->{Gray}]
 psi0plot := ParametricPlot3D[{re0psi[t], im0psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Red} ]
 psi1plot := ParametricPlot3D[{re1psi[t], im1psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Blue} ]
 \end{lstlisting}
+
+\begin{lstlisting}
+Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
+\end{lstlisting}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.2\textwidth]{img/qubit-evo-schrod.png}
+  \caption[(from notebook)]{
+    Schr{\"o}dinger full complex evolution of components
+    $\braket{0}{\psi(t)}$ (red) and 
+    $\braket{1}{\psi(t)}$ (blue) for
+    $t \in (0, 2\pi) $. The initial state
+    has been chosen as the first two components of an eigenstate of
+    $\hat{\mathbb{J}}$, related to eigenvalue $= 11$.
+  }
+\end{figure}
