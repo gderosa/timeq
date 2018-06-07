@@ -148,3 +148,31 @@ Plot[Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2,{t,0,2
     Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
   }
 \end{figure}
+
+\subsubsection{Complex evolution of $\psi$ (not just $\qty|\psi|^2$)}
+\begin{lstlisting}
+psi[t][[1]]
+
+Out[ ] = (-0.938878 +0.00640243 \[ImaginaryI]) Cos[t] + (0.299377 - 0.169824 \[ImaginaryI]) Sin[t]
+\end{lstlisting}
+\begin{lstlisting}
+psi[t][[2]]
+
+Out[ ]= (0.299377 -0.169824 \[ImaginaryI]) Cos[t] + (0.938878 -0.00640243 \[ImaginaryI]) Sin[t]
+\end{lstlisting}  
+Real and imaginary part: let's do this manually ---please note index count is
+$1, 2$ (cells above)
+but refers, respectively, to computational base elements
+$\ket{0}, \ket{1}$ in ordinary Hilbert space.
+\begin{lstlisting}
+re0psi[t_] := (-0.938878) Cos[t]  + (0.299377) Sin[t]
+im0psi[t_] := (0.00640243) Cos[t] + (- 0.169824 ) Sin[t]
+re1psi[t_] := (0.299377) Cos[t]   + (0.938878) Sin[t]
+im1psi[t_] := (- 0.169824) Cos[t] + (- 0.00640243) Sin[t] 
+\end{lstlisting}
+
+\begin{lstlisting}
+zAxis := ParametricPlot3D[{0,0,t}, {t,0,2\[Pi]}, PlotStyle->{Gray}]
+psi0plot := ParametricPlot3D[{re0psi[t], im0psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Red} ]
+psi1plot := ParametricPlot3D[{re1psi[t], im1psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Blue} ]
+\end{lstlisting}
