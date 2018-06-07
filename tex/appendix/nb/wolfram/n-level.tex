@@ -130,3 +130,21 @@ Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2
     Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
   }
 \end{figure}
+
+\begin{lstlisting}
+(Abs[psi[t]]^2)[[2]]
+
+Out[ ] = Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2
+  
+Plot[Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2,{t,0,2\[Pi]}]  \end{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/probB_1.png}
+  \caption[(from notebook)]{
+    Schr{\"o}dinger evolution of
+    $\qty|\braket{1}{\psi(t)}|^2$, $t \in (0, 2\pi) $
+    picking the first two components of an eigenvector of $\hat{\mathbb{J}}$
+    as the two components of $\psi_0$ in ordinary Hilbert space.
+    Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
+  }
+\end{figure}
