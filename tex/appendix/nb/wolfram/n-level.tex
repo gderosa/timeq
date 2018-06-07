@@ -97,7 +97,36 @@ ListPlot[probabilityB, GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]}, ImageSi
 \subsection{Consistency of PW with ordinary QM (discrete approximation)}
 
 \begin{lstlisting}
+psi0 :=  chosenEigenvectorNormalizedB[[{1,2}]]
 
-chosenEigenvectorNormalizedB 
+psi0
 
+Out[ ] = {-0.938878+0.00640243 I,0.299377 -0.169824 I}
 \end{lstlisting}
+
+\begin{lstlisting}
+psi[t_] := MatrixExp[-I Hs t, psi0 ]
+
+psi[t]
+
+{(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t],(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]}
+\end{lstlisting}
+
+\begin{lstlisting}
+(Abs[psi[t]]^2)[[1]]
+
+Out[ ] = Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2
+
+Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2\[Pi]}]
+\end{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/probB_0.png}
+  \caption[(from notebook)]{
+    Schr{\"o}dinger evolution of
+    $\qty|\braket{0}{\psi(t)}|^2$, $t \in (0, 2\pi) $
+    picking the first two components of an eigenvector of $\hat{\mathbb{J}}$
+    as the two components of $\psi_0$ in ordinary Hilbert space.
+    Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
+  }
+\end{figure}
