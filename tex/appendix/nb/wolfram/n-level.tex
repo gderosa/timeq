@@ -21,7 +21,7 @@ and we ignore the dimensional term in front of \eqref{eq:SI_Fourier:T}:
 
 Hamiltonian in "ordinary" space
 \begin{lstlisting}
-Hs := \[ImaginaryI]{{0, 1},{-1, 0}}
+Hs := \[ImaginaryI]{{0, 1}, {-1, 0}}
 \end{lstlisting}
 \begin{lstlisting}
 MatrixForm[Hs]
@@ -183,7 +183,7 @@ Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.2\textwidth]{img/qubit-evo-schrod.png}
+  \includegraphics[width=0.25\textwidth]{img/qubit-evo-schrod.png}
   \caption[(from notebook)]{
     Schr{\"o}dinger full complex evolution of components
     $\braket{0}{\psi(t)}$ (red) and 
@@ -191,5 +191,79 @@ Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
     $t \in (0, 2\pi) $. The initial state
     has been chosen as the first two components of an eigenstate of
     $\hat{\mathbb{J}}$, related to eigenvalue $= 11$.
+  }
+\end{figure}
+
+\begin{lstlisting}
+pi = N[\[Pi]]
+
+3.14159
+\end{lstlisting}
+
+\begin{lstlisting}
+rephased[k_] := chosenEigenvectorNormalizedB [[k]] * Exp[-\[ImaginaryI]*pi*11*(k-1)/NN]
+
+rephased1[k_] := chosenEigenvectorNormalizedB [[k]] * Exp[-\[ImaginaryI]*pi*11*(k-2)/NN]
+
+scatter[k_] := {Re[ rephased[k]], Im[ rephased[k]], pi*(k-1)/NN}
+
+scatter1[k_] := {Re[ rephased1[k]], Im[ rephased1[k]], pi*(k-2)/NN}
+
+scatterPoints = Map[scatter, Range[1,2*NN, 2]]
+
+Out[ ] = {{-0.938878,0.00640243,0.}, {-0.862432,-0.0268517,0.19635}, {-0.752844,-0.0590739,0.392699}, {-0.614324,-0.089026,0.589049}, {-0.452196,-0.115557,0.785398}, {-0.27269,-0.137647,0.981748}, {-0.0827052,-0.154447,1.1781}, {0.110458,-0.165312,1.37445}, {0.299377,-0.169824,1.5708}, {0.47679,-0.16781,1.76715}, {0.635881,-0.159347,1.9635}, {0.770535,-0.144761,2.15984}, {0.875578,-0.124611,2.35619}, {0.946973,-0.0996728,2.55254}, {0.981977,-0.0709041,2.74889}, {0.979243,-0.0394105,2.94524}, {0.938878,-0.00640243,3.14159}, {0.862432,0.0268517,3.33794}, {0.752844,0.0590739,3.53429}, {0.614324,0.089026,3.73064}, {0.452196,0.115557,3.92699}, {0.27269,0.137647,4.12334}, {0.0827052,0.154447,4.31969}, {-0.110458,0.165312,4.51604}, {-0.299377,0.169824,4.71239}, {-0.47679,0.16781,4.90874}, {-0.635881,0.159347,5.10509}, {-0.770535,0.144761,5.30144}, {-0.875578,0.124611,5.49779}, {-0.946973,0.0996728,5.69414}, {-0.981977,0.0709041,5.89049}, {-0.979243,0.0394105,6.08684}}
+
+scatterPoints1 = Map[scatter1, Range[2,2*NN, 2]]
+
+Out[ ] = {{0.299377,-0.169824,0.}, {0.47679,-0.16781,0.19635}, {0.635881,-0.159347,0.392699}, {0.770535,-0.144761,0.589049}, {0.875578,-0.124611,0.785398}, {0.946973,-0.0996728,0.981748}, {0.981977,-0.0709041,1.1781}, {0.979243,-0.0394105,1.37445}, {0.938878,-0.00640243,1.5708}, {0.862432,0.0268517,1.76715}, {0.752844,0.0590739,1.9635}, {0.614324,0.089026,2.15984}, {0.452196,0.115557,2.35619}, {0.27269,0.137647,2.55254}, {0.0827052,0.154447,2.74889}, {-0.110458,0.165312,2.94524}, {-0.299377,0.169824,3.14159}, {-0.47679,0.16781,3.33794}, {-0.635881,0.159347,3.53429}, {-0.770535,0.144761,3.73064}, {-0.875578,0.124611,3.92699}, {-0.946973,0.0996728,4.12334}, {-0.981977,0.0709041,4.31969}, {-0.979243,0.0394105,4.51604}, {-0.938878,0.00640243,4.71239}, {-0.862432,-0.0268517,4.90874}, {-0.752844,-0.0590739,5.10509}, {-0.614324,-0.089026,5.30144}, {-0.452196,-0.115557,5.49779}, {-0.27269,-0.137647,5.69414}, {-0.0827052,-0.154447,5.89049}, {0.110458,-0.165312,6.08684}}
+\end{lstlisting}
+
+\begin{lstlisting}
+scatterPlot = ListPointPlot3D[scatterPoints, PlotStyle->{Red, PointSize[Large]}]
+\end{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/scatterplot0.png}
+  \caption[(from notebook)]{
+    Page-Wootters discrete-time evolution of
+    $\braket{0}{\psi(t)}$ in 32 points between
+    $t \in (0, 2\pi) $. From an eigenstate of
+    $\hat{\mathbb{J}}$ related to eigenvalue $\epsilon = 11$.
+    The evolution has been ``corrected'' via a phase oscillation
+    factor $e^{-i \epsilon t}$
+    as explained in \cite[``The Zero-eigenvalue'']{Lloyd:Time}.
+  }
+\end{figure}
+
+\begin{lstlisting}
+scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large]}]
+\end{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/scatterplot1.png}
+  \caption[(from notebook)]{
+    Page-Wootters discrete-time evolution of
+    $\braket{1}{\psi(t)}$ in 32 points between
+    $t \in (0, 2\pi) $. From an eigenstate of
+    $\hat{\mathbb{J}}$ related to eigenvalue $\epsilon = 11$.
+    The evolution has been ``corrected'' via a phase oscillation
+    factor $e^{-i \epsilon t}$
+    as explained in \cite[``The Zero-eigenvalue'']{Lloyd:Time}.
+  }
+\end{figure}
+
+\begin{lstlisting}
+Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large]
+\end{lstlisting}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{img/PWfit32.png}
+  \includegraphics[width=0.6\textwidth]{img/PWfit32top.png}
+  \caption[(from notebook)]{
+    Page-Wootters discrete-time ``evolution without evolution'' (points)
+    is interpolated by the (continuous lines) of standard quantum mechanics
+    evolution ---up to a suitable phase correction, as seen previously.
+    Horisontal axis are real and imaginary part of the wave function components.
+    Vertical axis is time. 
   }
 \end{figure}
