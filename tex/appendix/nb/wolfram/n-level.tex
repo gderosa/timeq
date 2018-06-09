@@ -80,15 +80,15 @@ Out[ ]= {0.881533, 0.118467, 0.744511, 0.255489, 0.570264, 0.429736, 0.38532, 0.
 
 ListPlot[probability, GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]}, ImageSize->Large]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/N32.png}
   \caption[(from notebook)]{P-W ``evolution'' for $\hat{\mathbb{J}}$ eigenvalue $=12$}
-  \end{figure}  
+\end{figure}  
 \begin{lstlisting}
 ListPlot[probabilityB, GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]}, ImageSize->Large]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/N32-B.png}
   \caption[(from notebook)]{P-W ``evolution'' for $\hat{\mathbb{J}}$ eigenvalue $=11$}
@@ -119,7 +119,7 @@ Out[ ] = Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2
 
 Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2\[Pi]}]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/probB_0.png}
   \caption[(from notebook)]{
@@ -137,7 +137,7 @@ Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2
 Out[ ] = Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2
   
 Plot[Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2,{t,0,2\[Pi]}]  \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/probB_1.png}
   \caption[(from notebook)]{
@@ -181,7 +181,7 @@ psi1plot := ParametricPlot3D[{re1psi[t], im1psi[t], t}, {t, 0, 2\[Pi]}, PlotStyl
 Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.25\textwidth]{img/qubit-evo-schrod.png}
   \caption[(from notebook)]{
@@ -221,7 +221,7 @@ Out[ ] = {{0.299377,-0.169824,0.}, {0.47679,-0.16781,0.19635}, {0.635881,-0.1593
 \begin{lstlisting}
 scatterPlot = ListPointPlot3D[scatterPoints, PlotStyle->{Red, PointSize[Large]}]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/scatterplot0.png}
   \caption[(from notebook)]{
@@ -238,7 +238,7 @@ scatterPlot = ListPointPlot3D[scatterPoints, PlotStyle->{Red, PointSize[Large]}]
 \begin{lstlisting}
 scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large]}]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/scatterplot1.png}
   \caption[(from notebook)]{
@@ -255,7 +255,7 @@ scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large
 \begin{lstlisting}
 Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large]
 \end{lstlisting}
-\begin{figure}
+\begin{figure}[h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/PWfit32.png}
   \includegraphics[width=0.6\textwidth]{img/PWfit32top.png}
