@@ -280,7 +280,13 @@ scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large
 \end{figure}
 
 \begin{Verbatim}
-Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large]
+Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large,
+  AxesLabel->{
+    Style[Re["<0,1|\[Psi]>"], Bold],
+    Style[Im["<0,1|\[Psi]>"], Bold],
+    Style[t, Bold]
+  }
+]
 \end{Verbatim}
 \begin{figure}[!h]
   \centering
