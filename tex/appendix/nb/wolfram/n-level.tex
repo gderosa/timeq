@@ -200,7 +200,13 @@ psi1plot := ParametricPlot3D[{re1psi[t], im1psi[t], t}, {t, 0, 2\[Pi]}, PlotStyl
 \end{Verbatim}
 
 \begin{Verbatim}
-Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
+Show[zAxis, psi0plot,psi1plot, ImageSize->Medium,
+  AxesLabel -> {
+    Style[Re["<0,1|\[Psi]>"], Bold],
+    Style[Im["<0,1|\[Psi]>"], Bold],
+    Style[t, Bold]
+  }
+]
 \end{Verbatim}
 \begin{figure}[!h]
   \centering
