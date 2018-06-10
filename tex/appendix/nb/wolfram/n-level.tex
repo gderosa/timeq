@@ -1,31 +1,31 @@
 \section{Page-Wootters model: \texttt{NN}-level clock $+$ $2$-level system}
 
-\begin{lstlisting}
+\begin{Verbatim}
 NN := 32
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 T := DiagonalMatrix[Range[0,NN-1]]
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 F := FourierMatrix[NN]
-\end{lstlisting}
+\end{Verbatim}
 
 For simplicity, $\hbar = 1$, there's no ``characteristic frequency'' $\omega$,
 and we ignore the dimensional term in front of \eqref{eq:SI_Fourier:T}:
 
-\begin{lstlisting}
+\begin{Verbatim}
 \[CapitalOmega] := F.T.F\[ConjugateTranspose] 
-\end{lstlisting}
+\end{Verbatim}
 
 Hamiltonian in "ordinary" space
-\begin{lstlisting}
+\begin{Verbatim}
 Hs := \[ImaginaryI]{{0, 1}, {-1, 0}}
-\end{lstlisting}
-\begin{lstlisting}
+\end{Verbatim}
+\begin{Verbatim}
 MatrixForm[Hs]
-\end{lstlisting}
+\end{Verbatim}
 \[
   \left(
     \begin{array}{cc}
@@ -37,15 +37,15 @@ MatrixForm[Hs]
 
 Matrix representation of \cite[Eq. 1]{Lloyd:Time}.
 We turn it into numeric (\verb!N[ ]!) as treating  it symbolically onwards would be unfeasible:
-\begin{lstlisting}
+\begin{Verbatim}
 J := N[KroneckerProduct[\[CapitalOmega],IdentityMatrix[2]] + KroneckerProduct[IdentityMatrix[NN],Hs]]
-\end{lstlisting}
-\begin{lstlisting}
+\end{Verbatim}
+\begin{Verbatim}
 Chop[Eigenvalues[J]]
 
 Out[ ] = {32., 31., 30., 30., 29., 29., 28., 28., 27., 27., 26., 26., 25., 25., 24., 24., 23., 23., 22., 22., 21., 21., 20., 20., 19., 19., 18., 18., 17., 17., 16., 16., 15., 15., 14., 14., 13., 13., 12., 12., 11., 11., 10., 10., 9., 9., 8., 8., 7., 7., 6., 6., 5., 5., 4., 4., 3., 3., 2., 2., 1., 1., -1., 0}
-\end{lstlisting}
-\begin{lstlisting}
+\end{Verbatim}
+\begin{Verbatim}
 Eigenvalues[J][[40]]
 
 Out[ ] = 12.
@@ -78,110 +78,137 @@ probabilityB
 
 Out[ ]= {0.881533, 0.118467, 0.744511, 0.255489, 0.570264, 0.429736, 0.38532, 0.61468, 0.217835, 0.782165, 0.0933066, 0.906693, 0.0306941, 0.969306, 0.0395291, 0.960471, 0.118467, 0.881533, 0.255489, 0.744511, 0.429736, 0.570264, 0.61468, 0.38532, 0.782165, 0.217835, 0.906693, 0.0933066, 0.969306, 0.0306941, 0.960471, 0.0395291, 0.881533, 0.118467, 0.744511, 0.255489, 0.570264, 0.429736, 0.38532, 0.61468, 0.217835, 0.782165, 0.0933066, 0.906693, 0.0306941, 0.969306, 0.0395291, 0.960471, 0.118467, 0.881533, 0.255489, 0.744511, 0.429736, 0.570264, 0.61468, 0.38532, 0.782165, 0.217835, 0.906693, 0.0933066, 0.969306, 0.0306941, 0.960471, 0.0395291}
 
-ListPlot[probability, GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]}, ImageSize->Large]
-\end{lstlisting}
-\begin{figure}
+ListPlot[probability,
+  GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]},
+  AxesLabel->{n, "P(0), P(1)"},
+  LabelStyle->Directive[16],
+  PlotMarkers->{Automatic, 16},
+  ImageSize->1024
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
-  \includegraphics[width=0.75\textwidth]{img/N32.png}
+  \includegraphics[width=.75\textwidth]{img/N32.png}
   \caption[(from notebook)]{P-W ``evolution'' for $\hat{\mathbb{J}}$ eigenvalue $=12$}
-  \end{figure}  
-\begin{lstlisting}
-ListPlot[probabilityB, GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]}, ImageSize->Large]
-\end{lstlisting}
-\begin{figure}
+\end{figure}  
+\begin{Verbatim}
+
+ListPlot[probabilityB,
+  GridLines ->{Range[0,NN*2, 2], Range[0, 1, 0.1]},
+  AxesLabel->{n, "P(0), P(1)"},
+  LabelStyle->Directive[16],
+  PlotMarkers->{Automatic, 16},
+  ImageSize->1024
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
-  \includegraphics[width=0.75\textwidth]{img/N32-B.png}
+  \includegraphics[width=.75\textwidth]{img/N32-B.png}
   \caption[(from notebook)]{P-W ``evolution'' for $\hat{\mathbb{J}}$ eigenvalue $=11$}
 \end{figure}
 
 \subsection{Consistency of PW with ordinary QM (discrete approximation)}
 
-\begin{lstlisting}
+\begin{Verbatim}
 psi0 :=  chosenEigenvectorNormalizedB[[{1,2}]]
 
 psi0
 
 Out[ ] = {-0.938878+0.00640243 I,0.299377 -0.169824 I}
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 psi[t_] := MatrixExp[-I Hs t, psi0 ]
 
 psi[t]
 
 {(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t],(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]}
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 (Abs[psi[t]]^2)[[1]]
 
 Out[ ] = Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2
 
-Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2,{t,0,2\[Pi]}]
-\end{lstlisting}
-\begin{figure}
+Plot[Abs[(-0.938878+0.00640243 I) Cos[t]+(0.299377 -0.169824 I) Sin[t]]^2, {t,0,2\[Pi]}
+  AxesLabel->{t, "P(0"},
+  LabelStyle->Directive[16],
+  ImageSize->900
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/probB_0.png}
   \caption[(from notebook)]{
     Schr{\"o}dinger evolution of
     $\qty|\braket{0}{\psi(t)}|^2$, $t \in (0, 2\pi) $
     picking the first two components of an eigenvector of $\hat{\mathbb{J}}$
-    as the two components of $\psi(0)$ in ordinary Hilbert space.
+    as the two components of $\psi_{t=0}$ in ordinary Hilbert space.
     Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
   }
 \end{figure}
 
-\begin{lstlisting}
+\begin{Verbatim}
 (Abs[psi[t]]^2)[[2]]
 
 Out[ ] = Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2
   
-Plot[Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2,{t,0,2\[Pi]}]  \end{lstlisting}
-\begin{figure}
+Plot[Abs[(0.299377 -0.169824 I) Cos[t]+(0.938878 -0.00640243 I) Sin[t]]^2, {t,0,2\[Pi]}
+  AxesLabel->{t, "P(0"},
+  LabelStyle->Directive[16],
+  ImageSize->900
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.75\textwidth]{img/probB_1.png}
   \caption[(from notebook)]{
     Schr{\"o}dinger evolution of
     $\qty|\braket{1}{\psi(t)}|^2$, $t \in (0, 2\pi) $
     picking the first two components of an eigenvector of $\hat{\mathbb{J}}$
-    as the two components of $\psi_0$ in ordinary Hilbert space.
+    as the two components of $\psi_{t=0}$ in ordinary Hilbert space.
     Related eigenvalue of $\hat{\mathbb{J}}$ is $11$
   }
 \end{figure}
 
 \subsubsection{Complex evolution of $\psi$ (not just $\qty|\psi|^2$)}
-\begin{lstlisting}
+\begin{Verbatim}
 psi[t][[1]]
 
 Out[ ] = (-0.938878 +0.00640243 \[ImaginaryI]) Cos[t] + (0.299377 - 0.169824 \[ImaginaryI]) Sin[t]
-\end{lstlisting}
-\begin{lstlisting}
+\end{Verbatim}
+\begin{Verbatim}
 psi[t][[2]]
 
 Out[ ]= (0.299377 -0.169824 \[ImaginaryI]) Cos[t] + (0.938878 -0.00640243 \[ImaginaryI]) Sin[t]
-\end{lstlisting}  
+\end{Verbatim}  
 Real and imaginary part: let's do this manually ---please note index count is
 $1, 2$ (cells above)
 but refers, respectively, to computational base elements
 $\ket{0}, \ket{1}$ in ordinary Hilbert space.
-\begin{lstlisting}
+\begin{Verbatim}
 re0psi[t_] := (-0.938878) Cos[t]  + (0.299377) Sin[t]
 im0psi[t_] := (0.00640243) Cos[t] + (- 0.169824 ) Sin[t]
 re1psi[t_] := (0.299377) Cos[t]   + (0.938878) Sin[t]
 im1psi[t_] := (- 0.169824) Cos[t] + (- 0.00640243) Sin[t] 
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 zAxis := ParametricPlot3D[{0,0,t}, {t,0,2\[Pi]}, PlotStyle->{Gray}]
 psi0plot := ParametricPlot3D[{re0psi[t], im0psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Red} ]
 psi1plot := ParametricPlot3D[{re1psi[t], im1psi[t], t}, {t, 0, 2\[Pi]}, PlotStyle->{Blue} ]
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
-Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
-\end{lstlisting}
-
-\begin{figure}
+\begin{Verbatim}
+Show[zAxis, psi0plot,psi1plot, ImageSize->Medium,
+  AxesLabel -> {
+    Style[Re["<0,1|\[Psi]>"], Bold],
+    Style[Im["<0,1|\[Psi]>"], Bold],
+    Style[t, Bold]
+  }
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.25\textwidth]{img/qubit-evo-schrod.png}
   \caption[(from notebook)]{
@@ -194,13 +221,13 @@ Show[zAxis, psi0plot,psi1plot, ImageSize->Medium]
   }
 \end{figure}
 
-\begin{lstlisting}
+\begin{Verbatim}
 pi = N[\[Pi]]
 
 3.14159
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 rephased[k_] := chosenEigenvectorNormalizedB [[k]] * Exp[-\[ImaginaryI]*pi*11*(k-1)/NN]
 
 rephased1[k_] := chosenEigenvectorNormalizedB [[k]] * Exp[-\[ImaginaryI]*pi*11*(k-2)/NN]
@@ -216,12 +243,12 @@ Out[ ] = {{-0.938878,0.00640243,0.}, {-0.862432,-0.0268517,0.19635}, {-0.752844,
 scatterPoints1 = Map[scatter1, Range[2,2*NN, 2]]
 
 Out[ ] = {{0.299377,-0.169824,0.}, {0.47679,-0.16781,0.19635}, {0.635881,-0.159347,0.392699}, {0.770535,-0.144761,0.589049}, {0.875578,-0.124611,0.785398}, {0.946973,-0.0996728,0.981748}, {0.981977,-0.0709041,1.1781}, {0.979243,-0.0394105,1.37445}, {0.938878,-0.00640243,1.5708}, {0.862432,0.0268517,1.76715}, {0.752844,0.0590739,1.9635}, {0.614324,0.089026,2.15984}, {0.452196,0.115557,2.35619}, {0.27269,0.137647,2.55254}, {0.0827052,0.154447,2.74889}, {-0.110458,0.165312,2.94524}, {-0.299377,0.169824,3.14159}, {-0.47679,0.16781,3.33794}, {-0.635881,0.159347,3.53429}, {-0.770535,0.144761,3.73064}, {-0.875578,0.124611,3.92699}, {-0.946973,0.0996728,4.12334}, {-0.981977,0.0709041,4.31969}, {-0.979243,0.0394105,4.51604}, {-0.938878,0.00640243,4.71239}, {-0.862432,-0.0268517,4.90874}, {-0.752844,-0.0590739,5.10509}, {-0.614324,-0.089026,5.30144}, {-0.452196,-0.115557,5.49779}, {-0.27269,-0.137647,5.69414}, {-0.0827052,-0.154447,5.89049}, {0.110458,-0.165312,6.08684}}
-\end{lstlisting}
+\end{Verbatim}
 
-\begin{lstlisting}
+\begin{Verbatim}
 scatterPlot = ListPointPlot3D[scatterPoints, PlotStyle->{Red, PointSize[Large]}]
-\end{lstlisting}
-\begin{figure}
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/scatterplot0.png}
   \caption[(from notebook)]{
@@ -235,10 +262,10 @@ scatterPlot = ListPointPlot3D[scatterPoints, PlotStyle->{Red, PointSize[Large]}]
   }
 \end{figure}
 
-\begin{lstlisting}
+\begin{Verbatim}
 scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large]}]
-\end{lstlisting}
-\begin{figure}
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/scatterplot1.png}
   \caption[(from notebook)]{
@@ -252,10 +279,16 @@ scatterPlot1 = ListPointPlot3D[scatterPoints1, PlotStyle->{Blue, PointSize[Large
   }
 \end{figure}
 
-\begin{lstlisting}
-Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large]
-\end{lstlisting}
-\begin{figure}
+\begin{Verbatim}
+Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large,
+  AxesLabel->{
+    Style[Re["<0,1|\[Psi]>"], Bold],
+    Style[Im["<0,1|\[Psi]>"], Bold],
+    Style[t, Bold]
+  }
+]
+\end{Verbatim}
+\begin{figure}[!h]
   \centering
   \includegraphics[width=0.4\textwidth]{img/PWfit32.png}
   \includegraphics[width=0.6\textwidth]{img/PWfit32top.png}
@@ -263,7 +296,7 @@ Show[zAxis, psi0plot,psi1plot,scatterPlot, scatterPlot1, ImageSize->Large]
     Page-Wootters discrete-time ``evolution without evolution'' (points)
     is interpolated by the (continuous lines) of standard quantum mechanics
     evolution ---up to a suitable phase correction, as seen previously.
-    Horisontal axis are real and imaginary part of the wave function components.
+    Horizontal axis are real and imaginary part of the wave function components.
     Vertical axis is time. 
   }
 \end{figure}
