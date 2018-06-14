@@ -493,16 +493,22 @@ theoretically, possibly resorting to numerical computation.
 
 \subsubsection{Computation}
 
-Appendix \ref{appendix:n-level} contains the numeric computation details
-of an $N=32$-level clock, ``timing'' a qubit subject to the same hamiltonian
-of the experiment we have seen with eq.~\eqref{eq:H_S}.
+Appendix \ref{appendix:n-level} reports the details of
+symbolic and
+numeric computation for
+an $N=32$-level clock, ``timing'' a qubit subject to the same hamiltonian
+of the experiment we have seen in eq.~\eqref{eq:H_S}.
 
-We work in ``natural units'' $\hbar = \omega = 1$, where $\omega$ is
-intended in the sense of characteristic frequency in the
-two-level clock experiment os \S\ref{1qubitExp}.
+In this case, for simplicity, we work in
+``natural units'' $\hbar = \omega = 1$, where $\omega$ is
+the characteristic frequency in the same sense of the
+two-level clock experiment described in \S\ref{1qubitExp}.
 
-The clock is built as having an operator $\hat{T}$ which is diagonal in the
-\term{computational basis}.
+The clock is built as having a time operator which is diagonal in the
+chosen computational basis\footnote{
+  Here there's no explicit reference to any particular physical implementation
+  ---be it a photon polarization, am electron spin, energy in a two-level atom and so on. 
+}:
 \[
   \hat{T} \repr \frac{2\pi}{N}
   \begin{pmatrix}
@@ -512,10 +518,10 @@ The clock is built as having an operator $\hat{T}$ which is diagonal in the
                 &       &       &N-1
   \end{pmatrix} \,\text{.}
 \]
-With this choice, the clock spans the characteristic period $\Delta T = 2\pi$.
+With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
 
 The ``spatial space'' or ``ordinary Hilbert space'' $\hilb{H}_S$
-is still 2-dimensional and the hamiltonian in it is simply
+is still 2-dimensional, and the hamiltonian in it is simply
 \[
   \hat{H}_S \repr
   i
