@@ -537,6 +537,15 @@ such derivation is extremely laborious. We don't resort to
 numeric FFT in this case, but we do benefit of computer-aided
 symbolic computation.
 
-The eigenvalues and eigenvectors of
+Once $\hat{\Omega}$ is derived though,
+the eigenvalues and eigenvectors of
 $\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S$
-can only, realistically, be computed numerically instead.
+can only, realistically, be computed with numerical methods.
+
+In order to illustrate interesting examples, not corresponding to the
+trivial evolution of an eigenstate of $H_S$,
+but to some kind of Rabi oscillation or Larmor precession
+\parencite[Ch. IV]{Cohen-Tannoudji}, we pick, in \term{Mathematica}'s ordering,
+eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\hat{\mathbb{J}}$
+in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
+$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
