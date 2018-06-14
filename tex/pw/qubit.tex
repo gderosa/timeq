@@ -265,13 +265,13 @@ only if $\hat{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
 can be interpreted as a ``time evolution'':
-\begin{equation}
+\begin{equation}\label{eq:timepicks2}
   \dket{\Psi}
   \repr_{\qty{t} \ox \qty{H,V}}
   \qty{\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1)}
 \end{equation}
 or, in general:
-\begin{equation}
+\begin{equation}\label{eq:timepicksN}
   \dket{\Psi}
   \repr
   \qty{
@@ -491,7 +491,7 @@ theoretically, possibly resorting to numerical computation.
   This is a potential line of further study.
 \end{remark}
 
-\subsubsection{Computation}
+\subsubsection{Eigensystem in the product space and consistency with ordinary quantum \mbox{theory}}
 
 Appendix \ref{appendix:n-level} reports the details of
 symbolic and
@@ -549,3 +549,25 @@ but to some kind of Rabi oscillation or Larmor precession
 eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\hat{\mathbb{J}}$
 in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
 $\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+
+Each eigenvector encodes the whole history (at discrete times)
+of the qubit over a cycle,
+as stated in \eqref{eq:timepicks2} or \eqref{eq:timepicksN}.
+
+So, for example, if components $1$ and $2$ of $\dket{\Phi_{41}}$ correspond to
+(the components of)
+an initial state of the qubit in $\hilb{H}_S$
+(i.e at ``ordinary time'' $t=0$); components
+$2k + 1$ and $2k + 2$ correspond to $t = \frac{2\pi}{N}k \eqdef t_k$
+of same, $\forall k \in \qty{0, \dots, N-1}$.
+
+A comparison of Page-Wootters results with ordinary
+Schr{\"o}dinger evolution is thus given by the comparisons
+\begin{align}
+  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)} \\
+  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}
+  \,\text{,}
+\end{align}
+where the phase $e^{-i \epsilon_{41} t_k}$ is motivated in \cite[``The Zero-eigenvalue'']{Lloyd:Time},
+and inessential if one is merely interest in determining and comparing probabilities
+$\qty|\braket{0,1}{\psi}|^2$.
