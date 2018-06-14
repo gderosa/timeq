@@ -506,8 +506,7 @@ two-level clock experiment described in \S\ref{1qubitExp}.
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis\footnote{
-  Here there's no explicit reference to any particular physical implementation
-  ---be it a photon polarization, am electron spin, energy in a two-level atom and so on. 
+  Here there's no explicit reference to any particular physical implementation. 
 }:
 \[
   \hat{T} \repr \frac{2\pi}{N}
@@ -531,3 +530,13 @@ is still 2-dimensional, and the hamiltonian in it is simply
   \end{pmatrix}
   \, \text{.}
 \]
+
+Frequency operator $\hat{\Omega}$ is derived, analytically, via Fourier
+transformation as seen in \eqref{eq:SI_Fourier:Omega}. With a large $N$,
+such derivation is extremely laborious. We don't resort to
+numeric FFT in this case, but we do benefit of computer-aided
+symbolic computation.
+
+The eigenvalues and eigenvectors of
+$\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S$
+can only, realistically, be computed numerically instead.
