@@ -163,7 +163,7 @@ but in the sense of conversion between representations of the
 same quantum state vector with respect to different eigenbasis,
 in full analogy with position and momentum in $\hilb{H}_S$.
 
-\subsection{The $1 + 1$ qubit experiment}
+\subsection{The $1 + 1$ qubit experiment}\label{1qubitExp}
 
 This section aims at a theoretical analysys of the experiment
 described in \cite{Moreva:synthetic, Moreva:illustration},
@@ -497,5 +497,31 @@ Appendix \ref{appendix:n-level} contains the numeric computation details
 of an $N=32$-level clock, ``timing'' a qubit subject to the same hamiltonian
 of the experiment we have seen with eq.~\eqref{eq:H_S}.
 
+We work in ``natural units'' $\hbar = \omega = 1$, where $\omega$ is
+intended in the sense of characteristic frequency in the
+two-level clock experiment os \S\ref{1qubitExp}.
+
 The clock is built as having an operator $\hat{T}$ which is diagonal in the
 \term{computational basis}.
+\[
+  \hat{T} \repr \frac{2\pi}{N}
+  \begin{pmatrix}
+    0           &       &       &       \\
+                &1      &       &       \\
+                &       &\ddots &       \\
+                &       &       &N-1
+  \end{pmatrix} \,\text{.}
+\]
+With this choice, the clock spans the characteristic period $\Delta T = 2\pi$.
+
+The ``spatial space'' or ``ordinary Hilbert space'' $\hilb{H}_S$
+is still 2-dimensional and the hamiltonian in it is simply
+\[
+  \hat{H}_S \repr
+  i
+  \begin{pmatrix}
+    0   & 1   \\
+    -1  & 0
+  \end{pmatrix}
+  \, \text{.}
+\]
