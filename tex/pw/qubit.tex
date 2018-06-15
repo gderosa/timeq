@@ -539,7 +539,11 @@ is still 2-dimensional, and the hamiltonian in it is simply
 \]
 
 Frequency operator $\hat{\Omega}$ is derived, analytically, via Fourier
-transformation as seen in \eqref{eq:SI_Fourier:Omega}. With a large $N$,
+transformation as seen in \eqref{eq:SI_Fourier:Omega}:
+\[
+  \Omega = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
+\]
+With a large $N$,
 such derivation is extremely laborious. We don't resort to
 numeric FFT in this case, but we do benefit of computer-aided, yet exact
 symbolic computation.
@@ -557,7 +561,7 @@ eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\hat{\mathbb{J}}$
 in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
 $\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
 
-Each eigenvector encodes the whole possible discrete-time history
+Each eigenvector encodes a whole possible discrete-time history
 of the qubit over a cycle,
 as stated in \eqref{eq:timepicks2} or \eqref{eq:timepicksN}.
 
