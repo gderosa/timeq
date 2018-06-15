@@ -534,7 +534,7 @@ is still 2-dimensional, and the hamiltonian in it is simply
 Frequency operator $\hat{\Omega}$ is derived, analytically, via Fourier
 transformation as seen in \eqref{eq:SI_Fourier:Omega}. With a large $N$,
 such derivation is extremely laborious. We don't resort to
-numeric FFT in this case, but we do benefit of computer-aided
+numeric FFT in this case, but we do benefit of computer-aided, yet exact
 symbolic computation.
 
 Once $\hat{\Omega}$ is derived though,
@@ -564,10 +564,11 @@ of same, $\forall k \in \qty{0, \dots, N-1}$.
 A comparison of Page-Wootters results with ordinary
 Schr{\"o}dinger evolution is thus given by the comparisons
 \begin{align}
-  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)} \\
-  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}
+  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)}_{\mathrm{S}} \\
+  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}_{\mathrm{S}}
   \,\text{,}
 \end{align}
 where the phase $e^{-i \epsilon_{41} t_k}$ is motivated in \cite[``The Zero-eigenvalue'']{Lloyd:Time},
 and inessential if one is merely interest in determining and comparing probabilities
-$\qty|\braket{0,1}{\psi}|^2$.
+$\qty|\braket{0,1}{\psi}|^2$. Please note the double angle bracket notation for vectors
+and operations in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
