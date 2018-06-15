@@ -550,7 +550,7 @@ eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\hat{\mathbb{J}}$
 in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
 $\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
 
-Each eigenvector encodes the whole history (at discrete times)
+Each eigenvector encodes the whole possible discrete-time history
 of the qubit over a cycle,
 as stated in \eqref{eq:timepicks2} or \eqref{eq:timepicksN}.
 
@@ -582,15 +582,19 @@ and algebraic operations in the product space $\hilb{H}_T \ox \hilb{H}_S$.
   \label{fig:prob-comparison}
 \end{figure}
 
-Figure \ref{fig:prob-comparison} is the graphical representation of (the quare modulus of)
+Figure \ref{fig:prob-comparison} is the graphical representation of (the square modulus of)
 \eqref{eq:comparison0} and \eqref{eq:comparison1} i.e. the probability for the qubit
-in $\hilb{H}_S$ to be $\ket{0}$ or $\ket{1}$. The discrete graph, on top, plots the
+in $\hilb{H}_S$ to be $\ket{0}$ or $\ket{1}$.
+
+The discrete graph, on top, plots the
 square modulus of components of $\hat{\mathbb{J}}$'s eigenvector $\dket{\Psi_{41}}$.
+
 Odd-index ($2k+1$) square-modulus components
 ---occupying vertical \emph{spaces} on the grid---
 are compared
 with the Schr{\"o}dinger evolution of probability $\qty|\braket{0}{\psi}|^{2}$
 (first continuos plot, middle image).
+
 Even-index ($2k+2$) components
 ---occupying vertical \emph{lines} on the grid---
 are analogously compared
