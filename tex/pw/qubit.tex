@@ -484,7 +484,14 @@ theoretically, possibly resorting to numerical computation.
   decompose $\mathbb{J}$ ---or, actually, $e^{-i\mathbb{J}\tau/\hbar}$---
   into simpler hamiltonians (evolutions)
   acting on individual qubits (\term{gates}),
-  therefore allowing the experiment to be run on a quantum computer.
+  therefore allowing the experiment to be run on a quantum computer.\footnote{
+    Nevertheless, a quantum computation model based on
+    $N$-dimensional \term{qudits}
+    (with $N > 2$)
+    is considered in the literature \parencite{QuditComp, Qudit}
+    as a possible approach to \emph{simplify} implementation
+    of more general purpose quantum processors, not only specific experiments.
+  }
   A decomposition method that can be considered for the purpose
   is the Trotter-Suzuki scheme
   \parencite{Trotter-Suzuki:exp, Trotter-Suzuki:GPU}.
