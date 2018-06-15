@@ -564,14 +564,14 @@ of same, $\forall k \in \qty{0, \dots, N-1}$.
 A comparison of Page-Wootters results with ordinary
 Schr{\"o}dinger evolution is thus given by the comparisons
 \begin{align}
-  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)}_{\mathrm{S}} \\
-  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}_{\mathrm{S}}
+  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison0} \\
+  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison1}
   \,\text{,}
 \end{align}
 where the phase $e^{-i \epsilon_{41} t_k}$ is motivated in \cite[``The Zero-eigenvalue'']{Lloyd:Time},
 and inessential if one is merely interest in determining and comparing probabilities
 $\qty|\braket{0,1}{\psi}|^2$. Please note the double angle bracket notation for vectors
-and operations in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
+and algebraic operations in the product space $\hilb{H}_T \ox \hilb{H}_S$.
 
 \begin{figure}
   \centering
@@ -579,4 +579,20 @@ and operations in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
   \includegraphics[height=.3\textheight]{img/probB_0.png}
   \includegraphics[height=.3\textheight]{img/probB_1.png}
   \caption{P-W vs Schr{\"o}dinger evolution for $\hat{\mathbb{J}}$ eigenvalue $=11$}
+  \label{fig:prob-comparison}
 \end{figure}
+
+Figure \ref{fig:prob-comparison} is the graphical representation of (the quare modulus of)
+\eqref{eq:comparison0} and \eqref{eq:comparison1} i.e. the probability for the qubit
+in $\hilb{H}_S$ to be $\ket{0}$ or $\ket{1}$. The discrete graph, on top, plots the
+square modulus of components of $\hat{\mathbb{J}}$'s eigenvector $\dket{\Psi_{41}}$.
+Odd-index ($2k+1$) square-modulus components
+---occupying vertical \emph{spaces} on the grid---
+are compared
+with the Schr{\"o}dinger evolution of probability $\qty|\braket{0}{\psi}|^{2}$
+(first continuos plot, middle image).
+Even-index ($2k+2$) components
+---occupying vertical \emph{lines} on the grid---
+are analougsly compared
+with the Schr{\"o}dinger evolution of probability $\qty|\braket{1}{\psi}|^{2}$
+(second continuos plot, bottom image).
