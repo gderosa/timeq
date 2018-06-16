@@ -1,10 +1,15 @@
-\section[
-  One qubit universe \dots
-]{One qubit universe: experimental realization and theoretical developments}
+\section[% https://texfaq.org/FAQ-runheadtoobig
+  One qubit universe: experimental realization and theoretical developments
+]{
+  One qubit universe: experimental realization and theoretical developments\sectionmark{%
+    One qubit universe: exp. realiz. and theor. devel.
+  }
+}
+\sectionmark{One qubit universe: exp. realiz. and theor. devel.}
 
 The Page and Wootters model has been illustrated experimentally in recent years,
 with a very simple toy universe consisting of just one qubit acting as ``the system'' (or
-``the rest of the universe'' if we will), and the clock being immplemented by another qubit ---
+``the rest of the universe'' if we will), and the clock being implemented by another qubit ---
 physically, the polarization states of two photons \parencite{Moreva:synthetic,Moreva:illustration}).
 
 In another experiment by the same authors \parencite{Moreva_position}, $\hilb{H}_S$ is still implemented with 
@@ -541,7 +546,7 @@ is still 2-dimensional, and the hamiltonian in it is simply
 Frequency operator $\hat{\Omega}$ is derived, analytically, via Fourier
 transformation as seen in \eqref{eq:SI_Fourier:Omega}:
 \[
-  \Omega = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
+  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
 With a large $N$,
 such derivation is extremely laborious. We don't resort to
@@ -611,3 +616,30 @@ Even-index ($2k+2$) components
 are analogously compared
 with the Schr{\"o}dinger evolution of probability $\qty|\braket{1}{\psi}|^{2}$
 (second continuos plot, bottom image).
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\textwidth]{img/PWfit32.png}
+  \includegraphics[width=0.5\textwidth]{img/PWfit32top.png}
+  \caption[
+    P-W ``evolution without evolution'' vs Schr{\"o}dinger evolution (complex values)
+  ]{
+    Page-Wootters discrete-time ``evolution without evolution'' (points)
+    is interpolated by the (continuous lines) of standard quantum mechanics
+    evolution.
+    Horizontal axis are real and imaginary part of the wave function components.
+    Vertical axis is time $t$.
+    Red   line plots $\braket{0}{\psi(t)}$.
+    Blue  line plots $\braket{1}{\psi(t)}$.
+  }
+  \label{fig:complex-comparison}
+\end{figure}
+
+Finally, Figure \ref{fig:complex-comparison} compares the two sides of
+\eqref{eq:comparison0} and \eqref{eq:comparison1}
+in terms of \emph{complex value}
+(%
+  therefore the term $e^{-i \epsilon t_k}$ is relevant,
+  for non-zero eigenvalues of $\hat{\mathbb{J}}$,
+  $\epsilon \neq 0$
+).
