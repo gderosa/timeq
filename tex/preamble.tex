@@ -14,6 +14,13 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage[margin=1.5in]{geometry}  % screen
+\usepackage{fancyhdr}
+\pagestyle{fancy}  %% prevent long section titles from overflowing page headers
+  \fancyhf{}
+  \fancyhead[LE]{\thepage}
+  \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
+  \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
+  \fancyhead[RO]{\thepage}
 \usepackage[safeinputenc,citestyle=authoryear-icomp,bibstyle=authoryear,backend=biber]{biblatex}
 \usepackage{environ}
 \usepackage{epigraph}

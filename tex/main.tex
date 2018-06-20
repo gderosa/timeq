@@ -4,6 +4,8 @@
 
 \begin{document}
 
+\frontmatter
+
 \maketitle
 
 \tableofcontents
@@ -12,10 +14,12 @@
  
 \listoftables
 
-% main content
 \chapter*{Preface}
+\markboth{Preface}{Preface}  %% No ugly "Chapter 0".
 \addcontentsline{toc}{chapter}{Preface}
 \input{tex/preface/preface}
+
+\mainmatter
 
 \iftodo
 \chapter{Motivation and experiments}
@@ -40,8 +44,8 @@
 \input{tex/decohere/measurement.tex}
 \input{tex/decohere/kraus.tex}
 
-\chapter{Page and Wootters relational time, improvements and comparison with other models}
-\chaptermark{Page and Wootters relational time \dots}
+\chapter{Page and Wootters relational time -- developments and applications}
+\chaptermark{Page and Wootters relational time}
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
 \iftodo
