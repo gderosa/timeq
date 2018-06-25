@@ -1,5 +1,5 @@
-# timeqm
-Time in QM?
+# timeq
+Attempts at time as a quantum observable.
 
 ## How to compile
-See [BUILD.md](BUILD.md) .
+See [BUILD.md](BUILD.md).
