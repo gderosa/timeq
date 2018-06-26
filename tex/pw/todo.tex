@@ -1,21 +1,6 @@
-%% CUT sections from here into other files when you DO them
+\section{TODOs}
 
-\section{Absorption by a detector, time of arrival}
-Ref: \cite{RuschhauptAbsorption}.
-
-Qubit PW vs Ruschhaupt detector on 2-level system,
-particularly section “EMISSION FROM A TWO-LEVEL SYSTEM”.
-
-Idea: the ``deviation'' from continuity equation as ``absorption event'',
-normalizable in $L^2(\mathbb{R}^4)$.
-
-\section{Use open quantum systems theory in ``Decoherence and measurement'' chapter}
-Schmidt decompositions, spatial and temporal states in
-$\hilb{H}_T$ and $\hilb{H}_S$
-are described as density operators
-(mixed states). What if there isn't a ``perfect entanglment'' between space and time.
-
-\section{Quantum computing, IBM, decomposition, Trotter-SUzuki, Sine-cosine, qubiter dir}
+\subsection{Quantum computing, IBM, decomposition, Trotter-SUzuki, Sine-cosine, qubiter dir}
 
 Previous section(s) read(s):
 \begin{quote}
@@ -26,77 +11,26 @@ Make a ref from there to here, and talk about qubiter and stuff.
 
 Also, \cite{Moreva:illustration} has FIG.1 gate array repr\dots
 
-\section{Quantum Blockchain and Entanglement in Time}
+\subsection{Quantum Blockchain and Entanglement in Time}
 
 \url{https://spectrum.ieee.org/tech-talk/computing/networks/quantum-blockchains-could-act-like-time-machines}
 \url{https://arxiv.org/abs/1804.05979}
 
-\section{Prvanovic and P\&W}
-In \cite{Prvanovic}, essentially the clock observable is the Hamiltonian.
-The two example clocks are an harmonic oscillator and a free particle.
-The harmonic oscillator features discrete time. Generally a time which is
-{bounded from below}
-is consistent with the Big Bang...
 
-Prvanovic uses ``relativisitc'' constants...
-
-\section{Entanglement and decoherence (Arrow of time)}
-See also \cite{EntanglementVsDecoherence}.
-
-Decoherence is an irreversible process, it also happens in measurement.
-
-According to Marletto and Vedral, arrow of time is increase in Entanglement
-between the clock and the rest.
-
-So, there seems to be a contradiction: is entanglement ``decreasing''
-(i.e. destroyed by decoherence) with time
-or increasing?
-
-We can avoid the contradiction saying that
-entanglement between two finite systems is
-destroyed while the entanglement of each of them with the universe
-is increasing.
-
-\section{TODOs}
-
-TODO: \cite{Lloyd:Time} does not only deal with improper eigenstates in $\hilb{H}_T$
-(full evolutions?)
-but also normalized ones (in $\hilb{H}_T$! \emph{``Events''}?)
-
-TODO: \cite{RealisticClocks}.
-
-\cite{HarmonicClocks} concludes ``Classical clock can be described by an Hamiltonian linear in momentum''\dots
-like in relativity?
+\subsection{Misc}
 
 Extra: \cite{TimeAnyons}.
-
-TODO: use the harmonic oscillator in \cite{HarmonicClocks}
-as a PaW clock for the same packet that is measured in
-Ruschhaupt's detector model.
-
-Therein, fading wave function: is minus derivative an event?
-L4 normalized?
-
-Other systems of interest: decays. Prvanovic new.
 
 TQM Book: time of residence: applicable to qubits, therefore Moreva experiment.
 
 \url{https://arxiv.org/abs/1708.04302} majorization, thermo.
 
-\section{and paths}
 
-Both \cite{YearsleyHalliwell_Clocks} and \cite{Gambini_PW}
-reason in terms of paths and actions, maybe Feynmann stuff
-in following chapter... and maybe conistent historiesapproach can help
-towards linking PaW and ToA?
-
-Also \url{http://quantum.phys.cmu.edu/CHS/CHS_transp.pdf}.
-
-\section{and dwell time}
+\subsection{and dwell time}
 
 \cite[\S 5]{TQM2}, \cite{YearsleyHalliwell_Clocks}.
 
-\section{In relation with the \term{time of residence}}
+\subsection{In relation with the \term{time of residence}}
 
 Here we compare \cite{Moreva:synthetic, Moreva:illustration}
 (a Page and Wootters problem)
@@ -105,7 +39,7 @@ treated in \cite[\S 5.5.2]{TQM2},
 the only usable concept since there is no notion of position
 for a qubit.
 
-\section{Comparison with (Kijowski/Aharonov-Bohm) time of arrival}
+\subsection{Comparison with (Kijowski/Aharonov-Bohm) time of arrival}
 
 Time of arrival is derived for non-relativistic \parencite{Delgado_TOA, Delgado_TOA2}
 and relativisitic \parencite{Leon_TOA_R}
@@ -113,17 +47,7 @@ particle.
 
 Kijowski: \cite{Kijowski_Time, Kijowski_Comment}.
 
-A Page and Wootters time of arrival is mentioned in \cite{Gambini_PW}.
-
-Time of arrival and clocks: again, \cite{YearsleyHalliwell_Clocks}.
-Which maybe suggests we should not wory too much of $H\ket{\Psi} = 0$. 
-
-BUT please note \cite{YearsleyHalliwell_Clocks} uses a clock that is
-\emph{coupled} with the system, while in PaW they are ``only'' entangled.
-So their calculation may be unnecessarily complicated.
-Maybe the weakjly coupling case can be used?
-
-\section{In relation to Leggett-Garg inequalities}
+\subsection{In relation to Leggett-Garg inequalities}
 (Also mentioned in \cite{Moreva_position}).
 
 Ref \cite{LeggettGarg+PageWootters}.
@@ -137,59 +61,10 @@ Halliwell, \url{https://arxiv.org/abs/1604.01659}. Ancilla, decay (spontaneous e
 A phylosophical object to decoherent histories / Everett (Everett mentioned in Marletto/ref)
 is at
 \url{https://arxiv.org/abs/1603.04845}.
-\section{Detector model}
-
-\cite{TQM2} (Kijowski and Detector) is cited and summarized well in
-\cite{Halliwell_Detector}.
 
 
 
-\section{Can a POVM on a system, if then we see it as part of a bipartite one,
-equivalent to a PVM on the other, entangled, system?}
-
-TODO: backflow effect in both models.
-
-This will show an equivalence of models based on POVM with the Page and Wootters...?
-
-Well, yes.
-
-From \cite{PreskillNotes}, Ch.3 
-\begin{quotation}
-We have seen that
-a pure state of the bipartite system AB may behave like a mixed state
-when we observe subsystem A alone, and that an orthogonal measurement
-of the bipartite system can realize a (nonorthogonal) POVM on A alone.
-\end{quotation}
-
-and
-
-\begin{quotation}
-A POVM in $H_A$ can be realized as a unitary transformation on the tensor
-product $H_A \otimes H_B$, followed by an orthogonal measurement in $H_B$.
-\end{quotation}
-
-The same chapter talks about quantum operations, quantum channels and Kraus opertators.
-
-We might want to look at exponential decay from \url{https://arxiv.org/abs/1704.07236},
-then compare with exponential decay with P and W using Lloyd Giovannetti and Maccone (ref).
-
-\subsection{Purification}
-
-See https://arxiv.org/pdf/quant-ph/0512125.pdf, P-W time as a purifying ancilla
-of the (Kijowski?) time.
-
-\subsection{4-partite universe?}
-\begin{itemize}
-  \item{The system being measured/detected}
-  \item{The Ruschhaupt detector --- which does not measure time, but whose detection happens at a certain time}
-  \item{The Page and Wootters clock, entangled with the system and/or the detector}
-  \item{The rest of the Universe, aka the Environment, aka the Termal Bath or Reservoir}
-\end{itemize}
-
-Can any of the above be identified? If the lab is isolated enough,
-the detector is the only macro object and can act as a Universe/bath/environment/reservoir\dots?
-
-\section{On ``taking time seriously'' (time is real) and why it can still be real in Page and Wootters}
+\subsection{On ``taking time seriously'' (time is real) and why it can still be real in Page and Wootters}
 
 No, Smolin
 (\term{Time Reborn}, \term{The Singular Universe and the Reality of Time})

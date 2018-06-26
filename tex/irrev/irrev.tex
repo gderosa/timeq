@@ -1,0 +1,168 @@
+\section{Uncertainty}
+
+Entropic in Vourdas. And last Lloyd.
+
+\section{Justify complex potential}
+
+Quantum Jumps / trajectories / Monte Carlo Wave Function.
+
+Ch. 6 Vol. 2 of Time in QM (G.C. Hegerfeldt). Or similarly
+\begin{itemize}
+  \item \url{https://arxiv.org/pdf/quant-ph/9710027.pdf}
+  \item Gerhard C Hegerfeldt and Dirk G Sondermann 1996 Quantum Semiclass. Opt. 8 121
+  \item  Almut Beige et al 1996 Quantum Semiclass. Opt. 8 999
+  \item VOLUME
+  \item 68,NUMBER 5 PRL 1992 Wave-Function Approach to Dissipative Processes in Quantum Optics
+  \item ``How to reset an atom after photon detection'' 
+  \item BEST: \url{http://www.theorie.physik.uni-goettingen.de/~hegerf/trieste.pdf}
+  \item OR: textbooks and monographs: Carmichael, Scully, Milburn, Gerry
+\end{itemize}
+
+
+\section{Absorption by a detector, time of arrival}
+Ref: \cite{RuschhauptAbsorption}.
+
+Qubit PW vs Ruschhaupt detector on 2-level system,
+particularly section “EMISSION FROM A TWO-LEVEL SYSTEM”.
+
+Idea: the ``deviation'' from continuity equation as ``absorption event'',
+normalizable in $L^2(\mathbb{R}^4)$.
+
+\cite{TQM2} (Kijowski and Detector) is cited and summarized well in
+\cite{Halliwell_Detector}.
+
+\section{Use open quantum systems theory in ``Decoherence and measurement'' chapter}
+Schmidt decompositions, spatial and temporal states in
+$\hilb{H}_T$ and $\hilb{H}_S$
+are described as density operators
+(mixed states). What if there isn't a ``perfect entanglment'' between space and time.
+
+\section{Entanglement and decoherence (Arrow of time)}
+See also \cite{EntanglementVsDecoherence}.
+
+Decoherence is an irreversible process, it also happens in measurement.
+
+According to Marletto and Vedral, arrow of time is increase in Entanglement
+between the clock and the rest.
+
+So, there seems to be a contradiction: is entanglement ``decreasing''
+(i.e. destroyed by decoherence) with time
+or increasing?
+
+We can avoid the contradiction saying that
+entanglement between two finite systems is
+destroyed while the entanglement of each of them with the universe
+is increasing.
+
+
+
+
+\section{``Harmonic clocks''}
+
+TODO: use the harmonic oscillator in \cite{HarmonicClocks}
+as a PaW clock for the same packet that is measured in
+Ruschhaupt's detector model.
+
+Therein, fading wave function: is minus derivative an event?
+L4 normalized?
+
+
+\section{Misc}
+
+Time of arrival and clocks: again, \cite{YearsleyHalliwell_Clocks}.
+Which maybe suggests we should not wory too much of $H\ket{\Psi} = 0$. 
+
+We don't. 
+
+BUT please note \cite{YearsleyHalliwell_Clocks} uses a clock that is
+\emph{coupled} with the system, while in PaW they are ``only'' entangled.
+So their calculation may be unnecessarily complicated.
+Maybe the weakjly coupling case can be used?
+
+Other systems of interest: decays. Prvanovic new.
+
+Reference \cite{ConnesRovelliThermo}.
+
+Relate with John Goold's works? The ancilla as a clock? --- Topical Review
+
+Markovianity, histories.
+
+Lloyd on arXiv: from clock to cloners; erasing; scrambling (as in Goold).
+
+Lloyd on decoherent histories (Gellman, Hartle?).
+
+Dechoerence / irreversibility / measurement.
+
+Vedral / Lloyd. Discord.
+
+Measuring entanglement: Quantification of Concurrence via Weak Measurement: 1611.00149.
+
+Marletto/Vedral on Arrow of time. Arrow of time as increasing entanglement.
+
+Arrow of time: 
+
+\url{https://www.wired.com/2014/04/quantum-theory-flow-time/}
+
+\url{https://en.wikipedia.org/wiki/Loschmidt%27s_paradox}
+
+\url{https://www.quantamagazine.org/20160119-time-entanglement/}
+
+\url{https://arxiv.org/pdf/1702.07706.pdf} \textit{The second law of thermodynamics at the microscopic scale}
+Thibaut Josset,
+Aix Marseille Univ. (David).
+
+Maxwell's demon: https://arxiv.org/pdf/1702.05161.pdf
+
+\subsection{and paths}
+
+Both \cite{YearsleyHalliwell_Clocks} and \cite{Gambini_PW}
+reason in terms of paths and actions, maybe Feynmann stuff
+in following chapter... and maybe conistent historiesapproach can help
+towards linking PaW and ToA?
+
+Also \url{http://quantum.phys.cmu.edu/CHS/CHS_transp.pdf}.
+
+\subsection{Can a POVM on a system, if then we see it as part of a bipartite one,
+equivalent to a PVM on the other, entangled, system?}
+
+TODO: backflow effect in both models.
+
+This will show an equivalence of models based on POVM with the Page and Wootters...?
+
+Well, yes.
+
+From \cite{PreskillNotes}, Ch.3 
+\begin{quotation}
+We have seen that
+a pure state of the bipartite system AB may behave like a mixed state
+when we observe subsystem A alone, and that an orthogonal measurement
+of the bipartite system can realize a (nonorthogonal) POVM on A alone.
+\end{quotation}
+
+and
+
+\begin{quotation}
+A POVM in $H_A$ can be realized as a unitary transformation on the tensor
+product $H_A \otimes H_B$, followed by an orthogonal measurement in $H_B$.
+\end{quotation}
+
+The same chapter talks about quantum operations, quantum channels and Kraus opertators.
+
+We might want to look at exponential decay from \url{https://arxiv.org/abs/1704.07236},
+then compare with exponential decay with P and W using Lloyd Giovannetti and Maccone (ref).
+
+\subsubsection{Purification}
+
+See https://arxiv.org/pdf/quant-ph/0512125.pdf, P-W time as a purifying ancilla
+of the (Kijowski?) time.
+
+\subsubsection{4-partite universe?}
+\begin{itemize}
+  \item{The system being measured/detected}
+  \item{The Ruschhaupt detector --- which does not measure time, but whose detection happens at a certain time}
+  \item{The Page and Wootters clock, entangled with the system and/or the detector}
+  \item{The rest of the Universe, aka the Environment, aka the Termal Bath or Reservoir}
+\end{itemize}
+
+Can any of the above be identified? If the lab is isolated enough,
+the detector is the only macro object and can act as a Universe/bath/environment/reservoir\dots?
