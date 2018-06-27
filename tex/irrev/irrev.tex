@@ -8,25 +8,32 @@ and for the computational feasibility and interest.
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
 $\hat{q}$ and $\hat{p} \eqdef -i\hbar\hat{\partial}_{q}$,
 it is in general straightforward to prove that
-$\qty[q, p] = i\hbar$ and therefore
-$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[q, p]}| = \frac{\hbar}{2}}$.
+$\qty[\hat{q}, \hat{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\hat{q}, \hat{p}]}| = \frac{\hbar}{2}}$.
 
-For finite-dimensional systems, the above commutation relation doesn't hold
+In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
 in general, and is less essential.
-The canonically conjugate is derived from an operator
-via (discrete) Fourier transform, rather then differentiation,
+Canonically conjugate operators are related
+through the (discrete) Fourier transform ($\hat{p} = F\hat{q}F^{\dagger}$)
+rather then differentiation,
 and uncertainty relations are based on
 the properties of Fourier transformation
 rather than commutation relations.
 
-\cite[\S 2.4]{FiniteHilb}.
-
-\cite{Wehner:Uncertainty}.
-
-D. Deutsch.  Uncertainty in quantum measurements.
-Phys. Rev. Lett.
-, 50:631–633, 1983.
-
+Particularly, the entropic uncertainty relation holds
+(\cite[\S 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+\begin{equation}
+  S_q + S_p \geq \ln d
+\end{equation}
+where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+\parencite[\S {\it I}.A]{Wehner:Uncertainty}; in this case:
+\begin{align}
+  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+  \,\text{,}
+\end{align}
+with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+(generalized) position and momentum basis.
 
 And last Lloyd.
 
