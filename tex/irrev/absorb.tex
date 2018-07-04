@@ -3,7 +3,7 @@
 A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
 satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
 encodes the whole (unitary) time evolution of a system.
-\begin{equation}
+\begin{equation}\label{eq:pwexpansion}
   \dket{\Psi} =
     \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S =
     \int \dd{t}\dd[3]{\vec{r}} \ \Psi(t; \vec{r}) \; \ket{t}_T \ox \ket{\vec{r}}_S
@@ -17,7 +17,22 @@ We know $\ket{t}_T \ox \ket{\vec{r}}_S$ is an othonormal basis of $\hilb{H}_T \o
     \int \dd{t} 1 \rightarrow +\infty
     \,  \text{,}
 \end{equation}
-which means that such $\dket{\Psi}$ is an \term{improper} vector of $\hilb{H}_T \ox \hilb{H}_S$. 
+which means that such $\dket{\Psi}$ is an \term{improper} vector of $\hilb{H}_T \ox \hilb{H}_S$.
+
+Proper (i.e. normalizable) states are described in \cite{Lloyd:Time} as well, by replacing (or generalizing)
+the \eqref{eq:pwexpansion} with
+\begin{equation}
+  \dket{\Psi} =
+    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
+\end{equation}
+If the function $\phi \in \mathcal{L}^2(\mathbb{R})$,
+then $\dket{\Psi}$ is a proper element of the product space,
+and $\norm{\dket{\Psi}}^2~=~\int \dd{t} \abs{\phi(t)}^2$.
+
+We will consider some even more general case than \cite{Lloyd:Time},
+for example when $\phi(t)$ is not a constant, but it's not square-integrable either,
+or it's such only in the half-line $\mathbb{R}^{+}$,
+which will be useful in some problems.
 
 \section{Detection, absoption and complex potentials}
 
