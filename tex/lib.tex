@@ -37,11 +37,14 @@
 \newcommand{\eqdef}{\triangleq}
 \newcommand{\superop}{\mathcal}
 
-\newcommand{\dbra}[1]{\langle\langle#1|}  % Page-Wootters states
-\newcommand{\dket}[1]{|#1\rangle\rangle}
-\newcommand{\dbraket}[2]{\langle\langle #1 | #2 \rangle}
-\newcommand{\bradket}[2]{\langle #1 | #2 \rangle\rangle}
-\newcommand{\dbradket}[2]{\langle\langle #1 | #2 \rangle\rangle}
+%% MnSymbol causes problems, let's hack the double angle bracket
+\newcommand{\llangle}[0]{\langle\hspace{-0.175em}\langle}
+\newcommand{\rrangle}[0]{\rangle\hspace{-0.175em}\rangle}
+\newcommand{\dbra}[1]{\left\llangle #1 \right|}  % Page-Wootters states
+\newcommand{\dket}[1]{\left|#1\right\rrangle}
+\newcommand{\dbraket}[2]{\left\llangle #1 \mid| #2 \right\rrangle}
+\newcommand{\bradket}[2]{\left\langle #1 \mid| #2 \right\rrangle}
+\newcommand{\dbradket}[2]{\left\llangle #1 \mid| #2 \right\rrangle}
 
 \NewEnviron{eqsplit}{\begin{equation}\begin{split}\BODY\end{split}\end{equation}}
 \NewEnviron{eqsplit*}{\begin{equation*}\begin{split}\BODY\end{split}\end{equation*}}
