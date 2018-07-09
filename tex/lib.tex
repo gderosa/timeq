@@ -33,18 +33,17 @@
 \DeclareMathOperator*{\repr}{\equiv}      % represented in a basis, or "has components..."
 
 \renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
-%\newcommand{\eqdef}{\coloneq}
-\newcommand{\eqdef}{\triangleq}
+\newcommand{\eqbydef}{\coloneq}
+%\newcommand{\eqbydef}{\triangleq}
 \newcommand{\superop}{\mathcal}
 
-%% MnSymbol causes problems, let's hack the double angle bracket
-\newcommand{\llangle}[0]{\langle\hspace{-0.175em}\langle}
-\newcommand{\rrangle}[0]{\rangle\hspace{-0.175em}\rangle}
-\newcommand{\dbra}[1]{\left\llangle #1 \right|}  % Page-Wootters states
-\newcommand{\dket}[1]{\left|#1\right\rrangle}
-\newcommand{\dbraket}[2]{\left\llangle #1 \mid| #2 \right\rrangle}
-\newcommand{\bradket}[2]{\left\langle #1 \mid| #2 \right\rrangle}
-\newcommand{\dbradket}[2]{\left\llangle #1 \mid| #2 \right\rrangle}
+\newcommand{\dket}[1]{\left.\left| #1 \right\rangle\hspace{-0.115em}\right\rangle}
+\newcommand{\Dket}[1]{\left.\left| #1 \right\rangle\hspace{-0.365em}\right\rangle}
+% and similar...
+\newcommand{\dbra}[1]{\left\langle\!\left\langle #1 \right|\right.}
+\newcommand{\dbraket}[2]{\left\langle\!\left\langle #1 \middle| #2 \right\rangle\right.}
+\newcommand{\bradket}[2]{\left.\left\langle #1 \middle| #2 \right\rangle\!\right\rangle}
+\newcommand{\dbradket}[2]{\left\langle\!\left\langle #1 \middle| #2 \right\rangle\!\right\rangle}
 
 \NewEnviron{eqsplit}{\begin{equation}\begin{split}\BODY\end{split}\end{equation}}
 \NewEnviron{eqsplit*}{\begin{equation*}\begin{split}\BODY\end{split}\end{equation*}}

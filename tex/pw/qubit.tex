@@ -251,8 +251,8 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
 Thus the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$
 (or superpositions of them):
 \begin{align}
-  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqdef \ket{L} \\
-  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqdef \ket{R} \, \text{.}
+  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqbydef \ket{L} \\
+  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqbydef \ket{R} \, \text{.}
 \end{align}
 In terms of the physics of the experiment,
 time is determined with quantum certainty when the clock photon is
@@ -299,11 +299,11 @@ and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
 (let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
 In conclusion, with some algebra, it's simply
 \begin{equation}
-  \Omega_{T_d} \eqdef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+  \Omega_{T_d} \eqbydef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
 \end{equation}
 and we are interested in the eigensystem of
 \begin{multline}
-  \mathbb{J}_{T_d} \eqdef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
+  \mathbb{J}_{T_d} \eqbydef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
     \hbar
     \begin{pmatrix}0 & - \omega\\- \omega & 0\end{pmatrix}
     \ox
@@ -377,7 +377,7 @@ with $\omega' = -\omega$ in this case.
 
 A pattern that emerges in the general case is
 \[
-  \omega' \eqdef \omega_{T_{0}} = \frac{\pi T_0}{(\delta T)^2} \,\text{,}
+  \omega' \eqbydef \omega_{T_{0}} = \frac{\pi T_0}{(\delta T)^2} \,\text{,}
 \]
 where it is emphasized that this frequency shift is related to the clock starting
 with a ground eigenvalue $T_0 \ne 0$.
@@ -567,7 +567,7 @@ So, for example, if components $1$ and $2$ of $\dket{\Phi_{41}}$ correspond to
 (the components of)
 an initial state of the qubit in $\hilb{H}_S$
 (i.e at ``ordinary time'' $t=0$); components
-$2k + 1$ and $2k + 2$ correspond to $t = \frac{2\pi}{N}k \eqdef t_k$
+$2k + 1$ and $2k + 2$ correspond to $t = \frac{2\pi}{N}k \eqbydef t_k$
 of same, $\forall k \in \qty{0, \dots, N-1}$.
 
 A comparison of Page-Wootters results with ordinary
