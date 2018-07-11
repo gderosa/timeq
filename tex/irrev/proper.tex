@@ -21,7 +21,7 @@ and can then be reformulated as:\footnote{
   when it's obvious.
 }
 \begin{equation}
-  \dket{\Psi} = \phi(\hat{T})\dket{\Psi} \, \text{.}
+  \dket{\Phi} = \phi(\hat{T})\dket{\Psi} \, \text{.}
 \end{equation}
 
 We will also need the relation
@@ -36,10 +36,11 @@ For the canonical pair, this will just reduce to $\comm{\phi(\hat{T})}{\hat{\Ome
 
 Therefore:
 \begin{multline}
+  \qty( \hbar\hat{\Omega} \ox \idop_S + \idop_T \ox \hat{H}_S ) \dket{\Phi} =
   \hat{\mathbb{J}}\dket{\Phi} =
   \hat{\mathbb{J}} \qty( \phi(\hat{T}) \ox \idop_S) \dket{\Psi} =
-  \qty( \hbar\hat{\Omega}\phi(\hat{T}) \ox \idop_S + \phi(\hat{T}) \ox \hat{H}_S )\dket{\Psi} =
   \\
+  \qty( \hbar\hat{\Omega}\phi(\hat{T}) \ox \idop_S + \phi(\hat{T}) \ox \hat{H}_S )\dket{\Psi} =
   \qty{
     \hbar\qty( \phi(\hat{T})\hat{\Omega} - \comm{\phi(\hat{T})}{\hat{\Omega}} ) \ox \idop_S +
     \phi(\hat{T}) \ox \hat{H}_S
@@ -52,5 +53,7 @@ Therefore:
     - i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S
     + \hbar\hat{\Omega} \ox \idop_S
     + \idop_T \ox \hat{H}_S
-  ) \dket{\Psi}
+  ) \dket{\Psi} =
+  \\
+  - \qty( i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S ) \dket{\Phi}
 \end{multline}
