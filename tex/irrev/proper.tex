@@ -24,10 +24,33 @@ and can then be reformulated as:\footnote{
   \dket{\Psi} = \phi(\hat{T})\dket{\Psi} \, \text{.}
 \end{equation}
 
+We will also need the relation
 \begin{equation}
-  \dket{\Psi} = \phi(\hat{T})\Dket{\frac{1}{2}} \, \text{.}
+  \comm{\phi(\hat{T})}{\hat{\Omega}} = \dot{\phi}(\hat{T}) \comm{\hat{T}}{\hat{\Omega}}, \,
+    \forall \, \hat{T}, \hat{\Omega} \text{ self-adjoint in } \hilb{H}_T \text{ and } \phi \in C^{\infty}(\mathbb{R}) \, \text{,} 
 \end{equation}
+where $\dot{\phi}$ is the first derivative of the function $\phi$.
+In fact, this is proven in Appendix \ref{CommProp} for when $\phi$ is a polynomial,
+and the proof can be easily extended to a more general case by series expansion.
+For the canonical pair, this will just reduce to $\comm{\phi(\hat{T})}{\hat{\Omega}} = i \dot{\phi}$.
 
-\begin{equation}
-  \dket{\Psi} = \phi(\hat{T})\left.\left| \frac{1}{2} \right\rangle\right\rangle \, \text{.}
-\end{equation}
+Therefore:
+\begin{multline}
+  \hat{\mathbb{J}}\dket{\Phi} =
+  \hat{\mathbb{J}} \qty( \phi(\hat{T}) \ox \idop_S) \dket{\Psi} =
+  \qty( \hbar\hat{\Omega}\phi(\hat{T}) \ox \idop_S + \phi(\hat{T}) \ox \hat{H}_S )\dket{\Psi} =
+  \\
+  \qty{
+    \hbar\qty( \phi(\hat{T})\hat{\Omega} - \comm{\phi(\hat{T})}{\hat{\Omega}} ) \ox \idop_S +
+    \phi(\hat{T}) \ox \hat{H}_S
+  }\dket{\Psi} =
+  \\
+  \qty(
+    \phi(\hat{T}) \ox \idop_S
+  )
+  \qty(
+    - i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S
+    + \hbar\hat{\Omega} \ox \idop_S
+    + \idop_T \ox \hat{H}_S
+  ) \dket{\Psi}
+\end{multline}
