@@ -35,7 +35,7 @@ and the proof can be easily extended to a more general case by series expansion.
 For the canonical pair, this will just reduce to $\comm{\phi(\hat{T})}{\hat{\Omega}} = i \dot{\phi} (\hat{T})$.
 
 Therefore:
-\begin{multline}
+\begin{multline}\label{eq:complex_dynam_deriv}
   \qty( \hbar\hat{\Omega} \ox \idop_S + \idop_T \ox \hat{H}_S ) \dket{\Phi} =
   \hat{\mathbb{J}}\dket{\Phi} =
   \hat{\mathbb{J}} \qty( \phi(\hat{T}) \ox \idop_S) \dket{\Psi} =
@@ -60,3 +60,19 @@ Therefore:
 \end{multline}
 where we have used the \eqref{eq:pwwd} first, then the fact that $\phi(\hat{T})$ 
 and $-i\hbar\frac{\dot{\phi}}{\phi}(\hat{T})$ commute.
+
+Comparing the first and last term of \eqref{eq:complex_dynam_deriv}:
+\begin{equation}
+  \qty(
+    \hbar\hat{\Omega} \ox \idop_S +
+    i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S +
+    \idop_T \ox \hat{H}_S
+  ) \dket{\Phi} = 0
+  \text{,}
+\end{equation}
+showing that a non-hermitian\footnote{
+  Unless $\phi$  is a pure imaginary function.
+}
+correction term,
+$i \hbar \frac{\dot{\phi}}{\phi} (\hat{T})$,
+emerges in the dynamic constraint $\hat{\mathbb{J}}$.
