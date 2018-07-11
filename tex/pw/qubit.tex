@@ -161,6 +161,61 @@ but in the sense of conversion between representations of the
 same quantum state vector with respect to different eigenbasis,
 in full analogy with position and momentum in $\hilb{H}_S$.
 
+\subsubsection{Uncertainty}
+
+For canonical pairs of operators with a continuous, unbounded spectrum i.e.
+$\hat{q}$ and $\hat{p} \eqbydef -i\hbar\hat{\partial}_{q}$,
+it is in general straightforward to prove that
+$\qty[\hat{q}, \hat{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\hat{q}, \hat{p}]}| = \frac{\hbar}{2}}$.
+
+In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
+in general, and is less essential.
+Canonically conjugate operators are related
+through the (discrete) Fourier transform ($\hat{p} = F\hat{q}F^{\dagger}$)
+rather then differentiation,
+and uncertainty relations are based on
+the properties of Fourier transformation
+rather than commutation relations.
+
+Particularly, the entropic uncertainty relation holds
+(\cite[\S 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+\begin{equation}
+  S_q + S_p \geq \ln d
+\end{equation}
+where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+\parencite[\S {\it I}.A]{Wehner:Uncertainty}; in this case:
+\begin{align}
+  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+  \,\text{,}
+\end{align}
+with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+(generalized) position and momentum basis.
+
+\if{todo}
+TODO Lloyd recent on entropic uncertainty (for time\dots).
+From state vectors to density matrices and/or mixed states: Von Neumann entroy (wikipedia).
+Subadditivity. 
+\fi
+
+In a continuous-time Page-Wootters universe,
+one is tempted to observe that in $\hilb{H}_T$,
+in the time representation, it is $E \eqbydef \hbar\hat{\Omega} \repr i\hbar\partial_{t}$,
+in analogy with $\hat{p} \repr -i\hbar\partial_{q}$ in $\hilb{H}_S$,
+therefore a time-energy uncertainty relation can be derived
+with a proof that is formally identical to the well known
+position-momentum uncertainty relation. However, it's worth
+noting that the time evolution of a system is never expressed
+in terms of a separable state (and therefore a pure state in $\hilb{H}_T$)
+but always a maximally entangled state in the product space
+\begin{equation*}
+  \int dt \ket{t}_T \ox \ket{\psi(t)}_S \, \text{,}
+\end{equation*}
+therefore the spatial degrees of freedom should be \emph{traced out},
+before deriving a time-energy relation 
+---in terms of the reduced density operator and partial traces.
+
 \subsection{The $1 + 1$ qubit experiment}\label{1qubitExp}
 
 This section aims at a theoretical analysys of the experiment
