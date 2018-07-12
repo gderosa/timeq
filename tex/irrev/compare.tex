@@ -1,3 +1,37 @@
 \section{Comparison with detector absorption models}
 
-\lipsum
+By ``conditioning'' the \eqref{eq:nonu_pwwdw} at each time $t$
+---in other words: by inner-multiplying it on the left with the partial bra\footnote{
+  Partial in the sense of open quantum systems, or as a part of a bipartite system.
+  See Definition \ref{def:pBra}.
+}
+$\prescript{}{T}{\bra{t}}$~---
+a modified Schr{\"o}dinger equation
+can be derived,
+as a variant of \eqref{eq:schrod_from_pw}.
+
+In the position representation of $\hilb{H}_S$ (and ``tracing out'' time):
+\begin{equation}
+  \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} -i\hbar\frac{\dv{\phi}{t}}{\phi(t)}\ket{\phi(t)} \text{.}
+\end{equation}
+
+Here the subscript $S$ has been removed and it's assumed.
+$\ket{\phi(t)} = \prescript{}{T}{\bradket{t}{\Phi}}$
+is a state vector that does not conserve its norn in its time evolution.
+In a sense, its norm is ``absorbed'' in the detection process.
+
+Within the Page-Wootters framework, a non-hermitian term in the ``Hamiltonian''
+is a consequence of non-unitary ``evoution''.
+On the contrary, in detection models based on absorption and complex potentials
+\parencite{RuschhauptAbsorption}, non-unitary evolution is a consequence
+of such non-hermitian term in the modified Hamiltonian.
+Specifically, the Hamiltonian $\hat{H}$ is replaced by a $\hat{H} - i\hat{D}$
+and, consequently:
+\begin{equation}
+  \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} +iD\ket{\phi(t)} \text{.}
+\end{equation}
+Similarly to the Page-Wootters model, $\ket{\phi(t)}$ does not conserve its norm in time.
+
+In the P-W model, $\ket{\psi(t)} = \ket{\phi(t)}/\phi(t)$
+is the corresponding unitary evolution vector
+(or ``what would have happened without an absorbing detector'').
