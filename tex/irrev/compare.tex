@@ -11,7 +11,7 @@ can be derived,
 as a variant of \eqref{eq:schrod_from_pw}.
 
 In the position representation of $\hilb{H}_S$ (and ``tracing out'' time):
-\begin{equation}
+\begin{equation}\label{eq:schrod_pw_nonunitary}
   \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} -i\hbar\frac{\dv{\phi}{t}}{\phi(t)}\ket{\phi(t)} \text{.}
 \end{equation}
 
@@ -27,11 +27,24 @@ On the contrary, in detection models based on absorption and complex potentials
 of such non-hermitian term in the modified Hamiltonian.
 Specifically, the Hamiltonian $\hat{H}$ is replaced by a $\hat{H} - i\hat{D}$
 and, consequently:
-\begin{equation}
-  \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} +iD\ket{\phi(t)} \text{.}
+\begin{equation}\label{eq:schrod_complex_pot}
+  \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} +i\hat{D}\ket{\phi(t)} \text{.}
 \end{equation}
 Similarly to the Page-Wootters model, $\ket{\phi(t)}$ does not conserve its norm in time.
 
 In the P-W model, $\ket{\psi(t)} = \ket{\phi(t)}/\phi(t)$
 is the corresponding unitary evolution vector
 (or ``what would have happened without an absorbing detector'').
+This relation, along with \eqref{eq:schrod_complex_pot} and \eqref{eq:schrod_pw_nonunitary},
+yields a differential equation
+\begin{equation}\label{eq:phi_diffeq}
+  \hbar\dv{\phi}{t}\ket{\psi(t)} = \phi(t) \hat{D} \ket{\psi(t)} \text{,}
+\end{equation}
+where $\phi(t)$ and $\hat{D}$ commute, as $\hat{D}$ only acts on the spatial degrees of freedom,
+while $\phi(t)$ is, with respect to $\hilb{H}_S$, in fact a constant, albeit parametrized in $t$.
+
+One may find $\ket{\psi(t)}$ first (by simply computing the unitary evolution),
+then compute the effect of the detector by resolving the \eqref{eq:phi_diffeq}
+which is then an ordinary differential equation. This is, of course, valid
+under the assumption that the detector term only affects norm and phase,
+but doesn't change the ``ray'' of the state vector in the Hilbert space. 
