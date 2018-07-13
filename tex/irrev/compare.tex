@@ -48,3 +48,29 @@ then compute the effect of the detector by resolving the \eqref{eq:phi_diffeq}
 which is then an ordinary differential equation in $\phi$. This is, of course, valid
 under the assumption that the detector term only affects norm and phase,
 but doesn't change the ``ray'' of the state vector in the Hilbert space. 
+
+Multiplying on the left by $\bra{\psi(t)}$, rearranging, and with the same observations
+on commutativity:
+\begin{equation}\label{eq:phi_diffeq_simpler}
+  -\hbar\frac{\dot{\phi}}{\phi}(t) = \ev{D(t)} \text{,}
+\end{equation}
+a well known equation type based on logaritmic derivative: in particular,
+if $\hat{D}$ is a constant, that would bring an exponential decay law.
+A general solution is:
+\begin{equation}
+  \phi(t) = \phi(t_0) \exp[ -\frac{1}{\hbar} \int_{t_0}^{t} \dd{t'} \ev{D(t)} ]
+\end{equation}
+where:
+\begin{enumerate*}[label=\emph{\alph*})]
+  \item
+    the physics of the problem may tell us, for example, a time when $\phi(t_0) = 1$;
+  \item
+    a suitable interval $\qty[t_0, t]$ may be chosen where it is $\phi(t') \ne 0$
+    to avoid singularities in \eqref{eq:phi_diffeq_simpler};
+  \item
+    again, $\ev{D(t)}$ is a known function
+    once the unitarily evolved $\ket{\psi(t)}$ is determined.
+\end{enumerate*}
+
+
+   
