@@ -1,4 +1,4 @@
-\section{Comparison with detector absorption models}
+\section{Page-Wootters and detector absorption models}
 
 By ``conditioning'' the \eqref{eq:nonu_pwwdw_f} at each time $t$
 ---in other words: by inner-multiplying it on the left with the partial bra\footnote{
@@ -56,10 +56,10 @@ on commutativity:
 \begin{equation}\label{eq:phi_diffeq_simpler}
   -\hbar\frac{\dot{f}(t)}{f(t)} = \ev{D(t)} \text{,}
 \end{equation}
-a well known equation type based on logaritmic derivative: in particular,
-if $\hat{D}$ is a constant, that would bring an exponential decay law.
+where we recognize the logaritmic derivative of $f$: in particular,
+if $\hat{D}$ is a constant, $f$ would undergo an exponential decay law.
 A general solution is:
-\begin{equation}
+\begin{equation}\label{eq:f-evol}
   f(t) = f(t_0) \exp[ -\frac{1}{\hbar} \int_{t_0}^{t} \dd{t'} \ev{D(t')} ]
 \end{equation}
 where:
@@ -74,5 +74,6 @@ where:
     once the unitarily evolved $\ket{\psi(t)}$ is determined.
 \end{enumerate*}
 
-
+The above provides thus a convenient method to separately resolve
+the unitary evolution and the loss of normalization.
    
