@@ -63,11 +63,11 @@ and $-i\hbar\frac{\dot{\phi}}{\phi}(\hat{T})$ commute.
 
 Comparing the first and last term of \eqref{eq:complex_dynam_deriv} we have:
 \begin{equation}\label{eq:nonu_pwwdw}
-  \qty(
+  \qty[
     \hbar\hat{\Omega} \ox \idop_S +
-    i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S +
+    i \hbar \frac{\dot{\phi}}{\phi}(\hat{T}) \ox \idop_S +
     \idop_T \ox \hat{H}_S
-  ) \dket{\Phi} = 0
+   ] \dket{\Phi} = 0
   \text{,}
 \end{equation}
 showing that a non-hermitian\footnote{
@@ -85,6 +85,14 @@ $\phi \in \mathcal{L}^2(\mathbb{R})$, therefore the last result does not only ap
 to normalized vectors as in \eqref{eq:pwphi}, but can apply to cases like
 \eqref{eq:pwf}, provided that regularity conditions are met such that
 the \eqref{eq:fcomm} is satisfied.
+\begin{equation}\label{eq:nonu_pwwdw_f}
+  \qty[
+    \hbar\hat{\Omega} \ox \idop_S +
+    i \hbar \frac{\dot{f}}{f}(\hat{T}) \ox \idop_S +
+    \idop_T \ox \hat{H}_S
+   ] \dket{\mathsf{F}} = 0
+  \text{,}
+\end{equation}
 This gives validity,
 under such regularity conditions,
 to a comparison
