@@ -83,22 +83,25 @@ to satisfy the normalization in time (frequency)
 while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
 orthonormal.
 
-
-with use of \eqref{eq:density_A_expand}, the reduced density operator can be computed
-via partial trace:
-\[
-  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd t \abs{\phi(t)}^2 \ketbra{t}{t} 
-\]
-
-\[
-  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd \omega \abs{\tilde{\phi}(\omega)}^2 \ketbra{\omega}{\omega}
-  \,\text{.} 
-\]
-Here the probabilty distributions $\phi$ and $\tilde{\phi}$
+Next we use \eqref{eq:density_A_expand}: replace the discrete sum with an integral,
+set $i = \mu$ as this is a Schmidt decomposition, and then $j = t$
+(or $j = \omega$ respectively).
+The reduced density operator can so be computed
+as partial trace:
+\begin{align}
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+    \, \text{,}
+  \\ 
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+    \,\text{.} 
+\end{align}
+Here the probabilty distributions $\norm{\phi}^2$ and $\norm{\tilde{\phi}}^2$
 are ``classical'' in the sense of a mixed state.
 
 The relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
 can then be derived from the properties of the Fourier transform.
 
+\if{todo}
 \subsection{TODO}
 \cite{Maccone:Pauli} \S IV.  UNBOUNDED-ENERGY CLOCKS?
+\fi
