@@ -33,56 +33,38 @@ $\tilde{\phi(\omega)}$ should then be infinitely concentrated (a Dirac delta),
 meaning that all unitary evolutions are the evolution of an eigenstate of energy (frequency),
 which is not true in general.
 
-In fact, $\dket{\Phi}$ and $\dket{\Psi}$ encode two physically distinct concepts,
-and a full unitary evolution $\dket{\Psi}$ can be obtained from a time-normalized
-$\dket{\Phi}$ with the ``Page-Wootters evolution operator'' $\mathbb{U}$~\parencite{Lloyd:Time}: 
+$\dket{\Phi}$ and $\dket{\Psi}$ encode two physically distinct concepts.
 
-
-
-
-
-
-
-
-
-
-
-
-However, it's worth
-noting that the time evolution of a system is never expressed
+\subsection{Time-energy uncertainty relation for \emph{events}}
+Even for a normalized element $\dket{\Phi}$ of $\hilb{H}_T\ox\hilb{H}_S$ 
+it's worth
+noting that it is not generally expressed
 in terms of a separable state (and therefore a pure state in $\hilb{H}_T$)
-but always a maximally entangled state in the product space
-\begin{equation}
-  \int \dd t \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
-\end{equation}
-
-
-therefore the spatial degrees of freedom should be \emph{traced out},
+but always an entangled state in the product space.
+Therefore the spatial degrees of freedom should be \emph{traced out},
 before deriving a time-energy relation 
 ---in terms of the reduced density operator and partial traces.
-This is not necessarily an obstacle
 
-As also stated in \cite{Lloyd:Time},
-the above can be formulated with respect to an eigenbasis of $\Omega$ (frequency)
-instead of $t$ (time):
+Namely, from
 \begin{equation}
-  \int \dd \omega \, \tilde{\phi}(\omega) \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
+  \dket{\Phi} =
+    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S =
+    \int \dd \omega \, \tilde{\phi}(\omega) \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
 \end{equation}
-
-
-\subsection{TODO ME}
-
-But there's hope: use \eqref{eq:density_A_expand}
-
+with use of \eqref{eq:density_A_expand} there has
 \[
   \rho^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd t \abs{\phi(t)}^2 \ketbra{t}{t} 
 \]
 
 \[
-  \rho^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd \omega \abs{\tilde{\phi}(\omega)}^2 \ketbra{\omega}{\omega} 
+  \rho^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd \omega \abs{\tilde{\phi}(\omega)}^2 \ketbra{\omega}{\omega}
+  \,\text{.} 
 \]
+Here the probabilty distributions $\phi$ and $\tilde{\phi}$
+are ``classical'' in the sense of a mixed state.
 
-They're clasical prob. ; proerties of Fourier etc.
+The relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
+can then be derived from the properties of the Fourier transform.
 
-\subsection{NO, NO, even better:}
+\subsection{TODO}
 \cite{Maccone:Pauli} \S IV.  UNBOUNDED-ENERGY CLOCKS?
