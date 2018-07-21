@@ -47,7 +47,8 @@ $\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
 any possible uncertainty relation would be valid, and $\dket{\Psi}$
 is certainly \emph{not} a minimum uncertainty state\dots 
 
-\subsection{Time-energy uncertainty relation for \emph{events}}
+\subsection{For \emph{events}}
+
 Towards proving a time-energy uncertainty relation in $\hilb{H}_T$
 based on formal analogy with position and momentum in $\hilb{H}_S$,
 a normalized element $\dket{\Phi}$ of $\hilb{H}_T\ox\hilb{H}_S$ 
@@ -61,12 +62,28 @@ It is in general an entangled state in the product space.
 Thus the spatial degrees of freedom should be \emph{traced out},
 before deriving a time-energy relation.
 
-Namely, from
+With a slight change of notation we express:
 \begin{equation}
   \dket{\Phi} =
-    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S =
-    \int \dd \omega \, \tilde{\phi}(\omega) \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
+    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
 \end{equation}
+with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform\footnote{
+  Fourier transform of a (Hilber space) vector-valued function, similar to what found in \cite{Maccone:Pauli}.
+}
+of $\ket{\phi(t)}_S$,
+neither kets being necessarily normalized, which is by the way necessary
+to satisfy the normalization in time (frequency)
+\[
+  \int \dd{t} \braket{\phi(t)}_S =
+    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
+    \dbradket{\Phi}{\Phi}_{T \ox S} = 
+    1
+\]
+while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+orthonormal.
+
+
 with use of \eqref{eq:density_A_expand}, the reduced density operator can be computed
 via partial trace:
 \[
