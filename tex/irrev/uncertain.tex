@@ -36,14 +36,18 @@ which is not true in general.
 $\dket{\Phi}$ and $\dket{\Psi}$ encode two physically distinct concepts.
 
 \subsection{Time-energy uncertainty relation for \emph{events}}
-Even for a normalized element $\dket{\Phi}$ of $\hilb{H}_T\ox\hilb{H}_S$ 
-it's worth
-noting that it is not generally expressed
-in terms of a separable state (and therefore a pure state in $\hilb{H}_T$)
-but always an entangled state in the product space.
-Therefore the spatial degrees of freedom should be \emph{traced out},
-before deriving a time-energy relation 
----in terms of the reduced density operator and partial traces.
+Towards proving a time-energy uncertainty relation in $\hilb{H}_T$
+based on formal analogy with position and momentum in $\hilb{H}_S$,
+a normalized element $\dket{\Phi}$ of $\hilb{H}_T\ox\hilb{H}_S$ 
+is not not affected by the difficulties mentioned above.
+Still, it is not generally
+a separable state,
+and thus
+the problem of time and energy relation cannot be reduced to that of
+a pure state in $\hilb{H}_T$.
+It is in general an entangled state in the product space.
+Thus the spatial degrees of freedom should be \emph{traced out},
+before deriving a time-energy relation.
 
 Namely, from
 \begin{equation}
@@ -51,13 +55,14 @@ Namely, from
     \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S =
     \int \dd \omega \, \tilde{\phi}(\omega) \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
 \end{equation}
-with use of \eqref{eq:density_A_expand} there has
+with use of \eqref{eq:density_A_expand}, the reduced density operator can be computed
+via partial trace:
 \[
-  \rho^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd t \abs{\phi(t)}^2 \ketbra{t}{t} 
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd t \abs{\phi(t)}^2 \ketbra{t}{t} 
 \]
 
 \[
-  \rho^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd \omega \abs{\tilde{\phi}(\omega)}^2 \ketbra{\omega}{\omega}
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) = \int \dd \omega \abs{\tilde{\phi}(\omega)}^2 \ketbra{\omega}{\omega}
   \,\text{.} 
 \]
 Here the probabilty distributions $\phi$ and $\tilde{\phi}$
