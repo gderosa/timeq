@@ -1,5 +1,7 @@
 \section{Uncertainty}
 
+\subsection{For unitary evolutions}
+
 In a continuous-time Page-Wootters universe,
 one is tempted to observe that in $\hilb{H}_T$,
 in the time representation, it is $E \eqbydef -\hbar\hat{\Omega} \repr i\hbar\partial_{t}$,
@@ -20,20 +22,30 @@ One may argue that the unitary evolution
 \[
   \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S
 \]
-is a special case of the normalized element of $\hilb{H}_T\ox\hilb{H}_S$ (\term{event}):
+is a special case of
 \[
   \dket{\Phi} = \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
 \]
-with $\abs{\phi(t)}=1 \; \forall t$ (i.e. an event that is indefinitely spread in time),
-but it is not the case, as in the ``Fourier transform''
-\[
-  \int \dd \omega \, \tilde{\phi}(\omega) \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S
-\]
-$\tilde{\phi(\omega)}$ should then be infinitely concentrated (a Dirac delta),
-meaning that all unitary evolutions are the evolution of an eigenstate of energy (frequency),
-which is not true in general.
+with $\phi(t)=1 \; \forall t$ (i.e. an event that is indefinitely spread in time).
 
-$\dket{\Phi}$ and $\dket{\Psi}$ encode two physically distinct concepts.
+As a function of $t$, $\ket{\psi(t)}_S$ will have a Fourier transform
+$\ket{\tilde{\psi}(\omega)}$
+so that it will also be
+\[
+  \dket{\Psi} = \int \dd \omega \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
+\]
+where $\ket{\tilde{\psi}(\omega)}_S$ is not necessarily normalized for each $\omega$
+(and actually it's zero if $\hbar\omega$ does not belong to the energy spectrum of the system).
+An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
+of an energy eigenstate $\ket{\epsilon}_S$: in such case
+$\ket{\tilde{\psi}(\omega)}_S = \delta(\omega - \frac{\epsilon}{\hbar})\ket{\epsilon}_S$
+and it is $\sigma_{T} = \infty$ and $\sigma_{\Omega} = 0$.
+
+All other cases of unitary evolution correspond to $\sigma_{T}$
+sill being infinite, but $\sigma_{\Omega}$ being finite, therefore
+$\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
+any possible uncertainty relation would be valid, and $\dket{\Psi}$
+is certainly \emph{not} a minimum uncertainty state\dots 
 
 \subsection{Time-energy uncertainty relation for \emph{events}}
 Towards proving a time-energy uncertainty relation in $\hilb{H}_T$
