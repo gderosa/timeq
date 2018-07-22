@@ -76,13 +76,11 @@ but missing the opportunity to illustrate the entanglement mechanism in detail,
 which is aimed at, instead, in the present work, to some extent.
 
 \subsection{Overcoming limitations of finite-dimension spaces}
-
 \epigraph{\textelp{} discreteness in the world is simply the Fourier transform of compactness.}{
   \emph{Physics and the Integers} \parencite{Tong_Integers}
-}
-
-\noindent{}This has been tackled, for example in
-\cite{FiniteHilb},
+}%
+\noindent{}%
+This has been tackled, for example, in \cite{FiniteHilb},
 where it has been shown that the lack of operators satisfying the canonical
 commutation relation \eqref{eq:canonical_commutation_in_time}
 is not essential to build operators representing physical observables
@@ -162,6 +160,44 @@ i.e. not in the sense of a mere operation among (``classical'') parameters;
 but in the sense of conversion between representations of the
 same quantum state vector with respect to different eigenbasis,
 in full analogy with position and momentum in $\hilb{H}_S$.
+
+\subsubsection{Uncertainty}
+
+For canonical pairs of operators with a continuous, unbounded spectrum i.e.
+$\hat{q}$ and $\hat{p} \eqbydef -i\hbar\hat{\partial}_{q}$,
+it is in general straightforward to prove that
+$\qty[\hat{q}, \hat{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\hat{q}, \hat{p}]}| = \frac{\hbar}{2}}$.
+
+In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
+in general, and is less essential.
+Canonically conjugate operators are related
+through the (discrete) Fourier transform ($\hat{p} = F\hat{q}F^{\dagger}$)
+rather then differentiation,
+and uncertainty relations are based on
+the properties of Fourier transformation
+rather than commutation relations.
+
+Particularly, the entropic uncertainty relation holds
+(\cite[\S 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+\begin{equation}
+  S_q + S_p \geq \ln d
+\end{equation}
+where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+\parencite[\S {\it I}.A]{Wehner:Uncertainty}; in this case:
+\begin{align}
+  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+  \,\text{,}
+\end{align}
+with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+(generalized) position and momentum basis.
+
+\if{todo}
+TODO Lloyd recent on entropic uncertainty (for time\dots).
+From state vectors to density matrices and/or mixed states: Von Neumann entroy (wikipedia).
+Subadditivity. 
+\fi
 
 \subsection{The $1 + 1$ qubit experiment}\label{1qubitExp}
 
@@ -253,8 +289,8 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
 Thus the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$
 (or superpositions of them):
 \begin{align}
-  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqdef \ket{L} \\
-  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqdef \ket{R} \, \text{.}
+  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqbydef \ket{L} \\
+  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqbydef \ket{R} \, \text{.}
 \end{align}
 In terms of the physics of the experiment,
 time is determined with quantum certainty when the clock photon is
@@ -301,11 +337,11 @@ and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
 (let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
 In conclusion, with some algebra, it's simply
 \begin{equation}
-  \Omega_{T_d} \eqdef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+  \Omega_{T_d} \eqbydef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
 \end{equation}
 and we are interested in the eigensystem of
 \begin{multline}
-  \mathbb{J}_{T_d} \eqdef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
+  \mathbb{J}_{T_d} \eqbydef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
     \hbar
     \begin{pmatrix}0 & - \omega\\- \omega & 0\end{pmatrix}
     \ox
@@ -379,7 +415,7 @@ with $\omega' = -\omega$ in this case.
 
 A pattern that emerges in the general case is
 \[
-  \omega' \eqdef \omega_{T_{0}} = \frac{\pi T_0}{(\delta T)^2} \,\text{,}
+  \omega' \eqbydef \omega_{T_{0}} = \frac{\pi T_0}{(\delta T)^2} \,\text{,}
 \]
 where it is emphasized that this frequency shift is related to the clock starting
 with a ground eigenvalue $T_0 \ne 0$.
@@ -569,14 +605,14 @@ So, for example, if components $1$ and $2$ of $\dket{\Phi_{41}}$ correspond to
 (the components of)
 an initial state of the qubit in $\hilb{H}_S$
 (i.e at ``ordinary time'' $t=0$); components
-$2k + 1$ and $2k + 2$ correspond to $t = \frac{2\pi}{N}k \eqdef t_k$
+$2k + 1$ and $2k + 2$ correspond to $t = \frac{2\pi}{N}k \eqbydef t_k$
 of same, $\forall k \in \qty{0, \dots, N-1}$.
 
 A comparison of Page-Wootters results with ordinary
 Schr{\"o}dinger evolution is thus given by the comparisons
 \begin{align}
-  \dbraket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison0} \\
-  \dbraket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison1}
+  \dbradket{2k+1}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{0}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison0} \\
+  \dbradket{2k+2}{\Phi_{41}} e^{-i \epsilon_{41} t_k} &\sim \braket{1}{\psi(t_k)}_{\mathrm{S}} \label{eq:comparison1}
   \,\text{,}
 \end{align}
 where the phase $e^{-i \epsilon_{41} t_k}$ is motivated in \cite[``The Zero-eigenvalue'']{Lloyd:Time},

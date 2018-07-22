@@ -1,0 +1,110 @@
+\section{Uncertainty}
+
+\subsection{For unitary evolutions}
+
+In a continuous-time Page-Wootters universe,
+one is tempted to observe that in $\hilb{H}_T$,
+in the time representation, it is $E \eqbydef -\hbar\hat{\Omega} \repr i\hbar\partial_{t}$,
+in analogy with $\hat{p} \repr -i\hbar\partial_{q}$ in $\hilb{H}_S$,
+therefore a time-energy uncertainty relation can be derived
+with a proof that is formally identical to the well known
+position-momentum uncertainty relation. However, the analogy of
+$\hat{\Omega}$ with momentum $\hat{p}$,
+and thus of $\hat{T}$ with position $\hat{q}$,
+would be correct only if there has a probability distribution \emph{in time},
+which is not the case: unitary evolution means a particle exists with
+certainty at all times. Therefore, a proof of a time-energy uncertainty
+relation based on the formal analogy with position and momentum
+(and, of course, the fact that time is finally an operator bypassing the Pauli objection)
+can only apply to \emph{events}, in the sense of \eqref{eq:pwphi}.
+
+One may argue that the unitary evolution
+\[
+  \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S
+\]
+is a special case of
+\[
+  \dket{\Phi} = \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
+\]
+with $\phi(t)=1 \; \forall t$ (i.e. an event that is indefinitely spread in time).
+
+As a function of $t$, $\ket{\psi(t)}_S$ will have a Fourier transform
+$\ket{\tilde{\psi}(\omega)}$
+so that it will also be
+\[
+  \dket{\Psi} = \int \dd \omega \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
+\]
+where $\ket{\tilde{\psi}(\omega)}_S$ is not necessarily normalized for each $\omega$
+(and actually it's zero if $\hbar\omega$ does not belong to the energy spectrum of the system).
+An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
+of an energy eigenstate $\ket{\epsilon}_S$: in such case
+$\ket{\tilde{\psi}(\omega)}_S = \delta(\omega - \frac{\epsilon}{\hbar})\ket{\epsilon}_S$
+and it is $\sigma_{T} = \infty$ and $\sigma_{\Omega} = 0$.
+
+All other cases of unitary evolution correspond to $\sigma_{T}$
+sill being infinite, but $\sigma_{\Omega}$ being finite, therefore
+$\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
+any possible uncertainty relation would be valid, and $\dket{\Psi}$
+is certainly \emph{not} a minimum uncertainty state\dots 
+
+\subsection{For \emph{events}}
+
+Towards proving a time-energy uncertainty relation in $\hilb{H}_T$
+based on formal analogy with position and momentum in $\hilb{H}_S$,
+a normalized element $\dket{\Phi}$ of $\hilb{H}_T\ox\hilb{H}_S$ 
+is not not affected by the difficulties mentioned above.
+Still, it is not generally
+a separable state,
+and thus
+the problem of time and energy relation cannot be reduced to that of
+a pure state in $\hilb{H}_T$.
+It is in general an entangled state in the product space.
+Thus the spatial degrees of freedom should be \emph{traced out},
+before deriving a time-energy relation.
+
+With a slight change of notation we express:
+\begin{equation}
+  \dket{\Phi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
+\end{equation}
+with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform
+of $\ket{\phi(t)}_S$,
+neither kets being necessarily normalized, which is by the way necessary
+to satisfy the normalization in time (frequency)
+\[
+  \int \dd{t} \braket{\phi(t)}_S =
+    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
+    \dbradket{\Phi}{\Phi}_{T \ox S} = 
+    1
+\]
+while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+orthonormal.
+
+Next we use \eqref{eq:density_A_expand}: replace the discrete sum with an integral,
+set $i = \mu$ as this is a Schmidt decomposition, and then $j = t$
+(or $j = \omega$ respectively).
+The reduced density operator can so be computed
+as partial trace:
+\begin{align}
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+    \, \text{,}
+  \\ 
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+    \,\text{.} 
+\end{align}
+Here the probabilty distributions $\norm{\phi}^2$ and $\norm{\tilde{\phi}}^2$
+are ``classical'' in the sense of a mixed state.
+
+The relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
+can then be derived from the properties of the Fourier transform.\footnote{
+  Fourier transform of a
+  vector-valued function
+  (vectors in $\hilb{H}_S$),
+  similar to what found in \cite{Maccone:Pauli}.
+}
+
+\if{todo}
+\subsection{TODO}
+\cite{Maccone:Pauli} \S IV.  UNBOUNDED-ENERGY CLOCKS?
+\fi

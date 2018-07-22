@@ -21,7 +21,7 @@
 
 \mainmatter
 
-\iftodo
+\if{todo}
 \chapter{Motivation and experiments}
 \input{tex/intro/intro}
 \fi
@@ -29,7 +29,7 @@
 \chapter{Pauli's objection and historical developments}
 \input{tex/hist/hist}
 
-\iftodo
+\if{todo}
 \chapter{Approaches}
 \input{tex/approaches/approaches}
 \fi
@@ -44,31 +44,31 @@
 \input{tex/decohere/measurement.tex}
 \input{tex/decohere/kraus.tex}
 
-\chapter{Page and Wootters relational time -- developments and applications}
-\chaptermark{Page and Wootters relational time}
+\chapter{Page and Wootters relational time: developments and applications}
+  %\chaptermark{Page and Wootters relational time}
+  \label{ch:pw}
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
-\iftodo
+\if{todo}
 \input{tex/pw/todo}
 \fi
 
-\iftodo
-\chapter{When Time Crystals come into play}
-\input{tex/crystals/crystals}
-\fi
-
-\iftodo
-\chapter{Thermal time hypothesis}
-\input{tex/therm/connes-rovelli}
+\chapter{Irreversible processes and uncertainty}
+\input{tex/irrev/absorb}
+\input{tex/irrev/uncertain}
+\input{tex/irrev/proper}
+\input{tex/irrev/compare}
+\if{todo}
+\input{tex/irrev/todo}
 \fi
 
 \chapter{Relativistic treatment}
 \input{tex/rel/pwkg}
-\iftodo
+\if{todo}
 \input{tex/rel/todo}
 \fi
 
-\iftodo
+\if{todo}
 \chapter{Misc \& Outlook}
 \input{tex/misc/misc.tex}
 \fi

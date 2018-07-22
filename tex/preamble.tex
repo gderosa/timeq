@@ -1,6 +1,7 @@
 \documentclass{book}
 
 \usepackage{xcolor}
+\usepackage{lipsum}  %% dev
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -11,9 +12,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathtools}
 \usepackage[super]{nth}
+\usepackage[inline]{enumitem}
 \usepackage{graphicx}
 \usepackage{color}
-\usepackage[margin=1.5in]{geometry}  % screen
+%\usepackage[margin=1.5in]{geometry}  % screen
+\usepackage{geometry}
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
   \fancyhf{}
@@ -45,6 +48,8 @@
   }
 \usepackage{setspace}
 
+%\usepackage{scalerel}
+
 \usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
   colorlinks,
   citecolor=green!75!black,
@@ -57,6 +62,7 @@
 \renewcommand{\arraystretch}{1.6}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
-\title{It's $\ket{1}$ o'clock}
+\title{It's $\ket{1}$ o'clock -- Relational Time and Applications}
 
-\addbibresource{biblio.bib}
+\addbibresource{bib/main.bib}
+\addbibresource{bib/comp.bib}
