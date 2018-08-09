@@ -1,26 +1,5 @@
 \section{Page-Wootters and detector absorption models}\label{sec:absorption+pw}
 
-By ``conditioning'' the \eqref{eq:nonu_pwwdw_f} at each time $t$
----in other words: by inner-multiplying it on the left with the partial bra\footnote{
-  Partial in the sense of open quantum systems
-  i.e. as a part of a bipartite system.
-  See Definition \ref{def:pBra}.
-}
-$\prescript{}{T}{\bra{t}}$~---
-a modified Schr{\"o}dinger equation
-can be derived,
-as a variant of \eqref{eq:schrod_from_pw}.
-
-In the position representation of $\hilb{H}_S$ (and ``tracing out'' time):
-\begin{equation}\label{eq:schrod_pw_nonunitary}
-  \hat{H} \ket{f(t)} = i\hbar\dv{t}\ket{f(t)} -i\hbar\frac{\dot{f}(t)}{f(t)}\ket{f(t)} \text{.}
-\end{equation}
-
-Here the subscript $S$ has been removed and it's assumed.
-$\ket{f(t)} = \prescript{}{T}{\bradket{t}{f}}$
-is a state vector that does not conserve its norn in its time evolution.
-In a sense, its norm is ``absorbed'' in the detection process.
-
 Within the Page-Wootters framework, a non-hermitian term in the ``Hamiltonian''
 is a consequence of non-unitary ``evolution''.
 On the contrary, in detection models based on absorption and complex potentials
@@ -30,53 +9,32 @@ Specifically, the Hamiltonian $\hat{H}$ is replaced by a $\hat{H} - i\hat{D}$
 (with $\hat{D}$ self-adjoint, bounded, positive ---\cite{RuschhauptAbsorption})
 and, consequently:
 \begin{equation}\label{eq:schrod_complex_pot}
-  \hat{H} \ket{f(t)} = i\hbar\dv{t}\ket{f(t)} +i\hat{D}\ket{f(t)} \text{.}
+  \hat{H} \ket{\phi(t)} = i\hbar\dv{t}\ket{\phi(t)} +i\hat{D}\ket{\phi(t)} \text{.}
 \end{equation}
-Similarly to the Page-Wootters model, $\ket{f(t)}$ does not conserve its norm in time.
+Similarly to the Page-Wootters model, $\ket{\phi(t)}$ does not conserve its norm in time.
 
-In the P-W model, $\ket{\psi(t)} = \ket{f(t)}/f(t)$
-is the corresponding unitary evolution vector
-(or ``what would have happened without an absorbing detector'').
-This relation, along with \eqref{eq:schrod_complex_pot} and \eqref{eq:schrod_pw_nonunitary},
-yields a differential equation
-\begin{equation}\label{eq:phi_diffeq}
-  -\hbar\dot{f}(t)\ket{\psi(t)} = f(t) \hat{D} \ket{\psi(t)} \text{,}
-\end{equation}
-where $f(t)$ and $\hat{D}$ commute, as $\hat{D}$ only acts on the spatial degrees of freedom,
-while $f(t)$ is, with respect to $\hilb{H}_S$, in fact a constant, albeit parametrized in $t$.
+However, a comparison requires some extra caution.
+In the P-W model, $\ket{\psi(t)} = \ket{\phi(t)}/\phi(t)$
+is the corresponding unitary evolution vector. In the detector model,
+it is generally false
+that the unitarily evolved state, at a given $t$, is proportional to
+the non-unitary one. In other words,
+the detector (i.e. replacing $\hat{H}$ with $\hat{H}-i\hat{D}$)
+affects the evolved state non-trivially:
+it doesn't only change the norm (and possibly a phase factor)
+with respect to what would be the evolution without the detector
+(i.e. only due to $\hat{H}$).
 
-One may find $\ket{\psi(t)}$ first (by simply computing the unitary evolution),
-then compute the effect of the detector by resolving the \eqref{eq:phi_diffeq}
-which is then an ordinary differential equation in $f$. This is, of course, valid
-under the assumption that the detector term only affects norm and phase,
-but doesn't change the ``ray'' of the state vector in the Hilbert space.
-{\color{blue}\textbf{WHICH IS GENERALLY NOT TRUE!!!}} TODO: replace! 
+Namely, we will show that 
+\[
+  \ket{\phi(t)} = \phi(t) \ket{\psi}
+\]
+will need to be replaced with
+\[
+  \ket{\phi(t)} = e^{-\hat{D}t/\hbar}\ket{\psi(t)} \, \text{.}
+\]
 
-Multiplying on the left by $\bra{\psi(t)}$, rearranging, and with the same observations
-on commutativity:
-\begin{equation}\label{eq:phi_diffeq_simpler}
-  -\hbar\frac{\dot{f}(t)}{f(t)} = \ev{D(t)} \text{,}
-\end{equation}
-where we recognize the logaritmic derivative of $f$: in particular,
-if $\hat{D}$ is a constant, $f$ would undergo an exponential decay law.
-A general solution is:
-\begin{equation}\label{eq:f-evol}
-  f(t) = f(t_0) \exp[ -\frac{1}{\hbar} \int_{t_0}^{t} \dd{t'} \ev{D(t')} ]
-\end{equation}
-where:
-\begin{enumerate*}[label=\emph{\alph*})]
-  \item
-    the physics of the problem may tell us, for example, a time when $f(t_0) = 1$;
-  \item
-    a suitable interval $\qty[t_0, t]$ may be chosen where it is $f(t') \ne 0$
-    to avoid singularities in \eqref{eq:phi_diffeq_simpler};
-  \item
-    again, $\ev{D(t)} = \mel{\psi(t)}{\hat{D}}{\psi(t)}$ is a known function
-    once the unitarily evolved $\ket{\psi(t)}$ is determined.
-\end{enumerate*}
 
-The above provides thus a convenient method to separately resolve
-the unitary evolution and the loss of normalization.
 
 \subsection{Application: two-level system}
 
