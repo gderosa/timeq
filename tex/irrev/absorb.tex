@@ -1,4 +1,18 @@
-\section{Unitary evolution, absorption, events}
+\section{Unitary evolution \emph{versus} absorption}
+
+A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$
+satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}
+encodes the unitary time evolution of a system.
+\begin{equation}\label{eq:pwexpansion}
+  \dket{\Psi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S
+    \,  \text{.}
+\end{equation}
+Clearly, it is $\braket{\Psi(t)}_S = 1$ at every time $t$.
+
+\if{todo}
+
+\subsection{TODO: Events (there are some redundancies)}
 
 A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
 satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
@@ -57,6 +71,8 @@ therefore represented by
 a \emph{4-dimensional} gaussian wave function,
 in analogy to well known examples of purely spatial gaussian states
 in quantum mechanics and quantum optics.
+
+\fi
 
 As an intermediate case, we may want to consider
 \begin{equation}\label{eq:pwf}
@@ -125,4 +141,4 @@ The requirement, implicit  in \eqref{eq:absorptionEvent},
 that $f$ never locally increases in modulus
 is not restrictive, or it's not more restrictive than simply stating
 that the detector, at most, absorbs, but never \emph{emits}
-(in the model of \cite{RuschhauptAbsorption}). 
+(in the model of \cite{RuschhauptAbsorption}).
