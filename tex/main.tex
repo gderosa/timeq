@@ -21,18 +21,8 @@
 
 \mainmatter
 
-\if{todo}
-\chapter{Motivation and experiments}
-\input{tex/intro/intro}
-\fi
-
 \chapter{Pauli's objection and historical developments}
 \input{tex/hist/hist}
-
-\if{todo}
-\chapter{Approaches}
-\input{tex/approaches/approaches}
-\fi
 
 \chapter{Decoherence and Measurement}
 \input{tex/decohere/intro.tex}
@@ -49,7 +39,7 @@
   \label{ch:pw}
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
-\if{todo}
+\iftodo
 \input{tex/pw/todo}
 \fi
 
@@ -58,18 +48,15 @@
 \input{tex/irrev/uncertain}
 \input{tex/irrev/proper}
 \input{tex/irrev/compare}
-\if{todo}
-\input{tex/irrev/todo}
-\fi
 
 \chapter{Relativistic treatment}
 \input{tex/rel/pwkg}
-\if{todo}
+\iftodo
 \input{tex/rel/todo}
 \fi
 
-\if{todo}
-\chapter{Misc \& Outlook}
+\iftodo
+\chapter{TODOs and misc Ideas}
 \input{tex/misc/misc.tex}
 \fi
 
