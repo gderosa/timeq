@@ -7,7 +7,7 @@ $_ = '';
 $pdf_mode = 1;
 
 # Enable synctex
-$pdflatex = 'pdflatex -file-line-error --interaction=nonstopmode -synctex=1 %O %S';
+$pdflatex = 'pdflatex -file-line-error -synctex=1 %O %S';
 
 # Extra file extensions for lakexmk -C
 $clean_ext = 'run.xml bbl fdb_latexmk synctex.gz';
