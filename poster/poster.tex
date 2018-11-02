@@ -45,6 +45,10 @@
 
 \usepackage[top=2.4cm,right=2.8cm,bottom=2.4cm,left=2.6cm]{geometry}
 
+\usepackage{lipsum}
+
+\renewcommand{\abstractname}{\large Abstract} % abstract hacks
+
 \begin{document}
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
@@ -79,6 +83,7 @@
 \color{Navy} % Navy color for the abstract
 
 \begin{abstract}
+\large\noindent % abstract hacks
 This work relates to the problem of time in quantum physics
 \cite{TQM1, TQM2}
 from Wolfgang Pauli's argument
@@ -152,9 +157,7 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 
 \large
 
-%----------------------------------------------------------------------------------------
-%	OBJECTIVES
-%----------------------------------------------------------------------------------------
+% SECTION
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
@@ -162,7 +165,7 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 
 Particularly in \cite{Lloyd:Time}.
 
-
+\lipsum[1]
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
