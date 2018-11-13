@@ -29,8 +29,8 @@
 
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
-\usepackage{times} % Use the times font
-%\usepackage{palatino} % Uncomment to use the Palatino font
+%\usepackage{times} % Use the times font
+\usepackage{palatino} % Uncomment to use the Palatino font
 
 \usepackage{graphicx} % Required for including images
 \graphicspath{{img/poster/}} % Location of the graphics files
@@ -43,7 +43,22 @@
 \usepackage[T1]{fontenc}
 \usepackage{setspace}
 
-\usepackage[top=2.4cm,right=2.8cm,bottom=2.4cm,left=2.6cm]{geometry}
+\usepackage{bbm}
+
+\usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+%----------------------------------------------------------------------------------------
+% FROM tex/lib.tex
+%----------------------------------------------------------------------------------------
+% TODO: DRY
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\idop}{\mathbbm{1}}           % Identity operator
+\newcommand{\hilb}[1]{\mathcal{#1}}       % Hilbert space
+\newcommand{\setof}[1]{\left\{#1\right\}}
+\newcommand{\ox}{\otimes}
+
 
 \begin{document}
 %----------------------------------------------------------------------------------------
@@ -92,6 +107,8 @@ with an extra space where a time operator is introduced.
 Of such relational models, here we present some (discrete) applications.
 Consistency with ordinary quantum mechanics is shown.
 \end{abstract}
+
+\setlength{\parindent}{1.5em} % Default is 15pt.
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -153,14 +170,27 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 \large
 
 %----------------------------------------------------------------------------------------
-%	OBJECTIVES
+%	MAIN IDEAS
 %----------------------------------------------------------------------------------------
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
 \section*{Main Ideas}
 
-Particularly in \cite{Lloyd:Time}.
+The Page and Wootters model is based on
+an additional Hilbert space $\mathcal{H}_T$,
+where time is an observable
+represented by a self-adjoint operator
+whose properties are similar to the ones of position
+in ordinary quantum mechanics
+\cite{Lloyd:Time, Maccone:Pauli}.
+
+In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
+and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+the space in which both time and position are observables, and they act as
+$\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
+respectively.
+
 
 
 
