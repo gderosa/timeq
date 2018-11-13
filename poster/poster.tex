@@ -29,8 +29,9 @@
 
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
-%\usepackage{times} % Use the times font
-\usepackage{palatino} % Uncomment to use the Palatino font
+%\usepackage{newtxtext} % Use the times font for text, newer flavor
+\usepackage{helvet} % Uncomment to use the Palatino font
+\renewcommand{\familydefault}{\sfdefault} % sans serif font
 
 \usepackage{graphicx} % Required for including images
 \graphicspath{{img/poster/}} % Location of the graphics files
@@ -47,8 +48,6 @@
 
 \usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
-\renewcommand{\familydefault}{\sfdefault}
-
 %----------------------------------------------------------------------------------------
 % FROM tex/lib.tex
 %----------------------------------------------------------------------------------------
@@ -60,6 +59,10 @@
 \newcommand{\ox}{\otimes}
 
 
+\usepackage{lipsum}
+
+\renewcommand{\abstractname}{\large Abstract} % abstract hacks
+
 \begin{document}
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
@@ -70,18 +73,19 @@
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 \begin{minipage}[c]{0.70\linewidth}
-\veryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\ % Title
+\VeryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\ % Title
 \Huge\textit{Overcoming Pauli's Objection: Relational Time and \\Applications}\\[2cm] % Subtitle
 \huge \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
 \huge University College Cork, Department of Physics\\[0.4cm] % University/organization
-\Large \texttt{gderosa@umail.ucc.ie}\\
-\Large \texttt{aruschhaupt@ucc.ie}\\
+\large%
+\texttt{gderosa@umail.ucc.ie} | \texttt{aruschhaupt@ucc.ie}\\
 \end{minipage}%
+%
 \begin{minipage}[t]{0.30\linewidth}
 \includegraphics[width=19cm]{ucc_logo.pdf}\\  %% vector, from original SVG
 \end{minipage}
 
-\vspace{1cm} % A bit of extra whitespace between the header and poster content
+\vspace{0.4cm} % A bit of extra whitespace between the header and poster content
 
 %----------------------------------------------------------------------------------------
 
@@ -94,6 +98,7 @@
 \color{Navy} % Navy color for the abstract
 
 \begin{abstract}
+\large\noindent % abstract hacks
 This work relates to the problem of time in quantum physics
 \cite{TQM1, TQM2}
 from Wolfgang Pauli's argument
@@ -192,7 +197,7 @@ $\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
 respectively.
 
 
-
+\lipsum[1]
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
