@@ -48,6 +48,8 @@
 
 \usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
+\usepackage{lipsum}
+
 %----------------------------------------------------------------------------------------
 % FROM tex/lib.tex
 %----------------------------------------------------------------------------------------
@@ -57,9 +59,28 @@
 \newcommand{\hilb}[1]{\mathcal{#1}}       % Hilbert space
 \newcommand{\setof}[1]{\left\{#1\right\}}
 \newcommand{\ox}{\otimes}
+%
+%% Allows better formatting than \underset
+%% https://tex.stackexchange.com/a/130553
+\DeclareMathOperator*{\repr}{\equiv}      % represented in a basis, or "has components..."
+%
+\renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
+\newcommand{\eqbydef}{\coloneqq}
+%\newcommand{\eqbydef}{\triangleq}
+\newcommand{\superop}{\mathcal}
+%
+\newcommand{\smallback}{\hspace{-0.115em}}
+\newcommand{\largeback}{\hspace{-0.365em}}
+%
+\newcommand{\dket}[1]{\left.\left| #1 \right\rangle\smallback\right\rangle}
+\newcommand{\Dket}[1]{\left.\left| #1 \right\rangle\largeback\right\rangle}
+% and similar...
+\newcommand{\dbra}[1]{\left\langle\smallback\left\langle #1 \right|\right.}
+\newcommand{\dbraket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\right.}
+\newcommand{\bradket}[2]{\left.\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
+\newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
+\newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
-
-\usepackage{lipsum}
 
 \renewcommand{\abstractname}{\large Abstract} % abstract hacks
 
@@ -175,12 +196,12 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 \large
 
 %----------------------------------------------------------------------------------------
-%	MAIN IDEAS
+%	THE MODEL
 %----------------------------------------------------------------------------------------
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{Main Ideas}
+\section*{Model}
 
 The Page and Wootters model is based on
 an additional Hilbert space $\mathcal{H}_T$,
@@ -196,8 +217,45 @@ the space in which both time and position are observables, and they act as
 $\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
 respectively.
 
+The Page and Wootters mechanism is rooted in the ``problem of time''
+in quantum cosmology.
+In principle, an approriate system (a ``clock'') can be identified in such a way
+to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
+the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 
-\lipsum[1]
+As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+encompassing both position and time as observables, is given by
+\begin{equation}\label{eq:pwHamiltonian}
+  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
+\end{equation}
+while the \term{Wheeler-DeWitt equation} holds:
+\begin{equation}\label{eq:Wheeler-DeWitt}
+  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+\end{equation}
+describing a \emph{static} universe, where evolution is only
+in terms of relations between parts of a multipartite system
+(a clock, and the rest of the universe).
+
+Using the $T$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}\label{eq:schrod_from_pw}
+  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
+    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
+
+Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
+
+Canonical commutation relation holds and can be easily verified
+between $\hat{t}$ and $\hat{\Omega}$
+i.e. $[\hat{t}, \hat{\Omega}] = i$,
+therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
 
 %----------------------------------------------------------------------------------------
 %	MATERIALS AND METHODS
