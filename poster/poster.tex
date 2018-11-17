@@ -261,63 +261,20 @@ The Pauli objection no longer holds as time as a quantum observable operates in 
 %	MATERIALS AND METHODS
 %----------------------------------------------------------------------------------------
 
-\section*{Materials and Methods}
+\section*{One qubit ``universe'' and a N-level clock}
 
-Fusce magna risus, molestie ut porttitor in, consectetur sed mi.
-
-%------------------------------------------------
-
-
-%----------------------------------------------------------------------------------------
-%	RESULTS 
-%----------------------------------------------------------------------------------------
-
-\section*{Results}%
-Phasellus imperdiet, tortor vitae congue bibendum, felis enim sagittis lorem, et volutpat ante orci. %
-%
-\begin{wraptable}{l}{14cm} % Left or right alignment is specified in the first bracket, the width of the table is in the second
-\begin{tabular}{l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\captionof{table}{\color{Green} Table caption}
-\end{wraptable}
-%
-
-Nulla ut porttitor enim. Suspendisse venenatis dui eget eros gravida tempor. Mauris feugiat elit et augue placerat ultrices. Morbi accumsan enim nec tortor consectetur non commodo. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing. Quisque vestibulum eros eu.
-
-\begin{minipage}{\linewidth}
-  \vspace{2cm}
-    \begin{center}
-      \includegraphics[width=0.8\linewidth]{placeholder}
-      \captionof{figure}{\color{Green} Figure caption}
-    \end{center}
-  \vspace{2cm}
-\end{minipage}
-
-In hac habitasse platea dictumst. Etiam placerat, risus ac.
-
-Adipiscing lectus in magna blandit:
-
-\begin{center}\vspace{1cm}
-\begin{tabular}{l l l l}
-\toprule
-\textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2} \\
-\midrule
-Treatment 1 & 0.0003262 & 0.562 \\
-Treatment 2 & 0.0015681 & 0.910 \\
-Treatment 3 & 0.0009271 & 0.296 \\
-\bottomrule
-\end{tabular}
-\captionof{table}{\color{Green} Table caption}
-\end{center}\vspace{1cm}
-
-Vivamus sed nibh ac metus tristique tristique a vitae ante. Sed lobortis mi ut.
+The clock is built as having a time operator which is diagonal in the
+chosen computational basis:
+\[
+  \hat{T} \repr \frac{2\pi}{N}
+  \begin{pmatrix}
+    0           &       &       &       \\
+                &1      &       &       \\
+                &       &\ddots &       \\
+                &       &       &N-1
+  \end{pmatrix} \,\text{.}
+\]
+With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
@@ -342,7 +299,7 @@ Vivamus sed nibh ac metus tristique tristique a vitae ante. Sed lobortis mi ut.
 
 \section*{Forthcoming Research}
 
-Vivamus molestie, risus tempor vehicula mattis, libero arcu volutpat purus, sed blandit sem nibh eget turpis. Maecenas rutrum dui blandit lorem vulputate gravida. Praesent venenatis mi vel lorem tempor at varius diam sagittis. Nam eu leo id turpis interdum luctus a sed augue. Nam tellus.
+Vivamus molestie, risus tempor vehicula mattis, libero arcu volutpat purus, sed blandit sem nibh eget.
 
 \normalsize
 
