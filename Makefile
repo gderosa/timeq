@@ -31,6 +31,18 @@ prodv:
 prodc:
 	latexmk -pvc prod
 
+# Posters
+# poster is also the name of a directory...
+poster: poster-nopv
+poster-nopv:
+	latexmk poster
+
+posterv:
+	latexmk -pv poster
+
+posterc:
+	latexmk -pvc poster
+
 # Clean up
 clean:
 	latexmk -C
