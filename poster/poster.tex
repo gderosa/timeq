@@ -257,9 +257,17 @@ in the Hilbert space of time.
 
 The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
 
-%----------------------------------------------------------------------------------------
-%
-%----------------------------------------------------------------------------------------
+\subsection*{Non-zero eigenvalue}
+
+Up to an irrelevant global
+phase, the physical vectors $\dket{\Psi}$ can be identified also by
+imposing the constraint
+\[
+  \hat{\mathbb{J}}\dket{\Psi} = \epsilon \dket{\Psi}
+\]
+with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
+a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
+with $e^{i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
 \section*{One qubit ``universe'' and a N-level clock}
 
@@ -287,9 +295,9 @@ The rest of the universe is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-As per the frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
-of $\hat{T}$ in a finite-dimensional Hilbert space, it's derived via
-discrete Fourier transoformation:
+The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
+of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
+\emph{discrete Fourier transformation} (with $F_N$ unitary):
 \[
   \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
