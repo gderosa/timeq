@@ -34,7 +34,7 @@
 \renewcommand{\familydefault}{\sfdefault} % sans serif font
 
 \usepackage{graphicx} % Required for including images
-\graphicspath{{img/poster/}} % Location of the graphics files
+\graphicspath{{img/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
@@ -302,10 +302,33 @@ of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
   \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
 
-We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian} 
+We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}
 (a $2N \times 2N$ matrix). Such eigensolutions
 will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
 not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
+
+In our example, we take $N = 32$ and resolve numerically.
+With the chosen $\hat{H}_S$,
+of some interest are solutions that show
+Rabi oscillation / Larmor precession,
+i.e. solutions that do not correspond to eigenstates of
+the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
+
+We pick $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ corresponding to eigenvalues
+$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+
+The first two components of each eigenvector in the computational basis
+are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
+$2k$ and $2k+1$
+as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
+
+\begin{center}\vspace{1cm}
+  \includegraphics[width=0.3\linewidth]{PWfit32.png}
+  \includegraphics[width=0.4\linewidth]{PWfit32top.png}
+  \captionof{figure}{\color{Green} Figure caption}
+\end{center}\vspace{1cm}
+  
+
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
@@ -313,24 +336,17 @@ not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \
 
 \color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
 
-\section*{Conclusions}
 
-\begin{itemize}
-\item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
-\item Vestibulum sem ante, hendrerit a gravida ac, blandit quis magna.
-\item Donec sem metus, facilisis at condimentum eget, vehicula ut massa. Morbi consequat, diam sed convallis tincidunt, arcu nunc.
-\item Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
-\end{itemize}
+% \section*{Conclusions and Outlook}
+
+% \begin{itemize}
+% \item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
+% \item Vestibulum sem ante, hendrerit a gravida ac, blandit quis magna.
+% \item Donec sem metus, facilisis at condimentum eget, vehicula ut massa. Morbi consequat, diam sed convallis tincidunt, arcu nunc.
+% \item Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
+% \end{itemize}
 
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
-
-%----------------------------------------------------------------------------------------
-%	FORTHCOMING RESEARCH
-%----------------------------------------------------------------------------------------
-
-\section*{Forthcoming Research}
-
-Vivamus molestie, risus tempor vehicula mattis, libero arcu volutpat purus, sed blandit sem nibh eget.
 
 \normalsize
 
@@ -345,9 +361,9 @@ Vivamus molestie, risus tempor vehicula mattis, libero arcu volutpat purus, sed 
 %	ACKNOWLEDGEMENTS
 %----------------------------------------------------------------------------------------
 
-\section*{Acknowledgements}
+% \section*{Acknowledgements}
 
-Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
+% Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
 
 %----------------------------------------------------------------------------------------
 
