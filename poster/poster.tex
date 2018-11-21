@@ -82,7 +82,7 @@
 \newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
 
-\renewcommand{\abstractname}{\large Abstract} % abstract hacks
+%\renewcommand{\abstractname}{\large Abstract} % abstract hacks
 
 \begin{document}
 %----------------------------------------------------------------------------------------
@@ -119,7 +119,7 @@
 \color{Navy} % Navy color for the abstract
 
 \begin{abstract}
-\large\noindent % abstract hacks
+\noindent % abstract hacks
 This work relates to the problem of time in quantum physics
 \cite{TQM1, TQM2}
 from Wolfgang Pauli's argument
@@ -269,7 +269,7 @@ with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
 a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
 with $e^{i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
-\section*{One qubit ``universe'' and a N-level clock}
+\section*{One qubit ``universe'' and a $N=32$-level clock}
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis:
@@ -287,7 +287,7 @@ With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$
 The rest of the universe is modeled by a 2-level Hamiltonian
 \[
   \hat{H}_S \repr
-  i
+  i \hbar \omega
   \begin{pmatrix}
     0   & 1   \\
     -1  & 0
@@ -303,7 +303,7 @@ of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
 \]
 
 We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}
-(a $2N \times 2N$ matrix). Such eigensolutions
+(a $2N \times 2N$ matrix obtained as a Kronecker product). Such eigensolutions
 will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
 not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
 
@@ -319,13 +319,18 @@ $\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
 
 The first two components of each eigenvector in the computational basis
 are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
-$2k$ and $2k+1$
+$2k$\nobreakdash-th and $2k+1$\nobreakdash-th
 as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
+Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in piucture.
 
 \begin{center}\vspace{1cm}
   \includegraphics[width=0.3\linewidth]{PWfit32.png}
   \includegraphics[width=0.4\linewidth]{PWfit32top.png}
-  \captionof{figure}{\color{Green} Figure caption}
+  \captionof{figure}{
+    \color{Green}
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
+    for eigensolution of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+  }
 \end{center}\vspace{1cm}
   
 
