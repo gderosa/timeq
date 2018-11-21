@@ -201,7 +201,7 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{The Model}
+\section*{The Model (evolution without evolution)}
 
 The Page and Wootters model is based on
 an additional Hilbert space $\mathcal{H}_T$,
@@ -257,7 +257,7 @@ in the Hilbert space of time.
 
 The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
 
-\subsection*{Non-zero eigenvalue}
+\subsection*{Non-zero eigenvalues}
 
 Up to an irrelevant global
 phase, the physical vectors $\dket{\Psi}$ can be identified also by
@@ -301,6 +301,11 @@ of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
 \[
   \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
+
+We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian} 
+(a $2N \times 2N$ matrix). Such eigensolutions
+will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
+not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
