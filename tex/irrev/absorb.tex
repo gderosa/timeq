@@ -1,17 +1,5 @@
 \section{Unitary evolution \emph{versus} absorption}
 
-A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$
-satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}
-encodes the unitary time evolution of a system.
-\begin{equation}\label{eq:pwexpansion}
-  \dket{\Psi} =
-    \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S
-    \,  \text{.}
-\end{equation}
-Clearly, it is $\braket{\Psi(t)}_S = 1$ at every time $t$.
-
-\subsection{TODO: Events (there are some redundancies)}
-
 A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
 satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
 encodes the whole (unitary) time evolution of a system.
@@ -41,48 +29,46 @@ If the function $\phi \in \mathcal{L}^2(\mathbb{R})$,
 then $\dket{\Psi}$ is a proper element of the product space,
 and $\norm{\dket{\Psi}}^2 = \int \dd{t} \abs{\phi(t)}^2$.
 
-We will consider some even more general case than \cite{Lloyd:Time},
-where $\phi(t)$ is replaced by a $f(t)$ that is not a constant,
-but it's not square-integrable either,
-which will be useful in some problems.
+We will consider a more general case than \cite{Lloyd:Time},
+where $\phi \notin \mathcal{L}^2(\mathbb{R})$, but
+$\lim_{t \to -\infty} \abs{\phi(t)}^2 = 1$ and
+$\lim_{t \to +\infty} \abs{\phi(t)}^2 = 0$,
+to model detection by absoption \parencite{RuschhauptAbsorption}
+within the Page and Wootters scheme.
 
-The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
-with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
-describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
-As observed in \cite{Maccone:QGR},
-``%
-  Quantum mechanics is formulated in terms of \emph{systems},
-  typically limited in space but infinitely extended in time%
-''.
-If the state vector is \emph{conditioned} at a particular time $t$,
-it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
-meaning that, at each $t$,
-\emph{the particle must certainly be in some (one) point in space}.
+% The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
+% with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
+% describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
+% As observed in \cite{Maccone:QGR},
+% ``%
+%   Quantum mechanics is formulated in terms of \emph{systems},
+%   typically limited in space but infinitely extended in time%
+% ''.
+% If the state vector is \emph{conditioned} at a particular time $t$,
+% it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
+% meaning that, at each $t$,
+% \emph{the particle must certainly be in some (one) point in space}.
 
-A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
-instead,
-can be interpreted as a total probability of~$1$ in both space and time combined.
-It's an \term{event} that, as such, must certainly be in some point in space
-\emph{and} at some individual time (in terms of outcome of an idealized measurement).
-A ``typical'' example of localized ``event wave packet'' would be
-therefore represented by
-a \emph{4-dimensional} gaussian wave function,
-in analogy to well known examples of purely spatial gaussian states
-in quantum mechanics and quantum optics.
+% A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
+% instead,
+% can be interpreted as a total probability of~$1$ in both space and time combined.
+% It's an \term{event} that, as such, must certainly be in some point in space
+% \emph{and} at some individual time (in terms of outcome of an idealized measurement).
+% A ``typical'' example of localized ``event wave packet'' would be
+% therefore represented by
+% a \emph{4-dimensional} gaussian wave function,
+% in analogy to well known examples of purely spatial gaussian states
+% in quantum mechanics and quantum optics.
 
-As an intermediate case, we may want to consider
-\begin{equation}\label{eq:pwf}
-  \dket{\mathsf{F}} =
-    \int \dd{t} f(t) \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
-\end{equation}
-formally identical to \eqref{eq:pwphi},
-but $f$ is not square-integrable, it is instead:
-\begin{equation}
-  \lim_{t\to -\infty} f(t) = 1 \, \text{;} \quad
-  \lim_{t\to +\infty} f(t) = 0
-\end{equation}
+The detector absoption model \cite{RuschhauptAbsorption} is not originally
+based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
+in the sense that states are in $\hilb{H}_S$ with an external parameter time;
+but, contrary to quantum mechanics, the potential can be \emph{complex},
+causing the norm of the state vector to not be conserved (in fact, vanishing).
+In other terms, the evolution is not unitary.
+
 In terms of ``spatial quantum mechanics'', we will compare this case with
-models of detection by absorption \parencite{RuschhauptAbsorption},
+models of detection by absorption ,
 where the evolution is not unitary and
 the norm of
 $\ket{\psi(t)}_{\mathrm{Kiukas}} \eqbydef f(t)\ket{\psi(t)}$
