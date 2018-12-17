@@ -90,8 +90,36 @@ can then be derived from the properties of the Fourier transform.\footnote{
   similar to what found in \cite{Maccone:Pauli}.
 }
 
-\subsubsection*{Pure-state approach (in the product space)}
+\subsection{Pure-state approach (in the product space)}
 
 Another approach considers $\dket{\Phi}$ as a pure state of $\pwspace$
 and the operators $\hat{T} \ox \idop_{S}$ and $\hbar\hat{\Omega} \ox \idop_{S}$
 defined therein.
+
+The same considerations above still hold, in terms of ``infinite history'' versus
+time-localized, proper elements of $\pwspace$. 
+
+We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
+\begin{multline}
+  \sigma_T \sigma_E \eqbydef
+  \sigma_{T \ox \idop_S} \sigma_{\hbar\Omega \ox \idop_S} \geq
+  \frac{1}{2} \abs{\expval{\comm
+    {\hat{T}\ox\idop_S} {\hbar\hat{\Omega}\ox\idop_S}
+  }} =
+  % \frac{1}{2} \abs{\expval{
+  %   \qty(\hat{T}\ox\idop_S) \qty(\hbar\hat{\Omega}\ox\idop_S) - \qty(\hbar\hat{\Omega}\ox\idop_S) \qty(\hat{T}\ox\idop_S) 
+  % }} =
+  \\
+  \frac{\hbar}{2} \abs{\expval{
+    \hat{T}\hat{\Omega}\ox\idop_S - \hat{\Omega}\hat{T}\ox\idop_S
+  }} =
+  \frac{\hbar}{2} \abs{\expval{
+    \comm{\hat{T}}{\hat{\Omega}}_T \ox \idop_S
+  }} =
+  \\
+  \frac{\hbar}{2} \abs{\expval{\comm
+    {\hat{T}}{\hat{\Omega}}
+  }_T} =
+  \frac{\hbar}{2}
+  \,\text{.}
+\end{multline}
