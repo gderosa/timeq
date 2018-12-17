@@ -10,10 +10,10 @@
 default:
 	latexmk main
 
-view: build/main.pdf
+view:
 	latexmk -pv main
 
-cont: build/main.pdf
+cont:
 	latexmk -pvc main
 
 c: cont
