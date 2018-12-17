@@ -5,31 +5,20 @@
 # WARNING: Some auto-build plugins enabled in your editor/IDE
 # WARNING: may conflict with use of `make` and `make cont`.
 
-default: dev
+# targets are not existing files, so no need of .PHONY
+# The check for file timestamps is left to latexmk
+default:
+	latexmk main
 
-cont: devc
+view: build/main.pdf
+	latexmk -pv main
 
-view: devv
+cont: build/main.pdf
+	latexmk -pvc main
 
-dev:
-	latexmk dev
+c: cont
 
-devv:
-	latexmk -pv dev
-
-devc:
-	latexmk -pvc dev
-
-# prod = no-TODOs
-
-prod:
-	latexmk prod
-
-prodv:
-	latexmk -pv prod
-
-prodc:
-	latexmk -pvc prod
+v: view
 
 # Posters
 # poster is also the name of a directory...
