@@ -73,9 +73,11 @@ set $i = \mu$ as this is a Schmidt decomposition, and then $j = t$
 The reduced density operator can so be computed
 as partial trace:
 \begin{align}
+  \label{eq:ptrace_density_matrix_t}
   \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
     \, \text{,}
-  \\ 
+  \\
+  \label{eq:ptrace_density_matrix_omega}
   \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
     \,\text{.} 
 \end{align}
@@ -138,3 +140,20 @@ In those states of $\pwspace$ where a time evolution actually emerges
 (the ``physical states'' as defined in \cite{Lloyd:Time}),
 the clock is in a maximally mixed state
 (it is maximally entangled with the rest of the universe).
+
+Therefore, it cannot be studied as an independent system
+(and the position--momentum uncertainty relation is proved
+for pure states in ordinary quantum mechanics); but a
+time--energy relation is proved in the sense of probability
+\emph{among states} of a density operator.
+
+One might object to the interpretation in terms of (``classical'')
+probability distribution, given
+that the density matrix representation is
+not unique.
+However, the density matrices
+in \eqref{eq:ptrace_density_matrix_t} and \eqref{eq:ptrace_density_matrix_omega}
+are diagonal with respect to
+the orthonormal eigensystems of $\hat{T}$ and $\hbar \hat{\Omega}$ observables,
+so the distributions $\abs{\phi(t)}^2$ and $\abs{\tilde{\phi}(\omega)}^2$
+do have a physical significance.
