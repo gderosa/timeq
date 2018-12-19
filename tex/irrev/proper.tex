@@ -25,10 +25,15 @@ and can then be reformulated as:\footnote{
 \end{equation}
 
 We will also need the relation
-\begin{equation}\label{eq:fcomm}
+\begin{multline}\label{eq:fcomm}
   \comm{\phi(\hat{T})}{\hat{\Omega}} = \dot{\phi}(\hat{T}) \comm{\hat{T}}{\hat{\Omega}}, \,
-    \forall \, \hat{T}, \hat{\Omega} \text{ self-adjoint in } \hilb{H}_T \text{ and } \phi \in C^{\infty}(\mathbb{R}) \, \text{,} 
-\end{equation}
+    \\
+    \forall \, \hat{T}, \hat{\Omega} \text{ self-adjoint in } \hilb{H}_T
+    \text{, with }
+    \comm{\hat{T}}{\comm{\hat{T}}{\hat{\Omega}}} = 0
+    \text{ and }
+    \phi \in C^{\infty}(\mathbb{R}) \, \text{,} 
+\end{multline}
 where $\dot{\phi}$ is the first derivative of the function $\phi$.
 In fact, this is proven in Appendix \ref{CommProp} for when $\phi$ is a polynomial,
 and the proof can be easily extended to a more general case by series expansion.
