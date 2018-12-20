@@ -24,10 +24,43 @@ by absorption
 corresponds to the \emph{decrease} in norm of the wavefunction.
 
 Therefore we expect the following relation to be true:
-\begin{equation}
-  \norm{\phi(t)}^2 = -\dv{t}\norm{\psi_{\text{Kiukas}}(t)}^2 \,\text{,}
+\begin{equation}\label{eq:pwkiukas}
+  \abs{\phi(t)}^2 = -\dv{t}\norm{\psi_{\text{Kiukas}}(t)}^2 \text{,}
 \end{equation}
 both sides of which indicate probability of arrival at time $t$.
+Here the function (of time) $\phi$ is to be intended in the sense of
+\eqref{eq:pwphi} and \S \ref{non-unitary-pw}.
+
+Interestingly, \cite{RuschhauptAbsorption} provides a solution of \eqref{eq:pwkiukas}.
+Despite being not based on the Page--Wootters model, eq. 9 therein
+equates the squared norm of a ``time representation'' wavefunction
+to the antiderivative of the squared norm of the ``absorbed wavefunction''.
+It reads:
+\begin{quote}
+  We will associate with any wave function $\psi \in \hilb{H}$
+  another wave function $\hat{\psi}$,
+  which is a function of time, so that
+  $\abs{\hat{\psi}(t)}^2$
+  is the arrival probability density. In other words,
+  $\hat{\psi}$ is a wave function in a time representation. For each
+  $t$, $\hat{\psi}(t)$ lies in the original Hilbert space $H$.
+\end{quote}
+Therefore we ``translate'' $\hat{\psi}(t)$ into $\phi(t)\ket{\psi(t)}_S$
+and, consequently, $\abs{\hat{\psi}(t)}^2$ into $\abs{\phi(t)}^2$,
+in the language of the Page--Wootters model and within the notation
+adopted.
+
+Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
+\begin{equation}
+  \phi(t)\ket{\psi(t)} =
+  \begin{cases}
+    \sqrt{\frac{2}{\hbar}} \hat{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
+    0 &\text{ otherwise. }
+  \end{cases}
+\end{equation}
+Where at $t \le 0$ the interaction with the detector is yet to come, and therefore
+$\hat{D} \ket{\psi_{\text{Kiukas}}(t)} = 0$, thus avoiding the apparent discontinuity.
+
 
 \subsection{Application: two-level system}
 

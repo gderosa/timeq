@@ -29,36 +29,29 @@ If the function $\phi \in \mathcal{L}^2(\mathbb{R})$,
 then $\dket{\Psi}$ is a proper element of the product space,
 and $\norm{\dket{\Psi}}^2 = \int \dd{t} \abs{\phi(t)}^2$.
 
-We will consider a more general case than \cite{Lloyd:Time},
-where $\phi \notin \mathcal{L}^2(\mathbb{R})$, but
-$\lim_{t \to -\infty} \abs{\phi(t)}^2 = 1$ and
-$\lim_{t \to +\infty} \abs{\phi(t)}^2 = 0$,
-to model detection by absoption \parencite{RuschhauptAbsorption}
-within the Page and Wootters scheme.
+The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
+with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
+describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
+As observed in \cite{Maccone:QGR},
+``%
+  Quantum mechanics is formulated in terms of \emph{systems},
+  typically limited in space but infinitely extended in time%
+''.
+If the state vector is \emph{conditioned} at a particular time $t$,
+it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
+meaning that, at each $t$,
+\emph{the particle must certainly be in some (one) point in space}.
 
-% The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
-% with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
-% describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
-% As observed in \cite{Maccone:QGR},
-% ``%
-%   Quantum mechanics is formulated in terms of \emph{systems},
-%   typically limited in space but infinitely extended in time%
-% ''.
-% If the state vector is \emph{conditioned} at a particular time $t$,
-% it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
-% meaning that, at each $t$,
-% \emph{the particle must certainly be in some (one) point in space}.
-
-% A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
-% instead,
-% can be interpreted as a total probability of~$1$ in both space and time combined.
-% It's an \term{event} that, as such, must certainly be in some point in space
-% \emph{and} at some individual time (in terms of outcome of an idealized measurement).
-% A ``typical'' example of localized ``event wave packet'' would be
-% therefore represented by
-% a \emph{4-dimensional} gaussian wave function,
-% in analogy to well known examples of purely spatial gaussian states
-% in quantum mechanics and quantum optics.
+A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
+instead,
+can be interpreted as a total probability of~$1$ in both space and time combined.
+It's an \term{event} that, as such, must certainly be in some point in space
+\emph{and} at some individual time (in terms of outcome of an idealized measurement).
+A ``typical'' example of localized ``event wave packet'' would be
+therefore represented by
+a \emph{4-dimensional} gaussian wave function,
+in analogy to well known examples of purely spatial gaussian states
+in quantum mechanics and quantum optics.
 
 The detector absoption model therein is not originally
 based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
