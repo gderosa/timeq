@@ -1,3 +1,5 @@
+\textbf{Note: What not developed here should go into a final ``Further studies'' section or similar.}
+
 \section{An intro chap on motivation and experiments?}
 \begin{itemize}
   \item Time crystals?
@@ -5,12 +7,6 @@
 \end{itemize}
 
 %\clearpage\includegraphics[width=\linewidth]{img/diffraction.jpg}
-
-\section{pw}
-
-Lloyd recent on entropic uncertainty (for time\dots).
-From state vectors to density matrices and/or mixed states: Von Neumann entroy (wikipedia).
-Subadditivity. 
 
 \section{Misc}
 
@@ -102,11 +98,32 @@ References: \cite{crystal2,crystal3,crystal2012}.
 
 \cite{Maccone:Pauli} \S IV.  UNBOUNDED-ENERGY CLOCKS?
 
-\subsection{Use open quantum systems theory in ``Decoherence and measurement'' chapter}
+\subsection{Use open quantum systems theory in ``Decoherence and measurement'' chapter + Entropy}
 Schmidt decompositions, spatial and temporal states in
 $\hilb{H}_T$ and $\hilb{H}_S$
 are described as density operators
-(mixed states). What if there isn't a ``perfect entanglment'' between space and time.
+(mixed states).
+
+This has been actually used to prove clock time-frequency uncertainty relation
+in terms of mixture.
+
+What if there isn't a ``perfect entanglment'' between space and time.
+
+Use the Von Neumann entropy (or other methods) to quantify entanglement?
+
+When the entanglement is perfect, the notion of time evolution emerges, just
+like between two dimensions in space, it may or may not ``emerge'' that
+$y$ ``depends'' upon $y$ for a given distribution of positions.
+
+Where the entanglment is maximal, the Von Neumann entropy is also maximal.
+
+Arrow of time as increasing entanglement (and entropy!). See Also
+\cite{Marletto:Evolution}.
+
+Also Lloyd recent on entropic uncertainty (for time\dots \cite{Lloyd:Entropic}).
+Maybe also \cite{Wehner:Uncertainty}.
+
+Subadditivity.
 
 \section{Entanglement and decoherence (Arrow of time)}
 See also \cite{EntanglementVsDecoherence}.
@@ -142,9 +159,9 @@ Idea: use section B ``Measurement'' of \cite{Lloyd:Time}: detector as (binary) m
 ``Philospher'': \url{https://arxiv.org/abs/1704.07236}.
 
 Time of arrival and clocks: again, \cite{YearsleyHalliwell_Clocks}.
-Which maybe suggests we should not wory too much of $H\ket{\Psi} = 0$. 
+Which maybe suggests we should not worry too much of $H\ket{\Psi} = 0$.
 
-We don't. 
+We don't.
 
 BUT please note \cite{YearsleyHalliwell_Clocks} uses a clock that is
 \emph{coupled} with the system, while in PaW they are ``only'' entangled.
@@ -171,7 +188,7 @@ Measuring entanglement: Quantification of Concurrence via Weak Measurement: 1611
 
 Marletto/Vedral on Arrow of time. Arrow of time as increasing entanglement.
 
-Arrow of time: 
+Arrow of time:
 
 \url{https://www.wired.com/2014/04/quantum-theory-flow-time/}
 
@@ -296,5 +313,19 @@ is consistent with the Big Bang...
 
 Prvanovic uses ``relativisitc'' constants...
 
+BTW, please note a time bounded from below WOULD NOT be sufficient to overcome the Pauli objection alone.
 
+\section{Photon position}
 
+Quantum mechanics is a 0+1 QFT \parencite{QFT_0+1}.
+The \emph{dimension} of the field theory is the number of external parameters.
+The P-W mechanism ``quantizes'' external parameters, or make their property
+of classical external parameter \emph{emerge} out of a quantum observable
+of an entangled subsystem (where there exists a Schmidt decomposition over
+eigenstates of said observable).
+
+In this sense, time in quantum mechanics is like time \emph{and position}
+in quantum field theories such as quantum optics or the Standard Model.
+
+We can imagine P-W ``meter sticks'' instead of clocks, to measure
+photon position and thus tackle the same problem of \cite{HawtonPhotonPosition}.
