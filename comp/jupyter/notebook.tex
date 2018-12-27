@@ -280,65 +280,74 @@
     
 
     
-    \hypertarget{detector-model-kiukas-et-al.vs-pw}{%
-\subsection{Detector model: Kiukas et al.~vs
-PW}\label{detector-model-kiukas-et-al.vs-pw}}
+    \hypertarget{detector-model-kiukas-ruschhaupt-schmidt-werner}{%
+\subsection{Detector model: Kiukas / Ruschhaupt / Schmidt /
+Werner}\label{detector-model-kiukas-ruschhaupt-schmidt-werner}}
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}50}]:} \PY{k+kn}{from} \PY{n+nn}{sympy} \PY{k}{import} \PY{o}{*}
-         \PY{c+c1}{\PYZsh{} from sympy.physics.matrices import mdft}
-         \PY{c+c1}{\PYZsh{} from sympy.physics.quantum import TensorProduct}
-         \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{physics}\PY{n+nn}{.}\PY{n+nn}{quantum}\PY{n+nn}{.}\PY{n+nn}{dagger} \PY{k}{import} \PY{n}{Dagger}
-         \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{plotting} \PY{k}{import} \PY{n}{plot}
-         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
-         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+{\color{incolor}In [{\color{incolor}919}]:} \PY{k+kn}{from} \PY{n+nn}{sympy} \PY{k}{import} \PY{o}{*}
+          \PY{c+c1}{\PYZsh{}from sympy.physics.matrices import mdft}
+          \PY{c+c1}{\PYZsh{}from sympy.physics.quantum import TensorProduct}
+          \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{functions}\PY{n+nn}{.}\PY{n+nn}{special}\PY{n+nn}{.}\PY{n+nn}{delta\PYZus{}functions} \PY{k}{import} \PY{n}{Heaviside}
+          \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{physics}\PY{n+nn}{.}\PY{n+nn}{quantum}\PY{n+nn}{.}\PY{n+nn}{dagger} \PY{k}{import} \PY{n}{Dagger}
+          \PY{k+kn}{from} \PY{n+nn}{sympy}\PY{n+nn}{.}\PY{n+nn}{plotting} \PY{k}{import} \PY{n}{plot}\PY{p}{,} \PY{n}{plot3d\PYZus{}parametric\PYZus{}line}
+          \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+          \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+          
+          \PY{n}{matplotlib}\PY{o}{.}\PY{n}{rcParams}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{text.usetex}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{k+kc}{False}
+          
+          \PY{c+c1}{\PYZsh{} https://matplotlib.org/gallery/mplot3d/lines3d.html?highlight=parametric}
+          \PY{c+c1}{\PYZsh{} This import registers the 3D projection, but is otherwise unused.}
+          \PY{k+kn}{from} \PY{n+nn}{mpl\PYZus{}toolkits}\PY{n+nn}{.}\PY{n+nn}{mplot3d} \PY{k}{import} \PY{n}{Axes3D}  \PY{c+c1}{\PYZsh{} noqa: F401 unused import}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}51}]:} \PY{n}{gamma} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gamma}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{t} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-         \PY{n}{tprime} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}920}]:} \PY{n}{gamma} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gamma}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{real}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{t} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{real}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{tprime} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+se}{\PYZbs{}\PYZsq{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{real}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+          \PY{n}{omega} \PY{o}{=} \PY{n}{Symbol}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{omega}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{real}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}52}]:} \PY{k}{def} \PY{n+nf}{D}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
-             \PY{k}{return} \PY{n}{Rational}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}
-                 \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
-                 \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{\PYZus{}gamma}\PY{p}{]}
-             \PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}921}]:} \PY{k}{def} \PY{n+nf}{D}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{Rational}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}
+                  \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                  \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{\PYZus{}gamma}\PY{p}{]}
+              \PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}53}]:} \PY{n}{H} \PY{o}{=} \PY{n}{Matrix} \PY{p}{(}\PY{p}{[}
-         \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]} \PY{p}{,}
-         \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
-         \PY{p}{]}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}922}]:} \PY{n}{H} \PY{o}{=} \PY{n}{Matrix} \PY{p}{(}\PY{p}{[}
+          \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]} \PY{p}{,}
+          \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+          \PY{p}{]}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}54}]:} \PY{n}{init\PYZus{}printing} \PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}923}]:} \PY{n}{init\PYZus{}printing} \PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}55}]:} \PY{n}{H}
+{\color{incolor}In [{\color{incolor}924}]:} \PY{n}{H}
 \end{Verbatim}
 
-\texttt{\color{outcolor}Out[{\color{outcolor}55}]:}
+\texttt{\color{outcolor}Out[{\color{outcolor}924}]:}
     
     $$\left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right]$$
 
     
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}56}]:} \PY{n}{H}\PY{o}{.}\PY{n}{eigenvects}\PY{p}{(}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}925}]:} \PY{n}{H}\PY{o}{.}\PY{n}{eigenvects}\PY{p}{(}\PY{p}{)}
 \end{Verbatim}
 
-\texttt{\color{outcolor}Out[{\color{outcolor}56}]:}
+\texttt{\color{outcolor}Out[{\color{outcolor}925}]:}
     
     $$\left [ \left ( -1, \quad 1, \quad \left [ \left[\begin{matrix}-1\\1\end{matrix}\right]\right ]\right ), \quad \left ( 1, \quad 1, \quad \left [ \left[\begin{matrix}1\\1\end{matrix}\right]\right ]\right )\right ]$$
 
@@ -348,156 +357,776 @@ PW}\label{detector-model-kiukas-et-al.vs-pw}}
 \(\langle H^2 \rangle = 1\), therefore \(\sigma_{H} = 1\).
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}57}]:} \PY{k}{def} \PY{n+nf}{K}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
-             \PY{k}{return} \PY{n}{H} \PY{o}{\PYZhy{}} \PY{n}{I}\PY{o}{*}\PY{n}{D}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}926}]:} \PY{k}{def} \PY{n+nf}{K}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{H} \PY{o}{\PYZhy{}} \PY{n}{I}\PY{o}{*}\PY{n}{D}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}58}]:} \PY{n}{K}\PY{p}{(}\PY{n}{gamma}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}927}]:} \PY{n}{K}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
-\texttt{\color{outcolor}Out[{\color{outcolor}58}]:}
+\texttt{\color{outcolor}Out[{\color{outcolor}927}]:}
     
-    $$\left[\begin{matrix}0 & 1\\1 & - \frac{i \gamma}{2}\end{matrix}\right]$$
+    $$\left[\begin{matrix}0 & 1\\1 & - \sqrt{2} i\end{matrix}\right]$$
 
     
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}59}]:} \PY{k}{def} \PY{n+nf}{B}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
-             \PY{k}{return} \PY{k}{lambda} \PY{n}{t}\PY{p}{:} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{I}\PY{o}{*}\PY{n}{K}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}928}]:} \PY{n}{K}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{o}{.}\PY{n}{eigenvects}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}928}]:}
+    
+    $$\left [ \left ( - \frac{\sqrt{2}}{2} - \frac{\sqrt{2} i}{2}, \quad 1, \quad \left [ \left[\begin{matrix}- \frac{1}{\frac{\sqrt{2}}{2} + \frac{\sqrt{2} i}{2}}\\1\end{matrix}\right]\right ]\right ), \quad \left ( \frac{\sqrt{2}}{2} - \frac{\sqrt{2} i}{2}, \quad 1, \quad \left [ \left[\begin{matrix}- \frac{1}{- \frac{\sqrt{2}}{2} + \frac{\sqrt{2} i}{2}}\\1\end{matrix}\right]\right ]\right )\right ]$$
+
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}929}]:} \PY{k}{def} \PY{n+nf}{B}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{k}{lambda} \PY{n}{t}\PY{p}{:} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{I}\PY{o}{*}\PY{n}{K}\PY{p}{(}\PY{n}{\PYZus{}gamma}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}60}]:} \PY{k}{def} \PY{n+nf}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
-             \PY{n}{psi} \PY{o}{=} \PY{n}{B}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{k}{return} \PY{n}{re}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{psi}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{psi}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}930}]:} \PY{k}{def} \PY{n+nf}{U}\PY{p}{(}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{k}{lambda} \PY{n}{t}\PY{p}{:} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{I}\PY{o}{*}\PY{n}{H}\PY{o}{*}\PY{n}{t}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}61}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{4}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}931}]:} \PY{k}{def} \PY{n+nf}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{B}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}932}]:} \PY{k}{def} \PY{n+nf}{unitary\PYZus{}psi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{U}\PY{p}{(}\PY{p}{)}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}933}]:} \PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}933}]:}
+    
+    $$\left[\begin{matrix}\frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}\right)} - \frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}\right)}\\\frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}} - \frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}\end{matrix}\right]$$
+
+    
+
+    New period
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}934}]:} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi} \PY{o}{/} \PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}934}]:}
+    
+    $$2 \sqrt{2} \pi$$
+
+    
+
+    Components are either pure real or pure imaginary:
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}935}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{re}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_13_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}61}]:} <sympy.plotting.plot.Plot at 0x7f688043b2e8>
+{\color{outcolor}Out[{\color{outcolor}935}]:} <sympy.plotting.plot.Plot at 0x7f16a15f9828>
 \end{Verbatim}
             
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}62}]:} \PY{n}{lossy\PYZus{}norm\PYZus{}n} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{numpy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}936}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{im}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_21_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}936}]:} <sympy.plotting.plot.Plot at 0x7f16a0e1bfd0>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}937}]:} \PY{k}{def} \PY{n+nf}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{n}{psi} \PY{o}{=} \PY{n}{B}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{psi}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{psi}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}63}]:} \PY{n}{lossy\PYZus{}norm\PYZus{}n}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}938}]:} \PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}
 \end{Verbatim}
 
-\texttt{\color{outcolor}Out[{\color{outcolor}63}]:}
+\texttt{\color{outcolor}Out[{\color{outcolor}938}]:}
+    
+    $$\left|{\frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}} - \frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}}\right|^{2} + \left|{\frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}\right)} - \frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}\right)}}\right|^{2}$$
+
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}939}]:} \PY{n}{non\PYZus{}unitary\PYZus{}psi\PYZus{}n} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{numpy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}940}]:} \PY{n}{lossy\PYZus{}norm\PYZus{}n} \PY{o}{=} \PY{n}{lambdify}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{numpy}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}941}]:} \PY{k}{def} \PY{n+nf}{non\PYZus{}unitary\PYZus{}psi\PYZus{}renorm\PYZus{}n}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{non\PYZus{}unitary\PYZus{}psi\PYZus{}n}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{n}{lossy\PYZus{}norm\PYZus{}n}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}942}]:} \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mf}{1e\PYZhy{}16}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{2000}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}982}]:} \PY{c+c1}{\PYZsh{}fig = plt.figure(figsize=(12,12))}
+          \PY{c+c1}{\PYZsh{}}
+          \PY{c+c1}{\PYZsh{}ax = fig.gca(projection=\PYZsq{}3d\PYZsq{})}
+          \PY{c+c1}{\PYZsh{}ax.view\PYZus{}init(15,\PYZhy{}45) \PYZsh{} rotate 3d point of view}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}ax2 = fig.gca(projection=\PYZsq{}3d\PYZsq{})\PYZsh{}}
+          \PY{c+c1}{\PYZsh{}}
+          \PY{c+c1}{\PYZsh{}ax.plot(}
+          \PY{c+c1}{\PYZsh{}    np.real(non\PYZus{}unitary\PYZus{}psi\PYZus{}n(T)[0][0]), np.imag(non\PYZus{}unitary\PYZus{}psi\PYZus{}n(T)[1][0]), T,}
+          \PY{c+c1}{\PYZsh{}    linewidth=1.25}
+          \PY{c+c1}{\PYZsh{})}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}ax2.plot(}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}    np.real(non\PYZus{}unitary\PYZus{}psi\PYZus{}n(T)[1][0]), np.imag(non\PYZus{}unitary\PYZus{}psi\PYZus{}n(T)[1][0]), T,}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}    \PYZsq{}r\PYZsq{},}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}    label=\PYZsq{}\PYZlt{}\PYZbs{}u03C8|1\PYZgt{}\PYZsq{},}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}    linewidth=1}
+          \PY{c+c1}{\PYZsh{}\PYZsh{})}
+          
+          \PY{c+c1}{\PYZsh{}\PYZsh{}ax.legend()}
+          \PY{c+c1}{\PYZsh{}\PYZsh{}ax2.legend()}
+          
+          \PY{c+c1}{\PYZsh{}plt.xlabel(\PYZsq{}Re \PYZlt{}0|\PYZbs{}u03C8\PYZgt{} (pure real)\PYZsq{})}
+          \PY{c+c1}{\PYZsh{}plt.ylabel(\PYZsq{}Im \PYZlt{}1|\PYZbs{}u03C8\PYZgt{} (pure imag)\PYZsq{})}
+          \PY{c+c1}{\PYZsh{}ax.set\PYZus{}zlabel(\PYZsq{}t\PYZsq{})}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}976}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_29_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}976}]:} <sympy.plotting.plot.Plot at 0x7f16ac320dd8>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}945}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}0\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}946}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}1\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}947}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}0\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_32_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}947}]:} <sympy.plotting.plot.Plot at 0x7f16a17b0828>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}948}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}1\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_33_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}948}]:} <sympy.plotting.plot.Plot at 0x7f16a1b622b0>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}949}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{re}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_34_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}949}]:} <sympy.plotting.plot.Plot at 0x7f16a1b13fd0>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}950}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{im}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{o}{/}\PY{n}{sqrt}\PY{p}{(}\PY{n}{lossy\PYZus{}norm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2} \PY{o}{*} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_35_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}950}]:} <sympy.plotting.plot.Plot at 0x7f16a10875f8>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}951}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}0\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)} \PY{o}{+} \PY{n}{prob\PYZus{}1\PYZus{}detect}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_36_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}951}]:} <sympy.plotting.plot.Plot at 0x7f16a1c062b0>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}952}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{log}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{,} \PY{n}{adaptive}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{nb\PYZus{}of\PYZus{}points}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_37_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}952}]:} <sympy.plotting.plot.Plot at 0x7f16a1d192b0>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}953}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{log}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{,} \PY{n}{adaptive}\PY{o}{=}\PY{k+kc}{False}\PY{p}{,} \PY{n}{nb\PYZus{}of\PYZus{}points}\PY{o}{=}\PY{l+m+mi}{5000}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_38_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}953}]:} <sympy.plotting.plot.Plot at 0x7f16a1e33278>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}954}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}0\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}955}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}1\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{unitary\PYZus{}psi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}956}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}0\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_41_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}956}]:} <sympy.plotting.plot.Plot at 0x7f16a008c588>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}957}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}1\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_42_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}957}]:} <sympy.plotting.plot.Plot at 0x7f16a1c89b38>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}958}]:} \PY{n}{lossy\PYZus{}norm\PYZus{}n}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}958}]:}
     
     $$0.19265133139031912$$
 
     
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}64}]:} \PY{n}{X} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mf}{1e\PYZhy{}6}\PY{p}{,} \PY{l+m+mi}{4}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{500}\PY{p}{)}  \PY{c+c1}{\PYZsh{} avoid singularity in t=0}
+{\color{incolor}In [{\color{incolor}959}]:} \PY{n}{X} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linspace}\PY{p}{(}\PY{l+m+mf}{1e\PYZhy{}6}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{5000}\PY{p}{)}  \PY{c+c1}{\PYZsh{} avoid singularity in t=0}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}65}]:} \PY{n}{Y} \PY{o}{=} \PY{n}{lossy\PYZus{}norm\PYZus{}n}\PY{p}{(}\PY{n}{X}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}960}]:} \PY{n}{Y} \PY{o}{=} \PY{n}{lossy\PYZus{}norm\PYZus{}n}\PY{p}{(}\PY{n}{X}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}66}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{gradient}\PY{p}{(}\PY{n}{Y}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}961}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{gradient}\PY{p}{(}\PY{n}{Y}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}66}]:} [<matplotlib.lines.Line2D at 0x7f688036a940>]
+{\color{outcolor}Out[{\color{outcolor}961}]:} [<matplotlib.lines.Line2D at 0x7f16a0d210f0>]
 \end{Verbatim}
             
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_18_1.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_46_1.png}
     \end{center}
     { \hspace*{\fill} \\}
     
-    \hypertarget{p-w-expectation-value-technique}{%
-\subsubsection{P-W ``expectation value''
-technique}\label{p-w-expectation-value-technique}}
-
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}67}]:} \PY{k}{def} \PY{n+nf}{U}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
-             \PY{k}{return} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{I}\PY{o}{*}\PY{n}{H}\PY{o}{*}\PY{n}{\PYZus{}t}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}962}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{semilogy}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{np}\PY{o}{.}\PY{n}{gradient}\PY{p}{(}\PY{n}{Y}\PY{p}{,} \PY{n}{X}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}962}]:} [<matplotlib.lines.Line2D at 0x7f16a0d7d5f8>]
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_47_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}963}]:} \PY{c+c1}{\PYZsh{} we have set gamma = 2*sqrt(2)}
+          \PY{k}{def} \PY{n+nf}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PYZbs{}
+                  \PY{n}{Heaviside}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PYZbs{}
+                  \PY{l+m+mi}{2}\PY{o}{*}\PY{o}{*}\PY{p}{(}\PY{l+m+mi}{5}\PY{o}{/}\PY{l+m+mi}{4}\PY{p}{)} \PY{o}{*} \PYZbs{}
+                  \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}
+                      \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+                      \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}
+                  \PY{p}{]}\PY{p}{)} \PY{o}{*} \PYZbs{}
+                  \PY{n}{non\PYZus{}unitary\PYZus{}psi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}
+                  
+                  
+              
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}68}]:} \PY{k}{def} \PY{n+nf}{psi\PYZus{}unitary}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
-             \PY{n}{psi} \PY{o}{=} \PY{n}{U}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)} \PY{o}{*} \PY{n}{Matrix}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{)}
-             \PY{k}{return} \PY{n}{psi}
+{\color{incolor}In [{\color{incolor}964}]:} \PY{k}{def} \PY{n+nf}{hatpsisquarednorm}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}69}]:} \PY{n}{psi\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}965}]:} \PY{n}{hatpsisquarednorm}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{)}
 \end{Verbatim}
 
-\texttt{\color{outcolor}Out[{\color{outcolor}69}]:}
+\texttt{\color{outcolor}Out[{\color{outcolor}965}]:}
     
-    $$\left[\begin{matrix}\frac{e^{i t}}{2} + \frac{1}{2} e^{- i t}\\- \frac{e^{i t}}{2} + \frac{1}{2} e^{- i t}\end{matrix}\right]$$
+    $$0$$
 
     
 
     \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}70}]:} \PY{n}{psi\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{.}\PY{n}{dot}\PY{p}{(} \PY{n}{D}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{n}{psi\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)} \PY{p}{)}
-\end{Verbatim}
-
-\texttt{\color{outcolor}Out[{\color{outcolor}70}]:}
-    
-    $$\sqrt{2} \left(- \frac{e^{i t}}{2} + \frac{1}{2} e^{- i t}\right)^{2}$$
-
-    
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}71}]:} \PY{n}{D}\PY{p}{(}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
-\end{Verbatim}
-
-\texttt{\color{outcolor}Out[{\color{outcolor}71}]:}
-    
-    $$\left[\begin{matrix}0 & 0\\0 & \sqrt{2}\end{matrix}\right]$$
-
-    
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}72}]:} \PY{n}{integrate}\PY{p}{(}\PY{n}{sin}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{n}{t}\PY{p}{)}
-\end{Verbatim}
-
-\texttt{\color{outcolor}Out[{\color{outcolor}72}]:}
-    
-    $$\frac{t}{2} - \frac{1}{2} \sin{\left (t \right )} \cos{\left (t \right )}$$
-
-    
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}73}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*} \PY{n}{sin}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{n}{sin}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{t}\PY{o}{/}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{4}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+{\color{incolor}In [{\color{incolor}966}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{hatpsisquarednorm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
 \end{Verbatim}
 
 
     \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_26_0.png}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_51_0.png}
     \end{center}
     { \hspace*{\fill} \\}
     
 \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}73}]:} <sympy.plotting.plot.Plot at 0x7f6880492550>
+{\color{outcolor}Out[{\color{outcolor}966}]:} <sympy.plotting.plot.Plot at 0x7f16a2052c88>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}967}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{prob\PYZus{}1\PYZus{}unitary}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{n}{hatpsisquarednorm}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mf}{0.25}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_52_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}967}]:} <sympy.plotting.plot.Plot at 0x7f16a19e86d8>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}968}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}0\PYZus{}hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}969}]:} \PY{k}{def} \PY{n+nf}{prob\PYZus{}1\PYZus{}hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{\PYZus{}t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}970}]:} \PY{n}{plot}\PY{p}{(}\PY{n}{im}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}\PY{p}{,} \PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{8}\PY{o}{*}\PY{n}{pi}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_55_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}970}]:} <sympy.plotting.plot.Plot at 0x7f16a208a550>
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}971}]:} \PY{n}{im}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}971}]:}
+    
+    $$- 2.37841423000544 \sqrt{2} e^{- \frac{\sqrt{2} t}{2}} \sin{\left (\frac{\sqrt{2} t}{2} \right )} \theta\left(t\right)$$
+
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}972}]:} \PY{k}{def} \PY{n+nf}{fhatpsi1}\PY{p}{(}\PY{n}{\PYZus{}omega}\PY{p}{)}\PY{p}{:}
+              \PY{k}{return} \PY{n}{fourier\PYZus{}transform}\PY{p}{(}\PY{n}{hatpsi}\PY{p}{(}\PY{n}{t}\PY{p}{)}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{,} \PY{n}{\PYZus{}omega}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}973}]:} \PY{n+nb}{abs}\PY{p}{(}\PY{n}{fhatpsi1}\PY{p}{(}\PY{n}{omega}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}973}]:}
+    
+    $$\frac{5.65685424949238}{16.0 \pi^{4} \omega^{4} + 1.0}$$
+
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}974}]:} \PY{n}{plot}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{fhatpsi1}\PY{p}{(}\PY{n}{omega}\PY{p}{)}\PY{p}{)}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{,} \PY{p}{(}\PY{n}{omega}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_59_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}974}]:} <sympy.plotting.plot.Plot at 0x7f16a1f54eb8>
+\end{Verbatim}
+            
+    \hypertarget{discrete-page-wootters-model}{%
+\subsection{(Discrete) Page-Wootters
+model}\label{discrete-page-wootters-model}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}452}]:} \PY{k+kn}{from} \PY{n+nn}{scipy}\PY{n+nn}{.}\PY{n+nn}{linalg} \PY{k}{import} \PY{n}{dft}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}500}]:} \PY{n}{T} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{diag}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{)} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{pi} \PY{o}{/} \PY{l+m+mi}{16}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}501}]:} \PY{n}{F} \PY{o}{=} \PY{n}{dft}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{,} \PY{n}{scale}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{sqrtn}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}502}]:} \PY{n}{F}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}502}]:} (0.17677669529663687+0j)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}503}]:} \PY{n}{F\PYZus{}dagger} \PY{o}{=} \PY{n}{F}\PY{o}{.}\PY{n}{conj}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{T}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}504}]:} \PY{n}{F\PYZus{}dagger}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}504}]:} (0.17677669529663687-0j)
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}505}]:} \PY{n}{F\PYZus{}dagger}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}505}]:} array([[ 0.1767767 -0.j        ,  0.1767767 -0.j        ,
+                   0.1767767 -0.j        , {\ldots},  0.1767767 -0.j        ,
+                   0.1767767 -0.j        ,  0.1767767 -0.j        ],
+                 [ 0.1767767 -0.j        ,  0.17337998+0.03448742j,
+                   0.16332037+0.06764951j, {\ldots},  0.14698445-0.09821187j,
+                   0.16332037-0.06764951j,  0.17337998-0.03448742j],
+                 [ 0.1767767 -0.j        ,  0.16332037+0.06764951j,
+                   0.125     +0.125j     , {\ldots},  0.06764951-0.16332037j,
+                   0.125     -0.125j     ,  0.16332037-0.06764951j],
+                 {\ldots},
+                 [ 0.1767767 -0.j        ,  0.14698445-0.09821187j,
+                   0.06764951-0.16332037j, {\ldots}, -0.03448742+0.17337998j,
+                   0.06764951+0.16332037j,  0.14698445+0.09821187j],
+                 [ 0.1767767 -0.j        ,  0.16332037-0.06764951j,
+                   0.125     -0.125j     , {\ldots},  0.06764951+0.16332037j,
+                   0.125     +0.125j     ,  0.16332037+0.06764951j],
+                 [ 0.1767767 -0.j        ,  0.17337998-0.03448742j,
+                   0.16332037-0.06764951j, {\ldots},  0.14698445+0.09821187j,
+                   0.16332037+0.06764951j,  0.17337998+0.03448742j]])
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}506}]:} \PY{n}{Omega} \PY{o}{=} \PY{n}{F} \PY{o}{@} \PY{n}{T} \PY{o}{@} \PY{n}{F\PYZus{}dagger} \PY{o}{*} \PY{l+m+mi}{16} \PY{o}{/} \PY{n}{np}\PY{o}{.}\PY{n}{pi}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}600}]:} \PY{n}{H} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}
+              \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}
+              \PY{p}{[}\PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}762}]:} \PY{n}{D} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}
+              \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,}
+              \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{sqrt}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{]}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}871}]:} \PY{n}{K} \PY{o}{=} \PY{n}{H} \PY{o}{\PYZhy{}} \PY{l+m+mi}{1}\PY{n}{j}\PY{o}{*}\PY{n}{D}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}872}]:} \PY{n}{K}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}872}]:} array([[0.+0.j        , 1.+0.j        ],
+                 [1.+0.j        , 0.-1.41421356j]])
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}873}]:} \PY{n}{J} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{kron}\PY{p}{(}\PY{n}{Omega}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{kron}\PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{eye}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{,} \PY{n}{K}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}874}]:} \PY{n}{eigenvalues}\PY{p}{,} \PY{n}{eigenvectors} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{linalg}\PY{o}{.}\PY{n}{eig}\PY{p}{(}\PY{n}{J}\PY{o}{.}\PY{n}{T}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}875}]:} \PY{n}{eigenvalues}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}875}]:} array([31.70710678-0.70710678j, -0.70710678-0.70710678j,
+                 30.70710678-0.70710678j,  0.29289322-0.70710678j,
+                 30.29289322-0.70710678j,  0.70710678-0.70710678j,
+                 29.70710678-0.70710678j,  1.29289322-0.70710678j,
+                 29.29289322-0.70710678j,  1.70710678-0.70710678j,
+                 28.70710678-0.70710678j,  2.29289322-0.70710678j,
+                 28.29289322-0.70710678j,  2.70710678-0.70710678j,
+                 27.70710678-0.70710678j, 27.29289322-0.70710678j,
+                  3.29289322-0.70710678j,  3.70710678-0.70710678j,
+                 26.70710678-0.70710678j, 26.29289322-0.70710678j,
+                  4.29289322-0.70710678j,  4.70710678-0.70710678j,
+                 25.70710678-0.70710678j, 25.29289322-0.70710678j,
+                  5.29289322-0.70710678j,  5.70710678-0.70710678j,
+                 24.70710678-0.70710678j, 24.29289322-0.70710678j,
+                  6.29289322-0.70710678j,  6.70710678-0.70710678j,
+                 23.70710678-0.70710678j, 23.29289322-0.70710678j,
+                  7.29289322-0.70710678j,  7.70710678-0.70710678j,
+                 22.70710678-0.70710678j, 22.29289322-0.70710678j,
+                  8.29289322-0.70710678j, 21.70710678-0.70710678j,
+                  8.70710678-0.70710678j, 21.29289322-0.70710678j,
+                  9.29289322-0.70710678j, 20.70710678-0.70710678j,
+                  9.70710678-0.70710678j, 20.29289322-0.70710678j,
+                 19.70710678-0.70710678j, 10.29289322-0.70710678j,
+                 19.29289322-0.70710678j, 10.70710678-0.70710678j,
+                 18.70710678-0.70710678j, 11.29289322-0.70710678j,
+                 18.29289322-0.70710678j, 11.70710678-0.70710678j,
+                 17.70710678-0.70710678j, 17.29289322-0.70710678j,
+                 16.70710678-0.70710678j, 16.29289322-0.70710678j,
+                 12.29289322-0.70710678j, 12.70710678-0.70710678j,
+                 15.70710678-0.70710678j, 15.29289322-0.70710678j,
+                 13.29289322-0.70710678j, 13.70710678-0.70710678j,
+                 14.70710678-0.70710678j, 14.29289322-0.70710678j])
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}876}]:} \PY{c+c1}{\PYZsh{}eigenvectors}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}877}]:} \PY{k}{def} \PY{n+nf}{qubit\PYZus{}history}\PY{p}{(}\PY{n}{eigenindex}\PY{p}{)}\PY{p}{:}
+              \PY{c+c1}{\PYZsh{} Needs matrix transposition \PYZdq{}.T\PYZdq{} (different convention as opposed to Mathematica)}
+              \PY{n}{eigenvector} \PY{o}{=} \PY{n}{eigenvectors}\PY{o}{.}\PY{n}{T}\PY{p}{[}\PY{n}{eigenindex}\PY{p}{]}
+              \PY{n}{eigenvalue} \PY{o}{=} \PY{n}{eigenvalues}\PY{p}{[}\PY{n}{eigenindex}\PY{p}{]}
+              \PY{n}{\PYZus{}qubit\PYZus{}history} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{empty}\PY{p}{(}\PY{p}{[}\PY{l+m+mi}{32}\PY{p}{,} \PY{l+m+mi}{2}\PY{p}{]}\PY{p}{,} \PY{n}{dtype}\PY{o}{=}\PY{n}{np}\PY{o}{.}\PY{n}{complex}\PY{p}{)}
+              \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,}\PY{l+m+mi}{32}\PY{p}{)}\PY{p}{:}
+                  \PY{n}{t} \PY{o}{=} \PY{n}{i} \PY{o}{*} \PY{l+m+mi}{2} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{pi} \PY{o}{/} \PY{l+m+mi}{32}
+                  \PY{n}{qubit} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}
+                      \PY{n}{eigenvector}\PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{i}\PY{p}{]}\PY{p}{,}
+                      \PY{n}{eigenvector}\PY{p}{[}\PY{l+m+mi}{2}\PY{o}{*}\PY{n}{i}\PY{o}{+}\PY{l+m+mi}{1}\PY{p}{]}
+                  \PY{p}{]}\PY{p}{)} \PY{o}{*} \PY{n}{np}\PY{o}{.}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{n}{j} \PY{o}{*} \PY{n}{t} \PY{o}{*} \PY{n}{eigenvalue}\PY{p}{)}
+                  \PY{n}{\PYZus{}qubit\PYZus{}history}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{qubit}
+              \PY{k}{return} \PY{n}{\PYZus{}qubit\PYZus{}history}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}909}]:} \PY{c+c1}{\PYZsh{} star with |0\PYZgt{} as close as possible}
+          \PY{n}{qbhist} \PY{o}{=} \PY{n}{qubit\PYZus{}history}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{)} \PY{o}{+} \PY{n}{qubit\PYZus{}history}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{)} \PY{o}{+} \PY{l+m+mf}{0.1}\PY{o}{*}\PY{n}{qubit\PYZus{}history}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}910}]:} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)} 
+\end{Verbatim}
+
+\texttt{\color{outcolor}Out[{\color{outcolor}910}]:}
+    
+    $$0.9951835716240843$$
+
+    
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}911}]:} \PY{n}{times} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{arange}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{2}\PY{o}{*}\PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{p}{,} \PY{n}{np}\PY{o}{.}\PY{n}{pi}\PY{o}{/}\PY{l+m+mi}{16}\PY{p}{)}
+          \PY{n}{norms} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{)}
+          \PY{n}{probs0} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{)}
+          \PY{n}{probs1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{zeros}\PY{p}{(}\PY{l+m+mi}{32}\PY{p}{)}
+          
+          \PY{k}{for} \PY{n}{i} \PY{o+ow}{in} \PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{32}\PY{p}{)}\PY{p}{:}
+              \PY{n}{norms}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{p}{(}\PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
+              \PY{n}{probs0}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}
+                  \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{p}{)}
+              \PY{n}{probs1}\PY{p}{[}\PY{n}{i}\PY{p}{]} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{/} \PY{p}{(}
+                  \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{o}{+} \PY{n}{np}\PY{o}{.}\PY{n}{abs}\PY{p}{(}\PY{n}{qbhist}\PY{p}{[}\PY{n}{i}\PY{p}{]}\PY{p}{[}\PY{l+m+mi}{1}\PY{p}{]}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)} \PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}983}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{norms}\PY{o}{/}\PY{n}{norms}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZca{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}983}]:} [<matplotlib.lines.Line2D at 0x7f169f5e51d0>]
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_81_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}917}]:} \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{times}\PY{p}{,} \PY{n}{probs0}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{s}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}917}]:} [<matplotlib.lines.Line2D at 0x7f16a172db70>]
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_82_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \hypertarget{check-that-linear-combinations-of-qubit-histories-work-as-expected}{%
+\subsubsection{Check that ``linear combinations of qubit histories''
+work as
+expected}\label{check-that-linear-combinations-of-qubit-histories-work-as-expected}}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}853}]:} \PY{n}{qbhist1} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}
+              \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{]}\PY{p}{,}
+              \PY{p}{[}\PY{l+m+mi}{2}\PY{p}{,} \PY{l+m+mi}{3}\PY{p}{]}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}854}]:} \PY{n}{qbhist2} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{array}\PY{p}{(}\PY{p}{[}
+              \PY{p}{[}\PY{l+m+mi}{4}\PY{p}{,} \PY{l+m+mi}{5}\PY{p}{]}\PY{p}{,}
+              \PY{p}{[}\PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{7}\PY{p}{]}
+          \PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}855}]:} \PY{n}{qbhist1} \PY{o}{+} \PY{n}{qbhist2}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}855}]:} array([[ 4,  6],
+                 [ 8, 10]])
 \end{Verbatim}
             
 
