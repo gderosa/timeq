@@ -50,6 +50,16 @@
 
 \usepackage{lipsum}
 
+% %% https://tex.stackexchange.com/a/366170
+% \makeatletter
+% \renewenvironment{abstract}{%
+%   \begin{center}%
+%     {\bfseries \large\abstractname\vspace{\z@}}
+%   \end{center}%
+%   \quotation
+% }
+% \makeatother
+
 %----------------------------------------------------------------------------------------
 % FROM tex/lib.tex
 %----------------------------------------------------------------------------------------
@@ -86,8 +96,6 @@
 
 \begin{document}
 
-\large
-
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
 %----------------------------------------------------------------------------------------
@@ -109,7 +117,7 @@
 \includegraphics[width=19cm]{ucc_logo.pdf}\\  %% vector, from original SVG
 \end{minipage}
 
-\vspace{0.4cm} % A bit of extra whitespace between the header and poster content
+\vspace{2cm} % A bit of extra whitespace between the header and poster content
 
 %----------------------------------------------------------------------------------------
 
@@ -121,13 +129,13 @@
 
 \color{Navy} % Navy color for the abstract
 
-\begin{abstract}
-\noindent % abstract hacks
+\section*{\large Abstract}
+%\noindent % abstract hacks
 This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
 As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
 
 Here we present some first results related to
-the Page-Wootters model of quantum time \cite{Lloyd:Time, Maccone:Pauli},
+the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
 particularly with discrete clocks on discrete systems (lattice).
 We show how the predictions of the model fits with
 ordinary quantum mechanics, with the conceptual difference that
@@ -136,7 +144,8 @@ time is an observable with an associated self-adjoint operator in this case.
 \emph{Not included in this poster} ---
 we've more recently also compared the Page-Wootters mechanism to models based
 on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
-\end{abstract}
+
+%\end{abstract}
 
 \setlength{\parindent}{1.5em} % Default is 15pt.
 
@@ -145,6 +154,8 @@ on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}
 %----------------------------------------------------------------------------------------
 
 \color{SaddleBrown} % SaddleBrown color for the introduction
+
+\large
 
 \section*{Historical background: The Pauli Objection}
 The idea of time as an observable in quantum mechanics,
@@ -337,8 +348,6 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
     for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
   }
 \end{center}\vspace{1cm}
-  
-
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
