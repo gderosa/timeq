@@ -133,7 +133,8 @@ We show how the predictions of the model fits with
 ordinary quantum mechanics, with the conceptual difference that
 time is an observable with an associated self-adjoint operator in this case.
 
-The Page-Wootters mechanism is also compared to models based
+\emph{Not included in this poster} ---
+we've more recently also compared the Page-Wootters mechanism to models based
 on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
 \end{abstract}
 
@@ -206,15 +207,14 @@ A detailed proof is expanded in the paper by E. Galapon \cite{Galapon2002}.
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{The Model (evolution without evolution)}
+\section*{Evolution without evolution: the Page and Wootters model}
 
-The \emph{Page and Wootters model} is based on
+The model \cite{Lloyd:Time, Maccone:Pauli} is based on
 an additional Hilbert space $\mathcal{H}_T$,
 where time is an observable
 represented by a self-adjoint operator
 whose properties are similar to the ones of position
-in ordinary quantum mechanics
-\cite{Lloyd:Time, Maccone:Pauli}.
+in ordinary quantum mechanics.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
@@ -272,9 +272,9 @@ imposing the constraint
 \]
 with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
 a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
-with $e^{i \epsilon t / \hbar} \ket{\psi(t)}_S$
+with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
-\section*{One qubit ``universe'' and a $N=32$-level clock}
+\section*{Example: One qubit ``universe'' and a $N=32$-level clock}
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis:
@@ -289,7 +289,7 @@ chosen computational basis:
 \]
 With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
 
-The rest of the universe is modeled by a 2-level Hamiltonian
+The system is modeled by a 2-level Hamiltonian
 \[
   \hat{H}_S \repr
   i \hbar \omega
@@ -302,7 +302,7 @@ The rest of the universe is modeled by a 2-level Hamiltonian
 
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
-\emph{discrete Fourier transformation} (with $F_N$ unitary):
+\emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
 \[
   \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
