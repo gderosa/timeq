@@ -47,7 +47,7 @@
 
 \usepackage{bbm}
 
-\usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
+\usepackage[top=2.2cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
 %\usepackage{lipsum}
 
@@ -103,13 +103,13 @@
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
 %----------------------------------------------------------------------------------------
-\begin{minipage}[c]{0.70\linewidth}%
+\begin{minipage}[c]{0.75\linewidth}%
 %\vspace{1cm}
-\veryHuge \color{NavyBlue} \textbf{Quantum Time: Page-Wootters and Detector\\[0.5cm] Models} \color{Black}\\[0.5cm] % Title
+\veryHuge \color{NavyBlue} \textbf{Quantum Time: Page-Wootters and Detector\\[0.5cm] Models [\emph{draft}]} \color{Black}\\[0.5cm] % Title
 %\Huge\textit{Overcoming Pauli's Objection: Relational Time and \\Applications}\\[2cm] % Subtitle
 \\[0.7cm]
-\LARGE \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
-\huge University College Cork, Department of Physics\\[0.4cm] % University/organization
+\Large \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
+\Large University College Cork, Department of Physics\\[0.4cm] % University/organization
 \large%
 \texttt{gderosa@umail.ucc.ie}
 \end{minipage}%
@@ -118,7 +118,7 @@
 \hspace{3cm}\includegraphics[width=16cm]{ucc_logo.pdf}\\  %% vector, from original SVG
 \end{minipage}
 
-\vspace{2cm} % A bit of extra whitespace between the header and poster content
+\vspace{1cm} % A bit of extra whitespace between the header and poster content
 
 %----------------------------------------------------------------------------------------
 
@@ -159,8 +159,8 @@ probability, in the Bayesian \cite{Maccone:QMOT} sense.
 \section*{Detector model: Complex potential of minimal uncertainty \cite{RuschhauptAbsorption}}
 
 For a two-level system, if we consider:
-\begin{equation}
-  \mathcal{K} = \hat{H} - i\hat{D} =
+\begin{equation}\label{eq:complexpot}
+  \mathcal{K} = \hat{H} - i\hat{D} \repr
     \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
     \frac{i}{2} \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
     \,\text{,}
@@ -173,6 +173,7 @@ Time-of-arrival distribution:
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-cont.png}
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-pw.png}
   \captionof{figure}{
+    \label{fig:toa}
     \color{Green}
     Time-of-arrival probability density.
   }
@@ -198,86 +199,92 @@ in a finite-dimensional system, is obtained via Discrete Fourier Transofmration
 
 For non-zero eigenvalues, each eigenvector
 is ``energy-shifted'' \cite{Lloyd:Time}:
-\[
+\begin{equation}\label{eq:energyfix}
   \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T} \ox \idop_S} \dket{\epsilon}
   \,\text{.}
-\]
+\end{equation}
 Next, a suitable linear combination is taken to have the desired initial state.
 
 This vector in $\pwspace$ would represent the history, or the evolution of the two-level system.
 \begin{center}
-  \includegraphics[width=0.45\linewidth]{2ldetect/3D-evol-cont.png}
+  \includegraphics[width=0.45\linewidth]{2ldetect/3D-evol-cont.png}%
   \includegraphics[width=0.45\linewidth]{2ldetect/3D-evol-pw.png}
   \captionof{figure}{
     \color{Green}
     Evolution of the qubit under the complex absorption potential, with loss of normalization.
-    Left: ``Schr\"odinger'' evolution. Right: discrete PaW model with a 32-level clock.
+    \textit{Left}: ``Schr\"odinger'' evolution. \textit{Right}: discrete PaW model with a 32-level clock.
   }
-\end{center}
+\end{center}\vspace{0.5cm}
 
-\section*{Example: One qubit ``universe'' and a $N=32$-level clock}
+Finally, as shown in \cite{RuschhauptAbsorption}, the detection probability amplitude
+in time
+can be derived applying the operator $\sqrt{2\hat{D}}$ to the normalization-lossy
+evolved state. It is proven therein that the square modulus of the result is equal
+to the loss of normalization which corresponds to absorption probability rate of the detector.
 
-The clock is built as having a time operator which is diagonal in the
-chosen computational basis:
-\[
-  \hat{T} \repr \frac{2\pi}{N}
-  \begin{pmatrix}
-    0           &       &       &       \\
-                &1      &       &       \\
-                &       &\ddots &       \\
-                &       &       &N-1
-  \end{pmatrix} \,\text{.}
-\]
-With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
+In the PaW model, the above, together with the \eqref{eq:energyfix},
+can be formlalized in a compact way for each eigenvector of $\hat{\mathbb{J}}$:
+\begin{equation}
+  \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T} \ox \sqrt{2\hat{D}}} \dket{\epsilon}
+\end{equation}
+and, by linearity, to each combination of the above. The square modulus of
+each pair of components in this ``probability history'' will bring to the distribution
+in Figure~\ref{fig:toa}.
 
-The system is modeled by a 2-level Hamiltonian
-\[
-  \hat{H}_S \repr
-  i \hbar \omega
-  \begin{pmatrix}
-    0   & 1   \\
-    -1  & 0
-  \end{pmatrix}
-  \, \text{.}
-\]
+\section*{Another example: 3-level system and weak absorption}
 
-The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
-of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
-\emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
-\[
-  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
-\]
+For small values of $\gamma$ in \eqref{eq:complexpot},
+the distortion caused by the detector is negligeable.
+Therefore the PaW method can be used without including the imaginary term
+(while it is necessary in ordinary quantum mechanics,
+in lack of a unversally accepted definition of a time-of-arrival observable).
+On the other hand, detection is probable well \emph{after} the first cycle of the clock.
+Therefore we need to consider the \emph{conditional} probability: provided that detection happens
+within $(0, T)$, what is the probability (density) that it happens at time $t$?
 
-We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}
-(a $2N \times 2N$ matrix obtained as a Kronecker product). Such eigensolutions
-will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
-not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
+A similar Bayesian rule is necessary to define time-of-arrival within the PaW framework
+anyway \cite{Maccone:QMOT}.
 
-In our example, we take $N = 32$ and resolve numerically.
-With the chosen $\hat{H}_S$,
-of some interest are solutions that show
-Rabi oscillation / Larmor precession,
-i.e. solutions that do not correspond to eigenstates of
-the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
+\subsection*{The (sightly) non-unitary evolution of a qutrit}
+With respect to the \eqref{eq:complexpot} it is in this case:
+\begin{equation}
+  \hat{H} \repr \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 1\\0 & 1 & 0\end{matrix}\right] \text{;} \quad
+  \psi_0 \repr \left[\begin{matrix}\frac{\sqrt{2}}{2}\\\frac{1}{2} + \frac{i}{2}\\0\end{matrix}\right] \text{;} \quad
+  \hat{D} \propto \left[\begin{matrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & \gamma\end{matrix}\right] \text{.}
+\end{equation}
 
-We pick $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ corresponding to eigenvalues
-$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+A summary of the results in the figures below.
+\vspace{0.5cm}
 
-The first two components of each eigenvector in the computational basis
-are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
-$2k$\nobreakdash-th and $2k+1$\nobreakdash-th
-as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
-Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in picture.
-
-\begin{center}\vspace{1cm}
-  \includegraphics[width=0.3\linewidth]{PWfit32.png}
-  \includegraphics[width=0.4\linewidth]{PWfit32top.png}
+\vspace{0.5cm}
+\begin{center}
+  \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-lossy.png}
   \captionof{figure}{
     \color{Green}
-    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
-    for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+    Loss of normalization (small but noticeable on top-right) and components of the qutrit over the first cycle $t \in (0, \sqrt{2}\pi)$.
   }
-\end{center}\vspace{1cm}
+\end{center}
+\vspace{0.5cm}
+\vspace{0.5cm}
+\begin{center}
+  \includegraphics[width=\linewidth]{2ldetect/qutrit-lossy-long.png}
+  \includegraphics[width=\linewidth]{2ldetect/qutrit-lossy-long-detect.png}
+  \captionof{figure}{
+    \color{Green}
+    Evolution (top) and time-of-arrival at state $\ket{2}$ (bottom) over a longer time.
+  }
+\end{center}
+\vspace{0.5cm}
+\vspace{0.5cm}
+\begin{center}
+  \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-detect-both.png}
+  \captionof{figure}{
+    \color{Green}
+    Time-of-arrival at $ket{2}$ per (discrete) PaW model,
+    using conditional definition of \cite{Maccone:QMOT} and no complex potential~(points).
+    Detector model with complex potential, and probabilty conditioned in the first cycle (line).
+  }
+\end{center}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
@@ -297,7 +304,7 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
 
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
-\normalsize
+\scriptsize
 
  %----------------------------------------------------------------------------------------
 %	REFERENCES
