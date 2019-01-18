@@ -95,6 +95,7 @@
 \newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
 \newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
+\newcommand{\pwspace}{\hilb{H}_T \ox \hilb{H}_S}
 
 %\renewcommand{\abstractname}{\large Abstract} % abstract hacks
 
@@ -158,12 +159,12 @@ probability, in the Bayesian \cite{Maccone:QMOT} sense.
 \section*{Detector model: Complex potential of minimal uncertainty \cite{RuschhauptAbsorption}}
 
 For a two-level system, if we consider:
-\[
-  \mathbf{K} = \hat{H} - i\hat{D} =
+\begin{equation}
+  \mathcal{K} = \hat{H} - i\hat{D} =
     \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
     \frac{i}{2} \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
     \,\text{,}
-\]
+\end{equation}
 with an initial state of $\left[\begin{matrix}1\\0\end{matrix}\right]$,
 minimal time-energy uncertainty is found with $\gamma = 2\sqrt{2}$.
 
@@ -173,22 +174,46 @@ Time-of-arrival distribution:
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-pw.png}
   \captionof{figure}{
     \color{Green}
-    %Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
-    %for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+    Time-of-arrival probability density.
   }
 \end{center}\vspace{1cm}
+On the right is the prediction of the Page--Wootters model \cite{Lloyd:Time},
+obtained by first resolving:
+\begin{equation}
+  \hat{\mathbb{J}} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
+\end{equation}
+where the imaginary absorption term has been added to the Hamiltonian.
 
-\subsection*{Non-zero eigenvalues}
+The above is defined in $\pwspace$ a larger Hilbert space than
+the ordinary quantum mechanics one ($\hilb{H}_S$), while $\hilb{H}_T$
+is the space where
+a time operator $\hat{T}$ is defined. We have chosen, for our example,
+a basis where $\hat{T}$
+is diagonal and discretizes the interval $(0, 2\pi)$ in $N=32$
+equal time bins.
 
-Up to an irrelevant global
-phase, the physical vectors $\dket{\Psi}$ can be identified also by
-imposing the constraint
+Here, $\bar\Omega$ is time's canonically conjugate operator and,
+in a finite-dimensional system, is obtained via Discrete Fourier Transofmration
+\cite{FiniteHilb}.
+
+For non-zero eigenvalues, each eigenvector
+is ``energy-shifted'' \cite{Lloyd:Time}:
 \[
-  \hat{\mathbb{J}}\dket{\Psi} = \epsilon \dket{\Psi}
+  \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T} \ox \idop_S} \dket{\epsilon}
+  \,\text{.}
 \]
-with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
-a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
-with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
+Next, a suitable linear combination is taken to have the desired initial state.
+
+This vector in $\pwspace$ would represent the history, or the evolution of the two-level system.
+\begin{center}
+  \includegraphics[width=0.45\linewidth]{2ldetect/3D-evol-cont.png}
+  \includegraphics[width=0.45\linewidth]{2ldetect/3D-evol-pw.png}
+  \captionof{figure}{
+    \color{Green}
+    Evolution of the qubit under the complex absorption potential, with loss of normalization.
+    Left: ``Schr\"odinger'' evolution. Right: discrete PaW model with a 32-level clock.
+  }
+\end{center}
 
 \section*{Example: One qubit ``universe'' and a $N=32$-level clock}
 
