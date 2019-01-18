@@ -149,71 +149,34 @@ probability, in the Bayesian \cite{Maccone:QMOT} sense.
 
 \setlength{\parindent}{1.5em} % Default is 15pt.
 
-%----------------------------------------------------------------------------------------
-%	INTRODUCTION
-%----------------------------------------------------------------------------------------
-
 %\color{SaddleBrown} % SaddleBrown color for the introduction
 
 \large
 
-
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{Evolution without evolution: the Page and Wootters model}
+\section*{Detector model: Complex potential of minimal uncertainty \cite{RuschhauptAbsorption}}
 
-The model \cite{Lloyd:Time, Maccone:Pauli} is based on
-an additional Hilbert space $\mathcal{H}_T$,
-where time is an observable
-represented by a self-adjoint operator
-whose properties are similar to the ones of position
-in ordinary quantum mechanics.
-
-In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
-and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
-the space in which both time and position are observables, and they act as
-$\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
-respectively.
-
-The Page and Wootters mechanism is rooted in the ``problem of time''
-in quantum cosmology.
-In principle, an appropriate system (a ``clock'') can be identified in such a way
-to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
-the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
-
-As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
-encompassing both position and time as observables, is given by
-\begin{equation}\label{eq:pwHamiltonian}
-  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
-\end{equation}
-while the \term{Wheeler-DeWitt equation} holds:
-\begin{equation}\label{eq:Wheeler-DeWitt}
-  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
-\end{equation}
-describing a \emph{static} universe, where evolution is only
-in terms of relations between parts of a multipartite system
-(a clock, and the rest of the universe).
-
-Using the $T$ representation in $\hilb{H}_T$,
-and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
-\begin{equation}\label{eq:schrod_from_pw}
-  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
-    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+For a two-level system, if we consider:
+\[
+  \mathbf{K} = \hat{H} - i\hat{D} =
+    \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
+    \frac{i}{2} \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
     \,\text{,}
-\end{equation}
-we recover the usual form of the Schr\"{o}dinger equation in $H_S$.
+\]
+with an initial state of $\left[\begin{matrix}1\\0\end{matrix}\right]$,
+minimal time-energy uncertainty is found with $\gamma = 2\sqrt{2}$.
 
-Here $\hat{\Omega}$ can be seen as a ``frequency operator''
-represented as $-i\pdv{t}$ and having as eigenfunctions
-those functions evolving in time with a phase factor $e^{i \omega t}$ only.
-
-Canonical commutation relation holds and can be easily verified
-between $\hat{t}$ and $\hat{\Omega}$
-i.e. $[\hat{t}, \hat{\Omega}] = i$,
-therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
-in the Hilbert space of time.
-
-The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
+Time-of-arrival distribution:
+\begin{center}\vspace{1cm}
+  \includegraphics[width=0.4\linewidth]{2ldetect/toa-cont.png}
+  \includegraphics[width=0.4\linewidth]{2ldetect/toa-pw.png}
+  \captionof{figure}{
+    \color{Green}
+    %Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
+    %for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+  }
+\end{center}\vspace{1cm}
 
 \subsection*{Non-zero eigenvalues}
 
