@@ -165,13 +165,14 @@ For a two-level system, if we consider:
 \begin{equation}\label{eq:complexpot}
   \mathcal{K} = \hat{H} - i\hat{D} \repr
     \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
-    \frac{i}{2} \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
+    i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
     \,\text{,}
 \end{equation}
-with an initial state of $\left[\begin{matrix}1\\0\end{matrix}\right]$,
-minimal time-energy uncertainty is found with $\gamma = 2\sqrt{2}$.
+with an initial state of $\ket{0}$
+(or $\left[\begin{matrix}1\\0\end{matrix}\right]$ in matrix form),
+minimal time-energy uncertainty is found with $\gamma = \sqrt{2}/2$.
 
-Time-of-arrival distribution:
+Time-of-arrival at state $\ket{1}$:
 \begin{center}\vspace{1cm}
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-cont.png}
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-pw.png}
@@ -184,7 +185,7 @@ Time-of-arrival distribution:
 On the right is the prediction of the Page--Wootters model \cite{Lloyd:Time},
 obtained by first resolving:
 \begin{equation}
-  \hat{\mathbb{J}} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
+  \mathbb{J} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
 \end{equation}
 where the imaginary absorption term has been added to the Hamiltonian.
 
@@ -226,7 +227,7 @@ evolved state. It is proven therein that the square modulus of the result is equ
 to the loss of normalization which corresponds to absorption probability rate of the detector.
 
 In the PaW model, the above, together with the \eqref{eq:energyfix},
-can be formalized in a compact way for each eigenvector of $\hat{\mathbb{J}}$:
+can be formalized in a compact way for each eigenvector of $\mathbb{J}$:
 \begin{equation}
   \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T} \ox \sqrt{2\hat{D}}} \dket{\epsilon}
 \end{equation}
@@ -249,14 +250,15 @@ A similar Bayesian rule is necessary to define time-of-arrival within the PaW fr
 anyway \cite{Maccone:QMOT}.
 
 \subsection*{The (sightly) non-unitary evolution of a qutrit}
-With respect to the \eqref{eq:complexpot} it is in this case:
+With respect to the \eqref{eq:complexpot} we have chosen in this case:
 \begin{equation}
   \hat{H} \repr \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 1\\0 & 1 & 0\end{matrix}\right] \text{;} \quad
   \psi_0 \repr \left[\begin{matrix}\frac{\sqrt{2}}{2}\\\frac{1}{2} + \frac{i}{2}\\0\end{matrix}\right] \text{;} \quad
-  \hat{D} \propto \left[\begin{matrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & \gamma\end{matrix}\right] \text{.}
+  \hat{D} = \left[\begin{matrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & \gamma\end{matrix}\right] \text{,}
 \end{equation}
+with the order of $\gamma \approx 10^{-2}$.
 
-A summary of the results in the figures below.
+A summary of the results is shown in the figures below.
 \vspace{0.5cm}
 
 \vspace{0.5cm}
@@ -264,7 +266,9 @@ A summary of the results in the figures below.
   \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-lossy.png}
   \captionof{figure}{
     \color{Green}
-    Loss of normalization (small but noticeable on top-right) and components of the qutrit over the first cycle $t \in (0, \sqrt{2}\pi)$.
+    Loss of normalization (small, but noticeable on top-right of the plot),
+    and components of the qutrit,
+    over the first cycle $t \in (0, \sqrt{2}\pi)$.
   }
 \end{center}
 \vspace{0.5cm}
@@ -283,9 +287,11 @@ A summary of the results in the figures below.
   \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-detect-both.png}
   \captionof{figure}{
     \color{Green}
-    Time-of-arrival at $\ket{2}$ per (discrete) PaW model,
-    using conditional definition of \cite{Maccone:QMOT} and no complex potential~(points).
-    Detector model with complex potential, and probability conditioned in the first cycle (line).
+    \emph{Discrete points:} time-of-arrival at $\ket{2}$ per (discrete) PaW model,
+    using conditional definition of \cite{Maccone:QMOT} and no complex potential.
+    \emph{Continuous line:}
+    Detector model with complex potential (as in \cite{RuschhauptAbsorption}),
+    and probability conditioned in the first cycle.
   }
 \end{center}
 
@@ -318,16 +324,6 @@ A summary of the results in the figures below.
 
 %biblatex
 \printbibliography
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS
-%----------------------------------------------------------------------------------------
-
-% \section*{Acknowledgements}
-
-% Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
-
-%----------------------------------------------------------------------------------------
 
 \end{multicols}
 \end{document}
