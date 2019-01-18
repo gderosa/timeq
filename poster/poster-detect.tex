@@ -42,13 +42,17 @@
 
 \usepackage{physics}
 \usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{setspace}
 
 \usepackage{bbm}
 
 \usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
-\usepackage{lipsum}
+%\usepackage{lipsum}
+
+\usepackage[safeinputenc,backend=biber]{biblatex}
+\addbibresource{bib/main.bib}
 
 % %% https://tex.stackexchange.com/a/366170
 % \makeatletter
@@ -138,7 +142,7 @@ the imaginary absorption term (for detectors that strongly alter the system dyna
 \emph{and} considering a weaker absorption regime, where the PaW model makes
 the imaginary term in the Hamiltonian unnecessary. We emphasize how the probability
 of detection in time is a \emph{conditional}
-probability, in the Bayesian \cite{Maccone:QMOT} sense.  
+probability, in the Bayesian \cite{Maccone:QMOT} sense.
 
 
 %\end{abstract}
@@ -369,8 +373,11 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\bibliographystyle{plain}
-\bibliography{bib/main}
+%\bibliographystyle{plain}
+%\bibliography{bib/main}
+
+%biblatex
+\printbibliography
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
