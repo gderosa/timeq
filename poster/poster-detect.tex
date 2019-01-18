@@ -51,7 +51,7 @@
 
 %\usepackage{lipsum}
 
-\usepackage[safeinputenc,doi=false,backend=biber]{biblatex}
+\usepackage[safeinputenc,doi=false,url=false,backend=biber]{biblatex}
 \addbibresource{bib/main.bib}
 
 % %% https://tex.stackexchange.com/a/366170
@@ -137,7 +137,7 @@ Here we compare the Page and Wootters (PaW) model of quantized time
 or \cite{Moreva:illustration, Moreva_position} for experimental realizations)
 with detection models based on absorption and loss of normalization
 by a complex potential \cite{RuschhauptAbsorption}. We show that the prediction
-of the Page--Wooters mechanism and of such detector model are compatible both in terms
+of the Page--Wootters mechanism and of such detector model are compatible both in terms
 of state evolution and time-of-arrival distribution. We do this by both ``plugging-in``
 the imaginary absorption term (for detectors that strongly alter the system dynamics)
 \emph{and} considering a weaker absorption regime, where the PaW model makes
@@ -194,7 +194,7 @@ is diagonal and discretizes the interval $(0, 2\pi)$ in $N=32$
 equal time bins.
 
 Here, $\bar\Omega$ is time's canonically conjugate operator and,
-in a finite-dimensional system, is obtained via Discrete Fourier Transofmration
+in a finite-dimensional system, is obtained via Discrete Fourier Transformation
 \cite{FiniteHilb}.
 
 For non-zero eigenvalues, each eigenvector
@@ -223,7 +223,7 @@ evolved state. It is proven therein that the square modulus of the result is equ
 to the loss of normalization which corresponds to absorption probability rate of the detector.
 
 In the PaW model, the above, together with the \eqref{eq:energyfix},
-can be formlalized in a compact way for each eigenvector of $\hat{\mathbb{J}}$:
+can be formalized in a compact way for each eigenvector of $\hat{\mathbb{J}}$:
 \begin{equation}
   \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T} \ox \sqrt{2\hat{D}}} \dket{\epsilon}
 \end{equation}
@@ -234,10 +234,10 @@ in Figure~\ref{fig:toa}.
 \section*{Another example: 3-level system and weak absorption}
 
 For small values of $\gamma$ in \eqref{eq:complexpot},
-the distortion caused by the detector is negligeable.
+the distortion caused by the detector is negligible.
 Therefore the PaW method can be used without including the imaginary term
 (while it is necessary in ordinary quantum mechanics,
-in lack of a unversally accepted definition of a time-of-arrival observable).
+in lack of a universally accepted definition of a time-of-arrival observable).
 On the other hand, detection is probable well \emph{after} the first cycle of the clock.
 Therefore we need to consider the \emph{conditional} probability: provided that detection happens
 within $(0, T)$, what is the probability (density) that it happens at time $t$?
@@ -282,7 +282,7 @@ A summary of the results in the figures below.
     \color{Green}
     Time-of-arrival at $ket{2}$ per (discrete) PaW model,
     using conditional definition of \cite{Maccone:QMOT} and no complex potential~(points).
-    Detector model with complex potential, and probabilty conditioned in the first cycle (line).
+    Detector model with complex potential, and probability conditioned in the first cycle (line).
   }
 \end{center}
 
