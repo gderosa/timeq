@@ -204,7 +204,7 @@ in a finite-dimensional system, is obtained via Discrete Fourier Transformation
 For non-zero eigenvalues, each eigenvector
 is ``energy-shifted'' \cite{Lloyd:Time}:
 \begin{equation}\label{eq:energyfix}
-  \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T} \ox \idop_S} \dket{\epsilon}
+  \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T}} \ox \idop_S \dket{\epsilon}
   \,\text{.}
 \end{equation}
 Next, a suitable linear combination is taken to have the desired initial state.
@@ -229,7 +229,7 @@ to the loss of normalization which corresponds to absorption probability rate of
 In the PaW model, the above, together with the \eqref{eq:energyfix},
 can be formalized in a compact way for each eigenvector of $\mathbb{J}$:
 \begin{equation}
-  \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T} \ox \sqrt{2\hat{D}}} \dket{\epsilon}
+  \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T}} \ox \sqrt{2\hat{D}} \dket{\epsilon}
 \end{equation}
 and, by linearity, to each combination of the above. The square modulus of
 each pair of components in this ``probability history'' will bring to the distribution
