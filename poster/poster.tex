@@ -30,7 +30,7 @@
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
 %\usepackage{newtxtext} % Use the times font for text, newer flavor
-\usepackage{helvet} % Uncomment to use the Palatino font
+\usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault} % sans serif font
 
 \usepackage{graphicx} % Required for including images
@@ -49,6 +49,16 @@
 \usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
 \usepackage{lipsum}
+
+% %% https://tex.stackexchange.com/a/366170
+% \makeatletter
+% \renewenvironment{abstract}{%
+%   \begin{center}%
+%     {\bfseries \large\abstractname\vspace{\z@}}
+%   \end{center}%
+%   \quotation
+% }
+% \makeatother
 
 %----------------------------------------------------------------------------------------
 % FROM tex/lib.tex
@@ -85,6 +95,7 @@
 %\renewcommand{\abstractname}{\large Abstract} % abstract hacks
 
 \begin{document}
+
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
 %----------------------------------------------------------------------------------------
@@ -99,14 +110,14 @@
 \huge \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
 \huge University College Cork, Department of Physics\\[0.4cm] % University/organization
 \large%
-\texttt{gderosa@umail.ucc.ie} | \texttt{aruschhaupt@ucc.ie}\\
+\texttt{gderosa@umail.ucc.ie}
 \end{minipage}%
 %
 \begin{minipage}[t]{0.30\linewidth}
 \includegraphics[width=19cm]{ucc_logo.pdf}\\  %% vector, from original SVG
 \end{minipage}
 
-\vspace{0.4cm} % A bit of extra whitespace between the header and poster content
+\vspace{2cm} % A bit of extra whitespace between the header and poster content
 
 %----------------------------------------------------------------------------------------
 
@@ -118,21 +129,23 @@
 
 \color{Navy} % Navy color for the abstract
 
-\begin{abstract}
-\noindent % abstract hacks
-This work relates to the problem of time in quantum physics
-\cite{TQM1, TQM2}
-from Wolfgang Pauli's argument
-on the impossibility of a time observable \cite{PauliFootnote},
-to \emph{relational} models developed in the last decades
-\cite{PageWootters, Lloyd:Time}
-and based
-on entanglement of the ordinary Hilbert space of quantum mechanics
-with an extra space where a time operator is introduced.
+\section*{\large Abstract}
+%\noindent % abstract hacks
+This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
+As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
 
-Of such relational models, here we present some (discrete) applications.
-Consistency with ordinary quantum mechanics is shown.
-\end{abstract}
+Here we present some first results related to
+the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
+particularly with discrete clocks on discrete systems (lattice).
+We show how the predictions of the model fits with
+ordinary quantum mechanics, with the conceptual difference that
+time is an observable with an associated self-adjoint operator in this case.
+
+\emph{Not included in this poster} ---
+we've more recently also compared the Page-Wootters mechanism to models based
+on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
+
+%\end{abstract}
 
 \setlength{\parindent}{1.5em} % Default is 15pt.
 
@@ -141,6 +154,8 @@ Consistency with ordinary quantum mechanics is shown.
 %----------------------------------------------------------------------------------------
 
 \color{SaddleBrown} % SaddleBrown color for the introduction
+
+\large
 
 \section*{Historical background: The Pauli Objection}
 The idea of time as an observable in quantum mechanics,
@@ -152,48 +167,50 @@ if only a footnote was dedicated to dismiss the whole subject. \cite{PauliFootno
 Quoting \cite{Maccone:Pauli},
 ``Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
 to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''.
-  
-Pauli's argument ---better detailed later by Galapon \cite{Galapon2002}---
-is based on showing that a canonically conjugate operator of the Hamiltonian
-would lead to absurd consequences.
-Indeed, let's assume that there exists a self-adjoint time operator, $T$, canonically conjugate
-to the Hamiltonian $H$, i.e.
-\begin{equation}
-\label{THcommutator}
-[T, H] = i\hbar
-\end{equation}
-Since T is self-adjoint, then for all
-$\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
-is unitary. A formal
-expansion of the exponential yields the commutator
 
-\begin{multline}
-[U_{\beta}, H]  =
-\left[
-    \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
-\right]         =
-\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
-=
-\sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] \\ =
-\beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} =
-\beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta T}{\hbar} \right)^{\kappa}  =
-\beta U_{\beta}
-\end{multline}
-where the term for $k=0$ in the first sum vanishes, hence we can start the sum from
-$k=1$ then set $\kappa=k-1$.
+Pauli's argument
+is based on showing that
+the existence of
+a canonically conjugate operator $\hat{T}$ of the Hamiltonian $\hat{H}$,
+i.e. one satisfying
+$
+  \label{THcommutator}
+  [\hat{T}, \hat{H}] = i\hbar
+$
+implies that the spectrum of \emph{any} Hamiltonian must be the whole real line
+(contradicting the property of being bounded from below).
+A detailed proof is expanded in the paper by E. Galapon \cite{Galapon2002}.
 
-Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+% Since T is self-adjoint, then for all
+% $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
+% is unitary. A formal
+% expansion of the exponential yields the commutator
 
-$$
-HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
-EU_{\beta}\varphi_{E} - \beta U_{\beta}\varphi_{E} = (E-\beta)U_{\beta}\varphi_{E}
-$$
-showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
-$E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
-hence the spectrum of a generic Hamiltonian $H$ should
-be the whole real line, which contradicts the semi-bounded nature of its spectrum.
+% \begin{multline}
+% [U_{\beta}, H]  =
+% \left[
+%     \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+% \right]         =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
+% =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] \\ =
+% \beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} =
+% \beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta T}{\hbar} \right)^{\kappa}  =
+% \beta U_{\beta}
+% \end{multline}
+% where the term for $k=0$ in the first sum vanishes, hence we can start the sum from
+% $k=1$ then set $\kappa=k-1$.
 
-\large
+% Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+
+% $$
+% HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
+% EU_{\beta}\varphi_{E} - \beta U_{\beta}\varphi_{E} = (E-\beta)U_{\beta}\varphi_{E}
+% $$
+% showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
+% $E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
+% hence the spectrum of a generic Hamiltonian $H$ should
+% be the whole real line, which contradicts the semi-bounded nature of its spectrum.
 
 %----------------------------------------------------------------------------------------
 %	THE MODEL
@@ -201,15 +218,14 @@ be the whole real line, which contradicts the semi-bounded nature of its spectru
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{The Model (evolution without evolution)}
+\section*{Evolution without evolution: the Page and Wootters model}
 
-The \emph{Page and Wootters model} is based on
+The model \cite{Lloyd:Time, Maccone:Pauli} is based on
 an additional Hilbert space $\mathcal{H}_T$,
 where time is an observable
 represented by a self-adjoint operator
 whose properties are similar to the ones of position
-in ordinary quantum mechanics
-\cite{Lloyd:Time, Maccone:Pauli}.
+in ordinary quantum mechanics.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
@@ -219,7 +235,7 @@ respectively.
 
 The Page and Wootters mechanism is rooted in the ``problem of time''
 in quantum cosmology.
-In principle, an approriate system (a ``clock'') can be identified in such a way
+In principle, an appropriate system (a ``clock'') can be identified in such a way
 to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
 the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 
@@ -243,7 +259,7 @@ and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
     \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
     \,\text{,}
 \end{equation}
-we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
+we recover the usual form of the Schr\"{o}dinger equation in $H_S$.
 
 Here $\hat{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
@@ -267,9 +283,9 @@ imposing the constraint
 \]
 with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
 a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
-with $e^{i \epsilon t / \hbar} \ket{\psi(t)}_S$
+with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
-\section*{One qubit ``universe'' and a $N=32$-level clock}
+\section*{Example: One qubit ``universe'' and a $N=32$-level clock}
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis:
@@ -284,7 +300,7 @@ chosen computational basis:
 \]
 With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
 
-The rest of the universe is modeled by a 2-level Hamiltonian
+The system is modeled by a 2-level Hamiltonian
 \[
   \hat{H}_S \repr
   i \hbar \omega
@@ -297,7 +313,7 @@ The rest of the universe is modeled by a 2-level Hamiltonian
 
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
-\emph{discrete Fourier transformation} (with $F_N$ unitary):
+\emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
 \[
   \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
 \]
@@ -321,7 +337,7 @@ The first two components of each eigenvector in the computational basis
 are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
 $2k$\nobreakdash-th and $2k+1$\nobreakdash-th
 as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
-Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in piucture.
+Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in picture.
 
 \begin{center}\vspace{1cm}
   \includegraphics[width=0.3\linewidth]{PWfit32.png}
@@ -329,11 +345,9 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
   \captionof{figure}{
     \color{Green}
     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
-    for eigensolution of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+    for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
   }
 \end{center}\vspace{1cm}
-  
-
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
@@ -359,8 +373,8 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\bibliographystyle{plain} % Plain referencing style
-\bibliography{bib/main} % Use the example bibliography file sample.bib
+\bibliographystyle{plain}
+\bibliography{bib/main}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS

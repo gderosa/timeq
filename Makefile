@@ -32,6 +32,11 @@ posterv:
 posterc:
 	latexmk -pvc poster
 
+poster-detect: poster-detect-cont # continuous onloy for now...
+
+poster-detect-cont:
+	latexmk -pvc poster-detect
+
 # Clean up
 clean:
 	latexmk -C
