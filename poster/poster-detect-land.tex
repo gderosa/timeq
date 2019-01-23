@@ -1,31 +1,11 @@
-%% Based on:
+%\documentclass[a1paper,landscape]{a0poster}
+\documentclass[portrait]{a0poster}
+\usepackage[b1paper,top=2cm,right=2cm,bottom=2.5cm,left=2cm]{geometry}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% a0poster Portrait Poster
-% LaTeX Template
-% Version 1.0 (22/06/13)
-%
-% The a0poster class was created by:
-% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
-% 
-% This template has been downloaded from:
-% https://www.latextemplates.com/template/a0poster-portrait-poster
-%
-% License:
-% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-\documentclass[a0,landscape]{a0poster}
 
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
-\columnsep=100pt % This is the amount of white space between the columns in the poster
-\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+\columnsep=1in % This is the amount of white space between the columns in the poster
+\columnseprule=0.025pt % This is the thickness of the black line between the columns in the poster
 
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
@@ -47,7 +27,6 @@
 
 \usepackage{bbm}
 
-\usepackage[top=1cm,right=2.8cm,bottom=1cm,left=2.6cm]{geometry}
 
 %\usepackage{lipsum}
 
@@ -103,15 +82,16 @@
 %----------------------------------------------------------------------------------------
 %	POSTER HEADER 
 %----------------------------------------------------------------------------------------
-\begin{minipage}[c]{0.40\linewidth}
-  \vspace{1.5cm}\hspace{0cm}\includegraphics[width=12cm]{ucc_logo.pdf}\\[0.0cm]
+\begin{minipage}[c]{0.2\linewidth}%
+\includegraphics[width=0.66\linewidth]{ucc_logo.pdf}\\[0.0cm]
 \end{minipage}%
-\begin{minipage}[c]{0.60\linewidth}\begin{flushright}%
-\veryHuge\color{NavyBlue}\textbf{Quantum Time: Page-Wootters and Detector Models}%
+\begin{minipage}[c]{0.8\linewidth}\begin{flushright}%
+\huge\color{NavyBlue}\textbf{Quantum Time: Page-Wootters and Detector Models}%
 \color{Black}%
 \\[0.5cm]
-  \Large \textbf{Guido De Rosa, Andreas Ruschhaupt} |
-  \Large University College Cork, Department of Physics | % University/organization
+  \large
+  \textbf{Guido De Rosa, Andreas Ruschhaupt} |
+  University College Cork, Department of Physics |
   \texttt{gderosa@umail.ucc.ie}
 \end{flushright}\end{minipage}%
 %
@@ -120,7 +100,7 @@
 
 %----------------------------------------------------------------------------------------
 
-\begin{multicols}{3} 
+\begin{multicols}{2}
 
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
@@ -128,8 +108,8 @@
 
 \color{Navy} % Navy color for the abstract
 
-\section*{\large Abstract}
-%\noindent % abstract hacks
+\begin{abstract}
+\noindent % abstract hacks
 We compare the Page and Wootters (PaW) model of quantized time
 (see \cite{PageWootters, Lloyd:Time} for an outline of the theory,
 or \cite{Moreva:illustration, Moreva_position} for experimental realizations)
@@ -145,22 +125,20 @@ the imaginary absorption term (for detectors that strongly alter the system dyna
 the imaginary term in the Hamiltonian unnecessary. We emphasize that the probability
 of detection in time is a \emph{conditional}
 probability, in the Bayesian \cite{Maccone:QMOT} sense.
-
-
-%\end{abstract}
+\end{abstract}
 
 \setlength{\parindent}{1.5em} % Default is 15pt.
 
 %\color{SaddleBrown} % SaddleBrown color for the introduction
 
-\large
-
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-\section*{Detector model: Complex potential of minimal uncertainty}
+
+
+\section*{Detector: Complex potential of minimal uncertainty}
 
 For a two-level system, if we consider \cite{RuschhauptAbsorption}:
-\begin{equation}\label{eq:complexpot}
+\begin{equation}\large\label{eq:complexpot}
   \mathcal{K} = \hat{H} - i\hat{D} \repr
     \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
     i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
@@ -182,7 +160,7 @@ Time-of-arrival at state $\ket{1}$:
 \end{center}\vspace{1cm}
 On the right is the prediction of the Page--Wootters model \cite{Lloyd:Time},
 obtained by first resolving:
-\begin{equation}
+\begin{equation}\large
   \mathbb{J} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
 \end{equation}
 where the imaginary absorption term has been added to the Hamiltonian.
@@ -201,7 +179,7 @@ in a finite-dimensional system, is obtained via Discrete Fourier Transformation
 
 For non-zero eigenvalues, each eigenvector
 is ``energy-shifted'' \cite{Lloyd:Time}:
-\begin{equation}\label{eq:energyfix}
+\begin{equation}\large\label{eq:energyfix}
   \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T}} \ox \idop_S \dket{\epsilon}
   \,\text{.}
 \end{equation}
@@ -226,14 +204,14 @@ to the loss of normalization which corresponds to absorption probability rate of
 
 In the PaW model, the above, together with the \eqref{eq:energyfix},
 can be formalized in a compact way for each eigenvector of $\mathbb{J}$:
-\begin{equation}
+\begin{equation}\large
   \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T}} \ox \sqrt{2\hat{D}} \dket{\epsilon}
 \end{equation}
 and, by linearity, to each combination of the above. The square modulus of
 each pair of components in this ``probability history'' will bring to the distribution
 in Figure~\ref{fig:toa}.
 
-\section*{Another example: 3-level system and weak absorption}
+\section*{3-level system and weak absorption}
 
 For small values of $\gamma$ in \eqref{eq:complexpot},
 the distortion caused by the detector is negligible.
@@ -249,7 +227,7 @@ anyway \cite{Maccone:QMOT}.
 
 \subsection*{The (sightly) non-unitary evolution of a qutrit}
 With respect to the \eqref{eq:complexpot} we have chosen in this case:
-\begin{equation}
+\begin{equation}\large
   \hat{H} \repr \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 1\\0 & 1 & 0\end{matrix}\right] \text{;} \quad
   \psi_0 \repr \left[\begin{matrix}\frac{\sqrt{2}}{2}\\\frac{1}{2} + \frac{i}{2}\\0\end{matrix}\right] \text{;} \quad
   \hat{D} = \left[\begin{matrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & \gamma\end{matrix}\right] \text{,}
@@ -266,7 +244,7 @@ A summary of the results is shown in the figures below.
     \color{Green}
     Loss of normalization (small, but noticeable on top-right of the plot),
     and components of the qutrit,
-    over the first cycle $t \in (0, \sqrt{2}\pi)$.
+    over the first cycle~$t \in (0, \sqrt{2}\pi)$.
   }
 \end{center}
 \vspace{0.5cm}
@@ -311,7 +289,7 @@ A summary of the results is shown in the figures below.
 
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
-\scriptsize
+%\tiny
 
  %----------------------------------------------------------------------------------------
 %	REFERENCES
@@ -321,7 +299,8 @@ A summary of the results is shown in the figures below.
 %\bibliography{bib/main}
 
 %biblatex
-\printbibliography
+\renewcommand*{\bibfont}{\small}
+\printbibliography[title={\normalsize References}]
 
 \end{multicols}
 \end{document}
