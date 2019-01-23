@@ -3,13 +3,17 @@
 A full LaTeX env with [LaTeXMk](https://www.ctan.org/pkg/latexmk) is required.
 
 
-# LaTeXMk commands to build thesis and poster
+## LaTeXMk commands to build thesis and posters
 
 PDF outputs will be created under the `build/` directory.
 
 ```
 latexmk thesis
+```
 
+or
+
+```
 latexmk poster/<name> # Any .`tex` file name in `poster/` dir, remove the .tex extension from <name>
 ```
 
@@ -21,6 +25,11 @@ result.
 Or `-pvc` to enable continuous build. 
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
+
+
+### Cleanup
+
+`latexmk -C` or `latexmk -C <name>` (as above), or even `rm build/*`.
 
 ### Optional: [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
 
