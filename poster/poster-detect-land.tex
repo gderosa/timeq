@@ -1,6 +1,6 @@
 %\documentclass[a1paper,landscape]{a0poster}
-\documentclass[portrait]{a0poster}
-\usepackage[b1paper,top=2cm,right=2cm,bottom=2.5cm,left=2cm]{geometry}
+\documentclass[landscape]{a0poster}
+\usepackage[b1paper,top=1cm,right=2cm,bottom=2cm,left=2cm]{geometry}
 
 
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
@@ -83,7 +83,7 @@
 %	POSTER HEADER 
 %----------------------------------------------------------------------------------------
 \begin{minipage}[c]{0.2\linewidth}%
-\includegraphics[width=0.66\linewidth]{ucc_logo.pdf}\\[0.0cm]
+\includegraphics[width=0.5\linewidth]{ucc_logo.pdf}\\[0.0cm]
 \end{minipage}%
 \begin{minipage}[c]{0.8\linewidth}\begin{flushright}%
 \huge\color{NavyBlue}\textbf{Quantum Time: Page-Wootters and Detector Models}%
@@ -95,20 +95,20 @@
   \texttt{gderosa@umail.ucc.ie}
 \end{flushright}\end{minipage}%
 %
-
+%
 %\vspace{1cm} % A bit of extra whitespace between the header and poster content
-
+%
 %----------------------------------------------------------------------------------------
-
-\begin{multicols}{2}
-
+%
+\begin{multicols}{3}
+%
 %----------------------------------------------------------------------------------------
 %	ABSTRACT
 %----------------------------------------------------------------------------------------
-
+%
 \color{Navy} % Navy color for the abstract
-
-\begin{abstract}
+%
+\begin{abstract}%
 \noindent % abstract hacks
 We compare the Page and Wootters (PaW) model of quantized time
 (see \cite{PageWootters, Lloyd:Time} for an outline of the theory,
@@ -133,12 +133,12 @@ probability, in the Bayesian \cite{Maccone:QMOT} sense.
 
 \color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
-
+\normalsize
 
 \section*{Detector: Complex potential of minimal uncertainty}
 
 For a two-level system, if we consider \cite{RuschhauptAbsorption}:
-\begin{equation}\large\label{eq:complexpot}
+\begin{equation}\label{eq:complexpot}
   \mathcal{K} = \hat{H} - i\hat{D} \repr
     \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
     i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
@@ -160,7 +160,7 @@ Time-of-arrival at state $\ket{1}$:
 \end{center}\vspace{1cm}
 On the right is the prediction of the Page--Wootters model \cite{Lloyd:Time},
 obtained by first resolving:
-\begin{equation}\large
+\begin{equation}
   \mathbb{J} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
 \end{equation}
 where the imaginary absorption term has been added to the Hamiltonian.
@@ -179,7 +179,7 @@ in a finite-dimensional system, is obtained via Discrete Fourier Transformation
 
 For non-zero eigenvalues, each eigenvector
 is ``energy-shifted'' \cite{Lloyd:Time}:
-\begin{equation}\large\label{eq:energyfix}
+\begin{equation}\label{eq:energyfix}
   \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T}} \ox \idop_S \dket{\epsilon}
   \,\text{.}
 \end{equation}
@@ -204,7 +204,7 @@ to the loss of normalization which corresponds to absorption probability rate of
 
 In the PaW model, the above, together with the \eqref{eq:energyfix},
 can be formalized in a compact way for each eigenvector of $\mathbb{J}$:
-\begin{equation}\large
+\begin{equation}
   \dket{\tilde{\epsilon}} = e^{-i\epsilon\hat{T}} \ox \sqrt{2\hat{D}} \dket{\epsilon}
 \end{equation}
 and, by linearity, to each combination of the above. The square modulus of
@@ -227,7 +227,7 @@ anyway \cite{Maccone:QMOT}.
 
 \subsection*{The (sightly) non-unitary evolution of a qutrit}
 With respect to the \eqref{eq:complexpot} we have chosen in this case:
-\begin{equation}\large
+\begin{equation}
   \hat{H} \repr \left[\begin{matrix}0 & 1 & 0\\1 & 0 & 1\\0 & 1 & 0\end{matrix}\right] \text{;} \quad
   \psi_0 \repr \left[\begin{matrix}\frac{\sqrt{2}}{2}\\\frac{1}{2} + \frac{i}{2}\\0\end{matrix}\right] \text{;} \quad
   \hat{D} = \left[\begin{matrix}0 & 0 & 0\\0 & 0 & 0\\0 & 0 & \gamma\end{matrix}\right] \text{,}
@@ -239,7 +239,7 @@ A summary of the results is shown in the figures below.
 
 \vspace{0.5cm}
 \begin{center}
-  \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-lossy.png}
+  \includegraphics[width=0.6\linewidth,height=0.37\linewidth]{2ldetect/qutrit-lossy.png}
   \captionof{figure}{
     \color{Green}
     Loss of normalization (small, but noticeable on top-right of the plot),
@@ -260,7 +260,7 @@ A summary of the results is shown in the figures below.
 \vspace{0.5cm}
 \vspace{0.5cm}
 \begin{center}
-  \includegraphics[width=0.6\linewidth]{2ldetect/qutrit-detect-both.png}
+  \includegraphics[width=0.6\linewidth,height=0.37\linewidth]{2ldetect/qutrit-detect-both.png}
   \captionof{figure}{
     \color{Green}
     \emph{Discrete points:} time-of-arrival at $\ket{2}$ per (discrete) PaW model,
@@ -270,37 +270,37 @@ A summary of the results is shown in the figures below.
     and probability conditioned in the first cycle.
   }
 \end{center}
-
+%
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
 %----------------------------------------------------------------------------------------
-
+%
 \color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
-
-
+%
+%
 % \section*{Conclusions and Outlook}
-
+%
 % \begin{itemize}
 % \item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
 % \item Vestibulum sem ante, hendrerit a gravida ac, blandit quis magna.
 % \item Donec sem metus, facilisis at condimentum eget, vehicula ut massa. Morbi consequat, diam sed convallis tincidunt, arcu nunc.
 % \item Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
 % \end{itemize}
-
+%
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
-
+%
 %\tiny
-
+%
  %----------------------------------------------------------------------------------------
 %	REFERENCES
 %----------------------------------------------------------------------------------------
-
+%
 %\bibliographystyle{plain}
 %\bibliography{bib/main}
-
+%
 %biblatex
 \renewcommand*{\bibfont}{\small}
 \printbibliography[title={\normalsize References}]
-
+%
 \end{multicols}
 \end{document}
