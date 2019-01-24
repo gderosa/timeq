@@ -30,7 +30,7 @@
 
 %\usepackage{lipsum}
 
-\usepackage[safeinputenc,doi=false,url=false,backend=biber]{biblatex}
+\usepackage[safeinputenc,style=authoryear-icomp,doi=false,url=false,backend=biber]{biblatex}
 \addbibresource{bib/main.bib}
 
 % %% https://tex.stackexchange.com/a/366170
@@ -111,10 +111,10 @@
 \begin{abstract}%
 \noindent % abstract hacks
 We compare the Page and Wootters (PaW) model of quantized time
-(see \cite{PageWootters, Lloyd:Time} for an outline of the theory,
-or \cite{Moreva:illustration, Moreva_position} for experimental realizations)
+(see \parencite{PageWootters, Lloyd:Time} for an outline of the theory,
+or \parencite{Moreva:illustration, Moreva_position} for experimental realizations)
 with detection models based on absorption and loss of normalization
-by a complex potential \cite{RuschhauptAbsorption}. We show that the prediction
+by a complex potential \parencite{RuschhauptAbsorption}. We show that the prediction
 of the Page--Wootters mechanism and of such detector model are compatible both in terms
 of the state evolution and
 the probability distribution of
@@ -124,7 +124,7 @@ the imaginary absorption term (for detectors that strongly alter the system dyna
 \emph{and} considering a weaker absorption regime, where the PaW model makes
 the imaginary term in the Hamiltonian unnecessary. We emphasize that the probability
 of detection in time is a \emph{conditional}
-probability, in the Bayesian \cite{Maccone:QMOT} sense.
+probability, in the Bayesian \parencite{Maccone:QMOT} sense.
 \end{abstract}
 
 \setlength{\parindent}{1.5em} % Default is 15pt.
@@ -137,18 +137,24 @@ probability, in the Bayesian \cite{Maccone:QMOT} sense.
 
 \section*{Detector: Complex potential of minimal uncertainty}
 
-For a two-level system, if we consider \cite{RuschhauptAbsorption}:
+For a two-level system,  let's consider \parencite{RuschhauptAbsorption}:
 \begin{equation}\label{eq:complexpot}
   \mathcal{K} = \hat{H} - i\hat{D} \repr
-    \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
-    i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
+    \hbar\omega\left\{
+      \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
+      i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
+    \right\}
     \,\text{,}
 \end{equation}
 with an initial state of $\ket{0}$
 (or $\left[\begin{matrix}1\\0\end{matrix}\right]$ in matrix form),
-minimal time-energy uncertainty is found with $\gamma = \sqrt{2}/2$.
+minimal time-energy uncertainty is found with
+$\gamma = \sqrt{2}/2$.
 
-Time-of-arrival at state $\ket{1}$:
+We work with adimensional quantities from now on,
+by setting $\hbar = \omega = 1$.
+
+Time-of-arrival at state $\ket{1}$: on the left, according to \parencite{RuschhauptAbsorption}:
 \begin{center}\vspace{1cm}
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-cont.png}
   \includegraphics[width=0.4\linewidth]{2ldetect/toa-pw.png}
@@ -158,10 +164,11 @@ Time-of-arrival at state $\ket{1}$:
     Time-of-arrival probability density.
   }
 \end{center}\vspace{1cm}
-On the right is the prediction of the Page--Wootters model \cite{Lloyd:Time},
+
+On the right is the prediction of the Page--Wootters model \parencite{Lloyd:Time},
 obtained by first resolving:
 \begin{equation}
-  \mathbb{J} \dket{\Psi} = \left[ \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
+  \mathbb{J} \dket{\Psi} = \left[ \hat{\Omega}\ox\idop_S + \idop_T\ox\mathcal{K}_S \right] = \epsilon\dket{\Psi} \,\text{,}
 \end{equation}
 where the imaginary absorption term has been added to the Hamiltonian.
 
@@ -175,10 +182,10 @@ equal time bins.
 
 Here, $\bar\Omega$ is time's canonically conjugate operator and,
 in a finite-dimensional system, is obtained via Discrete Fourier Transformation
-\cite{FiniteHilb}.
+\parencite{FiniteHilb}.
 
 For non-zero eigenvalues, each eigenvector
-is ``energy-shifted'' \cite{Lloyd:Time}:
+is ``energy-shifted'' \parencite{Lloyd:Time}:
 \begin{equation}\label{eq:energyfix}
   \dket{\epsilon} \rightarrow e^{-i\epsilon\hat{T}} \ox \idop_S \dket{\epsilon}
   \,\text{.}
@@ -196,7 +203,7 @@ This vector in $\pwspace$ would represent the history, or the evolution of the t
   }
 \end{center}\vspace{0.5cm}
 
-Finally, as shown in \cite{RuschhauptAbsorption}, the detection probability amplitude
+Finally, as shown in \parencite{RuschhauptAbsorption}, the detection probability amplitude
 in time
 can be derived applying the operator $\sqrt{2\hat{D}}$ to the normalization-lossy
 evolved state. It is proven therein that the square modulus of the result is equal
@@ -223,7 +230,7 @@ Therefore we need to consider the \emph{conditional} probability: provided that 
 within $(0, T)$, what is the probability (density) that it happens at time $t$?
 
 A similar Bayesian rule is necessary to define time-of-arrival within the PaW framework
-anyway \cite{Maccone:QMOT}.
+anyway \parencite{Maccone:QMOT}.
 
 \subsection*{The (sightly) non-unitary evolution of a qutrit}
 With respect to the \eqref{eq:complexpot} we have chosen in this case:
@@ -264,9 +271,9 @@ A summary of the results is shown in the figures below.
   \captionof{figure}{
     \color{Green}
     \emph{Discrete points:} time-of-arrival at $\ket{2}$ per (discrete) PaW model,
-    using conditional definition of \cite{Maccone:QMOT} and no complex potential.
+    using conditional definition of \parencite{Maccone:QMOT} and no complex potential.
     \emph{Continuous line:}
-    Detector model with complex potential (as in \cite{RuschhauptAbsorption}),
+    Detector model with complex potential (as in \parencite{RuschhauptAbsorption}),
     and probability conditioned in the first cycle.
   }
 \end{center}
