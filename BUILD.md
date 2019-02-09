@@ -8,7 +8,7 @@ A full LaTeX env with [LaTeXMk](https://www.ctan.org/pkg/latexmk) is required.
 PDF outputs will be created under the `build/` directory.
 
 ```
-latexmk thesis
+latexmk main
 ```
 
 or
