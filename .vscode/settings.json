@@ -15,5 +15,6 @@
     }
   ],
   "latex-workshop.latex.outputDir": "./build/",
-  "latex-workshop.latex.autoBuild.onSave.enabled": false
+  "latex-workshop.latex.autoBuild.onSave.enabled": false,
+  "latex-workshop.latex.outDir": "./build/"
 }
