@@ -22,7 +22,7 @@ latexmk poster/<name> # Any .`tex` file name in `poster/` dir, remove the .tex e
 Add `-pv` option to the `latexmk` command above to automatically launch a PDF viewer on the
 result.
 
-Or `-pvc` to enable continuous build. 
+Or `-pvc` to enable continuous build.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
