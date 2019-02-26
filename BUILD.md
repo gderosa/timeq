@@ -106,3 +106,15 @@ but you won't avail of a `synctex` executable (inverse search will still work th
 `make poster` to build `build/poster.pdf`.
 
 `make posterv` and `make posterc` to have preview and continuous preview as well.
+
+## Docker
+
+You can run everything in a container so all package provisioning is automated.
+```
+docker build -t timeq .
+```
+Then each LaTeX command above can be preceded by `./latexdockercmd.sh` e.g.
+```
+./latexdockercmd.sh latexmk main
+```
+See https://github.com/blang/latex-docker for more info.
