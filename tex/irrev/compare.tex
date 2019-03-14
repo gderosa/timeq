@@ -51,7 +51,7 @@ in the language of the Page--Wootters model and within the notation
 adopted.
 
 Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
-\begin{equation}
+\begin{equation}\label{eq:phi_psi_kiukas}
   \phi(t)\ket{\psi(t)} =
   \begin{cases}
     \sqrt{\frac{2}{\hbar}} \hat{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
@@ -63,22 +63,19 @@ but so it is, as a limit, for small values of $t>0$,
 in other terms
 $\lim_{t \to 0^{+}} \norm{\hat{D} \ket{\psi_{\text{Kiukas}}(t)}} = 0$, thus avoiding the apparent discontinuity.
 
-Still we have the problem that $\ket{\psi_{\text{Kiukas}}(t)}$ is not computed within the
-P--W model. This is the subject of the next subsection ({\color{red} anything?}).
+% \subsection*{\color{red} TODO}
 
-\subsection*{\color{red} TODO}
+% {
+%   \color{red}
+%   Figure out how to connect the above to what follows (or drop or separate if does not apply).
 
-{
-  \color{red}
-  Figure out how to connect the above to what follows (or drop or separate if does not apply).
-
-  \scriptsize{
-    Hint: rather then the ``conspiracy theory''
-    (``I find an imaginary term both here and there'')
-    consider (time of) arrival as in \cite{Maccone:QMOT}.
-    This should bring to a normalized element of $\pwspace$ \dots
-  }
-}
+%   \scriptsize{
+%     Hint: rather then the ``conspiracy theory''
+%     (``I find an imaginary term both here and there'')
+%     consider (time of) arrival as in \cite{Maccone:QMOT}.
+%     This should bring to a normalized element of $\pwspace$ \dots
+%   }
+% }
 
 \subsection{Application: two-level system}
 
@@ -91,7 +88,7 @@ the Page--Wootters model, indeed the purpose of this section is a comparison
 with such model, using the results of \S \ref{sec:absorption+pw}.
 
 By setting, out of convenience, $\hbar = \omega = 1$
-(with $\omega$ the characteristic frequesncy of the system),
+(with $\omega$ the characteristic frequency of the system),
 and directly considering the parameters
 that minimize the time--energy uncertainty product \parencite{RuschhauptAbsorption},
 we have a non-hermitian ``hamiltonian''
