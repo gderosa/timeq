@@ -1,90 +1,31 @@
-\section{Non-unitary dynamics in $\hilb{H}_S$, in Page--Wootters terms}
-\label{non-unitary-pw}
-
-First of all,
-when the unproper vector of $\hilb{H}_T \ox \hilb{H}_S$
-\begin{equation}
-  \dket{\Psi} = \int dt \ket{t}_{T} \ox \ket{\psi(t)}_{S}
-\end{equation}
-is replaced by a \emph{proper}, normalized $\dket{\Phi}$ (eq. \ref{eq:pwphi}),
-what should the equation
-\begin{equation}\label{eq:pwwd}
-  \qty(\hbar\hat{\Omega} \ox \idop_S + \idop_T \ox \hat{H}_S)\dket{\Psi} = 0
-\end{equation}
-be replaced with?
-
-As $\setof{\ket{t}_T}$ is an eigenbasis of $\hat{T}$, the \eqref{eq:pwphi}
-contains the definition of an operator function in $\hilb{H}_T$,
-and can then be reformulated as:\footnote{
-  Or, more precisely, $\dket{\Psi} = \qty( \phi(\hat{T}) \ox \idop_S ) \dket{\Psi}$,
-  but we will omit, in some cases,
-  tensor product by identity operators
-  when it's obvious.
-}
-\begin{equation}
-  \dket{\Phi} = \phi(\hat{T})\dket{\Psi} \, \text{.}
-\end{equation}
-
-We will also need the relation
-\begin{multline}\label{eq:fcomm}
-  \comm{\phi(\hat{T})}{\hat{\Omega}} = \dot{\phi}(\hat{T}) \comm{\hat{T}}{\hat{\Omega}}, \,
-    \\
-    \forall \, \hat{T}, \hat{\Omega} \text{ self-adjoint in } \hilb{H}_T
-    \text{, with }
-    \comm{\hat{T}}{\comm{\hat{T}}{\hat{\Omega}}} = 0
-    \text{ and }
-    \phi \in C^{\infty}(\mathbb{R}) \, \text{,} 
-\end{multline}
-where $\dot{\phi}$ is the first derivative of the function $\phi$.
-In fact, this is proven in Appendix \ref{CommProp} for when $\phi$ is a polynomial,
-and the proof can be easily extended to a more general case by series expansion.
-For the canonical pair, this will just reduce to $\comm{\phi(\hat{T})}{\hat{\Omega}} = i \dot{\phi} (\hat{T})$.
-
-Therefore:
-\begin{multline}\label{eq:complex_dynam_deriv}
-  \qty( \hbar\hat{\Omega} \ox \idop_S + \idop_T \ox \hat{H}_S ) \dket{\Phi} =
-  \hat{\mathbb{J}}\dket{\Phi} =
-  \hat{\mathbb{J}} \qty( \phi(\hat{T}) \ox \idop_S) \dket{\Psi} =
-  \\
-  \qty( \hbar\hat{\Omega}\phi(\hat{T}) \ox \idop_S + \phi(\hat{T}) \ox \hat{H}_S )\dket{\Psi} =
-  \qty{
-    \hbar\qty( \phi(\hat{T})\hat{\Omega} - \comm{\phi(\hat{T})}{\hat{\Omega}} ) \ox \idop_S +
-    \phi(\hat{T}) \ox \hat{H}_S
-  }\dket{\Psi} =
-  \\
-  \qty(
-    \phi(\hat{T}) \ox \idop_S
-  )
-  \qty(
-    - i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S
-    + \hbar\hat{\Omega} \ox \idop_S
-    + \idop_T \ox \hat{H}_S
-  ) \dket{\Psi} =
-  \\
-  - \qty( i \hbar \frac{\dot{\phi}}{\phi} (\hat{T}) \ox \idop_S ) \dket{\Phi}
-  \text{,}
-\end{multline}
-where we have used the \eqref{eq:pwwd} first, then the fact that $\phi(\hat{T})$ 
-and $-i\hbar\frac{\dot{\phi}}{\phi}(\hat{T})$ commute.
-
-Comparing the first and last term of \eqref{eq:complex_dynam_deriv} we have:
-\begin{equation}\label{eq:nonu_pwwdw}
-  \qty[
-    \hbar\hat{\Omega} \ox \idop_S +
-    i \hbar \frac{\dot{\phi}}{\phi}(\hat{T}) \ox \idop_S +
-    \idop_T \ox \hat{H}_S
-   ] \dket{\Phi} = 0
-  \text{,}
-\end{equation}
-showing that a non-hermitian\footnote{
-  Unless $\phi$  is a pure imaginary function.
-}
-term
-$i \hbar \frac{\dot{\phi}}{\phi} (\hat{T})$
-emerges as a correction to the dynamic constraint~$\hat{\mathbb{J}}$.
-This is the same as eq. (27) of \cite{Lloyd:Time}, of which 
-\eqref{eq:complex_dynam_deriv} is an analytical proof.
 \section{Page--Wootters and detector absorption models}\label{sec:absorption+pw}
+
+The detector absoption model in \cite{RuschhauptAbsorption} is not originally
+based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
+in the sense that states are in $\hilb{H}_S$ with an external parameter time;
+but, contrary to quantum mechanics, the potential can be \emph{complex},
+causing the norm of the state vector to not be conserved (in fact, vanishing with time).
+In other terms, the evolution is not unitary, even for a pure state.
+Specifically, the Hamiltonian is corrected by an anti-hermitian term
+that models the detector.
+
+A non hermitian Hamiltonian is justified as a computation method
+to simplify the study of some open systems: the evolution of mixed
+states is derived without explicit reference to density operators
+or master equations, but resolving equations that are formally
+identical to those of pure states,
+i.e. in terms of
+Schr{\"o}dinger equations and wave functions,
+with the non-hermitian term in the Hamiltonian
+to account for the non-unitarity of the evolution.
+%
+This is treated extensively in:
+  \cite[Ch. 6]{TQM2};
+  \cite{Wave-function_approach};
+  \cite{HowToResetAnAtom};
+  \cite{TheQuantumJumpApproach};
+  \cite[\S 8.5.2 ``The `quantum jump' approach to damping: The wave function Monte Carlo approach'']{ScullyZubairy};
+  \cite[\S 6.7.1 ``Simulating Quantum Trajectories'']{WallsMilburn}.
 
 The detection-by-absoption model in \cite{RuschhauptAbsorption}
 is based on a complex potential that, plugged into the Schr\"odinger equation,
@@ -98,12 +39,10 @@ and, consequently:
   \hat{H} \ket{\psi(t)} = i\hbar\dv{t}\ket{\psi(t)} +i\hat{D}\ket{\psi(t)} \text{.}
 \end{equation}
 
-Similarly to what seen in \S\ref{non-unitary-pw}, $\ket{\psi(t)}$ does not conserve its norm in time.
-However, the two models are conceptually different.
-One may wonder whether a normalized Page--Wootters ``position-time wavepacket''
-can be used to describe the event
-of being detected (or being absorbed). It's expected to be peaked around the time when
-the absorption by the detector is maximum.
+One may wonder whether a proper, normalized Page--Wootters ``position-time wavepacket''
+(as described in \S\ref{sec:properpw})
+can be used to describe \emph{the event of being detected} (or being absorbed).
+It's expected to be peaked around the time when the absorption by the detector is maximum.
 
 In the detector model of \cite{RuschhauptAbsorption}, the detection
 by absorption
@@ -114,8 +53,8 @@ Therefore we expect the following relation to be true:
   \abs{\phi(t)}^2 = -\dv{t}\norm{\psi_{\text{Kiukas}}(t)}^2 \text{,}
 \end{equation}
 both sides of which indicate probability of arrival at time $t$.
-Here the function (of time) $\phi$ is to be intended in the sense of
-\eqref{eq:pwphi} and \S \ref{non-unitary-pw}.
+Here the function $\phi$ of time $t$ has to be intended in the sense of
+\eqref{eq:pwphi}.
 
 Interestingly, \cite{RuschhauptAbsorption} provides a solution of \eqref{eq:pwkiukas}.
 Despite being not based on the Page--Wootters model, eq. 9 therein

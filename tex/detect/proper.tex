@@ -1,4 +1,4 @@
-\section{Unitary evolution \emph{versus} absorption}
+\section{Proper vectors of $\pwspace$}\label{sec:properpw}
 
 A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
 satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
@@ -72,58 +72,3 @@ a \emph{4-dimensional} gaussian wave function,
 in analogy to well known examples of purely spatial gaussian states
 in quantum mechanics and quantum optics.
 
-The detector absoption model in \cite{RuschhauptAbsorption} is not originally
-based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
-in the sense that states are in $\hilb{H}_S$ with an external parameter time;
-but, contrary to quantum mechanics, the potential can be \emph{complex},
-causing the norm of the state vector to not be conserved (in fact, vanishing with time).
-In other terms, the evolution is not unitary, even for a pure state.
-Specifically, the Hamiltonian is corrected by an anti-hermitian term
-that models the detector.
-
-A non hermitian Hamiltonian is justified as a computation method
-to simplify the study of some open systems: the evolution of mixed
-states is derived without explicit reference to density operators
-or master equations, but resolving equations that are formally
-identical to those of pure states,
-i.e. in terms of
-Schr{\"o}dinger equations and wave functions,
-with the non-hermitian term in the Hamiltonian
-to account for the non-unitarity of the evolution.
-%
-This is treated extensively in:
-  \cite[Ch. 6]{TQM2};
-  \cite{Wave-function_approach};
-  \cite{HowToResetAnAtom};
-  \cite{TheQuantumJumpApproach};
-  \cite[\S 8.5.2 ``The `quantum jump' approach to damping: The wave function Monte Carlo approach'']{ScullyZubairy};
-  \cite[\S 6.7.1 ``Simulating Quantum Trajectories'']{WallsMilburn}.
-
-% In comparing the results in (or attempting to draw some common conclusion from)
-% \cite{Lloyd:Time} and \cite{RuschhauptAbsorption}
-% ---or matching the \eqref{eq:pwphi} and \eqref{eq:pwf} if one will---
-% different approaches are conceivable:
-% \begin{enumerate}
-%   \item
-%     Setting
-%     \begin{equation}
-%       \phi = f \, \text{,}
-%     \end{equation}
-%     after checking that relevant results in \cite{Lloyd:Time} are valid in more general cases than
-%     $\phi \in \mathcal{L}^2(\mathbb{R})$
-%   \item
-%     Honoring the ``event'' semantics proposed above, and the notion of \term{absorption event}:
-%     something that has its peak probability (density)
-%     when the norm of $\ket{\psi(t)}$ decreases most rapidly; therefore if we can assume
-%     $\dv{\abs{f}^2}{t} \leq 0 \; \forall t$, the probability amplitude density
-%     (or the wavefunction of absorption event) will be a $\phi$ such that
-%     \begin{equation}\label{eq:absorptionEvent}
-%       \abs{\phi(t)}^2 = -\dv{\abs{f}^2}{t}
-%     \end{equation} 
-% \end{enumerate}
-
-% The requirement, implicit  in \eqref{eq:absorptionEvent},
-% that $f$ never locally increases in modulus
-% is not restrictive, or it's not more restrictive than simply stating
-% that the detector, at most, absorbs, but never \emph{emits}
-% (in the model of \cite{RuschhauptAbsorption}).
