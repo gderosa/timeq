@@ -1,8 +1,4 @@
-\ifonescr
-  \documentclass[oneside]{book}
-\else
-  \documentclass{book}
-\fi
+\documentclass{book}
 
 \usepackage{xcolor}
 \usepackage{lipsum}  %% dev
@@ -19,8 +15,8 @@
 \usepackage[inline]{enumitem}
 \usepackage{graphicx}
 \usepackage{color}
-\ifonescr
-  \usepackage[a4paper,top=1.5cm,bottom=1.5cm,marginpar=0cm]{geometry}
+\ifscr
+  \usepackage[b5paper,top=1.5cm,bottom=1.5cm,left=1cm,right=1cm,marginpar=0cm]{geometry}
 \else
   \usepackage[a4paper,marginpar=0cm]{geometry}
 \fi
