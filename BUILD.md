@@ -96,6 +96,7 @@ docker build -t timeq .
 ```
 Then each LaTeX command above can be preceded by `./latexdockercmd.sh` e.g.
 ```
-./latexdockercmd.sh latexmk main
+./scripts/docker/latexdockercmd.sh latexmk main
 ```
-See https://github.com/blang/latex-docker for more info.
+See the other scripts in `scripts/docker` too
+and https://github.com/blang/latex-docker for more info.

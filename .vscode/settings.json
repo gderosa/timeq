@@ -3,7 +3,8 @@
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
-    "**/.DS_Store": true
+    "**/.DS_Store": true,
+    ".ipynb_checkpoints": true
   },
 
   "editor.tabSize": 2,
