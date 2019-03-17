@@ -1,4 +1,8 @@
-\documentclass{book}
+\ifonescr
+  \documentclass[oneside]{book}
+\else
+  \documentclass{book}
+\fi
 
 \usepackage{xcolor}
 \usepackage{lipsum}  %% dev
@@ -15,7 +19,11 @@
 \usepackage[inline]{enumitem}
 \usepackage{graphicx}
 \usepackage{color}
-\usepackage[a4paper]{geometry}
+\ifonescr
+  \usepackage[a4paper,top=1.5cm,bottom=1.5cm,marginpar=0cm]{geometry}
+\else
+  \usepackage[a4paper,marginpar=0cm]{geometry}
+\fi
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
   \fancyhf{}
