@@ -131,7 +131,9 @@ We take an initial state of $\ket{0}$
 (or $\mqty[1\\0]$ in matrix form).
 
 We then compute, symbolically, the non-unitary evolution
-$\ket{\psi(t)} = e^{-i\mathcal{K}t}\ket{0}$.
+$\ket{\psi(t)} = e^{-i\mathcal{K}t}\ket{0}$
+with the aid of \term{SymPy} within a \term{Jupyter} notebook
+(see appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}).
 
 Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
 \begin{equation}
@@ -140,3 +142,27 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
                      -i\sqrt{2} \sin{\frac{\sqrt{2}}{2}t}&
   ] \,\text{.}
 \end{equation}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.49\textwidth]{img/2ldetect/re_psi0_t.png}
+  \includegraphics[width=0.49\textwidth]{img/2ldetect/im_psi1_t.png}
+  \caption{
+    Non-unitary evolution of absorbed qubit.
+    The component along $\ket{0}$ is purely real,
+    and the one along $\ket{1}$ purely imaginary.
+  }
+  \label{fig:absorbed-qubit-components}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.66\textwidth]{img/2ldetect/qubit_loss_norm.png}
+  \caption{
+    Non-unitary evolution of absorbed qubit: Loss of normalization.
+  }
+  \label{fig:absorbed-qubit-loss-norm}
+\end{figure}
+
+The evolution, with normalization loss, is shown graphically in
+Figg. \ref{fig:absorbed-qubit-components} and \ref{fig:absorbed-qubit-loss-norm}.
