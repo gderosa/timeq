@@ -131,7 +131,7 @@ plot(re(non_unitary_psi(t)[0]), (t, 0, 10), line_color='r')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_20_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -145,7 +145,7 @@ plot(im(non_unitary_psi(t)[1]), (t, 0, 10), line_color='b')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_21_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -211,7 +211,7 @@ Text(0.5, 0, 't')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_29_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -221,7 +221,7 @@ plot(lossy_norm(t),(t, 0, 2*pi), line_color='g')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_30_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -245,7 +245,7 @@ plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_33_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -259,7 +259,7 @@ plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_34_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -273,7 +273,7 @@ plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), li
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_35_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -287,7 +287,7 @@ plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), li
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_36_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -301,7 +301,7 @@ plot(prob_0_detect(t) + prob_1_detect(t),(t, -0.25, 8*pi))
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_37_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -325,7 +325,7 @@ plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_40_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -339,7 +339,7 @@ plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_41_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -371,7 +371,7 @@ plt.plot(X, -np.gradient(Y, X), 'b')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_45_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -421,7 +421,7 @@ plot(hatpsisquarednorm(t), (t, -2, 2*pi), line_color='m')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_49_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -435,7 +435,7 @@ plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 8*pi))
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_50_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -459,7 +459,7 @@ plot( abs(hatpsi(t)[1]**2), (t, -2, 2*pi), line_color='b')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_53_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -484,7 +484,7 @@ plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_56_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -506,7 +506,7 @@ plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_59_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -522,7 +522,7 @@ plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_60_0.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}
@@ -713,7 +713,7 @@ plt.plot(times, norms/norms[0], 'g^')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_82_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -727,7 +727,7 @@ plt.plot(times, probs0, 'rs')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_83_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -741,7 +741,7 @@ plt.plot(times, probs1, 'bs')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_84_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -769,7 +769,7 @@ Text(0.5, 0, 't')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_85_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \hypertarget{detection-event}{%
@@ -826,7 +826,7 @@ plt.plot(times, prob_detect * 16 / np.pi, 'bs')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_92_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -857,7 +857,7 @@ plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'y^')
 \begin{figure}
 \centering
 \includegraphics[width=0.66\linewidth]{output_95_1.png}
-\caption{png}
+\caption[]{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
