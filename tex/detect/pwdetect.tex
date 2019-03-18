@@ -59,7 +59,7 @@ Here the function $\phi$ of time $t$ has to be intended in the sense of
 Interestingly, \cite{RuschhauptAbsorption} provides a solution of \eqref{eq:pwkiukas}.
 Despite being not based on the Page--Wootters model, eq. 9 therein
 equates the squared norm of a ``time representation'' wavefunction
-to the antiderivative of the squared norm of the ``absorbed wavefunction''.
+to the opposite derivative of the squared norm of the ``absorbed wavefunction''.
 It reads:
 \begin{quote}
   We will associate with any wave function $\psi \in \hilb{H}$
@@ -132,8 +132,8 @@ We take an initial state of $\ket{0}$
 
 We then compute, symbolically, the non-unitary evolution
 $\ket{\psi(t)} = e^{-i\mathcal{K}t}\ket{0}$
-with the aid of \term{SymPy} within a \term{Jupyter} notebook
-(see appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}).
+with the aid of \term{SymPy} \parencite{comp:sympy} within a \term{Jupyter} \parencite{comp:jupyter} notebook
+(see Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner} for all the details of the calculation).
 
 Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
 \begin{equation}
@@ -157,12 +157,13 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.66\textwidth]{img/2ldetect/qubit_loss_norm.png}
+  \includegraphics[width=0.66\textwidth]{img/2ldetect/qubit_normalization_loss.png}
   \caption{
-    Non-unitary evolution of absorbed qubit: Loss of normalization.
+    Non-unitary evolution of absorbed qubit: loss of normalization $-\dv{\norm{\psi}^2}{t}$.
   }
-  \label{fig:absorbed-qubit-loss-norm}
+  \label{fig:absorbed-qubit-normalization-loss}
 \end{figure}
 
-The evolution, with normalization loss, is shown graphically in
-Figg. \ref{fig:absorbed-qubit-components} and \ref{fig:absorbed-qubit-loss-norm}.
+The ``lossy'' evolution, with the two components of the qubit, is shown in Fig.~\ref{fig:absorbed-qubit-components}.
+The loss of normalization $-\dv{\norm{\psi}^2}{t}$, indicating the probability of detection by absorption,
+is then derived and shown in Fig.~\ref{fig:absorbed-qubit-normalization-loss}.
