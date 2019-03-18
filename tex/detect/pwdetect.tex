@@ -129,3 +129,14 @@ and $\gamma = 2\sqrt{2}$.
 
 We take an initial state of $\ket{0}$
 (or $\mqty[1\\0]$ in matrix form).
+
+We then compute, symbolically, the non-unitary evolution
+$\ket{\psi(t)} = e^{-i\mathcal{K}t}\ket{0}$.
+
+Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
+\begin{equation}
+  \ket{\psi(t)} \repr e^{-\frac{\sqrt{2}}{t}} \mqty[
+    \cos{\frac{\sqrt{2}}{2}t} + \sin{\frac{\sqrt{2}}{2}t}& \\
+                     -i\sqrt{2} \sin{\frac{\sqrt{2}}{2}t}&
+  ] \,\text{.}
+\end{equation}
