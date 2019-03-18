@@ -379,7 +379,7 @@ plt.plot(X, -np.gradient(Y, X), 'b')
 def hatpsi(_t):
     return \
         Heaviside(_t) * \
-        2**(3/4) * \
+        2**(Rational(3, 4)) * \
         Matrix([
             [0, 0],
             [0, 1]
@@ -395,10 +395,15 @@ def hatpsi_n(_t):
             [0, 1]
         ]) * \
         non_unitary_psi_n(_t)
-        
-        
-    
 \end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+hatpsi(t)
+\end{lstlisting}
+
+\begin{equation}\label{eq:sympy:hatpsi}
+\left[\begin{matrix}0\\2^{\frac{3}{4}} \left(\frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2} - \frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2}\right) \theta\left(t\right)\end{matrix}\right]
+\end{equation}
 
 \begin{lstlisting}[language=Python]
 def hatpsisquarednorm(_t):

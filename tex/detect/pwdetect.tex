@@ -77,6 +77,7 @@ adopted.
 
 Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
 \begin{equation}\label{eq:phi_psi_kiukas}
+  \hat{\psi}(t) \eqbydef
   \phi(t)\ket{\psi(t)} =
   \begin{cases}
     \sqrt{\frac{2}{\hbar}} \hat{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
@@ -166,4 +167,15 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
 
 The ``lossy'' evolution, with the two components of the qubit, is shown in Fig.~\ref{fig:absorbed-qubit-components}.
 The loss of normalization $-\dv{\norm{\psi}^2}{t}$, indicating the probability of detection by absorption,
-is then derived and shown in Fig.~\ref{fig:absorbed-qubit-normalization-loss}.
+is then derived directly and shown in Fig.~\ref{fig:absorbed-qubit-normalization-loss}.
+
+This yields the \emph{probability} of detection.
+One may wonder whether it is possible to derive a corresponding \emph{probability amplitude} vector,
+whose squared norm across time is equal to the said probability distribution.\footnote{
+  The solution is of course not unique, but one may ask whether such functions would lead
+  to quantum interference patterns and other phenomenology which may be subject of further study.
+}
+Within the framework of \cite{RuschhauptAbsorption}, a ``wavefunction in time'' in such sense
+is the $\hat{\psi}$, as in \eqref{eq:phi_psi_kiukas}.
+It is computed in detail within the
+notebook in Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}, eq. \eqref{eq:sympy:hatpsi}.
