@@ -229,3 +229,37 @@ Taking the squared modulus, a probability distribution over angular frequency
   \,\text{.}
 \]
 See Fig. \ref{fig:absorbed-qubit-normalization-loss}, \emph{Right}.
+
+\subsubsection{
+  (Non-unitary) evolution without evolution:
+  plugging the complex potential in the \emph{discrete} Page--Wootters model
+}
+
+Similarly to what seen in \S \ref{sec:building-the-discrete-pw-clock}, we build
+the clock by defining ---and representing in a convenient basis---
+the time operator and the corresponding frequency operator:
+\begin{align}
+  \hat{T} \repr \frac{2\pi}{N}
+  \begin{pmatrix}
+    0           &       &       &       \\
+                &1      &       &       \\
+                &       &\ddots &       \\
+                &       &       &N-1
+  \end{pmatrix}
+  &&
+  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{,}
+\end{align}
+where $F$ is, again, the discrete Fourier operator of order $N$.
+
+Next we define the Wheeler--DeWitt operator $\mathbb{J}$ as in
+\eqref{eq:pwHamiltonian}, but $\hat{H}_S$ is replaced by the non-hermitian
+Hamiltonian of the detector model
+$\mathcal{K}_S = \hat{H}_S - \iu \hat{D}_S$
+\parencite{RuschhauptAbsorption},
+where the subscript $_S$ has been added to stress
+that they would act on the $\hilb{H}_S$ part
+of the Page--Wootters' $\pwspace$ ``spacetime'':
+\begin{equation}
+  \mathbb{J} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\qty(\hat{H}_S -\iu \hat{D}_S) \,\text{.}
+\end{equation}
+
