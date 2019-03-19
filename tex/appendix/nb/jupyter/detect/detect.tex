@@ -477,10 +477,12 @@ def fhatpsi1(_nu):
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-abs(fhatpsi1(nu))**2
+fhatpsi1(nu)
 \end{lstlisting}
 
-\[\frac{2.82842712474619}{16.0 \pi^{4} \nu^{4} + 1.0}\]
+\begin{equation}\label{eq:fhatpsi1_nu}
+- \frac{2^{\frac{3}{4}} i}{- 4 \pi^{2} \nu^{2} + 2 \sqrt{2} i \pi \nu + 1}
+\end{equation}
 
 \begin{lstlisting}[language=Python]
 plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
