@@ -178,4 +178,22 @@ whose squared norm across time is equal to the said probability distribution.\fo
 Within the framework of \cite{RuschhauptAbsorption}, a ``wavefunction in time'' in such sense
 is the $\hat{\psi}$, as in \eqref{eq:phi_psi_kiukas}.
 It is computed in detail within the
-notebook in Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}, eq. \eqref{eq:sympy:hatpsi}.
+notebook in Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}, eq. \eqref{eq:sympy:hatpsi},
+simplifying which we obtain:
+\begin{equation}\label{eq:analytic:hatpsi}
+  \hat{\psi}(t) =
+    i 2^{\frac{5}{4}} e^{-\frac{\sqrt{2}}{2}t}\sin(\frac{\sqrt{2}}{2}t) \theta(t)
+    \ket{1}
+    \text{,}
+\end{equation}
+with $\theta(t)$ the Heaviside step function.
+
+In general, the operator $\hat{D}$ as in \eqref{eq:schrod_complex_pot}
+is such that the eigenspace corresponding to its eigenvalue $0$
+is the ``area'' where the detector is not sensitive. Or, in other words,
+the linear span of states with zero probability of triggering the detector.
+Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
+for example in \eqref{eq:phi_psi_kiukas},
+the components in such eigenspace are cut off and the resulting
+$\hat{\psi}$, eq. \eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
+i.e. it's a multiple of $\ket{1}$ in this case.
