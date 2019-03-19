@@ -22,10 +22,12 @@
 \addcontentsline{toc}{chapter}{Preface}
 \input{tex/preface/preface}
 
-\chapter*{Notation}
-\markboth{Notation}{Notation}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Notation}
-\input{tex/preface/notation}
+\iftodo
+  \chapter*{Notation}
+  \markboth{Notation}{Notation}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Notation}
+  \input{tex/preface/notation}
+\fi
 
 \mainmatter
 
