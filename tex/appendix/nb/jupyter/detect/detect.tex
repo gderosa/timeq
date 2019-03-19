@@ -515,6 +515,14 @@ def fhatpsiomega(_omega):
 \end{equation}
 
 \begin{lstlisting}[language=Python]
+    abs(fhatpsiomega(omega))**2
+\end{lstlisting}
+
+\begin{equation}\label{eq:fhatpsi1_omega_sqabs}
+    - \frac{\sqrt{2}}{\pi \left(- \omega^{4} - 1\right)}
+\end{equation}
+
+\begin{lstlisting}[language=Python]
 plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
 \end{lstlisting}
 
