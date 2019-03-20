@@ -22,12 +22,12 @@
 \addcontentsline{toc}{chapter}{Preface}
 \input{tex/preface/preface}
 
-\iftodo
-  \chapter*{Notation}
-  \markboth{Notation}{Notation}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{chapter}{Notation}
-  \input{tex/preface/notation}
-\fi
+% \iftodo
+%   \chapter*{Notation}
+%   \markboth{Notation}{Notation}  %% No ugly "Chapter 0".
+%   \addcontentsline{toc}{chapter}{Notation}
+%   \input{tex/preface/notation}
+% \fi
 
 \mainmatter
 
@@ -47,6 +47,7 @@
 \chapter{Page and Wootters relational time: developments and applications}
   %\chaptermark{Page and Wootters relational time}
   \label{ch:pw}
+\input{tex/pw/notation}
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
 

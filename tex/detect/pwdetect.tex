@@ -118,9 +118,9 @@ By setting, out of convenience, $\hbar = \omega = 1$
 and directly considering the parameters
 that minimize the time--energy uncertainty product \parencite{RuschhauptAbsorption},
 we have a non-hermitian ``hamiltonian''
-$\mathcal{K} = \hat{H} - i\hat{D}$ with
+$\mathit{K} = \hat{H} - i\hat{D}$ with
 \begin{equation}\label{eq:complexpot}
-  \mathcal{K} = \hat{H} - i\hat{D} \repr
+  \mathit{K} = \hat{H} - i\hat{D} \repr
     \hbar\omega\left\{
       \left[\begin{matrix}0 & 1\\1 & 0\end{matrix}\right] -
       i \left[\begin{matrix}0 & 0\\0 & \gamma \end{matrix}\right]
@@ -132,7 +132,7 @@ We take an initial state of $\ket{0}$
 (or $\mqty[1\\0]$ in matrix form).
 
 We then compute, symbolically, the non-unitary evolution
-$\ket{\psi(t)} = e^{-i\mathcal{K}t}\ket{0}$
+$\ket{\psi(t)} = e^{-i\mathit{K}t}\ket{0}$
 with the aid of \term{SymPy} \parencite{comp:sympy} within a \term{Jupyter} \parencite{comp:jupyter} notebook
 (see Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner} for all the details of the calculation).
 
@@ -254,7 +254,7 @@ where $F$ is, again, the discrete Fourier operator of order $N$.
 Next we define the Wheeler--DeWitt operator $\mathbb{J}$ as in
 \eqref{eq:pwHamiltonian}, but $\hat{H}_S$ is replaced by the non-hermitian
 Hamiltonian of the detector model
-$\mathcal{K}_S = \hat{H}_S - \iu \hat{D}_S$
+$\mathit{K}_S = \hat{H}_S - \iu \hat{D}_S$
 \parencite{RuschhauptAbsorption},
 where the subscript $_S$ has been added to stress
 that they would act on the $\hilb{H}_S$ part
