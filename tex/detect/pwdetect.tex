@@ -266,7 +266,7 @@ of the Page--Wootters' $\pwspace$ ``spacetime'':
 We then compute eigenvalues and eigenvectors of $\mathbb{J}$.
 Eigenvectors associated to the eigenvalue $0$ will include
 the history of the qubit over a ``period''
-(of what would have been a periodic evolution without the absorptive detector).
+(of what would have been a periodic evolution, without the absorptive detector).
 
 Eigenvectors associated to non-zero eigenvalues will need a ``phase correction''
 as seen, for example, in \eqref{eq:comparison0} and \eqref{eq:comparison1}.
@@ -275,7 +275,21 @@ Or, in a more compact form:
   \dket{n}_{\text{hist.}} = e^{-\iu \epsilon_n \hat{T}} \ox \idop_S \dket{n}
   \,\text{,}
 \end{equation}
-where $\epsilon_n$ is an eigenalue of $\mathbb{J}$, and
-$\dket{n}$ its corresponding eigenvector.
+where $\epsilon_n$'s are eigenalues of $\mathbb{J}$ and
+$\dket{n}$'s their corresponding eigenvectors.
+
+Linear combination of histories $\sum_n \alpha_n \dket{n}_{\text{hist.}}$
+are also physical\footnote{
+  As opposed to mere (uncorrected) eigenstates of $\mathbb{J}$. One may observe,
+  at least in the case where $\mathbb{J}$ was hermitian,
+  that $\setof{\dket{n}}$ is a basis
+  of $\pwspace$ therefore
+  $\sum_n \alpha_n \dket{n}$ would be the \emph{general}
+  vector of $\pwspace$ and the theory would not predict anything i.e.
+  it would not discriminate between physical and unphysical histories.
+}
+and in fact we pick
+one that ensure that the initial state ${}_{T}\bradket{0}{\Psi} = \ket{0}_S$
+so to allow a comparison with the example in \cite{RuschhauptAbsorption}.
 
 
