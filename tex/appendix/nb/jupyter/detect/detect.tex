@@ -19,7 +19,18 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 
-matplotlib.rcParams['text.usetex'] = False
+matplotlib.rcParams['text.usetex'] = True
+#matplotlib.rcParams['text.latex.preamble'] = r'''
+#    \usepackage{DejaVuSans}
+#    \usepackage{xparse}
+#    \usepackage{amsmath}
+#    \usepackage{physics}
+#'''
+#matplotlib.rcParams['mathtext.fontset'] = 'dejavusans' 
+#matplotlib.rcParams['mathtext.default'] = 'sf'
+matplotlib.rcParams['figure.dpi'] = 140
+# matplotlib.rcParams['figure.figsize'] = (8,8/sqrt(2))
+matplotlib.rcParams['axes.labelsize'] = 16
 
 # https://matplotlib.org/gallery/mplot3d/lines3d.html?highlight=parametric
 # This import registers the 3D projection, but is otherwise unused.
@@ -110,9 +121,8 @@ non_unitary_psi(t)
 \end{lstlisting}
 
 \begin{equation}\label{eq:sympy:non-unitary-evol}
-    \left[\begin{matrix}\frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}\right)} - \frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}}{2 \left(\frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}\right)}\\\frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} - \frac{i t}{2} \sqrt{2}} - \frac{\sqrt{2}}{2} e^{- \frac{\sqrt{2} t}{2} + \frac{i t}{2} \sqrt{2}}\end{matrix}\right]
-\end{equation}    
-
+    \left[\begin{matrix}\frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2 \left(\frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}\right)} - \frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2 \left(\frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}\right)}\\\frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2} - \frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2}\end{matrix}\right]
+\end{equation}
 
 New period
 
@@ -125,31 +135,38 @@ New period
 Components are either pure real or pure imaginary:
 
 \begin{lstlisting}[language=Python]
-plot(re(non_unitary_psi(t)[0]), (t, 0, 10), line_color='r')
+plot(re(non_unitary_psi(t)[0]), (t, 0, 10),
+     line_color='r', xlabel=r'$t$', ylabel=r'$\mathrm{Re}\left\langle 0 | \psi \right\rangle $')
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_20_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_20_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbab0c5898>
+<sympy.plotting.plot.Plot at 0x7fe25ffc9898>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-plot(im(non_unitary_psi(t)[1]), (t, 0, 10), line_color='b')
+plot(im(non_unitary_psi(t)[1]), (t, 0, 10),
+     line_color='b', xlabel=r'$t$', ylabel=r'$\mathrm{Im}\left\langle 1 | \psi \right\rangle $')
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_21_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_21_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbaac550f0>
+<sympy.plotting.plot.Plot at 0x7fe25fec1780>
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+# verify that our manual simplification is correct
+#plot(-sqrt(2)*exp(-t*sqrt(2)/2)*sin(t*sqrt(2)/2), (t, 0, 10) )
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -157,6 +174,12 @@ def lossy_norm(_t):
     psi = B(2*sqrt(2))(_t) * Matrix([1,0])
     return (abs(psi[0]**2) + abs(psi[1]**2))
 \end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+lossy_norm(t)
+\end{lstlisting}
+
+\[\left|{\left(\frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2} - \frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2}\right)^{2}}\right| + \left|{\left(\frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2 \left(\frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}\right)} - \frac{\sqrt{2} i t e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2 \left(\frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}\right)}\right)^{2}}\right|\]
 
 \begin{lstlisting}[language=Python]
 non_unitary_psi_n = lambdify(t, non_unitary_psi(t), "numpy")
@@ -174,7 +197,7 @@ lossy_norm_n
 \end{lstlisting}
 
 \begin{lstlisting}
-<function __main__.lossy_norm_n>
+<function __main__.lossy_norm_n(__t)>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -187,7 +210,9 @@ T = np.linspace(1e-16, 2*np.pi, 2000)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-fig = plt.figure(figsize=(12,12))
+fig = plt.figure(figsize=(8,8))
+#fig = plt.figure()
+
 
 ax = fig.gca(projection='3d')
 ax.view_init(10,-45) # rotate 3d point of view
@@ -199,33 +224,34 @@ ax.plot(
 
 ##ax.legend()
 
-plt.xlabel('Re <0|\u03C8> (pure real)')
-plt.ylabel('Im <1|\u03C8> (pure imag)')
-ax.set_zlabel('t')
+plt.xlabel(r'$\mathrm{Re}\left\langle 0 | \psi \right\rangle$ (pure real)', labelpad=8)
+plt.ylabel(r'$\mathrm{Im}\left\langle 1 | \psi \right\rangle$ (pure imag)', labelpad=10)
+ax.set_zlabel(r'$t$')
 \end{lstlisting}
 
 \begin{lstlisting}
-Text(0.5, 0, 't')
+Text(0.5, 0, '$t$')
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_29_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_30_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
-plot(lossy_norm(t),(t, 0, 2*pi), line_color='g')
+plot(lossy_norm(t),(t, 0, 2*pi), line_color='g',
+     ylabel=r'$\left|\psi\right|^2$', xlabel=r'$t$')
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_30_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_31_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbaac4fbe0>
+<sympy.plotting.plot.Plot at 0x7fe25fe6a6a0>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -244,12 +270,12 @@ plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_33_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_34_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbaab14160>
+<sympy.plotting.plot.Plot at 0x7fe25fddca20>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -258,12 +284,12 @@ plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_34_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_35_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbaab8fd30>
+<sympy.plotting.plot.Plot at 0x7fe25fd87ac8>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -272,12 +298,12 @@ plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), li
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_35_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_36_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb2a02d30>
+<sympy.plotting.plot.Plot at 0x7fe25fd03128>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -286,12 +312,12 @@ plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), li
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_36_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_37_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0f04f60>
+<sympy.plotting.plot.Plot at 0x7fe25f98eeb8>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -300,12 +326,12 @@ plot(prob_0_detect(t) + prob_1_detect(t),(t, -0.25, 8*pi))
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_37_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_38_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb2ac52e8>
+<sympy.plotting.plot.Plot at 0x7fe261980c50>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -324,12 +350,12 @@ plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_40_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_41_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb4f3ad68>
+<sympy.plotting.plot.Plot at 0x7fe261a495c0>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -338,12 +364,12 @@ plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_41_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_42_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb2cb4400>
+<sympy.plotting.plot.Plot at 0x7fe25ff64710>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -361,17 +387,19 @@ Y = lossy_norm_n(X)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-plt.plot(X, -np.gradient(Y, X), 'b')
+plt.xlabel('$t$')
+plt.ylabel(r'$ - \mathrm{d}|\psi|^2 / \mathrm{d}t $')
+plt.plot(X, -np.gradient(Y, X), 'g')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbb0cdffd0>]
+[<matplotlib.lines.Line2D at 0x7fe25f7ddba8>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_45_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_46_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -379,7 +407,7 @@ plt.plot(X, -np.gradient(Y, X), 'b')
 def hatpsi(_t):
     return \
         Heaviside(_t) * \
-        2**(Rational(3, 4)) * \
+        2**(Rational(3,4)) * \
         Matrix([
             [0, 0],
             [0, 1]
@@ -395,6 +423,9 @@ def hatpsi_n(_t):
             [0, 1]
         ]) * \
         non_unitary_psi_n(_t)
+        
+        
+    
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -402,7 +433,7 @@ hatpsi(t)
 \end{lstlisting}
 
 \begin{equation}\label{eq:sympy:hatpsi}
-\left[\begin{matrix}0\\2^{\frac{3}{4}} \left(\frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2} - \frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2}\right) \theta\left(t\right)\end{matrix}\right]
+    \left[\begin{matrix}0\\2^{\frac{3}{4}} \left(\frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} - \frac{\sqrt{2} i t}{2}}}{2} - \frac{\sqrt{2} e^{- \frac{\sqrt{2} t}{2} + \frac{\sqrt{2} i t}{2}}}{2}\right) \theta\left(t\right)\end{matrix}\right]
 \end{equation}
 
 \begin{lstlisting}[language=Python]
@@ -420,31 +451,24 @@ hatpsisquarednorm(-1)
 \[0\]
 
 \begin{lstlisting}[language=Python]
-plot(hatpsisquarednorm(t), (t, -2, 2*pi), line_color='m')
+plot(hatpsisquarednorm(t), (t, -1, 2*pi), line_color='g',
+     ylabel=r'$ \left|\hspace{-.15em}\left|\hat{\psi}\right|\hspace{-.15em}\right|^2 $ =  $ - \mathrm{d}\left|\hspace{-0.15em}\left|\psi\right|\hspace{-0.15em}\right|^2 / \mathrm{d}t $',
+     xlabel=r'$t$'
+    )
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_49_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_51_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0df4588>
+<sympy.plotting.plot.Plot at 0x7fe25f7b05f8>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 8*pi))
-\end{lstlisting}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.66\linewidth]{output_50_0.png}
-\caption[]{png}
-\end{figure}
-
-\begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0c173c8>
+#plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 8*pi))
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -463,12 +487,12 @@ plot( abs(hatpsi(t)[1]**2), (t, -2, 2*pi), line_color='b')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_53_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_55_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0bbf6d8>
+<sympy.plotting.plot.Plot at 0x7fe25f7797f0>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -477,12 +501,10 @@ def fhatpsi1(_nu):
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-fhatpsi1(nu)
+simplify(fhatpsi1(nu))
 \end{lstlisting}
 
-\begin{equation}\label{eq:fhatpsi1_nu}
-- \frac{2^{\frac{3}{4}} i}{- 4 \pi^{2} \nu^{2} + 2 \sqrt{2} i \pi \nu + 1}
-\end{equation}
+\[- \frac{2^{\frac{3}{4}} i}{- 4 \pi^{2} \nu^{2} + 2 \sqrt{2} i \pi \nu + 1}\]
 
 \begin{lstlisting}[language=Python]
 plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
@@ -490,12 +512,12 @@ plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_56_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_58_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0a273c8>
+<sympy.plotting.plot.Plot at 0x7fe25f63ac18>
 \end{lstlisting}
 
 The above Fourier transform is defined in frequency ($\nu$) not angular
@@ -507,7 +529,7 @@ def fhatpsiomega(_omega):
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-    fhatpsiomega(omega)
+fhatpsiomega(omega)
 \end{lstlisting}
 
 \begin{equation}\label{eq:fhatpsi1_omega}
@@ -515,25 +537,30 @@ def fhatpsiomega(_omega):
 \end{equation}
 
 \begin{lstlisting}[language=Python]
-    abs(fhatpsiomega(omega))**2
+abs(fhatpsiomega(omega))**2
 \end{lstlisting}
 
-\begin{equation}\label{eq:fhatpsi1_omega_sqabs}
-    - \frac{\sqrt{2}}{\pi \left(- \omega^{4} - 1\right)}
-\end{equation}
+\[- \frac{\sqrt{2}}{\pi \left(- \omega^{4} - 1\right)}\]
 
 \begin{lstlisting}[language=Python]
-plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
+integrate(abs(fhatpsiomega(omega))**2, (omega, -oo, +oo))
+\end{lstlisting}
+
+\[1\]
+
+\begin{lstlisting}[language=Python]
+plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta', 
+     xlabel=r'$\omega$', ylabel=r'$P(\omega)$')
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_59_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_64_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb0a82fd0>
+<sympy.plotting.plot.Plot at 0x7fe25dad3860>
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -544,12 +571,12 @@ plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_60_0.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_65_0.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}
-<sympy.plotting.plot.Plot at 0x7fbbb08c62b0>
+<sympy.plotting.plot.Plot at 0x7fe25dae10f0>
 \end{lstlisting}
 
 \hypertarget{discrete-page-wootters-model}{%
@@ -633,10 +660,11 @@ eigenvalues, eigenvectors = np.linalg.eig(J)
 \begin{lstlisting}[language=Python]
 EnergyCorrectionMatrices = np.zeros((64, 64, 64), np.complex)
 for n in range(64):
-    EnergyCorrectionMatrices[n] = np.kron(
-        expm(-1j*eigenvalues[n]*T),
-        np.eye(2)
-    )
+    #EnergyCorrectionMatrices[n] = np.kron(
+    #    expm(-1j*eigenvalues[n]*T),
+    #    np.eye(2)
+    #)
+    EnergyCorrectionMatrices[n] = expm(-1j*eigenvalues[n]*np.kron(T, np.eye(2)))
 # TODO: DRY
 EnergyCorrectionMatricesT = np.zeros((64, 32, 32), np.complex)
 for n in range(64):
@@ -726,17 +754,49 @@ for i in range(0, 32):
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-plt.plot(times, norms/norms[0], 'g^')
+plt.ylabel(r'$\mathrm{Re}{\;}_{T}\hspace{-.2em}\left\langle t | {}_{S}\hspace{-.2em}\left\langle 0 | \Psi \right\rangle\hspace{-.17em}\right\rangle $')
+plt.xlabel(r'$t$')
+plt.plot(times, real_parts0/norms[0], 'rs')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbab099710>]
+[<matplotlib.lines.Line2D at 0x7fe25d36e438>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_82_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_87_1.png}
+\caption{png}
+\end{figure}
+
+\begin{lstlisting}[language=Python]
+plt.ylabel(r'$\mathrm{Im}{\;}_{T}\hspace{-.2em}\left\langle t | {}_{S}\hspace{-.2em}\left\langle 1 | \Psi \right\rangle\hspace{-.17em}\right\rangle $')
+plt.xlabel(r'$t$')
+plt.plot(times, imag_parts1/norms[0], 'bs')
+\end{lstlisting}
+
+\begin{lstlisting}
+[<matplotlib.lines.Line2D at 0x7fe25d27da90>]
+\end{lstlisting}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{output_88_1.png}
+\caption{png}
+\end{figure}
+
+\begin{lstlisting}[language=Python]
+plt.plot(times, norms/norms[0], 'g^')
+\end{lstlisting}
+
+\begin{lstlisting}
+[<matplotlib.lines.Line2D at 0x7ff538fd94e0>]
+\end{lstlisting}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.6\linewidth]{output_89_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -744,13 +804,13 @@ plt.plot(times, probs0, 'rs')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbab078198>]
+[<matplotlib.lines.Line2D at 0x7ff538f341d0>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_83_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_90_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -758,17 +818,17 @@ plt.plot(times, probs1, 'bs')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbaa9f7e48>]
+[<matplotlib.lines.Line2D at 0x7ff538f05f60>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_84_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_91_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
-fig = plt.figure(figsize=(12,12))
+fig = plt.figure(figsize=(7,7))
 
 #ax = fig.gca(projection='3d')
 ax = fig.add_subplot(111, projection='3d')
@@ -780,8 +840,8 @@ ax.scatter(
 
 ##ax.legend()
 
-plt.xlabel('Re <0|\u03C8> (pure real)')
-plt.ylabel('Im <1|\u03C8> (pure imag)')
+plt.xlabel(r'$\mathrm{Re}\left\langle 0 | \psi \right\rangle$ (pure real)')
+plt.ylabel(r'$\mathrm{Im}\left\langle 1 | \psi \right\rangle$ (pure imag)')
 ax.set_zlabel('t')
 \end{lstlisting}
 
@@ -791,8 +851,8 @@ Text(0.5, 0, 't')
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_85_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_92_1.png}
+\caption{png}
 \end{figure}
 
 \hypertarget{detection-event}{%
@@ -843,13 +903,13 @@ plt.plot(times, prob_detect * 16 / np.pi, 'bs')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbaadcbb00>]
+[<matplotlib.lines.Line2D at 0x7ff538e5b550>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_92_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_99_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -874,13 +934,13 @@ plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'y^')
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7fbbaaf32e80>]
+[<matplotlib.lines.Line2D at 0x7ff538db5ac8>]
 \end{lstlisting}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.66\linewidth]{output_95_1.png}
-\caption[]{png}
+\includegraphics[width=0.6\linewidth]{output_102_1.png}
+\caption{png}
 \end{figure}
 
 \begin{lstlisting}[language=Python]

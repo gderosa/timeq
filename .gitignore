@@ -2,5 +2,8 @@
 comp/qubiter/io_folder/
 .ipynb_checkpoints/
 
+# Editors
+*.swp
+
 # MacOS
 .DS_Store

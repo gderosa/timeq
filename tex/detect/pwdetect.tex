@@ -220,7 +220,7 @@ where it's
 \begin{equation}
   \mathcal{F} \hat{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
 \end{equation}
----see notebook up to \eqref{eq:fhatpsi1_omega} for details.
+---see notebook up to eq. \eqref{eq:fhatpsi1_omega} for details.
 
 Taking the squared modulus, a probability distribution over angular frequency
 (or, equivalently, energy) is obtained:
@@ -299,4 +299,22 @@ We perform the above numerically with \emph{NumPy} \parencite{comp:numpy},
 particularly in
 \S \ref{discrete-page-wootters-model}.
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.49\textwidth]{img/2ldetect/re_psi0_t_pwlattice.png}
+  \includegraphics[width=0.49\textwidth]{img/2ldetect/im_psi1_t_pwlattice.png}
+  \caption{
+    Non-unitary ``evolution without evolution''
+    using the discrete Page--Wootters model,
+    plugging in
+    the complex potential of \cite{RuschhauptAbsorption}.
+    The result is compatible with the continuous
+    ``Schr\"odinger evolution''
+    shown in Fig. \ref{fig:absorbed-qubit-components}.
+    Note the different notation e.g.
+    $\mathrm{Re}{\;}_{T}\hspace{-.2em}\left\langle t | {}_{S}\hspace{-.2em}\left\langle 0 | \Psi \right\rangle\hspace{-.17em}\right\rangle$
+    to fit within the framework of the P--W space-time $\pwspace$.
+  }
+  \label{fig:absorbed-qubit-components_pwlattice}
+\end{figure}
 
