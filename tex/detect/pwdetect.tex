@@ -50,7 +50,7 @@ corresponds to the \emph{decrease} in norm of the wavefunction.
 
 Therefore we expect the following relation to be true:
 \begin{equation}\label{eq:pwkiukas}
-  \abs{\phi(t)}^2 = -\dv{t}\norm{\psi_{\text{Kiukas}}(t)}^2 \text{,}
+  \braket{\phi(t)} = -\dv{t}\norm{\psi_{\text{Kiukas}}(t)}^2 \text{,}
 \end{equation}
 both sides of which indicate probability of arrival at time $t$.
 Here the function $\phi$ of time $t$ has to be intended in the sense of
@@ -70,15 +70,15 @@ It reads:
   $\hat{\psi}$ is a wave function in a time representation. For each
   $t$, $\hat{\psi}(t)$ lies in the original Hilbert space $H$.
 \end{quote}
-Therefore we ``translate'' $\hat{\psi}(t)$ into $\phi(t)\ket{\psi(t)}_S$
-and, consequently, $\abs{\hat{\psi}(t)}^2$ into $\abs{\phi(t)}^2$,
+Therefore we ``translate'' $\hat{\psi}(t)$ into $\ket{\phi(t)}_S$
+and, consequently, $\abs{\hat{\psi}(t)}^2$ into $\braket{\phi(t)}$,
 in the language of the Page--Wootters model and within the notation
 adopted.
 
 Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
 \begin{equation}\label{eq:phi_psi_kiukas}
   \hat{\psi}(t) \eqbydef
-  \phi(t)\ket{\psi(t)} =
+  \ket{\phi(t)}_S =
   \begin{cases}
     \sqrt{\frac{2}{\hbar}} \hat{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
     0 &\text{ otherwise. }
@@ -204,7 +204,7 @@ i.e. it's a multiple of $\ket{1}$ in this case.
 
 The corresponding Page--Wootters (proper) vector of $\pwspace$ is
 \begin{equation}\label{eq:hatpsi:pw}
-  \Dket{\hat{\Phi}} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
+  \dket{\Phi} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
 \end{equation}
 to which the considerations of \S\ref{sec:for-normalized-elements}
 and \S\ref{sec:pure-state-approach} in terms of time--frequency
@@ -214,7 +214,7 @@ in relation to $\hat{\psi}$ and its Fourier transform.
 
 In that regard, the \eqref{eq:hatpsi:pw} can be reformulated
 \begin{equation}
-  \Dket{\hat{\Phi}} = \int \dd{\omega} \ket{\omega} \ox \mathcal{F} \hat{\psi} (\omega) \,\text{,}
+  \dket{\Phi} = \int \dd{\omega} \ket{\omega} \ox \mathcal{F} \hat{\psi} (\omega) \,\text{,}
 \end{equation}
 where it's
 \begin{equation}
@@ -270,7 +270,8 @@ Eigenvectors associated to the eigenvalue $0$ will include
 the history of the qubit over a ``period''
 (of what would have been a periodic evolution, without the absorptive detector).
 
-Eigenvectors associated to non-zero eigenvalues will need a ``phase correction''
+Eigenvectors associated to non-zero eigenvalues will need a ``phase correction'',
+or energy shift\footnote{ Again, see also ref. \cite[``The zero eigenvalue'']{Lloyd:Time}. }
 as seen, for example, in \eqref{eq:comparison0} and \eqref{eq:comparison1}.
 Or, in a more compact form:
 \begin{equation}
@@ -300,7 +301,7 @@ particularly in
 \S \ref{discrete-page-wootters-model}.
 The results are visualized in
 Fig. \ref{fig:absorbed-qubit-components_pwlattice},
-and are comparable to the non-Page--Wootters
+and are compatible with the non-Page--Wootters
 solution previously shown in Fig. \ref{fig:absorbed-qubit-components}.
 
 \begin{figure}
