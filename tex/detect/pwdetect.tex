@@ -168,12 +168,18 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.49\textwidth]{img/2ldetect/qubit_normalization_loss.png}
-  \includegraphics[width=0.49\textwidth]{img/2ldetect/P_omega.png}
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{img/2ldetect/qubit_normalization_loss.png}
+    \caption{}\label{fig:absorbed-qubit-normalization-loss:a}
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\linewidth]{img/2ldetect/P_omega.png}
+    \caption{}\label{fig:absorbed-qubit-normalization-loss:b}
+  \end{subfigure}
   \caption{
-    Non-unitary evolution of absorbed qubit.
-    \emph{Left}: loss of normalization $-\dv{\norm{\psi}^2}{t}$ (detection probability in time).
-    \emph{Right}: detection probability in the frequency domain.
+    Non-unitary evolution of absorbed qubit:
+    (a) loss of normalization $-\dv{\norm{\psi}^2}{t}$ (detection probability in time);
+    (b) detection probability in the frequency domain.
   }
   \label{fig:absorbed-qubit-normalization-loss}
 \end{figure}
