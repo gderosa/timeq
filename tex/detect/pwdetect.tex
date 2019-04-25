@@ -210,7 +210,7 @@ simplifying which we obtain:
 with $\theta(t)$ the Heaviside step function.
 
 In general, the operator $\hat{D}$ as in \eqref{eq:schrod_complex_pot}
-is such that the eigenspace corresponding to its eigenvalue $0$
+is such that the eigenspace corresponding to its zero eigenvalue
 is the ``area'' where the detector is not sensitive. Or, in other words,
 the linear span of states with zero probability of triggering the detector.
 Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
@@ -312,9 +312,17 @@ are also physically possible\footnote{
 and in fact we pick
 one that ensure that the initial state ${}_{T}\bradket{0}{\Psi}$ is equal to $\ket{0}_S$
 so to allow a comparison with the example in \cite{RuschhauptAbsorption}.
+Such linear combination is not unique. For reasons of numerical stability,
+a linear combination with coefficients in the order of 1 would be ideal if it exists.
+In this particular problem, it does.
+We simply scan, as a first attempt, all possible values ${}_{T}\bradket{0}{n} + {}_{T}\bradket{0}{m}$
+to find a combination that is equal to $\ket{0}_S$
+-- or maximizes the fidelity with that respect.\footnote{
+  See the definition, and invocation, of the function \texttt{find_best()} in appendix \S \ref{discrete-page-wootters-model}.
+}
 
-We perform the above numerically with \emph{NumPy} \parencite{comp:numpy},
-particularly in
+All the above numerical computation is implemented with \emph{NumPy} \parencite{comp:numpy},
+particularly in appendix
 \S \ref{discrete-page-wootters-model}.
 The results are visualized in
 Fig. \ref{fig:absorbed-qubit-components_pwlattice},
