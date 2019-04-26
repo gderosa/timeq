@@ -365,5 +365,29 @@ is introduced in eq. (8) therein:\footnote{
   where the ``hat'' ($\hat{\;}$) denotes quantum observables and their corresponding operators.
 }
 \begin{equation}
-  \hat{\psi} = \sqrt{2/\hbar}\,\hat{D}^{1/2}\,\psi
+  \hat{\psi} = \theta(t) \sqrt{2/\hbar}\,\hat{D}^{1/2}\,\psi
 \end{equation}
+In Page--Wooters terms, this translates into applying
+$\theta(\hat{T}) \ox \sqrt{2/\hbar}\,\hat{D}^{1/2}_S$
+to the each history vector $\dket{n}_{\text{hist.}}$
+(and their linear combinations).
+The result is a detection-event \emph{proper} element of ${\pwspace}$
+(that would be normalizable in a continuous infinite time model too):
+\begin{equation}\label{eq:qubit_detection_wavefunction}
+  \dket{\Phi_n} =
+    \theta(\hat{T}) \ox \sqrt{2/\hbar}\,\hat{D}^{1/2}_S \dket{n}_{\text{hist.}} =
+    \theta(\hat{T}) e^{-i\epsilon_{n}\hat{T}} \ox \sqrt{2\hat{D}} \dket{n} \, \text{.}
+\end{equation}
+Given we are considering, in our discrete model, only an interval of time within $0$ and $2\pi$,
+i.e. all non-negative times (or, more physically, only times when the detector is active),
+the Heaviside function $\theta$ (of operator) can be omitted, and simply replaced
+by the identity in time $\idop_T$.
+
+Of course, for our problem, we take a linear combination
+\begin{equation}
+  \dket{\Phi} = \sum_n \alpha_n \dket{\Phi_n}
+\end{equation}
+where the coefficients $\alpha_n$ are the same that verified
+(not necessarily uniquely)
+the initial condition of the problem
+${}_T\bradket{0}{\Psi} = \sum_n \alpha_n \, {}_T\bradket{0}{n} = \ket{0}_S$.
