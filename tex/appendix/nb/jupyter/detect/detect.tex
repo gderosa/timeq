@@ -874,17 +874,19 @@ sqr2D = sqr2D.astype(np.complex)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-#prob_detect_v = np.kron(np.eye(32), sqr2D) @ qbhistvec
-#
-# More direct route, without going through histories
 i, j = find_best()
+\end{lstlisting}
+\begin{lstlisting}
+    1 21 1.0
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
 prob_detect_v = \
     (np.kron(EnergyCorrectionMatricesT[i], sqr2D) @ eigenvectors.T[i]) + \
     (np.kron(EnergyCorrectionMatricesT[j], sqr2D) @ eigenvectors.T[j])
 
 # normalize
 prob_detect_v = prob_detect_v / norm(prob_detect_v)
-
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -925,9 +927,31 @@ prob_detect_v
     0.00000000e+00+0.00000000e+00j,  5.59465932e-16-1.30751439e-02j])
 \end{lstlisting}
 
-\begin{lstlisting}
-1 21 1.0
+\begin{lstlisting}[language=Python]
+imag_prob_ampl_detect = np.imag( prob_detect_v.reshape(-1, 2).transpose()[1] )
 \end{lstlisting}
+
+We compare the detection probability amplitude (component along $\ket{1}$, imaginary part)
+with the same component of the evolution.
+In other words, we compare a probability amplitude over time with
+a probability amplitude over space (i.e. being $\ket{1}$ rather than $\ket{0}$).
+
+\begin{lstlisting}[language=Python]
+imag_parts1 / imag_prob_ampl_detect
+\end{lstlisting}
+\begin{lstlisting}[basicstyle=\tiny\ttfamily]
+array([-1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
+    -1.34148089, -1.34148089])
+\end{lstlisting}
+which shows that the two vectors are essentially the same,
+up to a renormalization and change of sign.
+Of course, probability over time and over space require a different normalization.
+The two would be conceptually uncomparable, but an explaination is in \cite[eq. 6]{Maccone:QMOT}.
 
 \begin{lstlisting}[language=Python]
 prob_detect = np.zeros(32)
