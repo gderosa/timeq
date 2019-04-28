@@ -180,7 +180,9 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
   \caption{
     Non-unitary evolution of absorbed qubit.
     \subref{fig:absorbed-qubit-normalization-loss:t}
-      Loss of normalization $-\dv{\norm{\psi}^2}{t}$ (detection probability in time).
+      Detection probability in time. It's equal to the
+      loss of normalization $-\dv{\norm{\psi}^2}{t}$
+      (but also to the squared norm of $\hat{\psi}(t)$ as of eq. \eqref{eq:analytic:hatpsi}.
     \subref{fig:absorbed-qubit-normalization-loss:omega}
       Detection probability in the frequency domain.
   }
@@ -447,3 +449,14 @@ Whereas the expression on the left must be normalized so that
 $\sum_t \norm{ {}_T\!\bradket{t}{\Phi} }_S^2 = P$,
 where $P$ is the total probability that the detection/absorption happens at any time,
 and it's equal to $1$ for an ideal detection.
+
+The probability of detection in time, i.e.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{img/2ldetect/pw-detect-prob.png}
+  \caption{
+    Time of arrival at the detector, probability distribution $\bradket{t}{\Phi}$.
+  }
+  \label{fig:2l_pw_detect_prob}
+\end{figure}
