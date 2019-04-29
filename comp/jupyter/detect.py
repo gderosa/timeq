@@ -591,6 +591,8 @@ for o in range(32):
         np.abs(detect_fft[2*o + 1])**2
 
 # %%
+plt.xlabel(r'$\omega$')
+plt.ylabel(r'$|\!|\langle \omega | \Phi \rangle\!\rangle|\!|_{S}^2$')
 # Arrays are "rolled" because the second half
 # of the spectrum is identified with
 # negative frequencies.

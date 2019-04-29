@@ -464,11 +464,38 @@ the contuinuous and not explicitly Page--Wooters model of
   \label{fig:2l_pw_detect_prob}
 \end{figure}
 
-Switching to the frequency (and, therefore, energy) domain,
+Switching to the frequency (and, therefore, \emph{energy}) domain,
 the discrete Fourier transform yields another proper vector
 $\Dket{\tilde{\Phi}}$ of $\pwspace$:
 \begin{equation}
-  \Dket{\tilde{\Phi}} = F \ox \idop_s \dket{\Psi} \, \text{.}
+  \Dket{\tilde{\Phi}} = F \ox \idop_s \dket{\Phi} \, \text{.}
 \end{equation}
-This vector's numerical components give the probability amplitude
-relative to eigenstates of the frequency operator $\hat{\Omega}$
+This vector numerical values, taken pairwise
+(or by groups of 3 for a qutrit etc.)
+are the components in the computational basis
+of the kets $\ket{\tilde{\phi}(\omega)} \in \hilb{H}_S$
+such that
+\begin{equation}
+  \dket{\Phi} = \sum_n \ket{t}\bradket{t}{\Phi} = \sum_{\omega} \ket{\omega}\bradket{\omega}{\Phi}
+    = \sum_{\omega} \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{.}
+\end{equation}
+
+As a numerical array, $\Dket{\tilde{\Phi}}$ is the representation of $\Dket{\Phi}$
+under the basis $\ket{\omega} \ox \ket{0,1}$ instead of $\ket{t} \ox \ket{0,1}$,
+where the $\ket{\omega}$ constitute an eigenbasis of angular frequency $\hat{\Omega}$.
+
+The squared norms $\braket{\tilde{\phi}(\omega)}_{\!S} = \norm{\braDket{\omega}{\Phi}}_S^2$
+give the probability of detection in the frequency domain, which is plotted in
+Fig. \ref{fig:2l_pw_detect_prob_ft} and, again, consistent
+with Fig. \ref{fig:absorbed-qubit-normalization-loss:omega} i.e.
+the result from the model of \cite{RuschhauptAbsorption}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{img/2ldetect/pw-detect-prob-ft.png}
+  \caption{
+    Arrival at the detector, probability distribution in the frequency domain.
+  }
+  \label{fig:2l_pw_detect_prob_ft}
+\end{figure}
+
