@@ -450,19 +450,10 @@ $\sum_t \norm{ {}_T\!\bradket{t}{\Phi} }_S^2 = P$,
 where $P$ is the total probability that the detection/absorption happens at any time,
 and it's equal to $1$ for an ideal detection.
 
-The probability of detection in time is shown in Fig. \ref{fig:2l_pw_detect_prob}
+The probability of detection in time is shown in Fig. \ref{fig:2l_pw_detect_prob_t}
 and is \emph{consistent} with the result of
 the contuinuous and not explicitly Page--Wooters model of
 \cite{RuschhauptAbsorption} (see Fig. \ref{fig:absorbed-qubit-normalization-loss:t}).
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\linewidth]{img/2ldetect/pw-detect-prob.png}
-  \caption{
-    Time of arrival at the detector, probability distribution $\norm{\braDket{t}{\Phi}}_S^2$.
-  }
-  \label{fig:2l_pw_detect_prob}
-\end{figure}
 
 Switching to the frequency (and, therefore, \emph{energy}) domain,
 the discrete Fourier transform yields another proper vector
@@ -486,7 +477,7 @@ where the $\ket{\omega}$ constitute an eigenbasis of angular frequency $\hat{\Om
 
 The squared norms $\braket{\tilde{\phi}(\omega)}_{\!S} = \norm{\braDket{\omega}{\Phi}}_S^2$
 give the probability of detection in the frequency domain, which is plotted in
-Fig. \ref{fig:2l_pw_detect_prob_ft} and, again, consistent
+Fig. \ref{fig:2l_pw_detect_prob_omega} and, again, consistent
 with Fig. \ref{fig:absorbed-qubit-normalization-loss:omega} i.e.
 the result from the model of \cite{RuschhauptAbsorption}.
 
@@ -510,9 +501,9 @@ the result from the model of \cite{RuschhauptAbsorption}.
     \subcaption{}\label{fig:2l_pw_detect_prob_omega}
   \end{subfigure}
   \caption{
-    Arrival at the detector, probability distribution.
-    \subref{fig:2l_pw_detect_prob_omega}.
-    \subref{fig:2l_pw_detect_prob_t}.
+    Arrival at the detector, probability distribution:
+    \subref{fig:2l_pw_detect_prob_t} in the time domain
+    and \subref{fig:2l_pw_detect_prob_omega} in the frequency domain.
   }
   \label{fig:2l_pw_detect_prob}
 \end{figure}
