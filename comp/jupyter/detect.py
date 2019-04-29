@@ -17,8 +17,6 @@
 # ## Detector model: Kiukas / Ruschhaupt / Schmidt / Werner
 
 # %%
-# EDIT
-
 from sympy import *
 #from sympy.physics.matrices import mdft
 from sympy.physics.quantum import TensorProduct
@@ -348,13 +346,14 @@ abs(fhatpsiomega(omega))**2
 integrate(abs(fhatpsiomega(omega))**2, (omega, -oo, +oo))
 
 # %%
-plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta',
+plot(abs(fhatpsiomega(omega))**2, (omega, -16, 16), line_color='magenta',
      xlabel=r'$\omega$', ylabel=r'$P(\omega)$')
 
 # %%
 # graphical comparison with a normalized gaussian
 sigma = 1.0
-plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi), line_color='magenta')
+plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi), 
+     line_color='magenta', adaptive=False)
 
 # %% [markdown]
 # ## (Discrete) Page-Wootters model
@@ -382,6 +381,9 @@ oeigenvalues, oeigenvectors = np.linalg.eig(Omega)
 
 # %%
 np.round(oeigenvalues)
+
+# %%
+oeigenvectors[15]
 
 # %%
 H = np.array([
@@ -584,22 +586,24 @@ plt.ylabel(r'$|\!|\langle t | \Phi \rangle\!\rangle|\!|_{S}^2$')
 plt.plot(times, prob_detect * 16 / np.pi, 'gs')
 
 # %%
-detect_fft = \
-    np.kron(F, np.eye(2)) @ prob_detect_v
-detect_fft = detect_fft / norm(detect_fft)
+detect_fft = np.kron(F, np.eye(2)) @ prob_detect_v
+
+# %%
+# unitary Frourier op.
+norm(detect_fft)
 
 # %%
 prob_detect_fft = np.zeros(32)
 for o in range(32):
     prob_detect_fft[o] = \
-        np.abs(detect_fft[2*o]**2) + \
-        np.abs(detect_fft[2*o + 1]**2)
+        np.abs(detect_fft[2*o])**2 + \
+        np.abs(detect_fft[2*o + 1])**2
 
 # %%
 # Arrays are "rolled" because the second half
 # of the spectrum is identified with
 # negative frequencies.
-plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'y^')
+plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'm^')
 
 # %%
 S_t = stats.entropy(prob_detect)
