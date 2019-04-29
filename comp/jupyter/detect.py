@@ -377,15 +377,6 @@ F_dagger = F.conj().T
 Omega = F @ T @ F_dagger * 16 / np.pi
 
 # %%
-oeigenvalues, oeigenvectors = np.linalg.eig(Omega)
-
-# %%
-np.round(oeigenvalues)
-
-# %%
-oeigenvectors[15]
-
-# %%
 H = np.array([
     [0, 1],
     [1, 0]
