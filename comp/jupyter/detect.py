@@ -611,16 +611,16 @@ S_t
 S_omega
 
 # %%
-S_t * S_omega
+S_t + S_omega
 
 # %%
 np.log(32)
 
 # %%
-(S_t * S_omega - np.log(32)) / np.log(32)
+(S_t + S_omega - np.log(32)) / np.log(32)
 
 # %% [markdown]
-# Only 1.8% more than the minumum per entropic uncertainty relation.
+# 14% more than the minumum per entropic uncertainty relation.
 
 # %% [markdown]
 # ### Use Scipy routines to compute sigmas
