@@ -37,19 +37,21 @@
 \newcommand{\eqbydef}{\triangleq}
 \newcommand{\superop}{\mathcal}
 
-\newcommand{\smallback}{\hspace{-0.115em}}
-\newcommand{\largeback}{\hspace{-0.365em}}
-
-\newcommand{\dket}[1]{\left.\left| #1 \right\rangle\smallback\right\rangle}
-\newcommand{\Dket}[1]{\left.\left| #1 \right\rangle\largeback\right\rangle}
-% and similar...
-\newcommand{\dbra}[1]{\left\langle\smallback\left\langle #1 \right|\right.}
-\newcommand{\dbraket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\right.}
-\newcommand{\bradket}[2]{\left.\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
-\newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
-\newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
+\newcommand{\dket}[1]{\left.\left| #1 \right\rangle\right\rangle}
+\newcommand{\Dket}[1]{\left.\left| #1 \right\rangle\!\right\rangle}
+\newcommand{\dbra}[1]{\left\langle\left\langle #1 \right|\right.}
+\newcommand{\Dbra}[1]{\left\langle\!\left\langle #1 \right|\right.}
+\newcommand{\dbraket}[2]{\left\langle\left\langle #1 \middle| #2 \right\rangle\right.\!}
+\newcommand{\bradket}[2]{\!\left.\left\langle #1 \middle| #2 \right\rangle\right\rangle}
+\newcommand{\braDket}[2]{\!\left.\left\langle #1 \middle| #2 \right\rangle\!\right\rangle}
+\newcommand{\dbradket}[2]{\left\langle\left\langle #1 \middle| #2 \right\rangle\right\rangle}
+\newcommand{\dketdbra}[2]{\dket{#1}\dbra{#2}}
 
 \newcommand{\pwspace}{\hilb{H}_T \ox \hilb{H}_S}
 
 \NewEnviron{eqsplit}{\begin{equation}\begin{split}\BODY\end{split}\end{equation}}
 \NewEnviron{eqsplit*}{\begin{equation*}\begin{split}\BODY\end{split}\end{equation*}}
+
+% Imaginary unit (not used much this way here though)
+% https://tex.stackexchange.com/a/303698
+\newcommand{\iu}{\mathrm{i}\mkern1mu}

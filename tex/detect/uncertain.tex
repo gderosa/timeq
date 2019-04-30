@@ -1,0 +1,177 @@
+\section{Uncertainty}
+
+\subsection*{For unitary evolutions}
+
+In a continuous-time Page--Wootters universe,
+one may observe that,
+in $\hilb{H}_T$ and in the time representation,
+it is $E \eqbydef -\hbar\hat{\Omega} \repr i\hbar\partial_{t}$,
+in analogy with $\hat{p} \repr -i\hbar\partial_{q}$ in $\hilb{H}_S$,
+therefore a time-energy uncertainty relation can be derived
+with a proof that is formally identical to the well known
+position-momentum uncertainty relation.
+
+However, unitary evolution means that a particle exists with
+certainty at all times, i.e. the packet
+is infinitely spread in time.
+%
+As a function of $t$, $\ket{\psi(t)}_S$ will have a Fourier transform
+$\ket{\tilde{\psi}(\omega)}$
+so that it will also be
+\begin{equation}\label{eq:pwfourier}
+  \dket{\Psi} = \int \dd \omega \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
+\end{equation}
+where $\ket{\tilde{\psi}(\omega)}_S$ is not necessarily normalized for each $\omega$
+(and actually it's zero if $\hbar\omega$ does not belong to the energy spectrum of the system).
+An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
+of an energy eigenstate $\ket{\epsilon}_S$: in such case
+$\ket{\tilde{\psi}(\omega)}_S = \delta(\omega - \frac{\epsilon}{\hbar})\ket{\epsilon}_S$
+and it is $\sigma_{T} = \infty$ and $\sigma_{\Omega} = 0$.
+
+All other cases of unitary evolution correspond to $\sigma_{T}$
+sill being infinite, but $\sigma_{\Omega}$ being finite, therefore
+$\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
+any possible uncertainty relation would be valid, and $\dket{\Psi}$
+is certainly \emph{not} a minimum uncertainty state\dots 
+
+\subsection*{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
+
+A normalized element of $\hilb{H}_T \ox \hilb{H}_T$ allows in principle for a finite value
+of the uncertainty $\sigma_{T}\sigma_{\Omega}$.
+
+Still, it is not generally
+a separable state,
+and thus
+the problem of time and energy relation cannot be reduced to that of
+a pure state in $\hilb{H}_T$.
+It is in general an entangled state in the product space.
+Thus the spatial degrees of freedom should be \emph{traced out},
+before deriving a time-energy relation.
+
+With a slight change of notation we express:
+\begin{equation}
+  \dket{\Phi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
+\end{equation}
+with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform
+of $\ket{\phi(t)}_S$,
+neither kets being necessarily normalized, which is by the way necessary
+to satisfy the normalization in time (frequency)
+\[
+  \int \dd{t} \braket{\phi(t)}_S =
+    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
+    \dbradket{\Phi}{\Phi}_{T \ox S} = 
+    1
+\]
+while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+orthonormal.
+
+Next we use \eqref{eq:density_A_expand}: replace the discrete sum with an integral,
+set $i = \mu$ as this is a Schmidt decomposition, and then $j = t$
+(or $j = \omega$ respectively).
+The reduced density operator can so be computed
+as partial trace:
+\begin{align}
+  \label{eq:ptrace_density_matrix_t}
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+    \, \text{,}
+  \\
+  \label{eq:ptrace_density_matrix_omega}
+  \hat{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+    \,\text{.} 
+\end{align}
+Here the probabilty distributions $\norm{\phi}^2$ and $\norm{\tilde{\phi}}^2$
+are ``classical'' in the sense of a mixed state.
+
+The relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
+can then be derived from the properties of the Fourier transform.\footnote{
+  Fourier transform of a
+  vector-valued function
+  (vectors in $\hilb{H}_S$),
+  similar to what found in \cite{Maccone:Pauli}.
+}
+
+A packet in $\pwspace$ that is localized in space \emph{and in time} can be interpreted as an \emph{event}.
+
+As opposed to a localized event, an energy eigenstate is infinitely spread in time,
+and infinitely concentrated in energy (or frequency).
+
+\subsection*{Pure-state approach (in the product space)}\label{sec:pure-state-approach}
+
+Another approach considers $\dket{\Phi}$ as a pure state of $\pwspace$
+and the operators $\hat{T} \ox \idop_{S}$ and $\hbar\hat{\Omega} \ox \idop_{S}$
+defined therein.
+
+The same considerations above still hold, in terms of ``infinite history'' versus
+time-localized, proper elements of $\pwspace$. 
+
+We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
+\begin{multline}
+  \sigma_T \sigma_E \eqbydef
+  \sigma_{T \ox \idop_S} \sigma_{\hbar\Omega \ox \idop_S} \geq
+  \frac{1}{2} \abs{\expval{\comm
+    {\hat{T}\ox\idop_S} {\hbar\hat{\Omega}\ox\idop_S}
+  }} =
+  \\
+  {\scriptstyle
+    \frac{1}{2} \abs{\expval{
+      \qty(\hat{T}\ox\idop_S) \qty(\hbar\hat{\Omega}\ox\idop_S) -
+      \qty(\hbar\hat{\Omega}\ox\idop_S) \qty(\hat{T}\ox\idop_S)
+    }}
+  } =
+  \frac{\hbar}{2} \abs{\expval{
+    \hat{T}\hat{\Omega}\ox\idop_S - \hat{\Omega}\hat{T}\ox\idop_S
+  }} =
+  \frac{\hbar}{2} \abs{\expval{
+    \comm{\hat{T}}{\hat{\Omega}}_T \ox \idop_S
+  }} =
+  \\
+  \frac{\hbar}{2} \abs{\expval{\comm
+    {\hat{T}}{\hat{\Omega}}
+  }_T} =
+  \frac{\hbar}{2}
+  \,\text{.}
+\end{multline}
+
+\subsection*{Concluding remarks}
+
+We have shown that a time--``energy'' uncertainty relation,
+mirroring the well known position--momentum uncertainty relation,
+still holds, if we consider the ``clock energy'' $\hat{E} \eqbydef \hbar\hat{\Omega}$
+in the Page--Wootters model.
+
+In those states of $\pwspace$ where a time evolution actually emerges
+(the ``physical states'' as defined in \cite{Lloyd:Time}),
+the clock is in a maximally mixed state
+(it is maximally entangled with the rest of the universe).
+
+Therefore, it cannot be studied as an independent system
+(and the position--momentum uncertainty relation is proved
+for pure states in ordinary quantum mechanics); but a
+time--energy relation is proved in the sense of probability
+\emph{among states} of a density operator.
+
+One might object to the interpretation in terms of (``classical'')
+probability distribution, given
+that the density matrix representation is
+not unique.
+However, the density matrices
+in \eqref{eq:ptrace_density_matrix_t} and~\eqref{eq:ptrace_density_matrix_omega}
+are diagonal with respect to
+the orthonormal eigensystems of $\hat{T}$ and $\hbar \hat{\Omega}$ observables,
+so the distributions $\abs{\phi(t)}^2$ and $\abs{\tilde{\phi}(\omega)}^2$
+have a particular physical significance.
+
+Classical probability emerges out of entanglement. More generally,
+the property of time as a classical external parameter emerges as
+a consequence of entanglement of the (quantum) clock
+with the rest of the universe, where there's a Schmidt decomposition
+that sums over eigenstates of time.
+
+In fact, as we have seen in the last subsection,
+an uncertainty relation for the \emph{quantum} probability distributions does hold,
+but for the whole
+$\textit{clock} + \textit{rest}$ system, which is indeed in a pure state.
+It relates $\hat{T}\ox\idop_S$ and $\hbar\hat{\Omega}\ox\idop_S$
+in $\pwspace$.

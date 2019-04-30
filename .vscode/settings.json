@@ -3,17 +3,10 @@
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
-    "**/.DS_Store": true
+    "**/.DS_Store": true,
+    ".ipynb_checkpoints": true
   },
 
   "editor.tabSize": 2,
-
-  "latex-workshop.latex.toolchain": [
-    {
-      "command": "latexmk",
-      "args": ["dev"]
-    }
-  ],
-  "latex-workshop.latex.outputDir": "./build/",
-  "latex-workshop.latex.autoBuild.onSave.enabled": false
+  "latex-workshop.latex.autoBuild.run": "never"
 }

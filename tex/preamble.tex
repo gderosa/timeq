@@ -14,9 +14,14 @@
 \usepackage[super]{nth}
 \usepackage[inline]{enumitem}
 \usepackage{graphicx}
+\usepackage{subcaption} % https://tex.stackexchange.com/a/43996 + https://tex.stackexchange.com/a/165730
+  \captionsetup{subrefformat=parens}
 \usepackage{color}
-%\usepackage[margin=1.5in]{geometry}  % screen
-\usepackage{geometry}
+% \ifscr
+%   \usepackage[b5paper,top=1.5cm,bottom=1.5cm,left=0.65cm,right=0.65cm,marginpar=0cm]{geometry}
+% \else
+  \usepackage[a4paper,marginpar=0cm]{geometry}
+% \fi
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
   \fancyhf{}
@@ -25,6 +30,7 @@
   \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
   \fancyhead[RO]{\thepage}
 \usepackage[safeinputenc,citestyle=authoryear-icomp,bibstyle=authoryear,backend=biber]{biblatex}
+% \usepackage[safeinputenc,backend=biber]{biblatex}
 \usepackage{environ}
 \usepackage{epigraph}
 \usepackage{csquotes}
@@ -47,15 +53,15 @@
     %identifierstyle=\color{green!40!black}
   }
 \usepackage{setspace}
-
-%\usepackage{scalerel}
-
 \usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
   colorlinks,
   citecolor=green!75!black,
   linkcolor=red!75!black,
   urlcolor=magenta!75!black
 ]{hyperref}
+% https://tex.stackexchange.com/a/65547
+\usepackage{bookmark}
+
 
 \input{tex/lib}
 

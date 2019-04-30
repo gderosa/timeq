@@ -1,49 +1,35 @@
-# Build environment
+# Build environment for PDF documents
 
-### "Development" output
+A full LaTeX env with [LaTeXMk](https://www.ctan.org/pkg/latexmk) is required.
 
-If you have a full [LaTeX](https://www.latex-project.org/) installation,
-and [`make`](https://www.gnu.org/software/make/), just run
-```bash
-make
+
+## LaTeXMk commands to build thesis and posters
+
+PDF outputs will be created under the `build/` directory.
+
 ```
-in the project root directory.
-
-This will generate `build/dev.pdf`.
-
-### "Production" output
-
-Another PDF will be generated, named `prod.pdf`, with TODOs removed, by issuing
-```bash
-make prod
+latexmk main
 ```
 
-### Continuous build
+or
 
-Run
-```bash
-make cont
 ```
-to continuously build and monitor files for updates (developmet).
+latexmk poster/<name> # Any .`tex` file name in `poster/` dir, remove the .tex extension from <name>
+```
 
-`make prodc` is also available for continuous build of "production".
+### PDF previewer and continuous build
 
-### PDF previewer
+Add `-pv` option to the `latexmk` command above to automatically launch a PDF viewer on the
+result.
 
-In  the above, when available, a default PDF viewer is automatically opened on the generated document.
+Or `-pvc` to enable continuous build.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
+
 ### Cleanup
-Cleanup with
-```bash
-make clean
-```
 
-### If "Make" is unavailable
-
-Read the [`Makefile`](Makefile) to see the underlying [`latexmk`](https://www.ctan.org/pkg/latexmk/) commands:
-you may want to use them directly.
+`latexmk -C` or `latexmk -C <name>` (as above), or even `rm build/*`.
 
 ### Optional: [SyncTeX](https://www.tug.org/TUGboat/tb29-3/tb93laurens.pdf) examples
 
@@ -85,7 +71,7 @@ Shift+click on a point in the PDF and you will get the editor at the correspondi
 
 #### IDE/editor autobuild
 
-Don't use `latexmk` or `make` from the command line
+Don't use `latexmk` from the command line
 (especially consinuous build)
 if you have an auto-build plugin or functionality
 enabled in your editor or IDE.
@@ -102,7 +88,15 @@ use Cygwin or a plain Powershell or Cmd in this case.
 If you use [MikTex](https://miktex.org/about), MSys will work,
 but you won't avail of a `synctex` executable (inverse search will still work though).
 
-## Poster
-`make poster` to build `build/poster.pdf`.
+## Docker
 
-`make posterv` and `make posterc` to have preview and continuous preview as well.
+You can run everything in a container so all package provisioning is automated.
+```
+docker build -t timeq .
+```
+Then each LaTeX command above can be preceded by `./latexdockercmd.sh` e.g.
+```
+./scripts/docker/latexdockercmd.sh latexmk main
+```
+See the other scripts in `scripts/docker` too
+and https://github.com/blang/latex-docker for more info.

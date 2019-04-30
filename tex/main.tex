@@ -8,16 +8,26 @@
 
 \maketitle
 
+% https://tex.stackexchange.com/a/65547
+\cleardoublepage
+\pdfbookmark[section]{\contentsname}{toc}
 \tableofcontents
 
 \listoffigures
- 
+
 \listoftables
 
 \chapter*{Preface}
 \markboth{Preface}{Preface}  %% No ugly "Chapter 0".
 \addcontentsline{toc}{chapter}{Preface}
 \input{tex/preface/preface}
+
+% \iftodo
+%   \chapter*{Notation}
+%   \markboth{Notation}{Notation}  %% No ugly "Chapter 0".
+%   \addcontentsline{toc}{chapter}{Notation}
+%   \input{tex/preface/notation}
+% \fi
 
 \mainmatter
 
@@ -37,21 +47,24 @@
 \chapter{Page and Wootters relational time: developments and applications}
   %\chaptermark{Page and Wootters relational time}
   \label{ch:pw}
+\input{tex/pw/notation}
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
 
-\chapter{Irreversible processes and uncertainty}
-\input{tex/irrev/absorb}
-\input{tex/irrev/uncertain}
-\input{tex/irrev/proper}
-\input{tex/irrev/compare}
+\chapter{Detection, time-of-arrival and uncertainty}
+\input{tex/detect/proper}
+\input{tex/detect/uncertain}
+\input{tex/detect/pwdetect}
 
 \chapter{Relativistic treatment}
 \input{tex/rel/pwkg}
 
-% Please put ALL TODOs here, remove before official submission
-\chapter{TODOs and misc Ideas}
-\input{tex/misc/misc.tex}
+\iftodo
+  \chapter{TODOs and misc Ideas}
+  \input{tex/todo/misc.tex}
+  \chapter{PW+detector: these are removed for now}
+  \input{tex/todo/pwproper.tex}
+\fi
 
 % appendices
 \appendix
@@ -59,7 +72,7 @@
 \chapter{Commutator properties}
 \input{tex/appendix/commutator}
 
-\chapter[Jupyter (Python) Notebooks]{Jupyter (Python) Notebooks\footnote{
+\chapter[Jupyter Notebooks]{Jupyter Notebooks\footnote{
   For a reference on the software tools utilized:
   \cite{comp:scipy};
   \cite{comp:sympy};
@@ -70,7 +83,8 @@
 \input{tex/appendix/nb/jupyter/tech}
 \input{tex/appendix/nb/jupyter/moreva}
 \input{tex/appendix/nb/jupyter/moreva-vs-qm}
-\input{tex/appendix/nb/jupyter/detect}
+%
+\input{tex/appendix/nb/jupyter/detect/detect}
 
 \chapter[Mathematica notebooks]{Mathematica notebooks\footnote{
   Ref.: \cite{Wolfram}.
