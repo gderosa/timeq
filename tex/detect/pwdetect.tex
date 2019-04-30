@@ -527,3 +527,36 @@ In \S\ref{jupy:entropic-uncertainties}, we numerically find that
   S_{T} + S_{\Omega} \approx 1.14 \cdot \ln N
 \end{equation*}
 i.e. circa $14\%$ more than the theoretical minimal uncertainty.
+
+In terms of uncertainty relation based on standard deviations,
+which is the standard formulation, particularly for continuous distributions,
+and allows a comparison with \cite{RuschhauptAbsorption}, we compute numerically
+\begin{equation}\label{eq:uncertainty-us}
+  \sigma_{T} \sigma_{\Omega} \approx 0.716 \, \text{,}
+\end{equation} \citereset
+while \cite{RuschhauptAbsorption} finds
+\begin{equation}\label{eq:uncertainty-them}
+  \sigma_{T} \sigma_{\Omega} \approx 0.707 \, \text{.}
+\end{equation}
+
+It's worth observing that the example in \cite{RuschhauptAbsorption}
+sets the optimal parameters to minimize the time--energy uncertainty
+\emph{within the given constraints} of the particular physical system,
+they don't necessarily achieve the theoretical Heisenberg minimum of
+$\frac{\hbar}{2}$
+(or $0.5$ in our numerical problem where $\hbar$ has been adimendsionalized).
+More notably, parameters therein have been chosen so to minimize
+an alternative definition of time--energy uncertainty, $\expval{T}\sigma_E$,
+deemed more meaningful within the physics of the particular system.
+
+Nonetheless, with minimal or not minimal uncertainty states (or ``histories''),
+a comparison of such uncertainties between the discrete Page--Wooters model implemented
+here and the model in \cite{RuschhauptAbsorption} can be performed:
+the difference between the results in \eqref{eq:uncertainty-us}
+and \eqref{eq:uncertainty-them} may be large enough to be not simply
+due to numerical approximation. A further line of investigation
+will involve increasing the resolution (number of levels) of the quantum clock:
+if the discrepancy persists, an experimental verification
+---like those proposed in the paper itself---
+will then be of
+particular interest.
