@@ -40,10 +40,10 @@ from IPython.display import display, Latex #, Math
 
 # %%
 H = np.array([
-    [0.0,   0.0 , 1.0 ],
-    [0.0,   2.0 , 1.0 ],
-    [1.0,   1.0 , 0.0 ]
-])
+    [0,   0,   1  ],
+    [0,   0,  -1j ],
+    [1,   1j,  0  ]
+], dtype=np.complex)/2
 
 
 # %%
@@ -116,7 +116,7 @@ prob_stack = np.vstack(probs)
 labels = PROB_LABELS
 colors = ["#cc1111", "#33aa33", "#1111cc"]
 
-fig, ax = plt.subplots(figsize=(12, 6))
+fig, ax = plt.subplots(figsize=(16, 8))
 ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
 ax.legend(loc='lower center')
 plt.show()
@@ -178,8 +178,8 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (80
     )
     for i in 0, 1, 2:
         ax.scatter(
-            np.real(unitary_psi_n(times)[i][0]),
-            np.imag(unitary_psi_n(times)[i][0]),
+            np.real(unitary_psi(times)[i][0]),
+            np.imag(unitary_psi(times)[i][0]),
             times,
 
             marker = '.',
