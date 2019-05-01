@@ -511,7 +511,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (80
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-
+    
     ax.scatter(
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
