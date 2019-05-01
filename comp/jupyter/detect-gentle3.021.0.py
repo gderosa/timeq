@@ -40,10 +40,10 @@ from IPython.display import display, Latex #, Math
 
 # %%
 H = np.array([
-    [0,   0,   1  ],
-    [0,   0,  -1j ],
-    [1,   1j,  0  ]
-], dtype=np.complex)/2
+    [0,    0,     1  ],
+    [0,   -0.5,  -1j ],
+    [1,    1j,    0  ]
+], dtype=np.complex)
 
 
 # %%
@@ -70,7 +70,7 @@ def prob(t):
 
 
 # %%
-TMIN, TMAX = 0, 2*np.pi
+TMIN, TMAX = 0, 16*np.pi
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
@@ -133,7 +133,7 @@ for i in range(NPLOTPOINTS):
     )
 
 # %%
-fig, ax = plt.subplots(figsize=(12,6))
+fig, ax = plt.subplots(figsize=(16,6))
 ax.set_xlabel('t')
 ax.scatter(times, np.zeros(NPLOTPOINTS),
             c=rgbs, marker='|', s=12000)
@@ -151,8 +151,6 @@ ax.legend(
     PROB_LABELS,
     loc='upper right'
 )
-
-# %%
 
 # %%
 # 3D parametric plot
