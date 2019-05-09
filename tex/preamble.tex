@@ -29,8 +29,9 @@
   \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
   \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
   \fancyhead[RO]{\thepage}
-\usepackage[safeinputenc,citestyle=authoryear-icomp,bibstyle=authoryear,backend=biber]{biblatex}
-% \usepackage[safeinputenc,backend=biber]{biblatex}
+% https://tex.stackexchange.com/a/1557
+% https://tex.stackexchange.com/a/176939
+\usepackage[safeinputenc,style=authoryear-icomp,maxcitenames=3,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
 \usepackage{environ}
 \usepackage{epigraph}
 \usepackage{csquotes}
