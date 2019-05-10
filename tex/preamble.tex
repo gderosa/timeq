@@ -76,4 +76,7 @@
 % For peer-reviewed articles, in general there is a DOI which is detailed enough,
 % while only some entries have issn fields, essentially out of a copypaste -
 % See also https://tex.stackexchange.com/a/32933.
-\AtEveryBibitem{\clearfield{issn}}
+\AtEveryBibitem{
+  \clearfield{issn}
+  \clearfield{month}
+}
