@@ -20,7 +20,7 @@ latexmk poster/<name>  # Any .`tex` file name in `poster/` dir
 or
 
 ```
-latexmk tex/todo  # To add the TODO chapter to the thesis
+latexmk opt/todo  # To add the TODO chapter to the thesis
 ```
 
 ### PDF previewer and continuous build
