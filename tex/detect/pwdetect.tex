@@ -41,7 +41,7 @@ and, consequently:
 \end{equation}
 
 One may wonder whether a proper, normalized Page--Wootters ``position-time wavepacket''
-(as described in \S\ref{sec:properpw})
+(as described in Section \ref{sec:properpw})
 can be used to describe \emph{the event of being detected} (or being absorbed).
 It's expected to be peaked around the time when the absorption by the detector is maximum.
 
@@ -112,7 +112,7 @@ In Page and Wootters terms,
 this would corrspond to a bi-dimensional $\hilb{H}_S$, but a continuous
 spectrum of $\hat{T}$ in $\hilb{H}_T$. The paper is \emph{not} based on
 the Page--Wootters model, indeed the purpose of this section is a comparison
-with such model, using the results of \S \ref{sec:absorption+pw}.
+with such model, using the results of Section \ref{sec:absorption+pw}.
 
 By setting, out of convenience, $\hbar = \omega = 1$
 (with $\omega$ the characteristic frequency of the system),
@@ -228,8 +228,8 @@ The corresponding Page--Wootters (proper) vector of $\pwspace$ is
 \begin{equation}\label{eq:hatpsi:pw}
   \dket{\Phi} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
 \end{equation}
-to which the considerations of \S\ref{sec:for-normalized-elements}
-and \S\ref{sec:pure-state-approach} in terms of time--frequency
+to which the considerations of Section \ref{sec:for-normalized-elements}
+and Section \ref{sec:pure-state-approach} in terms of time--frequency
 (or time--energy) uncertainty relation apply, with some analogy
 to what \cite{RuschhauptAbsorption} does within its own framework
 in relation to $\hat{\psi}$ and its Fourier transform.
@@ -257,7 +257,7 @@ See Fig. \ref{fig:absorbed-qubit-normalization-loss:omega}.
   plugging the complex potential in the \emph{discrete} Page--Wootters model
 }
 
-Similarly to what seen in \S \ref{sec:building-the-discrete-pw-clock}, we build
+Similarly to what seen in Section \ref{sec:building-the-discrete-pw-clock}, we build
 the clock by defining ---and representing in a convenient basis---
 the time operator and the corresponding frequency operator:
 \begin{align}
@@ -323,7 +323,7 @@ In this particular problem, it does.
 We simply scan, as a first attempt, all possible values ${}_{T}\bradket{0}{n} + {}_{T}\bradket{0}{m}$
 to find a combination that is equal to $\ket{0}_S$
 -- or maximizes the fidelity with that respect.\footnote{
-  See the definition, and invocation, of the function \texttt{find_best()} in appendix \S \ref{discrete-page-wootters-model}.
+  See the definition, and invocation, of the function \texttt{find_best()} in Appendix \ref{discrete-page-wootters-model}.
 }
 
 All the above numerical computation is implemented with \emph{NumPy} \parencite{comp:numpy},
@@ -418,7 +418,7 @@ in this problem, and
 $\dket{\Phi}$ is essentially the result of the action of the operator $\hat{D}$,
 that filters non-detectable components out from any vector of $\hilb{H}_S$.
 
-We derive the components of $\dket{\Phi}$ numerically in \S \ref{detection-event},
+We derive the components of $\dket{\Phi}$ numerically in Section \ref{detection-event},
 where they are encoded in the array \texttt{prob_detect_v}.
 We observe therein that the \eqref{eq:detect_prob_ampl_only_on_1} is confirmed,
 and that ${}_T\!\bra{t} {}_S\!\bradket{1}{\Phi}$ is proportional
@@ -504,7 +504,7 @@ the result from the model of \cite{RuschhauptAbsorption}.
 In quantum systems described by a finite Hilbert space,
 uncertainty relations are quantified in terms of \term{entropies}
 of the canonically conjugate probability distributions
----see \S \ref{sec:finite_uncertainty} and references therein,
+---see Section \ref{sec:finite_uncertainty} and references therein,
 in particular \cite{FiniteHilb}.
 
 In our example, the entropic uncertainty relation explicitly reads:
@@ -522,7 +522,7 @@ In our example, the entropic uncertainty relation explicitly reads:
 \end{multline}
 ---where we had computed previously the probability values in parenthesis.
 
-In \S\ref{jupy:entropic-uncertainties}, we numerically find that
+In Section \ref{jupy:entropic-uncertainties}, we numerically find that
 \begin{equation*}
   S_{T} + S_{\Omega} \approx 1.14 \cdot \ln N
 \end{equation*}
