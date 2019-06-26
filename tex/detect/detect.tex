@@ -111,17 +111,24 @@ rather than focusing on constructing an operator that satisfies certain requirem
 or on building an extended, general framework
 like the Page and Wootters model, at least in its original formulation.
 
+The introduction of complex potentials, a non-Hermitian Hamiltonian,
+the non-unitary evolution (of a pure state!) may appear artificial to some,
+and in contradiction with the fundamental rules of quantum mechanics.
+
 \citereset
-In fact, an \emph{effective} complex potential and the consequent loss of normalization
-only emerge after ``tracing out'' the detector and its environment:
-an Hamiltonian which took into account all the involved systems and their environment
-would actually be Hermitian, and the evolution unitary \parencite[\S 9]{Leavens_TOA}.
+In fact, as pointed out well in \cite{Halliwell_Irreversible},
+an \emph{effective} complex potential and the consequent loss of normalization
+only emerge after ``tracing out'' a portion of the whole system,
+which includes the particle, the detector and the environment altogether.
+Such whole tripartite system \emph{is} closed, in a pure state, and evolves unitarily.
+The particle wavefunction is also an ``effective'' one derived from its density operator.
+
 Not surprisingly, absorption is an \term{irreverersible} process.
 While a complex potential can be \emph{postulated} in order to obtain
 phenomenological laws governing arrival times and detectors,
 it can also be \emph{derived} from first principles and within the established framework
 of open quantum systems, namely the master equation
-for an irreversible detector, as detailed in \cite{Halliwell_Irreversible}.
+for an irreversible detector.
 The core ideas behind this derivation
 can be ---very briefly--- summarized as follows.
 
@@ -129,9 +136,9 @@ The detector is modeled by a two-level system with $\ket{1}$ being the state of 
 and $\ket{0}$ the state of detection.
 We also introduce the raising and lowering operators $\sigma_{+}=\ketbra{1}{0}$, $\sigma_{-}=\ketbra{0}{1}$.
 The Hamiltonian of the detector is such to have $\ket{0}$
-at a lower energy, so the detector ``decays'' when it clicks. It's an irreversible transition because
+at a lower energy, so the detector ``decays'' when it ``clicks''. It's an irreversible transition because
 of the coupling with the environment.
-The Hamiltonian encompassing the particle, the detector, the environment and the detector--environment interaction reads
+The Hamiltonian encompassing the particle, the detector, the environment the interaction reads
 \begin{equation}
   H = H_s + H_d + H_{E} + V(x)  H_{dE} \,\text{,}
 \end{equation}
