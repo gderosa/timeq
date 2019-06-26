@@ -143,12 +143,12 @@ The Hamiltonian encompassing the particle, the detector, the environment the int
   H = H_s + H_d + H_{E} + V(x)  H_{dE} \,\text{,}
 \end{equation}
 with $H_s$ being the Hamiltonian of a free particle and
-\begin{align}
+\begin{subequations}\begin{align}
   H_d     &= \frac{1}{2}\hbar\omega \qty(\ketbra{1} - \ketbra{0}) \\
   H_{E}   &= \sum_n \hbar \omega_n a_n^{\dag} a_n \\
   H_{dE}  &= \sum_n \hbar \left( \kappa^*_n \sigma_{-} a_n^{\dag} + \kappa_n \sigma_{+} a_n \right) \\
   V(x)    &= \theta(-x) \,\text{,}
-\end{align}
+\end{align}\end{subequations}
 where $a$ and $a^{\dagger}$ are the creation and annihilation operator for the electromagnetic field,
 which constitutes the ``environment''; $V(x)$ is chosen to be a step function
 i.e. the simplest function that makes the detector respond
@@ -162,7 +162,10 @@ is only activated by the position distribution
 of another particle.
 
 Tracing out the environment, and with some ``standard'' assumptions
-(initial environment at zero temperature, initial separable state, Markov approximation, weak coupling),
+(initial environment at zero temperature,
+initial separable state ``undetected'' $\rho(0) = \ketbra{\psi_0}\ox\ketbra{1}$,
+Markov approximation,
+weak coupling),
 the \emph{reduced} dynamics of the particle and the detector
 is governed by the \emph{master equation}\footnote{
   Most details, calculation steps and possible generalizations are clearly skipped here, and can be found
@@ -178,6 +181,24 @@ is governed by the \emph{master equation}\footnote{
 \end{equation}
 with $\gamma$ being ``a phenemonological constant determined by the distribution of oscillators in the
 environment and underlying coupling constants'' \parencite{Halliwell_Irreversible}.
+
+A general solution is in the form
+\begin{equation}
+  \rho =
+  \rho_{11} \ox \ketbra{1}{1}
++ \rho_{01} \ox \ketbra{0}{1}
++ \rho_{10} \ox \ketbra{1}{0}
++ \rho_{00} \ox \ketbra{0}{0}
+\,\text{,}
+\end{equation}
+with
+\begin{subequations}\begin{align}
+  \dot{\rho}_{11} =& -\frac{\iu}{\hbar} [ H_s, \rho_{11} ] -\frac{\gamma}{2}\left(V(x)\rho_{11} + \rho_{11}V(x)\right) \\
+  \dot{\rho}_{01} =& -\frac{\iu}{\hbar} [ H_s, \rho_{01} ] -\frac{\gamma}{2}\rho_{01}V(x) + \iu \frac{\hbar\omega'}{2} \rho_{01}\\
+  \dot{\rho}_{10} =& -\frac{\iu}{\hbar} [ H_s, \rho_{10} ] -\frac{\gamma}{2}V(x)\rho_{10} - \iu \frac{\hbar\omega'}{2} \rho_{10}\\
+  \dot{\rho}_{00} =& -\frac{\iu}{\hbar} [ H_s, \rho_{00} ] +\gamma V(x)\rho_{11}V(x)
+\end{align}\end{subequations}
+and $\omega'$ a ``renormalized'' value for the characteristic frequency $\omega$ in $H_d$.
 
 \subsubsection{TODO cite}
 \cite{Damborenea}, or better \cite{Damborenea_atomic}.
