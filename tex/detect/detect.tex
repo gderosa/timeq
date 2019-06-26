@@ -120,8 +120,32 @@ Not surprisingly, absorption is an \term{irreverersible} process.
 While a complex potential can be \emph{postulated} in order to obtain
 phenomenological laws governing arrival times and detectors,
 it can also be \emph{derived} from first principles and within the established framework
-of open quantum systems, notably the master equation,
-for an irreversible detector \parencite{Halliwell_Irreversible}.
+of open quantum systems, namely the master equation
+for an irreversible detector, as detailed in \cite{Halliwell_Irreversible}.
+The core ideas behind this derivation
+can be ---very briefly--- summarized as follows.
+
+The detector is modeled by a two-level system with $\ket{1}$ being the state of no-detection
+and $\ket{0}$ the state of detection.
+We also introduce the raising and lowering operators $\sigma_{+}=\ketbra{1}{0}$, $\sigma_{-}=\ketbra{0}{1}$.
+The Hamiltonian of the detector is such to have $\ket{0}$
+at a lower energy, so the detector ``decays'' when it clicks. It's an irreversible transition because
+of the coupling with the environment.
+The Hamiltonian encompassing the particle, the detector, the environment and the detector--environment interaction reads
+\begin{equation}
+  H = H_s + H_d + H_{E} + V(x)  H_{dE} \,\text{,}
+\end{equation}
+with the terms being
+\begin{align}
+  H_d     &= \frac{1}{2}\hbar\omega \qty(\ketbra{1} - \ketbra{0}) \\
+  H_{E}   &= \sum_n \hbar \omega_n a_n^{\dag} a_n \\
+  H_{dE}  &= \sum_n \hbar \left( \kappa^*_n \sigma_{-} a_n^{\dag} + \kappa_n \sigma_{+} a_n \right) \\
+  V(x)    &= \theta(-x) \,\text{,}
+\end{align}
+with $a$, $a^{\dagger}$ being the creation and annihilation operator for the electromagnetic field,
+which constitutes the ``environment''. $V(x)$ is chosen to be a step function, the simplest that makes the detector only sensitive
+in a half line ($x<0$). The Hamiltonian $H_s$ is that of a free particle in this model.
+$\kappa$ is a coupling constant (in the same sense of the Jaynes--Cummings model, which incidentally also $H_d$ and $H_s$ recall). 
 
 TODO cite \cite{Damborenea}, or better \cite{Damborenea_atomic}.
 
