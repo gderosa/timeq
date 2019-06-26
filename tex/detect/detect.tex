@@ -135,20 +135,27 @@ The Hamiltonian encompassing the particle, the detector, the environment and the
 \begin{equation}
   H = H_s + H_d + H_{E} + V(x)  H_{dE} \,\text{,}
 \end{equation}
-with the terms being
+with $H_s$ being the Hamiltonian of a free particle and
 \begin{align}
   H_d     &= \frac{1}{2}\hbar\omega \qty(\ketbra{1} - \ketbra{0}) \\
   H_{E}   &= \sum_n \hbar \omega_n a_n^{\dag} a_n \\
   H_{dE}  &= \sum_n \hbar \left( \kappa^*_n \sigma_{-} a_n^{\dag} + \kappa_n \sigma_{+} a_n \right) \\
   V(x)    &= \theta(-x) \,\text{,}
 \end{align}
-with $a$, $a^{\dagger}$ being the creation and annihilation operator for the electromagnetic field,
-which constitutes the ``environment''. $V(x)$ is chosen to be a step function, the simplest that makes the detector only sensitive
-in a half line ($x<0$). The Hamiltonian $H_s$ is that of a free particle in this model.
-The coupling constants $\kappa_{n}$ are in the same sense of the Jaynes--Cummings model
-(which also $H_d$ and $H_E$ recall).
+where $a$ and $a^{\dagger}$ are the creation and annihilation operator for the electromagnetic field,
+which constitutes the ``environment''; $V(x)$ is chosen to be a step function
+i.e. the simplest function that makes the detector respond
+when the particle reaches the region ($x<0$);
+and the coupling constants $\kappa_{n}$ are to be intended in the same sense of the Jaynes--Cummings model
+---in fact, the expressions of $H_d$ and $H_E$ also recall it
+(\cite[\S 10.2]{WallsMilburn}, \cite{JCM} and many others).
+This model essentially describes the detector as a Jaynes-Cummings atom
+with the peculiarity that its coupling with the environment
+is only activated by the position distribution
+of another particle.
 
-TODO cite \cite{Damborenea}, or better \cite{Damborenea_atomic}.
+\subsubsection{TODO cite}
+\cite{Damborenea}, or better \cite{Damborenea_atomic}.
 
 \subsection{Then I would go straight to Kiukas article}
 
