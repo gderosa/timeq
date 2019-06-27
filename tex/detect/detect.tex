@@ -202,7 +202,7 @@ and $\omega'$ a ``renormalized'' value for the characteristic frequency $\omega$
 
 Just to give an idea of how the complex potential emerges, let's now focus on $\rho_{11}$
 and the corresponding probability of not being detected, which is
-\begin{equation}
+\begin{equation}\label{eq:p_nd}
   p_{nd} = \Tr \rho_{11}(\tau) = \int_{-\infty}^{\infty} \dd{x} \rho_{11}(x, x, \tau) \,\text{,}
 \end{equation}
 where $\rho_{11}(x, x, \tau)$
@@ -232,6 +232,25 @@ $-\iu\frac{\hbar}{2}\gamma V$ was added to its otherwise free Hamiltonian $H_s$.
 This ``proves'' the validity of the complex potential model as an \emph{effective} theory,
 and the consistency
 with the unitary evolution of the ``bigger picture'' quantum system.
+
+Another consequence of treating $\rho_{11}$ as a pure state is that the probability of no detection
+\eqref{eq:p_nd} can be expressed as
+\begin{equation}
+  p_{nd}(\tau) = \int_{-\infty}^{\infty} \dd{x} \qty|\psi(x, \tau)|^2 \, \text{,}
+\end{equation}
+which is the (non conserved) norm $\norm{\psi}$ of this effective state vector.
+Therefore, the probability that the detection \emph{has} happened
+up to time $\tau$, which is $1 - p_{nd}(\tau)$, is equal to the
+\emph{loss of normalization} $1 - \norm{\psi}$ at that time.
+This is the total probability that the detection has happened from the initial time
+($t=0$ in our chosen settings)
+to $t = \tau$. In terms of probability density (per unit of time)
+$\mathbb{P}(t)$, it is therefore
+\begin{equation}
+  \mathbb{P}(t) = - \dv{\norm{\psi}}{t} \,\text{.}
+\end{equation}
+This is the other important result that will be used in the following Sections
+with the related literature.
 
 %\subsubsection{TODO cite}
 %\cite{Damborenea}, or better \cite{Damborenea_atomic}.
