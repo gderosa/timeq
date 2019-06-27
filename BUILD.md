@@ -14,13 +14,7 @@ latexmk main
 or
 
 ```
-latexmk poster/<name>  # Any .`tex` file name in `poster/` dir
-```
-
-or
-
-```
-latexmk opt/todo  # To add the TODO chapter to the thesis
+latexmk poster/<name> # Any .`tex` file name in `poster/` dir, remove the .tex extension from <name>
 ```
 
 ### PDF previewer and continuous build
