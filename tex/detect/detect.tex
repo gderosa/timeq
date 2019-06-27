@@ -138,7 +138,7 @@ We also introduce the raising and lowering operators $\sigma_{+}=\ketbra{1}{0}$,
 The Hamiltonian of the detector is such to have $\ket{0}$
 at a lower energy, so the detector ``decays'' when it ``clicks''. It's an irreversible transition because
 of the coupling with the environment.
-The Hamiltonian encompassing the particle, the detector, the environment the interaction reads
+The Hamiltonian encompassing the particle, the detector, the environment and the interaction reads
 \begin{equation}
   H = H_s + H_d + H_{E} + V(x)  H_{dE} \,\text{,}
 \end{equation}
@@ -193,27 +193,60 @@ A general solution is in the form
 \end{equation}
 with
 \begin{subequations}\begin{align}
-  \dot{\rho}_{11} =& -\frac{\iu}{\hbar} [ H_s, \rho_{11} ] -\frac{\gamma}{2}\left(V(x)\rho_{11} + \rho_{11}V(x)\right) \\
+  \dot{\rho}_{11} =& -\frac{\iu}{\hbar} [ H_s, \rho_{11} ] -\frac{\gamma}{2}\left(V(x)\rho_{11} + \rho_{11}V(x)\right) \label{eq:drho11} \\
   \dot{\rho}_{01} =& -\frac{\iu}{\hbar} [ H_s, \rho_{01} ] -\frac{\gamma}{2}\rho_{01}V(x) + \iu \frac{\hbar\omega'}{2} \rho_{01}\\
   \dot{\rho}_{10} =& -\frac{\iu}{\hbar} [ H_s, \rho_{10} ] -\frac{\gamma}{2}V(x)\rho_{10} - \iu \frac{\hbar\omega'}{2} \rho_{10}\\
-  \dot{\rho}_{00} =& -\frac{\iu}{\hbar} [ H_s, \rho_{00} ] +\gamma V(x)\rho_{11}V(x)
+  \dot{\rho}_{00} =& -\frac{\iu}{\hbar} [ H_s, \rho_{00} ] +\gamma V(x)\rho_{11}V(x) \,\text{,}
 \end{align}\end{subequations}
 and $\omega'$ a ``renormalized'' value for the characteristic frequency $\omega$ in $H_d$.
 
-\subsubsection{TODO cite}
-\cite{Damborenea}, or better \cite{Damborenea_atomic}.
+Just to give an idea of how the complex potential emerges, let's now focus on $\rho_{11}$
+and the corresponding probability of not being detected, which is
+\begin{equation}
+  p_{nd} = \Tr \rho_{11}(\tau) = \int_{-\infty}^{\infty} \dd{x} \rho_{11}(x, x, \tau) \,\text{,}
+\end{equation}
+where $\rho_{11}(x, x, \tau)$
+-- or, more generally, $\rho_{ij}(x, x, \tau)$ for each $i, j = 0, 1$ --
+are (diagonal) density matrix elements such that, in general:
+\begin{equation}
+  \rho_{ij}(\tau) = \int_{-\infty}^{\infty} \dd{x_1} \int_{-\infty}^{\infty} \dd{x_2} \rho_{ij}(x_1, x_2, \tau) \ketbra{x_1}{x_2}
+  \, \text{.}
+\end{equation}
 
-\subsection{Then I would go straight to Kiukas article}
+Now, the solution to the \eqref{eq:drho11} can be written
+\begin{equation}\label{eq:rho11.evol}
+  \rho_{11}(t) =  e^{-\frac{\iu}{\hbar}H_{s}t-\frac{\gamma}{2}Vt}
+  \rho_{11}(0)    e^{ \frac{\iu}{\hbar}H_{s}t-\frac{\gamma}{2}Vt} \, \text{.}
+\end{equation}
+If $\rho_{11}$ were in a pure state, say $\rho_{11}(t) = \ketbra{\psi(t)}$
+(the ``undetected wavefunction''),
+and recalling that $\rho_{11}(0) = \ketbra{\psi_0}$,
+eq. \eqref{eq:rho11.evol} can be reformulated as
+\begin{equation}
+  \ket{\psi(t)} =
+  e^{-\frac{\iu}{\hbar}H_{s}t-\frac{\gamma}{2}Vt} \ket{\psi_0} =
+  e^{-\frac{\iu}{\hbar} \qty( H_{s} -\iu\frac{\hbar}{2}\gamma V ) t} \ket{\psi_0} \,\text{,}
+\end{equation}
+showing that the particle evolves as if an ``imaginary'' (anti-Hermitian) term
+$-\iu\frac{\hbar}{2}\gamma V$ was added to its otherwise free Hamiltonian $H_s$.
+This ``proves'' the validity of the complex potential model as an \emph{effective} theory,
+and the consistency
+with the unitary evolution of the ``bigger picture'' quantum system.
 
-Duh.
+%\subsubsection{TODO cite}
+%\cite{Damborenea}, or better \cite{Damborenea_atomic}.
 
-\subsection*{TODO??}
+%\subsection{Then I would go straight to Kiukas article}
 
-Use the detector chapter Ruschhaupt book for both getting more references above and description following.
+%Duh.
 
-Maybe\dots? \cite{ProbCurrent}, \cite{Ruschhaupt_QMoT}.
+%\subsection*{TODO??}
 
-``Book vol. 2'' \cite{TQM2:Detector}.
+%Use the detector chapter Ruschhaupt book for both getting more references above and description following.
 
-Cite \cite{Muga_ArrTimeOpNormal, Sudarshan_Zeno, Echanobe, Savvidou-1, Savvidou-2}.
+%Maybe\dots? \cite{ProbCurrent}, \cite{Ruschhaupt_QMoT}.
+
+%``Book vol. 2'' \cite{TQM2:Detector}.
+
+%Cite \cite{Muga_ArrTimeOpNormal, Sudarshan_Zeno, Echanobe, Savvidou-1, Savvidou-2}.
 
