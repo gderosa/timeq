@@ -29,11 +29,13 @@
   \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
   \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
   \fancyhead[RO]{\thepage}
-\usepackage[safeinputenc,citestyle=authoryear-icomp,bibstyle=authoryear,backend=biber]{biblatex}
-% \usepackage[safeinputenc,backend=biber]{biblatex}
+% https://tex.stackexchange.com/a/1557
+% https://tex.stackexchange.com/a/176939
+\usepackage[safeinputenc,style=authoryear-icomp,maxcitenames=3,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
+%\usepackage[safeinputenc,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
 \usepackage{environ}
-\usepackage{epigraph}
 \usepackage{csquotes}
+\usepackage{epigraph}
   \setlength{\epigraphwidth}{.6\textwidth}
 \usepackage{fancyvrb}
   \fvset{
@@ -72,3 +74,10 @@
 
 \addbibresource{bib/main.bib}
 \addbibresource{bib/comp.bib}
+% For peer-reviewed articles, in general there is a DOI which is detailed enough,
+% while only some entries have issn fields, essentially out of a copypaste -
+% See also https://tex.stackexchange.com/a/32933.
+\AtEveryBibitem{
+  \clearfield{issn}
+  \clearfield{month}
+}

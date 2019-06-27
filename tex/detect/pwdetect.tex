@@ -41,10 +41,11 @@ and, consequently:
 \end{equation}
 
 One may wonder whether a proper, normalized Page--Wootters ``position-time wavepacket''
-(as described in \S\ref{sec:properpw})
+(as described in Section \ref{sec:properpw})
 can be used to describe \emph{the event of being detected} (or being absorbed).
 It's expected to be peaked around the time when the absorption by the detector is maximum.
 
+\citereset
 In the detector model of \cite{RuschhauptAbsorption}, the detection
 by absorption
 corresponds to the \emph{decrease} in norm of the wavefunction.
@@ -57,8 +58,9 @@ both sides of which indicate probability of arrival at time $t$.
 Here the function $\phi$ of time $t$ has to be intended in the sense of
 \eqref{eq:pwphi}.
 
-Interestingly, \cite{RuschhauptAbsorption} provides a solution of \eqref{eq:pwkiukas}.
-Despite being not based on the Page--Wootters model, eq. 9 therein
+\citereset
+Interestingly, the same paper provides a solution of \eqref{eq:pwkiukas}.
+Despite not being based on the Page--Wootters model, eq. 9 in \cite{RuschhauptAbsorption}
 equates the squared norm of a ``time representation'' wavefunction
 to the opposite derivative of the squared norm of the ``absorbed wavefunction''.
 It reads:
@@ -76,6 +78,7 @@ and, consequently, $\abs{\hat{\psi}(t)}^2$ into $\braket{\phi(t)}$,
 in the language of the Page--Wootters model and within the notation
 adopted.
 
+\citereset
 Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
 \begin{equation}\label{eq:phi_psi_kiukas}
   \hat{\psi}(t) \eqbydef
@@ -104,7 +107,7 @@ $\lim_{t \to 0^{+}} \norm{\hat{D} \ket{\psi_{\text{Kiukas}}(t)}} = 0$, thus avoi
 %   }
 % }
 
-\subsection{Application: two-level system}
+\citereset\subsection{Application: two-level system}
 
 In \cite{RuschhauptAbsorption}, an example application of the detector model
 is provided for a two-level system.
@@ -112,7 +115,7 @@ In Page and Wootters terms,
 this would corrspond to a bi-dimensional $\hilb{H}_S$, but a continuous
 spectrum of $\hat{T}$ in $\hilb{H}_T$. The paper is \emph{not} based on
 the Page--Wootters model, indeed the purpose of this section is a comparison
-with such model, using the results of \S \ref{sec:absorption+pw}.
+with such model, using the results of Section \ref{sec:absorption+pw}.
 
 By setting, out of convenience, $\hbar = \omega = 1$
 (with $\omega$ the characteristic frequency of the system),
@@ -228,8 +231,8 @@ The corresponding Page--Wootters (proper) vector of $\pwspace$ is
 \begin{equation}\label{eq:hatpsi:pw}
   \dket{\Phi} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
 \end{equation}
-to which the considerations of \S\ref{sec:for-normalized-elements}
-and \S\ref{sec:pure-state-approach} in terms of time--frequency
+to which the considerations of Section \ref{sec:for-normalized-elements}
+and Section \ref{sec:pure-state-approach} in terms of time--frequency
 (or time--energy) uncertainty relation apply, with some analogy
 to what \cite{RuschhauptAbsorption} does within its own framework
 in relation to $\hat{\psi}$ and its Fourier transform.
@@ -252,12 +255,13 @@ Taking the squared modulus, a probability distribution over angular frequency
 \]
 See Fig. \ref{fig:absorbed-qubit-normalization-loss:omega}.
 
+\citereset
 \subsubsection{
   (Non-unitary) evolution without evolution:
   plugging the complex potential in the \emph{discrete} Page--Wootters model
 }
 
-Similarly to what seen in \S \ref{sec:building-the-discrete-pw-clock}, we build
+Similarly to what seen in Section \ref{sec:building-the-discrete-pw-clock}, we build
 the clock by defining ---and representing in a convenient basis---
 the time operator and the corresponding frequency operator:
 \begin{align}
@@ -303,6 +307,7 @@ Or, in a more compact form:
 where $\epsilon_n$'s are eigenalues of $\mathbb{J}$ and
 $\dket{n}$'s their corresponding eigenvectors.
 
+\citereset
 Linear combination of histories $\sum_n \alpha_n \dket{n}_{\text{hist.}}$
 are also physically possible\footnote{
   As opposed to (linear combinations of) mere, uncorrected eigenstates of $\mathbb{J}$.
@@ -323,12 +328,12 @@ In this particular problem, it does.
 We simply scan, as a first attempt, all possible values ${}_{T}\bradket{0}{n} + {}_{T}\bradket{0}{m}$
 to find a combination that is equal to $\ket{0}_S$
 -- or maximizes the fidelity with that respect.\footnote{
-  See the definition, and invocation, of the function \texttt{find_best()} in appendix \S \ref{discrete-page-wootters-model}.
+  See the definition, and invocation, of the function \texttt{find_best()} in Appendix \ref{discrete-page-wootters-model}.
 }
 
 All the above numerical computation is implemented with \emph{NumPy} \parencite{comp:numpy},
 particularly in appendix
-\S \ref{discrete-page-wootters-model}.
+\ref{discrete-page-wootters-model}.
 The results are visualized in
 Fig. \ref{fig:absorbed-qubit-components_pwlattice},
 and are \emph{compatible} with the non-Page--Wootters
@@ -397,6 +402,7 @@ where the coefficients $\alpha_n$ are the same that verified
 the initial condition of the problem
 $\ket{0}_S = {}_T\bradket{0}{\Psi} = \sum_n \alpha_n \, {}_T\bradket{0}{n}_{\text{hist.}} = \sum_n \alpha_n \, {}_T\bradket{0}{n}$.
 
+\citereset
 The vector $\dket{\Phi}$, proper element of $\pwspace$,
 is the Page--Wootters counterpart of the function
 ``in time representation'' $\hat{\psi}$,
@@ -418,7 +424,7 @@ in this problem, and
 $\dket{\Phi}$ is essentially the result of the action of the operator $\hat{D}$,
 that filters non-detectable components out from any vector of $\hilb{H}_S$.
 
-We derive the components of $\dket{\Phi}$ numerically in \S \ref{detection-event},
+We derive the components of $\dket{\Phi}$ numerically in Section \ref{detection-event},
 where they are encoded in the array \texttt{prob_detect_v}.
 We observe therein that the \eqref{eq:detect_prob_ampl_only_on_1} is confirmed,
 and that ${}_T\!\bra{t} {}_S\!\bradket{1}{\Phi}$ is proportional
@@ -450,6 +456,7 @@ $\sum_t \norm{ {}_T\!\bradket{t}{\Phi} }_S^2 = P$,
 where $P$ is the total probability that the detection/absorption happens at any time,
 and it's equal to $1$ for an ideal detection.
 
+\citereset
 The probability of detection in time is shown in Fig. \ref{fig:2l_pw_detect_prob_t}
 and is \emph{consistent} with the result of
 the contuinuous and not explicitly Page--Wooters model of
@@ -475,6 +482,7 @@ As a numerical array, $\Dket{\tilde{\Phi}}$ is the representation of $\Dket{\Phi
 under the basis $\ket{\omega} \ox \ket{0,1}$ instead of $\ket{t} \ox \ket{0,1}$,
 where the $\ket{\omega}$ constitute an eigenbasis of angular frequency $\hat{\Omega}$.
 
+\citereset
 The squared norms $\braket{\tilde{\phi}(\omega)}_{\!S} = \norm{\braDket{\omega}{\Phi}}_S^2$
 give the probability of detection in the frequency domain, which is plotted in
 Fig. \ref{fig:2l_pw_detect_prob_omega} and, again, consistent
@@ -504,7 +512,7 @@ the result from the model of \cite{RuschhauptAbsorption}.
 In quantum systems described by a finite Hilbert space,
 uncertainty relations are quantified in terms of \term{entropies}
 of the canonically conjugate probability distributions
----see \S \ref{sec:finite_uncertainty} and references therein,
+---see Section \ref{sec:finite_uncertainty} and references therein,
 in particular \cite{FiniteHilb}.
 
 In our example, the entropic uncertainty relation explicitly reads:
@@ -522,7 +530,7 @@ In our example, the entropic uncertainty relation explicitly reads:
 \end{multline}
 ---where we had computed previously the probability values in parenthesis.
 
-In \S\ref{jupy:entropic-uncertainties}, we numerically find that
+In Section \ref{jupy:entropic-uncertainties}, we numerically find that
 \begin{equation*}
   S_{T} + S_{\Omega} \approx 1.14 \cdot \ln N
 \end{equation*}
@@ -539,7 +547,7 @@ while \cite{RuschhauptAbsorption} finds
   \sigma_{T} \sigma_{\Omega} \approx 0.707 \, \text{.}
 \end{equation}
 
-It's worth observing that the example in \cite{RuschhauptAbsorption}
+It's worth observing that the example in the paper
 sets the optimal parameters to minimize the time--energy uncertainty
 \emph{within the given constraints} of the particular physical system,
 they don't necessarily achieve the theoretical Heisenberg minimum of
@@ -549,6 +557,7 @@ More notably, parameters therein have been chosen so to minimize
 an alternative definition of time--energy uncertainty, $\expval{T}\sigma_E$,
 deemed more meaningful within the physics of the particular system.
 
+\citereset
 Nonetheless, with minimal or not minimal uncertainty states (or ``histories''),
 a comparison of such uncertainties between the discrete Page--Wooters model implemented
 here and the model in \cite{RuschhauptAbsorption} can be performed:

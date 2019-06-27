@@ -8,5 +8,21 @@
   },
 
   "editor.tabSize": 2,
-  "latex-workshop.latex.autoBuild.run": "never"
+  "latex-workshop.latex.autoBuild.run": "never",
+  "cSpell.words": [
+    "allcock",
+    "andreas",
+    "colorbox",
+    "halliwell",
+    "jaynes",
+    "kijowski",
+    "kiukas",
+    "muga",
+    "povm",
+    "ruschhaupt",
+    "textquote",
+    "unsharp",
+    "wavefunction",
+    "wootters"
+  ]
 }
