@@ -65,6 +65,14 @@
   \input{tex/todo/misc.tex}
 \fi
 
+\ifthanks
+  \chapter*{Acknowledgements}
+  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter X".
+\addcontentsline{toc}{chapter}{Acknowledgements}
+
+  \input{tex/thanks/thanks.tex}
+\fi
+
 % appendices
 \appendix
 
