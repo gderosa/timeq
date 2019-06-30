@@ -7,9 +7,9 @@ In quantum mechanics, at least in first quantization, defining the \emph{positio
 an observable is unproblematic. More strongly, representing the quantum state of a particle
 in terms of coefficients with respect to eigenstates of position is extremely common.
 Almost always when a ``wavefunction'' is written down, the \emph{position representation}
-is assumed, unless otherwise (explicitly) noted.
+is assumed, unless otherwise (explicitly) noted:
 
-\begin{equation}
+\begin{equation}\label{eq:diracdeltax}
   \psi(x) = \int \dd{x'} \delta(x-x') \psi(x') \,\text{.}
 \end{equation}
 
@@ -19,3 +19,18 @@ Peter Higgs and others in 1964, and confirmed experimentally in 2012.
 \emph{Energy} is associated with arguably the most important operator in quantum dynamics: the Hamiltonian.
 
 Time is missing from this picture.
+
+The \eqref{eq:diracdeltax} is really a simple mathematical identity.
+It's a defining property of the Dirac delta.
+From a quantum mechanical perspective it's almost tautological
+that the coefficients of an eigenvector $\ket{e_k}$ with respect to a basis
+that include the eigenvector itself are simply $\delta_{jk}$.
+Likewise, the \eqref{eq:diracdeltax} in discrete form is $a_k = \sum_j \delta_{jk} a_j$.
+There is nothing special about the position observable, from this point of view.
+In the position representation it acts on the wavefunction by simply
+associating $x\psi(x)$ to $\psi(x)$, for each $x \in \mathbb{R}$,
+but the same would happen for another operator with continuous spectrum
+if the wavefunction is with respect to the continuous eigenbasis
+of that operator; and a similar identity
+would hold true in case of discrete spectrum
+(with discrete sums and \emph{Kronecker} deltas in the expression).
