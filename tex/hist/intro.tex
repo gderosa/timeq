@@ -3,32 +3,54 @@
 Time is a fundamental concept in physics, together with space (or \term{position} within space),
 matter (or \emph{mass}) and energy.
 
-In quantum mechanics, at least in first quantization, defining the \emph{position} of a particle as
-an observable is unproblematic. More strongly, representing the quantum state of a particle
-in terms of coefficients with respect to eigenstates of position is extremely common.
-Almost always when a ``wavefunction'' is written down, the \emph{position representation}
+In quantum mechanics, at least in first quantization, defining the \emph{position} as
+an observable is unproblematic and somewhat basic.
+Indeed, representing the quantum state of a particle
+in terms of coefficients with respect to eigenstates of its position is extremely common.
+Almost always when a ``wavefunction'' $\psi$
+for a state $\ket{\psi}$
+is written down, the \emph{position representation}
 is assumed, unless otherwise (explicitly) noted:
-\begin{equation}\label{eq:diracdeltax}
-  \psi(x) = \int \dd{x'} \delta(x-x') \psi(x') \,\text{.}
+\begin{equation}\label{eq:positionrepr}
+  \ket{\psi} = \int \dd{x} \psi(x) \ket{x}
 \end{equation}
+(here a one-dimensional system is considered, for simplicity:
+it can be easily verified that more dimensions,
+and degeneracy, may be taken into account without altering the core rationale of the
+following arguments).
 
-A quantum mechanism that explains how particle acquire \emph{mass} was theorized by
+As per \emph{mass}, a quantum mechanism that explains how particle acquire mass was theorized by
 Peter Higgs and others in 1964, and confirmed experimentally in 2012.
 
 \emph{Energy} is associated with arguably the most important operator in quantum dynamics: the Hamiltonian.
 
 \emph{Time} is missing from this picture.
 
+Rigorously, the position observable has no special role in quantum mechanics.
+Eq. \eqref{eq:positionrepr} can be further expanded to
+\begin{equation}\label{eq:qprepr}
+  \ket{\psi} = \int \dd{x} \psi(x) \ket{x} = \int \dd{p} \tilde{\psi}(p) \ket{p} \,\text{,}
+\end{equation}
+with $p$ and $\ket{p}$ being eigenvalues and eigenvectors of linear \emph{momentum}.
+The fact that the symbol $\ket{\psi}$ instead of $\ket{\tilde{\psi}}$
+is used for the state vector is a pure matter of convention.
+
 Eq. \eqref{eq:diracdeltax} is really a simple mathematical identity.
 It's a defining property of the Dirac delta.
-Likewise, the \eqref{eq:diracdeltax} in discrete form is $a_k = \sum_j \delta_{jk} a_j$.
+%Likewise, the \eqref{eq:diracdeltax} in discrete form is $a_k = \sum_j \delta_{jk} a_j$.
 There is nothing special about the position observable, from this point of view.
 In the position representation it acts on the wavefunction by simply
 multiplying it by $x$,
 but the same would happen for another operator with continuous, or discrete, spectrum
 (of course, changing the variable, and understanding that it may have a different physical meaning,
 but the formal properties would be the same).
-Switching to momentum representation, for example, is customary in the resolution of many quantum mechanical problems.
+Switching to momentum representation,
+for example,
+is customary in the resolution of many quantum mechanical problems;
+and the momentum representation of the momentum operator,
+essentially,
+acts on a wavefunction $\tilde{\psi}(p)$ by associating
+$p\tilde{\psi}(p)$ for each $p$ to it. 
 
 With this in mind one may wonder why, in the identity
 \begin{equation}\label{eq:diracdeltaxt}
