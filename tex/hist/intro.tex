@@ -12,7 +12,7 @@ for a state $\ket{\psi}$
 is written down, the \emph{position representation}
 is assumed, unless otherwise (explicitly) noted:
 \begin{equation}\label{eq:positionrepr}
-  \ket{\psi} = \int \dd{x'} \psi(x) \ket{x'} \text{,}
+  \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} \text{,}
 \end{equation}
 where\footnote{
   Here a one-dimensional system is considered, for simplicity:
@@ -20,7 +20,7 @@ where\footnote{
   and degeneracy, may be taken into account without altering the core rationale of the
   following arguments in this Section.
 }
-$\psi(x) = \braket{x}{\psi}$.
+$\psi(x') = \braket{x'}{\psi}$.
 
 As per \emph{mass}, a quantum mechanism that explains how particle acquire mass was theorized by
 Peter Higgs and others in 1964, and confirmed experimentally in 2012.
@@ -47,19 +47,20 @@ in its own eigenbasis, eigenstates are represented as a Dirac deltas
 (for discrete spectrums, the integral is replaced by a discrete sum,
 and Dirac deltas by Kronecker ones).
 
-Applying the position operator $\hat{x}$ to the~\eqref{eq:positionrepr}, there has
+Applying the position operator $\hat{x}$ to the~\eqref{eq:positionrepr},
+then taking the inner product on the left by $\bra{x}$,
+there has
 \begin{equation}
-  \hat{x}\ket{\psi} = \int \dd{x'} \psi(x') \hat{x} \ket{x'} = \int \dd{x'} x' \psi(x') \delta(x-x') \ket{x'}
+  \qty[\hat{x}\psi](x) \eqbydef \mel{x}{\hat{x}}{\psi} =
+    \int \dd{x'} \psi(x') x' \mel{x}{\hat{x}}{x'} =
+    \int \dd{x'} \psi(x') \delta(x-x') = 
+    x\psi(x)
   \,\text{,}
 \end{equation}
-which,
-after taking the inner product by $\bra{x}$ and then being compared with the~\eqref{eq:diracdeltax},
+which
 shows that the position
 (and an observable in general) is represented, in its own eigenbasis,
-as a simple multiplication of the original wavefunction by the respective eigenvalue:
-\begin{equation}
-  \qty[\hat{x}\psi](x) = x\psi(x) \,\text{.}
-\end{equation}
+as a simple multiplication of the original wavefunction by the respective variable.
 
 With this in mind one may wonder why, in the identity
 \begin{equation}\label{eq:diracdeltaxt}
