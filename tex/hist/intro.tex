@@ -12,12 +12,15 @@ for a state $\ket{\psi}$
 is written down, the \emph{position representation}
 is assumed, unless otherwise (explicitly) noted:
 \begin{equation}\label{eq:positionrepr}
-  \ket{\psi} = \int \dd{x} \psi(x) \ket{x}
+  \ket{\psi} = \int \dd{x'} \psi(x) \ket{x'} \text{,}
 \end{equation}
-(here a one-dimensional system is considered, for simplicity:
-it can be easily verified that more dimensions,
-and degeneracy, may be taken into account without altering the core rationale of the
-following arguments).
+where\footnote{
+  Here a one-dimensional system is considered, for simplicity:
+  it can be easily verified that more dimensions,
+  and degeneracy, may be taken into account without altering the core rationale of the
+  following arguments in this Section.
+}
+$\psi(x) = \braket{x}{\psi}$.
 
 As per \emph{mass}, a quantum mechanism that explains how particle acquire mass was theorized by
 Peter Higgs and others in 1964, and confirmed experimentally in 2012.
@@ -26,31 +29,37 @@ Peter Higgs and others in 1964, and confirmed experimentally in 2012.
 
 \emph{Time} is missing from this picture.
 
-Rigorously, the position observable has no special role in quantum mechanics.
-Eq. \eqref{eq:positionrepr} can be further expanded to
+Rigorously speaking, the position observable has no special role in quantum mechanics.
+Eq.~\eqref{eq:positionrepr} can be further expanded to
 \begin{equation}\label{eq:qprepr}
-  \ket{\psi} = \int \dd{x} \psi(x) \ket{x} = \int \dd{p} \tilde{\psi}(p) \ket{p} \,\text{,}
+  \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} = \int \dd{p'} \tilde{\psi}(p') \ket{p'} \,\text{,}
 \end{equation}
-with $p$ and $\ket{p}$ being eigenvalues and eigenvectors of linear \emph{momentum}.
+with $p$ and $\ket{p}$ being respectively eigenvalues and eigenvectors of linear \emph{momentum}.
 The fact that the symbol $\ket{\psi}$ instead of $\ket{\tilde{\psi}}$
 is used for the state vector is a pure matter of convention.
 
-Eq. \eqref{eq:diracdeltax} is really a simple mathematical identity.
-It's a defining property of the Dirac delta.
-%Likewise, the \eqref{eq:diracdeltax} in discrete form is $a_k = \sum_j \delta_{jk} a_j$.
-There is nothing special about the position observable, from this point of view.
-In the position representation it acts on the wavefunction by simply
-multiplying it by $x$,
-but the same would happen for another operator with continuous, or discrete, spectrum
-(of course, changing the variable, and understanding that it may have a different physical meaning,
-but the formal properties would be the same).
-Switching to momentum representation,
-for example,
-is customary in the resolution of many quantum mechanical problems;
-and the momentum representation of the momentum operator,
-essentially,
-acts on a wavefunction $\tilde{\psi}(p)$ by associating
-$p\tilde{\psi}(p)$ for each $p$ to it. 
+By multiplying on the left by $\bra{x}$, Eq.~\eqref{eq:positionrepr} yields
+\begin{equation}\label{eq:diracdeltax}
+  \psi(x) = \int \dd{x'} \psi(x') \delta(x-x') \,\text{,}
+\end{equation}
+showing that for an observable with continuous spectrum,
+in its own eigenbasis, eigenstates are represented as a Dirac deltas
+(for discrete spectrums, the integral is replaced by a discrete sum,
+and Dirac deltas by Kronecker ones).
+
+Applying the position operator $\hat{x}$ to the~\eqref{eq:positionrepr}, there has
+\begin{equation}
+  \hat{x}\ket{\psi} = \int \dd{x'} \psi(x') \hat{x} \ket{x'} = \int \dd{x'} x' \psi(x') \delta(x-x') \ket{x'}
+  \,\text{,}
+\end{equation}
+which,
+after taking the inner product by $\bra{x}$ and then being compared with the~\eqref{eq:diracdeltax},
+shows that the position
+(and an observable in general) is represented, in its own eigenbasis,
+as a simple multiplication of the original wavefunction by the respective eigenvalue:
+\begin{equation}
+  \qty[\hat{x}\psi](x) = x\psi(x) \,\text{.}
+\end{equation}
 
 With this in mind one may wonder why, in the identity
 \begin{equation}\label{eq:diracdeltaxt}
