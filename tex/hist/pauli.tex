@@ -1,5 +1,24 @@
 \section{Pauli's objection}\label{proof}
 
+In the quest for a quantum time observable,
+even in non-relativistic quantum mechanics,
+it is tempting to leverage
+the dualism between position and momentum,
+evoked in Eq.~\eqref{eq:qprepr}.
+It is well known that momentum is the infinitesimal generator of spatial translations:
+\begin{equation}
+  \psi(x-\Delta x; \, t) = \E^{-\iu \Delta x \hat{p} / \hbar} \psi(x; t) \,\text{,}
+\end{equation}
+where the momentum operator is $\hat{p} \repr -\iu\hbar \pdv{x}$ in position representation.
+
+It is also well known that the Schr\"odinger equation is equivalent to
+stating that the Hamiltonian is the infinitesimal generator of
+\emph{temporal} translation:
+\begin{equation}
+  \psi(x; t+\Delta t) = \E^{-\iu \Delta t \hat{H} / \hbar} \psi(x; t) \,\text{.}
+\end{equation}
+
+
 In a footnote in~\cite{PauliFootnote}, W. Pauli excluded the possibility
 of a self-adjoint operator representing time as a quantum observable.
 However, he did not provide an explicit proof.
@@ -22,7 +41,7 @@ expansion of the exponential yields the commutator
 \begin{equation}
 [U_{\beta}, H]  =
 \left[
-    \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+  \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
 \right]         =
 \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H] \,\text{.}
 \end{equation}
@@ -67,9 +86,9 @@ in fact found in most physical systems.
 \item time and entanglement (Page and Wootters model, Leggett-Garg inequality as \emph{time} version of Bell inequalities, experiments by Moreva, Genovese et al.)
 \item approachs where not only spacetime but causality itself is not fundamental (indefinite causal order: Oreshkov, Brukner et al)
 \item event-based approaches: 
-    \begin{itemize}
-        \item ``event'' wavefunction square integrable in 4D (how does it relate rigourously to detector model?)
-        \item event-enhanced quantum theory (EEQT, Ruschhaupt et al.)
-        \item 
-    \end{itemize}
+  \begin{itemize}
+    \item ``event'' wavefunction square integrable in 4D (how does it relate rigourously to detector model?)
+    \item event-enhanced quantum theory (EEQT, Ruschhaupt et al.)
+    \item 
+  \end{itemize}
 \end{itemize}
