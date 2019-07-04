@@ -18,13 +18,72 @@ stating that the Hamiltonian is the infinitesimal generator of
   \psi(x; t+\Delta t) = \E^{-\iu \Delta t \hat{H} / \hbar} \psi(x; t) \,\text{.}
 \end{equation}
 
+The analogy between the two equations above,
+among other considerations,
+motivates the requirement that
+the time (self-adjoint) operator is the canonically conjugate of the Hamiltonian,
+just like linear momentum is canonically conjugate to the position operator.
 
-In a footnote in~\cite{PauliFootnote}, W. Pauli excluded the possibility
-of a self-adjoint operator representing time as a quantum observable.
-However, he did not provide an explicit proof.
-Here a proof is given, based on~\cite{Galapon2002}, but expanded in more detail.
+However, the existence of such operator is hindered by a problem
+which was raised by W.~Pauli for the first time
+in his \term{General Principles of Quantum Mechanics}, dated 1958,
+where he argued that the existence of a self-adjoint operator,
+conjugate to the Hamilonian,
+would lead to absurd consequences on the energy spectrum.
+He did not provide a much detailed proof of his argument,
+as he only relegated his observation into a footnote
+\parencite{PauliFootnote}; but that was sufficient to
+lead most physicists to insist that ``time is just a parameter''
+in quantum mechanics
+since.
 
-\subsection*{Proof}
+Section~\ref{sec:pauliproof} aims at providing
+a more technical proof of Pauli's ``theorem'',
+it is based on some relatively recent work by
+E. Galapon \parencite{Galapon2002},
+while expanding some details further.
+A preliminary Lemma on commutator algebra will be necessary
+towards such proof.
+
+
+\subsection{Proof of the Pauli argument}\label{sec:pauliproof}
+
+\small
+\subsubsection{Preliminaries: commutator properties}
+\begin{lemma}\label{CommProp}
+  If the commutator $[T, H]$ commutes with $T$ i.e.
+  $$[T, H]T~=~T[T, H]\,,$$ then the following holds:
+  \begin{equation}\label{eq:tkh}
+  [T^k, H] = kT^{k-1}[T, H]\,.
+  \end{equation}
+  \end{lemma}
+  This is particularly true when $[T, H]$ is a \emph{number} as in \eqref{THcommutator} where
+  $T$ and $H$ are the time and energy operator respectively.
+  \begin{proof}
+  First of all, the \eqref{eq:tkh} is trivially valid for $k = 1$.
+
+  For an arbitrary positive integer $k$ there has:
+  \begin{dmath}\label{tkhrecur}
+  [T^k, H] = T^{k-1}TH - HT^{k-1}T = T^{k-1}TH - T^{k-1}HT + T^{k-1}HT - HT^{k-1}T \\
+      = T^{k-1}[T, H] + [T^{k-1}, H]T
+  \end{dmath}
+  Now, iterating the result in \eqref{tkhrecur},
+  \begin{dmath}\label{tkhrecurplus}
+  [T^k, H] = T^{k-1}[T, H] + [T^{k-1}, H]T
+  = T^{k-1}[T, H] + (T^{k-2}[T, H] + [T^{k-2}, H]T)T
+  = T^{k-1}[T, H] +  T^{k-1}[T, H] + [T^{k-2}, H]T^2
+  = 2T^{k-1}[T, H] + [T^{k-2}, H]T^2
+  = \hdots
+  = nT^{k-1}[T, H] + [T^{k-n}, H]T^n = \hdots
+  \end{dmath}
+  where the commutativity hypothesis $[T, H]T = T[T, H]$ has been used to obtain $T^{k-2}[T, H]T = T^{k-1}[T, H]$.
+
+  Now, \eqref{tkhrecurplus} can be continued until it reaches $n=k$ when the term
+  $[T^{k-n}, H]T^n$ vanishes and a result of $kT^{k-1}[T, H]$ follows.
+  \end{proof}
+\normalsize
+
+\subsection*{The Pauli argument}
 
 Let's assume that there exists a self-adjoint time operator, $T$, canonically conjugate
 to the Hamiltonian $H$, i.e.
