@@ -1,12 +1,47 @@
 \section{Introduction}
 
-The Page and Wootters model is based on
-an additional Hilbert space $\mathcal{H}_T$,
+In Section \ref{sec:trel} it was observed that time is the only observable quantity
+(even if it's not a quantum observable \emph{strictu sensu})
+of which all other observables and the state of the system itself are a function.
+This justifies the very concept of \term{time evolution}.
+Taking two other observables \emph{in general} there is no functional dependency
+between one another.
+However, this can be true in some particular cases.
+An extreme example is a bipartite system,
+the two subsystems of which happen to be
+perfectly entangled i.e. $ \ket{\Psi} = \sum_{j} \ket{j}_{A} \ox \ket{\psi_{j}}_{B} $,
+where $\qty{\ket{j}}$ is an eigenbasis of some observable in system A.
+If we regard this observable as ``the position of the hand of a clock'',
+the state of system B is functionally dependent on the ``parameter'' $j$,
+which is not \emph{just a parameter} but also an index labeling
+eigenvalues and eigenvectors of an actual quantum observable
+with its own Hermitian operator.
+Thus the relation between quantum systems A and B effectively
+reproduces a ``time evolution'' of system B,
+while the whole bipartite system
+is stationary, in state
+$\ket{\Psi}$.
+There is no logical requirement that $\ket{\Psi}$
+depends, other than trivially,
+upon any further external parameter.
+The stationary state $\ket{\Psi}$ embeds the whole ``history''
+of subsystem B.
+
+The Page and Wootters model of ``evolution without evolution'',
+first proposed in 1983,
+is essentially based on the above ideas \parencite{PageWootters}.
+Circa three decades after the first publication by
+Don Page and William Wootters, the model was further developed
+in particular by Lloyd, Giovannetti and Maccone,
+with emphasis on addressing technical issues which have been raised meanwhile
+\parencite{Lloyd:Time}.
+In this formulation,
+in addition to the ordinary Hilbert space of the system,
+an extra Hilbert space $\mathcal{H}_T$ is considered,
 where time is an observable
 represented by a self-adjoint operator
 whose properties are similar to the ones of position
-in ordinary quantum mechanics
-\parencite{Lloyd:Time, Maccone:Pauli}.
+in ordinary quantum mechanics.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
