@@ -1,0 +1,183 @@
+\section{Time and the Quantum: An invitation}\label{sec:intro}
+
+Time is a fundamental concept in physics, together with space (or \term{position} within space),
+matter (or \emph{mass}) and energy.
+
+In quantum mechanics, at least in first quantization, defining the \emph{position} as
+an observable is unproblematic and somewhat basic.
+Indeed, representing the quantum state of a particle
+in terms of coefficients with respect to eigenstates of position is extremely common.
+Almost always when a ``wavefunction'' $\psi$
+for a state $\ket{\psi}$
+is written down, the \emph{position representation}
+is assumed, unless otherwise (explicitly) noted:
+\begin{equation}\label{eq:positionrepr}
+  \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} \text{,}
+\end{equation}
+where\footnote{
+  Here a one-dimensional system is considered, for simplicity:
+  it can be easily verified that more dimensions,
+  and degeneracy, may be taken into account without altering the core rationale of the
+  following arguments in this Section.
+}
+$\psi(x') = \braket{x'}{\psi}$.
+
+As per \emph{mass}, a quantum mechanism that explains how particle acquire mass was theorized by
+Peter Higgs and others in 1964, and confirmed experimentally in 2012
+\parencite{Higgs, EnglertBrout, Kibble+, HiggsATLAS, HiggsCMS}.
+
+\emph{Energy} is associated with arguably the most important operator in quantum dynamics: the Hamiltonian.
+
+\emph{Time} is missing from this picture. As of writing of the present work,
+there is no general consensus in the physics community on
+the definition of a quantum operator associated to a time observable,
+or even only on a particular quantum mechanism that would allow time to ``emerge'',
+for example as an effective quantity.
+
+\subsection{Time, and position}
+
+Rigorously speaking, the position observable has no special role in quantum mechanics.
+Eq.~\eqref{eq:positionrepr} can be further expanded to
+\begin{equation}\label{eq:qprepr}
+  \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} = \int \dd{p'} \tilde{\psi}(p') \ket{p'} \,\text{,}
+\end{equation}
+with $p$ and $\ket{p}$ being respectively eigenvalues and eigenvectors of linear \emph{momentum}.
+The fact that the symbol $\ket{\psi}$ instead of $\ket{\tilde{\psi}}$
+is used for the state vector is a pure matter of convention.\footnote{
+  Although, position representation is widely regarded as easier
+  to ``visualize'' within our intuition,
+  whenever a position observable can be defined
+  and there aren't particular computational needs for doing otherwise.
+}
+
+By multiplying on the left by $\bra{x}$, Eq.~\eqref{eq:positionrepr} yields
+\begin{equation}\label{eq:diracdeltax}
+  \psi(x) = \int \dd{x'} \psi(x') \delta(x-x') \,\text{,}
+\end{equation}
+showing that for an observable with continuous spectrum,
+in its own eigenbasis, eigenstates are represented as a Dirac deltas
+(for discrete spectrums, the integral is replaced by a discrete sum,
+and Dirac deltas by Kronecker deltas).
+
+Applying the position operator $\hat{x}$ to the~\eqref{eq:positionrepr},
+then taking the inner product on the left by $\bra{x}$,
+there has
+\begin{equation}
+  \qty[\hat{x}\psi](x) \eqbydef \mel{x}{\hat{x}}{\psi} =
+    \int \dd{x'} \psi(x') x' \mel{x}{\hat{x}}{x'} =
+    \int \dd{x'} \psi(x') \delta(x-x') =
+    x\psi(x)
+  \,\text{,}
+\end{equation}
+which
+shows that the position
+(and an observable in general) is represented, in its own eigenbasis,
+as a simple multiplication of the original wavefunction by the respective variable.
+
+\subsection{Time evolution and relativity}\label{sec:trel}
+
+Eq.~\eqref{eq:diracdeltax} is a mathematical identity
+of general validity,
+regardless of any particular physical meaning,
+and can be easily generalized to functions
+of more variables.
+
+On a different note
+---as a matter of experience if not anything else---
+the state of a physical system, either classical or quantum,
+with all observable quantities,
+can be regarded as a function of the instant in \emph{time}
+(let's call that independent variable $t$).
+The same cannot be stated in general for any other pair of measurable quantities:
+the $x$ coordinate is not a function of the $y$ coordinate
+(or their respective statistical amplitudes, in the quantum realm),
+and so on.
+This status of time as the universally independent variable
+has shaped classical mathematical physics: Galilean transformations
+do not change time, which stays as an absolute quantity.
+The Hamiltonian formalism itself is based on this assumption,
+and the Hamiltonian formalism is at the foundation of quantum mechanics too,
+which thus inherits ---one may argue--- the difficulties connected to
+treating time as ``external'' with respect to the other quantities under study.
+``[The] Hamiltonian method [\dots] marks out a particular time variable
+as the canonical conjugate of the Hamiltonian function'' \parencite{DiracLagrangian}.
+
+Emphasizing time as a parameter, the value of a wavefunction
+(in position representation, for example)
+can therefore be expressed as $\psi_{t}(x)$ at each position $x$
+and at each time $t$.
+Still, it can be regarded as a function of two variables
+and one may wonder why (after an inessential change of notation),
+in the identity
+\begin{equation}\label{eq:diracdeltaxt}
+  \psi(x; t) = \int \dd{x'}\dd{t'} \delta(x-x')\delta(t-t') \psi(x';\, t') \,\text{,}
+\end{equation}
+the term $\delta(t-t')$ cannot be interpreted as the eigenfunction of some time operator,
+which in turn acts as a simple multiplication by $t$ on this
+wavefunction $\psi(x; t)$ ---which would be, therefore, a wavefunction in ``time--position representation''.
+In other words, why cannot the instant in \emph{time}
+and the position in \emph{space}
+be treated equally?
+
+The fact that $\delta(t-t')$ would be an \emph{improper} eigenfunction
+is not the blocking issue in this case (it is not, for the position eigenfunction),
+and the mathematical intricacies related to the continuous spectrum are
+elegantly resolved by the spectral theory, mainly by Von Neumann
+\parencite{VonNeumann}, which is an integral part of the standard, commonly accepted
+formulation of quantum mechanics, almost since the early years of the theory.
+
+The idea of treating space and time on equal footing might naturally lead the reader to
+ask another question: whether a theory combining quantum mechanics with Einstein's
+theory of relativity is the suitable framework which would allow a rigorous and logically consistent
+definition of a time observable,
+possibly exposing an analogy with the spatial position.
+
+None of the proposed models comprehending both quantum theory and \emph{general} relativity
+have reached general consensus,
+or the remote possibility of experimental verification to date \parencite{QGravIntro}.
+However, \term{quantum field theory} (QFT) is an established framework that does combine
+some principles
+of quantum mechanics with the \emph{special} theory of relativity.
+Unfortunately, QFT not only does not promote time $t$ to some quantum operator $\hat{t}$,
+but it does also ``demote'' \emph{position} to the role of a classical parameter.\footnote{
+  More on this in Section \ref{sec:KG}, where the Klein-Gordon equation is reformulated
+  with time as an Hermitian operator in an appropriate Hilbert space
+  ---based on the Page--Wootters model, which is introduced in Chapter~\ref{ch:pw}.
+}
+It treats time and space equally only in the sense that they are all classical,
+which appears as the necessary tradeoff in order to quantize other quantities
+in some mathematically tractable way. \parencite[\S I.1]{SrednickiQFT}.
+
+It is no surprise that one of the most successful applications
+of QFT, the Standard Model, describes all fundamental interactions except gravity:
+while electroweak and strong interactions can be described within a field theory
+which treats time and space as a ``background'' (or \emph{labels} to mark the relevant operators),
+time and space are expected to be the main mathematical objects (observables),
+and transform appropriately,
+in a theory of gravity
+which has general relativity as its classical counterpart.
+Whether the definition of a quantum time operator is an useful step towards
+a quantum theory of gravity is, of course, beyond the scope of the present work.
+
+\subsection{Photon position, and a final remark}
+
+The fact that QFT ``externalizes'' time and position to the rank of classical parameters
+is particularly true in quantum electrodynamics, also within the
+phenomenology of quantum optics.
+Thus it is impossible to define a \emph{photon} position
+within standard quantum optics (see, for example, \cite{ScullyZubairy}, \S 1.5.4 `Wave function for photons'),
+and the problem of defining a quantum position observable for a photon
+shows an interesting analogy with time for a quantum massive particle.
+It is, in fact, a current topic of active research \parencite{HawtonPhotonPosition, Hawton2019}.
+
+While there isn't a wave function for photons, the wave function for massive particles,
+as seen in the Shr\"{o}dinger equation, only exists as a function of position (or momentum, etc.)
+but not as a function of time,
+i.e. the variable $t$ in Eq.~\eqref{eq:diracdeltaxt} cannot be regarded as taking values among the eigenvalues of a time operator.
+The main reason for this is the \term{Pauli's objection}, as illustrated in Section~\ref{proof},
+which is also ---and particularly--- valid in nonrelativistic quantum mechanics. Nevertheless, this Section
+has provided an explanation as to why (even without considering the Pauli objection)
+relativistic field theories, as currently accepted, cannot provide a solution
+to the problem of quantum time, in spite of treating time and space on equal footing,
+and in spite of the fact that position in quantum mechanics is an observable
+with its associated self-adjoint operator.

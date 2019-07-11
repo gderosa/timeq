@@ -32,7 +32,8 @@
 \mainmatter
 
 \chapter{Pauli's objection and historical developments}
-\input{tex/hist/hist}
+\input{tex/hist/intro}
+\input{tex/hist/pauli}
 
 \chapter{Decoherence and Measurement}\label{ch:decohere}
 \input{tex/decohere/intro.tex}
@@ -65,7 +66,7 @@
   \input{tex/todo/misc.tex}
 \fi
 
-\ifthanks
+\iftodo
   \chapter*{Acknowledgements}
   \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter X".
 \addcontentsline{toc}{chapter}{Acknowledgements}
@@ -75,9 +76,6 @@
 
 % appendices
 \appendix
-
-\chapter{Commutator properties}
-\input{tex/appendix/commutator}
 
 \chapter[Jupyter Notebooks]{Jupyter Notebooks\footnote{
   For a reference on the software tools utilized:
