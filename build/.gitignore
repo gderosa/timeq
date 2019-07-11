@@ -1,5 +1,4 @@
 # All output and intermediate files go in this directory.
-# See also ../Makefile for details.
 
 # Ignore all files in this directory
 *
