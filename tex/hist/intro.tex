@@ -37,7 +37,7 @@ for example as an effective quantity.
 In particular, the relation between time and position is explored in what follows,
 with reminders about basic properties that will be useful in the rest of the chapter.
 
-\subsection{Position observable}
+\subsection{Time and position}
 
 Rigorously speaking, the position observable has no special role in quantum mechanics.
 Eq.~\eqref{eq:positionrepr} can be further expanded to
@@ -68,6 +68,49 @@ there has
 The position
 (and an observable in general) is represented, in its own eigenbasis,
 as a simple multiplication of the original wavefunction by the respective variable.
+
+\subsection{Is time ``special''?}
+
+As a matter of experience if not anything else,
+the state of a physical system, either classical or quantum,
+with all observable quantities,
+can be regarded as a function of the instant in \emph{time}
+(let's call that independent variable $t$).
+The same cannot be stated in general for any other pair of measurable quantities:
+the $x$ coordinate is not a function of the $y$ coordinate
+(or their respective statistical amplitudes, in the quantum realm),
+and so on.
+This status of time as the universally independent variable
+has shaped classical mathematical physics: Galilean transformations
+do not change time, which stays as an absolute quantity.
+The Hamiltonian formalism itself is based on this assumption,
+and the Hamiltonian formalism is at the foundation of quantum mechanics too,
+which thus inherits ---one may argue--- the difficulties connected to
+treating time as ``external'' with respect to the other quantities under study.
+``[The] Hamiltonian method [\dots] marks out a particular time variable
+as the canonical conjugate of the Hamiltonian function'' \parencite{DiracLagrangian}.
+
+Emphasizing time as a parameter, the value of a wavefunction
+(in position representation, for example)
+can therefore be expressed as $\psi_{t}(x)$ at each position $x$
+and at each time $t$.
+Still, it can be regarded as a function of two variables
+and one may wonder why (after an inessential change of notation),
+in the identity
+\begin{equation}\label{eq:diracdeltaxt}
+  \psi(x; t) = \int \dd{x'}\dd{t'} \delta(x-x')\delta(t-t') \psi(x';\, t') \,\text{,}
+\end{equation}
+the term $\delta(t-t')$ cannot be interpreted as the eigenfunction of some time operator,
+which in turn acts as a simple multiplication by $t$ on this
+wavefunction $\psi(x; t)$ ---which would be, therefore, a wavefunction in ``time--position representation''.
+
+The fact that $\delta(t-t')$ would be an \emph{improper} eigenfunction
+is not the blocking issue in this case (it is not, for the position eigenfunction),
+and the mathematical intricacies related to the continuous spectrum are
+elegantly resolved by the spectral theory, mainly by Von Neumann
+\parencite{VonNeumann}, which is an integral part of the standard, commonly accepted
+formulation of quantum mechanics, almost since the early years of the theory.
+
 
 \subsection{Photon position, and a final remark}
 
