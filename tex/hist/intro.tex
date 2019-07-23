@@ -120,7 +120,7 @@ it is tempting to leverage
 the dualism between position and momentum,
 evoked in Eq.~\eqref{eq:qprepr}.
 It is well known that momentum is the infinitesimal generator of spatial translations:
-\begin{equation}
+\begin{equation}\label{eq:genspacetransl}
   \psi(x-\Delta x; \, t) = \E^{-\iu \Delta x \hat{p} / \hbar} \psi(x; t) \,\text{,}
 \end{equation}
 where the momentum operator is $\hat{p} \repr -\iu\hbar \pdv{x}$ in position representation.
@@ -128,7 +128,7 @@ where the momentum operator is $\hat{p} \repr -\iu\hbar \pdv{x}$ in position rep
 It is also well known that the Schr\"odinger equation is equivalent to
 stating that the Hamiltonian is the infinitesimal generator of
 \emph{temporal} translation:
-\begin{equation}
+\begin{equation}\label{eq:gentimetransl}
   \psi(x; t+\Delta t) = \E^{-\iu \Delta t \hat{H} / \hbar} \psi(x; t) \,\text{.}
 \end{equation}
 
@@ -137,7 +137,23 @@ among other considerations,
 motivates the requirement that
 the time (self-adjoint) operator is the canonically conjugate of the Hamiltonian,
 just like linear momentum is canonically conjugate to the position operator.
+This involves, if such a time operator exists,
+a commutation relation between time and energy that is analogous to
+the one between position and momentum, $[x, p] = \iu \hbar$,
+and a consequent
+time--energy uncertainty relation.
+
+Incidentally, it's important to stress that, while equations \eqref{eq:genspacetransl} and \eqref{eq:gentimetransl}
+do offer a conceptual motivation towards defining a time observable that is conjugate to the Hamiltonian,
+they are not sufficient to logically imply its existence: strictly speaking, Eq. \eqref{eq:genspacetransl} does not even
+prove that an Hermitian \emph{position} operator exists either.
+Both $\Delta{x}$ and $\Delta{t}$ ---which quantifies the spatial and temporal translations at the core of this discussion---
+are simply, once again, exact \emph{parameters} for the displacement and time evolution operators respectively.
+There is no statistical distribution nor the possibility
+of a coherent superposition among different possible values of them.
 
 \subsubsection{Time--energy uncertainty relations}
+
+
 
 TODO. Mandelstam--Tamm and all that. Also 1.1.3 in the Book TQM1.
