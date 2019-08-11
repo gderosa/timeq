@@ -10,8 +10,10 @@
   "editor.tabSize": 2,
   "latex-workshop.latex.autoBuild.run": "never",
   "cSpell.words": [
+    "aharonov",
     "allcock",
     "andreas",
+    "bohm",
     "colorbox",
     "dinger",
     "eigenbasis",
