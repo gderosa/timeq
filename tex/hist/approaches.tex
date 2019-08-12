@@ -31,7 +31,8 @@ counterexamples to their formulation of the time--energy uncertainty relation.
 In their model, they considered a free particle as a ``clock''
 and quantize (by symmetrizing the corresponding operators)
 the classical relation
-$t = y / v = m y / p$ for a particle that is at position $y = 0$ at time $t = 0$.
+$t = y / v = m y / p$
+for a particle that is at position $y = 0$ at time $t = 0$ and travels at velocity $v$ along the $y$ axis.
 The corresponding time operator has then expression:
 \begin{equation}
   \hat{T}_{AB} = \frac{m}{2} \qty( \hat{Y} \frac{1}{\hat{P}_y} + \frac{1}{\hat{P}_y} \hat{Y} ) \,\text{.}
@@ -42,7 +43,20 @@ Such operator is claimed to be Hermitian, although with a singularity for $p_{y}
   relegating important information at the level of footnotes
   ---and the present work, in many parts, not even ``improving'' such a traditional trend.
 }
-TODO maximally symmetric quant-ph/9905023 momentum half-line etc.
+With some simple algebra, a commutation relation $[\hat{H}_{c}, \hat{T}_{AB}] = \hbar/2$
+can be proved, where $\hat{H}_c = \hat{P}_y^2/2m$ is the Hamiltonian of the free particle that is used as a ``clock''.
+
+This seems to contradict Pauli's argument: however, more recent studies
+\parencite{MugaAB98, MugaAB99, MugaAB99Err}
+have shown that
+$\hat{T}_{AB}$ is not, strictly speaking, self-adjoint but ``only'' maximally symmetric
+(a weaker and more general condition).
+An analogy has been made therein with the momentum on the half-line,
+a restriction of the well known momentum operator to a subdomain
+that is defined as
+$\qty{\psi \in \mathcal{L}^2(\mathbb{R}): \psi(x) = 0 \; \forall x < 0}$ in position representation.
+As opposed to the momentum in the half-line, $\hat{T}_{AB}$ does not have a self-adjoint extension though.
+
 TODO clock, extra space, observable commutes if in different spaces, P--W.
 
 \subsection*{TODO list}
