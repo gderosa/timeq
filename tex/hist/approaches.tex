@@ -282,12 +282,34 @@ $\mathbb{P}(t)$, it is therefore
 
 \subsection{Kijowski}\label{sec:kijowski}
 
-In 1974, Jerzy Kijowski \parencite{Kijowski} pursued an axiomatic approach towards a
-time-of-arrival quantum distribution. Namely, the article sought to compute
+In 1974, Jerzy Kijowski pursued an axiomatic approach towards a
+time-of-arrival quantum distribution. In his paper \parencite{Kijowski}, he sought to compute
 the probability distribution for a particle to pass through an hypersurface
-$\mathcal{Q}$ in the $3+1$-dimensional space-time. If the surface is purely
-space-like, to point at which the particle passes through has space-like
-coordinates $(x_{1}, x_{2}, x_{3})$.
+$\mathcal{Q}$ in the $3+1$-dimensional space-time.
+Classically, the trajectory of a particle is a curve in this $3+1$ space
+which intersects the hypersurface at a certain point $(\bar{t^{\vphantom{1em}}}, \bar{x^1}, \bar{x^2}, \bar{x^3})$.
+A purely
+space-like hypersurface will be identified by an equation like
+$t=\bar{t}$ (which is an hyperplane, more precisely), and the point coordinates,
+at which the particle passes through it, essentially tell \emph{where}
+the particle is at time $\bar{t}$, i.e. the values of $\bar{x^1}$, $\bar{x^2}$, $\bar{x^3}$,
+given that $\bar{t}$ is known.
+For a quantum particle, the exact coordinates $\bar{x^1}$, $\bar{x^2}$, $\bar{x^3}$
+are replaced by a complex wavefunction $\psi_{\bar{t}} \in \mathcal{L}^2(\mathbb{R}^3)$
+of the variables $x^1$, $x^2$, $x^3$,
+where:
+$\psi_{\bar{t}}(x^1, x^2, x^3) = \braket{x^1, x^2, x^3}{\psi_{\bar{t}}}$;
+$\bra{x^1, x^2, x^3}$ is an eigenbra of the 3-dimensional position operator $\bra{x^1} \ox \bra{x^2} \ox \bra{x^3}$;
+and $\ket{\psi_{\bar{t}}}$ is the state ket at time $\bar{t}$ in the ordinary quantum mechanics sense.
+
+The probability that the particle hits this hyperplane at its point of coordinates $x^1, x^2, x^3$
+is given by the square modulus $\abs{\psi_{\bar{t}}(x^1, x^2, x^3)}^2$. As a generalization,
+the probability distribution is given by a \emph{bilinear functional of $\psi_{\bar{t}}$}.
+This is chosen precisely as one of the requirements for a time-of-arrival probability distribution.
+
+Kijowski then considers an hypersurface that is spanned by one time-like vector and two independent
+space-like ones. One obvious example would be the hyperplane $x^3 = \bar{x^3}$.
+
 
 \subsection*{TODO list}
 \begin{itemize}
