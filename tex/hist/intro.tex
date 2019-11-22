@@ -154,17 +154,22 @@ stating that the Hamiltonian is the infinitesimal generator of
 The analogy between the two equations above,
 among other considerations,
 motivates the requirement that
-an hypothetical (self-adjoint) time operator should be the canonically conjugate of the Hamiltonian,
+an hypothetical \emph{self-adjoint} time operator should be the canonically conjugate of the Hamiltonian,
 just like the momentum operator is canonically conjugate to the position one.
 This would involve
 a commutation relation between time and energy that is analogous to
 the one between position and momentum, $[\hat{X}, \hat{P}] = \iu \hbar$,
 and consequently a time--energy uncertainty relation.
 
-Incidentally, it's important to stress that, while equations \eqref{eq:genspacetransl} and \eqref{eq:gentimetransl}
+Several formulations of such time--energy uncertainty relations have been proposed,
+although mostly, as detailed later in this Section, they do not rigorously refer to
+a time operator $\hat{T}$ in their definition of $\Delta T$.
+
+On another note, it's also worth stressing that,
+while equations \eqref{eq:genspacetransl} and \eqref{eq:gentimetransl}
 do offer some conceptual motivation towards defining a time observable that is conjugate to the Hamiltonian,
 they are not sufficient to logically imply its existence.
-Both $\Delta{x}$ and $\Delta{t}$ ---which quantifies the spatial and temporal translations at the core of this discussion---
+Both $\Delta{x}$ and $\Delta{t}$ ---which quantify the spatial and temporal translations at the core of this discussion---
 are, once again, mere \emph{parameters} for the displacement and time evolution operators respectively:
 \begin{align}
   \mel{x}{\mathcal{D}_{\Delta{x}}}{\psi(t)}        = \braket{x-\Delta{x}}{\psi(t)}\!\text{, }
@@ -173,10 +178,12 @@ are, once again, mere \emph{parameters} for the displacement and time evolution 
     &\text{ with } \mathcal{U}_{\Delta{t}}    = \E^{-\iu \Delta t \hat{H} / \hbar}
   \, \text{.}
 \end{align}
-The analogy between the roles of \emph{parameters} $\Delta x$ and $\Delta t$,
+Even in terms of \emph{position},
+$\Delta x$ is not to be intended as the the spread of the $\hat{X}$ operator in this case.
+Hence, the analogy between the roles of \emph{parameters} $\Delta x$ and $\Delta t$,
 with respect to \emph{operators} $\hat{P}$ and $\hat{H}$,
 cannot be used, alone, to rigorously prove the same analogy between the position operator $\hat{X}$
-and an hypothetical time operator $\hat{T}$, although it is somewhat suggestive.
+and some time operator $\hat{T}$, although it is somewhat suggestive.
 
 Whether a quantum time observable can be in principle defined as a self-adjoint
 operator, or alternative mathematical frameworks exist that are suitable,
@@ -222,7 +229,7 @@ the time span and the frequency\footnote{
 }
 width of a signal. Regardless of the status
 of signal theory in 1927, it is well known, at least in more recent times, that
-methods like the Fourier analysis are used in communication engineering to associate a function in the time domain
+methods like the Fourier analysis are used in Information and Communication engineering to associate a function in the time domain
 to another in the frequency domain; while, in quantum mechanics, the same mathematical operation
 is generally used to associate a wavefunction in position representation to
 the corresponding one in momentum representation.
@@ -236,8 +243,8 @@ Later in 1927, the uncertainty principle was derived in terms of
 statistical interpretation of quantum observables
 by Kennard and others (see e.g. \cite{Kennard1927}).
 The clarification of all formal issues has continued until recently \parencite{Appleby}.
-However, all this formalization process has regarded position and momentum only,
-not time and energy.
+However, all this formalization process has regarded position and momentum only
+---not time and energy.
 
 \subsubsection{Mandelstam and Tamm}
 
