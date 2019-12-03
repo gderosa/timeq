@@ -346,9 +346,32 @@ Another reasonable hypothesis is
 
 The last requirement is that
 \begin{enumerate}[resume]
-  \item The \term{dispersion}, defined as $\int \dd{t} t^2 F[\psi_t] - \qty(\int \dd{t} t F[\psi_t] )^2$, is finite.
+  \item
+    The \term{dispersion}, defined as
+    \begin{equation}\label{eq:kijowski:dispersion}
+      \int \dd{t} t^2 F[\psi_t] - \qty(\int \dd{t} t F[\psi_t] )^2 \text{,}
+    \end{equation}
+    is finite.
 \end{enumerate}
 
+Given the above axioms, Kijowski proved the following
+\begin{theorem}
+  \hphantom{1}
+  \begin{enumerate}
+    \item
+      A specific functional $F_0$ which minimizes the variance
+      \eqref{eq:kijowski:dispersion}
+      exists;
+    \item
+      The average value $\int \dd{t} t F[\psi_t] $ is constant over the class of
+      functionals defined by the axioms;
+    \item
+      $F_0$ has the expression
+      \begin{equation}
+        F_0 = \mathrm{?}
+      \end{equation}
+  \end{enumerate}
+\end{theorem}
 
 TODO: now use chap 10.2 of the Book. (The \term{dispersion} above is taken from there). Perhaps use $\bar{x^3}=0$ and replace above. Kijowski
 t-o-a operator is not self-adjoint and does not hacve a self-adj extension; its associated
