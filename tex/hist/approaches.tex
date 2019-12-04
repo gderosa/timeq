@@ -368,13 +368,18 @@ Given the above axioms, Kijowski proved the following
     \item
       $F_0$ has the expression
       \begin{equation}
-        F_0[\psi_t] = \frac{1}{2 \pi m \hbar}\abs{\int_0^{\infty} \dd p \sqrt{p} \psi_{t}(p)}
+        F_0[\psi_t] = \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} \psi_{t}(p)}^2 =
+                      \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \psi_{0}(p)}^2
+                      \, \text{,}
       \end{equation}
   \end{enumerate}
+  where the wavefunction is in the momentum representation and the free evolution
+  $\psi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\psi_{0}(p)$
+  is assumed.
 \end{theorem}
 
 TODO: now use chap 10.2 of the Book. (The \term{dispersion} above is taken from there). Perhaps use $\bar{x^3}=0$ and replace above. Kijowski
-t-o-a operator is not self-adjoint and does not hacve a self-adj extension; its associated
+t-o-a operator is not self-adjoint and does not have a self-adj extension; its associated
 measurement is a POVM\dots
 
 \subsection*{TODO list}
