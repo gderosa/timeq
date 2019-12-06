@@ -328,13 +328,16 @@ will have the time coordinate $\bar{t}$ which is the \term{time of arrival} at t
 
 Consistently with the above, Kijowski initially restricted the study to
 particles with positive momentum, which in terms of momentum wavefunction
-obviously means $\phi(p^1, p^2, p^3) = 0 \, \forall \, p^3 < 0$.
+obviously means ${\phi(p^1, p^2, p^3) = 0} \,\, {\forall \, p^3 < 0}$.
 
-Other requirements for the probability distribution $F[\psi_t]$ are
+The momentum representation $\phi$ is, in fact, used the most in Kijowski's
+paper, to make the theory explicit. The rest of this Section will reflect that.
+
+Other requirements for the probability distribution $F[\phi_t]$ are
 \begin{enumerate}[resume]
-  \item $F[\psi_t] \ge 0 \; \forall t$
-  \item If $\norm{\psi} = 1$, then $\int F[\psi_t] \dd t = 1$
-  \item $F[\pi(\psi)] = F[\psi]$.
+  \item $F[\phi_t] \ge 0 \; \forall t$
+  \item If $\norm{\phi} = 1$, then $\int F[\phi_t] \dd t = 1$
+  \item $F[\pi(\phi)] = F[\phi]$.
 \end{enumerate}
 In the last one, $\pi$
 is the representation of any Galilei transformation
@@ -363,7 +366,7 @@ The last requirement is that
   \item
     The \term{dispersion}, defined as
     \begin{equation}\label{eq:kijowski:dispersion}
-      \int \dd{t} t^2 F[\psi_t] - \qty(\int \dd{t} t F[\psi_t] )^2 \text{,}
+      \int \dd{t} t^2 F[\phi_t] - \qty(\int \dd{t} t F[\phi_t] )^2 \text{,}
     \end{equation}
     is finite.
 \end{enumerate}
@@ -377,18 +380,18 @@ Given the above axioms, Kijowski proved the following
       \eqref{eq:kijowski:dispersion}
       exists;
     \item
-      The average value $\int \dd{t} t F[\psi_t] $ is constant over the class of
+      The average value $\int \dd{t} t F[\phi_t] $ is constant over the class of
       functionals defined by the axioms;
     \item
       $F_0$ has the expression
       \begin{equation}
-        F_0[\psi_t] = \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} \psi_{t}(p)}^2 =
-                      \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \psi_{0}(p)}^2
+        F_0[\phi_t] = \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} \phi_{t}(p)}^2 =
+                      \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \phi_{0}(p)}^2
                       \, \text{,}
       \end{equation}
   \end{enumerate}
   where the wavefunction is in the momentum representation and the free evolution
-  $\psi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\psi_{0}(p)$
+  $\phi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\phi_{0}(p)$
   is assumed.
 \end{theorem}
 
