@@ -285,14 +285,16 @@ $\mathbb{P}(t)$, it is therefore
 
 In 1974, Jerzy Kijowski pursued an axiomatic approach towards a
 time-of-arrival quantum distribution. In his paper \parencite{Kijowski}, he sought to compute
-the probability distribution for a particle to pass through an hypersurface
+the probability distribution for a particle to intersect an hypersurface
 $\mathcal{Q}$ included in the $(3+1)$-dimensional space-time.
 Classically, the trajectory of a particle is a curve in this $3+1$ space
 which intersects the hypersurface at a certain point $(\bar{t^{\vphantom{1em}}}, \bar{x^1}, \bar{x^2}, \bar{x^3})$.
 An example of a purely
 space-like hypersurface is defined by an equation like
-$t=\bar{t}$ (which is, more specifically, an hyperplane), and the point coordinates,
-at which the particle passes through it, essentially tell \emph{where}
+$t=\bar{t}$ (which is, more specifically, an hyperplane).
+The point coordinates
+at which the particle passes through it
+essentially tell \emph{where}
 the particle is at time $\bar{t}$,
 i.e. the values of $\bar{x^1}$, $\bar{x^2}$, $\bar{x^3}$,
 given that $\bar{t}$ is known.
@@ -305,27 +307,28 @@ $\bra{x^1, x^2, x^3}$ is an eigenbra of the 3-dimensional position operator $\br
 and $\ket{\psi_{\bar{t}}}$ is the state ket at time $\bar{t}$ in the ordinary quantum mechanics sense.
 
 The probability that the particle hits this hyperplane at its point of coordinates $x^1, x^2, x^3$
-is given by the square modulus $\abs{\psi_{\bar{t}}(x^1, x^2, x^3)}^2$. As a generalization,
-the probability distribution is given by
+is given by the square modulus $\abs{\psi_{\bar{t}}(x^1, x^2, x^3)}^2$.
+
+In general, probability distributions are given by bilinear functionals of the wavefunction.
+Therefore, the first requirement is:
 \begin{enumerate}
-  \item A continuous positive bilinear functional $F[\psi_{\bar{t}}]$.
+  \item The time-of-arrival distribution is given by a continuous positive bilinear functional $F[\psi_{\bar{t}}]$.
 \end{enumerate}
 
 Kijowski then considers an hypersurface that is spanned by one time-like vector and two independent
-space-like vectors. One obvious example would be the hyperplane $x^3 = \bar{x^3}$.
-The reader can classically and intuitively picture this ``horizontal'' plane,
-a particle below it traveling ``upwards'', and ask the question
+space-like vectors (as opposed to the purely space-like hypersurface mentioned above).
+One obvious example would be the hyperplane $x^3 = \bar{x^3}$.
+Or, more simply, $x^3 = 0$, which we will consider from now on.
+
+The reader can classically and intuitively picture this horizontal plane,
+a particle below it traveling upwards, and ask the question
 ``when does the particle pass through?''. The point of intersection,
 besides the coordinate $\bar{x^3}$ which is known, and the other two space-like coordinates $\bar{x^1}$ and $\bar{x^2}$,
 will have the time coordinate $\bar{t}$ which is the \term{time of arrival} at the hypersurface.
-To study the quantum particle, a wavefunction in \emph{time-representation}
-(or in \emph{energy-representation} as well) is built;
-and the requirement of ``traveling upwards'',
-mentioned above, is formalized by restricting the domain of a time-of-arrival
-distribution to states of positive momentum along the third axis i.e. states satisfying
-\begin{enumerate}[resume]
-  \item $\braket{p^3}{\psi} = 0 \text{ for } p^3 \leq 0$.
-\end{enumerate}
+
+Consistently with the above, Kijowski initially restricted the study to
+particles with positive momentum, which in terms of momentum wavefunction
+obviously means $\phi(p^1, p^2, p^3) = 0 \, \forall \, p^3 < 0$.
 
 Other requirements for the probability distribution $F[\psi_t]$ are
 \begin{enumerate}[resume]
@@ -339,9 +342,20 @@ which preserves $\mathcal{Q}$
 e.g. a translation which is parallel to the surface
 (the first Kijowski paper considered the nonrelativistic case).
 
-Another reasonable hypothesis is
+From now on, we will consider, for simplicity, the surface $x^3 = 0$.
+
+For reasons of symmetry, in terms of time-of-arrival at $x^3 = 0$,
+one intuitively expects a particle
+``traveling upwards from the bottom'' to be equivalent to
+to a particle
+``traveling downwards from the top'',
+if both position and momentum have their sign flipped.
+For a quantum wavefunction in the position representation,
+this means
+replacing $\psi(\va{x})$ with $\psi(-\va{x})$.
+Or $\phi(\va{p})$ with $\phi^{*}(\va{p})$ in momentum representation:
 \begin{enumerate}[resume]
-  \item $F[\psi^{*}_t] = F[\psi_t]$, $\forall t$.
+  \item $F[\phi^{*}_t] = F[\phi_t]$, $\forall t$.
 \end{enumerate}
 
 The last requirement is that
