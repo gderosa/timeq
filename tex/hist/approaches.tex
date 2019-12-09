@@ -386,7 +386,10 @@ Given the above axioms, Kijowski proved the following
     \item
       $F_0$ has the expression
       \begin{equation}
-        F_0[\phi_t] = \frac{1}{m(2\pi\hbar)^4} \int_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} =
+        F_0[\phi_t] = 
+            \frac{1}{m(2\pi\hbar)^4} \int_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} \phi_t^{*}(p_1, p_2, p_{3}') \phi_t(p_1, p_2, p_{3}'')
+            \dd p_1 \dd p_2 \dd p_{3}' \dd p_{3}''
+            =
                       \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \phi_{0}(p)}^2
                       \, \text{,}
       \end{equation}
