@@ -286,7 +286,7 @@ $\mathbb{P}(t)$, it is therefore
 In 1974, Jerzy Kijowski pursued an axiomatic approach towards a
 time-of-arrival quantum distribution. In his paper \parencite{Kijowski}, he sought to compute
 the probability distribution for a particle to intersect an hypersurface
-$\mathcal{Q}$ included in the $(3+1)$-dimensional space-time.
+$\mathcal{Q}$ immersed in the $(3+1)$-dimensional space-time.
 Classically, the trajectory of a particle is a curve in this $3+1$ space
 which intersects the hypersurface at a certain point $(\bar{t^{\vphantom{1em}}}, \bar{x^1}, \bar{x^2}, \bar{x^3})$.
 An example of a purely
@@ -310,17 +310,25 @@ The probability that the particle hits this hyperplane at its point of coordinat
 is given by the square modulus $\abs{\psi_{\bar{t}}(x^1, x^2, x^3)}^2$.
 
 In general, probability distributions are given by bilinear functionals of the wavefunction.
-Therefore, the first requirement is:
-\begin{enumerate}
-  \item The time-of-arrival distribution is given by a continuous positive bilinear functional $F[\psi_{\bar{t}}]$.
-\end{enumerate}
 
 Kijowski then considers an hypersurface that is spanned by one time-like vector and two independent
 space-like vectors (as opposed to the purely space-like hypersurface mentioned above).
+The time coordinate of the intersection with the \term{world line}
+of a particle tells \emph{when} the particle traverses the surface.
+(Again, in the quantum sense, such exact value shall be replaced by a probability distribution).
 One obvious example would be the hyperplane $x^3 = \bar{x^3}$.
 Or, more simply, $x^3 = 0$, which we will consider from now on.
 
-The reader can classically and intuitively picture this horizontal plane,
+Given all the above considerations, the first requirement is:
+\begin{axiom}\label{ax:kijowski:first}
+  The probability distribution for the time-of-arrival of a particle at a given surface
+  is given by a continuous positive bilinear functional
+  \begin{equation*}
+    F[\psi_{t}] \eqbydef T_F[\psi_{t}, \psi_{t}] \, \text{.}
+  \end{equation*}
+\end{axiom}
+
+The reader can classically and intuitively picture an horizontal plane,
 a particle below it traveling upwards, and ask the question
 ``when does the particle pass through?''. The point of intersection,
 besides the coordinate $\bar{x^3}$ which is known, and the other two space-like coordinates $\bar{x^1}$ and $\bar{x^2}$,
@@ -334,11 +342,15 @@ The momentum representation $\phi$ is, in fact, used the most in Kijowski's
 paper, to make the theory explicit. The rest of this Section will reflect that.
 
 Other requirements for the probability distribution $F[\phi_t]$ are
-\begin{enumerate}[resume]
-  \item $F[\phi_t] \ge 0 \; \forall t$
-  \item If $\norm{\phi} = 1$, then $\int F[\phi_t] \dd t = 1$
-  \item $F[\pi(\phi)] = F[\phi]$.
-\end{enumerate}
+\begin{axiom}
+  $F[\phi_t] \ge 0 \ \forall t$
+\end{axiom}
+\begin{axiom}
+  If $\norm{\phi_t}_{\scriptscriptstyle{\mathcal{L}^2(\mathbb{R}^3)}} = 1 \ \forall t$, then $\int F[\phi_t] \dd t = 1$
+\end{axiom}
+\begin{axiom}
+  $F[\pi(\phi)] = F[\phi]$.
+\end{axiom}
 In the last one, $\pi$
 is the representation of any Galilei transformation
 which preserves $\mathcal{Q}$
@@ -349,7 +361,7 @@ From now on, we will consider, for simplicity, the surface $x^3 = 0$.
 
 For reasons of symmetry, in terms of time-of-arrival at $x^3 = 0$,
 one intuitively expects a particle
-``traveling upwards from the bottom'' to be equivalent to
+``traveling upwards from the bottom'' to be equivalent
 to a particle
 ``traveling downwards from the top'',
 if both position and momentum have their sign flipped.
@@ -357,19 +369,18 @@ For a quantum wavefunction in the position representation,
 this means
 replacing $\psi(\va{x})$ with $\psi(-\va{x})$.
 Or $\phi(\va{p})$ with $\phi^{*}(\va{p})$ in momentum representation:
-\begin{enumerate}[resume]
-  \item $F[\phi^{*}_t] = F[\phi_t]$, $\forall t$.
-\end{enumerate}
+\begin{axiom}
+  $F[\phi^{*}_t] = F[\phi_t]$, $\forall t$.
+\end{axiom}
 
 The last requirement is that
-\begin{enumerate}[resume]
-  \item
+\begin{axiom}\label{ax:kijowski:last}
     The \term{dispersion}, defined as
     \begin{equation}\label{eq:kijowski:dispersion}
       \int \dd{t} t^2 F[\phi_t] - \qty(\int \dd{t} t F[\phi_t] )^2 \text{,}
     \end{equation}
     is finite.
-\end{enumerate}
+\end{axiom}
 
 Given the above axioms, Kijowski proved the following
 \begin{theorem}
@@ -385,14 +396,15 @@ Given the above axioms, Kijowski proved the following
       functionals defined by the axioms;
     \item
       $F_0$ has the expression
-      \begin{equation}
-        F_0[\phi_t] = 
-            \frac{1}{m(2\pi\hbar)^4} \int_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} \phi_t^{*}(p_1, p_2, p_{3}') \phi_t(p_1, p_2, p_{3}'')
+      \begin{multline}
+        F_0[\phi_t] = T_{F_0}[\phi_t, \phi_t] =
+            \frac{1}{m(2\pi\hbar)^4}
+            \int\displaylimits_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} \phi_t^{*}(p_1, p_2, p_{3}') \phi_t(p_1, p_2, p_{3}'')
             \dd p_1 \dd p_2 \dd p_{3}' \dd p_{3}''
-            =
+            = \\
                       \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \phi_{0}(p)}^2
                       \, \text{,}
-      \end{equation}
+      \end{multline}
   \end{enumerate}
   where the wavefunction is in the momentum representation and the free evolution
   $\phi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\phi_{0}(p)$
