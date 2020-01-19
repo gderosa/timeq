@@ -308,8 +308,7 @@ and $\ket{\psi_{\bar{t}}}$ is the state ket at time $\bar{t}$ in the ordinary qu
 
 The probability that the particle hits this hyperplane at its point of coordinates $x^1, x^2, x^3$
 is given by the square modulus $\abs{\psi_{\bar{t}}(x^1, x^2, x^3)}^2$.
-
-In general, probability distributions are given by bilinear functionals of the wavefunction.
+More generally, probability distributions are given by bilinear functionals of the wavefunction.
 
 Kijowski then considers an hypersurface that is spanned by one time-like vector and two independent
 space-like vectors (as opposed to the purely space-like hypersurface mentioned above).
@@ -396,7 +395,7 @@ Given the above axioms, Kijowski proved the following
       functionals defined by the axioms;
     \item
       $F_0$ has the expression
-      \begin{multline}
+      \begin{multline}\label{eq:kijowski_bilinear_full}
         F_0[\phi_t] = T_{F_0}[\phi_t, \phi_t] =
             \frac{1}{m(2\pi\hbar)^4}
             \int\displaylimits_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} \phi_t^{*}(p_1, p_2, p_{3}') \phi_t(p_1, p_2, p_{3}'')
@@ -411,11 +410,19 @@ Given the above axioms, Kijowski proved the following
   is assumed.
 \end{theorem}
 
-TODO: now use chap 10.2 of the Book. (The \term{dispersion} above is taken from there). Perhaps use $\bar{x^3}=0$ and replace above. Kijowski
-t-o-a operator is not self-adjoint and does not have a self-adj extension; its associated
-measurement is a POVM\dots
+Please note that the bilinear $T_{F_0}[\phi_t, \phi_t]$ in the \eqref{eq:kijowski_bilinear_full}
+is a particular case of $T_{F_0}[\phi'_t, \phi''_t]$, where $\phi' = \phi'' \eqbydef \phi$.
 
-\includegraphics[width=\linewidth]{img/tmp/kijowski1.jpg}
+While this distribution is ``well behaved'' i.e. it has similar properties of other distributions
+associated to quantum observables described by self-adjoint operator and projective measurement,
+the corresponding operator found by Kijowski was not self-adjoint and the corresponding
+operator-valued measure was not projective.
+It was, more weakly, a \term{Positive Operator Valued Measure} or \term{POVM}.
+See, for example, \cite[Sec. 3]{TQM1:Standard},
+for a summary of POVMs, and Chapter \ref{ch:decohere}.
+
+% Intermediate calculation for to obtain The Book's formulas from Kijowski paper.
+%\includegraphics[width=\linewidth]{img/tmp/kijowski1.jpg}
 
 \subsection*{TODO list}
 \begin{itemize}
