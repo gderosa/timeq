@@ -22,20 +22,16 @@
 \addcontentsline{toc}{chapter}{Preface}
 \input{tex/preface/preface}
 
-% \iftodo
-%   \chapter*{Notation}
-%   \markboth{Notation}{Notation}  %% No ugly "Chapter 0".
-%   \addcontentsline{toc}{chapter}{Notation}
-%   \input{tex/preface/notation}
-% \fi
-
 \mainmatter
 
 \chapter{Pauli's objection and historical developments}
 \input{tex/hist/intro}
 \input{tex/hist/pauli}
+\input{tex/hist/approaches}
+\input{tex/hist/rel}
+\input{tex/hist/photon}
 
-\chapter{Decoherence and Measurement}\label{ch:decohere}
+\chapter{Decoherence and Measurement: a review}\label{ch:decohere}
 \input{tex/decohere/intro.tex}
 \input{tex/decohere/bi.tex}
 \input{tex/decohere/density.tex}
@@ -52,7 +48,7 @@
 \input{tex/pw/intro}
 \input{tex/pw/qubit}
 
-\chapter{Detection, time-of-arrival and uncertainty}
+\chapter{Detection, time-of-arrival and uncertainty}\label{ch:detect}
 \input{tex/detect/proper}
 \input{tex/detect/uncertain}
 \input{tex/detect/detect}

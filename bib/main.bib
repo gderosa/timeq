@@ -1,15 +1,16 @@
 @inbook{PauliFootnote,
   crossref={Pauli},
   author={Pauli, W},
-  pages={63},
   chapter={4}
 }
-@book{Pauli,
-  title={General Principles of Quantum Mechanics},
+@incollection{Pauli,
+  title={Die allgemeinen Prinzipien der Wellenmechanik},
+  booktitle={Handbuch der Physik},
   author={Pauli, W},
-  publisher={Springer-Verlag},
-  year={1980},
-  note={(Originally appeared as `Die allgemeinen Prinzipien der Wellenmechanik' in `Handbuch der Physik', 1933)}
+  publisher={Springer},
+  address={Berlin},
+  year={1933},
+  note={{English translation: ``General Principles of Quantum Mechanics'', 1980}}
 }
 @article {Galapon2002,
   author = {Galapon, Eric},
@@ -36,7 +37,7 @@
   series = {Lecture Notes in Physics},
   number = {734}
 }
-@inbook{TQM1:Standard,
+_inbook{TQM1:Standard,
   author = {Egusquiza, {\'{I}\~{n}igo} L. AND Muga J. Gonzalo AND  Baute, A. D.},
   title = {\,`Standard' Quantum Mechanical Approach to Times of Arrival},
   chapter = {10},
@@ -53,14 +54,14 @@
   series = {Lecture Notes in Physics},
   number = {789}
 }
-@inbook{TQM2:Detector,
+_inbook{TQM2:Detector,
   author = {Ruschhaupt, Andreas and Muga, J. Gonzalo and Hegerfeldt, Gerhard C.},
   title = {Detector Models for the Quantum Time of Arrival},
   crossref = {TQM2},
   chapter = {4},
   doi = {10.1007/978-3-642-03174-8_4}
 }
-@inbook{TQM2:Jump,
+_inbook{TQM2:Jump,
   title={The Quantum Jump Approach and Some of Its Applications},
   author={Hegerfeldt, Gerhard C.},
   chapter = {6},
@@ -85,7 +86,7 @@
   year          = {2009},
   publisher={Michigan State University's Department of Physics and Astronomy},
   howpublished={\url{http://www.pa.msu.edu/~mmoore/851.html}},
-  note			= {Lecture 34: The Density Operator}
+  note      = {Lecture 34: The Density Operator}
 }
 @inbook{EncMath_Measure,
   Author = {Sazonov, V. V.},
@@ -97,10 +98,10 @@
   URL = {http://www.encyclopediaofmath.org/index.php?title=Measure&oldid=18607}
 }
 @book{VonNeumann,
-	author={J. von Neumann},
-	title={Mathematical Foundations of Quantum Mechanics},
-	publisher={Princeton University Press},
-	year={1955},
+  author={J. von Neumann},
+  title={Mathematical Foundations of Quantum Mechanics},
+  publisher={Princeton University Press},
+  year={1955},
   note={Originally published as \emph{Mathematische Grundlagen der Quantenmechanik}, Springer-Verlag (1932)}
 }
 @book{Ballentine,
@@ -249,6 +250,75 @@ EprintType = {arXiv}
   Eprinttype = {arXiv},
   Doi = {10.1103/PhysRevLett.109.160401}
 }
+@article{crystal.exp.ordered,
+  title = {Observation of Discrete-Time-Crystal Signatures in an Ordered Dipolar Many-Body System},
+  author = {Rovny, Jared and Blum, Robert L. and Barrett, Sean E.},
+  journal = {Phys. Rev. Lett.},
+  volume = {120},
+  issue = {18},
+  pages = {180603},
+  numpages = {5},
+  year = {2018},
+  month = {5},
+  doi = {10.1103/PhysRevLett.120.180603},
+  eprinttype = {arXiv},
+  eprint = {1802.00126}
+}
+@article{crystal.exp.disordered,
+  title = {Observation of discrete time-crystalline order in a disordered dipolar many-body system},
+  author = {Choi, Soonwon
+    AND Choi, Joonhee
+    AND Landig, Renate
+    AND Kucsko, Georg
+    AND Zhou, Hengyun
+    AND Isoya, Junichi
+    AND Jelezko, Fedor
+    AND Onoda, Shinobu
+    AND Sumiya, Hitoshi
+    AND Khemani, Vedika
+    AND von Keyserlingk, Curt
+    AND Yao, Norman Y.
+    AND Demler, Eugene
+    AND Lukin, Mikhail D.
+  },
+  journal = {Nature},
+  volume = {543},
+  pages = {221--225},
+  month = {3},
+  year = {2017},
+  doi = {10.1038/nature21426},
+  eprinttype = {arXiv},
+  eprint = {1610.08057}
+}
+@article{crystal.exp.nmr,
+  title = {$^{31}\mathrm{P}$ NMR study of discrete time-crystalline signatures in an ordered crystal of ammonium dihydrogen phosphate},
+  author = {Rovny, Jared and Blum, Robert L. and Barrett, Sean E.},
+  journal = {Phys. Rev. B},
+  volume = {97},
+  issue = {18},
+  pages = {184301},
+  numpages = {16},
+  year = {2018},
+  month = {5},
+  doi = {10.1103/PhysRevB.97.184301},
+  eprinttype = {arXiv},
+  eprint = {1802.00457}
+}
+@article{crystal.exp,
+  Author = {J. Zhang and P. W. Hess and A. Kyprianidis and P. Becker and A. Lee and J. Smith and G. Pagano and I. -D. Potirniche and A. C. Potter and A. Vishwanath and N. Y. Yao and C. Monroe},
+  Title = {Observation of a Discrete Time Crystal},
+  journal = {Nature},
+  volume = {543},
+  pages = {217--220},
+  Month = {03},
+  Year = {2017},
+  Eprint = {1609.08684},
+  Eprinttype = {arXiv},
+  Doi = {10.1038/nature21413},
+}
+
+
+
 @article{ConnesRovelliThermo,
   title={Von Neumann algebra automorphisms and time-thermodynamics relation in generally covariant quantum theories},
   author={Connes, Alain and Rovelli, Carlo},
@@ -496,18 +566,18 @@ EprintType = {arXiv}
   eprint = {quant-ph/0209027}
 }
 @article{Damborenea_atomic,
-	doi = {10.1088/0953-4075/36/12/320},
-	year = 2003,
-	month = {06},
-	publisher = {{IOP} Publishing},
-	volume = {36},
-	number = {12},
-	pages = {2657--2669},
-	author = {J. A. Damborenea and Egusquiza, {\'{I}\~{n}igo} L. and Gerhard C. Hegerfeldt and J. Gonzalo Muga},
-	title = {On atomic time-of-arrival measurements with a laser of finite beam width},
-	journal = {Journal of Physics B: Atomic, Molecular and Optical Physics},
-	eprinttype = {arXiv},
-	eprint = {quant-ph/0302201}
+  doi = {10.1088/0953-4075/36/12/320},
+  year = 2003,
+  month = {06},
+  publisher = {{IOP} Publishing},
+  volume = {36},
+  number = {12},
+  pages = {2657--2669},
+  author = {J. A. Damborenea and Egusquiza, {\'{I}\~{n}igo} L. and Gerhard C. Hegerfeldt and J. Gonzalo Muga},
+  title = {On atomic time-of-arrival measurements with a laser of finite beam width},
+  journal = {Journal of Physics B: Atomic, Molecular and Optical Physics},
+  eprinttype = {arXiv},
+  eprint = {quant-ph/0302201}
 }
 @article{Muga_ArrTimeOpNormal,
   title = {Quantum arrival times and operator normalization},
@@ -686,6 +756,18 @@ EprintType = {arXiv}
   pages="1--46",
   issn="0044-3328",
   doi="10.1007/BF02055756"
+}
+@Article{Kennard1927,
+  author="Kennard, E. H.",
+  title="Zur Quantenmechanik einfacher Bewegungstypen",
+  journal="Zeitschrift f{\"u}r Physik",
+  year="1927",
+  month="04",
+  day="01",
+  volume="44",
+  number="4",
+  pages="326--352",
+  doi="10.1007/BF01391200"
 }
 @article{FiniteHilb,
   author={A Vourdas},
@@ -965,16 +1047,16 @@ EprintType = {arXiv}
   eprinttype = {arXiv}
 }
 @article{Bracken_bf,
-	doi = {10.1088/0305-4470/27/6/040},
-	year = 1994,
-	month = {03},
-	publisher = {{IOP} Publishing},
-	volume = {27},
-	number = {6},
-	pages = {2197--2211},
-	author = {Bracken, A. J. and Melloy, G. F.},
-	title = {Probability backflow and a new dimensionless quantum number},
-	journal = {Journal of Physics A: Mathematical and General}
+  doi = {10.1088/0305-4470/27/6/040},
+  year = 1994,
+  month = {03},
+  publisher = {{IOP} Publishing},
+  volume = {27},
+  number = {6},
+  pages = {2197--2211},
+  author = {Bracken, A. J. and Melloy, G. F.},
+  title = {Probability backflow and a new dimensionless quantum number},
+  journal = {Journal of Physics A: Mathematical and General}
 }
 @article{Bracken_ProbTransport,
   author = {Bracken, A. J. and Melloy, G. F.},
@@ -1115,13 +1197,13 @@ EprintType = {arXiv}
   author = {ATLAS, Collaboration}
 }
 @inbook{DiracLagrangian,
-author = {Dirac, P. A. M.},
-title = {The Lagrangian in Quantum Mechanics},
-booktitle = {Feynman's Thesis — A New Approach to Quantum Theory},
-year = {2005},
-publisher = {World Scientific},
-doi = {10.1142/9789812567635_0003},
-note = {Originally published in \emph{Physikalische Zeitschrift der Sowjetunion}, Band 3, Heft 1 (1933)}
+  author = {Dirac, P. A. M.},
+  title = {The Lagrangian in Quantum Mechanics},
+  booktitle = {Feynman's Thesis — A New Approach to Quantum Theory},
+  year = {2005},
+  publisher = {World Scientific},
+  doi = {10.1142/9789812567635_0003},
+  note = {Originally published in \emph{Physikalische Zeitschrift der Sowjetunion}, Band 3, Heft 1 (1933)}
 }
 @inproceedings{QGravIntro,
   author         = "Esposito, Giampiero",
@@ -1134,4 +1216,147 @@ note = {Originally published in \emph{Physikalische Zeitschrift der Sowjetunion}
   reportNumber   = "DSF-PREPRINT-2011-10",
   SLACcitation   = "%%CITATION = ARXIV:1108.3269;%%"
 }
-
+@Article{Misra,
+  author="Misra, B.",
+  title="From time operator to chronons",
+  journal="Foundations of Physics",
+  year="1995",
+  month="07",
+  day="01",
+  volume="25",
+  number="7",
+  pages={1087--1104},
+  doi={10.1007/BF02059527},
+  url={https://doi.org/10.1007/BF02059527}
+}
+@Book{WheelerZurek,
+  editor = {Wheeler, J. A. AND Zurek, W. H.},
+  title = {Quantum theory and measurement},
+  publisher = {Princeton University Press},
+  year = {1983},
+  isbn = {9781400854554}
+}
+@inbook{Heisenberg:Uncertainty,
+  author = {Heisenberg, W.},
+  title = {The physical content of quantum kinematics and mechanics},
+  year = {1927},
+  crossref = {WheelerZurek},
+  note = {(Originally appeared as ``\"{U}ber den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik'' in \emph{Zeitschrift fur Physik} 43)}
+}
+@article{Appleby,
+  doi = {10.1088/0305-4470/31/30/009},
+  year = 1998,
+  month = 07,
+  publisher = {{IOP} Publishing},
+  volume = {31},
+  number = {30},
+  pages = {6419--6436},
+  author = {D M Appleby},
+  title = {Maximal accuracy and minimal disturbance in the Arthurs-Kelly simultaneous measurement process},
+  journal = {Journal of Physics A: Mathematical and General},
+  eprinttype = {arXiv},
+  eprint = {quant-ph/9803047}
+}
+@article{MandelstamTamm,
+  author = {Mandelstam, L. AND Tamm, I.},
+  journal = {J. Phys. (USSR)},
+  volume = 9,
+  pages = {249--254},
+  year = 1945,
+  title = {The Uncertainty Relation Between Energy and Time in Non-relativistic Quantum Mechanics},
+  doi = {10.1007/978-3-642-74626-0_8}
+}
+@article{TemporalSlits,
+  title = {Atomic Wave Diffraction and Interference Using Temporal Slits},
+  author = {Szriftgiser, Pascal and Gu\'ery-Odelin, David and Arndt, Markus and Dalibard, Jean},
+  journal = {Phys. Rev. Lett.},
+  volume = {77},
+  issue = {1},
+  pages = {4--7},
+  year = {1996},
+  month = {7},
+  doi = {10.1103/PhysRevLett.77.4}
+}
+@article{AharonovBohm,
+  title = {Time in the Quantum Theory and the Uncertainty Relation for Time and Energy},
+  author = {Aharonov, Y. and Bohm, D.},
+  journal = {Phys. Rev.},
+  volume = {122},
+  issue = {5},
+  pages = {1649--1658},
+  year = {1961},
+  month = {6},
+  doi = {10.1103/PhysRev.122.1649}
+}
+@article{FockKrylov,
+  title={On two main interpretations of the uncertainty relation for energy and time},
+  author={Fock, V. and Krylov, N.},
+  journal={J. of Phys.(USSR)},
+  volume={11},
+  pages={112--120},
+  year={1947}
+}
+@incollection{LandauPeierls,
+  title = "6 - Extension of the uncertainty principle to relativistic quantum theory",
+  author = {Landau, L. AND Peierls, R.},
+  editor = "D. Ter Haar",
+  booktitle = "Collected Papers of L.D. Landau",
+  publisher = "Pergamon",
+  pages = "40--51",
+  year = "1965",
+  isbn = "978-0-08-010586-4",
+  doi = "10.1016/B978-0-08-010586-4.50011-0",
+  note = {Originally appeared as ``Erweiterung des Unbestimmtheitsprinzips f\"{u}r die relativistische Quantentheorie'' in: \textit{Z. Phys.} 69, 56 (1931)}
+}
+@article{MugaAB98,
+  title = {Space-time properties of free-motion time-of-arrival eigenfunctions},
+  author = {Muga, J. Gonzalo and Leavens, C. R. and Palao, J. P.},
+  journal = {Phys. Rev. A},
+  volume = {58},
+  issue = {6},
+  pages = {4336--4344},
+  year = {1998},
+  month = {12},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.58.4336},
+  eprint = {quant-ph/9807066},
+  eprinttype = {arXiv}
+}
+@article{MugaAB99,
+  title = {Free-motion time-of-arrival operator and probability distribution},
+  author = {Egusquiza, {\'{I}\~{n}igo} L. and Muga, J. Gonzalo},
+  journal = {Phys. Rev. A},
+  volume = {61},
+  issue = {1},
+  pages = {012104},
+  numpages = {9},
+  year = {1999},
+  month = {12},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.61.012104},
+  eprint = {quant-ph/9905023},
+  eprinttype = {arXiv}
+}
+@article{MugaAB99Err,
+  title = {Erratum: Free-motion time-of-arrival operator and probability distribution [Phys. Rev. A 61, 012104 (2000)]},
+  author = {Egusquiza, {\'{I}\~{n}igo} L. AND Muga, J. Gonzalo},
+  journal = {Phys. Rev. A},
+  volume = {61},
+  issue = {5},
+  pages = {059901},
+  numpages = {1},
+  year = {2000},
+  month = {4},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevA.61.059901}
+}
+@article{Kijowski,
+  title = "On the time operator in quantum mechanics and the Heisenberg uncertainty relation for energy and time",
+  journal = "Reports on Mathematical Physics",
+  volume = "6",
+  number = "3",
+  pages = "361--386",
+  year = "1974",
+  doi = "10.1016/S0034-4877(74)80004-2",
+  author = "Kijowski, Jerzy"
+}
