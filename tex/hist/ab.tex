@@ -1,0 +1,82 @@
+\section{Aharonov--Bohm}
+
+In their 1961 paper, Aharonov and Bohm \parencite{AharonovBohm}
+shown that ``energy can be measured
+  reproducibly in an arbitrarily short time'',
+thus apparently contradicting the time--energy indeterminacy theorized
+by Mandelstam--Tamm (see also Sec. \ref{sec:T--H}) and by other authors.
+It is worth observing,
+as they do in the article, that in the Mandelstam--Tamm derivation time has a different meaning:
+it is essentially the lifetime of a system in a particular state
+and not the duration of the energy measurement process.
+They also critically reviewed previous works by Landau and Peierls \parencite{LandauPeierls}
+and by Fock and Krylov \parencite{FockKrylov}, discussed their level of generality and provided
+counterexamples to their formulation of the time--energy uncertainty relation.
+
+In their model, they considered a free particle as a ``clock''
+and quantize (by symmetrizing the corresponding operators)
+the classical relation
+$t = y / v = m y / p$
+for a particle that is at position $y = 0$ at time $t = 0$ and travels at velocity $v$ along the $y$ axis.
+The corresponding time operator has then expression:
+\begin{equation}
+  \hat{T}_{AB} = \frac{m}{2} \qty( \hat{Y} \frac{1}{\hat{P}_y} + \frac{1}{\hat{P}_y} \hat{Y} ) \,\text{.}
+\end{equation}
+Such operator is claimed to be Hermitian, although with a singularity for $p_{y} = 0$.\footnote{
+  This is stressed in a footnote of Aharonov--Bohm's paper.
+  The reader might have noticed the irony of fundamental historical papers
+  relegating important information at the level of footnotes
+  ---and the present work, in many parts, not even trying to ``improve'' such a traditional trend.
+}
+With some simple algebra, a commutation relation $[\hat{H}_{c}, \hat{T}_{AB}] = \hbar/2$
+can be proved, where $\hat{H}_c = \hat{P}_y^2/2m$ is the Hamiltonian of the free particle that is used as a ``clock''.
+
+This seems to contradict Pauli's argument: however, more recent studies
+\parencite{MugaAB98, MugaAB99, MugaAB99Err}
+have shown that
+$\hat{T}_{AB}$ is not, strictly speaking, self-adjoint but ``only'' maximally symmetric
+(a weaker and more general condition).
+An analogy has been made therein with the momentum on the half-line,
+a restriction of the well known momentum operator to a subdomain
+that is defined as
+$\qty{\psi \in \mathscr{L}^2(\mathbb{R}): \psi(x) = 0 \; \forall x < 0}$ in position representation.
+% Removal suggested due to mathematical intricacies...
+% As opposed to the momentum in the half-line, $\hat{T}_{AB}$ does not have a self-adjoint extension though.
+It has also been shown that the associated spectral measure is not projector valued, but
+positive-operator valued (POVM). Projectors are a particular subclass of \term{positive operators}.
+Among other applications, suitable positive operators can be used to extend von Neumann decomposition
+in order to describe
+open quantum systems and ``unsharp'' measurements.
+Chapter~\ref{ch:decohere} will treat POVMs in detail and introduce the necessary
+theoretical background.
+
+Another apparent contradiction is the commutator $[\hat{H}_{c}, \hat{T}_{AB}] = \hbar/2$
+---and the consequent uncertainty relation---
+with Aharonov--Bohm's conclusion that
+energy can be measured, in principle, with arbitrary precision in an arbitrarily short time;
+but it should be noted that $\hat{H}_{c}$ is the energy of the clock, not of the system under energy-measurement,
+thus the contradiction does not hold.
+
+The Aharonov--Bohm model explicitly includes a clock in the description, i.e.,
+a different system to the one under measurement;
+and this separate system has one of its observables
+on a well known dependency upon time, so the corresponding eigenvalues can be seen
+as possible positions of the ``hand'' of the clock.
+Aharonov and Bohm infer that $\hat{T}_{AB}$ must commute with all the observables
+of the main system (and in particular the Hamiltonian, let's call it $\hat{H}_S$),
+given that they are defined in different Hilbert spaces:
+therefore, there is no
+fundamental reason why the system energy represented by $\hat{H}_S$, and the clock time $\hat{T}_{AB}$,
+could not have, in the same measurement,
+arbitrarily
+narrow statistical distributions around some of their eigenvalues.
+
+This idea of a quantum description of time through modeling a ``clock''
+(in other words, the notion of time as ``what is shown on a clock'' with some suitable properties)
+has a certain historical relevance in that later models, independently developed,
+have been based on that idea too.
+In particular, we can mention
+the Page--Wooters model (1983), where a peculiar relation is in place between the clock and the system,
+of which we will not explore the details at this stage though,
+as those will be discussed extensively (with numerical applications, experiments, and comparisons with other models)
+from Chapter \ref{ch:pw} on.

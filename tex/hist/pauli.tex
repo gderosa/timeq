@@ -22,10 +22,7 @@ while expanding some details further.
 A preliminary Lemma on commutator algebra is also illustrated
 towards such proof.
 
-
-\subsection{Proof of the Pauli argument}\label{sec:pauliproof}
-
-\small
+\small\label{sec:pauliproof}
 \subsubsection{Preliminaries: commutator properties}
 \begin{lemma}\label{CommProp}
   If the commutator $[T, H]$ commutes with $T$ i.e.
@@ -111,3 +108,18 @@ $E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hami
 hence the spectrum of a generic Hamiltonian $H$ should
 be the whole real line, which contradicts the discrete and semi-bounded energy spectrum
 in fact found in most physical systems.
+
+%%
+
+For several decades, Pauli's argument had prevented most theoretical attempts at
+defining a self-adjoint time operator with the required commutation and uncertainty properties.
+However, some research effort has been invested
+into weakening some of those requirements, thus
+introducing a notion of a time observable that did not satisfy
+Pauli's ---explicit or implicit--- assumptions in the first place.
+
+Notable examples of possible approaches involve:
+renouncing the Hermiticity of the operator~$\hat{T}$ (replacing it with a more general symmetric operator);
+allowing for the corresponding spectral measurement not to be projective (replacing it with a POVM);
+or including the case of an \emph{imaginary} potential in the Hamiltonian,
+to model absorption by a detector via loss of normalization (non-unitary evolution).
