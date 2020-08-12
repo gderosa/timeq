@@ -94,7 +94,7 @@ use Cygwin or a plain Powershell or Cmd in this case.
 If you use [MikTex](https://miktex.org/about), MSys will work,
 but you won't avail of a `synctex` executable (inverse search will still work though).
 
-## Docker
+## Docker (experimental support)
 
 You can run everything in a container so all package provisioning is automated.
 ```
