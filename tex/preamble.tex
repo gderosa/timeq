@@ -18,11 +18,11 @@
 \usepackage{subcaption} % https://tex.stackexchange.com/a/43996 + https://tex.stackexchange.com/a/165730
   \captionsetup{subrefformat=parens}
 \usepackage{color}
-% \ifscr
-%   \usepackage[b5paper,top=1.5cm,bottom=1.5cm,left=0.65cm,right=0.65cm,marginpar=0cm]{geometry}
-% \else
+\ifscr
+  \usepackage[b5paper,top=1.5cm,bottom=1.5cm,left=0.65cm,right=0.65cm,marginpar=0cm]{geometry}
+\else
   \usepackage[a4paper,marginpar=0cm]{geometry}
-% \fi
+\fi
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
   \fancyhf{}
