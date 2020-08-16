@@ -58,7 +58,7 @@ Inverse search: in [Skim](http://skim-app.sourceforge.net):
 *PDF-TeX Sync support:*
 
 * *Preset*: `custom`
-* *Command:* `code` (or full path to `code.exe`)
+* *Command:* `code` (or full path to `code` executable)
 * *Arguments:* `--goto "%file":%line`
 
 Cmd+Shift+click on a point in the PDF and you will get at the editor at the corresponding line in source.
