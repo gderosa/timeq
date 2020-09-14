@@ -58,7 +58,7 @@ Inverse search: in [Skim](http://skim-app.sourceforge.net):
 *PDF-TeX Sync support:*
 
 * *Preset*: `custom`
-* *Command:* `code` (or full path to `code.exe`)
+* *Command:* `code` (or full path to `code` executable)
 * *Arguments:* `--goto "%file":%line`
 
 Cmd+Shift+click on a point in the PDF and you will get at the editor at the corresponding line in source.
@@ -94,7 +94,7 @@ use Cygwin or a plain Powershell or Cmd in this case.
 If you use [MikTex](https://miktex.org/about), MSys will work,
 but you won't avail of a `synctex` executable (inverse search will still work though).
 
-## Docker
+## Docker (experimental support)
 
 You can run everything in a container so all package provisioning is automated.
 ```

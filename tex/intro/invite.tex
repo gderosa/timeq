@@ -7,9 +7,9 @@ In quantum mechanics, at least in first quantization, defining the \emph{positio
 an observable is unproblematic and somewhat basic.
 Indeed, representing the quantum state of a particle
 in terms of coefficients with respect to eigenstates of position is extremely common.
-Almost always when a ``wavefunction'' $\psi$
+Almost always when a \emph{wavefunction} $\psi$
 for a state $\ket{\psi}$
-is written down, the \emph{position representation}
+is written down, the {position representation}
 is assumed, unless otherwise (explicitly) noted:
 \begin{equation}\label{eq:positionrepr}
   \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} \text{,}
@@ -25,13 +25,13 @@ As per \emph{mass}, a quantum mechanism that explains how particle acquire mass 
 Peter Higgs and others in 1964, and confirmed experimentally in 2012
 \parencite{Higgs, EnglertBrout, Kibble+, HiggsATLAS, HiggsCMS}.
 
-\emph{Energy} is associated with arguably the most important operator in quantum dynamics: the Hamiltonian.
+\emph{Energy}, as an obervable, is associated with arguably the most important operator in quantum dynamics: the Hamiltonian.
 
 \emph{Time} is missing from this picture. As of writing of the present work,
 there is no general consensus in the physics community on
 the definition of a quantum operator associated to a time observable,
 or even only on a particular quantum mechanism that would allow time to ``emerge'',
-for example as an effective quantity.
+for example, as an effective quantity.
 
 One may argue that the urge of a consistent quantum description for \emph{all} fundamental
 measurable quantities, including time,
@@ -46,16 +46,16 @@ Moreover, signatures of \term{time-crystalline order}
 in solids and trapped ions have been recently observed
 \parencite{crystal.exp.ordered, crystal.exp.disordered, crystal.exp.nmr, crystal.exp}.
 
-With all the above in mind, the relation between time and other concepts
+With all the above in mind, the relation between time and other quantities
 (whether they are ``quantum observables'' in the formal sense or not)
-is explored in the rest of this Section,
-with reminders about some basic properties that will be useful in the rest of the
-Chapter.
+is explored in the rest of this section,
+with reminders about some basic properties that will be useful for the rest of the
+discussion.
 
 \subsection{Time and position}
 
 Rigorously speaking, the position observable has no special role in quantum mechanics.
-Eq.~\eqref{eq:positionrepr} can be further expanded to
+Eq.~\eqref{eq:positionrepr} can be also expanded to
 \begin{equation}\label{eq:qprepr}
   \ket{\psi} = \int \dd{x'} \psi(x') \ket{x'} = \int \dd{p'} \tilde{\psi}(p') \ket{p'} \,\text{,}
 \end{equation}
@@ -82,22 +82,22 @@ there has
 \end{equation}
 The position
 (and an observable in general) is represented, in its own eigenbasis,
-as a simple multiplication of the original wavefunction by the respective variable.
+simply as the multiplication of the original wavefunction by the respective variable.
 
 \subsection{Time and evolution}
 
-As a matter of experience if not anything else,
+As a matter of experience, if not anything else,
 the state of a physical system, either classical or quantum,
-with all observable quantities,
+with all its observable quantities,
 can be regarded as a function of the instant in \emph{time}
 (let's call that independent variable $t$).
-The same cannot be stated in general for any other pair of measurable quantities:
+The same cannot be stated, in general, for any other pair of measurable quantities:
 the $x$ coordinate is not a function of the $y$ coordinate
 (or their respective statistical amplitudes, in the quantum realm),
 and so on.
 This status of time as the universally independent variable
 has shaped classical mathematical physics: Galilean transformations
-do not change time, which stays as an absolute quantity.
+do not change time, which remains as an absolute quantity.
 The Hamiltonian formalism itself is based on this assumption,
 and the Hamiltonian formalism is at the foundation of quantum mechanics too,
 which thus inherits ---one may argue--- all the consequences of
@@ -130,7 +130,7 @@ The main obstacle is instead the \term{Pauli's objection},
 which is only indirectly related to the special status of time
 as independent variable of ``evolution'', and
 directly related to the properties of the spectrum of the {Hamiltonian},
-as illustrated in Section~\ref{proof}.
+as will be illustrated in Section~\ref{proof}.
 
 \subsection{Time and energy}\label{sec:T--H}
 
@@ -162,15 +162,15 @@ the one between position and momentum, $[\hat{X}, \hat{P}] = \iu \hbar$,
 and consequently a time--energy uncertainty relation.
 
 Several formulations of such time--energy uncertainty relations have been proposed,
-although mostly, as detailed later in this Section, they do not rigorously refer to
+although most of them do not rigorously refer to
 a time operator $\hat{T}$ in their definition of $\Delta T$.
 
-On another note, it's also worth stressing that,
+On another note, it's worth stressing that,
 while equations \eqref{eq:genspacetransl} and \eqref{eq:gentimetransl}
 do offer some conceptual motivation towards defining a time observable that is conjugate to the Hamiltonian,
 they are not sufficient to logically imply its existence.
 Both $\Delta{x}$ and $\Delta{t}$ ---which quantify the spatial and temporal translations at the core of this discussion---
-are, once again, mere \emph{parameters} for the displacement and time evolution operators respectively:
+are, once again, mere \emph{parameters} for the \emph{displacement} and \emph{time evolution} operators respectively:
 \begin{align}
   \mel{x}{\mathcal{D}_{\Delta{x}}}{\psi(t)}        = \braket{x-\Delta{x}}{\psi(t)}\!\text{, }
     &\text{ with } \mathcal{D}_{\Delta{x}}    = \E^{-\iu \Delta x \hat{P} / \hbar} \\
@@ -186,7 +186,7 @@ cannot be used, alone, to rigorously prove the same analogy between the position
 and some time operator $\hat{T}$, although it is somewhat suggestive.
 
 Whether a quantum time observable can be in principle defined as a self-adjoint
-operator, or alternative mathematical frameworks exist that are suitable,
+operator, or other mathematical frameworks exist that are suitable,
 possibly satisfying the above conjugation properties,
 is indeed one of the fundamental questions within the entire topic
 of the quantization of time.
@@ -208,10 +208,10 @@ was not expressed in terms of standard deviations and mean values of Hermitian o
 as we know it today. Heisenberg approach was semi-empirical and,
 while it turned unsatifactory from a formal perspective, in some aspects,
 it had the merit of explicitly dealing with the physics of the disturbance
-of a measurement device on the measurement itself. Therefore,
+of a measurement device to the measurement itself. Therefore,
 regardless of the mathematical maturity of its model,
 the paper did provide convincing phenomenological arguments towards
-the existence of un uncertainty principle for both the position--momentum
+the existence of an uncertainty principle for both the position--momentum
 \emph{and} the time--energy pair.
 
 As observed in \cite[sec.1.1.3]{TQM1}, Heisenberg introduced the equation
@@ -268,32 +268,40 @@ and the uncertainty relation reads:
   \tau_{A}\Delta{E} \ge \frac{\hbar}{2} \, \text{.}
 \end{equation}
 
-As this Section is \emph{an invitation}, Chapter \ref{ch:detect}
-will aim at addressing the limitations of the Mandelstam--Tamm approach
-above,
+Some limitations of the Mandelstam--Tamm
+approach
+will be tackled
+in
+Chapter \ref{ch:detect}
 by further developing
 models where time--energy relations have to be intended in the sense
-of ``time of occurrence'' (of particle detection) and time is represented
+of ``time of occurrence'' (of particle detection)
+and time is represented
 by a self-adjoint operator.
 
 \subsection{Time evolution, relativity, photons}\label{sec:trel}
 
-TODO: GLUE.
-
-The idea of treating space and time on equal footing might naturally lead the reader to
-ask another question: whether a theory combining quantum mechanics with Einstein's
-theory of relativity is the suitable framework which would allow a rigorous and logically consistent
+The idea of a perfect analogy between
+position--momentum and time--energy uncertainty relations 
+might naturally lead one to ask whether position and time
+(or space and time coordinates), as well as momentum and energy, can be trated on
+equal footing. This is what (classically) happens within Einstein's theory of relativity.
+Thus, one may further wonder:
+would a theory combining quantum mechanics and
+relativity be the suitable framework which would allow a rigorous and logically consistent
 definition of a time observable,
-possibly exposing an analogy with the spatial position.
+possibly exposing some analogy with the position operator?
 
 None of the proposed models comprehending both quantum theory and \emph{general} relativity
 have reached general consensus,
-or the remote possibility of experimental verification to date \parencite{QGravIntro}.
-However, \term{quantum field theory} (QFT) is an established framework that does combine
+or the remote possibility of experimental verification \parencite{QGravIntro};
+but \term{quantum field theory} (QFT) is an established framework that does combine
 some principles
 of quantum mechanics with the \emph{special} theory of relativity.
-Unfortunately, QFT not only does not promote time $t$ to some quantum operator $\hat{t}$,
-but it does also ``demote'' \emph{position} to the role of a classical parameter.\footnote{
+
+Unfortunately, QFT does not promote time $t$ to some quantum operator $\hat{t}$;
+instead, it achieves equal treatment of space and time only by
+``demoting'' the \emph{position} operator to a mere classical parameter.\footnote{
   More on this in Section \ref{sec:KG}, where the Klein-Gordon equation is reformulated
   with time as an Hermitian operator in an appropriate Hilbert space
   ---based on the Page--Wootters model, which is introduced in Chapter~\ref{ch:pw}.
@@ -320,15 +328,16 @@ Thus it is impossible to define a \emph{photon} position
 within standard quantum optics (see, for example, \cite{ScullyZubairy}, sec. 1.5.4 `Wave function for photons'),
 and the problem of defining a quantum position observable for a photon
 shows an interesting analogy with time for a quantum massive particle.
-It is, in fact, a current topic of active research \parencite{HawtonPhotonPosition, Hawton2019}.
+It is, in fact, a matter of active research \parencite{HawtonPhotonPosition, Hawton2019}.
 
 While there isn't a wave function for photons, the wave function for massive particles,
 as seen in the Shr\"{o}dinger equation, only exists as a function of position (or momentum, etc.)
 but not as a function of time,
-i.e. the variable $t$ in Eq.~\eqref{eq:diracdeltaxt} cannot be regarded as taking values among the eigenvalues of a time operator.
+i.e. the variable $t$ in Eq.~\eqref{eq:diracdeltaxt}
+cannot be regarded as spanning the spectrum of a time operator.
 
 Nevertheless, we have provided an explanation as to why (even without considering the Pauli objection)
 relativistic field theories, as currently accepted, cannot provide a solution
 to the problem of quantum time, in spite of treating time and space on equal footing,
-and in spite of the fact that position in quantum mechanics is an observable
+and despite the fact that position in quantum mechanics is an observable
 with its associated self-adjoint operator.
