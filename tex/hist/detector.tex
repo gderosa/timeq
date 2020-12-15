@@ -1,31 +1,37 @@
 \section{Detector models}\label{sec:hist:detect}
 
-TODO: merge with Allcock Section?
-TODO: Detector model, Ch. 4 (not all of it!) Vol. 2 book? \parencite[Ch. 4]{TQM2}.
-
 The problem of arrival time ---of a particle at a particular region of space---
 can be tackled at differemt levels. 
 
 Operationally, there must be a detector which
 ``clicks'' at the arrival of the particle, and the statistical distribution of
 such click times over repeated measurements is studied. Due the Pauli objection,
-probabiities cannot simply be given in terms of projectors related to eigenspaces of a self-adjoint operator.
+probabilities in this distribution cannot simply be given in terms of projectors related to eigenspaces of a self-adjoint operator.
 A more general formulation than projective measurement is therefore necessary.
 
-Detectors can be treated more or less explicitly in quantum models of arrival time.
-
+Detectors can be treated more or less explicitly in quantum models of arrival time:
 \begin{enumerate}
-  \item No explicit detector, POVM, Kijowski, consistency arguments e.g. a reasonable classical limit.
-  \item Early attempts at incorporating the apparatus. Allcock, Imaginary potential: incident channel, irreversible process, final channel e.g. photon emission following excitation by laser
-  \item Detector model; Allcock complex potential revisited (explained?); overlap with Hallywell?
+  \item
+    Without making the detector explicit. This is the case of the Kijowski model (Sec. \ref{sec:kijowski}),
+    which is based on positive-operator measurement (POVM). Given there's no detector in the model,
+    the best candidate statistical distribution and operator are essentially obtained
+    through consistency arguments including a reasonable classical limit.
+  \item
+    Early attempts at incorporating the measurement apparatus
+    (namely Allcock, Sec. \ref{sec:allcock})
+    focus on the irreversible process of absoption.
+    Normalization of the quantum state is not preserved, the Hamiltonian is not Hermitian
+    because the potential is not real. The rate of normalization-loss is interpreted as
+    absorption (detection, arrival) probability over time. The detector is in fact
+    ``traced out'' and the particle is treated as an open system (Sec. \ref{sec:halliwell}).
+  \item
+    Full detector models. For example the atom-laser one. Two-level atoms in the ground state
+    are sent to a laser-illuminated region (we're interested in the time-of-arrival into this region),
+    get excited, and the first photon which is spontaneously emitted following the excitation
+    is interpreted as detection of the arrival in the region. Problems related to
+    reflaction, low absorption, and delay in the spontaneous emission are fully taken into account in the model.
+    This ---although in terms of a brief illustration--- is the focus of the current Section.
 \end{enumerate}
-
-Notes:
-\begin{itemize}
-  \item time-of-arrival is stocastic just as other quantities, which are quantum
-  \item preparation encode in the wavefunction
-  \item avg or statistical moments | well-known prescription based on self-adjoint operators
-\end{itemize}
 
 \subsection{Basics of Atom-Laser Model}
 
