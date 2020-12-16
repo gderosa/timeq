@@ -38,15 +38,35 @@ A brief illustration of the Atom-Laser model follows.
 
 \subsection{Basics of Atom-Laser Model}
 
-|
+As pointed out in \cite{Damborenea}, the model by Halliwell (Sec. \ref{sec:halliwell})
+has the merit of including irreversibility in the detection process,
+but ``remains somewhat abstract
+since no connection is made with any specific measuring
+system''. The work by Damborenea et al. \parencite{Damborenea} gives instead an operational
+description of arrival time.
 
-* Halliwell is deemed as ``toy model''.
+In its essence, the model describes an atom sent to a laser-illuminated region,
+of which the arrival time into the region is taken as the time\footnote{
+  Please note, while there is an operational definition of detection,
+  there is no operational definition of time, in other words,
+  while this model does include an explicit description of the detector,
+  there is still no description or definition of a ``clock'',
+  which is still somewhat implicitly assumed as a ``classical'' one.
+  This further motivates theories modelling quantum clocks instead,
+  as seen from Chapter \ref{ch:pw} on.
+}
+when the first photon is spontaneously emitted by the atom itself,
+following its excitation by the laser.
+The spontaneous photon emission is therefore the ``click'' of the detector.
 
-* Better than Halliwell there's a more realistic and explicit detector. \cite{Damborenea}
+This time-of-arrival formulation has been shown in excellent numerical agreemnt
+with Kijowskii axiomatic distribution.
 
-* 2-lev atoms to a laser-illuminated region, excited, then spont. emmission which is detection of arrival in the region
-
-* still, no explicit detector/absober of the spontaneous photons; we don't detect the photon but the atom arrival in the region; the emission of the photon is the detection of the atom
+One limitation of the model is given by delays:
+\begin{enumerate*}[label=\arabic*)]
+  \item in the transition of the atom to the excited state, and
+  \item in the spontaneous emission.
+\end{enumerate*}
 
 * delay (the excitation de-excitation is not instantaneous); stronger laser intensity/shorter lifetimes not a solution: elastic reflection, no photon emission (reminds Allcock? there was no norm decrease);
 
