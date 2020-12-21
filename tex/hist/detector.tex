@@ -44,10 +44,10 @@ has the merit of including irreversibility in the detection process,
 but ``remains somewhat abstract
 since no connection is made with any specific measuring
 system''. The work by Damborenea et al. \parencite{Damborenea} gives instead an operational
-description of arrival time.
+description of the notion of \emph{arrival time}.
 
-In its essence, the model describes an atom sent to a laser-illuminated region,
-of which the arrival time into the region is taken as the time\footnote{
+In its essence, the model describes an atom sent toward a laser-illuminated region,
+and the arrival time into the region is taken as the time\footnote{
   Please note, while there is an operational definition of detection,
   there is no operational definition of time, in other words,
   while this model does include an explicit description of the detector,
@@ -56,7 +56,7 @@ of which the arrival time into the region is taken as the time\footnote{
   This further motivates theories modelling quantum clocks instead,
   as seen from Chapter \ref{ch:pw} on.
 }
-when the first photon is spontaneously emitted by the atom itself,
+when the first photon is spontaneously emitted by the atom,
 following its excitation by the laser.
 The spontaneous photon emission is therefore the ``click'' of the detector.
 
@@ -75,13 +75,23 @@ and the most likely outcome would be no detection/absorption at all.
 This is similar to the issue encountered, at a teorethical level,
 by Allcock when the imaginary absorbing potential was too large.
 
-A suitable detector configuration, therefore, will be based on ``weak driving'',
-but will need the delays to be compensated via
-a convolution with an atom at rest.
+A suitable detector configuration, therefore, will be based on \emph{weak driving},
+but will need to have the delays compensated,
+which can be achieved
+by computing the
+deconvolution with the decay time distribution of an atom at rest.
 
-* solution: deconvolution with an atom at rest to subtract the delay: with shorter lifetimes converges to probability current (at $x=0$ towards the right?)
-
-* the above convergence is just a proof of reasonability, because we still want to avoid too short lifetimes for reflection, right?
+The weak driving regime is characterized by longer lifetimes.
+However, the paper shows that,
+as a limit for shorter lifetimes,
+the deconvoluted distribution converges
+to
+the probability current flux.
+This is interesting because, on the other hand, in general,
+the probability current cannot be used to derive a time of arrival
+distribution, due to the backflow effect
+---for instance in a one dimensional system, a superposition of only positive momentum eigenfunctions may still lead to a
+negative current, as it was initially noted by Allcock himself \parencite{Allcock-3}.
 
 * a way to implement this experimentally is actually by a 3-level system, a middle metastable ``sink'' state after emission so atome can't be excited again: this motivates studying 3-level systems with PW later; see \cite{Metastable}.
 
