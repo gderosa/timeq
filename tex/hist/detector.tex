@@ -109,17 +109,34 @@ tracing out the photon leads to an effective
 imaginary term in the potential, and to an effective
 wavefunction which does not conserve its norm.
 
-A number of tecniques and symmetry assumptions are also employed
+A number of techniques and symmetry assumptions are also employed
 to simplify the model and ultimately reduce it
 to a time-independent one-dimensional problem, namely
 the rotating wave approximation, and
-a laser-adapted interacion picture.
-
-
-
-
-
-* eq. 4.7 in book, brief mention on how the simplification is obtainied, detuning, on-resonance, so Delta is zero.
+a laser-adapted interacion picture. The effective ``conditional'' Hamiltonian reads:
+\begin{equation}\label{eq:eff_atom_laser_detect_H}
+  \hat{H}_{c} = \frac{\hat{p}^2}{2m} +
+  \frac{\hbar}{2} \left(
+    \begin{matrix}
+      0 & 0\\
+      0 & -\iu\gamma
+    \end{matrix}
+  \right)
+  +
+  \frac{\hbar}{2} \left(
+    \begin{matrix}%
+      0         & \Omega(x)\\
+      \Omega(x) & -2\Delta
+    \end{matrix}
+  \right)
+  \text{,}
+\end{equation}
+where $\gamma$ is the decay rate or \term{Einstein coefficient},
+$\Omega(x) = \Hvsd{x}\Omega$ is the Rabi frequency (ideally assuming that the half-space $x>0$ is uniformly illuminated by the laser),
+and $\Delta$ is the effective detuning including Doppler and recoil effects,
+but the on-resonance case ($\Delta=0$) can be considered,
+by setting normal incidence and adjusting the laser frequency
+(more details in \cite{Damborenea} and \cite[4.2]{TQM2}).
 
 * a particular case of it goes on next section (where Kiukas et al heavily cited)
 
