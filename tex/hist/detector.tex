@@ -139,17 +139,28 @@ by setting normal incidence and adjusting the laser frequency
 (more details in \cite{Damborenea} and \cite[\S 4.2]{TQM2}).
 
 The Hamiltonian in \eqref{eq:eff_atom_laser_detect_H} has an imaginary term $\iu\gamma$
-which makes the Hamiltonian $H_c$ non Hermitean.
+which makes the Hamiltonian $H_c$ non Hermitian. Eigenfunctions of such Hamiltonian
+evolve, according to the Schr\"odinger equation, with a \term{loss of normalization}
+$-\dv{\norm{\psi}^2}{t}$ which is interpreted as the probability density
+of being detected at time $t$. If the norm vanishes for $t\rightarrow+\infty$,
+that means that the detection will certainly occur at some time.
+But that limit can be finite, indicating the probability of never being detected
+(for example due to reflection).
 
-* a particular case of it goes on next section (where Kiukas et al heavily cited)
+The detection (i.e. spontaneous emission of the first photon) is generally delayed
+with respect to the actual arrival at the laser-illuminated region, due to the finite time
+required for excitation and de-excitation. That needs to be compensated via deconvolution
+with the evolution of an atom at rest. Simply adjiusting the optical parameters
+to shorten the excitation and emission times
+would not be a solution as it would either increase reflection rate dramatically
+or simply increase the probabilty that atoms pass through the region undetected. 
 
-* what params makes little reflection but good prob. of detection?
-
-* fig. 4.3 in book, discrete points, delay (convolution etc.), sec. 4.2.2 book
-
-* in next section we don't care of delay because we study the time of decay rather than the time of arrival of the atom (or we assume they coincide because convolution technique was used).
-
-* $\Pi$ is loss of normalization
+Nonetheless, one can focus on the state transition of the atom itself i.e.
+the ``arrival'' at the ground state of the atom from the excited one,
+rather than the arrival at a particular region in space. This is the
+focus of Sec. \ref{sec:hist:detect:kiukas} below. The general atom--laser
+model gives, anyway, an operational justification for the interest
+in more idealized (and tractable) models too.
 
 \subsection{Ruschhaupt, Kiukas et al}\label{sec:hist:detect:kiukas}
 
