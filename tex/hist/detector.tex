@@ -43,7 +43,7 @@ As pointed out in \cite{Damborenea}, the model by Halliwell (Sec. \ref{sec:halli
 has the merit of including irreversibility in the detection process,
 but ``remains somewhat abstract
 since no connection is made with any specific measuring
-system''. The work by Damborenea et al. \parencite{Damborenea} gives instead an operational
+system''. The work by Damborenea et al. gives instead an operational
 description of the notion of \emph{arrival time}.
 
 In its essence, the model describes an atom sent toward a laser-illuminated region,
@@ -54,7 +54,7 @@ and the arrival time into the region is taken as the time\footnote{
   there is still no description or definition of a ``clock'',
   which is still somewhat implicitly assumed as a ``classical'' one.
   This further motivates theories modelling quantum clocks instead,
-  as seen from Chapter \ref{ch:pw} on.
+  as will be seen from Chapter \ref{ch:pw} on.
 }
 when the first photon is spontaneously emitted by the atom,
 following its excitation by the laser.
@@ -111,9 +111,13 @@ wavefunction which does not conserve its norm.
 
 A number of techniques and symmetry assumptions are also employed
 to simplify the model and ultimately reduce it
-to a time-independent one-dimensional problem, namely
-the rotating wave approximation, and
-a laser-adapted interacion picture. The effective ``conditional'' Hamiltonian reads:
+to a time-independent one-dimensional problem
+---namely,
+the rotating wave approximation
+and
+a laser-adapted interacion picture.
+
+The effective \term{conditional Hamiltonian} reads:
 \begin{equation}\label{eq:eff_atom_laser_detect_H}
   {H}_{c} = \frac{\hat{p}^2}{2m} +
   \frac{\hbar}{2} \left(
@@ -133,18 +137,18 @@ a laser-adapted interacion picture. The effective ``conditional'' Hamiltonian re
 \end{equation}
 where $\gamma$ is the decay rate or \term{Einstein coefficient},
 $\Omega(x) = \Hvsd{x}\Omega$ is the Rabi frequency (ideally assuming that the half-space $x>0$ is uniformly illuminated by the laser),
-and $\Delta$ is the effective detuning including Doppler and recoil effects,
-but the on-resonance case ($\Delta=0$) can be considered,
+and $\Delta$ is the effective detuning including Doppler and recoil effects
+---but the on-resonance case ($\Delta=0$) can be considered,
 by setting normal incidence and adjusting the laser frequency
 (more details in \cite{Damborenea} and \cite[\S 4.2]{TQM2}).
 
 The Hamiltonian in \eqref{eq:eff_atom_laser_detect_H} has an imaginary term $\iu\gamma$
 which makes the Hamiltonian $H_c$ non Hermitian. Eigenfunctions of such Hamiltonian
-evolve, according to the Schr\"odinger equation, with a \term{loss of normalization}
+evolve, according to the Schr\"odinger equation, with a finite \term{loss of normalization}
 $-\dv{\norm{\psi}^2}{t}$ which is interpreted as the probability density
-of being detected at time $t$. If the norm vanishes for $t\rightarrow+\infty$,
+of the atom arrival being detected at time $t$. If the norm vanishes for $t\rightarrow+\infty$,
 that means that the detection will certainly occur at some time.
-But that limit can be finite, indicating the probability of never being detected
+But that limit can be finite, indicating a certain probability of never being detected
 (for example due to reflection).
 
 The detection (i.e. spontaneous emission of the first photon) is generally delayed
@@ -158,7 +162,9 @@ or simply increase the probabilty that atoms pass through the region undetected.
 Nonetheless, one can focus on the state transition of the atom itself i.e.
 the ``arrival'' at the ground state of the atom from the excited one,
 rather than the arrival at a particular region in space. This is the
-focus of Sec. \ref{sec:hist:detect:kiukas} below. The general atom--laser
+focus of Sec. \ref{sec:hist:detect:kiukas} below.
+
+The general atom--laser
 model gives, anyway, an operational justification for the interest
 in more idealized (and tractable) models too.
 
