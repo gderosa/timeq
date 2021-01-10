@@ -170,27 +170,9 @@ in more idealized (and tractable) models too.
 
 \subsection{Ruschhaupt, Kiukas et al}\label{sec:hist:detect:kiukas}
 
-Studies
-about detector models which investigate
-time-of-arrival as a quantum observable.
-In particular we consider \cite{RuschhauptAbsorption},
-which in turn traces back its basic ideas from the seminal work by Allcock
-in the 1960s \parencite{Allcock-1, Allcock-2, Allcock-3},
-while a detailed contemporary formulation can be found in
-\cite[Ch. 4]{TQM2}.
-
-A non hermitian Hamiltonian is justified as a computation method
-to simplify the study of some open systems: the evolution of mixed
-states is derived without explicit reference to density operators
-or master equations, but resolving equations that are formally
-identical to those of pure states,
-i.e. in terms of
-Schr{\"o}dinger equations and wave functions,
-with the non-hermitian term in the Hamiltonian
-to account for the non-unitarity of the evolution.
-
-The detection-by-absoption model in \cite{RuschhauptAbsorption}
-is based on a complex potential that, plugged into the Schr\"odinger equation,
+Similar to what seen in previous Sections,
+the detection-by-absoption model in \cite{RuschhauptAbsorption}
+is also based on a complex potential that, plugged into the Schr\"odinger equation,
 leads to a non-unitary evolution of the state vector
 (with loss of normalization).
 
@@ -201,10 +183,8 @@ and, consequently:
   \hat{H} \ket{\psi(t)} = i\hbar\dv{t}\ket{\psi(t)} +i\hat{D}\ket{\psi(t)} \text{.}
 \end{equation}
 
-\citereset\subsection{Application: two-level system}
-
-In \cite{RuschhauptAbsorption}, an example application of the detector model
-is provided for a two-level system.
+A two-level example is considered to provide a concrete example.
+Starting from the paper, we now carry on some explicit calculations.
 
 By setting, out of convenience, $\hbar = \omega = 1$
 (with $\omega$ the characteristic frequency of the system),
@@ -306,7 +286,7 @@ with $\theta(t)$ the Heaviside step function.
 
 \begin{remark}\label{remark:detection_area}
 In general, the operator $\hat{D}$ as in \eqref{eq:schrod_complex_pot}
-is such that the eigenspace corresponding to its zero eigenvalue
+is such that the eigen-space corresponding to its zero eigenvalue
 is the ``area'' where the detector is not sensitive. Or, in other words,
 the linear span of states with zero probability of triggering the detector.
 Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
@@ -315,6 +295,9 @@ the components in such eigenspace are cut off and the resulting
 $\hat{\psi}$, eq. \eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
 i.e. it's a multiple of $\ket{1}$ in this case.
 \end{remark}
+
+%%%
+TODO BEGIN: move to Chapter \ref{ch:pw}
 
 The corresponding Page--Wootters (proper) vector of $\pwspace$ is
 \begin{equation}\label{eq:hatpsi:pw}
@@ -335,6 +318,9 @@ where it's
   \mathcal{F} \hat{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
 \end{equation}
 ---see notebook up to eq. \eqref{eq:fhatpsi1_omega} for details.
+
+TODO END: move to Chapter \ref{ch:pw}
+%%%
 
 Taking the squared modulus, a probability distribution over angular frequency
 (or, equivalently, energy) is obtained:
