@@ -117,20 +117,24 @@ Given the above axioms, Kijowski proved the following
             \frac{1}{m(2\pi\hbar)^4}
             \int\displaylimits_{p_{3}', p_{3}'' \ge 0} \sqrt{p_{3}' p_{3}''} \phi_t^{*}(p_1, p_2, p_{3}') \phi_t(p_1, p_2, p_{3}'')
             \dd p_1 \dd p_2 \dd p_{3}' \dd p_{3}''
-            = \\
-                      \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \phi_{0}(p)}^2
                       \, \text{,}
       \end{multline}
   \end{enumerate}
-  where the wavefunction is in the momentum representation and the free evolution
-  $\phi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\phi_{0}(p)$
-  is assumed.
+  where the wavefunction is in the momentum representation.
 \end{theorem}
 
 Please note that the bilinear $T_{F_0}[\phi_t, \phi_t]$ in the \eqref{eq:kijowski_bilinear_full}
 is a particular case of $T_{F_0}[\phi'_t, \phi''_t]$, where $\phi' = \phi'' \eqbydef \phi$.
 
-TODO: separate the one-dim case.
+For a one-dimensional system (or, equivalently, if the system is translation-invariant along the first two axis),
+eq. \eqref{eq:kijowski_bilinear_full} can be simplified as
+\begin{equation}  
+  \frac{1}{2 \pi m \hbar} \abs{\int_0^{\infty} \dd p \sqrt{p} e^{-\iu p^{2} t / 2m\hbar} \phi_{0}(p)}^2
+  \, \text{,}
+\end{equation}
+where the free evolution
+$\phi_t(p) = e^{-\iu p^{2} t / 2m\hbar}\phi_{0}(p)$
+is assumed.
 
 While this distribution is ``well behaved'' i.e. it has similar properties of other distributions
 associated to quantum observables described by self-adjoint operator and projective measurement,
