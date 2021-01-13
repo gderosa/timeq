@@ -62,6 +62,26 @@ but so it is, as a limit, for small values of $t>0$,
 in other terms
 $\lim_{t \to 0^{+}} \norm{\hat{D} \ket{\psi_{\text{Kiukas}}(t)}} = 0$, thus avoiding the apparent discontinuity.
 
+The corresponding Page--Wootters (proper) vector of $\pwspace$ is
+\begin{equation}\label{eq:hatpsi:pw}
+  \dket{\Phi} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
+\end{equation}
+to which the considerations of Section \ref{sec:for-normalized-elements}
+and Section \ref{sec:pure-state-approach} in terms of time--frequency
+(or time--energy) uncertainty relation apply, with some analogy
+to what \cite{RuschhauptAbsorption} does within its own framework
+in relation to $\hat{\psi}$ and its Fourier transform.
+
+In that regard, the \eqref{eq:hatpsi:pw} can be reformulated
+\begin{equation}
+  \dket{\Phi} = \int \dd{\omega} \ket{\omega} \ox \mathcal{F} \hat{\psi} (\omega) \,\text{,}
+\end{equation}
+where it's
+\begin{equation}
+  \mathcal{F} \hat{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
+\end{equation}
+---see notebook up to eq. \eqref{eq:fhatpsi1_omega} for details.
+
 % \subsection*{\color{red} TODO}
 
 % {
@@ -200,7 +220,7 @@ is introduced in eq. (8) therein:\footnote{
 \begin{equation}
   \hat{\psi} = \theta(t) \sqrt{2/\hbar}\,\hat{D}^{1/2}\,\psi
 \end{equation}
-In Page--Wooters terms, this translates into applying
+In Page--Wootters terms, this translates into applying
 $\theta(\hat{T}) \ox \sqrt{2/\hbar}\,\hat{D}^{1/2}_S$
 to the each history vector $\dket{n}_{\text{hist.}}$
 (and their linear combinations).
@@ -282,7 +302,7 @@ and it's equal to $1$ for an ideal detection.
 \citereset
 The probability of detection in time is shown in Fig. \ref{fig:2l_pw_detect_prob_t}
 and is \emph{consistent} with the result of
-the contuinuous and not explicitly Page--Wooters model of
+the contuinuous and not explicitly Page--Wootters model of
 \cite{RuschhauptAbsorption} (see Fig. \ref{fig:absorbed-qubit-normalization-loss:t}).
 
 Switching to the frequency (and, therefore, \emph{energy}) domain,
@@ -382,7 +402,7 @@ deemed more meaningful within the physics of the particular system.
 
 \citereset
 Nonetheless, with minimal or not minimal uncertainty states (or ``histories''),
-a comparison of such uncertainties between the discrete Page--Wooters model implemented
+a comparison of such uncertainties between the discrete Page--Wootters model implemented
 here and the model in \cite{RuschhauptAbsorption} can be performed:
 the difference between the results in \eqref{eq:uncertainty-us}
 and \eqref{eq:uncertainty-them} may be large enough to be not simply

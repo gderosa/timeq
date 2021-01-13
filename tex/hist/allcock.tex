@@ -1,4 +1,4 @@
-\section{The papers by Allcock and following developments}
+\section{Allcock and following developments}\label{sec:allcock}
 
 With three papers dated 1969 \parencite{Allcock-1, Allcock-2, Allcock-3}, G. R. Allcock
 introduced a time-of-arrival quantum observable,
@@ -10,25 +10,39 @@ to model an absorber aimed at detecting
 the arrival of a particle in the region $x>0$
 (here $\theta$ is the Heaviside \term{step function}).
 The particle state evolves
-in non-unitary manner, with a transfer of probability
+in a non-unitary manner, with a transfer of probability
 from an ``incident channel''
 into ``orthogonal and time-labelled measurement channels''.
-Unfortunately Allcock came to negative conclusions regarding this approach.
-Among other objections, he noticed that when $V_0$ is large the particle is not absorbed but reflected;
-while, when it's small (i.e. the detector has a low absorption rate), the particle is eventually absorbed but
-with an indetermination $\delta_T \sim \frac{1}{2}V_{0}^{-1}$
-that becomes, in such case, impractically large.
-Also, Allcock did not directly tackle the Pauli objection
-but rather maintained that argument.
 
-The limitations of complex potentials either causing reflection
-or not absorbing sufficiently have been resolved
-in the following literature
-by noting that the results by Allcock were not general, and
-potentials can be constructed that absorb the whole wave packet
+Allcock's initial proposal was in fact based on a \emph{discrete} model, where
+the wavefunction in the detection region $x>0$
+is periodically removed | i.e. transformed into $\psi(x) = 0 \; \forall x>0$,
+while it's left unchanged for $x < 0$; then it evolves according to the Schr\"odinger equation
+for a time $\delta t$ when the next ``removal'' occurs, and so forth.
+
+This suffered mathematical difficulties, which led Allcock to formulate a continuous extension
+based on the aforementioned complex potential,
+where the wavefunction norm can continuously decrease as the particle is detected.
+He showed that the discrete and continuous model
+can be compared in terms of time resolution, which is $\delta t$ for the former,
+and $\hbar/2V_0$ for the latter. 
+
+Allcock noticed that when $V_0$ is large the particle is
+rather reflected
+than absorbed;
+while, when it's small (i.e. the detector has a low absorption rate),
+the particle is eventually absorbed but
+the indetermination $\delta_t \sim \hbar/2V_0$
+is, in such case, impractically large.
+
+Overall, Allcock came thus to a negative conclusion and did not overcome the Pauli objection.
+However, the problem with this complex potential model, either causing reflection
+or not absorbing sufficiently, was eventually resolved
+by noting that his results were not general, and
+potentials can be constructed which absorb the whole wavepacket
 and avoid reflection \parencite{Muga_TOAQM, Muga_CompositeAbsPot, ComplexAbsPot}.
 
-\subsection{How a complex potential emerges}
+\subsection{How a complex potential emerges}\label{sec:halliwell}
 
 Among the methods to define a time-of-arrival quantum observable,
 the detector model by Allcock
@@ -39,7 +53,8 @@ rather than focusing on constructing an operator that satisfies certain requirem
 (like the Kijowski distribution, see for example \cite[sec.8]{Leavens_TOA}).
 
 The introduction of complex potentials, a non-Hermitian Hamiltonian and
-the non-unitary evolution (of a pure state!) may appear artificial to some,
+the non-unitary evolution (of what appears formally a pure state)
+seems artificial
 and in contradiction with the fundamental rules of quantum mechanics.
 
 \citereset
@@ -55,7 +70,7 @@ The particle wavefunction is also an ``effective'' one derived from its density 
 and
   \cite[sec.6.7.1 ``Simulating Quantum Trajectories'']{WallsMilburn}).
 
-Not surprisingly, absorption is an \term{irreverersible} process.
+% Not surprisingly, absorption is an \term{irreverersible} process.
 
 While a complex potential can be \emph{postulated} in order to obtain
 phenomenological laws governing arrival times and detectors,
@@ -112,7 +127,7 @@ is governed by the \emph{master equation}\footnote{
 \right)
 \,\text{,}
 \end{equation}
-with $\gamma$ being ``a phenemonological constant determined by the distribution of oscillators in the
+with $\gamma$ being ``a phenomenological constant determined by the distribution of oscillators in the
 environment and underlying coupling constants'' \parencite{Halliwell_Irreversible}.
 
 A general solution is in the form
