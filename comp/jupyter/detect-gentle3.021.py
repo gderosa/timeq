@@ -16,6 +16,10 @@
 # %% [markdown]
 # ## Detector model: 3-level system
 
+# %% [markdown]
+# See also STIRAP
+#
+
 # %%
 from sympy import *
 #from sympy.physics.matrices import mdft
@@ -55,10 +59,10 @@ nu = Symbol('nu', real=True)
 
 # %%
 H = Matrix([
-    [0, 0, 1],
-    [0, 0, 1],
-    [1, 1, 0]
-]) / 2
+    [0, 0, 4],
+    [0, 0, 3],
+    [4, 3, 0]
+]) / 8
 
 # %%
 H.eigenvects()
@@ -582,8 +586,8 @@ Y = np.fromiter(iterable, float)
 
 # %%
 # A "time bin"
-X = X * (DT/NT)# real time
-Y = Y / (DT/NT) # probability _density_
+X = X * (DT/(NT)) # real time
+Y = Y / (DT/(NT)) # probability _density_
 
 # %%
 bayes_denominator = np.sum(Y * (DT/NT))
