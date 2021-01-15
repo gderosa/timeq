@@ -130,7 +130,7 @@ for i in 0, 1, 2:
     pl.show()
 
 # %%
-NPLOTPOINTS = 1000
+NPLOTPOINTS = 3200
 
 # %%
 times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
@@ -345,7 +345,7 @@ plt.show()
 
 # %%
 # loss of normalization, or integral of antiderivative...
-bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2
+bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2  # TODO! explain/replace
 
 # %%
 fig, ax = plt.subplots(figsize=(12, 8))
@@ -585,18 +585,33 @@ iterable = (joint_prob(n) for n in X)
 Y = np.fromiter(iterable, float)
 
 # %%
-# A "time bin"
-X = X * (DT/(NT)) # real time
-Y = Y / (DT/(NT)) # probability _density_
+dT  = DT / (NT)
 
 # %%
-bayes_denominator = np.sum(Y * (DT/NT))
+# A "time bin"
+X = X * dT # real time
+Y = Y / dT # probability _density_
+
+# %%
+bayes_denominator = np.sum(Y * dT)
 Y = Y / bayes_denominator
 
 # %%
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X, Y*31/32, 'bd') # is the N-1/N "normalization" factor necessary or just a cxoincidence?
+ax.plot(X+dT/2, Y, 'b^')
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
+
+# %%
+times[-1]
+
+# %%
+nonpw_probs = -np.gradient(norms**2, times) / bayesian_denominator_nonpw
+
+# %%
+np.sum(nonpw_probs*times[1])
+
+# %%
+np.sum(Y*dT)
 
 # %%
