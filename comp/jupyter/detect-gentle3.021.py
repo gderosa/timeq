@@ -56,8 +56,8 @@ nu = Symbol('nu', real=True)
 # %%
 H = Matrix([
     [0, 0, 1],
-    [0, 0, 2],
-    [1, 2, 0]
+    [0, 0, 1],
+    [1, 1, 0]
 ]) / 2
 
 # %%
@@ -68,6 +68,7 @@ U_t = exp(-I*H*t)
 
 # %%
 psi_0 = Matrix([1, (1+I)/sqrt(2), 0])/sqrt(2)
+psi_0 = Matrix([1, 0, 0])
 psi_0
 
 # %%
@@ -207,7 +208,7 @@ ax.legend(
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (80, -45, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -255,7 +256,7 @@ H_n = np.array(H).astype(np.complex)
 H_n
 
 # %%
-GAMMA = 0.005
+GAMMA = 0.01
 psi_0_n = np.array(psi_0.T).astype(np.complex)[0]
 
 # %%
@@ -266,9 +267,9 @@ psi_0_n
 def D(_gamma=GAMMA):
     # no 1/2 factor, absorbed in the _gamma in the matrix here
     return np.array([
-        [0, 0, 0],
-        [0, 0, 0],
-        [0, 0, _gamma]
+        [0, 0,      0],
+        [0, _gamma, 0],
+        [0, 0,      0]
     ], dtype=np.complex)
 
 
@@ -500,7 +501,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (80, -45, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -544,7 +545,10 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (80
 # ## TOA prob as in Maccone/Sacha arXiv:1810.12869
 # _Adapted from $\S$ "Time of arbitrary event"._
 #
-# See also [`detect-gentle.ipynb`](detect-gentle.ipynb).
+# See also [`detect-gentle.ipynb`](detect-gentle.ipynb). Or [`detect-gentle.py`](detect-gentle.py) if you use Jupytext.
+#
+# This is based on *unitary* evolution (no complex potential) so the imaginary potential above (`GAMMA`) must be small for a good approximation.
+#
 
 # %%
 def t_eigenstate(n):
@@ -554,7 +558,7 @@ def t_eigenstate(n):
 
 
 # %%
-arrived_state = np.array([0, 0, 1])
+arrived_state = np.array([0, 1, 0])
 
 
 # %%
@@ -578,7 +582,7 @@ Y = np.fromiter(iterable, float)
 
 # %%
 # A "time bin"
-X = X * (DT/NT) # real time
+X = X * (DT/NT)# real time
 Y = Y / (DT/NT) # probability _density_
 
 # %%
@@ -587,7 +591,7 @@ Y = Y / bayes_denominator
 
 # %%
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X, Y, 'bs')
+ax.plot(X, Y*31/32, 'bd')
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
 
