@@ -591,7 +591,7 @@ Y = Y / bayes_denominator
 
 # %%
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X, Y*31/32, 'bd')
+ax.plot(X, Y*31/32, 'bd') # is the N-1/N "normalization" factor necessary or just a cxoincidence?
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
 
