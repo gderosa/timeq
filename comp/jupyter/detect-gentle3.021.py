@@ -272,8 +272,8 @@ def D(_gamma=GAMMA):
     # no 1/2 factor, absorbed in the _gamma in the matrix here
     return np.array([
         [0, 0,      0],
-        [0, _gamma, 0],
-        [0, 0,      0]
+        [0, 0,      0],
+        [0, 0, _gamma]
     ], dtype=np.complex)
 
 
@@ -562,7 +562,7 @@ def t_eigenstate(n):
 
 
 # %%
-arrived_state = np.array([0, 1, 0])
+arrived_state = np.array([0, 0, 1])
 
 
 # %%
@@ -598,7 +598,7 @@ Y = Y / bayes_denominator
 
 # %%
 fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X+dT/2, Y, 'b^')
+ax.plot(X+dT/2, Y, 'bs')
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
 
