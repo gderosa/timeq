@@ -28,7 +28,6 @@
 #
 # and also https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (STIRAP)
 #
-# and PhD thesis by Bernd Kaltenhauser, Uni Stuttgart, 2007: https://www.pi5.uni-stuttgart.de/documents/abgeschlossene-arbeiten/2007-Kaltenhaeuser-Bernd-Electromagnetically-Induced-Transparency-in-Optically-Trapped-Rubidium-Atoms-PhD.pdf
 
 # %%
 from sympy import *
