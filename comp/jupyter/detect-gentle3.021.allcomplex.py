@@ -17,8 +17,18 @@
 # ## Detector model: 3-level system
 
 # %% [markdown]
-# See also STIRAP
+# Three-level "$\Lambda$" system, of interest for 
+# * detector models (decay into a metastable state), 
+# * STIRAP
+# * EIT
+# * ...
 #
+# See also eq. 1 in
+# https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (EIT)
+#
+# and also https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (STIRAP)
+#
+# and PhD thesis by Bernd Kaltenhauser, Uni Stuttgart, 2007: https://www.pi5.uni-stuttgart.de/documents/abgeschlossene-arbeiten/2007-Kaltenhaeuser-Bernd-Electromagnetically-Induced-Transparency-in-Optically-Trapped-Rubidium-Atoms-PhD.pdf
 
 # %%
 from sympy import *
@@ -63,6 +73,9 @@ H = Matrix([
     [0, 0, 1],
     [4, 1, 0]
 ]) / 8
+
+# %%
+H
 
 # %%
 H.eigenvects()
@@ -260,7 +273,7 @@ H_n = np.array(H).astype(np.complex)
 H_n
 
 # %%
-GAMMA = 0.3
+GAMMA = 0.1
 psi_0_n = np.array(psi_0.T).astype(np.complex)[0]
 
 # %%
@@ -412,11 +425,14 @@ eigenvectors = eigenvectors.T
 
 # %%
 eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
+
 for i in range(NT*NS):
     eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
 
+
 # %%
 histories = np.empty((NT*NS, NT*NS), dtype=complex)
+
 for i in range(NT*NS):
     histories[i] = \
         expm(np.kron( -1j*T*eigenvalues[i], np.eye(NS) )) @ \
@@ -470,9 +486,6 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
 best_i, best_j, best_k, best_det = find_linear_independent_initial()
 
 # %%
-(best_i, best_j, best_k), abs(best_det)
-
-# %%
 states = np.array([
     histories[best_i][:NS],
     histories[best_j][:NS],
@@ -483,20 +496,11 @@ states = np.array([
 coeffs = inv(states.T) @ psi_0_n
 
 # %%
-np.round(coeffs, decimals=3)
-
-# %%
 history = coeffs.dot(np.array([
     histories[best_i],
     histories[best_j],
     histories[best_k]
 ]))
-
-# %%
-np.round(history[:NS], decimals=3)
-
-# %%
-np.round(history[:NS] - psi_0_n, decimals=12)
 
 # %%
 # 3D parametric plot
@@ -581,8 +585,10 @@ def joint_prob(n):
 
 # %%
 X = np.arange(NT)
+
 iterable = (joint_prob(n) for n in X)
 Y = np.fromiter(iterable, float)
+
 
 # %%
 dT  = DT / (NT)
