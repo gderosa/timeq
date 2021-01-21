@@ -1,4 +1,4 @@
-\documentclass{book}
+\documentclass[a4paper,12pt]{book}
 
 \usepackage{xcolor}
 \usepackage{lipsum}  %% dev
@@ -19,9 +19,12 @@
   \captionsetup{subrefformat=parens}
 \usepackage{color}
 \ifscr
-  \usepackage[a4paper,includehead,includefoot,textwidth=\textwidth,textheight=\textheight,paperwidth=\textwidth+0.5in,paperheight=\textheight+1in]{geometry}
+  %% Cropped version, for screen display
+  %% for some reasons, need to adjust textwidth to match the default below
+  \usepackage[a4paper,textwidth=\textwidth+1.5em,textheight=\textheight,paperwidth=\textwidth+6em,paperheight=\textheight+11em]{geometry}
 \else
-  \usepackage[a4paper,includehead,includefoot,textwidth=\textwidth,textheight=\textheight]{geometry}
+  %% Default version, for print
+  \usepackage[a4paper,lmargin=4cm]{geometry}
 \fi
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
