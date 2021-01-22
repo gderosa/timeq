@@ -42,7 +42,7 @@ We can prove the following
 
   \begin{proof}
     We can choose,
-    as basis to explicit the expresion of the trace,
+    as basis to explicit the expression of the trace,
     a complete set of eigenvectors $\{\ket{m}\}$ of $A$ and,
     for each positive integer $n$,
     a particular density operator $\rho = \ketbra{n}$,
@@ -54,11 +54,11 @@ We can prove the following
       A\rho = \mel{n}{A}{n}\ketbra{n}\,.
     $$
     It then follows:
-    $$
-      0 = \tr(A\rho) = \sum_{m}\mel{m}{ ( \mel{n}{A}{n}\ketbra{n} ) }{m}
-        = \sum_{m} \mel{n}{A}{n} \braket{m}{n} \braket{n}{m}
-        = \mel{n}{A}{n}\,,
-    $$
+    \begin{multline*}
+      0 = \tr(A\rho) = \sum_{m}\mel{m}{ ( \mel{n}{A}{n}\ketbra{n} ) }{m} = \\
+          \sum_{m} \mel{n}{A}{n} \braket{m}{n} \braket{n}{m}
+        = \mel{n}{A}{n} ,
+    \end{multline*}
     hence the generic diagonal element of the (diagonal) matrix of $A$ is null,
     and so is consequently the operator $A$ itself.
   \end{proof}

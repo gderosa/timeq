@@ -13,9 +13,10 @@ A natural example of such coherent superposition is (e.g. \cite[Example 2.4]{Nak
   \ket{\psi} = \frac{1}{\sqrt{2}}\ket{0} + \frac{1}{\sqrt{2}}\ket{1}\text{,}
 \]
 and the corresponding density operator is
-\begin{equation}\label{eq:matrix:pure}
+\begin{multline}\label{eq:matrix:pure}
   \rho = \ketbra{\psi}{\psi} =
   \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
+  \\
   \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
   \frac{1}{2}
     \begin{pmatrix}
@@ -23,7 +24,7 @@ and the corresponding density operator is
       1 &1  \\
     \end{pmatrix}
   \text{.}
-\end{equation}
+\end{multline}
 For the statistical mixture, the density operator is, by definition,
 \begin{equation}\label{eq:matrix:mix}
   \rho = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
@@ -62,7 +63,8 @@ among its elements, therefore the diagonal representation is
 
 All the above allows us to conclude what follows:
 \begin{remark}
-  The density matrix of a pure state is either diag(000\dots1\dots000) or non-diagonal.
+  The density matrix of a pure state is either\\
+  diag(000\dots1\dots000) or non-diagonal.
 
   So, except the special/trivial case above, a pure state must have off-diagonal terms.
 \end{remark}
@@ -93,7 +95,7 @@ case of a theorem.
   The ensembles
   $\setof{p_i, \ket{\psi_i}}$ and $\setof{q_{j}, \ket{\phi_j}}$
   generate the same density operator
-  $\rho = \sum_i p_i \ketbra{\psi_i} = \sum_j q_j \ketbra{\phi_j}$
+  $$\rho = \sum_i p_i \ketbra{\psi_i} = \sum_j q_j \ketbra{\phi_j}$$
   if and only if there exists
   a unitary matrix\footnote{
     The transformation represented by the unitary matrix $\setof{u_{ij}}$
