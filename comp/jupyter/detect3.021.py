@@ -127,8 +127,11 @@ def phase_color(_z):
 # -->
 
 # %%
-TMIN, TMAX = 0, 4*pi/sqrt(5) # one and a half periods, for graphical purposes...
+TMIN, TMAX = 0, 11
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
+
+# %%
+N(TMAX)
 
 # %%
 for i in 0, 1, 2:
@@ -146,7 +149,7 @@ NPLOTPOINTS = 3200
 
 # %%
 times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
-times_extended = np.linspace(TMIN_N, 35*TMAX_N, num=NPLOTPOINTS)
+times_extended = np.linspace(TMIN_N, 150, num=NPLOTPOINTS)
 
 # %%
 probs = np.zeros((3, NPLOTPOINTS))
