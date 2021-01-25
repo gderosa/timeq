@@ -410,6 +410,9 @@ DT = TMAX_N  # assume we start with time 0
 T = DT * np.diag(np.arange(NT)) / NT
 
 # %%
+DT
+
+# %%
 F = dft(NT, scale='sqrtn').conj()
 F_dagger = F.conj().T
 
@@ -548,6 +551,73 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60
             #s = abs(_psi[i]**2)*60,
             s = 20,
             c = _c[i]
+        )
+
+# %%
+norm(psi)**2
+
+# %%
+norm(psi)
+
+# %% [markdown]
+# ### Overlapping  PW and QM continuous
+
+# %%
+# 3D parametric plot
+
+times_discrete = np.diag(T)
+
+psi = history.reshape((-1,NS)).T
+
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
+    fig = plt.figure(figsize=(width, height))
+
+
+    ax = fig.gca(projection='3d')
+
+    ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
+
+    ax.set_xlabel('Re <0,1,2|\u03C8>')
+    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_zlabel('t')
+    
+    ax.scatter(
+        np.zeros(NT, dtype=np.float),
+        np.zeros(NT, dtype=np.float),
+        times_discrete,
+    
+        c = (abs(psi.T)**2),
+        s = 75,
+        marker='o'
+    )
+    _c = ['r', 'g', 'b']
+    for i in range(NS):
+        ax.scatter(
+            np.real(
+                psi[i]
+            ),
+            np.imag(
+                psi[i]
+            ),
+            times_discrete,
+
+            marker = 's',
+            #depthshade=False,
+            #s = abs(_psi[i]**2)*60,
+            s = 30,
+            c = _c[i]
+        )
+        
+    # QM continuous
+    for i in 0, 1, 2:
+        ax.scatter(
+            np.real(unitary_psi_n(times)[i][0]),
+            np.imag(unitary_psi_n(times)[i][0]),
+            times,
+
+            marker = '.',
+            c = _c[i],
+            s = 0.1
         )
 
 
