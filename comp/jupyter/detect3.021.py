@@ -614,8 +614,8 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60
     # QM continuous
     for i in 0, 1, 2:
         ax.scatter(
-            np.real(unitary_psi_n(times)[i][0]),
-            np.imag(unitary_psi_n(times)[i][0]),
+            np.real(evolution[i]),
+            np.imag(evolution[i]),
             times,
 
             marker = '.',
