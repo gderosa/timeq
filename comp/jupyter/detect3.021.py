@@ -68,9 +68,9 @@ nu = Symbol('nu', real=True)
 
 # %%
 H = Matrix([
-    [0, 0, 4],
-    [0, 0, 1],
-    [4, 1, 0]
+    [1, 0, 4],
+    [0, 1, 1],
+    [4, 1, 1]
 ]) / 8
 
 # %%
@@ -572,7 +572,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 13), (75, -125, 25, 13):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -617,7 +617,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60
             np.real(evolution[i]),
             np.imag(evolution[i]),
             times,
-
+            depthshade=False
             marker = '.',
             c = _c[i],
             s = 0.1
