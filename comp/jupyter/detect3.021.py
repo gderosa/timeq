@@ -164,8 +164,6 @@ for i in 0, 1, 2:
 probs = np.round(probs, decimals=12)
 
 # %%
-
-# %%
 UNISYM = {
     'psi': u'\u03C8',
     '^2' : u'\u00B2'
@@ -227,7 +225,7 @@ ax.legend(
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90, -90, 13, 13):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -617,10 +615,11 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 13), (75
             np.real(evolution[i]),
             np.imag(evolution[i]),
             times,
-            depthshade=False
+            depthshade=False,
+            
             marker = '.',
             c = _c[i],
-            s = 0.1
+            s = 0.01
         )
 
 
