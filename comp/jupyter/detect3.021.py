@@ -579,7 +579,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (30, -120, 25, 13), (90, -125, 25, 13):
+for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90, -125, 25, 13):
     fig = plt.figure(figsize=(width, height))
 
 
