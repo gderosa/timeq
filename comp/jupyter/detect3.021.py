@@ -19,7 +19,7 @@
 # %% [markdown]
 # Three-level "$\Lambda$" system, of interest for 
 # * detector models (decay into a metastable state), 
-# * STIRAP
+# * STIRAP https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.105.123003?casa_token=pK4p86vzV5MAAAAA%3AhKlBjA43miNkiuMOXQvgz-xu58OV43K2mesoALUSe_5yqPjcQ2uuqKoa9MLQIAGz1v9R2IQCJIQbTdw !! and also https://journals.aps.org/pra/pdf/10.1103/PhysRevA.89.063412?casa_token=yH6RkMnlOMEAAAAA%3Ah661v0ArWuFpAOgpa2beGx6Q90loqh18NW5cBqSB18IpRlPrVAB2Y1siaJ0BvKO2WJ4JghnSUw88PYg for the non-Hermitian !!!
 # * EIT
 # * ...
 #
@@ -68,16 +68,25 @@ nu = Symbol('nu', real=True)
 
 # %%
 H = Matrix([
-    [1, 0, 4],
-    [0, 1, 1],
-    [4, 1, 1]
-]) / 8
+    [0,    0,  32],
+    [0,    0,   8],
+    [32,   8,   3]
+]) / 64
 
 # %%
 H
 
 # %%
 H.eigenvects()
+
+# %%
+3/64
+
+# %%
+N(3/128 - 7*sqrt(89)/128)
+
+# %%
+N(3/128 + 7*sqrt(89)/128)
 
 # %%
 U_t = exp(-I*H*t)
@@ -99,7 +108,7 @@ for i in 0, 1, 2:
     prob_t[i] = abs(unitary_psi_t[i])**2
 
 # %%
-prob_t
+# prob_t  # computentionally intensive, massive LaTeX forumla
 
 # %%
 simplify(
@@ -570,7 +579,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 13), (75, -125, 25, 13):
+for (vertical_angle, horizontal_angle, height, width) in (30, -120, 25, 13), (90, -125, 25, 13):
     fig = plt.figure(figsize=(width, height))
 
 
