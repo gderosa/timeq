@@ -608,8 +608,8 @@ bayes_denominator = np.sum(Y * dT)
 Y = Y / bayes_denominator
 
 # %%
-fig, ax = plt.subplots(figsize=(10, 7))
-ax.plot(X, Y, 'bs')
+fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+ax.plot(X, Y, 'bs', )
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
 
