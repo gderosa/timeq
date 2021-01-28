@@ -48,11 +48,15 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 # %%
 from IPython.display import display, Latex #, Math
 
+# %% language="javascript"
+#     // do not generate scroll areas, expand figures instead
+#     IPython.OutputArea.auto_scroll_threshold = 9999
+
 # %%
 H = np.array([
-    [8,      0,     32],
-    [0,     -8,      8],
-    [32,     8,      0]
+    [-2,     0,      32],
+    [0,      2,       8],
+    [32,     8,       3]
 ], np.complex_) / 64
 
 
@@ -79,7 +83,7 @@ def prob(t):
 
 
 # %%
-TMIN, TMAX = 0, 30
+TMIN, TMAX, TMAX_EXTENDED = 0, 40, 150
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
@@ -87,7 +91,7 @@ NPLOTPOINTS = 3200
 
 # %%
 times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
-times_extended = np.linspace(TMIN_N, 150, num=NPLOTPOINTS)
+times_extended = np.linspace(TMIN_N, TMAX_EXTENDED, num=NPLOTPOINTS)
 
 # %%
 probs = [None, None, None]
@@ -166,8 +170,8 @@ for i in 0, 1, 2:
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 25), (30, -120, 15, 25):
-    fig = plt.figure(figsize=(width, height))
+for (vertical_angle, horizontal_angle, height, width) in (10, -70, 15, 35), (80, -120, 15, 35):
+    fig = plt.figure(figsize=(width, height), dpi=200)
 
 
     ax = fig.gca(projection='3d')
@@ -337,7 +341,6 @@ DT = TMAX_N  # assume we start with time 0
 T = DT * np.diag(np.arange(NT)) / NT
 
 # %%
-DT
 
 # %%
 F = dft(NT, scale='sqrtn').conj()
@@ -441,7 +444,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 25),:
+for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (80, -100, 15, 25)):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -496,7 +499,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 12, 12), (5, -70, 12, 12):
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (90, -80, 20, 15):
     fig = plt.figure(figsize=(width, height), dpi=200)
 
     ax = fig.gca(projection='3d')
@@ -527,7 +530,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 12, 12), (5, 
             ),
             times_discrete,
 
-            marker = '^',
+            marker = 's',
             #depthshade=False,
             #s = abs(_psi[i]**2)*60,
             s = 30,
@@ -544,9 +547,13 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 12, 12), (5, 
             
             marker = '.',
             c = _c[i],
-            s = 0.1
+            s = 0.25
         )
 
+
+# %%
+
+# %%
 
 # %% [markdown]
 # ## TOA prob as in Maccone/Sacha arXiv:1810.12869
