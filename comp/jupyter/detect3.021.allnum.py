@@ -166,7 +166,7 @@ for i in 0, 1, 2:
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 35), (30, -120, 25, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 25), (30, -120, 15, 25):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -194,7 +194,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 35), (30
 
             marker = '.',
             #depthshade=False,
-            s = (probs[i])*40,
+            s = (probs[i])*30,
             c = _c[i]
         )
 
@@ -330,7 +330,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 64
+NT = 48
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -496,7 +496,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (5, -70, 20, 15):
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 30), (5, -70, 20, 30):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -528,7 +528,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (5, 
             ),
             times_discrete,
 
-            marker = 's',
+            marker = '^',
             #depthshade=False,
             #s = abs(_psi[i]**2)*60,
             s = 30,
@@ -545,7 +545,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (5, 
             
             marker = '.',
             c = _c[i],
-            s = 0.1
+            s = 0.2
         )
 
 
