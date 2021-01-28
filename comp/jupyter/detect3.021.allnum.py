@@ -496,9 +496,8 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 30), (5, -70, 20, 30):
-    fig = plt.figure(figsize=(width, height))
-
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 12, 12), (5, -70, 12, 12):
+    fig = plt.figure(figsize=(width, height), dpi=200)
 
     ax = fig.gca(projection='3d')
 
@@ -545,7 +544,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 30), (5, 
             
             marker = '.',
             c = _c[i],
-            s = 0.2
+            s = 0.1
         )
 
 
