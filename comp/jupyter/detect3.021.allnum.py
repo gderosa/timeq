@@ -194,7 +194,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 25), (30
 
             marker = '.',
             #depthshade=False,
-            s = (probs[i])*50,
+            s = (probs[i])*40,
             c = _c[i]
         )
 
@@ -330,7 +330,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 32
+NT = 64
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -441,7 +441,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60, -45, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 25),:
     fig = plt.figure(figsize=(width, height))
 
 
@@ -560,7 +560,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (5, 
 
 # %%
 def t_eigenstate(n):
-    v = np.zeros(32, dtype=np.complex)
+    v = np.zeros(NT, dtype=np.complex)
     v[n] = 1
     return v
 
@@ -619,3 +619,5 @@ np.sum(nonpw_probs*times[1])
 
 # %%
 np.sum(Y*dT)
+
+# %%
