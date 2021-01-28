@@ -158,6 +158,11 @@ ax.legend(
 )
 
 # %%
+unitary_psis = [np.zeros(NPLOTPOINTS)] * 3
+for i in 0, 1, 2:
+    unitary_psis[i] = np.fromiter( (unitary_psi(t)[i] for t in times), np.complex )
+
+# %%
 # 3D parametric plot
 for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90, -90, 13, 13):
     fig = plt.figure(figsize=(width, height))
@@ -181,8 +186,8 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90
     )
     for i in 0, 1, 2:
         ax.scatter(
-            np.real(unitary_psi_n(times)[i][0]),
-            np.imag(unitary_psi_n(times)[i][0]),
+            np.real(unitary_psis[i]),
+            np.imag(unitary_psis[i]),
             times,
 
             marker = '.',
@@ -194,16 +199,8 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90
 # %% [markdown]
 # ## Complex potential (detection by absorption)
 
-# %% [markdown]
-# Need to switch everything to numeric.
-
 # %%
-
-# %%
-H_n = np.array(H).astype(np.complex)
-
-# %%
-H_n
+H_n = H
 
 # %%
 GAMMA = 0.1
