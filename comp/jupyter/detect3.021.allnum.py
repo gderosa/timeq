@@ -19,7 +19,9 @@
 # %% [markdown]
 # Three-level "$\Lambda$" system, of interest for 
 # * detector models (decay into a metastable state), 
-# * STIRAP https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.105.123003?casa_token=pK4p86vzV5MAAAAA%3AhKlBjA43miNkiuMOXQvgz-xu58OV43K2mesoALUSe_5yqPjcQ2uuqKoa9MLQIAGz1v9R2IQCJIQbTdw !! and also https://journals.aps.org/pra/pdf/10.1103/PhysRevA.89.063412?casa_token=yH6RkMnlOMEAAAAA%3Ah661v0ArWuFpAOgpa2beGx6Q90loqh18NW5cBqSB18IpRlPrVAB2Y1siaJ0BvKO2WJ4JghnSUw88PYg for the non-Hermitian !!!
+# * STIRAP
+#     * "Shortcut to Adiabatic Passage in Two- and Three-Level Atoms" DOI: 10.1103/PhysRevLett.105.123003
+#     * "Non-Hermitian shortcut to stimulated Raman adiabatic passage" DOI: 10.1103/PhysRevA.89.063412
 # * EIT
 # * ...
 #
@@ -48,9 +50,9 @@ from IPython.display import display, Latex #, Math
 
 # %%
 H = np.array([
-    [0,    0,  32],
-    [0,    0,   8],
-    [32,   8,   3]
+    [8,      0,     32],
+    [0,     -8,      8],
+    [32,     8,      0]
 ], np.complex_) / 64
 
 
@@ -77,7 +79,7 @@ def prob(t):
 
 
 # %%
-TMIN, TMAX = 0, 11
+TMIN, TMAX = 0, 30
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
@@ -88,7 +90,7 @@ times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
 times_extended = np.linspace(TMIN_N, 150, num=NPLOTPOINTS)
 
 # %%
-probs = [0, 0, 0]
+probs = [None, None, None]
 for i in 0, 1, 2:
     probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
     plt.plot(times, probs[i])
@@ -141,7 +143,7 @@ for i in range(NPLOTPOINTS):
 fig, ax = plt.subplots(figsize=(12,6))
 ax.set_xlabel('t')
 ax.scatter(times, np.zeros(NPLOTPOINTS),
-            c=rgbs, marker='|', s=12000)
+            c=rgbs, marker='|', s=40000)
 
 # "virtual", don't really want to show, only for legend
 _c = ['r', 'g', 'b']
@@ -149,7 +151,7 @@ for i in 0, 1, 2:
     ax.plot(
         times, probs[i],
         c=_c[i],
-        #linewidth=1,
+        linewidth=2,
     )
     
 ax.legend(
@@ -164,7 +166,7 @@ for i in 0, 1, 2:
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90, -90, 13, 13):
+for (vertical_angle, horizontal_angle, height, width) in (10, -120, 25, 25), (30, -120, 25, 13):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -192,7 +194,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90
 
             marker = '.',
             #depthshade=False,
-            s = (probs[i]**2)*40,
+            s = (probs[i])*50,
             c = _c[i]
         )
 
@@ -494,7 +496,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90, -125, 25, 13):
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (5, -70, 20, 15):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -543,7 +545,7 @@ for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90
             
             marker = '.',
             c = _c[i],
-            s = 0.01
+            s = 0.1
         )
 
 
