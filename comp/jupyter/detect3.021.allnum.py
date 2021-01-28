@@ -87,7 +87,7 @@ TMIN, TMAX, TMAX_EXTENDED = 0, 40, 150
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
-NPLOTPOINTS = 3200
+NPLOTPOINTS = 10000
 
 # %%
 times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
@@ -334,7 +334,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 48
+NT = 64
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -461,7 +461,7 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = (abs(psi.T)**2),
+        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
     )
@@ -499,7 +499,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (90, -80, 20, 15):
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 25), (90, -80, 20, 25):
     fig = plt.figure(figsize=(width, height), dpi=200)
 
     ax = fig.gca(projection='3d')
@@ -515,7 +515,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (90,
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = (abs(psi.T)**2),
+        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
     )
@@ -531,10 +531,11 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 15), (90,
             times_discrete,
 
             marker = 's',
-            #depthshade=False,
+            depthshade=False,
             #s = abs(_psi[i]**2)*60,
             s = 30,
-            c = _c[i]
+            edgecolor = _c[i],
+            facecolor='none'
         )
         
     # QM continuous
