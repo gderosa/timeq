@@ -57,7 +57,7 @@ H = np.array([
     [-2,     0,      32],
     [0,      2,       8],
     [32,     8,       3]
-], np.complex_) / 64
+], np.complex_) / 96
 
 
 # %%
@@ -150,7 +150,7 @@ ax.scatter(times, np.zeros(NPLOTPOINTS),
             c=rgbs, marker='|', s=40000)
 
 # "virtual", don't really want to show, only for legend
-_c = ['r', 'g', 'b']
+_c = ['r', '#00f800', 'b']
 for i in 0, 1, 2:
     ax.plot(
         times, probs[i],
@@ -499,8 +499,8 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 25), (90, -80, 20, 25):
-    fig = plt.figure(figsize=(width, height), dpi=200)
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 12, 16), (90, -80, 15, 30):
+    fig = plt.figure(figsize=(width, height), dpi=300)
 
     ax = fig.gca(projection='3d')
 
@@ -546,6 +546,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 25), (90,
             times,
             #depthshade=False,
             c = _c[i],
+            linewidth=1
         )
 
 
