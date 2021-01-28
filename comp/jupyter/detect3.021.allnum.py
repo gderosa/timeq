@@ -30,20 +30,12 @@
 #
 
 # %%
-from sympy import *
-#from sympy.physics.matrices import mdft
-from sympy.physics.quantum import TensorProduct
-from sympy.functions.special.delta_functions import Heaviside
-from sympy.physics.quantum.dagger import Dagger
-
-from sympy.stats import ContinuousRV, variance, std
-
-from sympy.plotting import plot, plot3d_parametric_line
-
 import numpy as np
 
 import matplotlib
 import matplotlib.pyplot as plt
+
+from scipy.linalg import expm, norm
 
 # matplotlib.rcParams['text.usetex'] = False
 
@@ -55,101 +47,38 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 from IPython.display import display, Latex #, Math
 
 # %%
-init_printing ()
-
-# %%
-gamma = Symbol('gamma', real=True, positive=True)
-t = Symbol('t', real=True)
-tprime = Symbol('t\'', real=True)
-omega = Symbol('omega', real=True)
-nu = Symbol('nu', real=True)
-
-# %%
-H = Matrix([
+H = np.array([
     [0,    0,  32],
     [0,    0,   8],
     [32,   8,   3]
-]) / 64
-
-# %%
-H
-
-# %%
-H.eigenvects()
-
-# %%
-3/64
-
-# %%
-N(3/128 - 7*sqrt(89)/128)
-
-# %%
-N(3/128 + 7*sqrt(89)/128)
-
-# %%
-U_t = exp(-I*H*t)
-
-# %%
-psi_0 = Matrix([1, (1+I)/sqrt(2), 0])/sqrt(2)
-psi_0 = Matrix([1, 0, 0])
-psi_0
-
-# %%
-unitary_psi_t = U_t @ psi_0
-
-# %%
-unitary_psi_t
-
-# %%
-prob_t = Matrix([0, 0, 0])
-for i in 0, 1, 2:
-    prob_t[i] = abs(unitary_psi_t[i])**2
-
-# %%
-# prob_t  # computentionally intensive, massive LaTeX forumla
-
-# %%
-simplify(
-    prob_t[0] + prob_t[1] + prob_t[2]
-)
-
-# %%
-unitary_psi_n = lambdify(t, unitary_psi_t, 'numpy')
-_prob_n = lambdify(t, prob_t, 'numpy')
-def prob_n(_t):
-    return np.real(_prob_n(_t))
+], np.complex_) / 64
 
 
 # %%
-def phase_color(_z):
-    return np.sin(np.angle(_z))
+def U(t):
+    return expm(-1j*H*t)
 
 
-# %% [markdown]
-# <!--
-# #### Complex argument color code
-# * <span style="color: #fe0">__Yellow__</span> (or generally the "highest"): imaginary, positive
-# * <span style="color: #086">__Green__ </span> (or generally the "midrange"): real
-# * <span style="color: #408">__Purple__</span> (or generally the "lowest"): imaginary, negative
-# -->
+# %%
+psi_0 = np.array([1, 0, 0], np.complex_)
+
+
+# %%
+def unitary_psi(t):
+    return U(t) @ psi_0
+
+
+# %%
+def prob(t):
+    probabilities = [0, 0, 0]
+    for i in 0, 1, 2:
+        probabilities[i] = norm(unitary_psi(t)[i])**2
+    return probabilities
+
 
 # %%
 TMIN, TMAX = 0, 11
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
-
-# %%
-N(TMAX)
-
-# %%
-for i in 0, 1, 2:
-    pl = plot(
-        prob_t[i],
-        (t, TMIN, TMAX),
-        adaptive=False, nb_of_points=1000, show=False)
-    # Need the numeric version to customize color function
-    pl[0].line_color = lambda _t: phase_color( unitary_psi_n(_t)[i] )
-    pl.axis_center = (0, 0)
-    pl.show()
 
 # %%
 NPLOTPOINTS = 3200
@@ -159,11 +88,11 @@ times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
 times_extended = np.linspace(TMIN_N, 150, num=NPLOTPOINTS)
 
 # %%
-probs = np.zeros((3, NPLOTPOINTS))
-
-# %%
+probs = [0, 0, 0]
 for i in 0, 1, 2:
-    probs[i] = prob_n(times)[i]
+    probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
+    plt.plot(times, probs[i])
+    plt.show()
 
 # %%
 # Avoid *tiny* negative numbers, just out of numeric approximation, which will cause problems later,
@@ -229,8 +158,6 @@ ax.legend(
 )
 
 # %%
-
-# %%
 # 3D parametric plot
 for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90, -90, 13, 13):
     fig = plt.figure(figsize=(width, height))
@@ -271,7 +198,6 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -105, 15, 13), (90
 # Need to switch everything to numeric.
 
 # %%
-from scipy.linalg import expm, norm
 
 # %%
 H_n = np.array(H).astype(np.complex)
