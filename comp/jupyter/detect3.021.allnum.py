@@ -87,7 +87,7 @@ TMIN, TMAX, TMAX_EXTENDED = 0, 40, 150
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
-NPLOTPOINTS = 10000
+NPLOTPOINTS = 3200
 
 # %%
 times = np.linspace(TMIN_N, TMAX_N, num=NPLOTPOINTS)
@@ -533,22 +533,19 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 20, 25), (90,
             marker = 's',
             depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 30,
+            s = 33,
             edgecolor = _c[i],
             facecolor='none'
         )
         
     # QM continuous
     for i in 0, 1, 2:
-        ax.scatter(
+        ax.plot(
             np.real(evolution[i]),
             np.imag(evolution[i]),
             times,
-            depthshade=False,
-            
-            marker = '.',
+            #depthshade=False,
             c = _c[i],
-            s = 0.25
         )
 
 
