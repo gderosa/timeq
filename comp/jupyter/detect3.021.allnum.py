@@ -204,10 +204,6 @@ H_n = H
 
 # %%
 GAMMA = 0.1
-psi_0_n = np.array(psi_0.T).astype(np.complex)[0]
-
-# %%
-psi_0_n
 
 
 # %%
@@ -244,7 +240,7 @@ B(0)
 
 # %%
 def non_unitary_psi(_t, _gamma=GAMMA):
-    return B(_t, _gamma) @ psi_0_n
+    return B(_t, _gamma) @ psi_0
 
 
 # %%
@@ -283,8 +279,6 @@ ax.stackplot(
 ax.legend(loc='lower center')
 
 plt.show()
-
-# %%
 
 # %%
 # loss of normalization, or integral of antiderivative...
