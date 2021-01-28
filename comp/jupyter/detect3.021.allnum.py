@@ -423,7 +423,7 @@ states = np.array([
 ])
 #assert(np.round(abs(det(states)), decimals=2) == 1.0)
 # Find what linear combination would bring to the desired initial state psi_0_n
-coeffs = inv(states.T) @ psi_0_n
+coeffs = inv(states.T) @ psi_0
 
 # %%
 history = coeffs.dot(np.array([
@@ -617,5 +617,3 @@ np.sum(nonpw_probs*times[1])
 
 # %%
 np.sum(Y*dT)
-
-# %%
