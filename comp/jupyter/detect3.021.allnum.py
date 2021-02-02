@@ -162,8 +162,8 @@ for i in 0, 1, 2:
 # %%
 # 3D parametric plot
 for (vertical_angle, horizontal_angle, height, width) in (10, -70, 15, 35), (80, -120, 15, 35):
-    fig = plt.figure(figsize=(width, height), dpi=200)
-
+    # fig = plt.figure(figsize=(width, height), dpi=200)
+    fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
 
@@ -304,8 +304,8 @@ ax.stackplot(
 
 ax.legend(loc='upper right')
 
-plt.savefig('_img/detect3.021/loss3color.png', dpi=300, transparent=True, pad_inches=0)
-plt.savefig('_img/detect3.021/loss3color.svg', transparent=True)
+# plt.savefig('_img/detect3.021/loss3color.png', dpi=300, transparent=True, pad_inches=0)
+# plt.savefig('_img/detect3.021/loss3color.svg', transparent=True)
 plt.show()
 
 
@@ -491,7 +491,8 @@ times_discrete = np.diag(T)
 psi = history.reshape((-1,NS)).T
 
 for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90, -80, 15, 15):
-    fig = plt.figure(figsize=(width, height), dpi=300)
+    # fig = plt.figure(figsize=(width, height), dpi=300)
+    fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
 
@@ -599,7 +600,8 @@ bayes_denominator = np.sum(Y * dT)
 Y = Y / bayes_denominator
 
 # %%
-fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+# fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+fig, ax = plt.subplots(figsize=(12, 8))
 ax.plot(X, Y, 'bs', )
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.show()
