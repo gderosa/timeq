@@ -20,16 +20,7 @@
 # Three-level "$\Lambda$" system, of interest for 
 # * detector models (decay into a metastable state), 
 # * STIRAP
-#     * "Shortcut to Adiabatic Passage in Two- and Three-Level Atoms" DOI: 10.1103/PhysRevLett.105.123003
-#     * "Non-Hermitian shortcut to stimulated Raman adiabatic passage" DOI: 10.1103/PhysRevA.89.063412
 # * EIT
-# * ...
-#
-# See also eq. 1 in
-# https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (EIT)
-#
-# and also https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (STIRAP)
-#
 
 # %%
 import numpy as np
