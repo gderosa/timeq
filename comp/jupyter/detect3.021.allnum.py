@@ -486,6 +486,8 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
             s = 20,
             c = _c[i]
         )
+        plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+
 
 # %%
 norm(psi)**2
@@ -553,11 +555,8 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             c = _c[i],
             linewidth=1
         )
+    plt.savefig('_img/detect3.021/PWSpaceTimeFit_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 
-
-# %%
-
-# %%
 
 # %% [markdown]
 # ## TOA prob as in Maccone/Sacha arXiv:1810.12869
@@ -617,6 +616,7 @@ Y = Y / bayes_denominator
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.plot(X, Y, 'bs', )
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
+plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 plt.show()
 
 # %%
