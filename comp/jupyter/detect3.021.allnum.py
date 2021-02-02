@@ -127,7 +127,6 @@ fig, ax = plt.subplots(figsize=(12, 6))
 ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
 ax.legend(loc='lower center')
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
-plt.savefig('_img/detect3.021/hermitian3color.svg', bbox_inches='tight', pad_inches=0)
 plt.show()
 
 # %%
@@ -327,10 +326,11 @@ plt.show()
 
 
 # %%
-fig, ax = plt.subplots(figsize=(22, 3))
+_detection_prob = -np.gradient(norms_extended**2, times)
+fig, ax = plt.subplots(figsize=(14, 7*np.max(_detection_prob)))
 ax.set_xlabel('t')
-ax.set_ylabel('Detection probability density')
-ax.plot(times_extended, -np.gradient(norms_extended**2, times), c='b', linewidth=1)
+ax.set_ylabel('Detection prob. density')
+ax.plot(times_extended, _detection_prob, c='b', linewidth=1)
 plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
