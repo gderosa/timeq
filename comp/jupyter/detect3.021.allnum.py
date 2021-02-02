@@ -37,6 +37,9 @@ from scipy.linalg import expm, norm
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # %%
+matplotlib.figure.Figure
+
+# %%
 from IPython.display import display, Latex #, Math
 
 # %% language="javascript"
@@ -88,7 +91,9 @@ times_extended = np.linspace(TMIN_N, TMAX_EXTENDED, num=NPLOTPOINTS)
 probs = [None, None, None]
 for i in 0, 1, 2:
     probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
-    plt.plot(times, probs[i])
+    fig, ax = plt.subplots(figsize=(12, 6*np.max(probs[i])))
+    ax.plot(times, probs[i])
+    plt.savefig('_img/detect3.021/probs_%d.pdf' % i, bbox_inches='tight', pad_inches=0)
     plt.show()
 
 # %%
