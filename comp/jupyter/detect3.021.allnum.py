@@ -121,6 +121,8 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 fig, ax = plt.subplots(figsize=(12, 6))
 ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
 ax.legend(loc='lower center')
+plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
+plt.savefig('_img/detect3.021/hermitian3color.svg', bbox_inches='tight', pad_inches=0)
 plt.show()
 
 # %%
@@ -153,6 +155,9 @@ ax.legend(
     PROB_LABELS,
     loc='upper right'
 )
+
+plt.savefig('_img/detect3.021/hermitian3lines.pdf', bbox_inches='tight', pad_inches=0)
+
 
 # %%
 unitary_psis = [np.zeros(NPLOTPOINTS)] * 3
@@ -192,6 +197,9 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -70, 15, 35), (80,
             s = (probs[i])*30,
             c = _c[i]
         )
+
+    plt.savefig('_img/detect3.021/hermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+
 
 # %% [markdown]
 # ## Complex potential (detection by absorption)
@@ -275,6 +283,7 @@ ax.stackplot(
 
 ax.legend(loc='lower center')
 
+plt.savefig('_img/detect3.021/loss3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
 # %%
@@ -286,6 +295,7 @@ fig, ax = plt.subplots(figsize=(12, 8))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection probability density')
 ax.plot(times, -np.gradient(norms**2, times), c='b', linewidth=2)
+plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 
 # %%
 labels = PROB_LABELS
@@ -306,6 +316,8 @@ ax.legend(loc='upper right')
 
 # plt.savefig('_img/detect3.021/loss3color.png', dpi=300, transparent=True, pad_inches=0)
 # plt.savefig('_img/detect3.021/loss3color.svg', transparent=True)
+plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
+
 plt.show()
 
 
@@ -314,6 +326,7 @@ fig, ax = plt.subplots(figsize=(22, 3))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection probability density')
 ax.plot(times_extended, -np.gradient(norms_extended**2, times), c='b', linewidth=1)
+plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
 # ## Page-Wootters
