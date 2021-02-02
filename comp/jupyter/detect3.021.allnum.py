@@ -616,7 +616,7 @@ Y = Y / bayes_denominator
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.plot(X, Y, 'bs', )
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
-plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+plt.savefig('_img/detect3.021/conditionalProbFit.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
 # %%
