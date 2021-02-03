@@ -32,45 +32,73 @@ that can only be shown in a system with three energy levels or more.
 
 Lorem ipsum.
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/3ldetect/hermitian3lines.pdf}
-  \caption{Foobar.}
-  %\label{fig:psi_V}
-\end{figure}
-
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/3ldetect/hermitian3color.pdf}
-  \caption{Fooboo.}
-  %\label{fig:psi_V}
-\end{figure}
-
-
-\begin{figure}[hb!]
-  \centering
-  \begin{subfigure}{\textwidth}
-      \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_side.pdf}
-      \subcaption{Foo.}
-      %\label{fig:arm1}
-  \end{subfigure}
-  \caption{Foobar.}
-\end{figure}%
-\begin{figure}[ht]\ContinuedFloat
-  \centering
-  \begin{subfigure}{\textwidth}
-      \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}
-      \subcaption{Bar.}
-      %\label{fig:arm3}
-  \end{subfigure}
-  \caption{Foobar (cont.)}
-\end{figure}
-
-
-% \begin{figure}\ContinuedFloat
-%   \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_side.pdf}
-%   \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_top.pdf}
-%   \caption{Foo.}
+% \begin{figure}
+%   \includegraphics[width=\textwidth]{img/3ldetect/hermitian3lines.pdf}
+%   \caption{Foobar.}
 %   %\label{fig:psi_V}
 % \end{figure}
+
+% \begin{figure}
+%   \includegraphics[width=\textwidth]{img/3ldetect/hermitian3color.pdf}
+%   \caption{Fooboo.}
+%   %\label{fig:psi_V}
+% \end{figure}
+
+\begin{figure}[h]
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[width=\textwidth]{img/3ldetect/hermitian3lines.pdf}
+    \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[width=\textwidth]{img/3ldetect/hermitian3color.pdf}
+    \subcaption{Bar.}%\label{fig:aabsorbed-qubit-components_pwlattice:im1}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \caption{
+    Blah blah blah.
+  }
+  \label{fig:aabsorbed-qubit-components_pwlattice}
+\end{figure}
+
+% \begin{figure}[hb!]
+%   \centering
+%   \begin{subfigure}{\textwidth}
+%       \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_side.pdf}
+%       \subcaption{Foo.}
+%       %\label{fig:arm1}
+%   \end{subfigure}
+%   \caption{Foobar.}
+% \end{figure}%
+% \begin{figure}[ht]\ContinuedFloat
+%   \centering
+%   \begin{subfigure}{\textwidth}
+%       \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}
+%       \subcaption{Bar.}
+%       %\label{fig:arm3}
+%   \end{subfigure}
+%   \caption{Foobar (cont.)}
+% \end{figure}
+
+
+\begin{figure}
+  \centering
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[height=0.4\textheight,clip,trim=60 80 0 120]{img/3ldetect/hermitianSpaceTime_side.pdf}
+    \caption{Foo.}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}[b]{\textwidth}
+    \includegraphics[height=0.5\textheight,clip,trim= 0 20 0 80]{img/3ldetect/hermitianSpaceTime_top.pdf}
+    \caption{Bar.}
+  \end{subfigure}
+  \par\bigskip
+  \caption{FooBar.}
+  %\label{fig:psi_V}
+\end{figure}
 
 % \begin{figure}
 %   \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}

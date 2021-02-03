@@ -202,7 +202,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -70, 12, 12), (80,
             c = _c[i]
         )
 
-    plt.savefig('_img/detect3.021/hermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+    plt.savefig('_img/detect3.021/hermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches=0, pad_inches=0)
 
 
 # %% [markdown]
