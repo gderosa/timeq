@@ -349,7 +349,7 @@ plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 # 3D parametric plot
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90, -80, 15, 15):
+for (vertical_angle,horizontal_angle,height,width,lloc) in (15,-80,15,15,'center left'), (90, -80, 15, 15,'center left'):
     fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
@@ -382,8 +382,10 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             times,
             #depthshade=False,
             c = _c[i],
-            linewidth=2
+            linewidth=2,
+            label = PROB_AMP_LABELS[i]
         )
+        ax.legend(loc=lloc)
     plt.savefig('_img/detect3.021/NonHermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
