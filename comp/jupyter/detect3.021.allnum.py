@@ -170,7 +170,7 @@ for i in 0, 1, 2:
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -70, 10, 10), (80, -120, 10, 10):
+for (vertical_angle, horizontal_angle, height, width) in (10, -70, 12, 12), (80, -120, 12, 12):
     # fig = plt.figure(figsize=(w5dth, height), dpi=250)2
     fig = plt.figure(figsize=(width, height))
 

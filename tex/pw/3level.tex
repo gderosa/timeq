@@ -44,31 +44,52 @@ Lorem ipsum.
   %\label{fig:psi_V}
 \end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_side.pdf}
-  \caption{Foo.}
-  %\label{fig:psi_V}
-\end{figure}
 
-\begin{figure}
-  \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}
-  \caption{Bar.}
-  %\label{fig:psi_V}
-\end{figure}
-
-\begin{figure}
+\begin{figure}[hb!]
   \centering
-  \begin{subfigure}[b]{1.0\textwidth}
-    \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_side.pdf}
-    \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
+  \begin{subfigure}{\textwidth}
+      \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_side.pdf}
+      \subcaption{Foo.}
+      %\label{fig:arm1}
   \end{subfigure}
-  \\
-  \begin{subfigure}[b]{1.0\textwidth}
-    \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_top.pdf}
-    \subcaption{Bar.}\label{fig:aabsorbed-qubit-components_pwlattice:im1}
+  \caption{Foobar.}
+\end{figure}%
+\begin{figure}[ht]\ContinuedFloat
+  \centering
+  \begin{subfigure}{\textwidth}
+      \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}
+      \subcaption{Bar.}
+      %\label{fig:arm3}
   \end{subfigure}
-  \caption{
-    Blah blah blah.
-  }
-  \label{fig:aabsorbed-qubit-components_pwlattice}
+  \caption{Foobar (cont.)}
 \end{figure}
+
+
+% \begin{figure}\ContinuedFloat
+%   \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_side.pdf}
+%   \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_top.pdf}
+%   \caption{Foo.}
+%   %\label{fig:psi_V}
+% \end{figure}
+
+% \begin{figure}
+%   \includegraphics[width=\textwidth]{img/3ldetect/hermitianSpaceTime_top.pdf}
+%   \caption{Bar.}
+%   %\label{fig:psi_V}
+% \end{figure}
+
+% \begin{figure}
+%   \centering
+%   \begin{subfigure}[b]{1.0\textwidth}
+%     \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_side.pdf}
+%     \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
+%   \end{subfigure}\\
+%   \begin{subfigure}[b]{1.0\textwidth}
+%     \includegraphics[height=0.5\textheight]{img/3ldetect/hermitianSpaceTime_top.pdf}
+%     \subcaption{Bar.}\label{fig:aabsorbed-qubit-components_pwlattice:im1}
+%   \end{subfigure}
+%   \caption{
+%     Blah blah blah.
+%   }
+%   \label{fig:aabsorbed-qubit-components_pwlattice}
+% \end{figure}
