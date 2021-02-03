@@ -37,7 +37,12 @@ from scipy.linalg import expm, norm
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # %%
-matplotlib.figure.Figure
+matplotlib.rcParams['axes.labelsize'] = 14
+matplotlib.rcParams['legend.fontsize'] = 13
+matplotlib.rcParams['axes.labelpad']  = 12.0
+
+# %%
+#matplotlib.rcParams
 
 # %%
 from IPython.display import display, Latex #, Math
@@ -125,6 +130,7 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
+ax.set_xlabel('t')
 ax.legend(loc='lower center')
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -169,8 +175,11 @@ for i in 0, 1, 2:
     unitary_psis[i] = np.fromiter( (unitary_psi(t)[i] for t in times), np.complex )
 
 # %%
+PROB_LABELS
+
+# %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -70, 12, 12), (80, -120, 12, 12):
+for (vertical_angle, horizontal_angle, height, width, lloc) in (10,-70,12,12,'center left'), (80,-120,12,12,'right'):
     # fig = plt.figure(figsize=(w5dth, height), dpi=250)2
     fig = plt.figure(figsize=(width, height))
 
@@ -181,27 +190,24 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -70, 12, 12), (80,
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-
+    
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=np.float),
         np.zeros(NPLOTPOINTS, dtype=np.float),
         times,
-
         c = rgbs,
         s = 100
     )
     for i in 0, 1, 2:
-        ax.scatter(
+        ax.plot(
             np.real(unitary_psis[i]),
             np.imag(unitary_psis[i]),
             times,
-
-            marker = '.',
+            label = PROB_AMP_LABELS[i],
             #depthshade=False,
-            s = (probs[i])*30,
             c = _c[i]
         )
-
+        ax.legend(loc=lloc)
     plt.savefig('_img/detect3.021/hermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches=0, pad_inches=0)
 
 
