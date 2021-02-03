@@ -340,6 +340,49 @@ ax.plot(times_extended, _detection_prob, c='b', linewidth=1)
 plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
+# #### "3D"
+
+# %%
+# 3D parametric plot
+
+for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90, -80, 15, 15):
+    fig = plt.figure(figsize=(width, height))
+
+    ax = fig.gca(projection='3d')
+
+    ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
+
+    ax.set_xlabel('Re <0,1,2|\u03C8>')
+    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_zlabel('t')
+    
+    ax.scatter(
+        np.zeros(NPLOTPOINTS, dtype=np.float),
+        np.zeros(NPLOTPOINTS, dtype=np.float),
+        times,
+    
+        c = np.array([
+            np.abs(evolution[0])**2,
+            np.abs(evolution[1])**2,
+            np.abs(evolution[2])**2
+        ]).T,
+        s = 5,
+        marker='o'
+    )
+    _c = ['r', 'g', 'b']
+        
+    for i in 0, 1, 2:
+        ax.plot(
+            np.real(evolution[i]),
+            np.imag(evolution[i]),
+            times,
+            #depthshade=False,
+            c = _c[i],
+            linewidth=2
+        )
+    plt.savefig('_img/detect3.021/NonHermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+
+# %% [markdown]
 # ## Page-Wootters
 
 # %%
