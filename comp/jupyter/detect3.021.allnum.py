@@ -315,6 +315,8 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
+ax.set_xlabel('t')
+
 ax.stackplot(
     times_extended,
     np.abs(evolution_extended[0])**2,
@@ -334,11 +336,11 @@ plt.show()
 
 
 # %%
-_detection_prob = -np.gradient(norms_extended**2, times)
-fig, ax = plt.subplots(figsize=(14, 7*np.max(_detection_prob)))
+_detection_prob = -np.gradient(norms_extended**2, times_extended)
+fig, ax = plt.subplots(figsize=(14, 7))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection prob. density')
-ax.plot(times_extended, _detection_prob, c='b', linewidth=1)
+ax.plot(times_extended, _detection_prob, c='b', linewidth=2)
 plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
