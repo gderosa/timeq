@@ -282,6 +282,8 @@ ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed')
 
 ax.plot(times, norms**2, c='#cccc00', linewidth=2)
 
+ax.set_xlabel('t')
+
 ax.stackplot(
     times,
     np.abs(evolution[0])**2,
