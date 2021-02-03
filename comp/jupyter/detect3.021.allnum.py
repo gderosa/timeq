@@ -143,11 +143,11 @@ for i in range(NPLOTPOINTS):
 # %%
 fig, ax = plt.subplots(figsize=(12,6))
 ax.set_xlabel('t')
-ax.scatter(times, np.zeros(NPLOTPOINTS),
-            c=rgbs, marker='|', s=40000)
+ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1,
+            c=rgbs, marker='|', s=1100)
 
 # "virtual", don't really want to show, only for legend
-_c = ['r', '#00f800', 'b']
+_c = ['r', '#0a0', 'b']
 for i in 0, 1, 2:
     ax.plot(
         times, probs[i],
@@ -488,8 +488,10 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
             marker = 's',
             #depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 20,
-            c = _c[i]
+            s = 30,
+            edgecolor = _c[i],
+            facecolor = 'none',
+            linewidth = 2
         )
         plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 
@@ -545,9 +547,10 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             marker = 's',
             depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 33,
+            s = 40,
             edgecolor = _c[i],
-            facecolor='none'
+            facecolor = 'none',
+            linewidth = 2
         )
         
     # QM continuous
