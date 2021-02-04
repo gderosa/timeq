@@ -637,8 +637,6 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
 #
 # See also [`detect-gentle.ipynb`](detect-gentle.ipynb). Or [`detect-gentle.py`](detect-gentle.py) if you use Jupytext.
 #
-# This is based on *unitary* evolution (no complex potential) so the imaginary potential above (`GAMMA`) must be small for a good approximation.
-#
 
 # %%
 def t_eigenstate(n):
@@ -687,8 +685,12 @@ Y = Y / bayes_denominator
 # %%
 # fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
 fig, ax = plt.subplots(figsize=(12, 8))
-ax.plot(X, Y, 'bs', )
-ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
+ax.set_xlabel('t')
+ax.set_ylabel('Detection probability density')
+ax.plot(X, Y, 'bs', label='Page-Wootters (Maccone / Sacha -- Bayesian / conditional)')
+ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw,
+        c='y', linewidth=2, label='Detector model (normalization loss)')
+ax.legend()
 plt.savefig('_img/detect3.021/conditionalProbFit.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
