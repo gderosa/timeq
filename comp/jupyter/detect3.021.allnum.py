@@ -112,12 +112,15 @@ UNISYM = {
     'psi': u'\u03C8',
     '^2' : u'\u00B2'
 }
-PROB_LABELS     = ['', '', '']
-PROB_AMP_LABELS = ['', '', '']
+PROB_LABELS        = ['', '', '']
+PROB_AMP_LABELS    = ['', '', '']
+PROB_AMP_LABELS_PW = ['', '', '']
                 
 for i in 0, 1, 2:
     PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
+    
+    PROB_AMP_LABELS_PW[i] = '<t|\u2297<%d|\u03A8>>' % i
 
 # %% [markdown]
 # https://matplotlib.org/gallery/lines_bars_and_markers/stackplot_demo.html#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
@@ -509,7 +512,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (80, -100, 15, 25)):
+for (vertical_angle,horizontal_angle,height,width,lloc) in ((10,-120,15,25,'center right'), (80,-100,15,25,'center right')):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -517,8 +520,8 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
-    ax.set_xlabel('Re <0,1,2|\u03C8>')
-    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_xlabel('Re <t|\u2297<0,1,2|\u03A8>>')
+    ax.set_ylabel('Im <t|\u2297<0,1,2|\u03A8>>')
     ax.set_zlabel('t')
     
     ax.scatter(
@@ -547,9 +550,12 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
             s = 30,
             edgecolor = _c[i],
             facecolor = 'none',
-            linewidth = 2
+            linewidth = 2,
+            
+            label = PROB_AMP_LABELS_PW[i]
         )
-        plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+        ax.legend(loc=lloc)
+    plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 
 
 # %%
