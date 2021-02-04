@@ -37,8 +37,9 @@ from scipy.linalg import expm, norm
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # %%
+matplotlib.rcParams['font.size'] = 12
 matplotlib.rcParams['axes.labelsize'] = 14
-matplotlib.rcParams['legend.fontsize'] = 13
+matplotlib.rcParams['legend.fontsize'] = 14
 matplotlib.rcParams['axes.labelpad']  = 12.0
 
 # %%
@@ -196,7 +197,7 @@ for (vertical_angle, horizontal_angle, height, width, lloc) in (10,-70,12,12,'ce
         np.zeros(NPLOTPOINTS, dtype=np.float),
         times,
         c = rgbs,
-        s = 100
+        s = 24
     )
     for i in 0, 1, 2:
         ax.plot(
@@ -370,7 +371,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc) in (15,-80,15,15,'center
             np.abs(evolution[1])**2,
             np.abs(evolution[2])**2
         ]).T,
-        s = 5,
+        s = 24,
         marker='o'
     )
     _c = ['r', 'g', 'b']
@@ -525,7 +526,7 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
+        c = np.round((abs(psi.T)**2), 8), # rounding, to avoid number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
     )
