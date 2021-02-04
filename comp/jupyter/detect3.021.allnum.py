@@ -117,7 +117,7 @@ PROB_AMP_LABELS    = ['', '', '']
 PROB_AMP_LABELS_PW = ['', '', '']
                 
 for i in 0, 1, 2:
-    PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '>'
+    PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '(t)' + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
     
     PROB_AMP_LABELS_PW[i] = '<t|\u2297<%d|\u03A8>>' % i
@@ -582,8 +582,8 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
-    ax.set_xlabel('Re <0,1,2|\u03C8>')
-    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_xlabel('Re')
+    ax.set_ylabel('Im')
     ax.set_zlabel('t')
     
     ax.scatter(
@@ -612,7 +612,8 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             s = 40,
             edgecolor = _c[i],
             facecolor = 'none',
-            linewidth = 2
+            linewidth = 1.5,
+            label = PROB_AMP_LABELS_PW[i]
         )
         
     # QM continuous
@@ -623,8 +624,10 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             times,
             #depthshade=False,
             c = _c[i],
-            linewidth=1
+            linewidth=1.5,
+            label = PROB_AMP_LABELS[i]
         )
+    ax.legend(loc='center left')
     plt.savefig('_img/detect3.021/PWSpaceTimeFit_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
 
 
@@ -688,9 +691,6 @@ ax.plot(X, Y, 'bs', )
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
 plt.savefig('_img/detect3.021/conditionalProbFit.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
-
-# %%
-times[-1]
 
 # %%
 nonpw_probs = -np.gradient(norms**2, times) / bayesian_denominator_nonpw
