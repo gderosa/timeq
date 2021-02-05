@@ -133,9 +133,17 @@ labels = PROB_LABELS
 colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
-ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
+stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
+hatches=["--", "///","||"]
 ax.set_xlabel('t')
-ax.legend(loc='lower center')
+#ax.legend(loc='lower center')
+
+for stack, hatch, color in zip(stacks, hatches, colors):
+    stack.set_facecolor('white')
+    stack.set_edgecolor(color)
+    stack.set_hatch(hatch)
+    print(stack.__class__)
+
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
