@@ -143,7 +143,7 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_label(label)
     stack.set_hatch(hatch)
 
-ax.legend(loc='lower right', framealpha=0.97)
+ax.legend(loc='lower right', framealpha=0.98)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -293,10 +293,24 @@ fig, ax = plt.subplots(figsize=(12, 8))
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed')
 
-ax.plot(times, norms**2, c='#cccc00', linewidth=2)
+ax.plot(times, norms**2, c='#cccc00', linewidth=2, label='Non-detection prob.')
+
+stacks = ax.stackplot(times, (
+    np.abs(evolution[0])**2,
+    np.abs(evolution[1])**2,
+    np.abs(evolution[2])**2
+))
 
 ax.set_xlabel('t')
 
+# colors and hatches defined in previous stackplot!
+for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_facecolor('w')
+    stack.set_edgecolor(color)
+    stack.set_label(label)
+    stack.set_hatch(hatch)
+
+'''
 ax.stackplot(
     times,
     np.abs(evolution[0])**2,
@@ -305,8 +319,9 @@ ax.stackplot(
     
     labels=labels, colors=colors
 )
+'''
 
-ax.legend(loc='lower center')
+ax.legend(loc='center', framealpha=0.98)
 
 plt.savefig('_img/detect3.021/loss3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
