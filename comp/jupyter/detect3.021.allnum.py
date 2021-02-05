@@ -128,22 +128,24 @@ for i in 0, 1, 2:
 prob_stack = np.vstack(probs)
 
 # %%
-labels = PROB_LABELS
-colors = ["#bb4444", "#33aa33", "#1111cc"]
+colors     =  ['#faa', '#6c6', '#aaf']
+hatches    =  ['\\\\\\', '////////', '...']
+linewidths =  [1, 2, 1.25]
+labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
-hatches=['\\\\\\', '///////', '.....']
 ax.set_xlabel('t')
 
-for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels, linewidths):
     stack.set_facecolor('w')
     stack.set_edgecolor(color)
     stack.set_label(label)
     stack.set_hatch(hatch)
+    stack.set_linewidth(linewidth)
 
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(reversed(handles), reversed(labels), loc='center left', framealpha=1)
+ax.legend(reversed(handles), reversed(labels), loc='center right', framealpha=1)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -289,7 +291,8 @@ _iter_norm_extended = (norm(non_unitary_psi(_t)) for _t in times_extended)
 norms_extended = np.fromiter(_iter_norm_extended, np.float)
 
 # %%
-#hatches=['...', '//////', '....']
+colors  =  ['#f66', '#0a0', '#88f']
+hatches =  ['\\\\\\', '////////', '|||']
 
 fig, ax = plt.subplots(figsize=(12, 8))
 
@@ -306,6 +309,7 @@ stacks = ax.stackplot(times, (
 ax.set_xlabel('t')
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_linewidth(.5)
     stack.set_facecolor('w')
     stack.set_edgecolor(color)
     stack.set_label(label)
@@ -333,8 +337,9 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 
 # %%
 labels = PROB_LABELS
-colors = ["#cc1111", "#33aa33", "#1111cc"]
-#hatches=['\\\\\\\\', '//////', '....']
+
+colors  =  ['#f88', '#090', '#aaf']
+hatches =  ['\\\\\\\\', '///////', '||||||||||']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
@@ -351,6 +356,7 @@ stacks = ax.stackplot(times, (
 ))
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_linewidth(1)
     stack.set_facecolor('w')
     stack.set_edgecolor(color)
     stack.set_label(label)
