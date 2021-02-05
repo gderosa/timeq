@@ -134,7 +134,7 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
-hatches=['--', 'xx', '...']
+hatches=['---', '///////', '.....']
 ax.set_xlabel('t')
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
@@ -143,7 +143,8 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_label(label)
     stack.set_hatch(hatch)
 
-ax.legend(loc='lower right', framealpha=0.98)
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(reversed(handles), reversed(labels), loc='center left', framealpha=1)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -289,6 +290,8 @@ _iter_norm_extended = (norm(non_unitary_psi(_t)) for _t in times_extended)
 norms_extended = np.fromiter(_iter_norm_extended, np.float)
 
 # %%
+#hatches=['...', '//////', '....']
+
 fig, ax = plt.subplots(figsize=(12, 8))
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
@@ -308,8 +311,12 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_edgecolor(color)
     stack.set_label(label)
     stack.set_hatch(hatch)
-
-ax.legend(loc='center', framealpha=0.98)
+    
+handles, labels = ax.get_legend_handles_labels()
+desired_order = [0, 1, 4, 3, 2]
+handles = [ handles[i] for i in desired_order ]
+labels  = [  labels[i] for i in desired_order ]
+ax.legend(handles, labels, loc='center')
 
 plt.savefig('_img/detect3.021/loss3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -328,10 +335,15 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 labels = PROB_LABELS
 colors = ["#cc1111", "#33aa33", "#1111cc"]
+#hatches=['\\\\\\\\', '//////', '....']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
 ax.set_xlabel('t')
+
+ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
+
+ax.plot(times, norms_extended**2, c='#cccc00', linewidth=2, label='Non-detection prob.')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution_extended[0])**2,
@@ -345,7 +357,11 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_label(label)
     stack.set_hatch(hatch)
 
-ax.legend(loc='upper right')
+handles, labels = ax.get_legend_handles_labels()
+desired_order = [0, 1, 4, 3, 2]
+handles = [ handles[i] for i in desired_order ]
+labels  = [  labels[i] for i in desired_order ]
+ax.legend(handles, labels, loc='center')
 
 plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
