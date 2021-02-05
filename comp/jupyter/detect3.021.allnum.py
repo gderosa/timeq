@@ -134,15 +134,16 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
-hatches=["--", "///","||"]
+hatches=['--', 'xx', 'o']
 ax.set_xlabel('t')
-#ax.legend(loc='lower center')
 
-for stack, hatch, color in zip(stacks, hatches, colors):
-    stack.set_facecolor('white')
+for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_facecolor('w')
     stack.set_edgecolor(color)
+    stack.set_label(label)
     stack.set_hatch(hatch)
-    print(stack.__class__)
+
+ax.legend(loc='lower right', framealpha=0.97)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
