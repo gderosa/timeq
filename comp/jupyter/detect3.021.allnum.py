@@ -39,7 +39,7 @@ from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 # %%
 matplotlib.rcParams['font.size'] = 12
 matplotlib.rcParams['axes.labelsize'] = 14
-matplotlib.rcParams['legend.fontsize'] = 14
+matplotlib.rcParams['legend.fontsize'] = 16
 matplotlib.rcParams['axes.labelpad']  = 12.0
 
 # %%
@@ -97,10 +97,9 @@ times_extended = np.linspace(TMIN_N, TMAX_EXTENDED, num=NPLOTPOINTS)
 probs = [None, None, None]
 for i in 0, 1, 2:
     probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
-    fig, ax = plt.subplots(figsize=(12, 6*np.max(probs[i])))
-    ax.plot(times, probs[i])
-    plt.savefig('_img/detect3.021/probs_%d.pdf' % i, bbox_inches='tight', pad_inches=0)
-    plt.show()
+#     fig, ax = plt.subplots(figsize=(12, 6*np.max(probs[i])))
+#     ax.plot(times, probs[i])
+#     plt.show()
 
 # %%
 # Avoid *tiny* negative numbers, just out of numeric approximation, which will cause problems later,
@@ -130,11 +129,11 @@ prob_stack = np.vstack(probs)
 
 # %%
 labels = PROB_LABELS
-colors = ["#cc1111", "#33aa33", "#1111cc"]
+colors = ["#bb4444", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
-hatches=['---', '///////', '.....']
+hatches=['\\\\\\', '///////', '.....']
 ax.set_xlabel('t')
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
@@ -193,7 +192,7 @@ PROB_LABELS
 
 # %%
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width, lloc) in (10,-70,12,12,'center left'), (80,-120,12,12,'right'):
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'center left','side'), (80,-120,12,12,'right','top'):
     # fig = plt.figure(figsize=(w5dth, height), dpi=250)2
     fig = plt.figure(figsize=(width, height))
 
@@ -222,7 +221,7 @@ for (vertical_angle, horizontal_angle, height, width, lloc) in (10,-70,12,12,'ce
             c = _c[i]
         )
         ax.legend(loc=lloc)
-    plt.savefig('_img/detect3.021/hermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches=0, pad_inches=0)
+    plt.savefig('_img/detect3.021/hermitianSpaceTime_%s.pdf' % view, bbox_inches=0, pad_inches=0)
 
 
 # %% [markdown]
@@ -381,7 +380,7 @@ plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 # 3D parametric plot
 
-for (vertical_angle,horizontal_angle,height,width,lloc) in (15,-80,15,15,'center left'), (90, -80, 15, 15,'center left'):
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'center left','side'), (90, -80, 15, 15,'center left','top'):
     fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
@@ -418,7 +417,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc) in (15,-80,15,15,'center
             label = PROB_AMP_LABELS[i]
         )
         ax.legend(loc=lloc)
-    plt.savefig('_img/detect3.021/NonHermitianSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+    plt.savefig('_img/detect3.021/NonHermitianSpaceTime_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
 # ## Page-Wootters
@@ -430,7 +429,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 64
+NT = 48
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -540,7 +539,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle,horizontal_angle,height,width,lloc) in ((10,-120,15,25,'center right'), (80,-100,15,25,'center right')):
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,'center right','side'), (80,-100,15,25,'center right','top')):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -583,7 +582,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc) in ((10,-120,15,25,'cent
             label = PROB_AMP_LABELS_PW[i]
         )
         ax.legend(loc=lloc)
-    plt.savefig('_img/detect3.021/PWSpaceTime_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+    plt.savefig('_img/detect3.021/PWSpaceTime_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 
 
 # %%
@@ -602,7 +601,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90, -80, 15, 15):
+for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side'), (90,-80,15,15,'top'):
     # fig = plt.figure(figsize=(width, height), dpi=300)
     fig = plt.figure(figsize=(width, height))
 
@@ -637,10 +636,10 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             marker = 's',
             depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 40,
+            s = 66,
             edgecolor = _c[i],
             facecolor = 'none',
-            linewidth = 1.5,
+            linewidth = 0.66,
             label = PROB_AMP_LABELS_PW[i]
         )
         
@@ -656,7 +655,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             label = PROB_AMP_LABELS[i]
         )
     ax.legend(loc='center left')
-    plt.savefig('_img/detect3.021/PWSpaceTimeFit_%d.pdf' % vertical_angle, bbox_inches='tight', pad_inches=0)
+    plt.savefig('_img/detect3.021/PWSpaceTimeFit_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 
 
 # %% [markdown]
