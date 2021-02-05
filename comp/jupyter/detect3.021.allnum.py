@@ -134,7 +134,7 @@ colors = ["#cc1111", "#33aa33", "#1111cc"]
 
 fig, ax = plt.subplots(figsize=(12, 6))
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
-hatches=['--', 'xx', 'o']
+hatches=['--', 'xx', '...']
 ax.set_xlabel('t')
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
@@ -291,7 +291,7 @@ norms_extended = np.fromiter(_iter_norm_extended, np.float)
 # %%
 fig, ax = plt.subplots(figsize=(12, 8))
 
-ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed')
+ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
 ax.plot(times, norms**2, c='#cccc00', linewidth=2, label='Non-detection prob.')
 
@@ -303,23 +303,11 @@ stacks = ax.stackplot(times, (
 
 ax.set_xlabel('t')
 
-# colors and hatches defined in previous stackplot!
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_facecolor('w')
     stack.set_edgecolor(color)
     stack.set_label(label)
     stack.set_hatch(hatch)
-
-'''
-ax.stackplot(
-    times,
-    np.abs(evolution[0])**2,
-    np.abs(evolution[1])**2,
-    np.abs(evolution[2])**2,
-    
-    labels=labels, colors=colors
-)
-'''
 
 ax.legend(loc='center', framealpha=0.98)
 
@@ -345,21 +333,21 @@ fig, ax = plt.subplots(figsize=(14, 7))
 
 ax.set_xlabel('t')
 
-ax.stackplot(
-    times_extended,
+stacks = ax.stackplot(times, (
     np.abs(evolution_extended[0])**2,
     np.abs(evolution_extended[1])**2,
-    np.abs(evolution_extended[2])**2,
-    
-    labels=labels, colors=colors
-)
+    np.abs(evolution_extended[2])**2
+))
+
+for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_facecolor('w')
+    stack.set_edgecolor(color)
+    stack.set_label(label)
+    stack.set_hatch(hatch)
 
 ax.legend(loc='upper right')
 
-# plt.savefig('_img/detect3.021/loss3color.png', dpi=300, transparent=True, pad_inches=0)
-# plt.savefig('_img/detect3.021/loss3color.svg', transparent=True)
 plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
-
 plt.show()
 
 
