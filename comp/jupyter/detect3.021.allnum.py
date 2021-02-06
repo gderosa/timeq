@@ -128,7 +128,8 @@ for i in 0, 1, 2:
 prob_stack = np.vstack(probs)
 
 # %%
-colors  =  ['#f66', '#6d6', '#88f']
+#colors  =  ['#faa', '#6d6', '#88f']
+colors  =  ['#f88', '#4d4', 'b']
 hatches =  ['\\\\\\', '////////', '...']
 linewidths =  [1, 1, 1]
 labels     =  PROB_LABELS
@@ -338,7 +339,7 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 labels = PROB_LABELS
 
-colors  =  ['#f00', '#0c0', '#22d']
+colors  =  ['#f00', '#0c0', '#bbf']
 hatches =  ['\\\\\\\\', '///////', '......']
 
 fig, ax = plt.subplots(figsize=(14, 7))
@@ -640,12 +641,12 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             times_discrete,
 
             marker = 's',
-            depthshade=False,
+            #depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 66,
+            s = 80,
             edgecolor = _c[i],
             facecolor = 'none',
-            linewidth = 0.66,
+            linewidth = 0.7,
             label = PROB_AMP_LABELS_PW[i]
         )
         
