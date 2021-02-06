@@ -18,15 +18,10 @@
 
 # %% [markdown]
 # Three-level "$\Lambda$" system, of interest for 
-# * detector models (decay into a metastable state), 
-# * STIRAP https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.105.123003?casa_token=pK4p86vzV5MAAAAA%3AhKlBjA43miNkiuMOXQvgz-xu58OV43K2mesoALUSe_5yqPjcQ2uuqKoa9MLQIAGz1v9R2IQCJIQbTdw !! and also https://journals.aps.org/pra/pdf/10.1103/PhysRevA.89.063412?casa_token=yH6RkMnlOMEAAAAA%3Ah661v0ArWuFpAOgpa2beGx6Q90loqh18NW5cBqSB18IpRlPrVAB2Y1siaJ0BvKO2WJ4JghnSUw88PYg for the non-Hermitian !!!
+# * detector models
 # * EIT
 # * ...
 #
-# See also eq. 1 in
-# https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (EIT)
-#
-# and also https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.77.633 (STIRAP)
 #
 
 # %%

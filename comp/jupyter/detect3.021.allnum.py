@@ -128,10 +128,11 @@ for i in 0, 1, 2:
 prob_stack = np.vstack(probs)
 
 # %%
-#colors  =  ['#faa', '#6d6', '#88f']
-colors  =  ['#f88', '#4d4', 'b']
+colors  =  ['#f66', '#6d6', '#88f']
 hatches =  ['\\\\\\', '////////', '...']
-linewidths =  [1, 1, .75]
+
+linewidths =  [1, 1, 1]
+
 labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
@@ -302,7 +303,7 @@ fig, ax = plt.subplots(figsize=(12, 8))
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms**2, c='#888', linewidth=2, label='Non-detection prob.')
+ax.plot(times, norms**2, c='#888', linewidth=1.25, label='Non-detection prob.')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution[0])**2,
@@ -342,8 +343,8 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 labels = PROB_LABELS
 
-colors  =  ['#f00', '#0c0', '#bbf']
-hatches =  ['\\\\\\\\', '///////', '......']
+colors  =  ['#f66', '#bfb', '#88f']
+hatches =  ['\\\\\\\\', '/////////', '.........']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
@@ -351,7 +352,7 @@ ax.set_xlabel('t')
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms_extended**2, c='#888', linewidth=2, label='Non-detection prob.')
+ax.plot(times, norms_extended**2, c='#888', linewidth=1, label='Non-detection prob.')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution_extended[0])**2,
@@ -360,7 +361,7 @@ stacks = ax.stackplot(times, (
 ))
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
-    stack.set_linewidth(1)
+    stack.set_linewidth(1.25)
     stack.set_facecolor('w')
     stack.set_edgecolor(color)
     stack.set_label(label)
