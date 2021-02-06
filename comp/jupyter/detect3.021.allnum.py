@@ -37,10 +37,10 @@ from scipy.linalg import expm, norm
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
 
 # %%
-matplotlib.rcParams['font.size'] = 12
-matplotlib.rcParams['axes.labelsize'] = 14
+matplotlib.rcParams['font.size'] = 14
+matplotlib.rcParams['axes.labelsize'] = 16
 matplotlib.rcParams['legend.fontsize'] = 16
-matplotlib.rcParams['axes.labelpad']  = 12.0
+matplotlib.rcParams['axes.labelpad']  = 14
 
 # %%
 #matplotlib.rcParams
@@ -128,9 +128,9 @@ for i in 0, 1, 2:
 prob_stack = np.vstack(probs)
 
 # %%
-colors     =  ['#faa', '#6c6', '#aaf']
-hatches    =  ['\\\\\\', '////////', '...']
-linewidths =  [1, 2, 1.25]
+colors  =  ['#f66', '#6d6', '#88f']
+hatches =  ['\\\\\\', '////////', '...']
+linewidths =  [1, 1, 1]
 labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
@@ -291,8 +291,8 @@ _iter_norm_extended = (norm(non_unitary_psi(_t)) for _t in times_extended)
 norms_extended = np.fromiter(_iter_norm_extended, np.float)
 
 # %%
-colors  =  ['#f66', '#0a0', '#88f']
-hatches =  ['\\\\\\', '////////', '|||']
+colors  =  ['#f66', '#6d6', '#88f']
+hatches =  ['\\\\\\', '////////', '...']
 
 fig, ax = plt.subplots(figsize=(12, 8))
 
@@ -338,8 +338,8 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 labels = PROB_LABELS
 
-colors  =  ['#f88', '#090', '#aaf']
-hatches =  ['\\\\\\\\', '///////', '||||||||||']
+colors  =  ['#f00', '#0c0', '#22d']
+hatches =  ['\\\\\\\\', '///////', '......']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
