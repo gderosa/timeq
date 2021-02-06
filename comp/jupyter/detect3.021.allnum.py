@@ -131,10 +131,13 @@ prob_stack = np.vstack(probs)
 #colors  =  ['#faa', '#6d6', '#88f']
 colors  =  ['#f88', '#4d4', 'b']
 hatches =  ['\\\\\\', '////////', '...']
-linewidths =  [1, 1, 1]
+linewidths =  [1, 1, .75]
 labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
+
+ax.plot(times, np.ones(NPLOTPOINTS), c='#888')
+
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
 ax.set_xlabel('t')
 
@@ -299,7 +302,7 @@ fig, ax = plt.subplots(figsize=(12, 8))
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms**2, c='#cccc00', linewidth=2, label='Non-detection prob.')
+ax.plot(times, norms**2, c='#888', linewidth=2, label='Non-detection prob.')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution[0])**2,
@@ -333,7 +336,7 @@ bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2  # TODO! ex
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection probability density')
-ax.plot(times, -np.gradient(norms**2, times), c='b', linewidth=2)
+ax.plot(times, -np.gradient(norms**2, times), c='y', linewidth=3)
 plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 
 # %%
@@ -348,7 +351,7 @@ ax.set_xlabel('t')
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms_extended**2, c='#cccc00', linewidth=2, label='Non-detection prob.')
+ax.plot(times, norms_extended**2, c='#888', linewidth=2, label='Non-detection prob.')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution_extended[0])**2,
@@ -378,7 +381,7 @@ _detection_prob = -np.gradient(norms_extended**2, times_extended)
 fig, ax = plt.subplots(figsize=(14, 7))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection prob. density')
-ax.plot(times_extended, _detection_prob, c='b', linewidth=2)
+ax.plot(times_extended, _detection_prob, c='y', linewidth=3)
 plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
