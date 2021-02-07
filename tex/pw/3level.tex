@@ -45,23 +45,52 @@ within a
 Details can be consulted in the Appendix~\ref{detector-model-3-level-system}.
 Full source code is available from the repository at ref. \cite{OwnJupyterRepo}.
 
-Hamiltonian (with respect to the fiducial basis $\qty{\ket{0}, \ket{1}, \ket{2}}$):
+In our numerical example, the following
+Hamiltonian is considered:
 \begin{equation}
   H \repr \frac{1}{96} \mqty(
     -2  & 0 & 32  \\
      0  & 2 & 8   \\
     32  & 8 & 3
   )
+  \text{,}
 \end{equation}
+with respect to the fiducial basis $\qty{\ket{0}, \ket{1}, \ket{2}}$.
+Let also
+the initial state be $\ket{\psi(0)} = \ket{0} \repr \mqty(1 \\ 0 \\ 0)$.
 
-Let the initial state be $\ket{\psi(0)} = \ket{0}$.
+The system will evolve \emph{unitarily}, according to $\ket{\psi(t)} = \E^{-\iu H t} \ket{\psi(0)}$,
+which is computed numerically.
 
+\begin{lstlisting}[language=Python]
+import numpy as np
+from scipy.linalg import expm, norm
 
-%% {Figures}
+H = np.array([
+  [-2,     0,      32],
+  [0,      2,       8],
+  [32,     8,       3]
+], np.complex_) / 96
 
+psi_0 = np.array([1, 0, 0], np.complex_)
 
-% Probabilities
+def U(t):
+    return expm(-1j*H*t)
 
+def unitary_psi(t):
+    return U(t) @ psi_0
+\end{lstlisting}
+
+We're also interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
+which is given by $\abs{\braket{0, 1, 2}{\psi(t)}}^2$.
+\begin{lstlisting}[language=Python]
+def prob(t):
+  probabilities = [0, 0, 0]
+  for i in 0, 1, 2:
+      probabilities[i] = norm(unitary_psi(t)[i])**2
+  return probabilities
+\end{lstlisting}
+Such probabilities over time are shown in Figure \ref{fig:3lev_probs}. 
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
     \centering
@@ -80,8 +109,18 @@ Let the initial state be $\ket{\psi(0)} = \ket{0}$.
   \caption{
     Blah blah blah.
   }
-  %\label{fig:aabsorbed-qubit-components_pwlattice}
+  \label{fig:3lev_probs}
 \end{figure}
+
+
+
+%%
+%% 
+%%
+%%
+
+
+% Probabilities
 
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
