@@ -90,18 +90,27 @@ def prob(t):
   return probabilities
 \end{lstlisting}
 Such probabilities over time are shown in Figure \ref{fig:3lev_probs}. 
+
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3lines.pdf}
-    \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
+    \subcaption{
+      Probabilities for the three-level system.
+      \emph{Note}:
+        a three-level system allows a graphical representaion
+        where primary colors can be combined
+        (see the bar at the bottom) to immediately
+        visualize which probability dominates.
+    }
+    \label{fig:3lev_probs:lines}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3color.pdf}
-    \subcaption{Bar.}%\label{fig:aabsorbed-qubit-components_pwlattice:im1}
+    \subcaption{Bar.}\label{fig:3lev_probs:stack}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
