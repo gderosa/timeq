@@ -60,8 +60,7 @@ Let also
 the initial state be $\ket{\psi(0)} = \ket{0} \repr \mqty(1 \\ 0 \\ 0)$.
 
 The system will evolve \emph{unitarily}, according to $\ket{\psi(t)} = \E^{-\iu H t} \ket{\psi(0)}$,
-which is computed numerically.
-
+which is computed numerically:
 \begin{lstlisting}[language=Python]
 import numpy as np
 from scipy.linalg import expm, norm
@@ -82,7 +81,7 @@ def unitary_psi(t):
 \end{lstlisting}
 
 We're also interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
-which is given by $\abs{\braket{0, 1, 2}{\psi(t)}}^2$.
+which is given by $\abs{\braket{0, 1, 2}{\psi(t)}}^2$:
 \begin{lstlisting}[language=Python]
 def prob(t):
   probabilities = [0, 0, 0]
