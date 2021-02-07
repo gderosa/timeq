@@ -89,7 +89,7 @@ def prob(t):
       probabilities[i] = norm(unitary_psi(t)[i])**2
   return probabilities
 \end{lstlisting}
-Such probabilities over time are shown in Figure \ref{fig:3lev_probs}. 
+Such probabilities over time are shown in Figure \ref{fig:3lev:probs}. 
 
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
@@ -103,48 +103,72 @@ Such probabilities over time are shown in Figure \ref{fig:3lev_probs}.
         (see the bar at the bottom) to immediately
         visualize which probability dominates.
     }
-    \label{fig:3lev_probs:lines}
+    \label{fig:3lev:probs:lines}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3color.pdf}
-    \subcaption{Bar.}\label{fig:3lev_probs:stack}
+    \subcaption{
+      \emph{Stacked} probabilities $\abs{\braket{i}{\psi(t)}}^2_{i = 0, 1, 2}$
+      visualize the fact that their sum
+      ---which is equal to $\norm{\psi(t)}^2$---
+      is constantly $1$.
+      In other words, the norm is conserved,
+      as
+      the system evolves unitarily.
+    }
+    \label{fig:3lev:probs:stack}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Blah blah blah.
+    Probabilities
+      $\abs{\braket{i}{\psi(t)}}^2$ for $i \in \qty{0, 1, 2}.$
   }
-  \label{fig:3lev_probs}
+  \label{fig:3lev:probs}
 \end{figure}
 
-
-
-%%
-%% 
-%%
-%%
-
-
-% Probabilities
-
+We are also interested in the probability \term{amplitudes}:
+complex values of
+$\braket{0}{\psi(t)}$, 
+$\braket{1}{\psi(t)}$, and
+$\braket{2}{\psi(t)}$
+are plotted in Fig. \ref{fig:3lev:hermitianEvol}.
+Once again, the two horizontal axes are used for real and imaginary part of their values,
+while the independend variable $t$ (time) is represented on the vertical axis.
 \begin{figure}[h]
-  \begin{subfigure}[b]{\textwidth}
+  \begin{subfigure}[t]{\textwidth}
     \centering
     \includegraphics[height=0.45\textheight,clip,trim=80 180 40 140]{img/3ldetect/hermitianSpaceTime_side.pdf}
-    \caption{Foo.}
+    \caption{``Side'' view.}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[height=0.41\textheight,clip,trim= 20 120 20 220]{img/3ldetect/hermitianSpaceTime_top.pdf}
-    \caption{Bar.}
+    \caption{``Top'' view.}
   \end{subfigure}
-  \caption{FooBar.}
-  %\label{fig:psi_V}
+  \caption{
+    \textit{3-D plot}.
+    Probability \emph{amplitudes} $\braket{0, 1, 2}{\psi(t)}$.
+    The horizontal plane is the complex plane of their values, with real and imaginary part on the two ases.
+    The vertical axis represents time $t$ (independent variable).
+    Additionally, the vertical axis is coloured to encode \emph{probabilities}
+    (absolute values )
+    in a similar fashion to Fig. \ref{fig:3lev:probs:lines}. 
+  }
+  \label{fig:3lev:hermitianEvol}
 \end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%
+%%
+%%
+%%
 
 % Pobabilities (non-Hermitian) and loss of normalization
 
@@ -230,26 +254,26 @@ Such probabilities over time are shown in Figure \ref{fig:3lev_probs}.
 
 % P-W vs QM
 
-\afterpage{
-  \begin{figure}[h!]
-    \centering
-    \begin{subfigure}[h!]{\textwidth}
-        \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
-        \subcaption{Foo.}
-        %\label{fig:arm1}
-    \end{subfigure}
-    \caption{Foobar.}
-  \end{figure}%
-  \begin{figure}[h!]\ContinuedFloat
-    \centering
-    \begin{subfigure}{\textwidth}
-        \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
-        \subcaption{Bar.}
-        %\label{fig:arm3}
-    \end{subfigure}
-    \caption{Foobar (cont.)}
-  \end{figure}
-}
+
+\begin{figure}[h!]
+  \cleardoublepage
+  \centering
+  \begin{subfigure}{\textwidth}
+      \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
+      \subcaption{Foo.}
+      %\label{fig:arm1}
+  \end{subfigure}
+  \caption{Foobar.}
+\end{figure}
+\begin{figure}\ContinuedFloat
+  \centering
+  \begin{subfigure}{\textwidth}
+      \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
+      \subcaption{Bar.}
+      %\label{fig:arm3}
+  \end{subfigure}
+  \caption{Foobar (cont.)}
+\end{figure}
 
 % P-W (bayesian) vs Detector model (norm. loss, Allcock...) detection probability
 

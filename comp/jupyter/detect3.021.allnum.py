@@ -137,8 +137,6 @@ labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
 
-ax.plot(times, np.ones(NPLOTPOINTS), c='#888')
-
 stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
 ax.set_xlabel('t')
 
@@ -148,9 +146,14 @@ for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels
     stack.set_label(label)
     stack.set_hatch(hatch)
     stack.set_linewidth(linewidth)
+    
+ax.plot(times, probs[0] + probs[1] + probs[2], c='#666', linestyle='dashed', linewidth=3, label='||\u03C8(t)||\u00B2')
 
+desired_order   = [0, 3, 2, 1]
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(reversed(handles), reversed(labels), loc='center right', framealpha=1)
+handles         = [ handles[i] for i in desired_order ]
+labels          = [  labels[i] for i in desired_order ]
+ax.legend(handles, labels, loc='center right', framealpha=1)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
@@ -170,7 +173,7 @@ for i in range(NPLOTPOINTS):
 fig, ax = plt.subplots(figsize=(12,6))
 ax.set_xlabel('t')
 ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1,
-            c=rgbs, marker='|', s=1100)
+            c=rgbs, marker='|', s=400)
 
 # "virtual", don't really want to show, only for legend
 _c = ['r', '#0a0', 'b']
