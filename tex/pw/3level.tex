@@ -80,7 +80,7 @@ def unitary_psi(t):
     return U(t) @ psi_0
 \end{lstlisting}
 
-We're also interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
+We're interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
 which is given by $\abs{\braket{0, 1, 2}{\psi(t)}}^2$:
 \begin{lstlisting}[language=Python]
 def prob(t):
@@ -130,13 +130,16 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
   \label{fig:3lev:probs}
 \end{figure}
 
-We are also interested in the probability \term{amplitudes}:
+We are also interested in probability \term{amplitudes}:
 complex values of
 $\braket{0}{\psi(t)}$, 
 $\braket{1}{\psi(t)}$, and
-$\braket{2}{\psi(t)}$
-are plotted in Fig. \ref{fig:3lev:hermitianEvol}.
-Once again, the two horizontal axes are used for real and imaginary part of their values,
+$\braket{2}{\psi(t)}$,
+which
+are represented in the three-dimensional
+plot, Fig. \ref{fig:3lev:hermitianEvol}.
+Once again, the two horizontal axes are used for the real and imaginary part of
+$\braket{0, 1, 2}{\psi(t)}$,
 while the independend variable $t$ (time) is represented on the vertical axis.
 \begin{figure}[h]
   \begin{subfigure}[t]{\textwidth}
