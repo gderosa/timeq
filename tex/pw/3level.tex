@@ -45,6 +45,8 @@ within a
 Details can be consulted in the Appendix~\ref{detector-model-3-level-system}.
 Full source code is available from the repository at ref. \cite{OwnJupyterRepo}.
 
+\subsection{Hermitian evolution}
+
 In our numerical example, the following
 Hamiltonian is considered:
 \begin{equation}\label{eq:3lev:H}
@@ -165,7 +167,9 @@ while the independend variable $t$ (time) is represented on the vertical axis.
   \label{fig:3lev:hermitianEvol}
 \end{figure}
 
----Other than visualizing complex-valued functions with three-dimensional plots,
+\subsection{\textit{A note on graphical representation}}
+
+Other than visualizing complex-valued functions with three-dimensional plots,
 another visualization technique, utilized in various plots in this Section,
 consists of leveraging
 the fact that the system has exactly 3 levels,
@@ -214,11 +218,14 @@ is replaced by $ K \eqbydef \hat{H} + \iu \hat{D}$, where
     0 &0 &\gamma
   ) \text{.}
 \end{equation}
-A numeric value of $\gamma = 0.1$ is chosen for the current simulation.
-Repeating the calculation for the time evolution
+This models the absorptive detection of the ``arrival'' of the system at state~$\ket{2}$.
+A numeric value of $\gamma = \mathtt{0.1}$ is chosen for the current simulation.
+Repeating the calculation for the time-evolution
 brings to
-probabilities and probability amplitudes
-that are graphically visualized in Fig. \ref{fig:3lev:loss3color} and \ref{fig:3lev:nonHermitianEvol}.
+probabilities, and probability amplitudes,
+that are graphically visualized in Fig. \ref{fig:3lev:loss3color}, and \ref{fig:3lev:nonHermitianEvol},
+and can be compared with the Hermitian (i.e. unitary) case,
+Figs. \ref{fig:3lev:probs:stack} and \ref{fig:3lev:hermitianEvol} respectively.
 %
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
