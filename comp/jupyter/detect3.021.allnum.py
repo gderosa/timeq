@@ -57,7 +57,7 @@ H = np.array([
     [-2,     0,      32],
     [0,      2,       8],
     [32,     8,       3]
-], np.complex_) / 120
+], np.complex_) / 96
 
 
 # %%
@@ -83,7 +83,7 @@ def prob(t):
 
 
 # %%
-TMIN, TMAX, TMAX_EXTENDED = 0, 60, 180
+TMIN, TMAX, TMAX_EXTENDED = 0, 40, 150
 TMIN_N, TMAX_N = float(TMIN), float(TMAX)
 
 # %%
@@ -461,7 +461,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 60
+NT = 48
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -672,7 +672,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             s = 80,
             edgecolor = _c[i],
             facecolor = (0, 0, 0, 0),
-            linewidth = 0.9,
+            linewidth = 0.8,
             label = PROB_AMP_LABELS_PW[i]
         )
         
