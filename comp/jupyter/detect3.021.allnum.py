@@ -43,7 +43,7 @@ matplotlib.rcParams['legend.fontsize'] = 16
 matplotlib.rcParams['axes.labelpad']  = 14
 
 # %%
-matplotlib.rcParams
+#matplotlib.rcParams
 
 # %%
 from IPython.display import display, Latex #, Math

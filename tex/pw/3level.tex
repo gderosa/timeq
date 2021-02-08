@@ -87,7 +87,7 @@ def prob(t):
   probabilities = [0, 0, 0]
   for i in 0, 1, 2:
       probabilities[i] = norm(unitary_psi(t)[i])**2
-  return probabilities
+      return probabilities
 \end{lstlisting}
 Such probabilities over time are shown in Figure \ref{fig:3lev:probs}. 
 
@@ -173,6 +173,42 @@ thus allowing three primary colors, red, green and blue, to be combined
 in proportion to the probabilities $\abs{\braket{i}{\psi(t)}}$
 respectively for $i = 0, 1, 2$. This allows an immediate visualization
 of which level, $\ket{0}$, $\ket{2}$ or $\ket{2}$, predominates statistically, if any.
+To better clarify this with an example,
+a snippet of the implemtation of Fig. \ref{fig:3lev:probs} follows.
+\begin{lstlisting}[language=Python]
+# [...]
+import matplotlib
+import matplotlib.pyplot as plt
+
+# [...]
+for i in 0, 1, 2:
+  probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
+
+# [...]
+rgbs = []
+for i in range(NPLOTPOINTS):
+    rgbs.append(
+        (
+            probs[0][i],
+            probs[1][i],
+            probs[2][i]
+        )
+    )
+
+# [...]
+fig, ax = plt.subplots(figsize=(12,6))
+ax.set_xlabel('t')
+ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
+\end{lstlisting}
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
