@@ -656,7 +656,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             #s = abs(_psi[i]**2)*60,
             s = 80,
             edgecolor = _c[i],
-            facecolor = 'none',
+            facecolor = (0, 0, 0, 0),
             linewidth = 0.7,
             label = PROB_AMP_LABELS_PW[i]
         )
