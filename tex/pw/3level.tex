@@ -50,7 +50,7 @@ Full source code is available from the repository at ref. \cite{OwnJupyterRepo}.
 In our numerical example, the following
 Hamiltonian is considered:
 \begin{equation}\label{eq:3lev:H}
-  H \repr \frac{1}{96} \mqty(
+  H \repr \frac{1}{120} \mqty(
     -2  & 0 & 32  \\
      0  & 2 & 8   \\
     32  & 8 & 3
@@ -71,7 +71,7 @@ H = np.array([
   [-2,     0,      32],
   [0,      2,       8],
   [32,     8,       3]
-], np.complex_) / 96
+], np.complex_) / 120
 
 psi_0 = np.array([1, 0, 0], np.complex_)
 
@@ -302,13 +302,13 @@ after a transient oscillation between the three levels,
 shows an asymptotic behavior.
 The fidelity with respect to $\ket{1}$,
 $\frac{\abs{\braket{1}{\psi(t)}}^2}{\norm{\psi(t)}^2}$,
-evaluated numerically at $t=150$ is given by
+evaluated numerically at $t=180$ is given by
 \begin{lstlisting}[language=Python]
 # Pick the last value of time
 times_extended[-1]
 \end{lstlisting}
 \begin{lstlisting}
-150.0
+180.0
 \end{lstlisting}
 \begin{lstlisting}[language=Python]
 # Fidelity
@@ -316,21 +316,21 @@ times_extended[-1]
 \end{lstlisting}
 The result is about $94\%$.
 \begin{lstlisting}
-0.9414855990054901
+0.9408476945508488
 \end{lstlisting}
 It's also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
 meaning there is a finite probabilty that detection (or ``absorption'', or spontaneous decay) never happens:
 \begin{equation*}
   P_{\mathrm{nd}} = \lim_{t \rightarrow +\infty} 1 - \norm{\psi(t)}^2 \text{.}
 \end{equation*}
-At the ``large'' value of $t=150$ of our numerical computation, this yields
+At the ``large'' value of $t=180$ of our numerical computation, this yields
 \begin{lstlisting}[language=Python]
 norms_extended[-1]**2
 \end{lstlisting}
 \begin{lstlisting}
-0.05684539507975811
+0.05654420595289433
 \end{lstlisting}
-i.e. roughly 6\% of non-absorption probabilty.
+i.e. about 5.7\% of non-absorption probabilty.
 
 
 \begin{figure}[h]
@@ -362,7 +362,9 @@ i.e. roughly 6\% of non-absorption probabilty.
 \end{figure}
 
 
+\subsection{Discrete Page--Wootters}
 
+Blah.
 
 
 
