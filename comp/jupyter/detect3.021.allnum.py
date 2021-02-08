@@ -342,7 +342,7 @@ bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2  # TODO! ex
 # %%
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.set_xlabel('t')
-ax.set_ylabel('Detection probability density')
+ax.set_ylabel('Detection probability density  =  - d||\u03C8(t)||\u00B2 / dt')
 ax.plot(times, -np.gradient(norms**2, times), c='y', linewidth=3)
 plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 

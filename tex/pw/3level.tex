@@ -234,7 +234,12 @@ conserved, but decreases monotonically.
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
-    \subcaption{Foo.}
+    \subcaption{\setstretch{1.33}
+      \emph{Stacked} probability chart (non-Hermitian case) shows that norm
+      $\norm{\psi(t)}^2 = \sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
+      is monotonically decreasing. The actual state probabilities
+      will need to be renormalized due to the norm loss of $\ket{\psi(t)}$.
+    }
     \label{fig:3lev:loss3color}
   \end{subfigure}
   \par\bigskip
@@ -242,13 +247,16 @@ conserved, but decreases monotonically.
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss.pdf}
-    \subcaption{Bar.}
+    \subcaption{
+      Normalization loss rate $-\dv{\norm{\psi}^2}{t}$.
+      Equates the time-of-arrival probability distribution (at the ``absorbing'' state $\ket{2}$).
+    }
     \label{fig:3lev:loss}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Blah blah blah.
+    Absorptive detector model: norm loss and probabilities.
   }
   \label{fig:3lev:nonHermitianProbs}
 \end{figure}
@@ -273,8 +281,6 @@ According to the absorptive detector model, the loss of normalization
 $-\dv{\norm{\psi}^2}{t}$ indicates the probability of detection
 with respect to time, in other words: the time-of-arrival
 probability distribution. It is plotted in Fig. \ref{fig:3lev:loss}.
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
