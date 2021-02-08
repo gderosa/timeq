@@ -110,14 +110,13 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3color.pdf}
-    \subcaption{
-      \emph{Stacked} probabilities $\abs{\braket{i}{\psi(t)}}^2_{i = 0, 1, 2}$
-      visualize the fact that their sum
-      ---which is equal to $\norm{\psi(t)}^2$---
-      is constantly $1$.
-      In other words, the norm is conserved,
+    \subcaption{\setstretch{1.25}
+      \emph{Stacked} probability chart shows that their sum
+      $\sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
+      is constantly equal to 1 at any time $t$.
+      That is equal to the norm $\norm{\psi(t)}^2$, which is indeed conserved
       as
-      the system evolves unitarily.
+      the system evolves \emph{unitarily}.
     }
     \label{fig:3lev:probs:stack}
   \end{subfigure}
@@ -153,16 +152,27 @@ while the independend variable $t$ (time) is represented on the vertical axis.
     \caption{``Top'' view.}
   \end{subfigure}
   \caption{
-    \textit{3-D plot}.
-    Probability \emph{amplitudes} $\braket{0, 1, 2}{\psi(t)}$.
-    The horizontal plane is the complex plane of their values, with real and imaginary part on the two ases.
-    The vertical axis represents time $t$ (independent variable).
-    Additionally, the vertical axis is coloured to encode \emph{probabilities}
-    (absolute values )
+    \textit{3-D plot} showing the complex values of the
+    probability \emph{amplitudes} $\braket{0, 1, 2}{\psi(t)}$.
+    Real and imaginary parts of those values are represented on
+    the first two axes, while the independent variable (time, $t$)
+    is represented
+    on the third axis.
+    -- Additionally, the vertical axis is coloured to encode \emph{probabilities}
+    (absolute values)
     in a similar fashion to Fig. \ref{fig:3lev:probs:lines}. 
   }
   \label{fig:3lev:hermitianEvol}
 \end{figure}
+
+---Other than visualizing complex-valued functions with three-dimensional plots,
+another visualization technique, utilized in various plots in this Section,
+consists of leveraging
+the fact that the system has exactly 3 levels,
+thus allowing three primary colors, red, green and blue, to be combined
+in proportion to the probabilities $\abs{\braket{i}{\psi(t)}}$
+respectively for $i = 0, 1, 2$. This allows an immediate visualization
+of which level, $\ket{0}$, $\ket{2}$ or $\ket{2}$, predominates statistically, if any.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

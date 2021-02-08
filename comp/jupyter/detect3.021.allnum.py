@@ -43,7 +43,7 @@ matplotlib.rcParams['legend.fontsize'] = 16
 matplotlib.rcParams['axes.labelpad']  = 14
 
 # %%
-#matplotlib.rcParams
+matplotlib.rcParams
 
 # %%
 from IPython.display import display, Latex #, Math
@@ -128,7 +128,8 @@ for i in 0, 1, 2:
 prob_stack = np.vstack(probs)
 
 # %%
-colors  =  ['#f66', '#6d6', '#88f']
+colors  =  ['#d44', '#4d4', '#44d']
+colors  =  ['r', 'g', 'b']
 hatches =  ['\\\\\\', '////////', '...']
 
 linewidths =  [1, 1, 1]
@@ -146,13 +147,13 @@ for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels
     stack.set_label(label)
     stack.set_hatch(hatch)
     stack.set_linewidth(linewidth)
-    
-ax.plot(times, probs[0] + probs[1] + probs[2], c='#666', linestyle='dashed', linewidth=3, label='||\u03C8(t)||\u00B2')
+        
+ax.plot(times, probs[0] + probs[1] + probs[2], c='m', label='||\u03C8(t)||\u00B2', linewidth=1.5)
 
 desired_order   = [0, 3, 2, 1]
-handles, labels = ax.get_legend_handles_labels()
-handles         = [ handles[i] for i in desired_order ]
-labels          = [  labels[i] for i in desired_order ]
+_handles, _labels = ax.get_legend_handles_labels()
+handles         = [ _handles[i] for i in desired_order ]
+labels          = [ _labels[i]  for i in desired_order ]
 ax.legend(handles, labels, loc='center right', framealpha=1)
 
 plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
@@ -300,13 +301,15 @@ norms_extended = np.fromiter(_iter_norm_extended, np.float)
 
 # %%
 colors  =  ['#f66', '#6d6', '#88f']
+colors  =  ['r', 'g', 'b']
 hatches =  ['\\\\\\', '////////', '...']
+labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 8))
 
-ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
+ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm', linewidth=2.5)
 
-ax.plot(times, norms**2, c='#888', linewidth=1.25, label='Non-detection prob.')
+ax.plot(times, norms**2, c='m', linewidth=1.5, label='||\u03C8(t)||\u00B2')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution[0])**2,
@@ -346,8 +349,8 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 # %%
 labels = PROB_LABELS
 
-colors  =  ['#f66', '#bfb', '#88f']
-hatches =  ['\\\\\\\\', '/////////', '.........']
+colors  =  ['r', 'g', '#ccf']
+hatches =  ['\\\\\\\\', '///////', '.....']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
@@ -355,7 +358,7 @@ ax.set_xlabel('t')
 
 ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms_extended**2, c='#888', linewidth=1, label='Non-detection prob.')
+ax.plot(times, norms_extended**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
 
 stacks = ax.stackplot(times, (
     np.abs(evolution_extended[0])**2,
