@@ -461,7 +461,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 48
+NT = 60
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -607,10 +607,10 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
             marker = 's',
             #depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 30,
+            s = 60,
             edgecolor = _c[i],
             facecolor = (0, 0, 0, 0),
-            linewidth = 2,
+            linewidth = 1,
 
             label = PROB_AMP_LABELS_PW[i]
         )
