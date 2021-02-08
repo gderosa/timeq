@@ -356,11 +356,11 @@ fig, ax = plt.subplots(figsize=(14, 7))
 
 ax.set_xlabel('t')
 
-ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
+ax.plot(times_extended, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times, norms_extended**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
+ax.plot(times_extended, norms_extended**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
 
-stacks = ax.stackplot(times, (
+stacks = ax.stackplot(times_extended, (
     np.abs(evolution_extended[0])**2,
     np.abs(evolution_extended[1])**2,
     np.abs(evolution_extended[2])**2
@@ -382,6 +382,18 @@ ax.legend(handles, labels, loc='center')
 plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
+
+# %% [markdown]
+# #### "Asymptotic" fidelity for |1>
+
+# %%
+times_extended[-1]
+
+# %%
+(np.abs(evolution_extended[1])**2)[-1] / norms_extended[-1]**2
+
+# %% [markdown]
+# ### Detection probability
 
 # %%
 _detection_prob = -np.gradient(norms_extended**2, times_extended)
