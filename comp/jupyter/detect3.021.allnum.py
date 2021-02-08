@@ -672,7 +672,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             s = 80,
             edgecolor = _c[i],
             facecolor = (0, 0, 0, 0),
-            linewidth = 0.7,
+            linewidth = 0.8,
             label = PROB_AMP_LABELS_PW[i]
         )
         
