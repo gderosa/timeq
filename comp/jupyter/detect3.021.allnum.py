@@ -390,6 +390,9 @@ plt.show()
 times_extended[-1]
 
 # %%
+norms_extended[-1]**2
+
+# %%
 (np.abs(evolution_extended[1])**2)[-1] / norms_extended[-1]**2
 
 # %% [markdown]

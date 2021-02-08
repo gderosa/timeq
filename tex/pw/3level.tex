@@ -318,6 +318,20 @@ The result is about $94\%$.
 \begin{lstlisting}
 0.9414855990054901
 \end{lstlisting}
+It's also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
+meaning there is a finite probabilty that detection (or ``absorption'', or spontaneous decay) never happens:
+\begin{equation*}
+  P_{\mathrm{nd}} = \lim_{t \rightarrow +\infty} 1 - \norm{\psi(t)}^2 \text{.}
+\end{equation*}
+At the ``large'' value of $t=150$ of our numerical computation, this yields
+\begin{lstlisting}[language=Python]
+norms_extended[-1]**2
+\end{lstlisting}
+\begin{lstlisting}
+0.05684539507975811
+\end{lstlisting}
+i.e. roughly 6\% of non-absorption probabilty.
+
 
 \begin{figure}[h]
   \begin{subfigure}[b]{\textwidth}
