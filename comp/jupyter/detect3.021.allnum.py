@@ -387,7 +387,7 @@ plt.show()
 _detection_prob = -np.gradient(norms_extended**2, times_extended)
 fig, ax = plt.subplots(figsize=(14, 7))
 ax.set_xlabel('t')
-ax.set_ylabel('Detection prob. density')
+ax.set_ylabel('Detection probability density  =  - d||\u03C8(t)||\u00B2 / dt')
 ax.plot(times_extended, _detection_prob, c='y', linewidth=3)
 plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 

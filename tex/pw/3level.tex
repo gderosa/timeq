@@ -273,7 +273,10 @@ conserved, but decreases monotonically.
     \includegraphics[height=0.44\textheight,clip,trim= 0 90 20 75]{img/3ldetect/NonHermitianSpaceTime_top.pdf}
     \caption{``Top'' view.}
   \end{subfigure}
-  \caption{FooBar.}
+  \caption{
+    Non-Hermitian evolution: 3-D complex plot: probability amplitudes, with ``lossy''
+    norm (visually, lines get closer to the time axis as $t$ increases).
+  }
   \label{fig:3lev:nonHermitianEvol}
 \end{figure}
 
@@ -282,6 +285,44 @@ $-\dv{\norm{\psi}^2}{t}$ indicates the probability of detection
 with respect to time, in other words: the time-of-arrival
 probability distribution. It is plotted in Fig. \ref{fig:3lev:loss}.
 
+The same results
+about probabilities and normalization loss
+are plotted
+over a longer time interval
+in Fig.~\ref{fig:3lev:nonHermitianProbs_ext}.
+
+\begin{figure}[h]
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/3ldetect/loss3color_ext.pdf}
+    \subcaption{
+      Probabilities and normalization loss.
+    }
+    \label{fig:3lev:loss3color_ext}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{img/3ldetect/loss_ext.pdf}
+    \subcaption{
+      Normalization loss rate, or time-of-arrival probability distribution.
+    }
+    \label{fig:3lev:loss_ext}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \caption{
+    Absorptive detector model: same results as in Fig.~\ref{fig:3lev:nonHermitianProbs},
+    over a longer time interval.
+  }
+  \label{fig:3lev:nonHermitianProbs_ext}
+\end{figure}
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -289,34 +330,6 @@ probability distribution. It is plotted in Fig. \ref{fig:3lev:loss}.
 %%
 %%
 %%
-
-% Pobabilities (non-Hermitian) and loss of normalization
-
-
-
-% extended time
-
-\begin{figure}[h]
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/3ldetect/loss3color_ext.pdf}
-    \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
-  \end{subfigure}
-  \par\bigskip
-  \par\bigskip
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=\textwidth]{img/3ldetect/loss_ext.pdf}
-    \subcaption{Bar.}%\label{fig:aabsorbed-qubit-components_pwlattice:im1}
-  \end{subfigure}
-  \par\bigskip
-  \par\bigskip
-  \caption{
-    Blah blah blah.
-  }
-  %\label{fig:aabsorbed-qubit-components_pwlattice}
-\end{figure}
-
 
 % P-W
 
