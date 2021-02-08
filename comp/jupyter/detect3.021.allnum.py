@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.9.1
+#       jupytext_version: 1.10.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -578,6 +578,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
         marker='o'
     )
     _c = ['r', 'g', 'b']
+
     for i in range(NS):
         ax.scatter(
             np.real(
@@ -593,12 +594,12 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
             #s = abs(_psi[i]**2)*60,
             s = 30,
             edgecolor = _c[i],
-            facecolor = 'none',
+            facecolor = (0, 0, 0, 0),
             linewidth = 2,
-            
+
             label = PROB_AMP_LABELS_PW[i]
         )
-        ax.legend(loc=lloc)
+    ax.legend(loc=lloc)
     plt.savefig('_img/detect3.021/PWSpaceTime_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 
 
