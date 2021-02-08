@@ -47,7 +47,7 @@ Full source code is available from the repository at ref. \cite{OwnJupyterRepo}.
 
 In our numerical example, the following
 Hamiltonian is considered:
-\begin{equation}
+\begin{equation}\label{eq:3lev:H}
   H \repr \frac{1}{96} \mqty(
     -2  & 0 & 32  \\
      0  & 2 & 8   \\
@@ -202,9 +202,62 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 \end{lstlisting}
 
 
+\subsection{Complex potential -- non-Hermitian evolution}
 
-
-
+In a similar fashion to what seen in Section \ref{sec:hist:detect},
+the Hermitian Hamiltonian $\hat{H}$, from eq.~\eqref{eq:3lev:H},
+is replaced by $ K \eqbydef \hat{H} + \iu \hat{D}$, where
+\begin{equation}
+  \hat{D} \repr \mqty(
+    0 &0 &0 \\
+    0 &0 &0 \\
+    0 &0 &\gamma
+  ) \text{.}
+\end{equation}
+A numeric value of $\gamma = 0.1$ is chosen for the current simulation.
+Repeating the calculation for the time evolution
+brings to
+probabilities and probability amplitudes
+that are graphically visualized in Fig. \ref{fig:3lev:loss3color} and \ref{fig:3lev:nonHermitianEvol}.
+%
+\begin{figure}[h]
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
+    \subcaption{Foo.}
+    \label{fig:3lev:loss3color}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[width=.8\textwidth]{img/3ldetect/loss.pdf}
+    \subcaption{Bar.}
+    \label{fig:3lev:loss}
+  \end{subfigure}
+  \par\bigskip
+  \par\bigskip
+  \caption{
+    Blah blah blah.
+  }
+  \label{fig:3lev:nonHermitianProbs}
+\end{figure}
+%
+\begin{figure}[h]
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[height=0.41\textheight,clip,trim=0 90 40 140]{img/3ldetect/NonHermitianSpaceTime_side.pdf}
+    \caption{``Side'' view.}
+  \end{subfigure}
+  \par\bigskip
+  \begin{subfigure}[b]{\textwidth}
+    \centering
+    \includegraphics[height=0.44\textheight,clip,trim= 0 90 20 75]{img/3ldetect/NonHermitianSpaceTime_top.pdf}
+    \caption{``Top'' view.}
+  \end{subfigure}
+  \caption{FooBar.}
+  \label{fig:3lev:nonHermitianEvol}
+\end{figure}
 
 
 
@@ -220,26 +273,7 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 
 % Pobabilities (non-Hermitian) and loss of normalization
 
-\begin{figure}[h]
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
-    \subcaption{Foo.}%\label{fig:aabsorbed-qubit-components_pwlattice:re0}
-  \end{subfigure}
-  \par\bigskip
-  \par\bigskip
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[width=.8\textwidth]{img/3ldetect/loss.pdf}
-    \subcaption{Bar.}%\label{fig:aabsorbed-qubit-components_pwlattice:im1}
-  \end{subfigure}
-  \par\bigskip
-  \par\bigskip
-  \caption{
-    Blah blah blah.
-  }
-  %\label{fig:aabsorbed-qubit-components_pwlattice}
-\end{figure}
+
 
 % extended time
 
@@ -264,23 +298,6 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
   %\label{fig:aabsorbed-qubit-components_pwlattice}
 \end{figure}
 
-% "3D"
-
-\begin{figure}[h]
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[height=0.41\textheight,clip,trim=0 90 40 140]{img/3ldetect/NonHermitianSpaceTime_side.pdf}
-    \caption{Foo.}
-  \end{subfigure}
-  \par\bigskip
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[height=0.44\textheight,clip,trim= 0 90 20 75]{img/3ldetect/NonHermitianSpaceTime_top.pdf}
-    \caption{Bar.}
-  \end{subfigure}
-  \caption{FooBar.}
-  %\label{fig:psi_V}
-\end{figure}
 
 % P-W
 
