@@ -424,18 +424,22 @@ Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
 \end{lstlisting}
 
 Then the ``Hamiltonian'' $\hat{\mathbb{J}}$, acting on $\pwspace$, and defined in eq.~\eqref{eq:pwHamiltonian:nonUnitary}
-is computed, with eigenvalues and eigenvectors:
+is computed, with eigenvalues and eigenvectors::
 \begin{lstlisting}[language=Python]
 J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
 
 eigenvalues, eigenvectors = np.linalg.eig(J)
 eigenvectors = eigenvectors.T
+\end{lstlisting}
+where the Python function \lstinline{K()} is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
 
+Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense that $\norm{\psi(0)}^2=1$ or,
+in Page--Wootters terms, $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
+\begin{lstlisting}[language=Python]
 eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
 for i in range(NT*NS):
     eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
 \end{lstlisting}
-where $D$ is defined as in eq.~\eqref{eq:3lev:nonUnitaryH}.
 
 
 
