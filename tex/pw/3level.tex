@@ -371,9 +371,52 @@ in a conventional clock\footnote{
   ---please note, however, that the paper allows for the clock
   and the remaining system to \emph{interact}, whereas in the original formulation
   of the Page--Wootters mechanism,
-  they are only \emph{entangled}.  
+  they are only \emph{entangled}.
 }).
 
+A basis of $\hilb{H}_T$ is chosen where the time operator $\hat{T}$ is diagonal:
+\begin{equation}
+  \hat{T} \repr \frac{\Delta T}{N_T} \mqty(
+                                          0       &0      &\ldots &0        \\
+                                          0       &1      &\ldots &0        \\
+                                          \vdots  &\vdots &\ddots &\vdots   \\
+                                          0       &0      &\ldots &N_{T}-1
+                                        ) \text{,}
+\end{equation}
+where $\Delta T$ if the time interval under study.
+And the frequency operator $\hat{\Omega}$ is computed via \term{Discrete Fourier Transform (DFT)}:
+\begin{equation}
+  \hat{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F \hat{T} F \text{.}
+\end{equation}
+Please note different implementations, conventions and definitions
+of the discrete Fourier matrix
+may require different factors in the relation between $\hat{T}$ and $\hat{\Omega}$.
+In our code:
+\begin{lstlisting}[language=Python]
+# [...]
+TMIN, TMAX = 0, 40
+TMIN_N, TMAX_N = float(TMIN), float(TMAX)
+
+# [...]
+from scipy.linalg import dft, norm, expm, det, inv
+
+# [...]
+# Number of levels of the clock aka dimension of Time Hilbert space
+NT = 60
+
+# Time interval under study
+DT = TMAX_N  # assume we start with time 0
+
+# Time operator
+T = DT * np.diag(np.arange(NT)) / NT
+
+# Discrete Fourier
+F = dft(NT, scale='sqrtn').conj()
+F_dagger = F.conj().T
+
+# Frequency operator
+Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
+\end{lstlisting} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
