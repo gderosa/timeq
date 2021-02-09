@@ -210,8 +210,12 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 
 In a similar fashion to what seen in Section \ref{sec:hist:detect},
 the Hermitian Hamiltonian $\hat{H}$, from eq.~\eqref{eq:3lev:H},
-is replaced by $ K \eqbydef \hat{H} + \iu \hat{D}$, where
-\begin{equation}
+is replaced by
+\begin{equation}\label{eq:3lev:nonUnitaryH}
+  K \eqbydef \hat{H} - \iu \hat{D} \text{,}
+\end{equation}
+where
+\begin{equation}\label{eq:3lev:nonUnitaryH:antiHermitianTerm}
   \hat{D} \repr \mqty(
     0 &0 &0 \\
     0 &0 &0 \\
@@ -369,7 +373,7 @@ in a conventional clock\footnote{
   For a suggestive depiction, the reader may want to look at \cite[Fig.~1]{QClockPic},
   where the quantum levels of the clock are $N_{T} = 12$
   ---please note, however, that the paper allows for the clock
-  and the remaining system to \emph{interact}, whereas in the original formulation
+  and the remaining system to \emph{interact}, whereas, in the original formulation
   of the Page--Wootters mechanism,
   they are only \emph{entangled}.
 }).
@@ -388,9 +392,10 @@ And the frequency operator $\hat{\Omega}$ is computed via \term{Discrete Fourier
 \begin{equation}
   \hat{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F \hat{T} F \text{.}
 \end{equation}
-Please note different implementations, conventions and definitions
-of the discrete Fourier matrix
-may require different factors in the relation between $\hat{T}$ and $\hat{\Omega}$.
+Please note different library implementations use different conventions and definitions
+of the discrete Fourier matrix,
+thus
+requiring appropriate factors in the relation between $\hat{T}$ and $\hat{\Omega}$.
 In our code:
 \begin{lstlisting}[language=Python]
 # [...]
@@ -416,7 +421,23 @@ F_dagger = F.conj().T
 
 # Frequency operator
 Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
-\end{lstlisting} 
+\end{lstlisting}
+
+Then the ``Hamiltonian'' $\hat{\mathbb{J}}$, acting on $\pwspace$, and defined in eq.~\eqref{eq:pwHamiltonian:nonUnitary}
+is computed, with eigenvalues and eigenvectors:
+\begin{lstlisting}[language=Python]
+J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
+
+eigenvalues, eigenvectors = np.linalg.eig(J)
+eigenvectors = eigenvectors.T
+
+eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
+for i in range(NT*NS):
+    eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
+\end{lstlisting}
+where $D$ is defined as in eq.~\eqref{eq:3lev:nonUnitaryH}.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
