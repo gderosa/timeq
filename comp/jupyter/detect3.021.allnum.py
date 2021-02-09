@@ -651,7 +651,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
+        c = np.round((abs(psi.T)**2), 8), # rounding, to prevent numeric instability from causing out-of-range RGB values
         s = 75,
         marker='o'
     )
