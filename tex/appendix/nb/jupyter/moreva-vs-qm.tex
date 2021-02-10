@@ -38,7 +38,7 @@ def evolve_psi(t, t0, psi0):
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-def correction_eigenJ(t, t0, eigenvalue):
+def correction_eigenJ(-t, t0, eigenvalue):
     return np.exp(1j*eigenvalue*(t-t0))
 \end{lstlisting}
 

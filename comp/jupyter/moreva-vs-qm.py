@@ -5,8 +5,8 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.2.1
+#       format_version: '1.3'
+#       jupytext_version: 1.10.0
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -49,7 +49,7 @@ def evolve_psi(t, t0, psi0):
 
 # %%
 def correction_eigenJ(t, t0, eigenvalue):
-    return np.exp(1j*eigenvalue*(t-t0))
+    return np.exp(-1j*eigenvalue*(t-t0))
 
 
 # %%
