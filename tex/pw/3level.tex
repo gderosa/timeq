@@ -435,7 +435,7 @@ where the Python function \verb|K()| is the non-Hermitian operator $K$ of eq.~\e
 
 Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense that\\
 $\norm{\psi(0)}^2=1$ or,
-in Page--Wootters terms, $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
+ in Page--Wootters terms, $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
 \begin{lstlisting}[language=Python]
 eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
 for i in range(NT*NS):
@@ -450,15 +450,21 @@ As the initial time is $t_0=0$ in the current example, only the
 correction related to non-zero eigenvalues is required.
 It's worth recalling that,
 as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
-eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{n}$---
+eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{i}$---
 which are not zero,
 need to be corrected by ``rigidly shifting the spectrum of $H_{S}$
-by [$\epsilon_{n}$]'' (once again, \cite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}):
+by [$\epsilon_{i}$]'' (once again, \cite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}):
 \begin{equation}
-  \dket{\epsilon_n} \;\longrightarrow\; \dket{\Phi_{n}} \eqbydef e^{ -\iu \hat{T} \epsilon_{n} \, \ox \, \idop_{S}} \dket{\epsilon_{n}} \text{,}
+  \dket{\epsilon_i} \;\longrightarrow\; \dket{\Phi_{i}} \eqbydef e^{ -\iu \hat{T} \epsilon_{i} \, \ox \, \idop_{S}} \dket{\epsilon_{i}} \text{,}
   \label{eq:3lev:correction}
 \end{equation}
-where it has been set $\hbar=1$. This translates in code as follows.
+where it has been set $\hbar=1$. This translates in code as follows:\footnote{
+  In the Python code, \Verb+i+ is an iteration index and \Verb|1j| is the imaginary unit
+  (the latter is a convention of the language).
+  In eq.\eqref{eq:3lev:correction},
+  $i$ is a summation index and $\iu$ (upright typeface) is the imaginary unit.
+  The context may also help in interpreting the notation correctly.
+}
 \begin{lstlisting}[language=Python]
 histories = np.empty((NT*NS, NT*NS), dtype=complex)
 
@@ -467,14 +473,19 @@ for i in range(NT*NS):
         expm(np.kron( -1j*T*eigenvalues[i], np.eye(NS) )) @ \
         eigenvectors_normalized_in_S[i]
 \end{lstlisting}
-
-Although with a different notation,
-the variable \verb|histories[ ]|, in the above code snippet,
-corresponds to the $\dket{\Phi_n}$ in Eq.~\eqref{eq:3lev:correction}.
-It's named \verb!histories[ ]! because each element
+%
+With a slightly different notation,
+the \Verb|histories[i]|
+correspond to the $\dket{\Phi_i}$ in Eq.~\eqref{eq:3lev:correction}.
+They are named \Verb!histories! because each of them
 (and any linear combination, per quantum superposition principle)
-encodes a whole possible evolution (altough with discrete time resolution)
-of the system along the time interval $(0, \Delta T)$.
+encodes a possible evolution (altough with discrete time resolution)
+of the system along the whole time interval $[0, \Delta T]$.
+
+A comparison can be made, in principle, between the quantities
+\begin{equation}
+  x \sim x
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
