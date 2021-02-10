@@ -483,7 +483,7 @@ encodes a possible evolution (altough with discrete time resolution)
 of the system along the whole time interval $[0, \Delta T]$.
 
 A comparison can be made, in principle, between the quantities
-\begin{equation}
+\begin{equation}\label{eq:3lev:PWInitialCond}
   \bradket{t_n}{\Phi} \sim \ket{\psi(t_n)}, \quad \forall n = 0, \dots, N_{T}-1 \text{;} 
 \end{equation}
 where \[ t_{n} = \frac{n\Delta T}{N_T} \]
@@ -494,6 +494,30 @@ so that
 \begin{equation}
   \prescript{}{T}{\bradket{0}{\Phi}} = \ket{\psi_0}_S \text{.}
 \end{equation}
+
+As there isn't a $\dket{\Phi_i}$ satisying the \eqref{eq:3lev:PWInitialCond},
+a suitabe linear combination
+$\dket{\Phi} \eqbydef \sum_{i=0}^{N_{T}N_{S}-1} c_{i}\dket{\Phi_i}$
+needs to be found. Algebraically, the problem consists in
+$N_{S}$ ($=3$ in the numerical example at hand) equations
+in $N_{T}N_{S}$ variables, therefore there is certainly more than one solution,
+a linear space indeed.
+
+The following algorithm, among infinite possibilities,
+and mainly for reasons of numerical stability,
+picks $N_S$
+vectors, say,
+\[
+  \dket{\Phi_i}, \dket{\Phi_j}, \dket{\Phi_k}
+\]
+(for $N_S = 3$),
+so that, \emph{to the best approximation},
+\[
+  \prescript{}{T}{\bradket{0}{\Phi_i}}, \;
+  \prescript{}{T}{\bradket{0}{\Phi_j}}, \;
+  \prescript{}{T}{\bradket{0}{\Phi_k}}
+\]
+form an orthonormal basis in $\hilb{H}_S$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
