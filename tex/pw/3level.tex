@@ -442,12 +442,12 @@ for i in range(NT*NS):
 \end{lstlisting}
 
 As the Wheeler-DeWitt reads $\mathbb{J} \dket{\Psi} = 0$,
-eigenvectors of $\mathbb{J}$ related to eigenvalues $\epsilon$
-other than zero
+eigenvectors of $\mathbb{J}$ related to eigenvalues, say $\epsilon_{n}$,
+which are different than zero,
 need to be corrected by ``rigidly shifting the spectrum of $H_{S}$
-by $\epsilon$'' \parencite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}:
+by [$\epsilon_{n}$]'' \parencite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}:
 \begin{equation}
-  \dket{\epsilon} \; \longrightarrow \; e^{ -\iu \hat{T} \epsilon \, \ox \, \idop_{S}} \dket{\epsilon} \text{,}
+  \dket{\epsilon_n} \;\longrightarrow\; \dket{\Phi_{n}} \eqbydef e^{ -\iu \hat{T} \epsilon_{n} \, \ox \, \idop_{S}} \dket{\epsilon_{n}} \text{,}
 \end{equation}
 where it has been set $\hbar=1$. This translates in code as follows.
 \begin{lstlisting}[language=Python]
