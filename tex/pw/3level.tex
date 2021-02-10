@@ -431,9 +431,10 @@ J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
 eigenvalues, eigenvectors = np.linalg.eig(J)
 eigenvectors = eigenvectors.T
 \end{lstlisting}
-where the Python function \lstinline{K()} is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
+where the Python function \verb|K()| is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
 
-Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense that $\norm{\psi(0)}^2=1$ or,
+Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense that\\
+$\norm{\psi(0)}^2=1$ or,
 in Page--Wootters terms, $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
 \begin{lstlisting}[language=Python]
 eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
@@ -441,13 +442,21 @@ for i in range(NT*NS):
     eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
 \end{lstlisting}
 
-As the Wheeler-DeWitt reads $\mathbb{J} \dket{\Psi} = 0$,
-eigenvectors of $\mathbb{J}$ related to eigenvalues, say $\epsilon_{n}$,
-which are different than zero,
+Similarly to what illustrated in eq.~\eqref{eq:pw-vs-qm} ---and Sec.~\ref{sec:qubit:pw-vs-qm} in general---
+a ``phase correction'' may be needed in order to allow a comparison with
+the time evolution predicted with ``standard'' quantum mechanics
+(although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
+As the initial time is $t_0=0$ in the current example, only the
+correction related to non-zero eigenvalues is required.
+It's worth recalling that,
+as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
+eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{n}$---
+which are not zero,
 need to be corrected by ``rigidly shifting the spectrum of $H_{S}$
-by [$\epsilon_{n}$]'' \parencite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}:
+by [$\epsilon_{n}$]'' (once again, \cite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}):
 \begin{equation}
   \dket{\epsilon_n} \;\longrightarrow\; \dket{\Phi_{n}} \eqbydef e^{ -\iu \hat{T} \epsilon_{n} \, \ox \, \idop_{S}} \dket{\epsilon_{n}} \text{,}
+  \label{eq:3lev:correction}
 \end{equation}
 where it has been set $\hbar=1$. This translates in code as follows.
 \begin{lstlisting}[language=Python]
@@ -459,7 +468,13 @@ for i in range(NT*NS):
         eigenvectors_normalized_in_S[i]
 \end{lstlisting}
 
-TODO: ``see also'' eq.~\eqref{eq:pw-vs-qm} and Sec.~\ref{sec:qubit:pw-vs-qm}.
+Although with a different notation,
+the variable \verb|histories[ ]|, in the above code snippet,
+corresponds to the $\dket{\Phi_n}$ in Eq.~\eqref{eq:3lev:correction}.
+It's named \verb!histories[ ]! because each element
+(and any linear combination, per quantum superposition principle)
+encodes a whole possible evolution (altough with discrete time resolution)
+of the system along the time interval $(0, \Delta T)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
