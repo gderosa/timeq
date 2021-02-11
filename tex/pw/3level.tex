@@ -707,7 +707,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
   \end{fullpage}
 \end{figure}
 
-\subsection{Time-of-arrival probability distribution}
+\subsection{Time-of-arrival (conditional) probability}
 
 From \cite{Maccone:QMOT}, a time-of-arrival probability distribution can be derived
 for the three-level system at hand, within the Page--Wootters formalism.
@@ -715,31 +715,58 @@ In a finite-dimensional
 Hilbert space there's no notion of position or ``region of space'', but, as stated in the
 same paper,
 \begin{quote}
-  But the whole discussion can be easily extended to the “time at which any
+  [\dots] the whole discussion can be easily extended to the “time at which any
   event happens”. For example, if one considers a spin instead of a particle on a line, one can define the “time at
   which the spin is up”.
   
-  (\dots) the notion of ``event'' in quantum mechanics defined as ``something that happens to a
+  [\dots] the notion of ``event'' in quantum mechanics [can be] defined as ``something that happens to a
   quantum system'', where ``something'' means ``a system
-  observable property taking some value (\dots)''.
+  observable property taking some value [\dots]''.
 \end{quote}
 Rather than spin up or down, in the present example, the arrival time at level $\ket{2}$
 can be derived:
-\begin{equation}\label{eq:3lev:bayesPW}
-  P_{(n|2)} = \frac{
+\begin{multline}\label{eq:3lev:bayesPW}
+  P_{n|2}^{PW} \eqbydef P_{\big( n \big| 2, \left[0,\Delta{T}\right] \big)}^{PW} = \frac{
     \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
   }{
-    \sum_{n=0}^{N_{T} - 1} \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
+    \sum_{n'=0}^{N_{T} - 1} \abs{\bra{t_{n'}} \ox \bra{2} \cdot \dket{\Psi}}^2
   }
-  \text{,}
-\end{equation}
+  \,\text{,}
+  \\
+  \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
+  \,\text{;}
+\end{multline}
 which gives the (conditional, \term{Bayesian}) probability that, given that a detection of $\ket{2}$
 happens
-within $t \in [0, \Delta T]$, it happens at time $t_n$ (or, rather, between $t_n$ and $t_{n+1}$).
+within $t \in [0, \Delta T]$, it happens at time $t_n$ (or, more correctly, between $t_n$ and $t_{n+1}$).
 
 On the other hand, and outside the Page--Wootters formalism,
-the absorptive detector model
+within  the absorptive detector model
 (see e.g. Sec.~\ref{sec:3lev:complexPotential} or Fig.~\ref{fig:3lev:loss})
+the detection probability density reads $p(t) = - \dv{\norm{\psi}^2}{t}$.
+
+Thus, the \emph{conditional} probability density that
+---\emph{provided }a detection\footnote{
+  Or measurement of related observable eigenvalue,
+  or spontaneous decay from $\ket{2}$ as in Sec.~\ref{sec:detect:atomlaser}.
+}
+of the system at $\ket{2}$ happens within $t \in [0, \Delta{T}]$---
+it does happen at a particular time $t$ is
+\begin{equation}
+  p(t|2) \eqbydef p\Big(t   \:\Big|\:   2,[0,\Delta{T}]\Big)
+  =
+  \frac{
+    - \dv{\norm{\psi}^2}{t}
+  }{
+    \int_{0}^{\Delta{T}} - \dv{\norm{\psi}^2}{t'} \dd{t'}
+  }
+  =
+  \frac{
+    - \dv{\norm{\psi}^2}{t}
+  }{
+    \norm{\psi(0)}^2 - \norm{\psi(\Delta{T})}^2
+  }
+\end{equation}
 
 
 \begin{figure}[]
