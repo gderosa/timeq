@@ -606,48 +606,33 @@ history = coeffs.dot(np.array([
 \end{lstlisting}
 implements \eqref{eq:3lev:PhiLinearComb}.
 
+\subsubsection*{Comparison}
 
+The following code
+(with notation slightly changed compared to Appendix~\ref{appendix:jupyter:3lev:page-wootters}, for clarity)
+\begin{lstlisting}[language=Python]
+Phi = history.reshape((-1,NS)).T
+\end{lstlisting}
+rearranges the \Verb!history! array in such a way that
+\begin{lstlisting}[language=Python]
+Phi[m][n]
+\end{lstlisting}
+is
+\begin{equation*}
+\prescript{}{S}{\bra{m}} \prescript{}{T}{\bradket{t_n}{\Phi}}
+\end{equation*}
+and can be compared with
+\begin{equation*}
+  \braket{m}{\psi(t_n)} 
+\end{equation*}
+from ``ordinary'' quantum mechanics, $
+  \forall \; m \in \{0, \dots, N_S - 1\} \text{ and } n \in \{0, \dots, N_T - 1\}
+$.
 
-%%
-%%
-%%
-%%
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% P-W
-
+Such comparison is visualized in Fig.~\ref{fig:3lev:PWSpaceTimeFit},
+showing excellent agreement between the discrete Page--Wooters model (square points)
+and ``standard'' quantum evolution (continuous line).
 \begin{figure}[h]
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[height=0.41\textheight,clip,trim=0 90 0 140]{img/3ldetect/PWSpaceTime_side.pdf}
-    \caption{Foo.}
-  \end{subfigure}
-  \par\bigskip
-  \begin{subfigure}[b]{\textwidth}
-    \centering
-    \includegraphics[height=0.48\textheight,clip,trim= 0 60 0 100]{img/3ldetect/PWSpaceTime_top.pdf}
-    \caption{Bar.}
-  \end{subfigure}
-  \caption{FooBar.}
-  %\label{fig:psi_V}
-\end{figure}
-
-% P-W vs QM
-
-
-\begin{figure}[]
   \centering
   \begin{subfigure}{\textwidth}
       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
@@ -656,7 +641,7 @@ implements \eqref{eq:3lev:PhiLinearComb}.
   \end{subfigure}
   \caption{Foobar.}
 \end{figure}
-\begin{figure}\ContinuedFloat
+\begin{figure}[h]\ContinuedFloat
   \centering
   \begin{subfigure}{\textwidth}
       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
@@ -664,11 +649,42 @@ implements \eqref{eq:3lev:PhiLinearComb}.
       %\label{fig:arm3}
   \end{subfigure}
   \caption{Foobar (cont.)}
+  \label{fig:3lev:PWSpaceTimeFit}
 \end{figure}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% P-W
+
+% \begin{figure}[h]
+%   \begin{subfigure}[b]{\textwidth}
+%     \centering
+%     \includegraphics[height=0.41\textheight,clip,trim=0 90 0 140]{img/3ldetect/PWSpaceTime_side.pdf}
+%     \caption{Foo.}
+%   \end{subfigure}
+%   \par\bigskip
+%   \begin{subfigure}[b]{\textwidth}
+%     \centering
+%     \includegraphics[height=0.48\textheight,clip,trim= 0 60 0 100]{img/3ldetect/PWSpaceTime_top.pdf}
+%     \caption{Bar.}
+%   \end{subfigure}
+%   \caption{FooBar.}
+%   %\label{fig:psi_V}
+% \end{figure}
+
+% P-W vs QM
+
+
 
 % P-W (bayesian) vs Detector model (norm. loss, Allcock...) detection probability
 
-\begin{figure}[h!]
+\begin{figure}[h]
   \centering
   \includegraphics[width=\textwidth]{img/3ldetect/conditionalProbFit.pdf}
   \caption{Foo.}
