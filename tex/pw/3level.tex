@@ -545,24 +545,26 @@ form an orthonormal basis in $\hilb{H}_S$.%
 }
 Then it's elementary linear algebra to find out the $N_S$ (not $N_S N_T$,
 which, in our example, means 3 instead of 180) coefficients ---say $a$, $b$ and $c$---
-so that \[
+so that \begin{equation}\label{eq:3lev:initialLinEq}
   a\cdot\prescript{}{T}{\bradket{0}{\Phi_i}} +
   b\cdot\prescript{}{T}{\bradket{0}{\Phi_j}} +
   c\cdot\prescript{}{T}{\bradket{0}{\Phi_k}} =
   \ket{\psi_0} .
-\]
-With these coefficients, it will be $\dket{\Phi} =
+\end{equation}
+With these coefficients, it will be
+\begin{equation}\label{eq:3lev:PhiLinearComb}
+  \dket{\Phi} =
   a\cdot\dket{\Phi_i} +
   b\cdot\dket{\Phi_j} +
   c\cdot\dket{\Phi_k}
-$
+\end{equation}
 the (Page--Wootters) ``history vector'' to be plugged in \eqref{eq:3lev:PWComparison}
 for comparison with standard quantum mechanics.
 
 Full implementation code is available at Appendix
-\ref{appendix:jupyter:3lev:page-wootters},
-function \\
-\Verb#find_linear_independent_initial()#.\footnote{
+\ref{appendix:jupyter:3lev:page-wootters}.
+Function \\
+\Verb#find_linear_independent_initial()#\footnote{
   The current implementation is strongly based on the assumption that $N_S = 3$.
   From a computing perspective,
   efficient and scalable support for higher $N_S$
@@ -571,11 +573,38 @@ function \\
   the aim was illustrating the \emph{physics} of at least a class of systems, and
   provide an effective \term{proof of concept} \parencite{comp:poc}.
 }
+returns:
+\begin{lstlisting}[language=Python]
+def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
 
+  # [...]
+  return best_i, best_j, best_k, best_det
+\end{lstlisting}
+Then it's invoked:
+\begin{lstlisting}[language=Python]
+best_i, best_j, best_k, best_det = find_linear_independent_initial()
+\end{lstlisting}
+and (the coefficients of) the linear combination is (are) derived.
+The following resolves \eqref{eq:3lev:initialLinEq}:
+\begin{lstlisting}[language=Python]
+states = np.array([
+    histories[best_i][:NS],
+    histories[best_j][:NS],
+    histories[best_k][:NS]
+])
 
-
-
-
+# Find what linear combination would bring to the desired initial state psi_0_n
+coeffs = inv(states.T) @ psi_0
+\end{lstlisting}
+and
+\begin{lstlisting}[language=Python]
+history = coeffs.dot(np.array([
+    histories[best_i],
+    histories[best_j],
+    histories[best_k]
+]))
+\end{lstlisting}
+implements \eqref{eq:3lev:PhiLinearComb}.
 
 
 
