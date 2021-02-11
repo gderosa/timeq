@@ -367,16 +367,21 @@ i.e. roughly 6\% of non-absorption probabilty.
 \subsection{Discrete Page--Wootters}
 
 Let us consider a Page--Wootters \emph{discrete} clock, with $N_{T}$ levels,
+i.e. the clock Hilbert space has finite dimension $N_{T}$,
 where we choose $N_{T} = 60$
 (somehow resembling the 60 ticks indicating minutes or seconds
 in a conventional clock\footnote{
-  For a suggestive depiction, the reader may want to look at \cite[Fig.~1]{QClockPic},
+  For an intuitive, and suggestive, depiction, the reader may want to look at \cite[Fig.~1]{QClockPic},
   where the quantum levels of the clock are $N_{T} = 12$
   ---please note, however, that the paper allows for the clock
   and the remaining system to \emph{interact}, whereas, in the original formulation
   of the Page--Wootters mechanism,
   they are only \emph{entangled}.
 }).
+
+Let also $N_S$ indicate the Hilbert space dimension of the of ``the rest of the universe'' $\hilb{H}_S$
+(in the sense of \cite{Marletto:Evolution}, among others). In the current example
+it is $N_S = 3$.
 
 A basis of $\hilb{H}_T$ is chosen where the time operator $\hat{T}$ is diagonal:
 \begin{equation}
@@ -392,10 +397,11 @@ And the frequency operator $\hat{\Omega}$ is computed via \term{Discrete Fourier
 \begin{equation}
   \hat{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F \hat{T} F \text{.}
 \end{equation}
-Please note different library implementations use different conventions and definitions
-of the discrete Fourier matrix,
-thus
-requiring appropriate factors in the relation between $\hat{T}$ and $\hat{\Omega}$.
+It's worth noting that, from a numerical computation perspective,
+different library implementations use different conventions and definitions
+for the discrete Fourier matrix. Therefore,
+appropriate factors in the relation between $\hat{T}$ and $\hat{\Omega}$
+may be required.
 In our code:
 \begin{lstlisting}[language=Python]
 # [...]
@@ -433,9 +439,12 @@ eigenvectors = eigenvectors.T
 \end{lstlisting}
 where the Python function \verb|K()| is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
 
-Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense that\\
+Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense
+of a state vector $\ket{\psi(t)}$ statisfying
 $\norm{\psi(0)}^2=1$ or,
- in Page--Wootters terms, $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
+ in Page--Wootters terms,
+ a vector $\dket{\Psi}$, in $\pwspace$, satisfying
+ $\langle\langle \Psi | 0 \rangle_{T}\langle 0 | \Psi \rangle \rangle = 1$.
 \begin{lstlisting}[language=Python]
 eigenvectors_normalized_in_S = np.empty((NT*NS, NT*NS), dtype=complex)
 for i in range(NT*NS):
@@ -446,8 +455,8 @@ Similarly to what illustrated in eq.~\eqref{eq:pw-vs-qm} ---and Sec.~\ref{sec:qu
 a ``phase correction'' may be needed in order to allow a comparison with
 the time evolution predicted with ``standard'' quantum mechanics
 (although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
-As the initial time is $t_0=0$ in the current example, only the
-correction related to non-zero eigenvalues is required.
+As the initial time is $t_0=0$ in the current example, only
+corrections related to non-zero eigenvalues are required.
 It's worth recalling that,
 as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
 eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{i}$---
@@ -483,16 +492,17 @@ encodes a possible evolution (altough with discrete time resolution)
 of the system along the whole time interval $[0, \Delta T]$.
 
 A comparison can be made, in principle, between the quantities
-\begin{equation}\label{eq:3lev:PWComparison}
-  \bradket{t_n}{\Phi} \sim \ket{\psi(t_n)}, \quad \forall n = 0, \dots, N_{T}-1 \text{;} 
-\end{equation}
+\begin{align}\begin{split}\label{eq:3lev:PWComparison}
+  \bradket{t_n}{\Psi} \sim  &\ket{\psi(t_n)},\\
+                            &\forall n = 0, \dots, N_{T}-1
+\end{split}\end{align}
 where \[ t_{n} = \frac{n\Delta T}{N_T} \]
 and
-$\dket{\Phi}$ is one of the ${\dket{\Phi_{i=0,\dots,N_T N_S - 1}}}$,
+$\dket{\Psi}$ is one of the ${\dket{\Phi_{i=0,\dots,N_T N_S - 1}}}$,
 or a linear combination of them,
 so that
 \begin{equation}\label{eq:3lev:PWInitialCond}
-  \prescript{}{T}{\bradket{0}{\Phi}} = \ket{\psi_0}_S \text{.}
+  \prescript{}{T}{\bradket{0}{\Psi}} = \ket{\psi_0}_S \text{.}
 \end{equation}
 
 \subsubsection*{Initial value problem}
@@ -501,11 +511,11 @@ As there isn't an individual $\dket{\Phi_i}$,
 in our numeric example,
 satisying the \eqref{eq:3lev:PWInitialCond},
 a suitabe linear combination
-$\dket{\Phi} \eqbydef \sum_{i=0}^{N_{T}N_{S}-1} c_{i}\dket{\Phi_i}$
+$\dket{\Psi} \eqbydef \sum_{i=0}^{N_{T}N_{S}-1} c_{i}\dket{\Phi_i}$
 needs to be found. Algebraically, the problem consists in
-$N_{S}$ ($=3$ in the numerical example at hand) equations
-in $N_{T}N_{S}$ variables, therefore there is certainly more than one solution,
-a linear space of dimension $(N_{T} - 1)N_{S}$ indeed.
+$N_{S}$ linear equations
+in $N_{T}N_{S}$ variables, therefore there is certainly more than one solution
+---a solution space of dimension $(N_{T} - 1)N_{S}$ indeed.
 
 The following algorithm, among infinite possibilities,
 and merely for reasons of numerical stability,
@@ -543,8 +553,14 @@ form an orthonormal basis in $\hilb{H}_S$.%
     )}
   $.
 }
-Then it's elementary linear algebra to find out the $N_S$ (not $N_S N_T$,
-which, in our example, means 3 instead of 180) coefficients ---say $a$, $b$ and $c$---
+Then it's elementary linear algebra to find out the $N_S$
+coefficients\footnote{
+  $N_S$ coefficients (3 in our example),
+  instead of $N_S N_T$ (180 in our example)
+  as the dimension of $\pwspace$ would otherwise suggest.
+  This is because the condition is only on $\prescript{}{T}{\bradket{0}{\Psi}}$
+  and not on the ``entire'' $\dket{\Psi}$.
+} ---say $a$, $b$ and $c$---
 so that \begin{equation}\label{eq:3lev:initialLinEq}
   a\cdot\prescript{}{T}{\bradket{0}{\Phi_i}} +
   b\cdot\prescript{}{T}{\bradket{0}{\Phi_j}} +
@@ -553,7 +569,7 @@ so that \begin{equation}\label{eq:3lev:initialLinEq}
 \end{equation}
 With these coefficients, it will be
 \begin{equation}\label{eq:3lev:PhiLinearComb}
-  \dket{\Phi} =
+  \dket{\Psi} =
   a\cdot\dket{\Phi_i} +
   b\cdot\dket{\Phi_j} +
   c\cdot\dket{\Phi_k}
@@ -562,16 +578,16 @@ the (Page--Wootters) ``history vector'' to be plugged in \eqref{eq:3lev:PWCompar
 for comparison with standard quantum mechanics.
 
 Full implementation code is available at Appendix
-\ref{appendix:jupyter:3lev:page-wootters}.
-Function \\
+\ref{appendix:jupyter:3lev:page-wootters},
+function \\
 \Verb#find_linear_independent_initial()#\footnote{
   The current implementation is strongly based on the assumption that $N_S = 3$.
   From a computing perspective,
   efficient and scalable support for higher $N_S$
-  would require \term{refactoring} \parencite{comp:refactor}.
-  Nonetheless,
-  the aim was illustrating the \emph{physics} of at least a class of systems, and
-  provide an effective \term{proof of concept} \parencite{comp:poc}.
+  would require some \term{refactoring} \parencite{comp:refactor}.
+  However,
+  the aim in this case is merely illustrating the \emph{physics} of this class of systems,
+  providing an effective \term{proof of concept} \parencite{comp:poc}.
 }
 returns:
 \begin{lstlisting}[language=Python]
@@ -619,7 +635,7 @@ Phi[m][n]
 \end{lstlisting}
 is
 \begin{equation*}
-\prescript{}{S}{\bra{m}} \prescript{}{T}{\bradket{t_n}{\Phi}}
+\prescript{}{S}{\bra{m}} \prescript{}{T}{\bradket{t_n}{\Psi}}
 \end{equation*}
 and can be compared with
 \begin{equation*}
