@@ -495,6 +495,8 @@ so that
   \prescript{}{T}{\bradket{0}{\Phi}} = \ket{\psi_0}_S \text{.}
 \end{equation}
 
+\subsubsection*{Initial value problem}
+
 As there isn't an individual $\dket{\Phi_i}$,
 in our numeric example,
 satisying the \eqref{eq:3lev:PWInitialCond},
@@ -549,7 +551,7 @@ so that \[
   c\cdot\prescript{}{T}{\bradket{0}{\Phi_k}} =
   \ket{\psi_0} .
 \]
-With this coefficients, it will be $\dket{\Phi} =
+With these coefficients, it will be $\dket{\Phi} =
   a\cdot\dket{\Phi_i} +
   b\cdot\dket{\Phi_j} +
   c\cdot\dket{\Phi_k}
@@ -557,6 +559,18 @@ $
 the (Page--Wootters) ``history vector'' to be plugged in \eqref{eq:3lev:PWComparison}
 for comparison with standard quantum mechanics.
 
+Full implementation code is available at Appendix
+\ref{appendix:jupyter:3lev:page-wootters},
+function \\
+\Verb#find_linear_independent_initial()#.\footnote{
+  The current implementation is strongly based on the assumption that $N_S = 3$.
+  From a computing perspective,
+  efficient and scalable support for higher $N_S$
+  would require \term{refactoring} \parencite{comp:refactor}.
+  Nonetheless,
+  the aim was illustrating the \emph{physics} of at least a class of systems, and
+  provide an effective \term{proof of concept} \parencite{comp:poc}.
+}
 
 
 

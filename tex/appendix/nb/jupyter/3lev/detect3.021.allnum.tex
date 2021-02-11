@@ -1,5 +1,6 @@
 \hypertarget{detector-model-3-level-system}{%
-\section{Detector model: 3-level system}\label{detector-model-3-level-system}}
+\subsection{Detector model: 3-level
+system}\label{detector-model-3-level-system}}
 
 Three-level ``\(\Lambda\)'' system, of interest for * detector models
 (decay into a metastable state), * STIRAP * EIT
@@ -17,6 +18,17 @@ from scipy.linalg import expm, norm
 # https://matplotlib.org/gallery/mplot3d/lines3d.html?highlight=parametric
 # This import registers the 3D projection, but is otherwise unused.
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 unused import
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+matplotlib.rcParams['font.size'] = 14
+matplotlib.rcParams['axes.labelsize'] = 16
+matplotlib.rcParams['legend.fontsize'] = 16
+matplotlib.rcParams['axes.labelpad']  = 14
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+#matplotlib.rcParams
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -81,27 +93,10 @@ times_extended = np.linspace(TMIN_N, TMAX_EXTENDED, num=NPLOTPOINTS)
 probs = [None, None, None]
 for i in 0, 1, 2:
     probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
-    plt.plot(times, probs[i])
-    plt.show()
+#     fig, ax = plt.subplots(figsize=(12, 6*np.max(probs[i])))
+#     ax.plot(times, probs[i])
+#     plt.show()
 \end{lstlisting}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_13_0.png}
-\caption{png}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_13_1.png}
-\caption{png}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_13_2.png}
-\caption{png}
-\end{figure}
 
 \begin{lstlisting}[language=Python]
 # Avoid *tiny* negative numbers, just out of numeric approximation, which will cause problems later,
@@ -114,12 +109,15 @@ UNISYM = {
     'psi': u'\u03C8',
     '^2' : u'\u00B2'
 }
-PROB_LABELS     = ['', '', '']
-PROB_AMP_LABELS = ['', '', '']
+PROB_LABELS        = ['', '', '']
+PROB_AMP_LABELS    = ['', '', '']
+PROB_AMP_LABELS_PW = ['', '', '']
                 
 for i in 0, 1, 2:
-    PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '>'
+    PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '(t)' + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
+    
+    PROB_AMP_LABELS_PW[i] = '<t|\u2297<%d|\u03A8>>' % i
 \end{lstlisting}
 
 https://matplotlib.org/gallery/lines\_bars\_and\_markers/stackplot\_demo.html\#sphx-glr-gallery-lines-bars-and-markers-stackplot-demo-py
@@ -129,14 +127,43 @@ prob_stack = np.vstack(probs)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-labels = PROB_LABELS
-colors = ["#cc1111", "#33aa33", "#1111cc"]
+colors  =  ['#d44', '#4d4', '#44d']
+colors  =  ['r', 'g', 'b']
+hatches =  ['\\\\\\', '////////', '...']
+
+linewidths =  [1, 1, 1]
+
+labels     =  PROB_LABELS
 
 fig, ax = plt.subplots(figsize=(12, 6))
-ax.stackplot(times, probs[0], probs[1], probs[2], labels=labels, colors=colors)
-ax.legend(loc='lower center')
+
+stacks = ax.stackplot(times, (probs[0], probs[1], probs[2]))
+ax.set_xlabel('t')
+
+for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels, linewidths):
+    stack.set_facecolor('w')
+    stack.set_edgecolor(color)
+    stack.set_label(label)
+    stack.set_hatch(hatch)
+    stack.set_linewidth(linewidth)
+        
+ax.plot(times, probs[0] + probs[1] + probs[2], c='m', label='||\u03C8(t)||\u00B2', linewidth=1.5)
+
+desired_order   = [0, 3, 2, 1]
+_handles, _labels = ax.get_legend_handles_labels()
+handles         = [ _handles[i] for i in desired_order ]
+labels          = [ _labels[i]  for i in desired_order ]
+ax.legend(handles, labels, loc='center right', framealpha=1)
+
+plt.savefig('_img/detect3.021/hermitian3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 \end{lstlisting}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_20_0.png}
+
+\end{figure}
 
 \begin{lstlisting}[language=Python]
 rgbs = []
@@ -153,11 +180,11 @@ for i in range(NPLOTPOINTS):
 \begin{lstlisting}[language=Python]
 fig, ax = plt.subplots(figsize=(12,6))
 ax.set_xlabel('t')
-ax.scatter(times, np.zeros(NPLOTPOINTS),
-            c=rgbs, marker='|', s=40000)
+ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1,
+            c=rgbs, marker='|', s=400)
 
 # "virtual", don't really want to show, only for legend
-_c = ['r', '#00f800', 'b']
+_c = ['r', '#0a0', 'b']
 for i in 0, 1, 2:
     ax.plot(
         times, probs[i],
@@ -169,16 +196,14 @@ ax.legend(
     PROB_LABELS,
     loc='upper right'
 )
+
+plt.savefig('_img/detect3.021/hermitian3lines.pdf', bbox_inches='tight', pad_inches=0)
 \end{lstlisting}
 
-\begin{lstlisting}
-<matplotlib.legend.Legend at 0x7f80b8c24f40>
-\end{lstlisting}
-
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_20_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_22_0.png}
+
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -187,11 +212,12 @@ for i in 0, 1, 2:
     unitary_psis[i] = np.fromiter( (unitary_psi(t)[i] for t in times), np.complex )
 \end{lstlisting}
 
+
 \begin{lstlisting}[language=Python]
 # 3D parametric plot
-for (vertical_angle, horizontal_angle, height, width) in (10, -70, 15, 35), (80, -120, 15, 35):
-    fig = plt.figure(figsize=(width, height), dpi=200)
-
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'center left','side'), (80,-120,12,12,'right','top'):
+    # fig = plt.figure(figsize=(w5dth, height), dpi=250)2
+    fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
 
@@ -200,38 +226,37 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -70, 15, 35), (80,
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-
+    
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=np.float),
         np.zeros(NPLOTPOINTS, dtype=np.float),
         times,
-
         c = rgbs,
-        s = 100
+        s = 24
     )
     for i in 0, 1, 2:
-        ax.scatter(
+        ax.plot(
             np.real(unitary_psis[i]),
             np.imag(unitary_psis[i]),
             times,
-
-            marker = '.',
+            label = PROB_AMP_LABELS[i],
             #depthshade=False,
-            s = (probs[i])*30,
             c = _c[i]
         )
+        ax.legend(loc=lloc)
+    plt.savefig('_img/detect3.021/hermitianSpaceTime_%s.pdf' % view, bbox_inches=0, pad_inches=0)
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_22_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_25_0.png}
+
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_22_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_25_1.png}
+
 \end{figure}
 
 \hypertarget{complex-potential-detection-by-absorption}{%
@@ -291,8 +316,8 @@ B(0)
 \end{lstlisting}
 
 \begin{lstlisting}
-array([[1.-0.j, 0.-0.j, 0.-0.j],
-       [0.-0.j, 1.-0.j, 0.-0.j],
+array([[1.+0.j, 0.+0.j, 0.+0.j],
+       [0.+0.j, 1.+0.j, 0.+0.j],
        [0.+0.j, 0.+0.j, 1.+0.j]])
 \end{lstlisting}
 
@@ -320,30 +345,46 @@ norms_extended = np.fromiter(_iter_norm_extended, np.float)
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
+colors  =  ['#f66', '#6d6', '#88f']
+colors  =  ['r', 'g', 'b']
+hatches =  ['\\\\\\', '////////', '...']
+labels     =  PROB_LABELS
+
 fig, ax = plt.subplots(figsize=(12, 8))
 
-ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed')
+ax.plot(times, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm', linewidth=2.5)
 
-ax.plot(times, norms**2, c='#cccc00', linewidth=2)
+ax.plot(times, norms**2, c='m', linewidth=1.5, label='||\u03C8(t)||\u00B2')
 
-ax.stackplot(
-    times,
+stacks = ax.stackplot(times, (
     np.abs(evolution[0])**2,
     np.abs(evolution[1])**2,
-    np.abs(evolution[2])**2,
+    np.abs(evolution[2])**2
+))
+
+ax.set_xlabel('t')
+
+for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_linewidth(.5)
+    stack.set_facecolor('w')
+    stack.set_edgecolor(color)
+    stack.set_label(label)
+    stack.set_hatch(hatch)
     
-    labels=labels, colors=colors
-)
+handles, labels = ax.get_legend_handles_labels()
+desired_order = [0, 1, 4, 3, 2]
+handles = [ handles[i] for i in desired_order ]
+labels  = [  labels[i] for i in desired_order ]
+ax.legend(handles, labels, loc='center')
 
-ax.legend(loc='lower center')
-
+plt.savefig('_img/detect3.021/loss3color.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_34_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_37_0.png}
+
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -354,67 +395,164 @@ bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2  # TODO! ex
 \begin{lstlisting}[language=Python]
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.set_xlabel('t')
-ax.set_ylabel('Detection probability density')
-ax.plot(times, -np.gradient(norms**2, times), c='b', linewidth=2)
+ax.set_ylabel('Detection probability density  =  - d||\u03C8(t)||\u00B2 / dt')
+ax.plot(times, -np.gradient(norms**2, times), c='y', linewidth=3)
+plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 \end{lstlisting}
 
-\begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7f80b9540a00>]
-\end{lstlisting}
-
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_36_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_39_0.png}
+
 \end{figure}
 
 \begin{lstlisting}[language=Python]
 labels = PROB_LABELS
-colors = ["#cc1111", "#33aa33", "#1111cc"]
+
+colors  =  ['r', 'g', '#ccf']
+hatches =  ['\\\\\\\\', '///////', '.....']
 
 fig, ax = plt.subplots(figsize=(14, 7))
 
-ax.stackplot(
-    times_extended,
+ax.set_xlabel('t')
+
+ax.plot(times_extended, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
+
+ax.plot(times_extended, norms_extended**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
+
+stacks = ax.stackplot(times_extended, (
     np.abs(evolution_extended[0])**2,
     np.abs(evolution_extended[1])**2,
-    np.abs(evolution_extended[2])**2,
-    
-    labels=labels, colors=colors
-)
+    np.abs(evolution_extended[2])**2
+))
 
-ax.legend(loc='upper right')
+for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
+    stack.set_linewidth(1.25)
+    stack.set_facecolor('w')
+    stack.set_edgecolor(color)
+    stack.set_label(label)
+    stack.set_hatch(hatch)
 
-plt.savefig('_img/detect3.021/loss3color.png', dpi=300, transparent=True, pad_inches=0)
-plt.savefig('_img/detect3.021/loss3color.svg', transparent=True)
+handles, labels = ax.get_legend_handles_labels()
+desired_order = [0, 1, 4, 3, 2]
+handles = [ handles[i] for i in desired_order ]
+labels  = [  labels[i] for i in desired_order ]
+ax.legend(handles, labels, loc='center')
+
+plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_37_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_40_0.png}
+
 \end{figure}
 
+\hypertarget{asymptotic-fidelity-for-1}{%
+\subsubsection*{``Asymptotic'' fidelity for $\ket{1}$}\label{asymptotic-fidelity-for-1}}
+
 \begin{lstlisting}[language=Python]
-fig, ax = plt.subplots(figsize=(22, 3))
-ax.set_xlabel('t')
-ax.set_ylabel('Detection probability density')
-ax.plot(times_extended, -np.gradient(norms_extended**2, times), c='b', linewidth=1)
+times_extended[-1]
 \end{lstlisting}
 
 \begin{lstlisting}
-[<matplotlib.lines.Line2D at 0x7f80a58716a0>]
+150.0
 \end{lstlisting}
 
-\begin{figure}
+\begin{lstlisting}[language=Python]
+norms_extended[-1]**2
+\end{lstlisting}
+
+\begin{lstlisting}
+0.05684539507975811
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+(np.abs(evolution_extended[1])**2)[-1] / norms_extended[-1]**2
+\end{lstlisting}
+
+\begin{lstlisting}
+0.9414855990054901
+\end{lstlisting}
+
+\hypertarget{detection-probability}{%
+\subsubsection{Detection probability}\label{detection-probability}}
+
+\begin{lstlisting}[language=Python]
+_detection_prob = -np.gradient(norms_extended**2, times_extended)
+fig, ax = plt.subplots(figsize=(14, 7))
+ax.set_xlabel('t')
+ax.set_ylabel('Detection probability density  =  - d||\u03C8(t)||\u00B2 / dt')
+ax.plot(times_extended, _detection_prob, c='y', linewidth=3)
+plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
+\end{lstlisting}
+
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_38_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_46_0.png}
+
+\end{figure}
+
+\hypertarget{d}{%
+\paragraph{``3D''}\label{d}}
+
+\begin{lstlisting}[language=Python]
+# 3D parametric plot
+
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'center left','side'), (90, -80, 15, 15,'center left','top'):
+    fig = plt.figure(figsize=(width, height))
+
+    ax = fig.gca(projection='3d')
+
+    ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
+
+    ax.set_xlabel('Re <0,1,2|\u03C8>')
+    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_zlabel('t')
+    
+    ax.scatter(
+        np.zeros(NPLOTPOINTS, dtype=np.float),
+        np.zeros(NPLOTPOINTS, dtype=np.float),
+        times,
+    
+        c = np.array([
+            np.abs(evolution[0])**2,
+            np.abs(evolution[1])**2,
+            np.abs(evolution[2])**2
+        ]).T,
+        s = 24,
+        marker='o'
+    )
+    _c = ['r', 'g', 'b']
+        
+    for i in 0, 1, 2:
+        ax.plot(
+            np.real(evolution[i]),
+            np.imag(evolution[i]),
+            times,
+            #depthshade=False,
+            c = _c[i],
+            linewidth=2,
+            label = PROB_AMP_LABELS[i]
+        )
+        ax.legend(loc=lloc)
+    plt.savefig('_img/detect3.021/NonHermitianSpaceTime_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
+\end{lstlisting}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_48_0.png}
+\end{figure}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_48_1.png}
+
 \end{figure}
 
 \hypertarget{page-wootters}{%
-\subsection{Page-Wootters}\label{page-wootters}}
+\subsection{Page-Wootters}\label{appendix:jupyter:3lev:page-wootters}}
 
 \begin{lstlisting}[language=Python]
 from scipy.linalg import dft, norm, expm, det, inv
@@ -424,7 +562,7 @@ from scipy.linalg import dft, norm, expm, det, inv
 # Dimension of the system, or the spatial/"ordinary" Hilbert space
 NS = 3
 # Number of levels of the clock aka dimension of Time Hilbert space
-NT = 64
+NT = 60
 # "Period"
 DT = TMAX_N  # assume we start with time 0
 
@@ -519,7 +657,7 @@ best_i, best_j, best_k, best_det = find_linear_independent_initial()
 \end{lstlisting}
 
 \begin{lstlisting}
-100% scanned    abs(best_det) = 0.9893579012772181
+100% scanned    abs(best_det) = 0.9893579012772128
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -548,7 +686,7 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (80, -100, 15, 25)):
+for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,'center right','side'), (80,-100,15,25,'center right','top')):
     fig = plt.figure(figsize=(width, height))
 
 
@@ -556,8 +694,8 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
-    ax.set_xlabel('Re <0,1,2|\u03C8>')
-    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_xlabel('Re <t|\u2297<0,1,2|\u03A8>>')
+    ax.set_ylabel('Im <t|\u2297<0,1,2|\u03A8>>')
     ax.set_zlabel('t')
     
     ax.scatter(
@@ -565,11 +703,12 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
+        c = np.round((abs(psi.T)**2), 8), # rounding, to avoid number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
     )
     _c = ['r', 'g', 'b']
+
     for i in range(NS):
         ax.scatter(
             np.real(
@@ -583,21 +722,27 @@ for (vertical_angle, horizontal_angle, height, width) in ((10, -120, 15, 25), (8
             marker = 's',
             #depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 20,
-            c = _c[i]
+            s = 60,
+            edgecolor = _c[i],
+            facecolor = (0, 0, 0, 0),
+            linewidth = 1,
+
+            label = PROB_AMP_LABELS_PW[i]
         )
+    ax.legend(loc=lloc)
+    plt.savefig('_img/detect3.021/PWSpaceTime_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_54_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_64_0.png}
+
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_54_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_64_1.png}
+
 \end{figure}
 
 \begin{lstlisting}[language=Python]
@@ -605,7 +750,7 @@ norm(psi)**2
 \end{lstlisting}
 
 \begin{lstlisting}
-19.756605733603298
+18.550562258122728
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -613,7 +758,7 @@ norm(psi)
 \end{lstlisting}
 
 \begin{lstlisting}
-4.444840349619241
+4.307036366008851
 \end{lstlisting}
 
 \hypertarget{overlapping-pw-and-qm-continuous}{%
@@ -627,15 +772,16 @@ times_discrete = np.diag(T)
 
 psi = history.reshape((-1,NS)).T
 
-for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90, -80, 15, 15):
-    fig = plt.figure(figsize=(width, height), dpi=300)
+for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side'), (90,-80,15,15,'top'):
+    # fig = plt.figure(figsize=(width, height), dpi=300)
+    fig = plt.figure(figsize=(width, height))
 
     ax = fig.gca(projection='3d')
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
-    ax.set_xlabel('Re <0,1,2|\u03C8>')
-    ax.set_ylabel('Im <0,1,2|\u03C8>')
+    ax.set_xlabel('Re')
+    ax.set_ylabel('Im')
     ax.set_zlabel('t')
     
     ax.scatter(
@@ -643,7 +789,7 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
         np.zeros(NT, dtype=np.float),
         times_discrete,
     
-        c = np.round((abs(psi.T)**2), 8), # rounding, to aviud number instability causing out-of-range rgb vals
+        c = np.round((abs(psi.T)**2), 8), # rounding, to prevent numeric instability from causing out-of-range RGB values
         s = 75,
         marker='o'
     )
@@ -659,11 +805,13 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             times_discrete,
 
             marker = 's',
-            depthshade=False,
+            #depthshade=False,
             #s = abs(_psi[i]**2)*60,
-            s = 33,
+            s = 80,
             edgecolor = _c[i],
-            facecolor='none'
+            facecolor = (0, 0, 0, 0),
+            linewidth = 0.8,
+            label = PROB_AMP_LABELS_PW[i]
         )
         
     # QM continuous
@@ -674,27 +822,24 @@ for (vertical_angle, horizontal_angle, height, width) in (15, -80, 15, 15), (90,
             times,
             #depthshade=False,
             c = _c[i],
-            linewidth=1
+            linewidth=1.5,
+            label = PROB_AMP_LABELS[i]
         )
+    ax.legend(loc='center left')
+    plt.savefig('_img/detect3.021/PWSpaceTimeFit_%s.pdf' % view, bbox_inches='tight', pad_inches=0)
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_58_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_68_0.png}
+
 \end{figure}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_58_1.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_68_1.png}
+
 \end{figure}
-
-\begin{lstlisting}[language=Python]
-\end{lstlisting}
-
-\begin{lstlisting}[language=Python]
-\end{lstlisting}
 
 \hypertarget{toa-prob-as-in-macconesacha-arxiv1810.12869}{%
 \subsection{TOA prob as in Maccone/Sacha
@@ -702,14 +847,6 @@ arXiv:1810.12869}\label{toa-prob-as-in-macconesacha-arxiv1810.12869}}
 
 \emph{Adapted from \(\S\) ``Time of arbitrary event''.}
 
-See also
-detect-gentle.ipynb.
-Or detect-gentle.py
-if you use Jupytext.
-
-This is based on \emph{unitary} evolution (no complex potential) so the
-imaginary potential above \texttt{GAMMA} must be
-small for a good approximation.
 
 \begin{lstlisting}[language=Python]
 def t_eigenstate(n):
@@ -759,25 +896,23 @@ Y = Y / bayes_denominator
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
-ax.plot(X, Y, 'bs', )
-ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw, c='y', linewidth=2)
+# fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.set_xlabel('t')
+ax.set_ylabel('Detection probability density')
+ax.plot(X, Y, 'bs', label='Page-Wootters (Maccone / Sacha -- Bayesian / conditional)')
+ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw,
+        c='y', linewidth=2, label='Detector model (normalization loss)')
+ax.legend()
+plt.savefig('_img/detect3.021/conditionalProbFit.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 \end{lstlisting}
 
-\begin{figure}
+\begin{figure}[h!]
 \centering
-\includegraphics[width=0.666\linewidth]{tex/appendix/nb/jupyter/3lev/output_71_0.png}
-\caption{png}
+\includegraphics[width=0.66\linewidth]{tex/appendix/nb/jupyter/3lev/output_79_0.png}
+
 \end{figure}
-
-\begin{lstlisting}[language=Python]
-times[-1]
-\end{lstlisting}
-
-\begin{lstlisting}
-40.0
-\end{lstlisting}
 
 \begin{lstlisting}[language=Python]
 nonpw_probs = -np.gradient(norms**2, times) / bayesian_denominator_nonpw
@@ -788,7 +923,7 @@ np.sum(nonpw_probs*times[1])
 \end{lstlisting}
 
 \begin{lstlisting}
-1.0000197507624178
+1.0000197507624184
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
