@@ -627,11 +627,11 @@ implements \eqref{eq:3lev:PhiLinearComb}.
 The following code
 (with notation slightly changed compared to Appendix~\ref{appendix:jupyter:3lev:page-wootters}, for clarity)
 \begin{lstlisting}[language=Python]
-Phi = history.reshape((-1,NS)).T
+pwpsi = history.reshape((-1,NS)).T
 \end{lstlisting}
 rearranges the \Verb!history! array in such a way that
 \begin{lstlisting}[language=Python]
-Phi[m][n]
+pwpsi[m][n]
 \end{lstlisting}
 is
 \begin{equation*}
@@ -655,15 +655,20 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[height=0.41\textheight,clip,trim=0 90 0 140]{img/3ldetect/PWSpaceTime_side.pdf}
-    \caption{Foo.}
+    \caption{3-D plot: side view.}
   \end{subfigure}
   \par\bigskip
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[height=0.48\textheight,clip,trim= 0 60 0 100]{img/3ldetect/PWSpaceTime_top.pdf}
-    \caption{Bar.}
+    \caption{3-D plot: top view.}
   \end{subfigure}
-  \caption{FooBar.}
+  \caption{
+    Components (complex values) of the discrete-Page--Wooters vector
+    $\dket{\Psi} \in \pwspace$
+    (``evolution without evolution'').
+    Can be compared with Fig.~\ref{fig:3lev:nonHermitianEvol}.
+  }
   \label{fig:3lev:PWSpaceTime}
 \end{figure}
 
