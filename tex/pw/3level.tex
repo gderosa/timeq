@@ -483,7 +483,7 @@ encodes a possible evolution (altough with discrete time resolution)
 of the system along the whole time interval $[0, \Delta T]$.
 
 A comparison can be made, in principle, between the quantities
-\begin{equation}\label{eq:3lev:PWInitialCond}
+\begin{equation}\label{eq:3lev:PWComparison}
   \bradket{t_n}{\Phi} \sim \ket{\psi(t_n)}, \quad \forall n = 0, \dots, N_{T}-1 \text{;} 
 \end{equation}
 where \[ t_{n} = \frac{n\Delta T}{N_T} \]
@@ -491,20 +491,22 @@ and
 $\dket{\Phi}$ is one of the ${\dket{\Phi_{i=0,\dots,N_T N_S - 1}}}$,
 or a linear combination of them,
 so that
-\begin{equation}
+\begin{equation}\label{eq:3lev:PWInitialCond}
   \prescript{}{T}{\bradket{0}{\Phi}} = \ket{\psi_0}_S \text{.}
 \end{equation}
 
-As there isn't a $\dket{\Phi_i}$ satisying the \eqref{eq:3lev:PWInitialCond},
+As there isn't an individual $\dket{\Phi_i}$,
+in our numeric example,
+satisying the \eqref{eq:3lev:PWInitialCond},
 a suitabe linear combination
 $\dket{\Phi} \eqbydef \sum_{i=0}^{N_{T}N_{S}-1} c_{i}\dket{\Phi_i}$
 needs to be found. Algebraically, the problem consists in
 $N_{S}$ ($=3$ in the numerical example at hand) equations
 in $N_{T}N_{S}$ variables, therefore there is certainly more than one solution,
-a linear space indeed.
+a linear space of dimension $(N_{T} - 1)N_{S}$ indeed.
 
 The following algorithm, among infinite possibilities,
-and mainly for reasons of numerical stability,
+and merely for reasons of numerical stability,
 picks $N_S$
 vectors, say,
 \[
@@ -517,14 +519,69 @@ so that, \emph{to the best approximation},
   \prescript{}{T}{\bradket{0}{\Phi_j}}, \;
   \prescript{}{T}{\bradket{0}{\Phi_k}}
 \]
-form an orthonormal basis in $\hilb{H}_S$.
+form an orthonormal basis in $\hilb{H}_S$.%
+\footnote{
+  ``Best approximation'' (of an orthonormal base in $\hilb{H}_S$)
+  in the sense of finding
+  three (or in general $N_S$) different
+  $i, j, k \in \{0, \dots, N_{S}-1\}$ that minimize
+  $
+    \abs{1 - \det\mqty(
+      & \prescript{}{S}{\bra{0}}   \prescript{}{T}{\bradket{0}{\Phi_i}}
+      & \prescript{}{S}{\bra{1}}   \prescript{}{T}{\bradket{0}{\Phi_i}}
+      & \prescript{}{S}{\bra{2}}   \prescript{}{T}{\bradket{0}{\Phi_i}}
+      \\
+      & \prescript{}{S}{\bra{0}}   \prescript{}{T}{\bradket{0}{\Phi_j}}
+      & \prescript{}{S}{\bra{1}}   \prescript{}{T}{\bradket{0}{\Phi_j}}
+      & \prescript{}{S}{\bra{2}}   \prescript{}{T}{\bradket{0}{\Phi_j}}
+      \\
+      & \prescript{}{S}{\bra{0}}   \prescript{}{T}{\bradket{0}{\Phi_k}}
+      & \prescript{}{S}{\bra{1}}   \prescript{}{T}{\bradket{0}{\Phi_k}}
+      & \prescript{}{S}{\bra{2}}   \prescript{}{T}{\bradket{0}{\Phi_k}}
+    )}
+  $.
+}
+Then it's elementary linear algebra to find out the $N_S$ (not $N_S N_T$,
+which, in our example, means 3 instead of 180) coefficients ---say $a$, $b$ and $c$---
+so that \[
+  a\cdot\prescript{}{T}{\bradket{0}{\Phi_i}} +
+  b\cdot\prescript{}{T}{\bradket{0}{\Phi_j}} +
+  c\cdot\prescript{}{T}{\bradket{0}{\Phi_k}} =
+  \ket{\psi_0} .
+\]
+With this coefficients, it will be $\dket{\Phi} =
+  a\cdot\dket{\Phi_i} +
+  b\cdot\dket{\Phi_j} +
+  c\cdot\dket{\Phi_k}
+$
+the (Page--Wootters) ``history vector'' to be plugged in \eqref{eq:3lev:PWComparison}
+for comparison with standard quantum mechanics.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
 
 %%
 %%
 %%
 %%
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % P-W
 
