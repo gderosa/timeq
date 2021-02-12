@@ -206,7 +206,7 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 \end{lstlisting}
 
 
-\subsection{Complex potential -- non-Hermitian evolution}
+\subsection{Complex potential -- non-Hermitian evolution}\label{sec:3lev:complexPotential}
 
 In a similar fashion to what seen in Section \ref{sec:hist:detect},
 the Hermitian Hamiltonian $\hat{H}$, from eq.~\eqref{eq:3lev:H},
@@ -704,6 +704,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
       evolution (continuous lines).
     }
   \end{fullpage}
+  \label{label{fig:3lev:PWSpaceTimeFit}
 \end{figure}
 
 \subsection{Time-of-arrival probability distribution}
@@ -722,7 +723,7 @@ same paper,
   quantum system'', where ``something'' means ``a system
   observable property taking some value (\dots)''.
 \end{quote}
-Rather than spin up or down, in the present example, the arrival at level $\ket{2}$
+Rather than spin up or down, in the present example, the arrival time at level $\ket{2}$
 can be derived:
 \begin{equation}\label{eq:3lev:bayesPW}
   P_{(n|2)} = \frac{
@@ -732,8 +733,13 @@ can be derived:
   }
   \text{,}
 \end{equation}
-which gives the (conditional, \term{Bayesian}) probability that, given that a detection of $\ket{2}$ happens
+which gives the (conditional, \term{Bayesian}) probability that, given that a detection of $\ket{2}$
+happens
 within $t \in [0, \Delta T]$, it happens at time $t_n$ (or, rather, between $t_n$ and $t_{n+1}$).
+
+On the other hand, and outside the Page--Wootters formalism,
+the absorptive detector model
+(see e.g. Sec.~\ref{sec:3lev:complexPotential} or Fig.~\ref{fig:3lev:loss})
 
 
 \begin{figure}[]
