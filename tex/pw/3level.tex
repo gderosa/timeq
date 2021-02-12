@@ -713,24 +713,28 @@ for the three-level system at hand, within the Page--Wootters formalism.
 In a finite-dimensional
 Hilbert space there's no notion of position or ``region of space'', but, as stated in the
 same paper,
-\begin{blockquote}
+\begin{quote}
   But the whole discussion can be easily extended to the “time at which any
   event happens”. For example, if one considers a spin instead of a particle on a line, one can define the “time at
   which the spin is up”.
   
   (\dots) the notion of ``event'' in quantum mechanics defined as ``something that happens to a
   quantum system'', where ``something'' means ``a system
-  observable property taking some value P''.
-\end{blockquote}
+  observable property taking some value (\dots)''.
+\end{quote}
 Rather than spin up or down, in the present example, the arrival at level $\ket{2}$
 can be derived:
-\begin{equation}
+\begin{equation}\label{eq:3lev:bayesPW}
   P_{(n|2)} = \frac{
     \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
   }{
     \sum_{n=0}^{N_{T} - 1} \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
   }
+  \text{,}
 \end{equation}
+which gives the (conditional, \term{Bayesian}) probability that, given that a detection of $\ket{2}$ happens
+within $t \in [0, \Delta T]$, it happens at time $t_n$ (or, rather, between $t_n$ and $t_{n+1}$).
+
 
 \begin{figure}[]
   \centering
