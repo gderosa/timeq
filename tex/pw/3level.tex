@@ -706,37 +706,31 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
   \end{fullpage}
 \end{figure}
 
-% \begin{figure}[]
-%   \begin{subfigure}{\textwidth}
-%       \centering
-%       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
-%       \subcaption{3-D plot: side view}
-%       \label{fig:3lev:PWSpaceTimeFit:side}
-%   \end{subfigure}
-%   \caption{
-%     Discrete Page--Wooters results
-%     interpolate
-%     continuous time evolution according to the Schroedinger equation.
-%     See also Fig.~\ref{fig:3lev:PWSpaceTimeFit:top}.
-%   }
-% \end{figure}
-% \begin{figure}[]\ContinuedFloat
-%   \begin{subfigure}{\textwidth}
-%       \centering
-%       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
-%       \subcaption{3-D plot: top view}
-%       \label{fig:3lev:PWSpaceTimeFit:top}
-%   \end{subfigure}
-%   \caption{
-%     \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
-%     Discrete Page--Wooters results
-%     interpolate continuous
-%     time evolution according to the Schroedinger equation.
-%   }
-%   \label{fig:3lev:PWSpaceTimeFit}
-% \end{figure}
-
 \subsection{Time-of-arrival probability distribution}
+
+From \cite{Maccone:QMOT}, a time-of-arrival probability distribution can be derived
+for the three-level system at hand, within the Page--Wootters formalism.
+In a finite-dimensional
+Hilbert space there's no notion of position or ``region of space'', but, as stated in the
+same paper,
+\begin{blockquote}
+  But the whole discussion can be easily extended to the “time at which any
+  event happens”. For example, if one considers a spin instead of a particle on a line, one can define the “time at
+  which the spin is up”.
+  
+  (\dots) the notion of ``event'' in quantum mechanics defined as ``something that happens to a
+  quantum system'', where ``something'' means ``a system
+  observable property taking some value P''.
+\end{blockquote}
+Rather than spin up or down, in the present example, the arrival at level $\ket{2}$
+can be derived:
+\begin{equation}
+  P_{(n|2)} = \frac{
+    \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
+  }{
+    \sum_{n=0}^{N_{T} - 1} \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
+  }
+\end{equation}
 
 \begin{figure}[]
   \centering
