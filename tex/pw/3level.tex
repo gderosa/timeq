@@ -93,7 +93,7 @@ def prob(t):
 \end{lstlisting}
 Such probabilities over time are shown in Figure \ref{fig:3lev:probs}. 
 
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3lines.pdf}
@@ -141,7 +141,7 @@ plot in Fig.~\ref{fig:3lev:hermitianEvol}.
 Once again, the two horizontal axes are used for the real and imaginary part of
 $\braket{0, 1, 2}{\psi(t)}$,
 while the independend variable $t$ (time) is represented on the vertical axis.
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[t]{\textwidth}
     \centering
     \includegraphics[height=0.45\textheight,clip,trim=80 180 40 140]{img/3ldetect/hermitianSpaceTime_side.pdf}
@@ -234,7 +234,7 @@ It appears clearly, in Fig. \ref{fig:3lev:loss3color},
 that the norm of the state vector is not
 conserved, but decreases monotonically. 
 %
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
@@ -265,7 +265,7 @@ conserved, but decreases monotonically.
   \label{fig:3lev:nonHermitianProbs}
 \end{figure}
 %
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[height=0.41\textheight,clip,trim=0 90 40 140]{img/3ldetect/NonHermitianSpaceTime_side.pdf}
@@ -336,7 +336,7 @@ norms_extended[-1]**2
 \end{lstlisting}
 i.e. roughly 6\% of non-absorption probabilty.
 %
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[width=\textwidth]{img/3ldetect/loss3color_ext.pdf}
@@ -651,7 +651,7 @@ and ``standard'' quantum evolution (continuous line).
 Page--Wootters ``history vector'' components are also shown on their own
 in Fig.~\ref{fig:3lev:PWSpaceTime}. 
 
-\begin{figure}[h]
+\begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
     \centering
     \includegraphics[height=0.41\textheight,clip,trim=0 90 0 140]{img/3ldetect/PWSpaceTime_side.pdf}
@@ -672,39 +672,73 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
   \label{fig:3lev:PWSpaceTime}
 \end{figure}
 
-\begin{figure}[h]
-  \begin{subfigure}{\textwidth}
-      \centering
+% Uses dpfloat and \ContinuedFloat
+\begin{figure}[p] % will be the left-side figure
+  \begin{leftfullpage}
+    \begin{subfigure}{\textwidth}
       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
       \subcaption{3-D plot: side view}
       \label{fig:3lev:PWSpaceTimeFit:side}
-  \end{subfigure}
-  \caption{
-    Discrete Page--Wooters results
-    interpolate
-    continuous time evolution according to the Schroedinger equation.
-    See also Fig.~\ref{fig:3lev:PWSpaceTimeFit:top}.
-  }
+    \end{subfigure}
+    \caption{
+      Discrete Page--Wooters results (points)
+      interpolate
+      Schr\"{o}dinger
+      evolution (continuous lines).
+      \textit{See also Fig.~\ref{fig:3lev:PWSpaceTimeFit:top}}.
+    }
+  \end{leftfullpage}
 \end{figure}
-\begin{figure}[h]\ContinuedFloat
-  \begin{subfigure}{\textwidth}
-      \centering
+\begin{figure}[p]\ContinuedFloat % will be the right-side figure
+  \begin{fullpage}
+    \begin{subfigure}{\textwidth}
       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
       \subcaption{3-D plot: top view}
       \label{fig:3lev:PWSpaceTimeFit:top}
-  \end{subfigure}
-  \caption{
-    \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
-    Discrete Page--Wooters results
-    interpolate continuous
-    time evolution according to the Schroedinger equation.
-  }
-  \label{fig:3lev:PWSpaceTimeFit}
+    \end{subfigure}
+    \caption{
+      \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
+      Discrete Page--Wooters results (points)
+      interpolate
+      Schr\"{o}dinger
+      evolution (continuous lines).
+    }
+  \end{fullpage}
 \end{figure}
+
+% \begin{figure}[]
+%   \begin{subfigure}{\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_side.pdf}
+%       \subcaption{3-D plot: side view}
+%       \label{fig:3lev:PWSpaceTimeFit:side}
+%   \end{subfigure}
+%   \caption{
+%     Discrete Page--Wooters results
+%     interpolate
+%     continuous time evolution according to the Schroedinger equation.
+%     See also Fig.~\ref{fig:3lev:PWSpaceTimeFit:top}.
+%   }
+% \end{figure}
+% \begin{figure}[]\ContinuedFloat
+%   \begin{subfigure}{\textwidth}
+%       \centering
+%       \includegraphics[width=\textwidth]{img/3ldetect/PWSpaceTimeFit_top.pdf}
+%       \subcaption{3-D plot: top view}
+%       \label{fig:3lev:PWSpaceTimeFit:top}
+%   \end{subfigure}
+%   \caption{
+%     \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
+%     Discrete Page--Wooters results
+%     interpolate continuous
+%     time evolution according to the Schroedinger equation.
+%   }
+%   \label{fig:3lev:PWSpaceTimeFit}
+% \end{figure}
 
 \subsection{Time-of-arrival probability distribution}
 
-\begin{figure}[h]
+\begin{figure}[]
   \centering
   \includegraphics[width=\textwidth]{img/3ldetect/conditionalProbFit.pdf}
   \caption{Foo.}
