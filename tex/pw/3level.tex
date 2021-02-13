@@ -685,7 +685,6 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
       interpolate
       Schr\"{o}dinger
       evolution (continuous lines).
-      \textit{See also Fig.~\ref{fig:3lev:PWSpaceTimeFit:top}}.
     }
     \label{fig:3lev:PWSpaceTimeFit}
   \end{leftfullpage}
@@ -726,7 +725,7 @@ same paper,
 Rather than spin up or down, in the present example, the arrival time at level $\ket{2}$
 can be derived:
 \begin{multline}\label{eq:3lev:bayesPW}
-  P_{n|2}^{PW} \eqbydef P_{\big( n \big| 2, \left[0,\Delta{T}\right] \big)}^{PW} = \frac{
+  P^{PW}(t_n|2) \eqbydef P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) = \frac{
     \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
   }{
     \sum_{n'=0}^{N_{T} - 1} \abs{\bra{t_{n'}} \ox \bra{2} \cdot \dket{\Psi}}^2
@@ -752,8 +751,8 @@ Thus, the \emph{conditional} probability density that
 }
 of the system at $\ket{2}$ happens within $t \in [0, \Delta{T}]$---
 it does happen at a particular time $t$ is
-\begin{equation}
-  p(t|2) \eqbydef p\Big(t   \:\Big|\:   2,[0,\Delta{T}]\Big)
+\begin{equation}\label{3lev:condProb}
+  p(t|2) \eqbydef p\big(t   \:\big|\:   2,[0,\Delta{T}]\big)
   =
   \frac{
     - \dv{\norm{\psi}^2}{t}
@@ -766,12 +765,27 @@ it does happen at a particular time $t$ is
   }{
     \norm{\psi(0)}^2 - \norm{\psi(\Delta{T})}^2
   }
+  \;\text{.}
 \end{equation}
 
-
+The ``state of arrival'' in \eqref{3lev:condProb} is $\ket{2}$
+because the operator
+in \eqref{eq:3lev:nonUnitaryH:antiHermitianTerm}
+is essentially $\hat{D} = \gamma \ketbra{2}$. The same
+state has been chosen in \eqref{eq:3lev:bayesPW}
+to allow a comparison. However, $P^{PW}(t_n|2)$ is a probability,
+while $p(t|2)$ is a probability \emph{density}.
+Therefore, the \eqref{eq:3lev:bayesPW} should be divided by $\delta T$,
+i.e. the duration of the time interval the probability refers to,
+before being plotted in Fig~\ref{fig:3lev:condProb},
+where the two models show indeed fully compatible results.
 \begin{figure}[]
   \centering
   \includegraphics[width=\textwidth]{img/3ldetect/conditionalProbFit.pdf}
-  \caption{Foo.}
-  %\label{fig:psi_V}
+  \caption{
+    Conditional probability density for time of arrival at state $\ket{2}$.
+    Discrete points: $P^{PW}(t_n|2) / \delta{T}$ (Page--Wootters).
+    Continuous line: $p(t|2)$ (detector model).
+  }
+  \label{fig:3lev:condProb}
 \end{figure}

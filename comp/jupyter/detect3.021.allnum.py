@@ -745,9 +745,9 @@ Y = Y / bayes_denominator
 # %%
 # fig, ax = plt.subplots(figsize=(12, 8), dpi=300)
 fig, ax = plt.subplots(figsize=(12, 8))
-ax.set_xlabel('t')
+ax.set_xlabel('(t_n) t')
 ax.set_ylabel('Detection probability density')
-ax.plot(X, Y, 'bs', label='Page-Wootters (Maccone / Sacha -- Bayesian / conditional)')
+ax.plot(X, Y, 'bs', label='Discrete Page-Wootters')
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw,
         c='y', linewidth=2, label='Detector model (normalization loss)')
 ax.legend()
