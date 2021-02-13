@@ -1,6 +1,6 @@
-\section{Page--Wootters and detector absorption models}\label{sec:absorption+pw}
+\section{Page--Wootters and detector models}\label{sec:absorption+pw}
 
-The detector absoption model in \cite{RuschhauptAbsorption} is not originally
+The detector absorption model in \cite{RuschhauptAbsorption} is not originally
 based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
 in the sense that states are in $\hilb{H}_S$ with an external parameter time;
 but, contrary to quantum mechanics, the potential can be \emph{complex},
@@ -42,8 +42,10 @@ It reads:
   $\hat{\psi}$ is a wave function in a time representation. For each
   $t$, $\hat{\psi}(t)$ lies in the original Hilbert space $H$.
 \end{quote}
-Therefore we ``translate'' $\hat{\psi}(t)$ into $\ket{\phi(t)}_S$
-and, consequently, $\abs{\hat{\psi}(t)}^2$ into $\braket{\phi(t)}$,
+Therefore we ``translate''
+$$\hat{\psi}(t) \text{ into } \ket{\phi(t)}_S$$
+and, consequently,
+$$\abs{\hat{\psi}(t)}^2 \text{ into } \braket{\phi(t)} \text{,}$$
 in the language of the Page--Wootters model and within the notation
 adopted.
 
@@ -128,7 +130,7 @@ $\mathit{K}_S = \hat{H}_S - \iu \hat{D}_S$
 where the subscript $_S$ has been added to stress
 that they would act on the $\hilb{H}_S$ part
 of the Page--Wootters' $\pwspace$ ``spacetime'':
-\begin{equation}
+\begin{equation}\label{eq:pwHamiltonian:nonUnitary}
   \mathbb{J} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\qty(\hat{H}_S -\iu \hat{D}_S) \,\text{.}
 \end{equation}
 $\hat{H}_S$ and $\hat{D}_S$ are the same as $\hat{H}$ and $\hat{D}$

@@ -1,7 +1,8 @@
-\documentclass{book}
+\documentclass[a4paper,12pt]{book}
 
 \usepackage{xcolor}
 \usepackage{lipsum}  %% dev
+\usepackage{dpfloat}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
@@ -19,9 +20,11 @@
   \captionsetup{subrefformat=parens}
 \usepackage{color}
 \ifscr
-  \usepackage[a4paper,includehead,includefoot,textwidth=\textwidth,textheight=\textheight,paperwidth=\textwidth+0.5in,paperheight=\textheight+1in]{geometry}
+  %% Cropped version, for screen display
+  \usepackage[a4paper,lmargin=1cm,rmargin=1cm,paperwidth=\paperwidth-4cm,paperheight=\paperheight-4.5cm,tmargin=0.85cm,bmargin=1.25cm,includeheadfoot]{geometry}
 \else
-  \usepackage[a4paper,includehead,includefoot,textwidth=\textwidth,textheight=\textheight]{geometry}
+  %% Default version, for print
+  \usepackage[a4paper,lmargin=4cm]{geometry}
 \fi
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
@@ -32,7 +35,7 @@
   \fancyhead[RO]{\thepage}
 % https://tex.stackexchange.com/a/1557
 % https://tex.stackexchange.com/a/176939
-\usepackage[safeinputenc,style=authoryear-icomp,maxcitenames=3,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
+\usepackage[safeinputenc,style=authoryear-icomp,mincitenames=1,maxcitenames=2,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
 %\usepackage[safeinputenc,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
 \usepackage{environ}
 \usepackage{csquotes}
@@ -47,30 +50,42 @@
   \lstset{
     frame = single,
     rulecolor=\color{lightgray},
-    basicstyle=\footnotesize\ttfamily,
+    basicstyle=\setstretch{1.2}\scriptsize\ttfamily,
     commentstyle=\color{gray},
     keywordstyle=\color{blue},
     stringstyle=\color{red},
     fancyvrb=true,
     breaklines=true,
+    aboveskip=1.1em,
+    belowskip=0.4em,
     %identifierstyle=\color{green!40!black}
   }
 \usepackage{setspace}
+\usepackage{etoolbox}
 \usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
   %% pdfusetitle would not render the ket <1| correctly -- title is a plain text
   pdftitle={It's |1> o'clock -- Relational Time and Applications},
   colorlinks,
-  citecolor=green!75!black,
+  citecolor=green!66!black,
   linkcolor=red!75!black,
   urlcolor=magenta!75!black
 ]{hyperref}
 % https://tex.stackexchange.com/a/65547
 \usepackage{bookmark}
 
-
 \input{tex/lib}
 
 \renewcommand{\arraystretch}{1.6}
+
+%% per UCC recommendation
+% \renewcommand{\baselinestretch}{1.5}
+\setstretch{1.5}
+% \onehalfspacing
+% \doublespacing
+%
+% https://tex.stackexchange.com/a/325704
+\AtBeginEnvironment{quote}{\singlespace\vspace{-\topsep}}
+\AtEndEnvironment{quote}{\vspace{-\topsep}\endsinglespace}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
 \title{It's $\ket{1}$ o'clock -- Relational Time and Applications}
