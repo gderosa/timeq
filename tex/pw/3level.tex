@@ -789,3 +789,63 @@ where the two models show indeed fully compatible results.
   }
   \label{fig:3lev:condProb}
 \end{figure}
+
+Relevant portion of code to compute the \eqref{eq:3lev:bayesPW} follows.
+Values of probability density
+$\frac{1}{\delta{T}}  P^{PW}(t_n|2)$
+are stored in the array \Verb|Y|:
+\begin{lstlisting}[language=Python]
+# [...]
+def tn_ox_arrived(n):
+  # tensor product
+  return np.kron(t_eigenstate(n), arrived_state)
+
+history_normalized = history / norm(history)  ## normalized in H_T \otimes H_S
+
+def joint_prob(n):
+  return np.abs(tn_ox_arrived(n) @ history_normalized)**2
+
+X = np.arange(NT)
+iterable = (joint_prob(n) for n in X)
+Y = np.fromiter(iterable, float)
+dT  = DT / (NT)
+
+# A "time bin"
+X = X * dT # real time
+Y = Y / dT # probability _density_
+
+bayes_denominator = np.sum(Y * dT)
+Y = Y / bayes_denominator
+\end{lstlisting}
+
+The \eqref{3lev:condProb} is partly implemented
+directly in the plotting code:
+\begin{lstlisting}[language=Python]
+ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw,
+c='y', linewidth=2, label='Detector model (normalization loss)')
+\end{lstlisting}
+particularly with the espression
+\lstinline{-np.gradient(norms**2, times) / bayesian_denominator_nonpw}.
+The array \Verb!norms! was previsouly assigned values of $\norm{\psi(t)}$
+while computing the non-unitary evolution for the problem in Sec.~\ref{sec:3lev:complexPotential}.
+Here, explicitly:
+\begin{lstlisting}[language=Python]
+# [...]
+def B(_t, _gamma=GAMMA):
+  return expm(-1j*K(_gamma)*_t)
+
+def non_unitary_psi(_t, _gamma=GAMMA):
+  return B(_t, _gamma) @ psi_0
+
+# [...]
+_iter_norm = (norm(non_unitary_psi(_t)) for _t in times)
+norms = np.fromiter(_iter_norm, np.float)
+\end{lstlisting}
+where, again, the function \Verb!K()! returns the matrix in \eqref{eq:3lev:nonUnitaryH}.
+As per the ``Bayesian denominator'':
+\begin{lstlisting}[language=Python]
+# loss of normalization, or integral of antiderivative...
+bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2
+\end{lstlisting}
+
+Full code for this Section can be consulted at Appendix \ref{toa-prob-as-in-macconesacha-arxiv1810.12869}.

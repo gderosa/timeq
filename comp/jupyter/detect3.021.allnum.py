@@ -337,7 +337,7 @@ plt.show()
 
 # %%
 # loss of normalization, or integral of antiderivative...
-bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2  # TODO! explain/replace
+bayesian_denominator_nonpw = 1 - norm(evolution.T[NPLOTPOINTS-1])**2
 
 # %%
 fig, ax = plt.subplots(figsize=(12, 8))
