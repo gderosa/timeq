@@ -15,7 +15,7 @@ A three-level atom (or a three-level quantum system in general) appears
 naturally
 as
 the next computational step;
-but far from being merely another excercise
+but far from being merely another exercise
 ---just at a slightly higher level of complexity
 but otherwise showing, essentially, the same physics---
 it is in fact the \emph{minimal} system \emph{required}
@@ -27,7 +27,7 @@ and the
 \term{Electromagnetically induced transparency}
 ---EIT \parencite{EIT_Review}.
 
-Also, it wil be shown that a three-level atom can model
+Also, it is shown that a three-level atom can model
 a more robust and realistic
 detector for time-of-arrival measurement, compared to the one implemented
 with a two-level atom (as introduced in Sec.~\ref{sec:hist:detect}).
@@ -100,7 +100,7 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
     \subcaption{
       Probabilities for the three-level system.
       \emph{Note}:
-        a three-level system allows a graphical representaion
+        a three-level system allows a graphical representation
         where primary colors can be combined
         (see the bar at the bottom) to immediately
         visualize which probability dominates.
@@ -140,7 +140,7 @@ are represented in the three-dimensional
 plot in Fig.~\ref{fig:3lev:hermitianEvol}.
 Once again, the two horizontal axes are used for the real and imaginary part of
 $\braket{0, 1, 2}{\psi(t)}$,
-while the independend variable $t$ (time) is represented on the vertical axis.
+while the independent variable $t$ (time) is represented on the vertical axis.
 \begin{figure}[]
   \begin{subfigure}[t]{\textwidth}
     \centering
@@ -178,7 +178,7 @@ in proportion to the probabilities $\abs{\braket{i}{\psi(t)}}$
 respectively for $i = 0, 1, 2$. This allows an immediate visualization
 of which level, $\ket{0}$, $\ket{2}$ or $\ket{2}$, predominates statistically, if any.
 To better clarify this with an example,
-a snippet of the implemtation of Fig. \ref{fig:3lev:probs} follows.
+a snippet of the implementation of Fig. \ref{fig:3lev:probs} follows.
 \begin{lstlisting}[language=Python]
 # [...]
 import matplotlib
@@ -323,7 +323,7 @@ The result is about $94\%$.
 0.9414855990054901
 \end{lstlisting}
 It's also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
-meaning there is a finite probabilty that detection (or ``absorption'', or spontaneous decay) never happens:
+meaning there is a finite probability that detection (or ``absorption'', or spontaneous decay) never happens:
 \begin{equation*}
   P_{\mathrm{nd}} = \lim_{t \rightarrow +\infty} 1 - \norm{\psi(t)}^2 \text{.}
 \end{equation*}
@@ -334,7 +334,7 @@ norms_extended[-1]**2
 \begin{lstlisting}
 0.05684539507975811
 \end{lstlisting}
-i.e. roughly 6\% of non-absorption probabilty.
+i.e. roughly 6\% of non-absorption probability.
 %
 \begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
@@ -440,7 +440,7 @@ eigenvectors = eigenvectors.T
 where the Python function \verb|K()| is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
 
 Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense
-of a state vector $\ket{\psi(t)}$ statisfying
+of a state vector $\ket{\psi(t)}$ satisfying
 $\norm{\psi(0)}^2=1$ or,
  in Page--Wootters terms,
  a vector $\dket{\Psi}$, in $\pwspace$, satisfying
@@ -488,7 +488,7 @@ the \Verb|histories[i]|
 correspond to the $\dket{\Phi_i}$ in Eq.~\eqref{eq:3lev:correction}.
 They are named \Verb!histories! because each of them
 (and any linear combination, per quantum superposition principle)
-encodes a possible evolution (altough with discrete time resolution)
+encodes a possible evolution (although with discrete time resolution)
 of the system along the whole time interval $[0, \Delta T]$.
 
 A comparison can be made, in principle, between the quantities
@@ -509,8 +509,8 @@ so that
 
 As there isn't an individual $\dket{\Phi_i}$,
 in our numeric example,
-satisying the \eqref{eq:3lev:PWInitialCond},
-a suitabe linear combination
+satisfying the \eqref{eq:3lev:PWInitialCond},
+a suitable linear combination
 $\dket{\Psi} \eqbydef \sum_{i=0}^{N_{T}N_{S}-1} c_{i}\dket{\Phi_i}$
 needs to be found. Algebraically, the problem consists in
 $N_{S}$ linear equations
@@ -646,7 +646,7 @@ from ``ordinary'' quantum mechanics, $
 $.
 
 Such comparison is visualized in Fig.~\ref{fig:3lev:PWSpaceTimeFit},
-showing excellent agreement between the discrete Page--Wooters model (square points)
+showing excellent agreement between the discrete Page--Wootters model (square points)
 and ``standard'' quantum evolution (continuous line).
 Page--Wootters ``history vector'' components are also shown on their own
 in Fig.~\ref{fig:3lev:PWSpaceTime}. 
@@ -664,7 +664,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
     \caption{3-D plot: top view.}
   \end{subfigure}
   \caption{
-    Components (complex values) of the discrete-Page--Wooters vector
+    Components (complex values) of the discrete-Page--Wootters vector
     $\dket{\Psi} \in \pwspace$
     (``evolution without evolution'').
     Can be compared with Fig.~\ref{fig:3lev:nonHermitianEvol}.
@@ -681,7 +681,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
       \label{fig:3lev:PWSpaceTimeFit:side}
     \end{subfigure}
     \caption{
-      Discrete Page--Wooters results (points)
+      Discrete Page--Wootters results (points)
       interpolate
       Schr\"{o}dinger
       evolution (continuous lines).
@@ -698,7 +698,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
     \end{subfigure}
     \caption{
       \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
-      Discrete Page--Wooters results (points)
+      Discrete Page--Wootters results (points)
       interpolate
       Schr\"{o}dinger
       evolution (continuous lines).
@@ -826,9 +826,9 @@ directly in the plotting code:
 ax.plot(times, -np.gradient(norms**2, times) / bayesian_denominator_nonpw,
 c='y', linewidth=2, label='Detector model (normalization loss)')
 \end{lstlisting}
-particularly with the espression
+particularly with the expression
 \lstinline{-np.gradient(norms**2, times) / bayesian_denominator_nonpw}.
-The array \Verb!norms! was previsouly assigned values of $\norm{\psi(t)}$
+The array \Verb!norms! was previously assigned values of $\norm{\psi(t)}$
 while computing the non-unitary evolution for the problem in Sec.~\ref{sec:3lev:complexPotential}.
 Here, explicitly:
 \begin{lstlisting}[language=Python]
