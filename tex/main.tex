@@ -8,19 +8,29 @@
 
 \maketitle
 
+\chapter*{Declaration of Authorship}
+\markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{chapter}{Declaration of Authorship}
+\input{tex/pre/declaration}
+
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{chapter}{Abstract}
+\input{tex/pre/abstract}
+
+\chapter*{Acknowledgements}
+\markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{tex/pre/thanks}
+
 % https://tex.stackexchange.com/a/65547
 \cleardoublepage
-\pdfbookmark[section]{\contentsname}{toc}
+\pdfbookmark[chapter]{\contentsname}{toc}
 \tableofcontents
 
 \listoffigures
 
 \listoftables
-
-\chapter*{Abstract}
-\markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Abstract}
-\input{tex/abstract/abstract}
 
 \mainmatter
 
@@ -61,14 +71,6 @@
 \input{tex/co/discussion}
 \input{tex/rel/pwkg}
 \input{tex/co/misc.tex}
-
-\iftodo
-  \chapter*{Acknowledgements}
-  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter X".
-\addcontentsline{toc}{chapter}{Acknowledgements}
-
-  \input{tex/thanks/thanks.tex}
-\fi
 
 % appendices
 \appendix
