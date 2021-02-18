@@ -8,6 +8,8 @@
 
 \maketitle
 
+\begin{spacing}{1.15}
+
 \chapter*{Declaration of Authorship}
 \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
 \addcontentsline{toc}{chapter}{Declaration of Authorship}
@@ -18,12 +20,10 @@
 \addcontentsline{toc}{chapter}{Abstract}
 \input{tex/pre/abstract}
 
-\begin{spacing}{1.15}
-  \chapter*{Acknowledgements}
-  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{chapter}{Acknowledgements}
-  \input{tex/pre/thanks}
-\end{spacing}
+\chapter*{Acknowledgements}
+\markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{chapter}{Acknowledgements}
+\input{tex/pre/thanks}
 
 % https://tex.stackexchange.com/a/65547
 \cleardoublepage
@@ -33,6 +33,8 @@
 \listoffigures
 
 \listoftables
+
+\end{spacing}
 
 \mainmatter
 
