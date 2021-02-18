@@ -33,6 +33,14 @@
   \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
   \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
   \fancyhead[RO]{\thepage}
+\fancypagestyle{nomark}{%
+  \fancyhf{}
+  \fancyhead[LE]{\thepage}
+  \fancyhead[RE]{}
+  \fancyhead[LO]{}
+  \fancyhead[RO]{\thepage}
+}
+
 % https://tex.stackexchange.com/a/1557
 % https://tex.stackexchange.com/a/176939
 \usepackage[safeinputenc,style=authoryear-icomp,mincitenames=1,maxcitenames=2,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
@@ -40,7 +48,7 @@
 \usepackage{environ}
 \usepackage{csquotes}
 \usepackage{epigraph}
-  \setlength{\epigraphwidth}{.6\textwidth}
+  \setlength{\epigraphwidth}{.7\textwidth}
 \usepackage{fancyvrb}
   \fvset{
     frame = single,
