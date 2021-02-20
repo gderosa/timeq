@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{book}
 
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{lipsum}  %% dev
 \usepackage{dpfloat}
 \usepackage{amsmath}
@@ -48,12 +48,13 @@
 \usepackage{environ}
 \usepackage{csquotes}
 \usepackage{epigraph}
-  \setlength{\epigraphwidth}{.7\textwidth}
+  \setlength{\epigraphwidth}{.75\textwidth}
 \usepackage{fancyvrb}
   \fvset{
     frame = single,
     rulecolor=\color{lightgray}
   }
+\usepackage{footnote}
 \usepackage{listings}
   \lstset{
     frame = single,
@@ -70,14 +71,17 @@
   }
 \usepackage{setspace}
 \usepackage{etoolbox}
-\usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
+\usepackage[  %% be (almost) the last -- https://tex.stackexchange.com/a/326953
   %% pdfusetitle would not render the ket <1| correctly -- title is a plain text
   pdftitle={It's |1> o'clock -- Relational Time and Applications},
-  colorlinks,
-  citecolor=green!66!black,
-  linkcolor=red!75!black,
-  urlcolor=magenta!75!black
+  colorlinks
 ]{hyperref}
+\hypersetup{
+  linkcolor=[rgb]{0.0, 0.1, 0.4},
+  citecolor=[rgb]{0.0, 0.4, 0.0},
+  urlcolor= [rgb]{0.0, 0.1, 0.4}
+}
+
 % https://tex.stackexchange.com/a/65547
 \usepackage{bookmark}
 
