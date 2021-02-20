@@ -12,33 +12,37 @@
 \maketitle
 
 \begin{spacing}{1.2}
+  \chapter*{Declaration of Authorship}
+  \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Declaration of Authorship}
+  \input{tex/pre/declaration}
 
-\chapter*{Declaration of Authorship}
-\markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Declaration of Authorship}
-\input{tex/pre/declaration}
+  \chapter*{Abstract}
+  \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Abstract}
+  \input{tex/pre/abstract}
 
-\chapter*{Abstract}
-\markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Abstract}
-\input{tex/pre/abstract}
+  \chapter*{Acknowledgements}
+  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+  \input{tex/pre/thanks}
+  %
+  \input{tex/pre/dedica}
 
-\chapter*{Acknowledgements}
-\markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Acknowledgements}
-\input{tex/pre/thanks}
-%
-\input{tex/pre/dedica}
+  {
+    \hypersetup{
+    linkcolor = white!20!black
+    }
 
-% https://tex.stackexchange.com/a/65547
-\cleardoublepage
-\pdfbookmark[chapter]{\contentsname}{toc}
-\tableofcontents
+    % https://tex.stackexchange.com/a/65547
+    \cleardoublepage
+    \pdfbookmark[chapter]{\contentsname}{toc}
+    \tableofcontents
 
-\listoffigures
+    \listoffigures
 
-\listoftables
-
+    \listoftables
+  }
 \end{spacing}
 
 \mainmatter
