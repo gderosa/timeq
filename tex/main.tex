@@ -6,10 +6,12 @@
 
 \frontmatter
 
+\pagenumbering{alph}
 \pdfbookmark[chapter]{Front}{front}
 \input{tex/pre/front}
 
-\maketitle
+\pagenumbering{roman}
+\maketitle    
 
 \begin{spacing}{1.2}
   \chapter*{Declaration of Authorship}
@@ -31,7 +33,7 @@
 
   {
     \hypersetup{
-      linkcolor = black!75!white
+      linkcolor = .
     }
 
     % https://tex.stackexchange.com/a/65547
