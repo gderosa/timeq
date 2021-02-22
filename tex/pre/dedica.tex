@@ -4,10 +4,19 @@
 
 \begin{savenotes}  % Useful if you use \footnote(s) inside \epigraph
 
+  % The environment prevents this settings to affect the rest of the document.
+
+  %\renewcommand{\textflush}{flushright}
+  \setlength{\epigraphwidth}{30ex}
+
   \epigraph{\small
-    I owe \emph{Alice} a lot!
+    I owe \emph{Alice} a lot!%\\
+    % We don't interact,\\
+    % we live far apart,\\
+    % yet our states (of impurity)\\
+    % are correlated.
   }{\small
-    \emph{Bob}
+    \emph{Bob}%\hspace{1pt}\footnote{ Based on a true story. }
   }
 
 \end{savenotes}
