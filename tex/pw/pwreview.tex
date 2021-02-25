@@ -1,6 +1,6 @@
 \section{Page--Wootters basics and recent developements}
 
-\subsection{Model}
+\subsection{The model}
 
 The Page and Wootters model of ``evolution without evolution'',
 first proposed in 1983,
@@ -129,7 +129,8 @@ mechanics and can be expressively synthesized in the below:
   \end{table}
 }
 
-TODO: THIS IS DONE IN LAST CHAPTER AND TABLE COMPLETED!
+TODO: REMOVE SECOND TABLE AND TREAT IN THE RELATIVISTIC CHAPTER/SECTION.
+THE FOLLOWING PARAGRAPH IS REDUNDANT.
 It would be interesting to a study relativistic extension of the
 Page and Wootters model that allows, for example, the derivation of the Klein-Gordon
 equation, thus eliminating the asimmetry between
@@ -231,15 +232,28 @@ which is aimed at, instead, in the present work, to some extent.
   \emph{Physics and the Integers} \parencite{Tong_Integers}%
 }
 
-\noindent{}%
-This has been tackled, for example, in \cite{FiniteHilb},
-where it has been shown that the lack of operators satisfying the canonical
-commutation relation \eqref{eq:canonical_commutation_in_time}
-is not essential to build operators representing physical observables
-with the same role of position and momentum (or $T$ and $\hbar\Omega$
-in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model).
+The experiment mentioned in Sec. \ref{sec:pw:qubit}
+is based on a two-level clock
+The ``frequency'' observable is defined and implemented experimentally
+but the \emph{time} operator is not defined or calculated.
+In finite-dimension Hilbert spaces
+there are diffilcuties in identifying canonically conjugate
+pairs and one cannot use the same explicit formalism
+that would be used for observables with a continuous spectrum.
+Moreover, operators satisfying a canonical
+commutation relation like \eqref{eq:canonical_commutation_in_time}
+cannot be both bounded, which excludes finit-dimensional systems.
 
-Discrete, bounded position and momentum operators can be derived from
+This problem was studied in detail in
+\cite{FiniteHilb}. It was shown therein
+that statisfying the canonical commutation relation 
+is not essential to build operators representing physical observables
+with the same role of position and momentum.\footnote{
+  Or $T$ and $\hbar\Omega$
+  in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model.
+}
+
+Discrete, bounded position-like and momentum-like operators can be obtained from
 each other via
 the \term{finite Fourier transform}.
 In our case, we are particularly interested in relating the
@@ -314,7 +328,7 @@ but in the sense of conversion between representations of the
 same quantum state vector with respect to different eigenbasis,
 in full analogy with position and momentum in $\hilb{H}_S$.
 
-\subsubsection{Uncertainty}\label{sec:finite_uncertainty}
+\subsubsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
 $\hat{q}$ and $\hat{p} \eqbydef -i\hbar\hat{\partial}_{q}$,
