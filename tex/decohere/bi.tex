@@ -12,7 +12,7 @@ are indicated as
 $$
   \setof{\ket{i_A}} \text{ and } \setof{\ket{\mu_B}}\,
 $$
-with latin and greek indices to label base vectors in the two spaces.
+with latin and greek indices to label basis vectors in the two spaces.
 We will follow such convention unless otherwise specified.
 
 This indicates potentially different physical roles for the two spaces,
@@ -30,20 +30,20 @@ not all vectors can be expressed as a tensor product as in \eqref{eq:separableAB
 However, the following holds:
 
 \begin{proposition}\label{TensorBase}
-The set of tensor products of base vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
+The set of tensor products of basis vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
 i.e. $$\setof{\ket{i_A} \otimes \ket{\mu_B}}_{i\mu},$$
-is a basis for $\hilb{H}_A \otimes \hilb{H}_B$
+is a basis for $\hilb{H}_A \otimes \hilb{H}_B$.
 \end{proposition}
 Therefore, we can express any
 (generally not separable) state vector of $\hilb{H}_S$
-as a \emph{superposition} of separable base vectors
+as a \emph{superposition} of separable basis vectors
 \begin{equation}\label{eq:bipartite_expansion}
-  \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i_A}\otimes\ket{\mu_B} \neq \ket{\psi_A}\otimes\ket{\psi_B},
+  \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i_A}\otimes\ket{\mu_B} \text{.}
 \end{equation}
-meaning that the
-``total'' $\ket{\psi_A}$ and $\ket{\psi_B}$ don't necessarily exist.
 
-Non separable states are said \term{entangled}.
+\begin{definition}
+  Non separable states are defined as \term{entangled}.  
+\end{definition}
 
 Physically,
 $\ket{\psi_S}$ contains information
