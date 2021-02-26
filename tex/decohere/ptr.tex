@@ -25,28 +25,28 @@ and the notation of Latin indices for system $A$ and Greek ones for system $B$)
   \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i}
 \end{multline}
 
-The bra $\bra{\mu}$, when acting on an element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+The bra $\bra{\mu}$, when acting on a ket element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
 can be defined
 as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$.
 
 A formal definition can be given in terms of how it acts upon a generic
-basis element of $\hilb{H}_A\otimes\hilb{H}_B$.
+basis ket of $\hilb{H}_A\otimes\hilb{H}_B$.
 
 \begin{definition}\label{def:pBra}
 \[
-  \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) \eqbydef \delta_{\mu\nu}\ket{i}
+  \braket{\mu}{i\nu} = \bra{\mu}\Big(\ket{i}\otimes\ket{\nu}\Big) \eqbydef \delta_{\mu\nu}\ket{i} \text{.}
 \]
 \end{definition}
 
 Intuitively, $\bra{\mu}$ is then a ``partial bra''
 as it only maps the ``$\ket{\nu}$'' part of\\
 ``$\ket{i}\otimes\ket{\nu}$''
-to a number.
+to a number:
 \[
   \begin{array}{cccc}
-    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \ket{i}\cdot\delta_{\mu\nu}           \\
+    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \delta_{\mu\nu}\ket{i}                \\
                 & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
-                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A   \text{.}
   \end{array}
 \]
 
@@ -57,32 +57,43 @@ studying subsystem $A$ alone in spite of its entanglement with the
 ``environment'' (or measurement apparatus etc.) modelled by
 subsystem $B$.
 
-By analogy, it is straightforward to re-define a basis ket $\ket{\mu} \in \hilb{H}_B$
-as a basis ket in $\hilb{H}_A \ox \hilb{H}_B$ by stating how it ``acts upon''
-a general basis bra $\bra{i\mu} = \bra{i}\ox\bra{\mu}$ :
+Conversely,
+the ket $\ket{\mu}$, when acting on a bra element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+can also be defined
+as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$.
+The following definition of $\ket{\mu}$ is simply \term{dual} to Definition \ref{def:pBra}:
 \begin{definition}\label{def:pKet}
   \[
-    \braket{i\nu}{\mu} \eqbydef \delta_{\mu\nu}\bra{i}
+    \braket{i\nu}{\mu} = \Big(\bra{i}\ox\bra{\nu}\Big)\ket{\mu} \eqbydef \delta_{\mu\nu}\bra{i} \text{.}
   \]
 \end{definition}
+Similar considerations apply:
+\[
+  \begin{array}{cccc}
+    \ket{\mu}:  & \bra{i}\ox\bra{\nu}                   & \rightarrow & \delta_{\mu\nu}\bra{i}               \\
+                & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A     \text{.}
+  \end{array}
+\]
+
+%%
 
 We are now in the position to introduce the \term{partial trace}:
 \begin{definition}\label{def:pTr}
-  The \term{partial trace} operation
+  The \term{partial trace}
   is a linear map
   that takes an operator
   $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
   to an operator on $\hilb{H}_A$ defined as
   \[
     \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_{AB}}{\mu}
-    \, \text{.}
+    \, \text{,}
   \]
+  where $\setof{\ket{\mu}}$ is a basis of $\hilb{H}_B$.
 \end{definition}
 
 The first thing to note is that the \emph{partial} trace is \emph{operator-valued},
 its value is not a scalar as opposed to the \emph{trace}.
-This is similar to the ``partial'' $\bra{\mu}$, whose value is a vector in $\hilb{H}_A$
-instead of a number.
 
 Next, we can introduce the \term{reduced density operator}
 of system $A$, which is obtained by \emph{tracing out the environment} B,
