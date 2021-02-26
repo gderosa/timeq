@@ -1,23 +1,14 @@
 \section{Partial trace and open systems}
 \label{sec:p_tr}
 
-In a bipartite (entangled) systems, one subsystem considered alone is an
+In a bipartite system, one subsystem considered alone is an
 \emph{open quantum system},
 while the system as a whole is still a closed systems.
 
-In this and following sections, unless differently noted,
+In this and the following sections, unless differently noted,
 we shall stick with the convention of \eqref{eq:bipartite_expansion},
 of using
 Latin indices for subsystem $A$ and Greek ones for subsystem $B$.
-
-As pointed out in
-\cite[sec.2.3.1]{PreskillNotes}, when we limit our attention to
-just part of a larger system, contrary to the axioms of closed systems:
-\begin{enumerate}
-  \item States are not rays.
-  \item Measurements are not orthogonal projections.
-  \item Evolution is not unitary.
-\end{enumerate}
 
 Now, let's consider an observable $M_A$, acting only on subsystems $A$.
 It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
@@ -34,25 +25,9 @@ and the notation of Latin indices for system $A$ and Greek ones for system $B$)
   \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i}
 \end{multline}
 
-
-% Here $\ket{\mu}$ is a ``partial bra'', in the sense that
-% it acts upon kets in 
-
-
-
-% Another problem with the \ref{def:pTr} is that $\bra{\mu}$
-% is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
-% so what is the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
-
-With a slight abuse of notation,
-let's now redefine
-$\bra{\mu}$,
-the generic basis bra in $\hilb{H}_B$,
-that we have eliminated from the \eqref{eq:exp_subsys}, 
-no longer as a linear form $\hilb{H}_B \rightarrow \mathbb{C}$,
-but as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$
-(like if we have added the degrees of freedom associated
-with the other Hilbert space).
+The bra $\bra{\mu}$, when acting on an element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+can be defined
+as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$.
 
 A formal definition can be given in terms of how it acts upon a generic
 basis element of $\hilb{H}_A\otimes\hilb{H}_B$.
@@ -63,7 +38,7 @@ basis element of $\hilb{H}_A\otimes\hilb{H}_B$.
 \]
 \end{definition}
 
-Intuitively, $\bra{\mu}$ is a ``partial bra''
+Intuitively, $\bra{\mu}$ is then a ``partial bra''
 as it only maps the ``$\ket{\nu}$'' part of
 ``$\ket{i}\otimes\ket{\nu}$''
 to a number.
