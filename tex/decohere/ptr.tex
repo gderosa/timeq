@@ -57,9 +57,13 @@ studying subsystem $A$ alone in spite of its entanglement with the
 ``environment'' (or measurement apparatus etc.) modelled by
 subsystem $B$.
 
-By analogy, it is straightforward to re-define a basis ket $\ket{\mu} \in \hilb{H}_B$
-as a basis ket in $\hilb{H}_A \ox \hilb{H}_B$ by stating how it ``acts upon''
-a general basis bra $\bra{i\mu} = \bra{i}\ox\bra{\mu}$ :
+Conversely,
+the ket $\ket{\mu}$, when acting on an element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+can be defined
+as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to a bra in $\hilb{H}_A$.
+The following definition is simply ``dual'' to Definition \ref{def:pBra}
+(and similar considerations apply):
+
 \begin{definition}\label{def:pKet}
   \[
     \braket{i\nu}{\mu} \eqbydef \delta_{\mu\nu}\bra{i}
