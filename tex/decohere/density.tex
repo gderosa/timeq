@@ -25,24 +25,23 @@ Eq. \eqref{eq:expvalA_rho} is valid for any Hermitean operator $A$. Particularly
 it is also valid if $A$ is a \emph{projector} and we will use this
 e.g. in Proposition \ref{probability_rho}.
 
-\subsection{Properties of the density operator}
-\subsubsection{Additivity}
-
+We will now look at some properties of the density operator.
 
 We can prove the following
 \begin{proposition}
-  Let $A$ be an hermitean operator such that
+  Let $A$ be an Hermitean operator
+  a complete set of eigenvectors $\{\ket{m}\}$
+  and
+  such that
   $$
     \tr(A\rho) = 0 
   $$
   \emph{for any density operator} $\rho$.
-
   It follows that $A = 0$.
 
   \begin{proof}
-    We can choose,
-    as basis to explicit the expression of the trace,
-    a complete set of eigenvectors $\{\ket{m}\}$ of $A$ and,
+    We can choose
+    ---to explicitly evaluate the expression of the trace---
     for each positive integer $n$,
     a particular density operator $\rho = \ketbra{n}$,
     corresponding to a (pure) eigenstate of $A$.
@@ -53,13 +52,19 @@ We can prove the following
       A\rho = \mel{n}{A}{n}\ketbra{n}\,.
     $$
     It then follows:
-    \begin{multline*}
+    \begin{multline}\label{eq:qmt:alldiagzero}
       0 = \tr(A\rho) = \sum_{m}\mel{m}{ ( \mel{n}{A}{n}\ketbra{n} ) }{m} = \\
           \sum_{m} \mel{n}{A}{n} \braket{m}{n} \braket{n}{m}
-        = \mel{n}{A}{n} ,
-    \end{multline*}
-    hence the generic diagonal element of the (diagonal) matrix of $A$ is null,
-    and so is consequently the operator $A$ itself.
+        = \mel{n}{A}{n} .
+    \end{multline}
+    With respect to the basis $\setof{\ket{n}}$ the operator $A$ is
+    represented by a matrix whose elements $a_{nm}$ are given by $a_{nm} = \mel{n}{A}{m}$;
+    but $\setof{\ket{n}}$ is an eigenbasis, therefore we are only interested in the diagonal
+    elements (the off-diagonal ones being zero).
+    However, the diagonal elements are  $\mel{n}{A}{n} = 0$
+    for all $n$, according to eq. \eqref{eq:qmt:alldiagzero}, therefore the operator itself is $A=0$.
+    % hence the generic diagonal element of the (diagonal) matrix of $A$ is null,
+    % and so is consequently the operator $A$ itself.
   \end{proof}
 \end{proposition}
 
