@@ -95,11 +95,15 @@ via the partial trace:
   \]
 \end{definition}
 
-Using the definitions \ref{def:pBra} and \ref{def:pKet}
+We assume now that the total state $\rho$ is a pure state $\rho = \ketbra{\psi_S}$.
+
+If $\setof{\ket{\mu}}$ is a basis of $\hilb{H}_B$,
+for each element $\ket{\mu}$,
+using the definitions \ref{def:pBra} and \ref{def:pKet}
 and the expansion \eqref{eq:bipartite_expansion}, we obtain
 \begin{eqsplit}\label{eq:psiPartial}
-  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \\
-  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \ \text{.}
+  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \text{,} \\
+  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \text{.}
 \end{eqsplit}
 
 which allows us to expand the Definition \ref{def:density_A}
@@ -107,7 +111,7 @@ as\footnote{
   Let's recall that the key point of this reasoning is showing how
   a pure state of the total system can correspond to mixed states
   in the two subsystems $A$ and $B$. Therefore, assuming, in what follows,
-  that the total state $\rho = \ketbra{\psi}$ is pure, is not restrictive.
+  that the total state $\rho = \ketbra{\psi_S}$ is pure, is not restrictive.
 }
 
 \begin{equation}\label{eq:density_A_expand}
