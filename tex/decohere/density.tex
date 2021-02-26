@@ -1,29 +1,28 @@
 \section{Density operator}\label{app:density}
 
 A quantum state (either pure or \term{mixed}),
-is generally described by a \term{density} (or \term{state}) operator $\rho$.
+is generally described by a \term{density} operator (or density matrix) $\rho$.
 
 The general expression for a density operator $\rho$ is
 $$
   \rho = \sum_{k}p_{k}\ketbra{\psi_{k}}
 $$
-with $p_{k}$ non negative and $\sum_{k}p_{k} = 1$;
-where $p_k$ indicates probability of the system to be in state $\ket{\psi_{k}}$.
+with $p_{k}$ being non negative and $\sum_{k}p_{k} = 1$;
+where $p_k$ indicates the ``classical'' probability of the system to be in state $\ket{\psi_{k}}$.
 
-For a pure state corresponding to ket $\ket{\psi}$ it reduces to just
+For a pure state (corresponding to ket $\ket{\psi}$) the density operator reduces to
 \[
   \rho_{(\text{pure})} = \ketbra{\psi}\,\text{.}
 \]
 
-It's a well known result (see, for example, \cite{open_systems})
-that the expectation value of an observable represented by the operator $A$
-is given by
+The expectation value of an observable represented by the operator $A$
+is given by \parencite{open_systems}
 \begin{equation}\label{eq:expvalA_rho}
   \expval{A} = \tr(A\rho)\,.
 \end{equation}
 
-The \eqref{eq:expvalA_rho} is valid for any hermitean operator $A$. Particularly,
-it's also valid for \emph{projectors} and we will use this
+Eq. \eqref{eq:expvalA_rho} is valid for any Hermitean operator $A$. Particularly,
+it is also valid if $A$ is a \emph{projector} and we will use this
 e.g. in Proposition \ref{probability_rho}.
 
 \subsection{Properties of the density operator}
