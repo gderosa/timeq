@@ -153,11 +153,12 @@ hence it can be diagonalized:
   \rho_A = \sum_a p_a \ketbra{a}{a} \text{.}
 \end{equation}
 
+Let $\setof{\ket{k}}$ be a basis of $\hilb{H}_A$.
 From \eqref{eq:density_A_expand} we can also derive that
 \begin{equation}
   \tr\rho_A = \sum_k \mel{k}{\rho_A}{k} =
     \sum_{ijk\mu}\alpha_{i\mu}\alpha_{j\mu}^{*}\braket{k}{i}\braket{j}{k} =
-    \sum_{k\mu}\abs{\alpha_{k\mu}}^2 = 1
+    \sum_{k\mu}\abs{\alpha_{k\mu}}^2 = 1 \text{,}
 \end{equation}
 where the last equality is justified by the normalization of $\ket{\psi_S}$
 in \eqref{eq:bipartite_expansion}.
@@ -170,17 +171,12 @@ for the diagonal form \eqref{eq:rho_diag}, meaning
 \]
 and providing a necessary condition to interpret $p_a$ as a probability.
 
-The \eqref{eq:rho_diag}, with $p_a$ as a probability, is often
-given as a \emph{definition} of the density operator,
-and the \eqref{eq:exp_subsys} can be derived from
-such definition alone \parencite{open_systems}.
+Eq. \eqref{eq:rho_diag}, with $p_a$ as a probability, is often
+given as a \emph{definition} of the density operator.
 % TODO: do the calculation?
 The probability distribution ${p_a}$
-is described as an uncertainty in the preparation of the system
-due to an unknown interaction with the environment.
-
-We have seen that a bipartite system, as a whole in a pure state,
-can have individual parts in mixed states, due to entanglement between them.
+is described as a ``classical'' uncertainty in the preparation of the system
+(for example due to an unknown interaction with the environment).
 
 The reverse also holds true:
 \begin{proposition}
