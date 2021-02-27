@@ -14,9 +14,8 @@ A natural example of such coherent superposition is (e.g. \cite[Example 2.4]{Nak
 \]
 and the corresponding density operator is
 \begin{multline}\label{eq:matrix:pure}
-  \rho = \ketbra{\psi}{\psi} =
+  \rho_{\mathrm{pure}} = \ketbra{\psi}{\psi} =
   \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
-  \\
   \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
   \frac{1}{2}
     \begin{pmatrix}
@@ -25,9 +24,9 @@ and the corresponding density operator is
     \end{pmatrix}
   \text{.}
 \end{multline}
-For the statistical mixture, the density operator is, by definition,
+On the other hand, for the statistical mixture, the density operator is
 \begin{equation}\label{eq:matrix:mix}
-  \rho = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
+  \rho_{\mathrm{mix}} = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
   \frac{1}{2}
     \begin{pmatrix}
       1 &0  \\
@@ -36,13 +35,13 @@ For the statistical mixture, the density operator is, by definition,
   \text{.}
 \end{equation}
 
-By comparing matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
+By comparing the matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
 we may conclude that the off-diagonal terms in the coherent superposition case
 indicate \emph{coherence}, or ``'quantum purity'';
 however, density operators are self-adjoint operators
 (as linear combination of projectors) and can always be expressed in
-diagonal form, including density operators of pure states: but it would be
-a particular case of diagonal matrix, where all diagonal elements are zero
+diagonal form. This also includes density operators of pure states.
+In this particular case all diagonal elements are zero
 except one. Indeed, for a pure state:
 \[
   \rho = \ketbra{\psi}{\psi}\text{,}
