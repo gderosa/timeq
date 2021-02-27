@@ -20,45 +20,44 @@ on each subsystem~\parencite[Ch. 3]{PreskillNotes}.
 We shall assume, unless otherwise stated, that all vectors are
 normalized to unity.
 
-For a given observable represented by an operator $A$ with a
-\emph{discrete, non degenerate spectrum}, the probability of the
-outcome $a$ of a
-measurement on a system in the pure state $\ket{\psi}$ is given by
+Consider an observable represented by a self-adjoint operator $A$
+with a 
+\emph{discrete, non degenerate spectrum}.
+Let $a_i$ by an eigenvalue of $A$, and $\ket{i}$ its corresponding eigenvector.
+The probability of a measurement
+outcome $a_i$,
+on a system in the pure state $\ket{\psi}$
+is given by
 $$
-\pi_{a} = \norm{\braket{a}{\psi}}^2
-        = \bra{\psi}\ket{a}\bra{a}\ket{\psi}
-        = \mel{\psi}{P_{a}}{\psi}
+\pi_{i} = \norm{\braket{i}{\psi}}^2
+        = \bra{\psi}\ket{i}\bra{i}\ket{\psi}
+        = \mel{\psi}{P_{i}}{\psi}
 $$
-where $P_{a} = \ketbra{a}$ appears as the \term{projector} on the
-one-dimensional ei\-gen\-space of  $a$.
+where $P_{i} = \ketbra{i}$ appears as the \term{projector} on the
+one-dimensional ei\-gen\-space related to eigenvalue  $a_i$.
 
-If $a$ is degenerate, and $j = 1, \dots, J$ its degeneracy index,
+If $a_i$ is degenerate, $j = 1, \dots, J$ its degeneracy index, and $\ket{ij}$ the corresponding eigenvectors,
 such probability shall sum over it:
 $$
-\pi_{a} = \sum_{j=1}^{J}\norm{\braket{aj}{\psi}}^2
-        = \sum_{j=1}^{J}\bra{\psi}\ket{aj}\bra{aj}\ket{\psi}
-        = \mel{\psi}{P_{a}}{\psi}
+\pi_{i} = \sum_{j=1}^{J}\norm{\braket{ij}{\psi}}^2
+        = \sum_{j=1}^{J}\bra{\psi}\ket{ij}\bra{ij}\ket{\psi}
+        = \mel{\psi}{P_{i}}{\psi}
 $$
-where $P_{a} = \sum_{j=1}^{J}\ketbra{aj}$
+where $P_{i} = \sum_{j=1}^{J}\ketbra{ij}$
 still is the projector on the
-($J$-dimensional) eigenspace of $a$.
+($J$-dimensional) eigenspace of $a_i$.
 
 Generally, the probability that the outcome of a measuremen falls in
 the set of eigenvalues $\sigma = \{a_{1}, \dots, a_{S}\}$ is
 \begin{equation}\label{eq:pi_sigma}
-\pi_{\sigma}  = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\norm{\braket{sj}{\psi}}^2
-              = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\bra{\psi}\ket{sj}\bra{sj}\ket{\psi}
+\pi_{\sigma}  = \sum_{i=1}^{S}\sum_{j=1}^{J_{i}}\norm{\braket{ij}{\psi}}^2
+              = \sum_{i=1}^{S}\sum_{j=1}^{J_{i}}\bra{\psi}\ket{ij}\bra{ij}\ket{\psi}
               = \mel{\psi}{P_{\sigma}}{\psi}
               ,
 \end{equation}
-where $P_{\sigma} = \sum_{s=1}^{S}\sum_{j=1}^{J_{s}}\ketbra{sj}$
+where $P_{\sigma} = \sum_{i=1}^{S}\sum_{j=1}^{J_{i}}\ketbra{ij}$
 is once again a projector --- on the ``generalized eigenspace'' spanned by all
-eigenvectors $\{\ket{sj}\}$ above.
-
-
-
-
-%%%%%%%%%%% MOVE TO SOMEWHERE HERE %%%%%%%%%%%%%%%%%%
+eigenvectors $\{\ket{ij}\}$ above.
 
 Looking back at \eqref{eq:expvalA_rho},
 it is valid for \emph{any} hermitean operator,
