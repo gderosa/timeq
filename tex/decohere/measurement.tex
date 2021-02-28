@@ -140,10 +140,13 @@ and zero otherwise.
 Let $\hilb{H}_A$ and $\hilb{H}_B$ be the Hilbert spaces describing
 a system under measurement and the measurement device respectively.
 For simplicty, let both have finite di\-mension~$N$.
+Let $\ket{\Psi}, \ket{\Psi'} \in \hilb{H}_{A} \ox \hilb{H}_{B}$
+be the overall state of the
+system \emph{and} apparatus, before and after the measurement.
 
 Let us also consider a \term{complete}, \term{orthogonal} set of $N$ projectors
-$P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$;
-by definition the projectors have the following properties:
+$P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$,
+i.e. the projectors have the properties
 \begin{align}
   \sum_n P_n  &= \idop \text{,}\\
   P_i P_j     &= \delta_{ij}P_i \, \text{.}
@@ -175,16 +178,23 @@ The coupling between the system and the apparatus
 can be modelled by
 a unitary operator
 transforming the state of system and apparatus before and after the measurement.
-The following is a possible example:
+The following is a possible
+example \parencite[sec. 3.1.1 ``Orthogonal Measurements'']{PreskillNotes}:
+
 \begin{equation}\label{eq:unitary_measurement}
   U = \sum_{a, b = 0}^{N-1} P_a \ox \ketbra{b+a}{b} \text{,}
 \end{equation}
 where the sum $b+a$ is \emph{modulo N}.
 
-\begin{eqsplit}\label{eq:explicit_measurement_evolution}
-  U:  &\ket{\Psi}           =\ket{\psi} \ox \ket{0} \rightarrow \\
-      &\ket{\Psi^{\prime}}  =\sum_{a, b} P_A \ox \ketbra{b+a}{b} \qty(\ket{\psi} \ox \ket{0})
-\end{eqsplit}
+If the system and the measurement device are initially in the
+state $\ket{\psi}$~and~$\ket{0}$ respectively
+(therefore $\ket{\Psi} = \ket{\psi} \ox \ket{0}$),
+using the eq.~\eqref{eq:unitary_measurement},
+the state after the measurement will be %
+%
+\begin{equation}\label{eq:explicit_measurement_evolution}
+  \ket{\Psi^{\prime}} = U(\Psi) = U\Big(\ket{\psi} \ox \ket{0}\Big)  =\sum_{a, b} P_A \ox \ketbra{b+a}{b} \qty(\ket{\psi} \ox \ket{0})
+\end{equation}
 Indeed, in the \ref{eq:explicit_measurement_evolution} only terms with $b=0$ survive.
 Therefore
 \begin{eqsplit}\label{eq:measurement_entangled}
