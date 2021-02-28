@@ -1,0 +1,160 @@
+\subsection{Generalized measurement (POVM)}
+\label{subsec:POVM}
+
+Let's start considering, for simplicity, a 2-level system,
+the corresponding 2-level pointer space,
+and the unitary transformation describing the measurement process:
+\begin{multline}\label{eq:qubit_ortho_measurement}
+  U:
+    \ket{\psi}_A \ox \ket{0}_B
+    = \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B
+  \rightarrow \\
+    \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B =
+    \:
+    E_0\ket{\psi}_A \ox \ket{0}_B + E_1\ket{\psi}_A \ox \ket{1}_B
+\end{multline}
+with subscripts $A$ and $B$ designating the system of interest and
+the measurement apparatus (pointer space) respectively.
+
+When we observe the pointer, let's assume we're not
+able to ``measure'' it with respect to the fiducial basis
+$\setof{\ket{0}, \ket{1}}$,
+but with respect to another basis, say,
+\begin{equation}\label{eq:pmbasis}
+\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_B \pm \ket{1}_B)} \,\text{.}
+\end{equation}
+
+We can rewrite \eqref{eq:qubit_ortho_measurement} as
+\begin{multline}\label{eq:qubit_gen_measurement}
+  U: \ket{\psi}_A \ox \ket{0}_B                   \rightarrow \\
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
+    \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
+  )                                               =           \\
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
+    \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
+  )                                               \eqbydef      \\
+  M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
+  \,\text{,}
+\end{multline}
+where we have defined:
+\begin{align*}
+  &
+  M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
+  &
+  M_- \repr \frac{1}{\sqrt{2}}\mqty(1& 0\\0& -1)
+\end{align*}
+with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
+
+After measurement, system $A$ is ``prepared''
+(up to a normalization factor)
+in one of the states $M_{\pm}\ket{\psi}$,
+that are not necessarily orthogonal.
+
+Moreover, $M_+$ and $M_-$ are not generally idempotent,
+therefore if we repeat the measurement we don't generally
+obtain the same result (and don't leave the system $A$ in the same state).
+This is a fundamental difference with projective measurement.
+
+Besides this particular example, $M_+$ and $M_-$ are not even necessarily
+self-adjoint, and we can see that, while $M$ generalise the projector $P$
+in terms of ``collapsing'' (or ``preparing'') the system under measurement,
+in some sense a better generalization is in fact $M^{\dagger}M$\footnote{
+  Such distinction is inessential for a projector $P$,
+  as $P^{\dagger}P = P^2 = P$.
+}, particularly in the sense of \term{decomposition of the identity}:
+$\sum_a M_a^{\dagger}M_a = \idop$ \parencite[sec.3.1]{PreskillNotes}.
+
+The example of $\ket{\pm}$ is a particularly ``unsharp'' measurement,
+or a particularly ``overlapping'' decomposition of the identity,
+because
+$$M_+^{\dagger}M_+ = M_-^{\dagger}M_- = \frac{1}{2}\idop\text{.}$$
+
+Generalizing to $N$-dimensional Hilbert spaces, we can replace
+$\setof{\ket{\pm}}$ basis with
+\[
+  \setof{\ket{a}, a = 0\ldots N-1}
+\]
+and \eqref{eq:qubit_gen_measurement} with
+\begin{equation}\label{eq:gen_measurement}
+  U: \ket{\psi}_A \ox \ket{0}_B \rightarrow \sum_a M_a\ket{\psi}_A \ox \ket{a}_B
+  \,\text{.}
+\end{equation}
+
+So, let's define
+\[
+  E_a = M^{\dagger}M \,\text{.}
+\]
+
+\citereset
+All the following holds \parencite[sec.3.1]{PreskillNotes}:
+\begin{enumerate}
+  \item 
+    Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
+  \item
+    \term{Positivity}: \[\expval{E_a}{\psi} \geq 0\,\text{;}\]  
+  \item\label{listitem:POVM}
+    Decomposition of the identity (\term{completeness}):
+    \begin{equation}\label{eq:POVM}
+      \sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop \,\text{;}
+    \end{equation}
+  \item
+    Probability of outcome $a$ of a measurement:
+    \[\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}\,\text{;}\]
+  \item
+    Probability of obtaining $b$ in a second measurement:
+    \[\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}\]
+    (would be $\delta_{ab}$ if orthogonal);
+  \item
+    Probability of outcome, density operator form:
+    \[\Pr(a) = \tr(\rho E_a)\,\text{,}\]
+    also valid for mixed states.
+\end{enumerate}
+
+This partition of the identity by positive operators
+as expressed in \eqref{eq:POVM} is called
+\term{positive operator-valued measure}, or \term{POVM}.
+It generalises the \term{projector-valued measure} (PVM)
+found in Von Neumann's theory.
+
+For the sake if simplicity, we're referring to the finite dimensional case,
+but the above can be extended to infinite dimensions and continuous spectra,
+where the decomposition of the identity can be expressed as
+$\int_{-\infty}^{\infty} dx M^{\dagger}(x)M(x) = \idop $.
+A more abstract and general definition of POVM is as
+follows:\footnote{
+  See e.g. \cite{BeneduciPhD, Berberian} --- the level of generalization may vary.
+}
+\begin{definition}
+  Given a (Borel) $\sigma$-algebra $\mathcal{B}(\mathbb{R})$ of subsets of $\mathbb{R}$,
+  and the space $\mathcal{F}(\hilb{H})$ of positive, self-adjoint operators on a Hilbert space,
+  a \term{positive operator-valued measure} (\term{POVM})
+  is a map $E: \mathcal{B}(\mathbb{R}) \rightarrow \mathcal{F}(\hilb{H})$
+  such that
+  \begin{itemize}
+    \item $E(\mathbb{R}) = \idop$ (completeness)
+    \item $E\qty(\bigcup\limits_{n} \Delta_n) = \sum\limits_{n} E\qty(\Delta_n)$ (additivity) 
+  \end{itemize}
+  where $\setof{\Delta_n}$ is a countable family of disjoint sets in
+  $\mathcal{B}(\mathbb{R})$.
+\end{definition}
+
+\citereset
+It's worth noting that,
+given a POVM $E$, operators $M$
+suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
+and following generalization
+can always be found \parencite[sec.3.1]{PreskillNotes},
+but not uniquely, in the sense that
+$UM$ are also valid
+for any unitary operator $U$.
+
+Therefore, this formulation leaves the state after a measurement
+with outcome $a$
+\[
+  \frac{M_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+  \leftrightarrow
+  \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
+\]
+in fact \emph{undetermined}.

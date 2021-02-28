@@ -1,0 +1,133 @@
+\subsection{Projective measurement}
+
+Let $\hilb{H}_A$ and $\hilb{H}_B$ be the Hilbert spaces describing
+a system under measurement and the measurement device respectively.
+For simplicty, let both have finite di\-mension~$N$.
+Let $\ket{\Psi}, \ket{\Psi'} \in \hilb{H}_{A} \ox \hilb{H}_{B}$
+be the overall state of the
+system \emph{plus} measurement apparatus, 
+respectively before and after the measurement.
+
+Let us also consider a \term{complete}, \term{orthogonal} set of $N$ projectors
+$P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$,
+i.e. the projectors have the properties
+\begin{align}
+  \sum_n P_n  &= \idop \text{,}\\
+  P_i P_j     &= \delta_{ij}P_i \, \text{.}
+\end{align}
+
+On $\hilb{H}_B$ instead, describing the measurement device, let's consider
+the
+% fiducial\footnote{
+%   In the sense that it's assumed
+%   that we can arbitrarily ``reset'' (prepare) the device,
+%   for example at state $\ket{0}$,
+%   and in general
+%   we will find the device at one of the states
+%   $\ket{0}\dots\ket{N-1}$
+%   when we observe it (\term{pointer states}).
+%   Therefore, what follows \emph{is not} a derivation of the Born's rule,
+%   which is still a necessary postulate of quantum mechanics
+%   (only \cite{Zurek_Decoherence, Zurek_Einselect, Zurek_Fundamentals} push
+%   this point of view further). In other words, the Born rule for the system
+%   will be ``proved''
+%   only on the assumption that it is valid for the measurement apparatus already.
+% }
+basis:
+\begin{equation}\label{eq:qmt:fiducial_basis_N}
+  \setof{\ket{0} \dots \ket{N-1}} \text{.}
+\end{equation}
+
+The coupling between the system and the apparatus
+can be modelled by
+a unitary operator
+transforming the state of system and apparatus before and after the measurement.
+The following is a possible
+example \parencite[sec. 3.1.1 ``Orthogonal Measurements'']{PreskillNotes}:
+
+\begin{equation}\label{eq:unitary_measurement}
+  U = \sum_{a, b = 0}^{N-1} P_a \ox \ketbra{b+a}{b} \text{,}
+\end{equation}
+where 
+$\ket{b+a}$ and $\bra{b}$ are all elements of the basis \eqref{eq:qmt:fiducial_basis_N}
+and
+the sum $b+a$ is \emph{modulo N}:
+intuitively, if the $a$-th eigenvalue of the observable is measured,
+a sort of ``circular dial''
+on the measurement device rotates of $a$ positions.
+
+If the system and the measurement device are initially in the
+state $\ket{\psi}$~and~$\ket{0}$ respectively
+(therefore $\ket{\Psi} = \ket{\psi} \ox \ket{0}$),
+using the eq.~\eqref{eq:unitary_measurement},
+the state after the measurement will be %
+%
+\begin{equation}\label{eq:explicit_measurement_evolution}
+  \ket{\Psi^{\prime}} = U(\Psi) = U\Big(\ket{\psi} \ox \ket{0}\Big) =
+    \sum_{a, b} P_a \ox \ketbra{b+a}{b} \big(\ket{\psi} \ox \ket{0}\big)
+    \text{.}
+\end{equation}
+Indeed, in eq. \eqref{eq:explicit_measurement_evolution}, only terms with $b=0$ survive.
+Therefore
+\begin{eqsplit}\label{eq:measurement_entangled}
+  \ket{\Psi^{\prime}} &= \sum_a \qty\Big(P_a\ox\ketbra{a}{0}) \qty\Big(\ket{\psi}\ox\ket{0}) \\
+                      &= \sum_a P_a \ket{\psi} \ox \ket{a}
+\end{eqsplit}
+
+The probability of an outcome $a$ is
+\begin{multline}\label{eq:measurement_probability}
+  \pi_{a} = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} = \\
+    \sum_{b,c}
+      \qty(\bra{\psi}P_{b}\ox\bra{b})
+      \qty\Big(\idop\ox\ketbra{a})
+      \qty(P_{c}\ket{\psi}\ox\ket{c}) = \\
+    \sum_{b,c}\qty\Big(\expval{P_bP_c}{\psi} \braket{b}{a} \braket{a}{c}) =
+    \expval{P_a}{\psi} \text{.}
+\end{multline}
+
+Eq. \eqref{eq:measurement_entangled} clearly shows that the system
+and the measurement device are completely correlated (entangled).
+If the measurement apparatus is observed in state $\ket{a}$
+---with probability $\pi_{a}$ as stated in eq.~\eqref{eq:measurement_probability}---
+then the system being measured is in state $P_{a}\ket{\psi}$
+or, in normalized form:
+\begin{equation}\label{eq:normalized_collapse}
+  \ket{\psi^\prime_a} \eqbydef \frac{P_{a}\ket{\psi}}{\norm{P_{a}\ket{\psi}}}
+    = \frac{P_{a}\ket{\psi}}{\sqrt{\expval{P_a}{\psi}}} \,\text{.}
+\end{equation}
+
+Indeed,
+$\ket{\psi}$
+is transformed
+into its projection $\ket{\psi^\prime_a}$
+onto the eigenspace
+corresponding to the eigenvalue $a$ of the observable of interest.
+
+Please note the above \emph{is not} a derivation of the Born (probability) rule altogether,
+as it still needs to be postulated for the measurement apparatus.
+
+Finally, if the measurement apparatus is not observed,
+therefore an outcome $a$ is not known,
+the system \emph{after} measurement is in a statistical mixture
+of ``all possible wavefunction collapses'' weighted on the probability $\pi_{a}$.
+By using both \eqref{eq:measurement_probability} and \eqref{eq:normalized_collapse},
+and the definition of the density operator for the initial pure state
+$\rho = \ketbra{\psi}$:
+\[
+  \rho^{\prime} = \sum_a \Pr(a) \ketbra{\psi^{\prime}_a} = \sum_a P_a \ketbra{\psi} P_a
+    = \sum_a P_a \rho P_a \,\text{.}
+\]
+So, the initial pure state $\rho$ is transformed by the measurement process into a mixed one.
+In other words, the initial, coherent superposition of eigenstates represented by $\rho = \ketbra{\psi}$
+becomes a maximal statistical mixture $\rho^{\prime}$
+(as seen in Section \ref{sec:mix}).
+
+It can be proven that the transformation
+\begin{equation}\label{eq:irreversible_measurement}
+  \rho \rightarrow \sum_a P_a \rho P_a
+\end{equation}
+is also valid in the more general case of $\rho$ being a mixed state before the measurement
+---in this case, it's transformed into another mixed state,
+but still described by the \eqref{eq:irreversible_measurement}.
+A generalization to observables with a continuous spectrum is also possible
+(see e.g. \cite[Section 3.1.1]{PreskillNotes} for more details).
