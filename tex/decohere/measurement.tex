@@ -59,18 +59,17 @@ where $P_{\sigma} = \sum_{i=1}^{S}\sum_{j=1}^{J_{i}}\ketbra{ij}$
 is once again a projector --- on the ``generalized eigenspace'' spanned by all
 eigenvectors $\{\ket{ij}\}$ above.
 
-Looking back at \eqref{eq:expvalA_rho},
-it is valid for \emph{any} hermitean operator,
-therefore it's also valid for projectors.
-
-Hence, can replace $A$ with the projector $P_{\sigma}$,
+Looking back at eq.~\eqref{eq:expvalA_rho},
+it is valid for \emph{any} Hermitean operator,
+therefore it is also valid for projectors.
+Hence we can replace $A$ with the projector $P_{\sigma}$,
 associated to the set of eigenvalues $\sigma$
 according to \eqref{eq:pi_sigma} and \eqref{eq:P_sigma_spectral}.
 
 This is of particular interest
 because its mean value equates the probability that the outcome of a measurement
 falls in a given subset of the spectrum of a given observable.
-So we can derive:
+So we have:
 
 \begin{proposition}\label{probability_rho}
   The probability $\pi_{\sigma}$
@@ -85,39 +84,26 @@ So we can derive:
   or, more generally, in \eqref{eq:P_sigma_spectral}.
 \end{proposition}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Being $\pi_{\sigma}$ the \emph{probability} of the outcome of a measurement to
+fall in a given set $\sigma$, it has to be:
+\begin{enumerate}
+  \item \label{measure_properties:first} $0$ on the empty set
+  \item non negative
+  \item \label{measure_properties:last} \term{additive} on disjoint sets
+  \item \label{measure_properties:normalized} equal to $1$ if $\sigma$ includes the whole spectrum of $A$.
+\end{enumerate}
 
-
-
-
-
-\subsection[Measure]{Measure\footnote{Not to be confused with \emph{measurement}.}}
-
-\begin{remark}\label{measure_properties}
-  Being $\pi_{\sigma}$ the \emph{probability} of the outcome of a measurement to
-  fall in a given set $\sigma$, it has to be:
-  \begin{enumerate}
-    \item \label{measure_properties:first} $0$ on the empty set
-    \item non negative
-    \item \label{measure_properties:last} \term{additive} on disjoint sets
-    \item equal to $1$ if $\sigma$ includes the whole spectrum of $A$.
-  \end{enumerate}
-\end{remark}
-
-\begin{remark}
-  Properties \ref{measure_properties:first}\dots\ref{measure_properties:last}
-  are the defining properties of a \term{measure} \parencite{EncMath_Measure}.
-\end{remark}
-
-The probability $\pi_{\sigma}$ in \eqref{eq:pi_sigma} is linear with respect to the projector
-$P_{\sigma}$ hence it's not difficult to derive that the same properties in
-\autoref{measure_properties} applies to $P_{\sigma}$, \emph{in the operator sense}.
-In fact, the map $\sigma \subseteq \mathbb{R} \rightarrow P_{\sigma}$
+Properties \ref{measure_properties:first}\dots\ref{measure_properties:last}
+are the defining properties of a \term{measure}\footnote{
+  Not to be confused with \emph{measurement}.
+} \parencite{EncMath_Measure},
+and
+the map $\sigma \subseteq \mathbb{R} \rightarrow P_{\sigma}$
 implicitly defined in~\eqref{eq:pi_sigma} is a \term{projector-valued measure}.
 
-The result is generalized,
-in such a way to include both discrete and continous spectra,
-by the following \parencite{VonNeumann, Ballentine}
+This notion of projector-valued measure can be generalized
+in such a way to include both the cases of discrete and continous spectra,
+with the following \parencite{VonNeumann, Ballentine}
 \begin{theorem}[spectral resolution]
   If $A$ is a self-adjoint operator,
   there is a unique projector-valued measure $E$
@@ -149,14 +135,17 @@ finite if $a$ is a discrete eigenvalue
 and zero otherwise.
 
 
-\subsection{Projective measurement (Von Neumann)}
+\subsection{Projective measurement}
 
-Let's consider a \term{complete}, \term{orthogonal} set of $N$ projectors
-$P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$
-of the system being measured;
-by definition they have the properties:
+Let $\hilb{H}_A$ and $\hilb{H}_B$ be the Hilbert spaces describing
+a system under measurement and the measurement device respectively.
+For simplicty, let both have finite di\-mension~$N$.
+
+Let us also consider a \term{complete}, \term{orthogonal} set of $N$ projectors
+$P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$;
+by definition the projectors have the following properties:
 \begin{align}
-  \sum_n P_n  &= \idop \\
+  \sum_n P_n  &= \idop \text{,}\\
   P_i P_j     &= \delta_{ij}P_i \, \text{.}
 \end{align}
 
