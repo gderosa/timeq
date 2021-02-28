@@ -4,7 +4,7 @@ The evolution of the density operator for a closed system is given by the map
 \[
     \rho_{S} \rightarrow \mathcal{E}(\rho_{S}) = U(t)\rho_{S}U^{\dagger}(t) \, \text{.}
 \] 
-We are looking to describe a general more change
+We are looking to describe a more general change
 $\rho \rightarrow \mathcal{E}(\rho_{S})$ that may also include
 changes due to measurement (or noise).
 
@@ -142,7 +142,8 @@ a system under measurement and the measurement device respectively.
 For simplicty, let both have finite di\-mension~$N$.
 Let $\ket{\Psi}, \ket{\Psi'} \in \hilb{H}_{A} \ox \hilb{H}_{B}$
 be the overall state of the
-system \emph{and} apparatus, before and after the measurement.
+system \emph{plus} measurement apparatus, 
+respectively before and after the measurement.
 
 Let us also consider a \term{complete}, \term{orthogonal} set of $N$ projectors
 $P_0 \dots P_{N-1}$ on the Hilbert space $\hilb{H}_A$,
@@ -238,14 +239,14 @@ is transformed
 into its projection $\ket{\psi^\prime_a}$
 onto the eigenspace
 corresponding to the eigenvalue $a$ of the observable of interest.
-%
+
 Please note the above \emph{is not} a derivation of the Born (probability) rule altogether,
 as it still needs to be postulated for the measurement apparatus.
 
 Finally, if the measurement apparatus is not observed,
 therefore an outcome $a$ is not known,
-the system after measurement is in a statistical mixture
-of ``all possible collapses'' weighted on the probability $\Pr(a)$.
+the system \emph{after} measurement is in a statistical mixture
+of ``all possible wavefunction collapses'' weighted on the probability $\pi_{a}$.
 By using both \eqref{eq:measurement_probability} and \eqref{eq:normalized_collapse},
 and the definition of the density operator for the initial pure state
 $\rho = \ketbra{\psi}$:
@@ -254,8 +255,8 @@ $\rho = \ketbra{\psi}$:
     = \sum_a P_a \rho P_a \,\text{.}
 \]
 So, the initial pure state $\rho$ is transformed by the measurement process into a mixed one.
-It is said that the initial, coherent superposition of eigenstates represented by $\rho = \ketbra{\psi}$
-\term{decoheres} towards the maximal statistical mixture $\rho^{\prime}$
+In other words, the initial, coherent superposition of eigenstates represented by $\rho = \ketbra{\psi}$
+becomes a maximal statistical mixture $\rho^{\prime}$
 (as seen in Section \ref{sec:mix}).
 
 It can be proven that the transformation
