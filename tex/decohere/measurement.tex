@@ -170,9 +170,9 @@ the
 %   only on the assumption that it is valid for the measurement apparatus already.
 % }
 basis:
-\[
+\begin{equation}\label{eq:qmt:fiducial_basis_N}
   \setof{\ket{0} \dots \ket{N-1}} \text{.}
-\]
+\end{equation}
 
 The coupling between the system and the apparatus
 can be modelled by
@@ -184,7 +184,13 @@ example \parencite[sec. 3.1.1 ``Orthogonal Measurements'']{PreskillNotes}:
 \begin{equation}\label{eq:unitary_measurement}
   U = \sum_{a, b = 0}^{N-1} P_a \ox \ketbra{b+a}{b} \text{,}
 \end{equation}
-where the sum $b+a$ is \emph{modulo N}.
+where 
+$\ket{b+a}$ and $\bra{b}$ are all elements of the basis \eqref{eq:qmt:fiducial_basis_N}
+and
+the sum $b+a$ is \emph{modulo N}:
+intuitively, if the $a$-th eigenvalue of the observable is measured,
+a sort of ``circular dial''
+on the measurement device rotates of $a$ positions.
 
 If the system and the measurement device are initially in the
 state $\ket{\psi}$~and~$\ket{0}$ respectively
@@ -194,7 +200,7 @@ the state after the measurement will be %
 %
 \begin{equation}\label{eq:explicit_measurement_evolution}
   \ket{\Psi^{\prime}} = U(\Psi) = U\Big(\ket{\psi} \ox \ket{0}\Big) =
-    \sum_{a, b} P_A \ox \ketbra{b+a}{b} \big(\ket{\psi} \ox \ket{0}\big)
+    \sum_{a, b} P_a \ox \ketbra{b+a}{b} \big(\ket{\psi} \ox \ket{0}\big)
     \text{.}
 \end{equation}
 Indeed, in eq. \eqref{eq:explicit_measurement_evolution}, only terms with $b=0$ survive.
@@ -204,40 +210,27 @@ Therefore
                       &= \sum_a P_a \ket{\psi} \ox \ket{a}
 \end{eqsplit}
 
-If we measure the pointer in the fiducial basis
-(Hilbert space of the measurement apparatus),
-the probability of an outcome $a$ is
+The probability of an outcome $a$ is
 \begin{multline}\label{eq:measurement_probability}
-  \Pr(a) = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} = \\
+  \pi_{a} = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} = \\
     \sum_{b,c}
       \qty(\bra{\psi}P_{b}\ox\bra{b})
       \qty\Big(\idop\ox\ketbra{a})
       \qty(P_{c}\ket{\psi}\ox\ket{c}) = \\
     \sum_{b,c}\qty\Big(\expval{P_bP_c}{\psi} \braket{b}{a} \braket{a}{c}) =
-    \expval{P_a}{\psi}
+    \expval{P_a}{\psi} \text{.}
 \end{multline}
-which shows that the Born's rule has been ``transferred'', from the system being
-measured, to the measurement device and therefore the
-\eqref{eq:unitary_measurement} is a correct description of measurement.
 
-The \eqref{eq:measurement_entangled} clearly shows that the system
+Eq. \eqref{eq:measurement_entangled} clearly shows that the system
 and the measurement device are completely correlated (entangled).
 If the measurement apparatus is observed in state $\ket{a}$
----with probability $\Pr(a)$ as stated in \eqref{eq:measurement_probability}---
-then the system being measured is in state $E_{a}\ket{\psi}$
+---with probability $\pi_{a}$ as stated in eq.~\eqref{eq:measurement_probability}---
+then the system being measured is in state $P_{a}\ket{\psi}$
 or, in normalized form:
 \begin{equation}\label{eq:normalized_collapse}
   \ket{\psi^\prime_a} \eqbydef \frac{P_{a}\ket{\psi}}{\norm{P_{a}\ket{\psi}}}
     = \frac{P_{a}\ket{\psi}}{\sqrt{\expval{P_a}{\psi}}} \,\text{.}
 \end{equation}
-
-This is the \term{wave function collapse} described in terms of a unitary
-transformation \eqref{eq:unitary_measurement}
-acting on the system + detector compound system and describing
-the measurement process
-(instead of just being postulated as part of the Born's rule).
-See \cite[sec.2.5.4, \emph{Decoherence models versus Copenhagen interpretation}]{Haroche_Exploring},
-for a closer conceptual examination.
 
 Indeed,
 $\ket{\psi}$
@@ -245,8 +238,8 @@ is transformed
 into its projection $\ket{\psi^\prime_a}$
 onto the eigenspace
 corresponding to the eigenvalue $a$ of the observable of interest.
-
-The above \emph{is not} a derivation of the Born (probability) rule altogether,
+%
+Please note the above \emph{is not} a derivation of the Born (probability) rule altogether,
 as it still needs to be postulated for the measurement apparatus.
 
 Finally, if the measurement apparatus is not observed,
