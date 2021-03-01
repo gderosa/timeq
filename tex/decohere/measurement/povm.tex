@@ -30,25 +30,34 @@ the state after measurement will be:
     = P_0\ket{\psi}_A \ox \ket{0}_B + P_1\ket{\psi}_A \ox \ket{1}_B \text{.}
 \end{multline}
 
-When we observe the pointer, let's assume we're not
-able to ``measure'' it with respect to the fiducial basis
+When we observe the pointer, let us assume we are not
+able to ``measure'' it with respect to the basis
 $\setof{\ket{0}, \ket{1}}$,
 but with respect to another basis, say,
 \begin{equation}\label{eq:pmbasis}
-\setof{\ket{\pm} = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_B \pm \ket{1}_B)} \,\text{.}
+\setof{\ket{\pm}_B = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_B \pm \ket{1}_B)} \,\text{.}
 \end{equation}
 
-We can rewrite \eqref{eq:qubit_ortho_measurement} as
+A natural question is whether the above (projective) measurement
+of the pointer device
+will correspond to a projective
+measurement in $\hilb{H}_A$,
+with respect the corresponding basis
+$\setof{\ket{\pm}_A = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_A \pm \ket{1}_A)}$.
+The answer is negative, as it will be shown.
+
+Indeed, we can rewrite \eqref{eq:qubit_ortho_measurement} as
 \begin{multline}\label{eq:qubit_gen_measurement}
-  U: \ket{\psi}_A \ox \ket{0}_B                   \rightarrow \\
+  \ket{\Psi'}                                               =
+  U( \ket{\psi}_A \ox \ket{0}_B )                           =         \\
   \frac{1}{\sqrt{2}} \qty\Big(
     \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
     \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
-  )                                               =           \\
+  )                                                         =         \\
   \frac{1}{\sqrt{2}} \qty\Big(
     \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
     \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
-  )                                               \eqbydef      \\
+  )                                               \eqbydef            \\
   M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
   \,\text{,}
 \end{multline}
@@ -60,6 +69,12 @@ where we have defined:
   M_- \repr \frac{1}{\sqrt{2}}\mqty(1& 0\\0& -1)
 \end{align*}
 with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
+
+The most important difference between equations \eqref{eq:qubit_gen_measurement}
+and \eqref{eq:qubit_ortho_measurement} is that
+the o\-per\-a\-tors $M_{\pm}$ are \emph{not} projectors onto $\ket{\pm}_A$.
+Thus the unitary operation $U$ is not a projective measurement
+with respect to such basis!
 
 After measurement, system $A$ is ``prepared''
 (up to a normalization factor)
