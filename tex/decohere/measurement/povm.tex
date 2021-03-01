@@ -1,25 +1,34 @@
 \subsection{Generalized measurement (POVM)}
 \label{subsec:POVM}
 
-Let us consider
-the same system and measurement apparatus of
-Sec.~\ref{sec:qmt:projm}, with similar notation
-but setting, for further simplicity, $N=2$,
-i.e. the system being measured and its pointer space are both
-two-level systems.
+In a similar fashion to
+Section~\ref{sec:qmt:projm},
+let us again consider
+a system under measurement
+and the measurement apparatus,
+but, for further simplicity, let both their Hibert spaces have finite dimension $N=2$.
 
-The unitary transformation describing the measurement process:
+Let $\ket{0}_A, \ket{1}_A \in \hilb{H}_A$ be the eigenstates 
+of the observable subject of measurement,
+and $P_0$, $P_1$ their respective projectors.
+Let $\qty{\ket{0}_B, \ket{1}_B}$ be the corresponding orthonormal basis in the pointer space $\hilb{H}_B$.
+
+Let the initial state in $\hilb{H}_A$ be $\ket{\psi}_A = \alpha\ket{0}_A + \beta\ket{1}_A$,
+and the initial state of the measurement device be $\ket{0}_B$.
+
+Expanding the sums in eqs.~\eqref{eq:explicit_measurement_evolution}
+and \eqref{eq:measurement_entangled}
+---with indices $a$ and $b$ both spanning over values $0$, $1$ only---
+the state after measurement will be:
 \begin{multline}\label{eq:qubit_ortho_measurement}
-  U:
-    \ket{\psi}_A \ox \ket{0}_B
-    = \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B
-  \rightarrow \\
-    \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B =
-    \:
-    E_0\ket{\psi}_A \ox \ket{0}_B + E_1\ket{\psi}_A \ox \ket{1}_B
+        \ket{\Psi'}
+    % = U(\ket{\Psi})
+    = U( \ket{\psi}_A \ox \ket{0}_B )
+    = U( \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B )
+    \\
+    = \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B
+    = P_0\ket{\psi}_A \ox \ket{0}_B + P_1\ket{\psi}_A \ox \ket{1}_B \text{.}
 \end{multline}
-with subscripts $A$ and $B$ designating the system of interest and
-the measurement apparatus (pointer space) respectively.
 
 When we observe the pointer, let's assume we're not
 able to ``measure'' it with respect to the fiducial basis
