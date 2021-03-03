@@ -62,12 +62,12 @@ Indeed, we can rewrite \eqref{eq:qubit_ortho_measurement} as
   \,\text{,}
 \end{multline}
 where we have defined:
-\begin{align*}
+\begin{align}\label{eq:qmt:Mpm}
   &
   M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
   &
   M_- \repr \frac{1}{\sqrt{2}}\mqty(1& 0\\0& -1)
-\end{align*}
+\end{align}
 with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
 
 The most important difference between equations \eqref{eq:qubit_gen_measurement}
@@ -87,8 +87,10 @@ while $M_{\pm}$ are not (a complete set of orthogonal) projectors,
 the operators $E_{\pm} \eqbydef M_{\pm}M_{\pm}^{\dagger}$
 satisfy the
 \term{decomposition of the identity}:
-$\sum_a M_a^{\dagger}M_a = \idop$
-similar to the projectors in eq. \eqref{eq:qmt:decomposition-id-proj}.
+\[
+  E_{+} + E_{-} = M_{+}^{\dagger}M_{+} + M_{-}^{\dagger}M_{-} = \idop \text{,}
+\]
+similarly to the projectors $P_n$ in eq. \eqref{eq:qmt:decomposition-id-proj}.
 
 % \citereset
 % All the following holds \parencite[sec.3.1]{PreskillNotes}:
@@ -102,7 +104,7 @@ similar to the projectors in eq. \eqref{eq:qmt:decomposition-id-proj}.
 %     \begin{equation}\label{eq:POVM}
 %       \sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop \,\text{;}
 %     \end{equation}
-%   \item
+%   \item= 
 %     Probability of outcome $a$ of a measurement:
 %     \[\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}\,\text{;}\]
 %   \item
