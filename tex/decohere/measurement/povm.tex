@@ -83,7 +83,7 @@ that if we repeat the measurement we don't generally
 obtain the same result (and don't leave the system $A$ in the same state).
 
 On the other hand,
-while $M_{\pm}$ are not (a complete set of orthogonal) projectors,
+while $M_{\pm}$ are not (a complete set of) orthogonal projectors,
 the operators $E_{\pm} \eqbydef M_{\pm}M_{\pm}^{\dagger}$
 satisfy the
 \term{decomposition of the identity}:
@@ -92,7 +92,15 @@ satisfy the
 \]
 similarly to the projectors $P_n$ in eq. \eqref{eq:qmt:decomposition-id-proj}.
 
-Operators $\setof{E_{+}, E_{-}}$ are an example of \term{POVM}. TODO Possibly NAKAHARA.
+Operators $\setof{E_{+}, E_{-}}$ are an example of \term{POVM}
+(positive operator-valued measure) i.e. a measure whose
+values are \term{positive operators}.
+
+Positive operators are a more general class of operators than projectors.
+They are defined as Hermitian opearators $E$ in an Hilbert space $\hilb{H}$ statisfying
+\[
+  \ev{E}{\psi} \ge 0 \text{,}\quad \forall \psi \in \hilb{H}.
+\]
 
 % \citereset
 % All the following holds \parencite[sec.3.1]{PreskillNotes}:
