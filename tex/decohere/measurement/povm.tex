@@ -114,22 +114,22 @@ we see that the statistical distribution of measurement outcomes
 is determined by the product $M_m^{\dagger} M_m = E_m$ rather than the
 measurement operator $M_m$ itself. So one can define the positive operators $E_m$ directly.
 However, the state \emph{after} the measurement, as in eq. \eqref{eq:qmt:postulate:after}
-does depend on $M_m$.
+\emph{does} depend on $M_m$.
 
 It's important to note that, given a positive operator $E_m$, the operator
 $M_m$ such that
 \begin{equation}\label{eq:qmt:positive-measurement}
-  EM = M_{m}^{\dagger} M_m
+  E_m = M_{m}^{\dagger} M_m
 \end{equation}
-is not uniquely determined. Replacing $M_M$ with $UM_m$, where $U$ is any unitary operator,
+is not uniquely determined. Replacing $M_m$ with $UM_m$, where $U$ is any unitary operator,
 eq. \eqref{eq:qmt:positive-measurement} is still statisfyied.
 
-In conclusion, taking into consideration \eqref{eq:qmt:postulate:prob} and
-\eqref{eq:qmt:postulate:prob} and the above, with POVM defined by positive operators $\setof{E_m}$,
-one can predict the probability of measurement outcomes but not the state of the system after the measurement.
-
-
-\noindent\hrulefill
+One conclusion that can be drawn is that,
+taking into consideration \eqref{eq:qmt:postulate:prob} and
+\eqref{eq:qmt:postulate:prob}, and the above observation,
+for a  givrn POVM defined by positive operators $\setof{E_m}$,
+one can predict the probability of measurement outcomes,
+but not the state of the system after the measurement.
 
 A more abstract and general definition of POVM is as
 follows:\footnote{
@@ -148,22 +148,3 @@ follows:\footnote{
   where $\setof{\Delta_n}$ is a countable family of disjoint sets in
   $\mathcal{B}(\mathbb{R})$.
 \end{definition}
-
-\citereset
-It's worth noting that,
-given a POVM $E$, operators $M$
-suitable for \eqref{eq:POVM} and \eqref{eq:gen_measurement}
-and following generalization
-can always be found \parencite[sec.3.1]{PreskillNotes},
-but not uniquely, in the sense that
-$UM$ are also valid
-for any unitary operator $U$.
-
-Therefore, this formulation leaves the state after a measurement
-with outcome $a$
-\[
-  \frac{M_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
-  \leftrightarrow
-  \frac{UM_a\ket{\psi}}{\norm{M_a\ket{\psi}}^2}
-\]
-in fact \emph{undetermined}.
