@@ -85,11 +85,11 @@ obtain the same result (and don't leave the system $A$ in the same state).
 On the other hand,
 while $M_{\pm}$ are not (a complete set of) orthogonal projectors,
 the operators $E_{\pm} \eqbydef M_{\pm}M_{\pm}^{\dagger}$
-satisfy the
+still satisfy the
 \term{decomposition of the identity}:
-\[
+\begin{equation}\label{eq:qmt:qubit:povm}
   E_{+} + E_{-} = M_{+}^{\dagger}M_{+} + M_{-}^{\dagger}M_{-} = \idop \text{,}
-\]
+\end{equation}
 similarly to the projectors $P_n$ in eq. \eqref{eq:qmt:decomposition-id-proj}.
 
 Operators $\setof{E_{+}, E_{-}}$ are an example of \term{POVM}
@@ -102,30 +102,32 @@ They are defined as Hermitian opearators $E$ in an Hilbert space $\hilb{H}$ stat
   \ev{E}{\psi} \ge 0 \text{,}\quad \forall \psi \in \hilb{H}.
 \]
 
-% \citereset
-% All the following holds \parencite[sec.3.1]{PreskillNotes}:
-% \begin{enumerate}
-%   \item 
-%     Hermiticity: \[E_a = E_a^{\dagger}\,\text{;}\]
-%   \item
-%     \term{Positivity}: \[\expval{E_a}{\psi} \geq 0\,\text{;}\]  
-%   \item\label{listitem:POVM}
-%     Decomposition of the identity (\term{completeness}):
-%     \begin{equation}\label{eq:POVM}
-%       \sum_a E_a = \sum_a M_a^{\dagger}M_a = \idop \,\text{;}
-%     \end{equation}
-%   \item= 
-%     Probability of outcome $a$ of a measurement:
-%     \[\Pr(a) = \norm{M_a\ket{\psi}}^2 = \expval{E_a}{\psi}\,\text{;}\]
-%   \item
-%     Probability of obtaining $b$ in a second measurement:
-%     \[\Pr(b|a) = \frac{\norm{M_bM_a\ket{\psi}}^2}{\norm{M_a\ket{\psi}}^2}\]
-%     (would be $\delta_{ab}$ if orthogonal);
-%   \item
-%     Probability of outcome, density operator form:
-%     \[\Pr(a) = \tr(\rho E_a)\,\text{,}\]
-%     also valid for mixed states.
-% \end{enumerate}
+The example we have considerered only allows two possibile outcomes.
+More generally, for a discrete set of possible outcomes, 
+eq. \eqref{eq:qmt:qubit:povm} can be written:
+\begin{equation}
+  \sum_m E_m = \sum_m M_m^{\dagger} M_m = \idop \text{.}
+\end{equation}
+
+Looking back at the general measurement postulate (Section \ref{sec:qmt:postulate}),
+we see that the statistical distribution of measurement outcomes
+is determined by the product $M_m^{\dagger} M_m = E_m$ rather than the
+measurement operator $M_m$ itself. So one can define the positive operators $E_m$ directly.
+However, the state \emph{after} the measurement, as in eq. \eqref{eq:qmt:postulate:after}
+does depend on $M_m$.
+
+It's important to note that, given a positive operator $E_m$, the operator
+$M_m$ such that
+\begin{equation}\label{eq:qmt:positive-measurement}
+  EM = M_{m}^{\dagger} M_m
+\end{equation}
+is not uniquely determined. Replacing $M_M$ with $UM_m$, where $U$ is any unitary operator,
+eq. \eqref{eq:qmt:positive-measurement} is still statisfyied.
+
+In conclusion, taking into consideration \eqref{eq:qmt:postulate:prob} and
+\eqref{eq:qmt:postulate:prob} and the above, with POVM defined by positive operators $\setof{E_m}$,
+one can predict the probability of measurement outcomes but not the state of the system after the measurement.
+
 
 \noindent\hrulefill
 
