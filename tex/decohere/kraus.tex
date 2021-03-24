@@ -18,15 +18,12 @@ We have seen so far that:
 It is therefore of interest to study
 the evolution (as a density matrix in $\hilb{H}_A$) of subsystem $A$ alone,
 while the bipartite system as a whole evolve unitarily.
-
 The system $A$ alone
-(initially described by the density operator $\rho=\ketbra{\psi}$)
-can be studied by tracing out $B$
+is initially described by the density operator $\rho=\ketbra{\psi}$.
+By tracing out
+$B$
 (in the sense of Section \ref{sec:p_tr}),
-or equivalently by measuring $B$
-but without recording an outcome, therefore leaving the system
-in a statistical mixture.
-In either ways, there has:
+there has:
 \begin{equation}\label{eq:channel}
   \rho \rightarrow \superop{E}(\rho) \eqbydef \sum_a M_a \rho M_a^{\dagger}
 \end{equation}
@@ -57,7 +54,13 @@ A quantum channel $\superop{E}$
   \item preserves positivity:
     $\rho = \rho^{\dagger} \geq 0 \implies \superop{E}(\rho) \geq 0$;
   \item preserves trace:
-    $\tr(\superop{E}(\rho)) = \tr(\rho)$.  
+    $\tr(\superop{E}(\rho)) = \tr(\rho)$.
+  \item is \term{completely positive}.\footnote{\citereset
+      \cite[sec. 3.2.6]{PreskillNotes}; \cite[sec. 8.2.4]{NielsenChuang}.
+    } If $\hilb{H}_R$
+    is another Hilbert space of arbitrary dimension,
+    then $\superop{E} \ox \idop_{R}$ is also positive
+    in $\hilb{H}_A \ox \hilb{H}_R$.
 \end{enumerate}
 
 Expressing $\superop{E}$ in terms of operators $M_a$
