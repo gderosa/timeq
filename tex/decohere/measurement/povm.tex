@@ -1,0 +1,153 @@
+\subsection{General measurement and POVM}
+\label{subsec:POVM}
+
+In a similar fashion to
+Section~\ref{sec:qmt:projm},
+let us again consider
+a system under measurement
+and the measurement apparatus,
+but, for further simplicity, let both their Hilbert spaces have finite dimension $N=2$.
+
+Let $\ket{0}_A, \ket{1}_A \in \hilb{H}_A$ be the eigenstates 
+of the observable subject of measurement,
+and $P_0$, $P_1$ their respective projectors.
+Let $\qty{\ket{0}_B, \ket{1}_B}$ be the corresponding orthonormal basis in the pointer space $\hilb{H}_B$.
+
+Let the initial state in $\hilb{H}_A$ be $\ket{\psi}_A = \alpha\ket{0}_A + \beta\ket{1}_A$,
+and the initial state of the measurement device be $\ket{0}_B$.
+
+Expanding the sums in eqs.~\eqref{eq:explicit_measurement_evolution}
+and \eqref{eq:measurement_entangled}
+---with indices $a$ and $b$ both spanning over values $0$, $1$ only---
+the state after measurement will be:
+\begin{multline}\label{eq:qubit_ortho_measurement}
+        \ket{\Psi'}
+    % = U(\ket{\Psi})
+    = U( \ket{\psi}_A \ox \ket{0}_B )
+    = U( \qty\big{\alpha\ket{0}_A + \beta\ket{1}_A} \ox \ket{0}_B )
+    \\
+    = \alpha\ket{0}_A \ox \ket{0}_B + \beta\ket{1}_A  \ox \ket{1}_B
+    = P_0\ket{\psi}_A \ox \ket{0}_B + P_1\ket{\psi}_A \ox \ket{1}_B \text{.}
+\end{multline}
+
+When we observe the pointer, let us assume we are not
+able to ``measure'' it with respect to the basis
+$\setof{\ket{0}, \ket{1}}$,
+but with respect to another basis, say,
+\begin{equation}\label{eq:pmbasis}
+\setof{\ket{\pm}_B = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_B \pm \ket{1}_B)} \,\text{.}
+\end{equation}
+
+A natural question is whether the above (projective) measurement
+of the pointer device
+will correspond to a projective
+measurement in $\hilb{H}_A$,
+with respect the corresponding basis
+$\setof{\ket{\pm}_A = \frac{1}{\sqrt{2}} \qty\Big(\ket{0}_A \pm \ket{1}_A)}$.
+The answer is negative, as it will be shown.
+
+Indeed, we can rewrite \eqref{eq:qubit_ortho_measurement} as
+\begin{multline}\label{eq:qubit_gen_measurement}
+  \ket{\Psi'}                                               =
+  U( \ket{\psi}_A \ox \ket{0}_B )                           =         \\
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
+    \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
+  )                                                         =         \\
+  \frac{1}{\sqrt{2}} \qty\Big(
+    \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
+    \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
+  )                                               \eqbydef            \\
+  M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
+  \,\text{,}
+\end{multline}
+where we have defined:
+\begin{align}\label{eq:qmt:Mpm}
+  &
+  M_+ \repr \frac{1}{\sqrt{2}}\mqty(\imat{2})
+  &
+  M_- \repr \frac{1}{\sqrt{2}}\mqty(1& 0\\0& -1)
+\end{align}
+with respect to the basis $\setof{\ket{0}_A, \ket{1}_A}$.
+
+The most important difference between equations \eqref{eq:qubit_gen_measurement}
+and \eqref{eq:qubit_ortho_measurement} is that
+the o\-per\-a\-tors $M_{\pm}$ are \emph{not} projectors onto $\ket{\pm}_A$.
+Thus the unitary operation $U$ is not a projective measurement
+with respect to such basis!
+
+Moreover, $M_-$ in the example is not even idempotent,
+therefore it is not a projector onto \emph{any} linear subspace of $\hilb{H}_A$.
+The lack of idempotency means, physically,
+that if we repeat the measurement we don't generally
+obtain the same result (and don't leave the system $A$ in the same state).
+
+On the other hand,
+while $M_{\pm}$ are not (a complete set of) orthogonal projectors,
+the operators $E_{\pm} \eqbydef M_{\pm}M_{\pm}^{\dagger}$
+still satisfy the
+\term{decomposition of the identity}:
+\begin{equation}\label{eq:qmt:qubit:povm}
+  E_{+} + E_{-} = M_{+}^{\dagger}M_{+} + M_{-}^{\dagger}M_{-} = \idop \text{,}
+\end{equation}
+similarly to the projectors $P_n$ in eq. \eqref{eq:qmt:decomposition-id-proj}.
+
+Operators $\setof{E_{+}, E_{-}}$ are an example of \term{POVM}
+(positive operator-valued measure) i.e. a measure whose
+values are \term{positive operators}.
+
+Positive operators are a more general class of operators than projectors.
+They are defined as Hermitian operators $E$ in an Hilbert space $\hilb{H}$ satisfying
+\[
+  \ev{E}{\psi} \ge 0 \text{,}\quad \forall \psi \in \hilb{H}.
+\]
+
+The example we have considered only allows two possible outcomes.
+More generally, for a discrete set of possible outcomes, 
+eq. \eqref{eq:qmt:qubit:povm} can be written:
+\begin{equation}
+  \sum_m E_m = \sum_m M_m^{\dagger} M_m = \idop \text{.}
+\end{equation}
+
+Looking back at the general measurement postulate (Section \ref{sec:qmt:postulate}),
+we see that the statistical distribution of measurement outcomes
+is determined by the product $M_m^{\dagger} M_m = E_m$ rather than the
+measurement operator $M_m$ itself. So one can define the positive operators $E_m$ directly.
+However, the state \emph{after} the measurement, as in eq. \eqref{eq:qmt:postulate:after}
+\emph{does} depend on $M_m$.
+
+It's important to note that, given a positive operator $E_m$, the operator
+$M_m$ such that
+\begin{equation}\label{eq:qmt:positive-measurement}
+  E_m = M_{m}^{\dagger} M_m
+\end{equation}
+is not uniquely determined. 
+Indeed, if one replaces $M_m$ with $UM_m$
+---where $U$ is any unitary operator---
+it is easily verified that
+eq. \eqref{eq:qmt:positive-measurement} is still satisfied.
+
+One conclusion that can be drawn is that,
+taking into consideration \eqref{eq:qmt:postulate:prob} and
+\eqref{eq:qmt:postulate:after}, and the above observation,
+for a  given POVM defined by the positive operators $\setof{E_m}$,
+one can predict the probability of measurement outcomes,
+but not the state of the system after the measurement.
+
+A more abstract and general definition of POVM is as
+follows:\footnote{
+  See e.g. \cite{BeneduciPhD, Berberian} --- the level of generalization may vary.
+}
+\begin{definition}
+  Given a (Borel) $\sigma$-algebra $\mathcal{B}(\mathbb{R})$ of subsets of $\mathbb{R}$,
+  and the space $\mathcal{F}(\hilb{H})$ of positive, self-adjoint operators on a Hilbert space,
+  a \term{positive operator-valued measure} (\term{POVM})
+  is a map $E: \mathcal{B}(\mathbb{R}) \rightarrow \mathcal{F}(\hilb{H})$
+  such that
+  \begin{itemize}
+    \item $E(\mathbb{R}) = \idop$ (completeness)
+    \item $E\qty(\bigcup\limits_{n} \Delta_n) = \sum\limits_{n} E\qty(\Delta_n)$ (additivity) 
+  \end{itemize}
+  where $\setof{\Delta_n}$ is a countable family of disjoint sets in
+  $\mathcal{B}(\mathbb{R})$.
+\end{definition}

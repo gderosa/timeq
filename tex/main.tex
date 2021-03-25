@@ -6,21 +6,51 @@
 
 \frontmatter
 
-\maketitle
+\pagenumbering{alph}
+\pdfbookmark[chapter]{Front}{front}
+\input{tex/pre/front}
 
-% https://tex.stackexchange.com/a/65547
-\cleardoublepage
-\pdfbookmark[section]{\contentsname}{toc}
-\tableofcontents
+\pagenumbering{roman}
+\maketitle    
 
-\listoffigures
+\begin{spacing}{1.2}
+  \chapter*{Declaration of Authorship}
+  \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Declaration of Authorship}
+  \input{tex/pre/declaration}
 
-\listoftables
+  \chapter*{Abstract}
+  \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Abstract}
+  \input{tex/pre/abstract}
 
-\chapter*{Preface}
-\markboth{Preface}{Preface}  %% No ugly "Chapter 0".
-\addcontentsline{toc}{chapter}{Preface}
-\input{tex/preface/preface}
+  \input{tex/pre/dedica}
+  \markboth{}{}
+
+  \chapter*{Acknowledgements}
+  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{chapter}{Acknowledgements}
+  \input{tex/pre/thanks}
+
+  {
+    \hypersetup{
+      linkcolor = .
+    }
+
+    % https://tex.stackexchange.com/a/65547
+    \cleardoublepage
+    \pdfbookmark[chapter]{\contentsname}{toc}
+    \tableofcontents
+    
+    \cleardoublepage
+    %\pdfbookmark[chapter]{\listfigurename}{lof}
+    \listoffigures
+
+    \cleardoublepage
+    %\pdfbookmark[chapter]{\listtablename}{lot}
+    \listoftables
+  }
+\end{spacing}
 
 \mainmatter
 
@@ -28,13 +58,13 @@
 \input{tex/intro/invite}
 \input{tex/intro/struct}
 
-\chapter{Decoherence and Measurement: a review}\label{ch:decohere}
+\chapter{Quantum measurement theory: a review}\label{ch:decohere}
 \input{tex/decohere/intro.tex}
 \input{tex/decohere/bi.tex}
 \input{tex/decohere/density.tex}
 \input{tex/decohere/ptr.tex}
 \input{tex/decohere/mix.tex}
-\input{tex/decohere/env.tex}
+%\input{tex/decohere/env.tex}
 \input{tex/decohere/measurement.tex}
 \input{tex/decohere/kraus.tex}
 
@@ -45,33 +75,25 @@
 \input{tex/hist/kijowski}
 \input{tex/hist/detector}
 
-\chapter{Page and Wootters relational time, applications and comparison with other models}
+\chapter[%
+  Page and Wootters relational time and applications
+  ]{
+    Page and Wootters relational time, applications and comparison with other models
+  }
   \chaptermark{Page and Wootters relational time and applications}
   \label{ch:pw}\label{ch:detect}
-\input{tex/pw/notation}
 \input{tex/pw/intro}
-\input{tex/pw/qubit}
-\input{tex/pw/proper}
+\input{tex/pw/pwreview}
 \input{tex/pw/uncertain}
-\input{tex/pw/detect}
-\input{tex/pw/pwdetect}
-\input{tex/pw/3level}
+\input{tex/pw/moreva}
+\input{tex/pw/multi}
+\input{tex/pw/detector2}
+\input{tex/pw/detector3}
 
 \chapter{Conclusions and Outlook}\label{ch:outlook}
+\input{tex/co/discussion}
 \input{tex/rel/pwkg}
-
-\iftodo
-  \chapter{TODOs and misc Ideas}
-  \input{tex/todo/misc.tex}
-\fi
-
-\iftodo
-  \chapter*{Acknowledgements}
-  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter X".
-\addcontentsline{toc}{chapter}{Acknowledgements}
-
-  \input{tex/thanks/thanks.tex}
-\fi
+\input{tex/co/misc.tex}
 
 % appendices
 \appendix

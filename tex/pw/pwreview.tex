@@ -1,0 +1,441 @@
+\section{Page--Wootters basics and recent developements}
+
+\subsection{The model}
+
+The Page and Wootters model of ``evolution without evolution'',
+first proposed in 1983,
+is essentially based on the above ideas \parencite{PageWootters}.
+Circa three decades after the first publication by
+Don Page and William Wootters, the model was further developed
+in particular by Lloyd, Giovannetti and Maccone,
+with emphasis on addressing technical issues which have been raised meanwhile
+\parencite{Lloyd:Time}.
+In this formulation,
+in addition to the ordinary Hilbert space of the system,
+an extra Hilbert space $\mathcal{H}_T$ is considered,
+where time is an observable
+represented by a self-adjoint operator
+whose properties are similar to the ones of position
+in ordinary quantum mechanics.
+
+In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
+and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+the space in which both time and position are observables, and they act as
+$\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
+respectively.
+
+%% REMOVED: a relativistic chapter was created since. The intro chap. also deals w/ relativity.
+% \begin{remark}
+%   In a more ``relativistic friendly'' notation, we may set
+%   $\hat{x_0} = c\hat{t}$ and consider
+%   $\hat{x_0} \otimes \idop_S$ and $\idop_T \otimes \hat{x_1}$,
+%   and so on. An interesting development may be expressing
+%   Lorentz transformations as unitary transformations in
+%   $\mathcal{H}_T \otimes \mathcal{H}_S$.
+% \end{remark}
+
+The Page and Wootters mechanism is rooted in the ``problem of time''
+in quantum cosmology.
+In principle, an appropriate system (a ``clock'') can be identified in such a way
+to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
+the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolution}.
+
+As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+encompassing both position and time as observables, is given by
+\begin{equation}\label{eq:pwHamiltonian}
+  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
+\end{equation}
+while the \term{Wheeler-DeWitt equation} holds:
+\begin{equation}\label{eq:Wheeler-DeWitt}
+  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+\end{equation}
+describing a \emph{static} universe, where evolution is only
+in terms of relations between parts of a multipartite system
+(a ``clock'' and ``the rest'').
+
+Please note the special notation $\dket{\Psi}$ (double angle bracket),
+to indicate a state vector in the ``larger'' product space $\pwspace$,
+as opposed to vectors belonging to $\hilb{H}_S$ (or $\hilb{H}_T$) only.
+
+Using the $T$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}\label{eq:schrod_from_pw}
+  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
+    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
+Details of this derivation are in the reference aforementioned.
+
+Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
+
+Canonical commutation relation holds and can be easily verified
+between $\hat{t}$ and $\hat{\Omega}$
+i.e. $[\hat{t}, \hat{\Omega}] = i$,
+therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+From another point of view, $\hbar\hat{\Omega}$ is the ``hamiltonian'' of $\hilb{H}_T$,
+in that it plays a similar role of $H_S$ in the construction of
+$\hat{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. This dual role doesn't hold
+for $H_S$. 
+
+This ambiguity is related to the a\-sym\-me\-try of space and time in
+non\-re\-la\-ti\-vi\-stic
+mechanics and can be expressively synthesized in the below:
+{
+  %% https://tex.stackexchange.com/a/232874
+  %% https://tex.stackexchange.com/a/2836
+  \begin{table}[h!]
+    \parbox{.45\linewidth}{
+      \centering
+      \begin{tabular}{c|c}
+        $\hilb{H}_T$        & $\hilb{H}_S$  \\
+        \hline
+        \hline
+        $\hat{t}$           & $\hat{x}$     \\
+        \hline
+        $\hbar\hat{\Omega}$ & $\hat{p}$     \\
+        \hline
+        $?$                 & $\hat{H}$
+      \end{tabular}
+      {\caption{
+        Operators in the two Hilbert spaces,
+        with emphasis on the algebraic relation
+        to other operators in the same space.
+      }\label{op_comparison_alg}}
+    }
+    \hfill
+    \parbox{.45\linewidth}{
+      \centering
+      \begin{tabular}{c|c}
+        $\hilb{H}_T$        & $\hilb{H}_S$  \\
+        \hline
+        \hline
+        $\hat{t}$           & $\hat{x}$     \\
+        \hline
+        $\hbar\hat{\Omega}$ & $\hat{H}$     \\
+        \hline
+        $?$                 & $\hat{p}$
+      \end{tabular}
+      {\caption{
+        Operators in the two Hilbert spaces,
+        with emphasis on the role in the
+        Page--Wootters ``hamiltonian'' (eq. \ref{eq:pwHamiltonian}).
+      }\label{op_comparison_J}}
+    }
+  \end{table}
+}
+
+TODO: REMOVE SECOND TABLE AND TREAT IN THE RELATIVISTIC CHAPTER/SECTION.
+THE FOLLOWING PARAGRAPH IS REDUNDANT.
+It would be interesting to a study relativistic extension of the
+Page and Wootters model that allows, for example, the derivation of the Klein-Gordon
+equation, thus eliminating the asimmetry between
+$\hilb{H}_T$ and $\hilb{H}_S$ (and momentum and energy as well).
+
+In the bipartite universe, physical kets $\dket{\Psi}$ have a Schmidt decomposition
+made up of
+eigenstates of $\hat{\Omega}$ in $\hilb{H}_T$
+entangled, respectively, with
+eigenstates of $\hat{H}_S$ in $\hilb{H}_S$;
+or eigenstates of $\hat{t}$ in $\hilb{H}_T$
+entangled with time-evolved spatial states $\ket{\psi(t)}_S$ in $\hilb{H}_S$
+(according to the evolution that is embedded in $\hat{\mathbb{J}}$):
+\begin{equation}
+  \dket{\Psi} = \int d\mu(\omega) \ket{\omega}_{T}\ox\ket{\psi(\omega)}_{S} = \int dt \ket{t}_{T} \ox \ket{\psi(t)}_{S}\,\text{.} 
+\end{equation}
+In principle, different and less obvious decompositions are possible for other purposes.
+
+
+\subsection{One qubit universe: experimental realization and theoretical developments}
+\sectionmark{One qubit universe: experimental and theoretical developments}
+\label{sec:pw:qubit}
+
+The Page and Wootters model has been illustrated experimentally in recent years,
+with a very simple toy universe consisting of just one qubit acting as ``the system'' (or
+``the rest of the universe'' if we will), and the clock being implemented by another qubit ---
+physically, the polarization states of two photons \parencite{Moreva:synthetic,Moreva:illustration}).
+
+In another experiment by the same authors \parencite{Moreva_position}, $\hilb{H}_S$ is still implemented with 
+polarizations $\ket{H}$ or $\ket{V}$ of a photon, while the clock states in $\hilb{H}_T$
+are given by the \emph{position} of the same photon along the conventional $x$ axis.
+
+The latter is interesting because it implements a continuous time,
+which, among other things, allows identifying a canonically conjugate observable
+$\hat{\Omega}$. Or, conversely, a time operator $\hat{T}$, once $\hat{\Omega}$ is given.
+More precisely, it is impossible to satisfy
+\begin{equation}\label{eq:canonical_commutation_in_time}
+  [\hat{T}, \hat{\Omega}] = i
+\end{equation}
+in a finite-dimension Hilbert space, because the operators
+cannot be both bounded \parencite{Weyl1927}.
+
+On the other hand, one problematic aspect of the experiment with continuous time
+is that
+it relies on \term{photon position} which is another
+still controversial topic (see, for example, \cite{HawtonPhotonPosition}),
+similar, in that regards, to the quest for a quantum time operator that the experiment is trying to solve.
+
+Just like time in quantum mechanics, position coordinates in quantum optics and other field theories
+are (classical) external parameters and not quantum observables. 
+
+However, the experiment in \cite{Moreva_position} verifies the violation of
+\term{Legget-Garg inequalities}, as previously suggested in \cite{LeggettGarg+PageWootters},
+for ``time'' measurement results
+(In our notation, Leggett-Garg inequalities are to $\hilb{H}_T$ what the well known Bell inequalities
+  are to $\hilb{H}_S$).
+This proves the ``quantumness'' of this realization of Page and Wootters time,
+regardless of the explicit expression of the corresponding operator (which, unsurprisingly,
+is not given). It's tempting to infer that the experiment
+rather tests Bell/Leggett-Garg inequalities for photon position.
+
+The first experiment, on the other hand \parencite{Moreva:illustration,Moreva:synthetic},
+uses (uncontroversial)
+two-level quantum systems for both the clock and the rest of the universe.
+While we can't derive a $\hat{T}$ such that $[T, \Omega] = i$
+because of the finite dimension of the space, both $\Omega$
+and $H_S$ are given an explicit expression:
+\begin{align}\label{eq:MorevaOmegaT}
+  \Omega            &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_T \\
+  H_S/{\hbar}       &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_S
+  \,\text{,}
+\end{align} 
+as well as a zero-eigenstate of $\mathbb{J}$ (as in eq. \ref{eq:pwHamiltonian}):
+\begin{equation}
+  \dket{\Psi} = \frac{1}{\sqrt{2}}\qty(\ket{H}_T\ket{V}_S-\ket{V}_T\ket{H}_S)
+  \,\text{.}
+\end{equation}
+
+It can be easily verified that the Wheeler-DeWitt condition
+\eqref{eq:Wheeler-DeWitt} is satisfied.
+
+In general, given a clock ($\Omega$), the problem of finding a
+``rest of the universe'' ($H_S$) such that
+$\hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S = 0$
+(and vice versa)
+is not trivial
+(and it's particularly cumbersome in non-relativisitc
+quantum mechanics where we can't avail of negative energies etc.).
+Most literature focuses their examples on clocks only
+\parencite{Prvanovic,RealisticClocks,HarmonicClocks},
+implicitly relying on the scale of a realistic universe
+in order to have the \eqref{eq:Wheeler-DeWitt} satisfied
+(which was originally derived using General Relativity arguments)
+but missing the opportunity to illustrate the entanglement mechanism in detail,
+which is aimed at, instead, in the present work, to some extent.
+
+\subsection{Overcoming limitations of finite-dimension spaces}\label{sec:finite-quantum}
+\epigraph{\textelp{} discreteness in the world is simply the Fourier transform of compactness.}{%
+  \emph{Physics and the Integers} \parencite{Tong_Integers}%
+}
+
+The experiment mentioned in Sec. \ref{sec:pw:qubit}
+is based on a two-level clock
+The ``frequency'' observable is defined and implemented experimentally
+but the \emph{time} operator is not defined or calculated.
+In finite-dimension Hilbert spaces
+there are diffilcuties in identifying canonically conjugate
+pairs and one cannot use the same explicit formalism
+that would be used for observables with a continuous spectrum.
+Moreover, operators satisfying a canonical
+commutation relation like eq.~\eqref{eq:canonical_commutation_in_time}
+cannot be both bounded, which excludes finit-dimensional systems.
+
+This problem was studied in detail in
+\cite{FiniteHilb}. It was shown therein
+that statisfying the canonical commutation relation 
+is not essential to build operators representing physical observables
+with the same role of position and momentum.\footnote{
+  Or $T$ and $\hbar\Omega$
+  in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model.
+}
+
+Discrete, bounded position-like and momentum-like operators can be obtained from
+each other via
+the \term{finite Fourier transform}.
+In our case, we are particularly interested in relating the
+time operator $\hat{T}$ and the ``energy'' operator $\hbar\hat{\Omega}$
+in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
+\eqref{eq:canonical_commutation_in_time} exactly.
+
+%\citereset
+It holds\footnote{
+  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
+  it can be easily verified that,
+  if $ \hat{p} = F x F^{\dagger} $,
+  the correct inverse relation is
+  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+} \parencite{FiniteHilb}:
+\begin{gather}\label{eq:FourierCanonicalRelations}
+  \hat{\Omega} = F \hat{T} F^{\dagger}\text{;} \quad
+  \hat{T} = F^{\dagger} \hat{\Omega} F
+\end{gather}
+where, in the ``position'' (or \emph{time}) finite eigenbasis,
+\begin{equation}
+  F = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
+\end{equation}
+while in the frequency eigenbasis
+\begin{equation}
+  F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\mu,\nu=0}^{N-1} \exp[-i\frac{2\pi \mu\nu}{N}] \ketbra{\mu}{\nu} \, \text{,}
+\end{equation}
+with $N$ being the finite dimension of the Hilbert space.
+
+Please note the \eqref{eq:FourierCanonicalRelations} is valid in normalized (``natural'') units
+where ``time'' and ``frequency'' are in fact respectively
+\term{samples} and \emph{cycles/samples rate},
+in a similar sense as in digital signal processing theory
+\parencite[pp. 469, 490]{Signal}.
+
+In SI units, the \eqref{eq:FourierCanonicalRelations} is replaced by
+\begin{gather}
+  \label{eq:SI_Fourier:Omega}
+    \hat{\Omega} = \frac{2\pi}{N(\delta T)^2} F \hat{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \hat{T} F^{\dagger} \\
+  \label{eq:SI_Fourier:T}
+    \hat{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \hat{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \hat{\Omega} F
+  \, \text{,}
+\end{gather}
+where $\delta T$ (and analogously $\delta\Omega$)
+is the size of a ``temporal sample'', or the size of a discrete
+time step in the clock, and $\Delta T = N\delta T$ the range of the clock.
+For example,
+$\delta T = \text{1 hour}$ and $\Delta T=12\;\text{hours}$
+for a common clock (hours hand) in our everyday life.
+
+It holds
+\begin{gather}
+  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
+  \Delta\Omega \Delta T = 2\pi N \, \text{.}
+\end{gather}
+
+A benefit of finite-dimensional systems is the potential implementation on a finite array of
+qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
+with technology and engineering to the domain of signal processing \parencite{FiniteHilb}.
+In \emph{ordinary} quantum mechanics, the Fourier transform (discrete or continuous)
+is generally used
+to associate wavefunctions in position and momendum space
+(whereas time and frequency are \emph{not} operators),
+while in communication engineering it is used to convert signals
+from the time to the frequency domain and vice versa.
+Thanks to the introduction of the Hilbert space $\hilb{H}_T$,
+the interpretation in terms of time and frequency
+(or time and energy, up to a factor $\hbar$)
+is applicable to quantum theory as well, not only formally
+i.e. not in the sense of a mere operation among (``classical'') parameters;
+but in the sense of conversion between representations of the
+same quantum state vector with respect to different eigenbasis,
+in full analogy with position and momentum in $\hilb{H}_S$.
+
+\subsubsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
+\citereset
+For canonical pairs of operators with a continuous, unbounded spectrum i.e.
+$\hat{q}$ and $\hat{p} \eqbydef -i\hbar\hat{\partial}_{q}$,
+it is in general straightforward to prove that
+$\qty[\hat{q}, \hat{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\hat{q}, \hat{p}]}| = \frac{\hbar}{2}}$.
+
+In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
+in general, and is less essential.
+Canonically conjugate operators are related
+through the (discrete) Fourier transform ($\hat{p} = F\hat{q}F^{\dagger}$)
+rather then differentiation,
+and uncertainty relations are based on
+the properties of Fourier transformation
+rather than commutation relations.
+
+Particularly, the entropic uncertainty relation holds
+(\cite[sec.2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+\begin{equation}
+  S_q + S_p \geq \ln d
+\end{equation}
+where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+\parencite[sec.{\it I}.A]{Wehner:Uncertainty}; in this case:
+\begin{align}
+  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+  \,\text{,}
+\end{align}
+with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+(generalized) position and momentum basis.
+
+
+
+\subsection{Normalizable vectors of $\pwspace$}
+\label{sec:properpw}
+
+A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
+satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
+encodes the whole (unitary) time evolution of a system.
+\begin{equation}\label{eq:pwexpansion}
+  \dket{\Psi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S =
+    \int \dd{t}\dd[3]{\vec{r}} \ \Psi(t; \vec{r}) \; \ket{t}_T \ox \ket{\vec{r}}_S
+    \,  \text{.}
+\end{equation}
+We know $\setof{\ket{t}_T \ox \ket{\vec{r}}_S}$ is an othonormal basis of $\hilb{H}_T \ox \hilb{H}_S$, therefore
+\begin{equation}
+  \norm{\dket{\Psi}}^2 =
+    \int \dd{t}\dd[3]{\vec{r}} \ \abs{\Psi(t; \vec{r})}^2 =
+    \int \dd{t} \int \dd[3]{\vec{r}} \ \abs{\Psi(t; \vec{r})}^2 =
+    \int \dd{t} 1 \rightarrow +\infty
+    \,  \text{,}
+\end{equation}
+which means that such $\dket{\Psi}$ is an \term{improper} vector of $\hilb{H}_T \ox \hilb{H}_S$.
+
+Proper (i.e. normalizable) states are described in \cite{Lloyd:Time} as well, by replacing (or generalizing)
+the \eqref{eq:pwexpansion} with
+\begin{equation}\label{eq:pwphi}
+  \dket{\Phi} =
+    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
+\end{equation}
+If the function $\phi \in \mathscr{L}^2(\mathbb{R})$,
+then $\dket{\Psi}$ is a proper element of the product space,
+and $\norm{\dket{\Psi}}^2 = \int \dd{t} \abs{\phi(t)}^2$.
+
+The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
+with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
+describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
+As observed in \cite{Maccone:QGR},
+``%
+  Quantum mechanics is formulated in terms of \emph{systems},
+  typically limited in space but infinitely extended in time%
+''.
+If the state vector is \emph{conditioned} at a particular time $t$,
+it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
+meaning that, at each $t$,
+\emph{the particle must certainly be in some (one) point in space}.
+
+A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
+instead,
+can be interpreted as a total probability of~$1$ in both space and time combined.
+It can be interpreted as describing an \term{event},
+in that it
+must certainly be in some point in space
+\emph{and} time (in terms of outcome of an idealized measurement\footnote{
+  Measurement in quantum mechanics requires the concepts
+  of state of the system
+  (and measurement apparatus)
+  \emph{before} and \emph{after} the measurement and, therefore, the existence
+  of an external time (external with respect of the Hilbert space of states).
+  This logically contradicts the foundation of the Page--Wootters model if
+  time itself is measured as a quantum observable. $\dket{\Psi} \in \pwspace$
+  embeds the whole history of a system and therefore cannot have a
+  ``before'' neither an ``after'' the measurement, ``when'' it collapses
+  into an eigenstate of time. The apparent contradicion is resolved
+  stressing that probability amplitues are intended in the sense of
+  \emph{conditional} probabilities e.g. \emph{provided that the particle
+  is in position} $x \in X$ (or the detector clicks)
+  what is the probability density amplitude of time being (the clock showing) $t$?
+  Consistently, the Bayes rule
+  (see, for example, \cite{Stat:Conditional})
+  is invoked in the following sections
+  and references.
+}).
+A ``typical'' example of localized ``event wave packet'' would be
+therefore represented by
+a \emph{4\nobreakdash-dimensional} Gaussian wave function, % https://tex.stackexchange.com/a/330437
+in analogy to well known examples of purely spatial Gaussian states
+in quantum mechanics and quantum optics.
+

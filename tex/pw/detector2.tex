@@ -1,4 +1,69 @@
-\section{Page--Wootters and detector models}\label{sec:absorption+pw}
+\section{Page--Wootters and detector models for a two-level system}
+
+\subsection{Detector models}
+
+As we have seen in the previous sections,
+proper elements of $\pwspace$,
+localized in both space and time,
+can be interpreted as ``events''
+(as opposed to full history vectors, which instead describe the unitary evolution
+of a quantum system \emph{at all times}).
+
+The arrival of a particle at a detector
+is a kind of event
+of particular interest from the perspective of time
+in quantum mechanics, for several reasons.
+
+The first reason
+is the direct connection with experiments,
+``given the appalling evidence that time is also a random variable in the laboratories''
+\parencite[Ch. 4]{TQM2};
+and because,
+``{[as]} a matter of fact, a number of time observables are already routinely measured in laboratories,
+for example arrival times in time-of-flight experiments,
+but the theoretical foundation of these measurements is still being discussed''
+\parencite[Preface to the First Ed.]{TQM1}.
+
+The second reason is the existence of studies
+about detector models which also investigate
+time-of-arrival as a quantum observable,
+as we have seen in Section \ref{sec:hist:detect}.
+None of those works are explicitly
+based on Page--Wootters relational model ---of which, to our knowledge,
+there are no working examples of application to
+time-of-detection problems in the current literature.
+Section \ref{sec:absorption+pw} and the remainder of the chapter
+will be devoted to bridging such gap
+by implementing such application
+and comparing
+the results from the different models.
+Some emphasis will be given to
+\emph{discrete} relational time
+using the techniques developed in Section \ref{sec:pw:qubit}.
+
+One of the goals of this chapter
+is indeed combining PW and detector models.
+
+Another route is POVM, see Chap. \ref{ch:decohere} and \ref{ch:hist}.
+Nonetheless, we know that a projective measurement on a bipartite system
+can be regarded as a POVM
+if we look at
+on one part only (e.g. \cite{Paris2012}),
+thus the clock space of the Page--Wootters mechanism, $\hilb{H}_T$,
+can be regarded as a purification space \parencite{Paris2012} for the ``standard''
+Hilbert space where the time-of-arrival POVM is defined,
+and an interesting line of further research would be a more formal
+study of the logical connection between the two approaches, based on this principle.
+Both models respond to the issues raised by Pauli
+by giving up
+the pursuit of
+a \emph{projective} measurement in the \emph{standard} Hilbert space,
+and rather ``opening'' that Hilbert space in some sense.
+
+
+
+\subsection{Comparison with the Page and Wootters formalism}
+\label{sec:absorption+pw}
 
 The detector absorption model in \cite{RuschhauptAbsorption} is not originally
 based on the notion of quantum relational time. It's ``ordinary quantum mechanics''
@@ -83,21 +148,6 @@ where it's
   \mathcal{F} \hat{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
 \end{equation}
 ---see notebook up to eq. \eqref{eq:fhatpsi1_omega} for details.
-
-% \subsection*{\color{red} TODO}
-
-% {
-%   \color{red}
-%   Figure out how to connect the above to what follows (or drop or separate if does not apply).
-
-%   \scriptsize{
-%     Hint: rather then the ``conspiracy theory''
-%     (``I find an imaginary term both here and there'')
-%     consider (time of) arrival as in \cite{Maccone:QMOT}.
-%     This should bring to a normalized element of $\pwspace$ \dots
-%   }
-% }
-
 
 
 \citereset
@@ -194,7 +244,9 @@ solution previously shown in Fig. \ref{fig:absorbed-qubit-components}.
     \includegraphics[width=\linewidth]{img/2ldetect/im_psi1_t_pwlattice.png}
     \subcaption{}\label{fig:absorbed-qubit-components_pwlattice:im1}
   \end{subfigure}
-  \caption{
+  \caption[
+    Non-unitary ``evolution without evolution'' (discrete).
+  ]{
     Non-unitary ``evolution without evolution''
     using the discrete Page--Wootters model,
     plugging in
@@ -344,7 +396,9 @@ the result from the model of \cite{RuschhauptAbsorption}.
     \includegraphics[width=\linewidth]{img/2ldetect/pw-detect-prob-ft.png}
     \subcaption{}\label{fig:2l_pw_detect_prob_omega}
   \end{subfigure}
-  \caption{
+  \caption[
+    Arrival at the detector, probability distribution.
+  ]{
     Arrival at the detector, probability distribution:
     \subref{fig:2l_pw_detect_prob_t} in the time domain
     and \subref{fig:2l_pw_detect_prob_omega} in the frequency domain.

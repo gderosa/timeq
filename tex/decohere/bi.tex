@@ -6,25 +6,22 @@ made up of two parts, $A$ and~$B$,
 described by their respective Hilbert spaces
 $\hilb{H}_A$ and $\hilb{H}_B$.
 
-Notably, in \cite{Haroche_Exploring},
-notation does not treat the two spaces
-on perfectly equal footing,
-in the sense that a basis for $\hilb{H}_A$ and a basis for $\hilb{H}_B$
+In \cite{Haroche_Exploring},
+a basis for $\hilb{H}_A$ and a basis for $\hilb{H}_B$
 are indicated as
 $$
   \setof{\ket{i_A}} \text{ and } \setof{\ket{\mu_B}}\,
 $$
-with latin and greek indices to label base vectors in the two spaces.
-We will follow such convention unless otherwise specified.
-
-This indicates different physical roles for the two spaces,
+with Latin and Greek indices to label basis vectors in the two spaces.
+This no-\\tation % \footnote{We will partly follow this convention.}
+in\-di\-cates potentially different physical roles for the two spaces,
 such as the \emph{system of interest} and the surrounding \emph{environment},
 or the \emph{system being measured} and the \emph{measurement apparatus}.
 
-If the two subsystems are prepared independently and not let interact with each other,
+If the two subsystems are prepared independently and do not interact with each other,
 the system is in a \term{product state} or \term{separable state}:
 \begin{equation}\label{eq:separableAB}
-  \ket{\psi_S} = \ket{\psi_A}\otimes\ket{\psi_A} \,\text{.}
+  \ket{\psi_S} = \ket{\psi_A}\otimes\ket{\psi_B} \,\text{.}
 \end{equation}
 
 It's worth recalling that in a tensor product space $\hilb{H}_A\otimes\hilb{H}_B$
@@ -32,20 +29,20 @@ not all vectors can be expressed as a tensor product as in \eqref{eq:separableAB
 However, the following holds:
 
 \begin{proposition}\label{TensorBase}
-The set of tensor products of base vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
-i.e. $$\setof{\ket{i_A} \otimes \ket{\mu_B}}_{i\mu},$$
-is a basis for $\hilb{H}_A \otimes \hilb{H}_B$
+The set of tensor products of basis vectors of $\hilb{H}_A$ and $\hilb{H}_B$,
+i.e. $$\setof{\ket{i} \otimes \ket{\mu}}_{i\mu},$$
+is a basis for $\hilb{H}_A \otimes \hilb{H}_B$.
 \end{proposition}
 Therefore, we can express any
 (generally not separable) state vector of $\hilb{H}_S$
-as a \emph{superposition} of separable base vectors
+as a \emph{superposition} of separable basis vectors
 \begin{equation}\label{eq:bipartite_expansion}
-  \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i_A}\otimes\ket{\mu_B} \neq \ket{\psi_A}\otimes\ket{\psi_B},
+  \ket{\psi_S} = \sum_{i, \mu}\alpha_{i\mu}\ket{i}\otimes\ket{\mu} \text{.}
 \end{equation}
-meaning that the
-``total'' $\ket{\psi_A}$ and $\ket{\psi_B}$ don't necessarily exist.
 
-Non separable states are said \term{entangled}.
+\begin{definition}
+  Non separable states are defined as \term{entangled}.  
+\end{definition}
 
 Physically,
 $\ket{\psi_S}$ contains information

@@ -1,4 +1,4 @@
-\section{(Maximally) mixed Vs (maximally) coherent}
+\section{Comparison of a coherent superposition and a mixed state}
 \label{sec:mix}
 
 Given, for simplicity, a two-level system (a qubit), and an orthonormal basis
@@ -14,9 +14,8 @@ A natural example of such coherent superposition is (e.g. \cite[Example 2.4]{Nak
 \]
 and the corresponding density operator is
 \begin{multline}\label{eq:matrix:pure}
-  \rho = \ketbra{\psi}{\psi} =
+  \rho_{\mathrm{pure}} = \ketbra{\psi}{\psi} =
   \frac{1}{2}\qty\Big(\ket{0} + \ket{1}) \qty\Big(\bra{0} + \bra{1}) =
-  \\
   \frac{1}{2}\sum_{ij=0}^1\ketbra{i}{j} \repr
   \frac{1}{2}
     \begin{pmatrix}
@@ -25,9 +24,9 @@ and the corresponding density operator is
     \end{pmatrix}
   \text{.}
 \end{multline}
-For the statistical mixture, the density operator is, by definition,
+On the other hand, for the statistical mixture, the density operator is
 \begin{equation}\label{eq:matrix:mix}
-  \rho = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
+  \rho_{\mathrm{mix}} = \frac{1}{2}\ketbra{0}{0} + \frac{1}{2}\ketbra{1}{1} \repr
   \frac{1}{2}
     \begin{pmatrix}
       1 &0  \\
@@ -36,47 +35,17 @@ For the statistical mixture, the density operator is, by definition,
   \text{.}
 \end{equation}
 
-By comparing matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
+By comparing the matrices in \eqref{eq:matrix:pure} and \eqref{eq:matrix:mix}
 we may conclude that the off-diagonal terms in the coherent superposition case
-indicate \emph{coherence}, or ``'quantum purity'';
-however, density operators are self-adjoint operators
-(as linear combination of projectors) and can always be expressed in
-diagonal form, including density operators of pure states: but it would be
-a particular case of diagonal matrix, where all diagonal elements are zero
-except one. Indeed, for a pure state:
-\[
-  \rho = \ketbra{\psi}{\psi}\text{,}
-\]
-and recalling the assumption that $\ket{\psi}$ is normalized,
-we can always build a basis $\qty{\ket{e_j}}$ including $\ket{e_{j_0}} = \ket{\psi}$
-among its elements, therefore the diagonal representation is
-\[
-  \begin{pmatrix}
-    0           &       &       &       &       &           \\
-                &\ddots &       &       &       &           \\
-                &       &1      &       &       &           \\
-                &       &       &\ddots &       &           \\
-                &       &       &       &\ddots &           \\
-                &       &       &       &       &0
-  \end{pmatrix}\text{.}
-\]
+indicate \emph{coherence}, or ``quantum purity''.
 
-All the above allows us to conclude what follows:
-\begin{remark}
-  The density matrix of a pure state is either\\
-  diag(000\dots1\dots000) or non-diagonal.
-
-  So, except the special/trivial case above, a pure state must have off-diagonal terms.
-\end{remark}
-
-It's interesting, as well, to look at ensembles (mixtures)
+It's interesting, as well, to look at mixed states
 which are not necessarily made up of orthonormal pure states.
 In fact, an ensemble of orthonormal states has ``nothing special'',
 and different ensembles may lead to the same density operator.
-The diagonalized density matrix just shows the ``orthonormal''
-ensemble which, again, has no special physical meaning.
 
-For example, let's consider this orthogonal ensemble (diagonal density matrix):
+For example, let's consider\footcite[\emph{Exercise 2.71: (Criterion to decide if a state is mixed or pure)}]{NielsenChuang}
+this orthogonal ensemble (diagonal density matrix):
 \[
   \rho_1 = \frac{3}{4}\ketbra{0}{0} + \frac{1}{4}\ketbra{1}{1}
 \]
@@ -86,28 +55,30 @@ and
 \]
 with
 \begin{align*}
-  \ket{a} &= \frac{4}{4}\ket{0} + \frac{1}{4}\ket{1} \\
-  \ket{b} &= \frac{4}{4}\ket{0} - \frac{1}{4}\ket{1}
+  \ket{a} &= \sqrt{\frac{3}{4}}\ket{0} + \sqrt{\frac{1}{4}}\ket{1} \\
+  \ket{b} &= \sqrt{\frac{3}{4}}\ket{0} - \sqrt{\frac{1}{4}}\ket{1}
 \end{align*}
 It's easy to prove that $\rho_1 = \rho_2$. This is just a particular
 case of a theorem.
-\begin{theorem}{(Unitary freedom in the ensemble for density matrices).}
+\begin{theorem}{(Unitary freedom in the ensemble for density matrices\footnote{
+  \citereset The proof can be found, for example, in \cite[\emph{Theorem 2.6}]{NielsenChuang}.
+}).}\label{th:density_u_free}
   The ensembles
   $\setof{p_i, \ket{\psi_i}}$ and $\setof{q_{j}, \ket{\phi_j}}$
   generate the same density operator
   $$\rho = \sum_i p_i \ketbra{\psi_i} = \sum_j q_j \ketbra{\phi_j}$$
   if and only if there exists
-  a unitary matrix\footnote{
-    The transformation represented by the unitary matrix $\setof{u_{ij}}$
-    does not preserve the orthogonality of the vectors sets,
-    which seems to contradict a fundamental property of unitary
-    transformations: however, it should be noted that the coefficients
-    $u_{ij}$ do not act on components of each state vector; in other
-    words, $\setof{u_{ij}}$ represent a transformation acting
-    on ``vectors of vectors'' and therefore is not really a unitary
-    transformation in a Hilbert space.
-  }
-  $\setof{u_{ij}}$ such that
+  a unitary matrix %\footnote{
+  %   The transformation represented by the unitary matrix $\setof{u_{ij}}$
+  %   does not preserve the orthogonality of the vectors sets,
+  %   which seems to contradict a fundamental property of unitary
+  %   transformations: however, it should be noted that the coefficients
+  %   $u_{ij}$ do not act on components of each state vector; in other
+  %   words, $\setof{u_{ij}}$ represent a transformation acting
+  %   on ``vectors of vectors'' and therefore is not really a unitary
+  %   transformation in a Hilbert space.
+  % }
+  $U = \setof{u_{ij}}$ such that
   \[
     \tilde{\ket{\psi_i}} = \sum_j u_{ij}\tilde{\ket{\phi_j}}
   \]
@@ -119,5 +90,3 @@ case of a theorem.
     \tilde{\ket{\phi_j}} = q_{j}\ket{\phi_j}
   \]
 \end{theorem}
-See \cite[Theorem 2.6 and introductory example]{NielsenChuang}
-for a more detailed description and a proof of the theorem.

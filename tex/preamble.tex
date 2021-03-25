@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{book}
 
-\usepackage{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{lipsum}  %% dev
 \usepackage{dpfloat}
 \usepackage{amsmath}
@@ -33,6 +33,14 @@
   \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
   \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
   \fancyhead[RO]{\thepage}
+\fancypagestyle{nomark}{%
+  \fancyhf{}
+  \fancyhead[LE]{\thepage}
+  \fancyhead[RE]{}
+  \fancyhead[LO]{}
+  \fancyhead[RO]{\thepage}
+}
+
 % https://tex.stackexchange.com/a/1557
 % https://tex.stackexchange.com/a/176939
 \usepackage[safeinputenc,style=authoryear-icomp,mincitenames=1,maxcitenames=2,uniquelist=minyear,maxbibnames=7,backend=biber]{biblatex}
@@ -40,12 +48,23 @@
 \usepackage{environ}
 \usepackage{csquotes}
 \usepackage{epigraph}
-  \setlength{\epigraphwidth}{.6\textwidth}
+  \setlength{\epigraphwidth}{.66\textwidth}
+  \renewcommand{\epigraphsize}{\small}
+  \setlength{\epigraphrule}{0.005pt}
+  \setlength{\beforeepigraphskip}{.8\baselineskip}
+  \setlength{\afterepigraphskip}{1.2\baselineskip}
 \usepackage{fancyvrb}
   \fvset{
     frame = single,
     rulecolor=\color{lightgray}
   }
+\usepackage{footnote}
+%
+% Ways to avoid "random" vertical space between paragraphs
+% https://tex.stackexchange.com/a/36429
+%\raggedbottom
+\usepackage[bottom]{footmisc}
+%
 \usepackage{listings}
   \lstset{
     frame = single,
@@ -62,14 +81,17 @@
   }
 \usepackage{setspace}
 \usepackage{etoolbox}
-\usepackage[  %% be the last -- https://tex.stackexchange.com/a/326953
+\usepackage[  %% be (almost) the last -- https://tex.stackexchange.com/a/326953
   %% pdfusetitle would not render the ket <1| correctly -- title is a plain text
   pdftitle={It's |1> o'clock -- Relational Time and Applications},
-  colorlinks,
-  citecolor=green!66!black,
-  linkcolor=red!75!black,
-  urlcolor=magenta!75!black
+  colorlinks
 ]{hyperref}
+\hypersetup{
+  linkcolor = DarkRed,
+  citecolor = DarkGreen,
+  urlcolor  = DarkSlateBlue!75!Black
+}
+
 % https://tex.stackexchange.com/a/65547
 \usepackage{bookmark}
 
@@ -79,7 +101,7 @@
 
 %% per UCC recommendation
 % \renewcommand{\baselinestretch}{1.5}
-\setstretch{1.5}
+\setstretch{1.4}
 % \onehalfspacing
 % \doublespacing
 %
@@ -92,6 +114,7 @@
 
 \addbibresource{bib/main.bib}
 \addbibresource{bib/comp.bib}
+\addbibresource{bib/misc.bib}
 % For peer-reviewed articles, in general there is a DOI which is detailed enough,
 % while only some entries have issn fields, essentially out of a copypaste -
 % See also https://tex.stackexchange.com/a/32933.

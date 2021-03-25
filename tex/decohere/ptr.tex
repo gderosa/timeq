@@ -1,23 +1,9 @@
 \section{Partial trace and open systems}
 \label{sec:p_tr}
 
-In a bipartite (entangled) systems, one subsystem considered alone is an
+In a bipartite system, one subsystem considered alone is an
 \emph{open quantum system},
 while the system as a whole is still a closed systems.
-
-In this and following sections, unless differently noted,
-we shall stick with the convention of \eqref{eq:bipartite_expansion},
-of using
-Latin indices for subsystem $A$ and Greek ones for subsystem $B$.
-
-As pointed out in
-\cite[sec.2.3.1]{PreskillNotes}, when we limit our attention to
-just part of a larger system, contrary to the axioms of closed systems:
-\begin{enumerate}
-  \item States are not rays.
-  \item Measurements are not orthogonal projections.
-  \item Evolution is not unitary.
-\end{enumerate}
 
 Now, let's consider an observable $M_A$, acting only on subsystems $A$.
 It can be expressed in $\hilb{H}_A \otimes \hilb{H}_B$ as
@@ -34,44 +20,28 @@ and the notation of Latin indices for system $A$ and Greek ones for system $B$)
   \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i}
 \end{multline}
 
-
-% Here $\ket{\mu}$ is a ``partial bra'', in the sense that
-% it acts upon kets in 
-
-
-
-% Another problem with the \ref{def:pTr} is that $\bra{\mu}$
-% is a vector in $\hilb{H}_B$, not in $\hilb{H}_A\otimes\hilb{H}_B$,
-% so what is the meaning of $\matrixel{\mu}{M_{AB}}{\mu}$?
-
-With a slight abuse of notation,
-let's now redefine
-$\bra{\mu}$,
-the generic basis bra in $\hilb{H}_B$,
-that we have eliminated from the \eqref{eq:exp_subsys}, 
-no longer as a linear form $\hilb{H}_B \rightarrow \mathbb{C}$,
-but as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$
-(like if we have added the degrees of freedom associated
-with the other Hilbert space).
+The bra $\bra{\mu}$, when acting on a ket element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+can be defined
+as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$.
 
 A formal definition can be given in terms of how it acts upon a generic
-basis element of $\hilb{H}_A\otimes\hilb{H}_B$.
+basis ket of $\hilb{H}_A\otimes\hilb{H}_B$.
 
 \begin{definition}\label{def:pBra}
 \[
-  \braket{\mu}{i\nu} = \bra{\mu}\left(\ket{i}\otimes\ket{\nu}\right) \eqbydef \delta_{\mu\nu}\ket{i}
+  \braket{\mu}{i\nu} = \bra{\mu}\Big(\ket{i}\otimes\ket{\nu}\Big) \eqbydef \delta_{\mu\nu}\ket{i} \text{.}
 \]
 \end{definition}
 
-Intuitively, $\bra{\mu}$ is a ``partial bra''
-as it only maps the ``$\ket{\nu}$'' part of
+Intuitively, $\bra{\mu}$ is then a ``partial bra''
+as it only maps the ``$\ket{\nu}$'' part of\\
 ``$\ket{i}\otimes\ket{\nu}$''
-to a number.
+to a number:
 \[
   \begin{array}{cccc}
-    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \ket{i}\cdot\delta_{\mu\nu}           \\
+    \bra{\mu}:  & \ket{i}\ox\ket{\nu}                   & \rightarrow & \delta_{\mu\nu}\ket{i}                \\
                 & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
-                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A   \text{.}
   \end{array}
 \]
 
@@ -79,35 +49,46 @@ This is consistent with the idea of
 ``tracing out the environment'' within an interpretation where
 $\hilb{H}_B$ is the environment, and ultimately with the goal of
 studying subsystem $A$ alone in spite of its entanglement with the 
-``environment'' (or measurement apparatus etc.) modelled by
+``environment'' (or measurement apparatus etc.) modeled by
 subsystem $B$.
 
-By analogy, it is straightforward to re-define a basis ket $\ket{\mu} \in \hilb{H}_B$
-as a basis ket in $\hilb{H}_A \ox \hilb{H}_B$ by stating how it ``acts upon''
-a general basis bra $\bra{i\mu} = \bra{i}\ox\bra{\mu}$ :
+Conversely,
+the ket $\ket{\mu}$, when acting on a bra element of $\hilb{H}_{A} \ox \hilb{H}_{B}$,
+can also be defined
+as a map from $\hilb{H}_A\otimes\hilb{H}_B$ to $\hilb{H}_A$.
+The following definition of $\ket{\mu}$ is simply \term{dual} to Definition \ref{def:pBra}:
 \begin{definition}\label{def:pKet}
   \[
-    \braket{i\nu}{\mu} \eqbydef \delta_{\mu\nu}\bra{i}
+    \braket{i\nu}{\mu} = \Big(\bra{i}\ox\bra{\nu}\Big)\ket{\mu} \eqbydef \delta_{\mu\nu}\bra{i} \text{.}
   \]
 \end{definition}
+Similar considerations apply:
+\[
+  \begin{array}{cccc}
+    \ket{\mu}:  & \bra{i}\ox\bra{\nu}                   & \rightarrow & \delta_{\mu\nu}\bra{i}               \\
+                & \rotatebox[origin=c]{270}{$\in$}      &             & \rotatebox[origin=c]{270}{$\in$}      \\
+                & \hilb{H}_A\ox\hilb{H}_B               &             & \hilb{H}_A     \text{.}
+  \end{array}
+\]
+
+%%
 
 We are now in the position to introduce the \term{partial trace}:
 \begin{definition}\label{def:pTr}
-  The \term{partial trace} operation
+  The \term{partial trace}
   is a linear map
   that takes an operator
   $M_{AB}$ on $\hilb{H}_A \otimes \hilb{H}_B$
   to an operator on $\hilb{H}_A$ defined as
   \[
     \tr_B M_{AB} = \sum_{\mu} \matrixel{\mu}{M_{AB}}{\mu}
-    \, \text{.}
+    \, \text{,}
   \]
+  where $\setof{\ket{\mu}}$ is a basis of $\hilb{H}_B$.
 \end{definition}
 
 The first thing to note is that the \emph{partial} trace is \emph{operator-valued},
 its value is not a scalar as opposed to the \emph{trace}.
-This is similar to the ``partial'' $\bra{\mu}$, whose value is a vector in $\hilb{H}_A$
-instead of a number.
 
 Next, we can introduce the \term{reduced density operator}
 of system $A$, which is obtained by \emph{tracing out the environment} B,
@@ -120,19 +101,23 @@ via the partial trace:
   \]
 \end{definition}
 
-Using the definitions \ref{def:pBra} and \ref{def:pKet}
+We assume now that the total state $\rho$ is a pure state $\rho = \ketbra{\psi_S}$.
+
+If $\setof{\ket{\mu}}$ is a basis of $\hilb{H}_B$,
+for each element $\ket{\mu}$,
+using the definitions \ref{def:pBra} and \ref{def:pKet}
 and the expansion \eqref{eq:bipartite_expansion}, we obtain
 \begin{eqsplit}\label{eq:psiPartial}
-  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \\
-  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \ \text{.}
+  \braket{\mu}{\psi_S} &= \sum_i \alpha_{i\mu}    \ket{i} \text{,} \\
+  \braket{\psi_S}{\mu} &= \sum_j \alpha_{j\mu}^{*}\bra{j} \text{.}
 \end{eqsplit}
 
 which allows us to expand the Definition \ref{def:density_A}
 as\footnote{
-  Let's recall that the key point of this reasoning is showing how
+  The key point of this reasoning is showing how
   a pure state of the total system can correspond to mixed states
   in the two subsystems $A$ and $B$. Therefore, assuming, in what follows,
-  that the total state $\rho = \ketbra{\psi}$ is pure, is not restrictive.
+  that the total state $\rho = \ketbra{\psi_S}$ is pure, is not restrictive.
 }
 
 \begin{equation}\label{eq:density_A_expand}
@@ -154,7 +139,7 @@ which is the same result as \eqref{eq:exp_subsys}.
 This allows us to conclude that
 \begin{proposition}
   For an observable $M_A$, acting solely on one subsystem, the expectation value
-  for state $\rho$ is given by
+  for state $\rho$ can be calculated as
   \begin{equation}
     \expval{M_A} = \tr(M_A \rho_A)
   \end{equation}
@@ -168,11 +153,12 @@ hence it can be diagonalized:
   \rho_A = \sum_a p_a \ketbra{a}{a} \text{.}
 \end{equation}
 
+Let $\setof{\ket{k}}$ be a basis of $\hilb{H}_A$.
 From \eqref{eq:density_A_expand} we can also derive that
 \begin{equation}
   \tr\rho_A = \sum_k \mel{k}{\rho_A}{k} =
     \sum_{ijk\mu}\alpha_{i\mu}\alpha_{j\mu}^{*}\braket{k}{i}\braket{j}{k} =
-    \sum_{k\mu}\abs{\alpha_{k\mu}}^2 = 1
+    \sum_{k\mu}\abs{\alpha_{k\mu}}^2 = 1 \text{,}
 \end{equation}
 where the last equality is justified by the normalization of $\ket{\psi_S}$
 in \eqref{eq:bipartite_expansion}.
@@ -185,17 +171,12 @@ for the diagonal form \eqref{eq:rho_diag}, meaning
 \]
 and providing a necessary condition to interpret $p_a$ as a probability.
 
-The \eqref{eq:rho_diag}, with $p_a$ as a probability, is often
-given as a \emph{definition} of the density operator,
-and the \eqref{eq:exp_subsys} can be derived from
-such definition alone \parencite{open_systems}.
+Eq. \eqref{eq:rho_diag}, with $p_a$ as a probability, is often
+given as a \emph{definition} of the density operator.
 % TODO: do the calculation?
 The probability distribution ${p_a}$
-is described as an uncertainty in the preparation of the system
-due to an unknown interaction with the environment.
-
-We have seen that a bipartite system, as a whole in a pure state,
-can have individual parts in mixed states, due to entanglement between them.
+is described as a ``classical'' uncertainty in the preparation of the system
+(for example due to an unknown interaction with the environment).
 
 The reverse also holds true:
 \begin{proposition}

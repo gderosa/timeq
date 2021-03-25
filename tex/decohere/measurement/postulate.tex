@@ -1,0 +1,36 @@
+\subsection{General requirements for quantum measurement}\label{sec:qmt:postulate}
+
+One of the postulates of quantum mechanics \parencite[Sec. 2.2.3]{NielsenChuang}
+states that
+\begin{enumerate}
+  \item
+    quantum measurements are described by a collection
+    $\setof{M_m}$ of \term{measurement operators}.
+  \item
+    The index $m$ refers to the measurement outcomes that
+    may occur in the experiment.
+  \item
+    If the state of the quantum system is $\ket{\psi}$
+    immediately before the measurement then the probability that result $m$ occurs is
+    given by
+    \begin{equation}\label{eq:qmt:postulate:prob}
+      \pi_{m} = \ev{M^{\dagger}_{m} M_{m}}{\psi} \text{.}
+    \end{equation}
+  \item
+    The state of the system after the measurement is
+    \begin{equation}\label{eq:qmt:postulate:after}
+      \frac{ M_m \ket{\psi} }{ \sqrt{\ev{M^{\dagger}_{m} M_{m}}{\psi}} } \text{.}
+    \end{equation}
+  \item
+    The \term{completeness} property or \term{decomposition of the identity} is satisfied:
+    \begin{equation}\label{eq:qmt:postulate:completeness}
+      \sum_m M_m^{\dagger} M_m = \idop \text{.}
+    \end{equation}
+\end{enumerate}
+
+It's easily shown that the completeness is equivalent to the condition that
+$\sum_m \pi_m = 1$, i.e. the sum of the probabilities for \emph{all} measurement outcomes is equal to 1.
+
+Both the projective measurement and positive-operator measurement (POVM),
+which will be discussed in Sections \ref{sec:qmt:projm} and \ref{subsec:POVM},
+satisfy the above postulate.
