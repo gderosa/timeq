@@ -1,18 +1,31 @@
 \section{Introduction}
 
-Consider a bipartite system,
-the two subsystems of which are completely
-entangled i.e. $ \dket{\Psi} = \sum_{j} c_j \ket{j}_{A} \ox \ket{\psi_{j}}_{B} $,
-where $\qty{\ket{j}}$ is an eigenbasis of some observable in system A.
+To introduce the Page--Wootters model, let us first consider
+a bipartite system $\hilb{H}_A \ox \hilb{H}_B$,
+the two subsystems of which have, for example, finite dimension $N$,
+and are completely
+entangled, i.e.
+$$
+  \hilb{H}_A \ox \hilb{H}_B \ni \dket{\Psi}
+  =
+  \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{t_n}_{A} \ox \ket{\psi_{n}}_{B} \text{,}
+$$
+where
+a ``double angle braket'' notation $\dket{\Psi}$ has been adopted
+for vectors in the tensor product space $\hilb{H}_A \ox \hilb{H}_B$;
+$\ket{\psi_{n}}_{B}$ are normalized states vectors in $\hilb{H}_B$;
+and
+$\qty{\ket{t_n}}$ is an eigenbasis of some observable (say, $T$) in system A.
+%
 If we regard this observable as ``the position of the hand of a clock'',
-the state of system B is functionally dependent on the ``parameter'' $j$,
-which is not \emph{just a parameter} but also an index labeling
-eigenvalues and eigenvectors of an actual quantum observable
+the state of system B can be regarded as a function of the ``parameter'' $j$,
+which is also an index labeling
+eigenvalues and eigenvectors of a quantum observable
 with its own Hermitian operator.
-Thus the relation between quantum systems A and B effectively
-reproduces a ``time evolution'' of system B,
+Thus the relation between quantum systems A and B is thus regarded as
+a ``time evolution'' of system B,
 while the whole bipartite system
-is stationary, in state
+is in a stationary state
 $\ket{\Psi}$.
 There is no logical requirement that $\ket{\Psi}$
 depends, other than trivially,
