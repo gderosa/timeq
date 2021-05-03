@@ -2,14 +2,20 @@
 
 To introduce the Page--Wootters model, let us first consider
 a bipartite system $\hilb{H}_A \ox \hilb{H}_B$,
-the two subsystems of which have, for example, finite dimension $N$,
+the two subsystems of which have, for example, finite dimension\footnote{
+  As it will be clearer later in the Chapter,
+  this example is simplified for the sake of argument: in principle the system
+  may be infinite-dimensional, the sum may be replaced by an integral, and
+  the vector in the tensor product space may be not normalizable
+  (an improper vector).
+}$N$,
 and are completely
 entangled, i.e.
-$$
+\begin{equation}\label{eq:pw:finite-entanglement}
   \hilb{H}_A \ox \hilb{H}_B \ni \dket{\Psi}
   =
   \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{\tau_{n}}_{A} \ox \ket{\psi_{n}}_{B} \text{.}
-$$
+\end{equation}
 Here
 a ``double angle braket'' notation $\dket{\Psi}$ has been adopted
 for vectors in the tensor product space $\hilb{H}_A \ox \hilb{H}_B$.
@@ -31,8 +37,25 @@ $$
 $$
 Therefore, with the     ordinary notion of ``time as a paramerter'' in quantum mechanics,
 the evolution of system B will only depend on ``its own'' Hamiltonian $H_B$, namely
-$\ket{\psi(t)}_B = e^{- i \hbar t / H_B } $. 
+$\ket{\psi(t)}_B = e^{- i \hbar t / H_B } \ket{\psi(0)}_B$. 
 
+In the Page--Wootters model, time evolution is based on an internal entanglement
+relation among subsystems of an isolated system (including the case of the whole universe,
+\cite{PageWootters}), while the whole system
+---as the one described by $\hilb{H}_A \ox \hilb{H}_B$ in \eqref{eq:pw:finite-entanglement}---
+is stationary and there is no notion
+of time as a parameter external to it. This is also known as the
+``timeless'' approach \parencite{Marletto:Evolution}.
+\citereset
+Within this approach,
+a suitable subsystem is chosen within the ``universe'' so that it acts as
+clock for the rest of it, in the sense that
+there is an observable $T$ (as in the above example, in system $A$)
+that can be used to
+describe time evolution ``without evolution'' of system $B$
+---where the expression ``evolution without evolution''
+is taken directly from the original Page and Wootters paper just mentioned,
+and used in \cite{Marletto:Evolution} as well.
 
 If we regard this observable as ``the position of the hand of a clock'',
 the state of system B can be regarded as a function of the ``parameter'' $n$,
