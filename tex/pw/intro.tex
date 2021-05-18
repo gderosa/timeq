@@ -4,10 +4,10 @@ To introduce the Page--Wootters model, let us first consider
 a bipartite system $\hilb{H}_A \ox \hilb{H}_B$,
 the two subsystems of which have finite dimension\footnote{
   As it will be clearer later in the Chapter,
-  this example is simplified for the sake of the argument: in principle the system
-  may be infinite-dimensional, the sum may be replaced by an integral, and
-  the vector in the tensor product space may be not normalizable
-  (an improper vector).
+  this example is simplified for the sake of the argument: in principle
+  the system may be infinite-dimensional;
+  the sum may be replaced by an integral (continuous spectrum),
+  and the vector in the tensor-product space may be not normalizable (an improper vector).
 }$N$,
 and are completely
 entangled, i.e.
@@ -21,24 +21,26 @@ a ``double angle braket'' notation $\dket{\Psi}$ has been adopted
 for vectors in the tensor product space $\hilb{H}_A \ox \hilb{H}_B$.
 We assume $\ket{\psi_{n}}_{B}$ are all \emph{normalized} in $\hilb{H}_B$;
 and
-$\qty{\ket{{\tau}_n}}$ is an eigenbasis of some observable (say, $T$) in system A.
+$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in system A.
 Let also $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
 of the overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_A \ox \hilb{H}_B$:
 $$
   \mathbb{J} \dket{\Psi} = \epsilon \dket{\Psi} \text{.}
 $$
 Finally, we assume that the two subsystems $A$ and $B$ are \emph{non interacting},
-meaning the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
+meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
 which only act on the respective subspaces $\hilb{H}_A$ and $\hilb{H}_B$
 (and there is no explicit ``interaction term''). In other words,
 $\mathbb{J}$ can be expressed as
 $$
   \mathbb{J} = H_A \ox \idop_B + \idop_A \ox H_B \, \text{.} 
 $$
-Therefore, with the     ordinary notion of ``time as a paramerter'' in quantum mechanics,
+Therefore, with the ordinary notion of ``time as a paramerter'' in quantum mechanics,
 the evolution of system B will only depend on ``its own'' Hamiltonian $H_B$, namely
-$\ket{\psi(t)}_B = e^{- i \hbar t / H_B } \ket{\psi(0)}_B$. 
-
+\begin{equation}\label{eq:pw:ordinary_B}
+  \ket{\psi(t)}_B = e^{- i \hbar t / H_B } \ket{\psi(0)}_B \text{.}  
+\end{equation}
+ 
 In the Page--Wootters model, time evolution is based on an internal entanglement
 relation among subsystems of an isolated system,
 including the case of the whole universe \parencite{PageWootters}.
@@ -51,22 +53,31 @@ This is also known as the
 \citereset
 Within this approach,
 a suitable subsystem is chosen within the ``universe'' so that it acts as
-clock for the rest of it, in the sense that
+\emph{clock} for the \emph{rest} of it, in the sense that
 there is an observable $T$ (as in the above example, in system $A$)
 that can be used to
 describe time evolution ``without evolution'' of system $B$
 ---where the expression ``evolution without evolution''
 is taken directly from the original Page and Wootters paper just mentioned,
-and used in \cite{Marletto:Evolution} as well.
+and recalled in \cite{Marletto:Evolution} as well.
 
 Quantitatively, within the example of eq.~\eqref{eq:pw:finite-entanglement},
 the observable $T$ in $\hilb{H}_A$
 has eigenvalues $\tau_n$ which can be interpreted as possible
-instants of time of the evolution of $\ket{\psi}_B$, in the sense that
-\begin{equation*}
-  \ket{\psi(t=\tau_n)}_B \simeq \ket{\psi_n}_B \, \text{,}
-\end{equation*}
-where $\ket{\psi(t)}_B$ is the evolution etc. TODO
+instants of time in the evolution of $\ket{\psi}_B$, in the sense that
+\begin{equation}\label{eq:pw:discrete_approx}
+  \Big[ \ket{\psi(t)}_B \Big]_{t=\tau_n} \approx \,\,\,\, \ket{\psi_n}_B \, \text{,}
+\end{equation}
+where $\ket{\psi(t)}_B$ is the same of~\eqref{eq:pw:ordinary_B} i.e.
+the evolution one would obtain in ``ordinary'' way
+by simply resolving the Schr\"{o}dinger equation in system B, with Hamiltonian $H_B$.
+Please note in eq.~\eqref{eq:pw:discrete_approx} we do not use strict equality:
+in its original formulation the Page--Wooters model is still based on a continuous
+notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}; hence
+it cannot be assumed, at this stage, that a discrete-clock model
+is even a reasonable approximation.
+Only later in the present work, however, numerical
+simulation will show in fact an excellent agreement on a number of example systems.
 
 \subsection*{Notation}
 
