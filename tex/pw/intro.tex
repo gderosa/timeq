@@ -1,54 +1,135 @@
 \section{Introduction}
 
-In Section \ref{sec:trel} it was observed that time is the only observable quantity
-(even if it's not a quantum observable \emph{strictu sensu})
-of which all other observables and the state of the system itself are a function.
-This justifies the very concept of \term{time evolution}.
-Taking two other observables \emph{in general} there is no functional dependency
-between one another.
-However, this can be true in some particular cases.
-An extreme example is a bipartite system,
-the two subsystems of which happen to be
-perfectly entangled i.e. $ \ket{\Psi} = \sum_{j} \ket{j}_{A} \ox \ket{\psi_{j}}_{B} $,
-where $\qty{\ket{j}}$ is an eigenbasis of some observable in system A.
-If we regard this observable as ``the position of the hand of a clock'',
-the state of system B is functionally dependent on the ``parameter'' $j$,
-which is not \emph{just a parameter} but also an index labeling
-eigenvalues and eigenvectors of an actual quantum observable
-with its own Hermitian operator.
-Thus the relation between quantum systems A and B effectively
-reproduces a ``time evolution'' of system B,
-while the whole bipartite system
-is stationary, in state
-$\ket{\Psi}$.
-There is no logical requirement that $\ket{\Psi}$
-depends, other than trivially,
-upon any further external parameter.
-The stationary state $\ket{\Psi}$ embeds the whole ``history''
-of subsystem B.
+To introduce the Page--Wootters model, let us first consider
+a bipartite system $\hilb{H}_A \ox \hilb{H}_B$,
+the two subsystems of which have finite dimension\footnote{
+  In general, within the model,
+  the system may as well be infinite-dimensional;
+  the sum may be replaced by an integral (continuous spectrum);
+  and the vector in the tensor-product space may be not normalizable (an improper vector).
+  Nonetheless, a finite-dimensional Hilbert space is sufficient to construct several applications of interest.
+}$N$,
+and are completely
+entangled, i.e.
+\begin{equation}\label{eq:pw:finite-entanglement}
+  \hilb{H}_A \ox \hilb{H}_B \ni \dket{\Psi}
+  =
+  \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{\tau_{n}}_{A} \ox \ket{\psi_{n}}_{B} \text{.}
+\end{equation}
+Here
+a ``double angle braket'' notation $\dket{\Psi}$ has been adopted
+for vectors in the tensor product space $\hilb{H}_A \ox \hilb{H}_B$.
+We assume $\ket{\psi_{n}}_{B}$ are all \emph{normalized} in $\hilb{H}_B$;
+and
+$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in system A.
+Let also $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
+of the overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_A \ox \hilb{H}_B$:
+$$
+  \mathbb{J} \dket{\Psi} = \epsilon \dket{\Psi} \text{.}
+$$
+Finally, we assume that the two subsystems $A$ and $B$ are \emph{non interacting},
+meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
+which only act on the respective subspaces $\hilb{H}_A$ and $\hilb{H}_B$
+(and there is no explicit ``interaction term''). In other words,
+$\mathbb{J}$ can be expressed as
+$$
+  \mathbb{J} = H_A \ox \idop_B + \idop_A \ox H_B \, \text{.} 
+$$
+Therefore, with the ordinary notion of ``time as a paramerter'',
+the evolution of system B will only depend on ``its own'' Hamiltonian $H_B$, namely
+\begin{equation}\label{eq:pw:ordinary_B}
+  \ket{\psi(t)}_B = e^{- i \hbar t / H_B } \ket{\psi(0)}_B \text{.}  
+\end{equation}
+ 
+In the Page--Wootters model, time evolution is based on an internal entanglement
+relation among subsystems of an isolated system
+---including the case where such isolated system is the whole universe.
+
+The overall system
+---as the one described by $\hilb{H}_A \ox \hilb{H}_B$ in \eqref{eq:pw:finite-entanglement}---
+is stationary and there is no notion
+of time external to it.
+This is also known as the
+``timeless'' approach \parencite{Marletto:Evolution}.
+\citereset
+A suitable subsystem is chosen within the ``universe'' so that it acts as
+\emph{clock} for the \emph{rest} of it, in the sense that
+there is an observable $T$ (in the above example, in system $A$)
+that can be used to
+describe time evolution ``without evolution''\footnote{
+  The expression ``evolution without evolution''
+  is directly quoted from the title of \cite{PageWootters},
+  and recalled in \cite{Marletto:Evolution}.
+}
+of system $B$
+and is canonically conjugate to the Hamiltonian $H_A$.
+
+% Please note, while the time evolution of system $B$,
+% the time operator $T$ is defined in system $A$ ---and canonically conjugate to $H_A$, not $H_B$.
+% In other words, the time operator is defined in a different Hilbert space, therefore
+% the Pauli objection no longer applies. A suitable entanglement relation ensures that 
+% the ``time'' measured by a clock in one system is relevant to the evolution of the other system.
+
+Qantitatively,
+the observable $T$ in $\hilb{H}_A$
+has eigenvalues $\tau_n$ which can be interpreted as possible
+instants of time in the evolution of $\ket{\psi}_B$, in the sense that
+\begin{equation}\label{eq:pw:discrete_approx}
+  \Big[ \ket{\psi(t)}_B \Big]_{t=\tau_n} \simeq \,\,\,\, \ket{\psi_n}_B \, \text{,}
+\end{equation}
+where $\ket{\psi(t)}_B$ is the same of~\eqref{eq:pw:ordinary_B} i.e.
+the evolution one would obtain in ``ordinary'' way
+by resolving the Schr\"{o}dinger equation in system B.
+Please note, in eq.~\eqref{eq:pw:discrete_approx} we do not use strict equality:
+in its original formulation the Page--Wooters model is still based on a continuous
+notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}:
+whether a discrete formulation
+brings a good approximation
+will be verifyied numerically.
+
+An intuitive description may be as follows.
+From the perspective of system B, time is a parameter $t$, however it can have values
+$\tau_n$ (or \emph{all} real values, in a continuous model)
+which are also eigenvalues of an observable $T$ defined in \emph{another system} A,
+with which it is entangled. Such entanglement relation estabishes a correspondence
+between ``instants of time'' (eigenvalues and eigenstates of $T$ in system A)
+and (``evolved'') states in system B. Thus, time can be regarded as a quantum observable,
+although defined in a different Hibert space than the one of the Hamiltonian of interest.
+As $H_B$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
+(how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
+
+A slightly different notation than $\hilb{H}_A$ and $\hilb{H}_B$ (and their tensor product)
+might be useful at this stage, given
+the physical interpretation of the two spaces is now established.
+Some authors
+use $\hilb{H}_C$ and $\hilb{H}_R$
+to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``universe''
+(or isolated system):
+see, for example, \cite{Marletto:Evolution}.
+Others ---as in \cite{Lloyd:Time}--- 
+choose $\hilb{H}_T$ and $\hilb{H}_S$ to indicate the Hibert space where
+a time operator $T$ is defined and, respectively,
+the ordinary Hilbert space of the System.
+It is also tempting to relate $\hilb{H}_T$ and $\hilb{H}_S$
+to temporal (T) and spatial (S)
+degrees of freedom, thus forming a sort of
+``space-time'' (and this will be even more apparent
+with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).
+More details on symbols and conventions follow.
 
 \subsection*{Notation}
 
 In this and following chapters, when treating quantum time models,
 $\hilb{H}_S$ will indicate the Hilbert space of ordinary quantum mechanics.
-$\hilb{H}_T$, an extra space where a time operator $\hat{T}$ is introduced. The product space $\pwspace$
+$\hilb{H}_T$, an extra space where a time operator ${T}$ is introduced. The tensor
+product space $\pwspace$
 will often be referred to as well.
-Bras and kets in this product space will be indicated with a special double-angle-bracket
+Bras and kets in this tensor product space will be indicated with a special double-angle-bracket
 notation, as in $\dket{\Psi}$.
 
-$\hat{A}$, with circumflex, denotes a self-adjoint operator, generally associated with a quantum observable.
-
-No curcumflex accent on symbols indicating non self-adjoint operators and their matrices:
-this includes unitary transformations such as
-time evolution or discrete Fourier.
-This also includes ``Hamiltonians'' embedding a \emph{complex potential}
-and leading to a non-unitary evolution. The same rule applies to alternative typefaces too, when used.
-
-$\hat{\mathbb{J}}$ (blackboard bold) indicates a self-adjoint operator defined in
+${\mathbb{J}}$ (blackboard bold) indicates an  operator defined in
 a larger space than the one of standard quantum mechanics,
 typically the product $\pwspace$.
-No circumflex accent on the symbol ${\mathbb{J}}$ if the operator is
-known to be not self-adjoint.
 
 The symbol `$\repr$', as in $\hat{A} \repr \mqty(a&b\\c&d)$, $\ket{\psi} \repr \mqty[\alpha \\ \beta]$
 means: representation with respect to a particular basis (as opposed to intrinsic equality `$=$').
