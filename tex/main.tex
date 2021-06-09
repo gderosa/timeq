@@ -7,31 +7,13 @@
 \frontmatter
 
 \pagenumbering{alph}
-\pdfbookmark[chapter]{Front}{front}
+\pdfbookmark[section]{Front}{front}
 \input{tex/pre/front}
 
 \pagenumbering{roman}
 \maketitle    
 
 \begin{spacing}{1.2}
-  \chapter*{Declaration of Authorship}
-  \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{chapter}{Declaration of Authorship}
-  \input{tex/pre/declaration}
-
-  \chapter*{Abstract}
-  \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{chapter}{Abstract}
-  \input{tex/pre/abstract}
-
-  \input{tex/pre/dedica}
-  \markboth{}{}
-
-  \chapter*{Acknowledgements}
-  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{chapter}{Acknowledgements}
-  \input{tex/pre/thanks}
-
   {
     \hypersetup{
       linkcolor = .
@@ -39,17 +21,37 @@
 
     % https://tex.stackexchange.com/a/65547
     \cleardoublepage
-    \pdfbookmark[chapter]{\contentsname}{toc}
+    \pdfbookmark[section]{\contentsname}{toc}
     \tableofcontents
     
     \cleardoublepage
-    %\pdfbookmark[chapter]{\listfigurename}{lof}
+    %\pdfbookmark[section]{\listfigurename}{lof}
+    \addcontentsline{toc}{section}{\listfigurename}
     \listoffigures
 
     \cleardoublepage
-    %\pdfbookmark[chapter]{\listtablename}{lot}
+    %\pdfbookmark[section]{\listtablename}{lot}
+    \addcontentsline{toc}{section}{\listtablename}
     \listoftables
   }
+
+  \chapter*{Declaration of Authorship}
+  \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{section}{Declaration of Authorship}
+  \input{tex/pre/declaration}
+
+  \input{tex/pre/dedica}
+  \markboth{}{}
+  
+  \chapter*{Acknowledgements}
+  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{section}{Acknowledgements}
+  \input{tex/pre/thanks}
+
+  \chapter*{Abstract}
+  \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
+  \addcontentsline{toc}{section}{Abstract}
+  \input{tex/pre/abstract}
 \end{spacing}
 
 \mainmatter
