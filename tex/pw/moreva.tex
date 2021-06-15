@@ -5,11 +5,11 @@
 \subsection{Time operator, diagonalization, evolution}
 \label{1qubitExp}
 
-In \cite{Moreva:illustration}, the frequency operator $\hat{\Omega} = H_T / \hbar$
+In \cite{Moreva:illustration}, the frequency operator $\op{\Omega} = H_T / \hbar$
 is given by the \eqref{eq:MorevaOmegaT}. With respect to the polarization basis
 $\qty{\ket{H}, \ket{V}}$ it is represented in the the matrix form
 \begin{equation}
-  \hat{\Omega} \repr {
+  \op{\Omega} \repr {
     i\omega
     \begin{pmatrix}
       0 & 1 \\
@@ -19,7 +19,7 @@ $\qty{\ket{H}, \ket{V}}$ it is represented in the the matrix form
 \end{equation}
 The Hamiltonian in $\hilb{H}_S$, in that particular experiment, is represented as
 \begin{equation}\label{eq:H_S}
-  \hat{H}_S \repr {
+  \op{H}_S \repr {
     i\hbar\omega
     \begin{pmatrix}
       0 & 1 \\
@@ -33,12 +33,12 @@ There is no particular physical reason for being $H_S = H_T$
 (in principle they could even act on spaces of different dimensionality)
 other than simplicity of experimental realization.
 
-The spectrum of $\hat{\Omega}$ is $\qty{-\omega, \omega}$.
+The spectrum of $\op{\Omega}$ is $\qty{-\omega, \omega}$.
 Therefore, it's $N=2$ and $\delta\Omega = 2\omega$ in the sense of
 \eqref{eq:SI_Fourier:T}.
 We can thus derive the time operator matrix:
 \begin{equation}
-  \hat{T}
+  \op{T}
   \repr
   \frac{\pi}{4\omega^2} F^{\dagger} \Omega F
   =
@@ -97,7 +97,7 @@ time is determined with quantum certainty when the clock photon is
 in one of the two circular polarization states.
 
 It's worth observing that
-only if $\hat{T}$ is diagonal in a certain basis $\qty{t}$,
+only if $\op{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
 can be interpreted as a ``time evolution'':
@@ -127,7 +127,7 @@ The basis of interest is therefore
   \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
   \, \text{.}
 \end{equation}
-How does the matrix of $\hat{\Omega}$ transform? In general, it's
+How does the matrix of $\op{\Omega}$ transform? In general, it's
 \begin{equation}
   \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
   \, \text{,}
@@ -183,7 +183,7 @@ For each value of $t \in \mathbb{R}$ there is
 \begin{equation}\label{eq:ordinary_evolution}
   \ket{\psi(t)}_{\text{Schr\"od.}} =
   %\sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} =
-  e^{-i\hat{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
+  e^{-i\op{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
 \end{equation}
 
 In terms of the Page and Wootters model,
@@ -222,7 +222,7 @@ A pattern that emerges in the general case is
 where it is emphasized that this frequency shift is related to the clock starting
 with a ground eigenvalue $T_0 \ne 0$.
 
-A further generalization would consider non-zero eigenvalues $j$ of $\hat{\mathbb{J}}$
+A further generalization would consider non-zero eigenvalues $j$ of $\op{\mathbb{J}}$
 (or $\epsilon$ in \cite[eq. 16]{Lloyd:Time}):
 \begin{equation}\label{eq:pw-vs-qm}
   \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega_{j}(t - t_{0})} e^{-i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}

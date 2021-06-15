@@ -100,52 +100,52 @@ to the opposite derivative of the squared norm of the ``absorbed wavefunction''.
 It reads:
 \begin{quote}
   We will associate with any wave function $\psi \in \hilb{H}$
-  another wave function $\hat{\psi}$,
+  another wave function $\op{\psi}$,
   which is a function of time, so that
-  $\abs{\hat{\psi}(t)}^2$
+  $\abs{\op{\psi}(t)}^2$
   is the arrival probability density. In other words,
-  $\hat{\psi}$ is a wave function in a time representation. For each
-  $t$, $\hat{\psi}(t)$ lies in the original Hilbert space $H$.
+  $\op{\psi}$ is a wave function in a time representation. For each
+  $t$, $\op{\psi}(t)$ lies in the original Hilbert space $H$.
 \end{quote}
 Therefore we ``translate''
-$$\hat{\psi}(t) \text{ into } \ket{\phi(t)}_S$$
+$$\op{\psi}(t) \text{ into } \ket{\phi(t)}_S$$
 and, consequently,
-$$\abs{\hat{\psi}(t)}^2 \text{ into } \braket{\phi(t)} \text{,}$$
+$$\abs{\op{\psi}(t)}^2 \text{ into } \braket{\phi(t)} \text{,}$$
 in the language of the Page--Wootters model and within the notation
 adopted.
 
 \citereset
 Using eq. 8 in \cite{RuschhauptAbsorption} and translating into our notation we have:
 \begin{equation}\label{eq:phi_psi_kiukas}
-  \hat{\psi}(t) \eqbydef
+  \op{\psi}(t) \eqbydef
   \ket{\phi(t)}_S =
   \begin{cases}
-    \sqrt{\frac{2}{\hbar}} \hat{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
+    \sqrt{\frac{2}{\hbar}} \op{D}^{1/2} \ket{\psi_{\text{Kiukas}}(t)}_S &\text{ if } t > 0 \\
     0 &\text{ otherwise. }
   \end{cases}
 \end{equation}
 Where at $t \le 0$ the interaction with the detector is yet to come,
 but so it is, as a limit, for small values of $t>0$,
 in other terms
-$\lim_{t \to 0^{+}} \norm{\hat{D} \ket{\psi_{\text{Kiukas}}(t)}} = 0$, thus avoiding the apparent discontinuity.
+$\lim_{t \to 0^{+}} \norm{\op{D} \ket{\psi_{\text{Kiukas}}(t)}} = 0$, thus avoiding the apparent discontinuity.
 
 The corresponding Page--Wootters (proper) vector of $\pwspace$ is
 \begin{equation}\label{eq:hatpsi:pw}
-  \dket{\Phi} = \int \dd{t} \ket{t} \ox \hat{\psi}(t) \,\text{,}
+  \dket{\Phi} = \int \dd{t} \ket{t} \ox \op{\psi}(t) \,\text{,}
 \end{equation}
 to which the considerations of Section \ref{sec:for-normalized-elements}
 and Section \ref{sec:pure-state-approach} in terms of time--frequency
 (or time--energy) uncertainty relation apply, with some analogy
 to what \cite{RuschhauptAbsorption} does within its own framework
-in relation to $\hat{\psi}$ and its Fourier transform.
+in relation to $\op{\psi}$ and its Fourier transform.
 
 In that regard, the \eqref{eq:hatpsi:pw} can be reformulated
 \begin{equation}
-  \dket{\Phi} = \int \dd{\omega} \ket{\omega} \ox \mathcal{F} \hat{\psi} (\omega) \,\text{,}
+  \dket{\Phi} = \int \dd{\omega} \ket{\omega} \ox \mathcal{F} \op{\psi} (\omega) \,\text{,}
 \end{equation}
 where it's
 \begin{equation}
-  \mathcal{F} \hat{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
+  \mathcal{F} \op{\psi} (\omega) = - \frac{\sqrt[4]{2} i}{\sqrt{\pi} \left(- \omega^{2} + \sqrt{2} i \omega + 1\right)} \ket{1}
 \end{equation}
 ---see notebook up to eq. \eqref{eq:fhatpsi1_omega} for details.
 
@@ -160,7 +160,7 @@ Similarly to what seen in Section \ref{sec:building-the-discrete-pw-clock}, we b
 the clock by defining ---and representing in a convenient basis---
 the time operator and the corresponding frequency operator:
 \begin{align}
-  \hat{T} \repr \frac{2\pi}{N}
+  \op{T} \repr \frac{2\pi}{N}
   \begin{pmatrix}
     0           &       &       &       \\
                 &1      &       &       \\
@@ -168,22 +168,22 @@ the time operator and the corresponding frequency operator:
                 &       &       &N-1
   \end{pmatrix}
   &&
-  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{,}
+  \op{\Omega} = \frac{N}{2\pi} F^{}_{N} \op{T} F^{\dagger}_{N} \, \text{,}
 \end{align}
 where $F$ is, again, the discrete Fourier operator of order $N$.
 
 Next we define the Wheeler--DeWitt operator $\mathbb{J}$ as in
-\eqref{eq:pwHamiltonian}, but $\hat{H}_S$ is replaced by the non-hermitian
+\eqref{eq:pwHamiltonian}, but $\op{H}_S$ is replaced by the non-hermitian
 Hamiltonian of the detector model
-$\mathit{K}_S = \hat{H}_S - \iu \hat{D}_S$
+$\mathit{K}_S = \op{H}_S - \iu \op{D}_S$
 \parencite{RuschhauptAbsorption},
 where the subscript $_S$ has been added to stress
 that they would act on the $\hilb{H}_S$ part
 of the Page--Wootters' $\pwspace$ ``spacetime'':
 \begin{equation}\label{eq:pwHamiltonian:nonUnitary}
-  \mathbb{J} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\qty(\hat{H}_S -\iu \hat{D}_S) \,\text{.}
+  \mathbb{J} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -\iu \op{D}_S) \,\text{.}
 \end{equation}
-$\hat{H}_S$ and $\hat{D}_S$ are the same as $\hat{H}$ and $\hat{D}$
+$\op{H}_S$ and $\op{D}_S$ are the same as $\op{H}$ and $\op{D}$
 respectively from the \eqref{eq:complexpot}.
 
 We then compute eigenvalues and eigenvectors of $\mathbb{J}$.
@@ -196,7 +196,7 @@ or energy shift\footnote{ Again, see also ref. \cite[sec.``The Zero-eigenvalue''
 as seen, for example, in \eqref{eq:comparison0} and \eqref{eq:comparison1}.
 Or, in a more compact form:
 \begin{equation}
-  \dket{n}_{\text{hist.}} = e^{-\iu \epsilon_n \hat{T}} \ox \idop_S \dket{n}
+  \dket{n}_{\text{hist.}} = e^{-\iu \epsilon_n \op{T}} \ox \idop_S \dket{n}
   \,\text{,}
 \end{equation}
 where $\epsilon_n$'s are eigenalues of $\mathbb{J}$ and
@@ -267,23 +267,23 @@ In \cite{RuschhauptAbsorption} the probaility of detection in time is given
 by how fast the norm decreases i.e. $-\dv{\norm{\psi}^2}{t}$.
 A ``wavefunction in time'', whose squared modulus equates the detection probability,
 is introduced in eq. (8) therein:\footnote{
-  Please note we are importing some notation from \cite{RuschhauptAbsorption} as per the symbol $\hat{\psi}$,
+  Please note we are importing some notation from \cite{RuschhauptAbsorption} as per the symbol $\op{\psi}$,
   at variance to what generally adhered to in this work,
-  where the ``hat'' ($\hat{\;}$) denotes quantum observables and their corresponding operators.
+  where the ``hat'' ($\op{\;}$) denotes quantum observables and their corresponding operators.
 }
 \begin{equation}
-  \hat{\psi} = \theta(t) \sqrt{2/\hbar}\,\hat{D}^{1/2}\,\psi
+  \op{\psi} = \theta(t) \sqrt{2/\hbar}\,\op{D}^{1/2}\,\psi
 \end{equation}
 In Page--Wootters terms, this translates into applying
-$\theta(\hat{T}) \ox \sqrt{2/\hbar}\,\hat{D}^{1/2}_S$
+$\theta(\op{T}) \ox \sqrt{2/\hbar}\,\op{D}^{1/2}_S$
 to the each history vector $\dket{n}_{\text{hist.}}$
 (and their linear combinations).
 The result is a detection-event \emph{proper} element of ${\pwspace}$
 (that would be normalizable in a continuous, infinite-time model too):
 \begin{equation}\label{eq:qubit_detection_wavefunction}
   \dket{\Phi_n} =
-    \theta(\hat{T}) \ox \sqrt{2/\hbar}\,\hat{D}^{1/2}_S \dket{n}_{\text{hist.}} =
-    \theta(\hat{T}) e^{-i\epsilon_{n}\hat{T}} \ox \sqrt{2\hat{D}} \dket{n} \, \text{.}
+    \theta(\op{T}) \ox \sqrt{2/\hbar}\,\op{D}^{1/2}_S \dket{n}_{\text{hist.}} =
+    \theta(\op{T}) e^{-i\epsilon_{n}\op{T}} \ox \sqrt{2\op{D}} \dket{n} \, \text{.}
 \end{equation}
 Given we are considering, in our discrete model, only an interval of time within $0$ and $2\pi$,
 i.e. all non-negative times (or, more physically, only times when the detector is active),
@@ -302,11 +302,11 @@ $\ket{0}_S = {}_T\bradket{0}{\Psi} = \sum_n \alpha_n \, {}_T\bradket{0}{n}_{\tex
 \citereset
 The vector $\dket{\Phi}$, proper element of $\pwspace$,
 is the Page--Wootters counterpart of the function
-``in time representation'' $\hat{\psi}$,
+``in time representation'' $\op{\psi}$,
 as
 described in \cite{RuschhauptAbsorption}. In formulas:
 \begin{equation}
-  \bradket{t}{\Phi} = \hat{\psi}(t) \, \text{.}
+  \bradket{t}{\Phi} = \op{\psi}(t) \, \text{.}
 \end{equation}
 
 As a consequence of Remark \ref{remark:detection_area},
@@ -318,7 +318,7 @@ in the space generated by $\ket{1}_S$, or in other terms:
 \end{equation}
 The linear space of $\ket{1}_S$ is the ``detectable area'' of the qubit
 in this problem, and
-$\dket{\Phi}$ is essentially the result of the action of the operator $\hat{D}$,
+$\dket{\Phi}$ is essentially the result of the action of the operator $\op{D}$,
 that filters non-detectable components out from any vector of $\hilb{H}_S$.
 
 We derive the components of $\dket{\Phi}$ numerically in Section \ref{detection-event},
@@ -328,7 +328,7 @@ and that ${}_T\!\bra{t} {}_S\!\bradket{1}{\Phi}$ is proportional
 to the $\ket{1}$-component of the evolution of the qubit (history $\Dket{\Psi}$)
 at any time $t$
 (%
-  which is not surprising, being $\sqrt{2/\hbar}\hat{D}^{1/2}$ of the form
+  which is not surprising, being $\sqrt{2/\hbar}\op{D}^{1/2}$ of the form
   $\scriptsize \left[\begin{matrix}0 & 0\\0 & \kappa \end{matrix}\right]$%
 ).
 In more formal terms:
@@ -377,7 +377,7 @@ such that
 
 As a numerical array, $\Dket{\tilde{\Phi}}$ is the representation of $\Dket{\Phi}$
 under the basis $\ket{\omega} \ox \ket{0,1}$ instead of $\ket{t} \ox \ket{0,1}$,
-where the $\ket{\omega}$ constitute an eigenbasis of angular frequency $\hat{\Omega}$.
+where the $\ket{\omega}$ constitute an eigenbasis of angular frequency $\op{\Omega}$.
 
 \citereset
 The squared norms $\braket{\tilde{\phi}(\omega)}_{\!S} = \norm{\braDket{\omega}{\Phi}}_S^2$
