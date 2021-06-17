@@ -213,14 +213,14 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 \subsection{Complex potential -- non-Hermitian evolution}\label{sec:3lev:complexPotential}
 
 In a similar fashion to what seen in Section \ref{sec:hist:detect},
-the Hermitian Hamiltonian $\hat{H}$, from eq.~\eqref{eq:3lev:H},
+the Hermitian Hamiltonian $\op{H}$, from eq.~\eqref{eq:3lev:H},
 is replaced by
 \begin{equation}\label{eq:3lev:nonUnitaryH}
-  K \eqbydef \hat{H} - \iu \hat{D} \text{,}
+  K \eqbydef \op{H} - \iu \op{D} \text{,}
 \end{equation}
 where
 \begin{equation}\label{eq:3lev:nonUnitaryH:antiHermitianTerm}
-  \hat{D} \repr \mqty(
+  \op{D} \repr \mqty(
     0 &0 &0 \\
     0 &0 &0 \\
     0 &0 &\gamma
@@ -391,9 +391,9 @@ Let also $N_S$ indicate the Hilbert space dimension of the of ``the rest of the 
 (in the sense of \cite{Marletto:Evolution}, among others). In the current example
 it is $N_S = 3$.
 
-A basis of $\hilb{H}_T$ is chosen where the time operator $\hat{T}$ is diagonal:
+A basis of $\hilb{H}_T$ is chosen where the time operator $\op{T}$ is diagonal:
 \begin{equation}
-  \hat{T} \repr \frac{\Delta T}{N_T} \mqty(
+  \op{T} \repr \frac{\Delta T}{N_T} \mqty(
                                           0       &0      &\ldots &0        \\
                                           0       &1      &\ldots &0        \\
                                           \vdots  &\vdots &\ddots &\vdots   \\
@@ -401,14 +401,14 @@ A basis of $\hilb{H}_T$ is chosen where the time operator $\hat{T}$ is diagonal:
                                         ) \text{,}
 \end{equation}
 where $\Delta T$ if the time interval under study.
-And the frequency operator $\hat{\Omega}$ is computed via \term{Discrete Fourier Transform (DFT)}:
+And the frequency operator $\op{\Omega}$ is computed via \term{Discrete Fourier Transform (DFT)}:
 \begin{equation}
-  \hat{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F \hat{T} F \text{.}
+  \op{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F \op{T} F \text{.}
 \end{equation}
 It's worth noting that, from a numerical computation perspective,
 different library implementations use different conventions and definitions
 for the discrete Fourier matrix. Therefore,
-appropriate factors in the relation between $\hat{T}$ and $\hat{\Omega}$
+appropriate factors in the relation between $\op{T}$ and $\op{\Omega}$
 may be required.
 In our code:
 \begin{lstlisting}[language=Python]
@@ -472,7 +472,7 @@ which are not zero,
 need to be corrected by ``rigidly shifting the spectrum of $H_{S}$
 by [$\epsilon_{i}$]'' (once again, \cite[``\textit{The Zero-eigenvalue}'']{Lloyd:Time}):
 \begin{equation}
-  \dket{\epsilon_i} \;\longrightarrow\; \dket{\Phi_{i}} \eqbydef e^{ -\iu \hat{T} \epsilon_{i} \, \ox \, \idop_{S}} \dket{\epsilon_{i}} \text{,}
+  \dket{\epsilon_i} \;\longrightarrow\; \dket{\Phi_{i}} \eqbydef e^{ -\iu \op{T} \epsilon_{i} \, \ox \, \idop_{S}} \dket{\epsilon_{i}} \text{,}
   \label{eq:3lev:correction}
 \end{equation}
 where it has been set $\hbar=1$. This translates in code as follows:\footnote{
@@ -781,7 +781,7 @@ it does happen at a particular time $t$ is
 The ``state of arrival'' in \eqref{3lev:condProb} is $\ket{2}$
 because the operator
 in \eqref{eq:3lev:nonUnitaryH:antiHermitianTerm}
-is essentially $\hat{D} = \gamma \ketbra{2}$. The same
+is essentially $\op{D} = \gamma \ketbra{2}$. The same
 state has been chosen in \eqref{eq:3lev:bayesPW}
 to allow a comparison. However, $P^{PW}(t_n|2)$ is a probability,
 while $p(t|2)$ is a probability \emph{density}.

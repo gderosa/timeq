@@ -2,11 +2,9 @@
 
 \subsection{The model}
 
-The Page and Wootters model of ``evolution without evolution'',
-first proposed in 1983,
-is essentially based on the above ideas \parencite{PageWootters}.
 Circa three decades after the first publication by
-Don Page and William Wootters, the model was further developed
+Don Page and William Wootters \parencite{PageWootters},
+the model was further developed
 in particular by Lloyd, Giovannetti and Maccone,
 with emphasis on addressing technical issues which have been raised meanwhile
 \parencite{Lloyd:Time}.
@@ -19,23 +17,11 @@ whose properties are similar to the ones of position
 in ordinary quantum mechanics.
 
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
-and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+and we consider the tensor product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
 the space in which both time and position are observables, and they act as
-$\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
+$T \otimes \idop_S$ and $\idop_T \otimes X$
 respectively.
 
-%% REMOVED: a relativistic chapter was created since. The intro chap. also deals w/ relativity.
-% \begin{remark}
-%   In a more ``relativistic friendly'' notation, we may set
-%   $\hat{x_0} = c\hat{t}$ and consider
-%   $\hat{x_0} \otimes \idop_S$ and $\idop_T \otimes \hat{x_1}$,
-%   and so on. An interesting development may be expressing
-%   Lorentz transformations as unitary transformations in
-%   $\mathcal{H}_T \otimes \mathcal{H}_S$.
-% \end{remark}
-
-The Page and Wootters mechanism is rooted in the ``problem of time''
-in quantum cosmology.
 In principle, an appropriate system (a ``clock'') can be identified in such a way
 to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
 the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolution}.
@@ -43,11 +29,12 @@ the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolut
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
-  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
+  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
 \end{equation}
-while the \term{Wheeler-DeWitt equation} holds:
+where $\hbar\op{\Omega}$ is the canonically conjugate of $\op{T}$ in $\hilb{H}_T$.
+Also, the \term{Wheeler-DeWitt equation} holds:
 \begin{equation}\label{eq:Wheeler-DeWitt}
-  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+  \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
 \end{equation}
 describing a \emph{static} universe, where evolution is only
 in terms of relations between parts of a multipartite system
@@ -57,29 +44,31 @@ Please note the special notation $\dket{\Psi}$ (double angle bracket),
 to indicate a state vector in the ``larger'' product space $\pwspace$,
 as opposed to vectors belonging to $\hilb{H}_S$ (or $\hilb{H}_T$) only.
 
+TODO FROM HERE
+
 Using the $T$ representation in $\hilb{H}_T$,
 and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
 \begin{equation}\label{eq:schrod_from_pw}
-  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
-    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+  0 = \qty(\hbar\op{\Omega}\ox\idop_S + \idop_{T}\ox\op{H}_S)\dket{\Psi}
+    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \op{H}_S\ket{\psi(t)}_{S}
     \,\text{,}
 \end{equation}
 we recover the usual form of the Schr\"{o}dinger eqaution in $H_S$.
 Details of this derivation are in the reference aforementioned.
 
-Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+Here $\op{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
 those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 Canonical commutation relation holds and can be easily verified
-between $\hat{t}$ and $\hat{\Omega}$
-i.e. $[\hat{t}, \hat{\Omega}] = i$,
-therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+between $\op{t}$ and $\op{\Omega}$
+i.e. $[\op{t}, \op{\Omega}] = i$,
+therefore $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
 in the Hilbert space of time.
 
-From another point of view, $\hbar\hat{\Omega}$ is the ``hamiltonian'' of $\hilb{H}_T$,
+From another point of view, $\hbar\op{\Omega}$ is the ``hamiltonian'' of $\hilb{H}_T$,
 in that it plays a similar role of $H_S$ in the construction of
-$\hat{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. This dual role doesn't hold
+$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. This dual role doesn't hold
 for $H_S$. 
 
 This ambiguity is related to the a\-sym\-me\-try of space and time in
@@ -95,11 +84,11 @@ mechanics and can be expressively synthesized in the below:
         $\hilb{H}_T$        & $\hilb{H}_S$  \\
         \hline
         \hline
-        $\hat{t}$           & $\hat{x}$     \\
+        $\op{t}$           & $\op{x}$     \\
         \hline
-        $\hbar\hat{\Omega}$ & $\hat{p}$     \\
+        $\hbar\op{\Omega}$ & $\op{p}$     \\
         \hline
-        $?$                 & $\hat{H}$
+        $?$                 & $\op{H}$
       \end{tabular}
       {\caption{
         Operators in the two Hilbert spaces,
@@ -114,11 +103,11 @@ mechanics and can be expressively synthesized in the below:
         $\hilb{H}_T$        & $\hilb{H}_S$  \\
         \hline
         \hline
-        $\hat{t}$           & $\hat{x}$     \\
+        $\op{t}$           & $\op{x}$     \\
         \hline
-        $\hbar\hat{\Omega}$ & $\hat{H}$     \\
+        $\hbar\op{\Omega}$ & $\op{H}$     \\
         \hline
-        $?$                 & $\hat{p}$
+        $?$                 & $\op{p}$
       \end{tabular}
       {\caption{
         Operators in the two Hilbert spaces,
@@ -138,12 +127,12 @@ $\hilb{H}_T$ and $\hilb{H}_S$ (and momentum and energy as well).
 
 In the bipartite universe, physical kets $\dket{\Psi}$ have a Schmidt decomposition
 made up of
-eigenstates of $\hat{\Omega}$ in $\hilb{H}_T$
+eigenstates of $\op{\Omega}$ in $\hilb{H}_T$
 entangled, respectively, with
-eigenstates of $\hat{H}_S$ in $\hilb{H}_S$;
-or eigenstates of $\hat{t}$ in $\hilb{H}_T$
+eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
+or eigenstates of $\op{t}$ in $\hilb{H}_T$
 entangled with time-evolved spatial states $\ket{\psi(t)}_S$ in $\hilb{H}_S$
-(according to the evolution that is embedded in $\hat{\mathbb{J}}$):
+(according to the evolution that is embedded in $\op{\mathbb{J}}$):
 \begin{equation}
   \dket{\Psi} = \int d\mu(\omega) \ket{\omega}_{T}\ox\ket{\psi(\omega)}_{S} = \int dt \ket{t}_{T} \ox \ket{\psi(t)}_{S}\,\text{.} 
 \end{equation}
@@ -165,10 +154,10 @@ are given by the \emph{position} of the same photon along the conventional $x$ a
 
 The latter is interesting because it implements a continuous time,
 which, among other things, allows identifying a canonically conjugate observable
-$\hat{\Omega}$. Or, conversely, a time operator $\hat{T}$, once $\hat{\Omega}$ is given.
+$\op{\Omega}$. Or, conversely, a time operator $\op{T}$, once $\op{\Omega}$ is given.
 More precisely, it is impossible to satisfy
 \begin{equation}\label{eq:canonical_commutation_in_time}
-  [\hat{T}, \hat{\Omega}] = i
+  [\op{T}, \op{\Omega}] = i
 \end{equation}
 in a finite-dimension Hilbert space, because the operators
 cannot be both bounded \parencite{Weyl1927}.
@@ -195,7 +184,7 @@ rather tests Bell/Leggett-Garg inequalities for photon position.
 The first experiment, on the other hand \parencite{Moreva:illustration,Moreva:synthetic},
 uses (uncontroversial)
 two-level quantum systems for both the clock and the rest of the universe.
-While we can't derive a $\hat{T}$ such that $[T, \Omega] = i$
+While we can't derive a $\op{T}$ such that $[T, \Omega] = i$
 because of the finite dimension of the space, both $\Omega$
 and $H_S$ are given an explicit expression:
 \begin{align}\label{eq:MorevaOmegaT}
@@ -214,7 +203,7 @@ It can be easily verified that the Wheeler-DeWitt condition
 
 In general, given a clock ($\Omega$), the problem of finding a
 ``rest of the universe'' ($H_S$) such that
-$\hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S = 0$
+$\hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S = 0$
 (and vice versa)
 is not trivial
 (and it's particularly cumbersome in non-relativisitc
@@ -257,7 +246,7 @@ Discrete, bounded position-like and momentum-like operators can be obtained from
 each other via
 the \term{finite Fourier transform}.
 In our case, we are particularly interested in relating the
-time operator $\hat{T}$ and the ``energy'' operator $\hbar\hat{\Omega}$
+time operator $\op{T}$ and the ``energy'' operator $\hbar\op{\Omega}$
 in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
 \eqref{eq:canonical_commutation_in_time} exactly.
 
@@ -265,13 +254,13 @@ in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
 It holds\footnote{
   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
   it can be easily verified that,
-  if $ \hat{p} = F x F^{\dagger} $,
+  if $ \op{p} = F x F^{\dagger} $,
   the correct inverse relation is
   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
 } \parencite{FiniteHilb}:
 \begin{gather}\label{eq:FourierCanonicalRelations}
-  \hat{\Omega} = F \hat{T} F^{\dagger}\text{;} \quad
-  \hat{T} = F^{\dagger} \hat{\Omega} F
+  \op{\Omega} = F \op{T} F^{\dagger}\text{;} \quad
+  \op{T} = F^{\dagger} \op{\Omega} F
 \end{gather}
 where, in the ``position'' (or \emph{time}) finite eigenbasis,
 \begin{equation}
@@ -292,9 +281,9 @@ in a similar sense as in digital signal processing theory
 In SI units, the \eqref{eq:FourierCanonicalRelations} is replaced by
 \begin{gather}
   \label{eq:SI_Fourier:Omega}
-    \hat{\Omega} = \frac{2\pi}{N(\delta T)^2} F \hat{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \hat{T} F^{\dagger} \\
+    \op{\Omega} = \frac{2\pi}{N(\delta T)^2} F \op{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \op{T} F^{\dagger} \\
   \label{eq:SI_Fourier:T}
-    \hat{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \hat{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \hat{\Omega} F
+    \op{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \op{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \op{\Omega} F
   \, \text{,}
 \end{gather}
 where $\delta T$ (and analogously $\delta\Omega$)
@@ -331,15 +320,15 @@ in full analogy with position and momentum in $\hilb{H}_S$.
 \subsubsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
-$\hat{q}$ and $\hat{p} \eqbydef -i\hbar\hat{\partial}_{q}$,
+$\op{q}$ and $\op{p} \eqbydef -i\hbar\op{\partial}_{q}$,
 it is in general straightforward to prove that
-$\qty[\hat{q}, \hat{p}] = i\hbar$ and therefore
-$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\hat{q}, \hat{p}]}| = \frac{\hbar}{2}}$.
+$\qty[\op{q}, \op{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{\hbar}{2}}$.
 
 In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
 in general, and is less essential.
 Canonically conjugate operators are related
-through the (discrete) Fourier transform ($\hat{p} = F\hat{q}F^{\dagger}$)
+through the (discrete) Fourier transform ($\op{p} = F\op{q}F^{\dagger}$)
 rather then differentiation,
 and uncertainty relations are based on
 the properties of Fourier transformation

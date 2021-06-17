@@ -58,7 +58,7 @@ chosen computational basis\footnote{
   Here there's no explicit reference to any particular physical implementation. 
 }:
 \[
-  \hat{T} \repr \frac{2\pi}{N}
+  \op{T} \repr \frac{2\pi}{N}
   \begin{pmatrix}
     0           &       &       &       \\
                 &1      &       &       \\
@@ -71,7 +71,7 @@ With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$
 The ``spatial space'' or ``ordinary Hilbert space'' $\hilb{H}_S$
 is still 2-dimensional, and the hamiltonian in it is simply
 \[
-  \hat{H}_S \repr
+  \op{H}_S \repr
   i
   \begin{pmatrix}
     0   & 1   \\
@@ -80,26 +80,26 @@ is still 2-dimensional, and the hamiltonian in it is simply
   \, \text{.}
 \]
 
-Frequency operator $\hat{\Omega}$ is derived, analytically, via Fourier
+Frequency operator $\op{\Omega}$ is derived, analytically, via Fourier
 transformation as seen in \eqref{eq:SI_Fourier:Omega}:
 \[
-  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
+  \op{\Omega} = \frac{N}{2\pi} F^{}_{N} \op{T} F^{\dagger}_{N} \, \text{.}
 \]
 With a large $N$,
 such derivation is extremely laborious. We don't resort to
 numeric FFT in this case, but we do benefit of computer-aided, yet exact
 symbolic computation.
 
-Once $\hat{\Omega}$ is derived though,
+Once $\op{\Omega}$ is derived though,
 the eigenvalues and eigenvectors of
-$\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S$
+$\op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S$
 can only, realistically, be computed with numerical methods.
 
 In order to illustrate interesting examples, not corresponding to the
 trivial evolution of an eigenstate of $H_S$,
 but to some kind of Rabi oscillation or Larmor precession
 \parencite[Ch. IV]{Cohen-Tannoudji}, we pick, in \term{Mathematica}'s ordering,
-eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\hat{\mathbb{J}}$
+eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\op{\mathbb{J}}$
 in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
 $\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
 
@@ -134,7 +134,7 @@ and algebraic operations in the product space $\hilb{H}_T \ox \hilb{H}_S$.
   \caption[
     P-W vs Schr{\"o}dinger probability evolution
   ]{
-    P-W vs Schr{\"o}dinger probability evolution for $\hat{\mathbb{J}}$ eigenvalue $=11$
+    P-W vs Schr{\"o}dinger probability evolution for $\op{\mathbb{J}}$ eigenvalue $=11$
   }
   \label{fig:prob-comparison}
 \end{figure}
@@ -144,7 +144,7 @@ Figure \ref{fig:prob-comparison} is the graphical representation of (the square 
 in $\hilb{H}_S$ to be $\ket{0}$ or $\ket{1}$.
 
 The discrete graph, on top, plots the
-square modulus of components of $\hat{\mathbb{J}}$'s eigenvector $\dket{\Psi_{41}}$.
+square modulus of components of $\op{\mathbb{J}}$'s eigenvector $\dket{\Psi_{41}}$.
 
 Odd-index ($2k+1$) square-modulus components
 ---occupying vertical \emph{spaces} on the grid---
@@ -181,5 +181,5 @@ Finally, Figure \ref{fig:complex-comparison} compares the two sides of
 in terms of \emph{complex value}
 (%
   therefore the term $e^{-i \epsilon t_k}$ is relevant,
-  for eigenvalues $\epsilon \neq 0$ of $\hat{\mathbb{J}}$%
+  for eigenvalues $\epsilon \neq 0$ of $\op{\mathbb{J}}$%
 ).
