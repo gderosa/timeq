@@ -1,0 +1,2 @@
+Notebook[{Cell[
+BoxData[""],"Input",CellID->1]},StyleDefinitions->"Default.nb",FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

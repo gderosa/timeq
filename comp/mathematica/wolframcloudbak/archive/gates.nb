@@ -1,0 +1,16 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"CNOT"," ","="," ",RowBox[{"{","\n",RowBox[
+{RowBox[{"{",RowBox[{"1",",","0",",","0",",","0"}],"}"}],",","\n",RowBox[{"{",RowBox[
+{"0",",","1",",","0",",","0"}],"}"}],",","\n",RowBox[{"{",RowBox[{"0",",","0",",","0",",","1"}],"}"}],",","\n",RowBox[
+{"{",RowBox[{"0",",","0",",","1",",","0"}],"}"}]}],"\n","}"}]}]],"Input",CellID->1,
+CellLabel->"In[1]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"1",",","0",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","1",",","0",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",","0",",","0",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","0",",","1",",","0"}],"}"}]}],"}"}],StandardForm],"Output",CellID->11,
+CellLabel->"Out[1]= "]},Open]],Cell[
+BoxData[RowBox[{"X"," ","="," ",RowBox[{"{","\n",RowBox[
+{RowBox[{"{",RowBox[{"0",",","1"}],"}"}],",","\n",RowBox[{"{",RowBox[{"1",",","0"}],"}"}]}],"\n","}"}]," "}]],
+"Input",CellID->8],Cell[
+BoxData[""],"Input",CellID->9,CellLabel->"In[2]:= "]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]
