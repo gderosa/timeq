@@ -1,44 +1,47 @@
 \section{Basic ideas of the Model}
 
 To introduce the Page--Wootters model, let us first consider
-a bipartite system $\hilb{H}_A \ox \hilb{H}_B$,
-the two subsystems of which have finite dimension\footnote{
+a bipartite system $\hilb{H}_T \ox \hilb{H}_S$.
+The two subsystems
+---which we will sometimes refer to as ``system~T'' and ``system~S''---
+are described by Hilbert spaces
+$\hilb{H}_T$ and $\hilb{H}_S$ respectively,
+of finite dimension\footnote{
   In general, within the model,
   the system may as well be infinite-dimensional;
   the sum may be replaced by an integral (continuous spectrum);
   and the vector in the tensor-product space may be not normalizable (an improper vector).
   Nonetheless, a finite-dimensional Hilbert space is sufficient to construct several applications of interest.
-}$N$,
-and are completely
-entangled, i.e.
+}$N$ each.
+Let us consider the following entangled state:
 \begin{equation}\label{eq:pw:finite-entanglement}
-  \hilb{H}_A \ox \hilb{H}_B \ni \dket{\Psi}
+  \hilb{H}_T \ox \hilb{H}_S \ni \dket{\Psi}
   =
-  \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{\tau_{n}}_{A} \ox \ket{\psi_{n}}_{B} \text{.}
+  \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{\tau_{n}}_{T} \ox \ket{\psi_{n}}_{S} \text{.}
 \end{equation}
 Here
-a ``double angle bracket'' notation $\dket{\Psi}$ has been adopted
-for vectors in the tensor product space $\hilb{H}_A \ox \hilb{H}_B$.
-We assume $\ket{\psi_{n}}_{B}$ are all \emph{normalized} in $\hilb{H}_B$;
+a ``double angle bracket'' notation $\dket{\Psi}$ was adopted
+for vectors in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
+We assume that $\ket{\psi_{n}}_{S}$ are all \emph{normalized} in $\hilb{H}_S$;
 and
-$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in system A.
+$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in $\hilb{H}_T$.
 Let also $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
-of the overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_A \ox \hilb{H}_B$:
+of the overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_T \ox \hilb{H}_S$:
 $$
   \mathbb{J} \dket{\Psi} = \epsilon \dket{\Psi} \text{.}
 $$
 Finally, we assume that the two subsystems $A$ and $B$ are \emph{non interacting},
 meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
-which only act on the respective subspaces $\hilb{H}_A$ and $\hilb{H}_B$
+which only act on the respective subspaces $\hilb{H}_T$ and $\hilb{H}_S$
 (and there is no explicit ``interaction term''). In other words,
 $\mathbb{J}$ can be expressed as
 $$
-  \mathbb{J} = H_A \ox \idop_B + \idop_A \ox H_B \, \text{.} 
+  \mathbb{J} = H_T \ox \idop_S + \idop_T \ox H_S \, \text{.} 
 $$
 Therefore, with the ordinary notion of ``time as a parameter'',
-the evolution of system B will only depend on ``its own'' Hamiltonian $H_B$, namely
-\begin{equation}\label{eq:pw:ordinary_B}
-  \ket{\psi(t)}_B = e^{- i \hbar t / H_B } \ket{\psi(0)}_B \text{.}  
+the evolution of system S will only depend on ``its own'' Hamiltonian $H_S$, namely
+\begin{equation}\label{eq:pw:ordinary_S}
+  \ket{\psi(t)}_S = e^{- i \hbar t / H_S } \ket{\psi(0)}_S \text{.}  
 \end{equation}
  
 In the Page--Wootters model, time evolution is based on an internal entanglement
@@ -46,7 +49,7 @@ relation among subsystems of an isolated system
 ---including the case where such isolated system is the whole universe.
 
 The overall system
----as the one described by $\hilb{H}_A \ox \hilb{H}_B$ in \eqref{eq:pw:finite-entanglement}---
+---as the one described by $\hilb{H}_T \ox \hilb{H}_S$ in \eqref{eq:pw:finite-entanglement}---
 is stationary and there is no notion
 of time external to it.
 This is also known as the
@@ -62,25 +65,25 @@ describe time evolution ``without evolution''\footnote{
   and recalled in \cite{Marletto:Evolution}.
 }
 of system $B$
-and is canonically conjugate to the Hamiltonian $H_A$.
+and is canonically conjugate to the Hamiltonian $H_T$.
 
 % Please note, while the time evolution of system $B$,
-% the time operator $T$ is defined in system $A$ ---and canonically conjugate to $H_A$, not $H_B$.
+% the time operator $T$ is defined in system $A$ ---and canonically conjugate to $H_T$, not $H_S$.
 % In other words, the time operator is defined in a different Hilbert space, therefore
 % the Pauli objection no longer applies. A suitable entanglement relation ensures that 
 % the ``time'' measured by a clock in one system is relevant to the evolution of the other system.
 
 Quantitatively,
-the observable $T$ in $\hilb{H}_A$
+the observable $T$ in $\hilb{H}_T$
 has eigenvalues $\tau_n$ which can be interpreted as possible
-instants of time in the evolution of $\ket{\psi}_B$, in the sense that
-\begin{equation}\label{eq:pw:discrete_approx}
-  \Big[ \ket{\psi(t)}_B \Big]_{t=\tau_n} \simeq \,\,\,\, \ket{\psi_n}_B \, \text{,}
+instants of time in the evolution of $\ket{\psi}_S$, in the sense that
+\begin{equation}\label{eq:pw:discrete_Tpprox}
+  \Big[ \ket{\psi(t)}_S \Big]_{t=\tau_n} \simeq \,\,\,\, \ket{\psi_n}_S \, \text{,}
 \end{equation}
-where $\ket{\psi(t)}_B$ is the same of~\eqref{eq:pw:ordinary_B} i.e.
+where $\ket{\psi(t)}_S$ is the same of~\eqref{eq:pw:ordinary_S} i.e.
 the evolution one would obtain in ``ordinary'' way
-by resolving the Schr\"{o}dinger equation in system B.
-Please note, in eq.~\eqref{eq:pw:discrete_approx} we do not use strict equality:
+by resolving the Schr\"{o}dinger equation in system S.
+Please note, in eq.~\eqref{eq:pw:discrete_Tpprox} we do not use strict equality:
 in its original formulation the Page--Wootters model is still based on a continuous
 notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}:
 whether a discrete formulation
@@ -88,17 +91,17 @@ brings a good approximation
 will be verified numerically.
 
 An intuitive description may be as follows.
-From the perspective of system B, time is a parameter $t$, however it can have values
+From the perspective of system S, time is a parameter $t$, however it can have values
 $\tau_n$ (or \emph{all} real values, in a continuous model)
 which are also eigenvalues of an observable $T$ defined in \emph{another system} A,
 with which it is entangled. Such entanglement relation establishes a correspondence
-between ``instants of time'' (eigenvalues and eigenstates of $T$ in system A)
-and (``evolved'') states in system B. Thus, time can be regarded as a quantum observable,
+between ``instants of time'' (eigenvalues and eigenstates of $T$ in system T)
+and (``evolved'') states in system S. Thus, time can be regarded as a quantum observable,
 although defined in a different Hilbert space than the one of the Hamiltonian of interest.
-As $H_B$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
+As $H_S$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
 (how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
 
-A slightly different notation than $\hilb{H}_A$ and $\hilb{H}_B$ (and their tensor product)
+A slightly different notation than $\hilb{H}_T$ and $\hilb{H}_S$ (and their tensor product)
 might be useful at this stage, given
 the physical interpretation of the two spaces is now established.
 Some authors
