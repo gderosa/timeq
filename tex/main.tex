@@ -14,26 +14,7 @@
 \maketitle    
 
 \begin{spacing}{1.2}
-  {
-    \hypersetup{
-      linkcolor = .
-    }
-
-    % https://tex.stackexchange.com/a/65547
-    \cleardoublepage
-    \pdfbookmark[section]{\contentsname}{toc}
-    \tableofcontents
-    
-    \cleardoublepage
-    %\pdfbookmark[section]{\listfigurename}{lof}
-    \listoffigures
-    \addcontentsline{toc}{section}{\listfigurename}
-
-    \cleardoublepage
-    %\pdfbookmark[section]{\listtablename}{lot}
-    \listoftables
-    \addcontentsline{toc}{section}{\listtablename}
-  }
+  \input{tex/pre/tocs}
 
   \chapter*{Declaration of Authorship}
   \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
