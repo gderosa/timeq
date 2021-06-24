@@ -21,7 +21,7 @@ for vectors in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
 We assume that $\ket{\psi_{n}}_{S}$ are all \emph{normalized} in $\hilb{H}_S$;
 and
 $\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in $\hilb{H}_T$.
-Let also $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
+Furthermore, let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
 of the overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_T \ox \hilb{H}_S$:
 $$
   \mathbb{J} \dket{\Psi} = \epsilon \dket{\Psi} \text{.}
@@ -36,7 +36,8 @@ $$
   \mathbb{J} = H_T \ox \idop_S + \idop_T \ox H_S \, \text{.} 
 $$
 Therefore, with the ordinary notion of ``time as a parameter'',
-the evolution of the ``S'' system will only depend on ``its own''
+the evolution of the subsystem represented by $\hilb{H}_S$
+will only depend on its own
 Hamiltonian $H_S$, namely
 \begin{equation}\label{eq:pw:ordinary_S}
   \ket{\psi(t)}_S = e^{- i \hbar t / H_S } \ket{\psi(0)}_S \text{.}  
@@ -55,21 +56,22 @@ This is also known as the
 \citereset
 A suitable subsystem is chosen within the ``universe'' so that it acts as
 \emph{clock} for the \emph{rest} of it, in the sense that
-there is an observable $T$ (in $\hilb{H}_T$)
+there is an observable $T$
 that can be used to
 describe time evolution ``without evolution''\footnote{
   The expression ``evolution without evolution''
   is directly quoted from the title of \cite{PageWootters},
   and recalled in \cite{Marletto:Evolution}.
 }
-of system $B$
-and is canonically conjugate to the Hamiltonian $H_T$.
+of the other subsystem.
 
-% Please note, while the time evolution of system $B$,
-% the time operator $T$ is defined in system $A$ ---and canonically conjugate to $H_T$, not $H_S$.
-% In other words, the time operator is defined in a different Hilbert space, therefore
-% the Pauli objection no longer applies. A suitable entanglement relation ensures that 
-% the ``time'' measured by a clock in one system is relevant to the evolution of the other system.
+Please note,
+the \emph{time operator} $T$ is defined in $\hilb{H}_T$ ---and canonically conjugate to $H_T$, not $H_S$.
+In other words, the time operator is defined in a different Hilbert space than the ``system of interest'' $\hilb{H}_S$,
+therefore
+the Pauli objection no longer applies. A suitable entanglement relation ensures that 
+the ``time'' measured by a clock in one system ($\hilb{H}_T$) is relevant to the evolution of the other
+system $\hilb{H}_S$.
 
 Quantitatively,
 the observable $T$ in $\hilb{H}_T$
