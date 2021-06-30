@@ -80,22 +80,23 @@ has eigenvalues $\tau_n$
 which can be interpreted as possible
 instants of time in the evolution of $\ket{\psi}_S$, in the sense that
 \begin{equation}\label{eq:pw:discrete_Tpprox}
-  \Big[ \ket{\psi(t)}_S \Big]_{t=\tau_n} \simeq \,\,\,\, \ket{\psi_n}_S \, \text{,}
+  \Big[ \ket{\psi(t)}_S \Big]_{t=\tau_n} = \,\,\,\, \ket{\psi_n}_S \, \text{,}
 \end{equation}
-where $\ket{\psi(t)}_S$ is the same of~\eqref{eq:pw:ordinary_S} i.e.
+where $\ket{\psi(t)}_S$ is given in~\eqref{eq:pw:ordinary_S} i.e.
 the evolution one would obtain in ``ordinary'' way
 by resolving the Schr\"{o}dinger equation in $\hilb{H}_S$.
-Please note, in eq.~\eqref{eq:pw:discrete_Tpprox} we do not use strict equality:
-in its original formulation the Page--Wootters model is still based on a continuous
-notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}:
-whether a discrete formulation
-brings a good approximation
+Please note:
+in its original formulation, the Page--Wootters model is based on a continuous
+notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}.
+A discrete formulation, as in eq. \eqref{eq:pw:discrete_Tpprox},
 will be verified numerically.
 
 An intuitive description may be as follows.
-From the perspective of the system described by $\hilb{H}_S$, time is a parameter $t$, however it can have values
+From the perspective of the system described by $\hilb{H}_S$,
+time is a parameter $t$;
+however $t$ can have values
 $\tau_n$ (or \emph{all} real values, in a continuous model)
-which are also eigenvalues of an observable $T$ defined in \emph{another system} described by $\hilb{H}_T$,
+which are also eigenvalues of an observable $T$ defined in \emph{another} space $\hilb{H}_T$,
 with which it is entangled. Such entanglement relation establishes a correspondence
 between ``instants of time'' (eigenvalues and eigenstates of observable $T$)
 and (``evolved'') states in $\hilb{H}_S$.
@@ -104,41 +105,46 @@ and (``evolved'') states in $\hilb{H}_S$.
 % As $H_S$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
 % (how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
 
-% A slightly different notation than $\hilb{H}_T$ and $\hilb{H}_S$ (and their tensor product)
-% might be useful at this stage, given
-% the physical interpretation of the two spaces is now established.
-% Some authors
-% use $\hilb{H}_C$ and $\hilb{H}_R$
-% to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``universe''
-% (or isolated system):
-% see, for example, \cite{Marletto:Evolution}.
-% Others ---as in \cite{Lloyd:Time}--- 
-% choose $\hilb{H}_T$ and $\hilb{H}_S$ to indicate the Hilbert space where
-% a time operator $T$ is defined and, respectively,
-% the ordinary Hilbert space of the System.
-% It is also tempting to relate $\hilb{H}_T$ and $\hilb{H}_S$
-% to temporal (T) and spatial (S)
-% degrees of freedom, thus forming a sort of
-% ``space-time'' (and this will be even more apparent
-% with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).
-% More details on symbols and conventions follow.
+The symbols $\hilb{H}_T$ and $\hilb{H}_S$
+naturally indicate
+the Hilbert spaces where a time operator $T$ is defined,
+and, respectively,
+the ordinary Hilbert space of the \emph{S}ystem.
+This notation is based on \citereset\cite{Lloyd:Time}
+(where also the blackboard bold typeface, e.g. ``$\mathbb{J}$'',
+is used for operators defined in a larger space
+than the one of standard quantum mechanics,
+typically the product $\hilb{H}_T \ox \hilb{H}_S$).
+It is tempting to relate $\hilb{H}_T$ and $\hilb{H}_S$
+to temporal (T) and spatial (S)
+degrees of freedom, thus forming a sort of
+``space-time'' (and this will be even more apparent
+with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).
+%
+A slightly different notation
+uses $\hilb{H}_C$ and $\hilb{H}_R$
+to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``universe''
+(or isolated system):
+see, for example, \cite{Marletto:Evolution}.
 
-\subsection*{Notation}
+% \subsection*{Notation}
 
-In this and following chapters, when treating quantum time models,
-$\hilb{H}_S$ will indicate the Hilbert space of ordinary quantum mechanics.
-$\hilb{H}_T$, an extra space where a time operator ${T}$ is introduced. The tensor
-product space $\pwspace$
-will often be referred to as well.
-Bras and kets in this tensor product space will be indicated with a special double-angle-bracket
-notation, as in $\dket{\Psi}$.
+% In this and following chapters, when treating quantum time models,
+% $\hilb{H}_S$ will indicate the Hilbert space of ordinary quantum mechanics.
+% $\hilb{H}_T$, an extra space where a time operator ${T}$ is introduced. The tensor
+% product space $\pwspace$
+% will often be referred to as well.
+% Bras and kets in this tensor product space will be indicated with a special double-angle-bracket
+% notation, as in $\dket{\Psi}$.
 
-${\mathbb{J}}$ (blackboard bold) indicates an  operator defined in
-a larger space than the one of standard quantum mechanics,
-typically the product $\pwspace$.
+%% TODO: find a place for this
+% ${\mathbb{J}}$ (blackboard bold) indicates an  operator defined in
+% a larger space than the one of standard quantum mechanics,
+% typically the product $\pwspace$.
 
-The symbol `$\repr$', as in $\op{A} \repr \mqty(a&b\\c&d)$, $\ket{\psi} \repr \mqty[\alpha \\ \beta]$
-means: representation with respect to a particular basis (as opposed to intrinsic equality `$=$').
+%% TODO: move this (amd the above?) to where these symbols are first used.
+% The symbol `$\repr$', as in $\op{A} \repr \mqty(a&b\\c&d)$, $\ket{\psi} \repr \mqty[\alpha \\ \beta]$
+% means: representation with respect to a particular basis (as opposed to intrinsic equality `$=$').
 
-The symbol `$\eqbydef$'
-means: equal by definition, equal by settings i.e. postulated and not derived logically.
+% The symbol `$\eqbydef$'
+% means: equal by definition, equal by settings i.e. postulated and not derived logically.
