@@ -1,0 +1,234 @@
+Notebook[{Cell[
+BoxData[""],"Input",CellID->13,CellLabel->"In[1]:= "],Cell[
+CellGroupData[
+{Cell[
+TextData[{"Page","-",StyleBox["Wootters",IgnoreSpellCheck->True]," ","model",StyleBox[
+RowBox[{":"," "}]],"4","-","level"," ","clock",StyleBox[RowBox[{" ","+"," "}]],"2","-","level"," ","system"}],
+"Subtitle",CellID->238],Cell[
+TextData[{"Natural"," ","units",":"}],"Text",CellID->138],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"\[HBar]"," ","="," ","1"}]],"Input",CellID->140,CellLabel->"In[2]:= "],Cell[
+BoxData[
+"1",StandardForm],"Output",CellID->591,CellLabel->"Out[2]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"\[Omega]","=","1"}]],"Input",CellID->14,CellLabel->"In[3]:= "],Cell[
+BoxData[
+"1",StandardForm],"Output",CellID->593,CellLabel->"Out[3]= "]},Open]],Cell[
+TextData[
+{"\n","Time"," ","observable"," ","in"," ","its"," ","own"," ","representation"," ","is"," ","diagonal"}],
+"Text",CellID->230],Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{"T",":=","DiagonalMatrix","[","Range","[","0",",","(","3","/","2",")","\[Pi]",","," ","\[Pi]","/","2","]","]"}],"\n",RowBox[
+{"MatrixForm","[","T","]"}]}],"Input",CellID->231,CellLabel->"In[4]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","0","0","0"},{"0","1","0","0"},{"0","0","2","0"},{"0","0","0","3"}},
+RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->595,CellLabel->"Out[5]//MatrixForm= "]},
+Open]],Cell[
+TextData[{"\n","Discrete"," ","approximation"," ","of"," ","canonically"," ","conjugate"," ","observable",StyleBox[
+RowBox[{" ","("}]],"discrete"," ","derivative",")"}],"Text",CellID->241],Cell[
+TextData[
+{"No",StyleBox[RowBox[{"."," "}]],"let's"," ","use"," ","DFT"," ","instead"," !"}],
+"Text",CellID->15],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"F"," ","="," ",RowBox[
+{"FourierMatrix","[","4","]"}]}]],"Input",CellID->16,CellLabel->"In[6]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{FractionBox["1","2"],",",FractionBox["1",
+"2"],",",FractionBox["1","2"],",",FractionBox["1","2"]}],"}"}],",",RowBox[{"{",RowBox[
+{FractionBox["1","2"],",",FractionBox["\[ImaginaryI]","2"],",",RowBox[{"-",FractionBox[
+"1","2"]}],",",RowBox[{"-",FractionBox["\[ImaginaryI]","2"]}]}],"}"}],",",RowBox[
+{"{",RowBox[{FractionBox["1","2"],",",RowBox[{"-",FractionBox["1","2"]}],",",FractionBox[
+"1","2"],",",RowBox[{"-",FractionBox["1","2"]}]}],"}"}],",",RowBox[{"{",RowBox[{FractionBox[
+"1","2"],",",RowBox[{"-",FractionBox["\[ImaginaryI]","2"]}],",",RowBox[{"-",FractionBox[
+"1","2"]}],",",FractionBox["\[ImaginaryI]","2"]}],"}"}]}],"}"}],StandardForm],"Output",
+CellID->597,CellLabel->"Out[6]= "]},Open]],Cell[
+BoxData[RowBox[{"\[CapitalOmega]"," ",":="," ",RowBox[
+{"F",".","T",".",RowBox[{"F","\[ConjugateTranspose]"}]," "}]}]],"Input",CellID->22,
+CellLabel->"In[7]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"MatrixForm","["," ","\[CapitalOmega]","]"}]],
+"Input",CellID->23,CellLabel->"In[8]:= "],Cell[
+BoxData[TagBox[RowBox[{"(","\[NoBreak]",GridBox[
+{{FractionBox["3","2"],RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox[
+"\[ImaginaryI]","2"]}],RowBox[{"-",FractionBox["1","2"]}],RowBox[{RowBox[{"-",FractionBox[
+"1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}]},{RowBox[{RowBox[{"-",FractionBox[
+"1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],FractionBox["3","2"],RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}],RowBox[{"-",FractionBox[
+"1","2"]}]},{RowBox[{"-",FractionBox["1","2"]}],RowBox[{RowBox[{"-",FractionBox["1",
+"2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],FractionBox["3","2"],RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}]},{RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}],RowBox[{"-",FractionBox[
+"1","2"]}],RowBox[{RowBox[{"-",FractionBox["1","2"]}],"-",FractionBox["\[ImaginaryI]",
+"2"]}],FractionBox["3","2"]}},RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,
+ColumnAlignments->Center],"\[NoBreak]",")"}],Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],
+StandardForm],"Output",CellID->599,CellLabel->"Out[8]//MatrixForm= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Eigensystem","["," ","\[CapitalOmega]","]"}]],"Input",CellID->29,
+CellLabel->"In[9]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"3",",","2",",","1",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"-","\[ImaginaryI]"}],",",RowBox[{"-","1"}],",","\[ImaginaryI]",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-","1"}],",","1",",",RowBox[{"-","1"}],",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"\[ImaginaryI]",",",RowBox[{"-","1"}],",",RowBox[{"-","\[ImaginaryI]"}],",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"1",",","1",",","1",",","1"}],"}"}]}],"}"}]}],"}"}],StandardForm],"Output",
+CellID->601,CellLabel->"Out[9]= "]},Open]],Cell[
+TextData[{"\n","Hamiltonian"," ","in",StyleBox[
+RowBox[{" ","\""}]],"ordinary",StyleBox[RowBox[{"\""," "}]],"space"}],"Text",CellID->243],Cell[
+BoxData[
+RowBox[{"Hs"," ",":="," ",RowBox[{"\[ImaginaryI]",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{"0",",","1"}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"-","1"}],",","0"}],"}"}]}],"}"}]}]}]],
+"Input",CellID->242,CellLabel->"In[10]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"MatrixForm","[","Hs","]"}]],"Input",CellID->50,CellLabel->"In[11]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","\[ImaginaryI]"},{RowBox[{"-","\[ImaginaryI]"}],"0"}},
+RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->603,CellLabel->"Out[11]//MatrixForm= "]},
+Open]],Cell[
+TextData[{"\n","\n","Matrix"," ","representation"," ","of"," ","eq",StyleBox[
+RowBox[{"."," ","("}]],"1",StyleBox[RowBox[{")"," "}]],"in"," ","https://arxiv.org/abs/1504.04215"," ","by"," ","Lloyd",StyleBox[
+RowBox[{","," "}]],"Giovannetti"," ","and"," ","Maccone","."}],"Text",CellID->228],Cell[
+BoxData[
+RowBox[{"J"," ",":="," ",RowBox[{RowBox[{"KroneckerProduct","[",RowBox[{"\[CapitalOmega]",",",RowBox[
+{"IdentityMatrix","[","2","]"}]}],"]"}]," ","+"," ",RowBox[{"KroneckerProduct","[",RowBox[
+{RowBox[{"IdentityMatrix","[","4","]"}],",","Hs"}],"]"}]}]}]],"Input",CellID->46,
+CellLabel->"In[12]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"MatrixForm","[","J","]"}]],
+"Input",CellID->57,CellLabel->"In[13]:= "],Cell[
+BoxData[TagBox[RowBox[{"(","\[NoBreak]",GridBox[
+{{FractionBox["3","2"],"\[ImaginaryI]",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox[
+"\[ImaginaryI]","2"]}],"0",RowBox[{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],"0"},{RowBox[{"-","\[ImaginaryI]"}],FractionBox[
+"3","2"],"0",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]",
+"2"]}],"0",RowBox[{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[{"-",FractionBox[
+"1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}]},{RowBox[{RowBox[{"-",FractionBox[
+"1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],"0",FractionBox["3","2"],"\[ImaginaryI]",RowBox[
+{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}],"0",RowBox[
+{"-",FractionBox["1","2"]}],"0"},{"0",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"-",FractionBox[
+"\[ImaginaryI]","2"]}],RowBox[{"-","\[ImaginaryI]"}],FractionBox["3","2"],"0",RowBox[
+{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}],"0",RowBox[
+{"-",FractionBox["1","2"]}]},{RowBox[{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],"0",FractionBox[
+"3","2"],"\[ImaginaryI]",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox[
+"\[ImaginaryI]","2"]}],"0"},{"0",RowBox[{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[
+{"-",FractionBox["1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],RowBox[{"-","\[ImaginaryI]"}],FractionBox[
+"3","2"],"0",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]",
+"2"]}]},{RowBox[{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]",
+"2"]}],"0",RowBox[{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[{"-",FractionBox[
+"1","2"]}],"-",FractionBox["\[ImaginaryI]","2"]}],"0",FractionBox["3","2"],"\[ImaginaryI]"},{"0",RowBox[
+{RowBox[{"-",FractionBox["1","2"]}],"+",FractionBox["\[ImaginaryI]","2"]}],"0",RowBox[
+{"-",FractionBox["1","2"]}],"0",RowBox[{RowBox[{"-",FractionBox["1","2"]}],"-",FractionBox[
+"\[ImaginaryI]","2"]}],RowBox[{"-","\[ImaginaryI]"}],FractionBox["3","2"]}},RowSpacings->1,
+ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->605,CellLabel->"Out[13]//MatrixForm= "]},
+Open]],Cell[
+TextData[{"\n","Let's"," ","solve"," ","eq",StyleBox[RowBox[{"."," ","("}]],"2",StyleBox[
+RowBox[{")"," "}]],StyleBox["ibid",FontSlant->Italic],StyleBox[RowBox[{StyleBox[".",
+FontSlant->Italic],StyleBox[",",FontSlant->Plain],StyleBox[" ",FontSlant->Plain]}]],StyleBox[
+"we're",FontSlant->Plain],StyleBox[" ",FontSlant->Plain],StyleBox["interested",FontSlant->Plain],StyleBox[
+" ",FontSlant->Plain],StyleBox["in",FontSlant->Plain],StyleBox[" ",FontSlant->Plain],StyleBox[
+"eigenvalue",FontSlant->Plain],StyleBox[" ",FontSlant->Plain],StyleBox["0",FontSlant->Plain],StyleBox[
+".",FontSlant->Plain]}],"Text",CellID->74],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"Eigensystem","[","J","]"}]],"Input",CellID->63,CellLabel->"In[14]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"4",",","3",",","2",",","2",",",RowBox[{"-","1"}],",","1",",","1",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{"1",",",RowBox[{"-","\[ImaginaryI]"}],",",RowBox[
+{"-","\[ImaginaryI]"}],",",RowBox[{"-","1"}],",",RowBox[{"-","1"}],",","\[ImaginaryI]",",","\[ImaginaryI]",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-","\[ImaginaryI]"}],",",RowBox[{"-","1"}],",","\[ImaginaryI]",",","1",",",RowBox[
+{"-","\[ImaginaryI]"}],",",RowBox[{"-","1"}],",","\[ImaginaryI]",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-","1"}],",","0",",","0",",",RowBox[{"-","1"}],",","1",",","0",",","0",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",","1",",",RowBox[{"-","1"}],",","0",",","0",",",RowBox[{"-","1"}],",","1",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-","\[ImaginaryI]"}],",","1",",",RowBox[{"-","\[ImaginaryI]"}],",","1",",",RowBox[
+{"-","\[ImaginaryI]"}],",","1",",",RowBox[{"-","\[ImaginaryI]"}],",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"\[ImaginaryI]",",","0",",","0",",","1",",","\[ImaginaryI]",",","0",",","0",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"0",",",RowBox[{"-","\[ImaginaryI]"}],",","1",",","0",",","0",",",RowBox[
+{"-","\[ImaginaryI]"}],",","1",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"1",",","\[ImaginaryI]",",","\[ImaginaryI]",",",RowBox[
+{"-","1"}],",",RowBox[{"-","1"}],",",RowBox[{"-","\[ImaginaryI]"}],",",RowBox[{"-","\[ImaginaryI]"}],",","1"}],"}"}]}],"}"}]}],"}"}],
+StandardForm],"Output",CellID->607,CellLabel->"Out[14]= "]},Open]],Cell[
+TextData[
+{"\n","\n",StyleBox["Consistency",FontWeight->Bold],StyleBox[" ",FontWeight->Bold],StyleBox[
+"of",FontWeight->Bold],StyleBox[" ",FontWeight->Bold],StyleBox["PW",FontWeight->Bold],StyleBox[
+" ",FontWeight->Bold],StyleBox["with",FontWeight->Bold],StyleBox[" ",FontWeight->Bold],StyleBox[
+"ordinary",FontWeight->Bold],StyleBox[" ",FontWeight->Bold],StyleBox["QM",FontWeight->Bold],StyleBox[
+RowBox[{StyleBox[" ",FontWeight->Bold],StyleBox["(",FontWeight->Bold]}]],StyleBox[
+"discrete",FontWeight->Bold],StyleBox[" ",FontWeight->Bold],StyleBox["approximation",
+FontWeight->Bold],StyleBox["):",FontWeight->Bold],"\n","\n","Ordinary"," ","quantum"," ","mechanics"," ","time"," ","evolution",StyleBox[
+RowBox[{","," "}]],"with"," ","initial"," ","state",StyleBox[RowBox[{" ","-|"}]],"1",">"}],
+"Text",CellID->76],Cell[
+BoxData[RowBox[{RowBox[{"psi","[","t_","]"}]," ",":="," ",RowBox[
+{"MatrixExp","[",RowBox[{RowBox[{RowBox[{"-","\[ImaginaryI]"}]," ","Hs"," ","t"}],","," ",RowBox[
+{"{",RowBox[{"1",",","\[ImaginaryI]"}],"}"}]}]," ","]"}]}]],"Input",CellID->1327,
+CellLabel->"In[15]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"psi","[","t","]"}]],
+"Input",CellID->77,CellLabel->"In[16]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[
+{RowBox[{"Cos","[","t","]"}],"+",RowBox[{"\[ImaginaryI]"," ",RowBox[{"Sin","[","t","]"}]}]}],",",RowBox[
+{RowBox[{"\[ImaginaryI]"," ",RowBox[{"Cos","[","t","]"}]}],"-",RowBox[{"Sin","[","t","]"}]}]}],"}"}],
+StandardForm],"Output",CellID->609,CellLabel->"Out[16]= "]},Open]],Cell[
+TextData[
+{"\"","Sampling",StyleBox[RowBox[{"\","," "}]],"picking"," ","instants"," ","of"," ","time",StyleBox[
+RowBox[{" ","("}]],"as"," ","in"," ","ordinary"," ","QM",StyleBox[RowBox[{")"," "}]],"when"," ","the"," ","system"," ","is"," ","in"," ","either",StyleBox[
+RowBox[{" ","|"}]],"0",StyleBox[RowBox[{">"," "}]],"or",StyleBox[RowBox[{" ","|"}]],"1",">"}],
+"Text",CellID->84],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"Map","[",RowBox[{"psi",","," ",RowBox[
+{"Range","[",RowBox[{"0",",",RowBox[{RowBox[{"(",RowBox[{"3","/","2"}],")"}],"\[Pi]"}],",",RowBox[
+{"\[Pi]","/","2"}]}],"]"}]}],"]"}]],"Input",CellID->711,CellLabel->"In[17]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"1",",","\[ImaginaryI]"}],"}"}],",",RowBox[
+{"{",RowBox[{"\[ImaginaryI]",",",RowBox[{"-","1"}]}],"}"}],",",RowBox[{"{",RowBox[
+{RowBox[{"-","1"}],",",RowBox[{"-","\[ImaginaryI]"}]}],"}"}],",",RowBox[{"{",RowBox[
+{RowBox[{"-","\[ImaginaryI]"}],",","1"}],"}"}]}],"}"}],StandardForm],"Output",CellID->611,
+CellLabel->"Out[17]= "]},Open]],Cell[
+TextData[{StyleBox["This",FontColor->RGBColor[
+0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["discrete",FontColor->RGBColor[
+0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["time",FontColor->RGBColor[
+0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["evolution",FontColor->RGBColor[
+0,0,1]],StyleBox[RowBox[{StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["(",FontColor->RGBColor[
+0,0,1]]}]],StyleBox["samples",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["from",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["an",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["ordinary",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["QM",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["result",FontColor->RGBColor[0,0,1]],StyleBox[RowBox[{StyleBox[")",
+FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]]}]],StyleBox[
+"coincides",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"with",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"the",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"eigenvector",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"of",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"J",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"related",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"to",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"eigenvalue",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox[
+"0",FontColor->RGBColor[0,0,1]],StyleBox[RowBox[{StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["(",FontColor->RGBColor[0,0,1]]}]],StyleBox["PW",FontColor->RGBColor[
+0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["model",FontColor->RGBColor[
+0,0,1]],StyleBox[" ",FontColor->RGBColor[0,0,1]],StyleBox["result",FontColor->RGBColor[
+0,0,1]],StyleBox[RowBox[{StyleBox[").",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]]}]],"\n",StyleBox["The",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["same",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["can",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["be",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["seen",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["for",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["initial",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["state",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["of",FontColor->RGBColor[0,0,1]],StyleBox[RowBox[{StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["|",FontColor->RGBColor[0,0,1]]}]],StyleBox["0",FontColor->RGBColor[
+0,0,1]],StyleBox[RowBox[{StyleBox[">",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["(",FontColor->RGBColor[0,0,1]]}]],StyleBox["i",FontColor->RGBColor[
+0,0,1]],StyleBox[".",FontColor->RGBColor[0,0,1]],StyleBox["e",FontColor->RGBColor[
+0,0,1]],StyleBox[RowBox[{StyleBox[".",FontColor->RGBColor[0,0,1]],StyleBox[" ",FontColor->RGBColor[
+0,0,1]],StyleBox["{",FontColor->RGBColor[0,0,1]]}]],StyleBox["1",FontColor->RGBColor[
+0,0,1]],StyleBox[",",FontColor->RGBColor[0,0,1]],StyleBox["0",FontColor->RGBColor[
+0,0,1]],StyleBox["})",FontColor->RGBColor[0,0,1]]}],"Text",CellID->86]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]

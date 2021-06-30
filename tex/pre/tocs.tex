@@ -1,0 +1,20 @@
+  {
+    \hypersetup{
+      linkcolor = .
+    }
+
+    % https://tex.stackexchange.com/a/65547
+    \cleardoublepage
+    \pdfbookmark[section]{\contentsname}{toc}
+    \tableofcontents
+
+    \cleardoublepage
+    %\pdfbookmark[section]{\listfigurename}{lof}
+    \listoffigures
+    \addcontentsline{toc}{section}{\listfigurename}
+
+    \cleardoublepage
+    %\pdfbookmark[section]{\listtablename}{lot}
+    \listoftables
+    \addcontentsline{toc}{section}{\listtablename}
+  }

@@ -1,0 +1,117 @@
+Notebook[{Cell[
+BoxData[{RowBox[{"Hc"," ",":="," ","-","(","\[ImaginaryI]",")","{","\n","{","0",",","-","1","}",",","\n","{","+","1",",","0","}","\n","}"}],"\n",RowBox[
+{"Hs"," ",":="," ","\[ImaginaryI]","{","{","0",",","1","}",",","{","-","1",",","0","}","}"}]}],
+"Input",CellID->1,CellLabel->"In[149]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"MatrixForm","[","Hs","]"}]],"Input",CellID->50,CellLabel->"In[151]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","\[ImaginaryI]"},{RowBox[{"-","\[ImaginaryI]"}],"0"}},
+RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->22,CellLabel->"Out[151]//MatrixForm= "]},
+Open]],Cell[
+CellGroupData[{Cell[
+BoxData["Hc"],"Input",CellID->6,CellLabel->"In[152]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"0",",","\[ImaginaryI]"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-","\[ImaginaryI]"}],",","0"}],"}"}]}],"}"}],StandardForm],
+"Output",CellID->24,CellLabel->"Out[152]= "]},Open]],Cell[
+CellGroupData[{Cell[
+BoxData[
+RowBox[{"MatrixForm","[","Hc","]"}]],"Input",NumberMarks->False,CellLabel->"In[153]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","\[ImaginaryI]"},{RowBox[{"-","\[ImaginaryI]"}],"0"}},
+RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->26,CellLabel->"Out[153]//MatrixForm= "]},
+Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"Eigensystem","[","Hc","]"}]],"Input",
+NumberMarks->False,CellLabel->"In[154]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{RowBox[{"-","1"}],",","1"}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"{",RowBox[
+{RowBox[{"-","\[ImaginaryI]"}],",","1"}],"}"}],",",RowBox[{"{",RowBox[{"\[ImaginaryI]",",","1"}],"}"}]}],"}"}]}],"}"}],
+StandardForm],"Output",CellID->28,CellLabel->"Out[154]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{"T",":=","DiagonalMatrix","[","Map","[","(","1",")","#","&",",","Range","[","0",",","1","]","]","]"}],"\n",RowBox[
+{"MatrixForm","[","T","]"}]}],"Input",CellID->128,CellLabel->"In[155]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","0"},{"0","1"}},RowSpacings->1,ColumnSpacings->1,
+RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],Function[BoxForm`e$,
+MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->30,CellLabel->"Out[156]//MatrixForm= "]},
+Open]],Cell[
+BoxData[RowBox[{"commut"," ",":="," ",RowBox[{RowBox[{"Hc",".","T"}]," ","-"," ",RowBox[
+{"T",".","Hc"}]}]}]],"Input",CellID->152,CellLabel->"In[157]:= "],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"MatrixForm","[","commut","]"}]],"Input",CellID->153,CellLabel->"In[158]:= "],Cell[
+BoxData[
+TagBox[RowBox[{"(","\[NoBreak]",GridBox[{{"0","\[ImaginaryI]"},{"\[ImaginaryI]","0"}},
+RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,ColumnAlignments->Center],"\[NoBreak]",")"}],
+Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],StandardForm],"Output",CellID->32,CellLabel->"Out[158]//MatrixForm= "]},
+Open]],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"Eigenvalues","[","commut","]"}]],
+"Input",CellID->159,CellLabel->"In[159]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{"\[ImaginaryI]",",",RowBox[
+{"-","\[ImaginaryI]"}]}],"}"}],StandardForm],"Output",CellID->34,CellLabel->"Out[159]= "]},
+Open]],Cell[
+BoxData[RowBox[{"J"," ",":="," ",RowBox[{RowBox[{"KroneckerProduct","[",RowBox[
+{"Hc",",",RowBox[{"IdentityMatrix","[","2","]"}]}],"]"}]," ","+"," ",RowBox[{"KroneckerProduct","[",RowBox[
+{RowBox[{"IdentityMatrix","[","2","]"}],",","Hs"}],"]"}]}]}]],"Input",CellID->46,
+CellLabel->"In[160]:= "],Cell[
+BoxData[""],"Input",CellID->100,CellLabel->"In[161]:= "],Cell[
+BoxData[
+""],"Input",CellID->20,CellLabel->"In[162]:= "],Cell[
+BoxData[""],"Input",CellID->47,
+CellLabel->"In[163]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[{"MatrixForm","[","J","]"}]],
+"Input",CellID->57,CellLabel->"In[164]:= "],Cell[
+BoxData[TagBox[RowBox[{"(","\[NoBreak]",GridBox[
+{{"0","\[ImaginaryI]","\[ImaginaryI]","0"},{RowBox[{"-","\[ImaginaryI]"}],"0","0","\[ImaginaryI]"},{RowBox[
+{"-","\[ImaginaryI]"}],"0","0","\[ImaginaryI]"},{"0",RowBox[{"-","\[ImaginaryI]"}],RowBox[
+{"-","\[ImaginaryI]"}],"0"}},RowSpacings->1,ColumnSpacings->1,RowAlignments->Baseline,
+ColumnAlignments->Center],"\[NoBreak]",")"}],Function[BoxForm`e$,MatrixForm[BoxForm`e$]]],
+StandardForm],"Output",CellID->36,CellLabel->"Out[164]//MatrixForm= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Eigensystem","[","J","]"}]],"Input",CellID->63,CellLabel->"In[165]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"-","2"}],",","2",",","0",",","0"}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"-","1"}],",",RowBox[{"-","\[ImaginaryI]"}],",",RowBox[
+{"-","\[ImaginaryI]"}],",","1"}],"}"}],",",RowBox[{"{",RowBox[{RowBox[{"-","1"}],",","\[ImaginaryI]",",","\[ImaginaryI]",",","1"}],"}"}],",",RowBox[
+{"{",RowBox[{"1",",","0",",","0",",","1"}],"}"}],",",RowBox[{"{",RowBox[{"0",",",RowBox[
+{"-","1"}],",","1",",","0"}],"}"}]}],"}"}]}],"}"}],StandardForm],"Output",CellID->38,
+CellLabel->"Out[165]= "]},Open]],Cell[
+BoxData[""],"Input",CellID->709,CellLabel->"In[166]:= "],Cell[
+BoxData[
+RowBox[{RowBox[{"u","[","t_","]"}],":=",RowBox[{"MatrixExp","[",RowBox[{RowBox[{"-","\[ImaginaryI]"}]," ","Hs"," ","t"}],"]"}]}]],
+"Input",CellID->79,CellLabel->"In[173]:= "],Cell[
+CellGroupData[{Cell[
+BoxData[RowBox[
+{"u","[","t","]"}]],"Input",CellID->85,CellLabel->"In[174]:= "],Cell[
+BoxData[RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{RowBox[{"Cos","[","t","]"}],",",RowBox[{"Sin","[","t","]"}]}],"}"}],",",RowBox[
+{"{",RowBox[{RowBox[{"-",RowBox[{"Sin","[","t","]"}]}],",",RowBox[{"Cos","[","t","]"}]}],"}"}]}],"}"}],
+StandardForm],"Output",CellID->86,CellLabel->"Out[174]= "]},Open]],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{RowBox[{"u","[","t","]"}],".",RowBox[{"{",RowBox[{RowBox[{"{","0","}"}],",",RowBox[
+{"{",RowBox[{"-","1"}],"}"}]}],"}"}]}]],"Input",CellID->91,CellLabel->"In[175]:= "],Cell[
+BoxData[
+RowBox[{"{",RowBox[{RowBox[{"{",RowBox[{"-",RowBox[{"Sin","[","t","]"}]}],"}"}],",",RowBox[
+{"{",RowBox[{"-",RowBox[{"Cos","[","t","]"}]}],"}"}]}],"}"}],StandardForm],"Output",
+CellID->92,CellLabel->"Out[175]= "]},Open]],Cell[
+BoxData[RowBox[{RowBox[{"psi","[","t_","]"}]," ",":="," ",RowBox[
+{"MatrixExp","[",RowBox[{RowBox[{RowBox[{"-","\[ImaginaryI]"}]," ","Hs"," ","t"}],","," ",RowBox[
+{"{",RowBox[{"1",",","0"}],"}"}]}]," ","]"}]}]],"Input",CellID->1327,CellLabel->"In[171]:= "],Cell[
+CellGroupData[
+{Cell[
+BoxData[RowBox[{"Map","[",RowBox[{"psi",","," ",RowBox[{"Range","[",RowBox[
+{"0",",",RowBox[{RowBox[{"(",RowBox[{"1","/","2"}],")"}],"\[Pi]"}],",",RowBox[{"\[Pi]","/","2"}]}],"]"}]}],"]"}]],
+"Input",CellID->711,CellLabel->"In[172]:= "],Cell[
+BoxData[RowBox[{"{",RowBox[{RowBox[
+{"{",RowBox[{"1",",","0"}],"}"}],",",RowBox[{"{",RowBox[{"0",",",RowBox[{"-","1"}]}],"}"}]}],"}"}],
+StandardForm],"Output",CellID->80,CellLabel->"Out[172]= "]},Open]]},StyleDefinitions->"Default.nb",
+FrontEndVersion->"10.0 for Wolfram Cloud Platform (June 2 2014)"]
