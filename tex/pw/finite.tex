@@ -1,0 +1,132 @@
+\section{Overcoming limitations of finite-dimension spaces}\label{sec:finite-quantum}
+\epigraph{\textelp{} discreteness in the world is simply the Fourier transform of compactness.}{%
+  \emph{Physics and the Integers} \parencite{Tong_Integers}%
+}
+
+The experiment mentioned in Sec. \ref{sec:pw:qubit}
+is based on a two-level clock
+The ``frequency'' observable is defined and implemented experimentally
+but the \emph{time} operator is not defined or calculated.
+In finite-dimension Hilbert spaces
+there are diffilcuties in identifying canonically conjugate
+pairs and one cannot use the same explicit formalism
+that would be used for observables with a continuous spectrum.
+Moreover, operators satisfying a canonical
+commutation relation like eq.~\eqref{eq:canonical_commutation_in_time}
+cannot be both bounded, which excludes finit-dimensional systems.
+
+This problem was studied in detail in
+\cite{FiniteHilb}. It was shown therein
+that statisfying the canonical commutation relation 
+is not essential to build operators representing physical observables
+with the same role of position and momentum.\footnote{
+  Or $T$ and $\hbar\Omega$
+  in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model.
+}
+
+Discrete, bounded position-like and momentum-like operators can be obtained from
+each other via
+the \term{finite Fourier transform}.
+In our case, we are particularly interested in relating the
+time operator $\op{T}$ and the ``energy'' operator $\hbar\op{\Omega}$
+in $\hilb{H}_T$ ---which in the continuous limit would satisfy the
+\eqref{eq:canonical_commutation_in_time} exactly.
+
+%\citereset
+It holds\footnote{
+  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
+  it can be easily verified that,
+  if $ \op{p} = F x F^{\dagger} $,
+  the correct inverse relation is
+  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+} \parencite{FiniteHilb}:
+\begin{gather}\label{eq:FourierCanonicalRelations}
+  \op{\Omega} = F \op{T} F^{\dagger}\text{;} \quad
+  \op{T} = F^{\dagger} \op{\Omega} F
+\end{gather}
+where, in the ``position'' (or \emph{time}) finite eigenbasis,
+\begin{equation}
+  F = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
+\end{equation}
+while in the frequency eigenbasis
+\begin{equation}
+  F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\mu,\nu=0}^{N-1} \exp[-i\frac{2\pi \mu\nu}{N}] \ketbra{\mu}{\nu} \, \text{,}
+\end{equation}
+with $N$ being the finite dimension of the Hilbert space.
+
+Please note the \eqref{eq:FourierCanonicalRelations} is valid in normalized (``natural'') units
+where ``time'' and ``frequency'' are in fact respectively
+\term{samples} and \emph{cycles/samples rate},
+in a similar sense as in digital signal processing theory
+\parencite[pp. 469, 490]{Signal}.
+
+In SI units, the \eqref{eq:FourierCanonicalRelations} is replaced by
+\begin{gather}
+  \label{eq:SI_Fourier:Omega}
+    \op{\Omega} = \frac{2\pi}{N(\delta T)^2} F \op{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \op{T} F^{\dagger} \\
+  \label{eq:SI_Fourier:T}
+    \op{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \op{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \op{\Omega} F
+  \, \text{,}
+\end{gather}
+where $\delta T$ (and analogously $\delta\Omega$)
+is the size of a ``temporal sample'', or the size of a discrete
+time step in the clock, and $\Delta T = N\delta T$ the range of the clock.
+For example,
+$\delta T = \text{1 hour}$ and $\Delta T=12\;\text{hours}$
+for a common clock (hours hand) in our everyday life.
+
+It holds
+\begin{gather}
+  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
+  \Delta\Omega \Delta T = 2\pi N \, \text{.}
+\end{gather}
+
+A benefit of finite-dimensional systems is the potential implementation on a finite array of
+qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
+with technology and engineering to the domain of signal processing \parencite{FiniteHilb}.
+In \emph{ordinary} quantum mechanics, the Fourier transform (discrete or continuous)
+is generally used
+to associate wavefunctions in position and momendum space
+(whereas time and frequency are \emph{not} operators),
+while in communication engineering it is used to convert signals
+from the time to the frequency domain and vice versa.
+Thanks to the introduction of the Hilbert space $\hilb{H}_T$,
+the interpretation in terms of time and frequency
+(or time and energy, up to a factor $\hbar$)
+is applicable to quantum theory as well, not only formally
+i.e. not in the sense of a mere operation among (``classical'') parameters;
+but in the sense of conversion between representations of the
+same quantum state vector with respect to different eigenbasis,
+in full analogy with position and momentum in $\hilb{H}_S$.
+
+\subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
+\citereset
+For canonical pairs of operators with a continuous, unbounded spectrum i.e.
+$\op{q}$ and $\op{p} \eqbydef -i\hbar\op{\partial}_{q}$,
+it is in general straightforward to prove that
+$\qty[\op{q}, \op{p}] = i\hbar$ and therefore
+$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{\hbar}{2}}$.
+
+In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
+in general, and is less essential.
+Canonically conjugate operators are related
+through the (discrete) Fourier transform ($\op{p} = F\op{q}F^{\dagger}$)
+rather then differentiation,
+and uncertainty relations are based on
+the properties of Fourier transformation
+rather than commutation relations.
+
+Particularly, the entropic uncertainty relation holds
+(\cite[sec.2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+\begin{equation}
+  S_q + S_p \geq \ln d
+\end{equation}
+where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+\parencite[sec.{\it I}.A]{Wehner:Uncertainty}; in this case:
+\begin{align}
+  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+  \,\text{,}
+\end{align}
+with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+(generalized) position and momentum basis.
