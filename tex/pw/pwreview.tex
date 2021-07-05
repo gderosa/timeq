@@ -41,7 +41,15 @@ in terms of relations between parts of a multipartite system
 % as opposed to vectors belonging to $\hilb{H}_S$ (or $\hilb{H}_T$) only.
 
 The ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
-can be obtained from $\dket{\Psi}$ TODO 
+can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
+  For the partial inner product,
+  see Definition \ref{def:pBra} and \ref{def:pKet},
+  and \cite[\s 1.3.3]{QMT_Jacobs}.
+}
+with a time eigenstate $\prescript{}{T}{\bra{t}}$:
+\begin{equation*}
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}}
+\end{equation*}
 
 Using the $T$ representation in $\hilb{H}_T$,
 and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
