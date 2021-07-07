@@ -48,8 +48,14 @@ can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
 }
 with a time eigenstate $\prescript{}{T}{\bra{t}}$:
 \begin{equation*}
-  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}}
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} \, \text{.}
 \end{equation*}
+This is the \term{T representation}. Similarly to a ``X representation'' in standard quantum mechanics,
+here $\dket{\Psi}$ is univocally identified by the ''coefficients'' $\ket{\psi(t)}_S$
+with respect to the basis $\setof{\ket{t}_T}$:
+\begin{equation*}
+  \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
+\end{equation*} 
 
 Using the $T$ representation in $\hilb{H}_T$,
 and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
