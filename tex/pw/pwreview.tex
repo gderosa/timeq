@@ -27,7 +27,7 @@ encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
   \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
 \end{equation}
-where $\hbar\op{\Omega}$ is the canonically conjugate of $\op{T}$ in $\hilb{H}_T$.
+where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
 Also, the \term{Wheeler-DeWitt equation} holds:
 \begin{equation}\label{eq:Wheeler-DeWitt}
   \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
@@ -50,12 +50,14 @@ with a time eigenstate $\prescript{}{T}{\bra{t}}$:
 \begin{equation*}
   \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} \, \text{.}
 \end{equation*}
-This is the \term{T representation}. Similarly to a ``X representation'' in standard quantum mechanics,
-here $\dket{\Psi}$ is univocally identified by the ''coefficients'' $\ket{\psi(t)}_S$
+The function $ t \rightarrow \ket{\psi(t)}_S \; $ is the
+``wavefunction in time representation'', in analogy
+with the wavefunction in position representation of standard quantum mechanics.
+The state vector $\dket{\Psi}$ is univocally identified by the ``coefficients'' $\ket{\psi(t)}_S$
 with respect to the basis $\setof{\ket{t}_T}$:
 \begin{equation*}
   \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
-\end{equation*} 
+\end{equation*}
 
 Using the $T$ representation in $\hilb{H}_T$,
 and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
