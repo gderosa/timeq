@@ -6,6 +6,14 @@
 
 \frontmatter
 
+%% Vertical spacing, par. skip, indent... possibly to be readjusted in different parts of the document?
+%% (which is why they're not in preamble.tex).
+% \setstretch{1.4}
+% \setlength{\parindent}{4ex}
+%
+\onehalfspacing
+\setlength{\parskip}{0.5ex}
+
 \pagenumbering{alph}
 \pdfbookmark[section]{Front}{front}
 \input{tex/pre/front}
@@ -13,32 +21,31 @@
 \pagenumbering{roman}
 \maketitle
 
-\begin{spacing}{1.2}
-  {
-    \setlength{\parskip}{0.5ex}
-    \input{tex/pre/tocs}
-  }
+\input{tex/pre/tocs}
 
-  \chapter*{Declaration of Authorship}
-  \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{section}{Declaration of Authorship}
-  \input{tex/pre/declaration}
+\onehalfspacing
 
-  \input{tex/pre/dedica}
-  \markboth{}{}
-  
-  \chapter*{Acknowledgements}
-  \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{section}{Acknowledgements}
-  \input{tex/pre/thanks}
+\chapter*{Declaration of Authorship}
+\markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{section}{Declaration of Authorship}
+\input{tex/pre/declaration}
 
-  \chapter*{Abstract}
-  \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
-  \addcontentsline{toc}{section}{Abstract}
-  \input{tex/pre/abstract}
-\end{spacing}
+\input{tex/pre/dedica}
+\markboth{}{}
+
+\chapter*{Acknowledgements}
+\markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{section}{Acknowledgements}
+\input{tex/pre/thanks}
+
+\chapter*{Abstract}
+\markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
+\addcontentsline{toc}{section}{Abstract}
+\input{tex/pre/abstract}
 
 \mainmatter
+
+\setlength{\parskip}{1ex}
 
 \chapter{Introduction}\label{ch:intro}
 \input{tex/intro/invite}

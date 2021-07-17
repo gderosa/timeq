@@ -23,6 +23,8 @@ or
 latexmk opt/todo  # To add the TODO chapter to the thesis
 ```
 
+You may consider the `latexmk -quiet` option as well.
+
 ### PDF previewer and continuous build
 
 Add `-pv` option to the `latexmk` command above to automatically launch a PDF viewer on the
