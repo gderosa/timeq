@@ -14,7 +14,10 @@
 \maketitle    
 
 \begin{spacing}{1.2}
-  \input{tex/pre/tocs}
+  {
+    \setlength{\parskip}{0.5ex}
+    \input{tex/pre/tocs}
+  }
 
   \chapter*{Declaration of Authorship}
   \markboth{Declaration of Authorship}{Declaration of Authorship}  %% No ugly "Chapter 0".
