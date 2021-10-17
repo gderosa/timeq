@@ -18,10 +18,6 @@ the space in which both time and position are observables, and they act as
 $T \otimes \idop_S$ and $\idop_T \otimes X$
 respectively.
 
-In principle, an appropriate system (a ``clock'') can be identified in such a way
-to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
-the quantum states of \emph{the rest of the universe} \parencite{Marletto:Evolution}.
-
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
@@ -128,14 +124,20 @@ eigenstates of $\op{\Omega}$ in $\hilb{H}_T$
 entangled, respectively, with
 eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
 or eigenstates of $\op{t}$ in $\hilb{H}_T$
-entangled with time-evolved spatial states $\ket{\psi(t)}_S$ in $\hilb{H}_S$
+entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
 (according to the evolution that is embedded in $\op{\mathbb{J}}$):
 \begin{equation}
-  \dket{\Psi} = \int d\omega \, \mu(\omega) \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} = \int dt \, \ket{t}_{T} \ox \ket{\psi(t)}_{S}\,\text{.}
+  \dket{\Psi} =
+    \int \dd{\omega} \, \mu(\omega) \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} =
+    \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
 \end{equation}
-
-TODO: ``selecting'' measure (see Quantum Time)  or shrink the integration domain\dots
-or ``embed'' $\mu$ into $\phi$\dots
+Here $\mu(\omega)$ is a measure on the real axis which selects
+values of $\omega$ such that~$\hbar\omega$ is part of the system's energy spectrum
+(in ordinary quantum mechanics terms). See \cite[eq. (10)]{Lloyd:Time}.
+For example, an extreme case is the evolution of an energy eigenstate
+(related, say, to eigenvalue $\hbar\omega_{0}$): in this case it is obviously
+$\ket{\psi(t)}_{S} = \E^{-\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$),
+but also $\mu(\omega) = \delta(\omega-\omega_{0})$.
 
 In principle, different and less obvious decompositions are possible for other purposes.
 
