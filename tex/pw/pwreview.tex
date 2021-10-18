@@ -126,7 +126,7 @@ eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
 or eigenstates of $\op{t}$ in $\hilb{H}_T$
 entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
 (according to the evolution that is embedded in $\op{\mathbb{J}}$):
-\begin{equation}
+\begin{equation}\label{eq:pw:time_freq_mu}
   \dket{\Psi} =
     \int \dd{\omega} \, \mu(\omega) \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} =
     \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
@@ -134,10 +134,11 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
 Here $\mu(\omega)$ is a measure on the real axis which selects
 values of $\omega$ such that~$\hbar\omega$ is part of the system's energy spectrum
 (in ordinary quantum mechanics terms). See \cite[eq. (10)]{Lloyd:Time}.
+
 For example, an extreme case is the evolution of an energy eigenstate
-(related, say, to eigenvalue $\hbar\omega_{0}$): in this case it is obviously
-$\ket{\psi(t)}_{S} = \E^{-\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$),
-but also $\mu(\omega) = \delta(\omega-\omega_{0})$.
+(related, say, to eigenvalue $\hbar\omega_{0}$): in this case the evolution is obviously
+$\ket{\psi(t)}_{S} = \E^{-\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+and the measure $\mu$ is $\mu(\omega) = \delta(\omega-\omega_{0})$.
 
 In principle, different and less obvious decompositions are possible for other purposes.
 
