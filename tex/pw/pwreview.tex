@@ -135,19 +135,26 @@ Here $\mu(\omega)$ is a measure on the real axis which selects
 values of $\omega$ such that~$\hbar\omega$ is part of the system's energy spectrum
 (in ordinary quantum mechanics terms). See \cite[eq. (10)]{Lloyd:Time}.
 
-\subsubsection{Example: eigenstate of the Hamiltonian $H_S$ in $\hilb{H}_S$}
-
-An extreme case for the measure $\mu$ is the evolution of an energy eigenstate
-(related, say, to eigenvalue $E_0 \eqbydef -\hbar\omega_{0}$): in this case the evolution is obviously
-$\ket{\psi(t)}_{S} = \E^{\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
-and the measure $\mu$ in eq. \eqref{eq:pw:time_freq_mu}
-is expected to only ``select'' $\omega_0$ among the possible values
-of $\omega$.
-
-TODO: delta?
-
 In principle, different and less obvious decompositions are possible for other purposes.
 
+\subsubsection{Example: eigenstate of the Hamiltonian $H_S$ in $\hilb{H}_S$}
+
+An extreme case for the measure $\mu$ in \eqref{eq:pw:time_freq_mu}
+is the evolution of an energy eigenstate
+(related, say, to eigenvalue $E_0 \eqbydef -\hbar\omega_{0}$): in this case the evolution is
+$\ket{\psi(t)}_{S} = \E^{\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+and
+the measure is
+$\mu(\omega) = \delta(\omega-\omega_0)$
+(it  ``selects''only $\omega_0$ among all possible values
+of $\omega$).
+
+Indeed:
+\[
+  \dket{\Psi} = \int \dd{\omega} \delta(\omega-\omega_0)\ket{\omega}_T \ox \ket{\phi(\omega)}_S =
+    \ket{\omega_0}_T \ox \ket{\phi(\omega_0)}_S \text{.}
+\]
+Also, using the relation $\prescript{}{T}{\braket{t}{\omega}}_T = 666$ \parencite{Lloyd:Time}
 
 
 
