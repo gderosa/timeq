@@ -178,10 +178,16 @@ it follows that\footnote{%
   \frac{1}{\sqrt{2\pi}} \E^{\iu\omega t} \; \text{;}
 \]
 therefore the \emph{evolution} (in $\hilb{H}_S$) is
-\[
+\begin{equation}
   \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} = \prescript{}{T}{\braket{t}{\omega_0}}_{T} \ket{\phi(\omega_0)}_S =
-    \frac{1}{\sqrt{2\pi}} \E^{\iu\omega_0 t} \ket{\phi(\omega_0)}_S
-\]
+    \frac{1}{\sqrt{2\pi}} \E^{\iu\omega_0 t} \ket{\phi(\omega_0)}_S \text{.}
+\label{eq:pw:stat_eigenst_of_H_S}
+\end{equation}
+By evaluating \eqref{eq:pw:stat_eigenst_of_H_S} at $t=t_0$ and comparing back to it,
+one easily gets
+$\ket{\psi(t)}_{S} = \E^{\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
+
 
 
 
