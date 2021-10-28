@@ -142,7 +142,7 @@ In principle, different and less obvious decompositions are possible for other p
 An extreme case for the measure $\mu$ in \eqref{eq:pw:time_freq_mu}
 is the evolution of an energy eigenstate
 (related, say, to eigenvalue $E_0 \eqbydef -\hbar\omega_{0}$): in this case the evolution is
-$\ket{\psi(t)}_{S} = \E^{\iu\hbar\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
 and
 the measure is
 $\mu(\omega) = \delta(\omega-\omega_0)$
@@ -156,12 +156,14 @@ Indeed:
 \]
 Also, using the relations
 $
-\prescript{}{T}{\braket{t}{t'}}_T = \delta(t-t')
+\, \prescript{}{T}{\braket{t}{t'}}_T = \delta(t-t') \,
 $
 and
 $
+  \,
   \ket{\omega}_T =
   \frac{1}{\sqrt{2\pi}} \int\dd{t}\E^{\iu\omega t}\ket{t}_T
+  \,
 $
 \parencite{Lloyd:Time},
 it follows that\footnote{%
@@ -183,9 +185,10 @@ therefore the \emph{evolution} (in $\hilb{H}_S$) is
     \frac{1}{\sqrt{2\pi}} \E^{\iu\omega_0 t} \ket{\phi(\omega_0)}_S \text{.}
 \label{eq:pw:stat_eigenst_of_H_S}
 \end{equation}
-By evaluating and comparing \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time $t_0$ and $t$,
+By evaluating and comparing eq. \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time
+$t_0$~and~$t$,
 one easily gets
-$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
 which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
 
 
