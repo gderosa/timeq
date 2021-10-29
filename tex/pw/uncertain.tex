@@ -4,7 +4,7 @@
 
 In a continuous-time Page--Wootters universe,
 one may observe that,
-in $\hilb{H}_T$ and in the time representation,
+in $\hilb{H}_T$ and in the ``time representation'',
 it is $E \eqbydef -\hbar\op{\Omega} \repr i\hbar\partial_{t}$,
 in analogy with $\op{p} \repr -i\hbar\partial_{q}$ in $\hilb{H}_S$,
 therefore a time-energy uncertainty relation can be derived
@@ -16,7 +16,7 @@ certainty at all times, i.e. the packet
 is infinitely spread in time.
 %
 As a function of $t$, $\ket{\psi(t)}_S$ will have a Fourier transform
-$\ket{\tilde{\psi}(\omega)}$
+$\ket{\phi(\omega)}$
 so that it will also be
 \begin{equation}\label{eq:pwfourier}
   \dket{\Psi} = \int \dd \omega \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
@@ -24,15 +24,15 @@ so that it will also be
 where $\ket{\tilde{\psi}(\omega)}_S$ is not necessarily normalized for each $\omega$
 (and actually it's zero if $\hbar\omega$ does not belong to the energy spectrum of the system).
 An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
-of an energy eigenstate $\ket{\epsilon}_S$: in such case
-$\ket{\tilde{\psi}(\omega)}_S = \delta(\omega - \frac{\epsilon}{\hbar})\ket{\epsilon}_S$
-and it is $\sigma_{T} = \infty$ and $\sigma_{\Omega} = 0$.
+of an energy eigenstate $\ket{\epsilon}_S$, as seen in Sec. \ref{sec:pw:eeigenstate}.
 
 All other cases of unitary evolution correspond to $\sigma_{T}$
 sill being infinite, but $\sigma_{\Omega}$ being finite, therefore
 $\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
 any possible uncertainty relation would be valid, and $\dket{\Psi}$
 is certainly \emph{not} a minimum uncertainty state\dots 
+
+TODO: reformulate also looking around \ref{sec:pw:eeigenstate}. It's the only TODO for this subsection!
 
 \subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
 
