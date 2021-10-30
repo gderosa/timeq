@@ -1,6 +1,6 @@
 \section{Uncertainty relations in $\pwspace$}\label{sec:pw:uncertainty}
 
-\subsection{For unitary evolutions}
+\subsection{For unitary evolutions -- general considerations}
 
 In a continuous-time Page--Wootters universe,
 one may observe that,
@@ -14,37 +14,38 @@ position-momentum uncertainty relation.
 However, unitary evolution means that a particle exists with
 certainty at all times, i.e. the packet
 is infinitely spread in time.
-%
-As a function of $t$, $\ket{\psi(t)}_S$ will have a Fourier transform
-$\ket{\phi(\omega)}$
-so that it will also be
-\begin{equation}\label{eq:pwfourier}
-  \dket{\Psi} = \int \dd \omega \ket{\omega}_T \ox \ket{\tilde{\psi}(\omega)}_S \, \text{,}
-\end{equation}
-where $\ket{\tilde{\psi}(\omega)}_S$ is not necessarily normalized for each $\omega$
-(and actually it's zero if $\hbar\omega$ does not belong to the energy spectrum of the system).
+\emph{Intuitively},
+one would expect the standard deviation of the time-observable probability distribution to diverge i.e.
+$\sigma_T = \infty$.
+
 An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
-of an energy eigenstate $\ket{\epsilon}_S$, as seen in Sec. \ref{sec:pw:eeigenstate}.
+of an energy eigenstate $\ket{\epsilon_0}_S$, as seen in Sec. \ref{sec:pw:eeigenstate}.
+In such case, the system is infinitely spread in time but also infinitely
+``concentrated'' in one particular point of the ``frequency domain'': $\omega_0 = \epsilon/\hbar$.
+At least intuitively, we do expect the standard deviations to be $\sigma_T = \infty$
+and $\sigma_{\Omega} = 0$
+(in analogy to an eigenstate of linear momentum in ordinary quantum mechanics).
 
-All other cases of unitary evolution correspond to $\sigma_{T}$
-sill being infinite, but $\sigma_{\Omega}$ being finite, therefore
-$\sigma_{T}\sigma_{\Omega} = \infty$, which is not particularly interesting:
-any possible uncertainty relation would be valid, and $\dket{\Psi}$
-is certainly \emph{not} a minimum uncertainty state\dots 
+A physical state in $\pwspace$ is not generally
+\emph{separable},
+thus
+the problem of time and energy relation cannot be immediately reduced to that of
+a pure state in $\hilb{H}_T$. This technical difficulty must be tackled before
+a more rigorous treatment of uncertainty relations can be formulated.
 
-TODO: reformulate also looking around \ref{sec:pw:eeigenstate}. It's the only TODO for this subsection!
+The additional difficulty of dealing with infinites and improper state vectors
+motivates the treatment of \emph{proper} states\footnote{
+  Introduced in Sec. \ref{sec:properpw}.
+}
+of $\pwspace$
+first, as discussed in Sec.~\ref{sec:for-normalized-elements}.
 
 \subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
 
 A normalized element of $\hilb{H}_T \ox \hilb{H}_T$ allows in principle for a finite value
-of the uncertainty $\sigma_{T}\sigma_{\Omega}$.
+of the uncertainties $\sigma_{T}$ and $\sigma_{\Omega}$.
 
-Still, it is not generally
-a separable state,
-and thus
-the problem of time and energy relation cannot be reduced to that of
-a pure state in $\hilb{H}_T$.
-It is in general an entangled state in the product space.
+Still, it is generally an entangled state in the product space $\pwspace$.
 Thus the spatial degrees of freedom should be \emph{traced out},
 before deriving a time-energy relation.
 
