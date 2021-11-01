@@ -102,21 +102,24 @@ as the partial trace:
   \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
     \,\text{.} 
 \end{align}
-Here the probabilty distributions $\norm{\phi}^2$ and $\norm{\tilde{\phi}}^2$
-are ``classical'' in the sense of a mixed state.
+Here the probabilty distributions $\norm{\phi(t)}^2$ and $\norm{\tilde{\phi(\omega)}}^2$
+are to be intended in the sense of a mixed state
+i.e. probability that a system is in a certain state $\ket{t}_T$
+(or $\ket{\omega}_T$,~respectively),
+not in the sense of the probability of a measurement outcome on a \emph{known} pure state
+(which is what, in its original formulation, the Heisenberg uncertainty principle 
+refers to, in relation to position and linear momentum).
 
-The relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
+Nevertheless, with this notion of probability (which we may indicate as ``classical''\footnote{
+  See, for example, \cite[eq.~2.20 and following discussion]{Schlosshauer_Decoherence_book}.
+})
+the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
 can then be derived from the properties of the Fourier transform.\footnote{
   Fourier transform of a
   vector-valued function
   (vectors in $\hilb{H}_S$),
   similar to what found in \cite{Maccone:Pauli}.
 }
-
-A packet in $\pwspace$ that is localized in space \emph{and in time} can be interpreted as an \emph{event}.
-
-As opposed to a localized event, an energy eigenstate is infinitely spread in time,
-and infinitely concentrated in energy (or frequency).
 
 \subsection{Pure-state approach (in the product space)}\label{sec:pure-state-approach}
 
