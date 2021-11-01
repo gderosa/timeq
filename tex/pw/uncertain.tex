@@ -52,7 +52,7 @@ Thus the spatial degrees of freedom should be \emph{traced out},
 before deriving a time-energy relation.
 
 With a slight change of notation we express:
-\begin{equation}
+\begin{equation}\label{eq:pw:uncertain:schmidt}
   \dket{\Phi} =
     \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
     \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
@@ -71,28 +71,33 @@ to satisfy the normalization in time (and frequency):
 while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
 orthonormal bases.
 
-The state $\dket{\Phi}$ is not generally guaranteed to be separable.
-In other words, it cannot,
+The state $\dket{\Phi}$ is not generally guaranteed to be separable;
+in other words, it cannot,
 in general, be expressed as a tensor product of one pure state in $\hilb{H}_T$
-and another pure state in $\hilb{H}_S$. One cannot study
-the statistical distributions of observables $T$ and $\Omega$
-in $\hilb{H}_T$ separately from $\hilb{H}_S$ with such approach; but
-a ``temporal part'' of $\dket{\Phi}$ in the bipartite system $\pwspace$
-can be identified in terms of a \emph{mixed} state, described
-by a density operator $\rho_T$.
+and another pure state in $\hilb{H}_S$. However,
+a ``temporal part'' of $\dket{\Phi}$
+can be defined as a \emph{mixed} state described
+by a (reduced) density operator $\rho_T$.
 
-Next we use \eqref{eq:density_A_expand}: replace the discrete sum with an integral,
-set $i = \mu$ as this is a Schmidt decomposition, and then $j = t$
-(or $j = \omega$ respectively).
+For an explicit expression of $\rho_T$,
+we use the results from Sec.~\ref{sec:p_tr}
+and in particular the expansion in eq.~\eqref{eq:density_A_expand}:
+in this case there is a continuous set of states (therefore an integral instead of a discrete sum),
+and the index $j$ is replaced by the continuous variable $t$ or $\omega$;
+also we set $i = \mu$ in eq.~\eqref{eq:density_A_expand}
+as this is a Schmidt decomposition ---in
+eq.~\eqref{eq:pw:uncertain:schmidt} the same ``summation index'' $t$ (or $\omega$ respectively)
+runs over the two subspaces.
+
 The reduced density operator can so be computed
-as partial trace:
+as the partial trace:
 \begin{align}
   \label{eq:ptrace_density_matrix_t}
-  \op{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
     \, \text{,}
   \\
   \label{eq:ptrace_density_matrix_omega}
-  \op{\rho}^T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
     \,\text{.} 
 \end{align}
 Here the probabilty distributions $\norm{\phi}^2$ and $\norm{\tilde{\phi}}^2$
