@@ -14,14 +14,17 @@ position-momentum uncertainty relation.
 However, unitary evolution means that a particle exists with
 certainty at all times, i.e. the packet
 is infinitely spread in time.
-\emph{Intuitively},
-one would expect the standard deviation of the time-observable probability distribution to diverge i.e.
+Intuitively,
+one expects the standard deviation
+of the probability distribution of time observable
+to diverge i.e.
 $\sigma_T = \infty$.
 
 An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
 of an energy eigenstate $\ket{\epsilon_0}_S$, as seen in Sec. \ref{sec:pw:eeigenstate}.
 In such case, the system is infinitely spread in time but also infinitely
-``concentrated'' in one particular point of the ``frequency domain'': $\omega_0 = \epsilon/\hbar$.
+``concentrated'' in one particular point of the ``frequency domain'',
+where the point is $\omega_0 = \epsilon_{0}/\hbar$.
 At least intuitively, we do expect the standard deviations to be $\sigma_T = \infty$
 and $\sigma_{\Omega} = 0$
 (in analogy to an eigenstate of linear momentum in ordinary quantum mechanics).
@@ -30,15 +33,14 @@ A physical state in $\pwspace$ is not generally
 \emph{separable},
 thus
 the problem of time and energy relation cannot be immediately reduced to that of
-a pure state in $\hilb{H}_T$. This technical difficulty must be tackled before
-a more rigorous treatment of uncertainty relations can be formulated.
+a pure state in $\hilb{H}_T$.
 
 The additional difficulty of dealing with infinites and improper state vectors
 motivates the treatment of \emph{proper} states\footnote{
   Introduced in Sec. \ref{sec:properpw}.
 }
 of $\pwspace$
-first, as discussed in Sec.~\ref{sec:for-normalized-elements}.
+first, as it will be discussed in Sec.~\ref{sec:for-normalized-elements}.
 
 \subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
 
@@ -58,12 +60,13 @@ With a slight change of notation we express:
 with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform
 of $\ket{\phi(t)}_S$,
 neither kets being necessarily normalized, which is by the way necessary
-to satisfy the normalization in time (frequency)
+to satisfy the normalization in time (and frequency):
 \[
   \int \dd{t} \braket{\phi(t)}_S =
     \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
-    \dbradket{\Phi}{\Phi}_{T \ox S} = 
+    \dbradket{\Phi}{\Phi}_{T \ox S} =
     1
+    \text{,}
 \]
 while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
 orthonormal bases.
