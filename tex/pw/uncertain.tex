@@ -49,7 +49,7 @@ of the uncertainties $\sigma_{T}$ and $\sigma_{\Omega}$.
 
 Still, it is generally an entangled state in the product space $\pwspace$.
 Thus the spatial degrees of freedom should be \emph{traced out},
-before deriving a time-energy relation.
+before deriving a time--energy relation in $\hilb{H}_T$.
 
 With a slight change of notation we express:
 \begin{equation}\label{eq:pw:uncertain:schmidt}
@@ -59,8 +59,8 @@ With a slight change of notation we express:
 \end{equation}
 with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform
 of $\ket{\phi(t)}_S$,
-neither kets being necessarily normalized, which is by the way necessary
-to satisfy the normalization in time (and frequency):
+neither kets being necessarily normalized, which is in fact a requirement
+to satisfy the normalization in time (and frequency)
 \[
   \int \dd{t} \braket{\phi(t)}_S =
     \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
@@ -71,23 +71,25 @@ to satisfy the normalization in time (and frequency):
 while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
 orthonormal bases.
 
-The state $\dket{\Phi}$ is not generally guaranteed to be separable;
-in other words, it cannot,
-in general, be expressed as a tensor product of one pure state in $\hilb{H}_T$
-and another pure state in $\hilb{H}_S$. However,
-a ``temporal part'' of $\dket{\Phi}$
-can be defined as a \emph{mixed} state described
-by a (reduced) density operator $\rho_T$.
+The vector $\dket{\Phi}$
+cannot,
+in general, be simply expressed as a tensor product of two pure states
+in $\hilb{H}_T$ and $\hilb{H}_S$.
+However,
+the ``temporal part'' of $\dket{\Phi}$
+can be identified as a \emph{mixed} state described
+by a (reduced) density operator $\rho_T$ in $\hilb{H}_T$.
 
 For an explicit expression of $\rho_T$,
 we use the results from Sec.~\ref{sec:p_tr}
-and in particular the expansion in eq.~\eqref{eq:density_A_expand}:
-in this case there is a continuous set of states (therefore an integral instead of a discrete sum),
-and the index $j$ is replaced by the continuous variable $t$ or $\omega$;
-also we set $i = \mu$ in eq.~\eqref{eq:density_A_expand}
-as this is a Schmidt decomposition ---in
-eq.~\eqref{eq:pw:uncertain:schmidt} the same ``summation index'' $t$ (or $\omega$ respectively)
-runs over the two subspaces.
+and in particular the expansion in eq.~\eqref{eq:density_A_expand},
+replacing the discrete sum with an integral
+and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
+also we set $i = \mu$ in eq.~\eqref{eq:density_A_expand},
+to refelect th efact that
+in
+eq.~\eqref{eq:pw:uncertain:schmidt} the same ``summation index'' $t$ (or $\omega$, respectively)
+runs over both subspaces.
 
 The reduced density operator can so be computed
 as the partial trace:
