@@ -57,39 +57,43 @@ With a slight change of notation we express:
     \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
     \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
 \end{equation}
-with $\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform
+with
+$\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+being
+orthonormal bases of $\hilb{H}_T$,
+and
+$\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform\footnote{
+  Fourier transform of a
+  vector-valued function
+  (vectors in $\hilb{H}_S$),
+  similar to what found in \cite{Maccone:Pauli}.
+}
 of $\ket{\phi(t)}_S$,
 neither kets being necessarily normalized, which is in fact a requirement
-to satisfy the normalization in time (and frequency)
+to satisfy the normalization in $\pwspace$
 \[
   \int \dd{t} \braket{\phi(t)}_S =
     \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
     \dbradket{\Phi}{\Phi}_{T \ox S} =
     1
-    \text{,}
+    \text{.}
 \]
-while of course being $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
-orthonormal bases.
 
 The vector $\dket{\Phi}$
 cannot,
 in general, be simply expressed as a tensor product of two pure states
 in $\hilb{H}_T$ and $\hilb{H}_S$.
 However,
-the ``temporal part'' of $\dket{\Phi}$
+a ``temporal part'' of $\dket{\Phi}$
 can be identified as a \emph{mixed} state described
 by a (reduced) density operator $\rho_T$ in $\hilb{H}_T$.
 
-For an explicit expression of $\rho_T$,
-we use the results from Sec.~\ref{sec:p_tr}
-and in particular the expansion in eq.~\eqref{eq:density_A_expand},
-replacing the discrete sum with an integral
+To obtain an explicit expression of $\rho_T$,
+we use the definitions and results from Chapter~\ref{ch:decohere},
+in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
+replacing the discrete sums there with integrals,
 and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
-also we set $i = \mu$ in eq.~\eqref{eq:density_A_expand},
-to reflect the fact that
-in
-eq.~\eqref{eq:pw:uncertain:schmidt} the same ``summation index'' $t$ (or $\omega$, respectively)
-runs over both subspaces.
+also we identify the indices $i = \mu$ in eq.~\eqref{eq:bipartite_expansion}.
 
 The reduced density operator can so be computed
 as the partial trace:
@@ -114,12 +118,7 @@ Nevertheless, with this notion of probability (which we may indicate as ``classi
   See, for example, \cite[eq.~2.20 and following discussion]{Schlosshauer_Decoherence_book}.
 })
 the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
-can then be derived from the properties of the Fourier transform.\footnote{
-  Fourier transform of a
-  vector-valued function
-  (vectors in $\hilb{H}_S$),
-  similar to what found in \cite{Maccone:Pauli}.
-}
+can then be derived from the properties of the Fourier transform.
 
 \subsection{Pure-state approach (in the product space)}\label{sec:pure-state-approach}
 
