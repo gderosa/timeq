@@ -93,7 +93,13 @@ we use the definitions and results from Chapter~\ref{ch:decohere},
 in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
 replacing the discrete sums there with integrals,
 and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
-also we identify the indices $i = \mu$ in eq.~\eqref{eq:bipartite_expansion}.
+also we identify the indices\footnote{
+  A particular case of eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
+  therefore it becomes
+  $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
+  which can be compared to eq.~\eqref{eq:pw:uncertain:schmidt}.
+}
+$i = \mu$ therein.
 
 The reduced density operator can so be computed
 as the partial trace:
