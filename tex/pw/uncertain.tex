@@ -1,6 +1,7 @@
 \section{Uncertainty relations in $\pwspace$}\label{sec:pw:uncertainty}
 
 \subsection{For unitary evolutions -- general considerations}
+\label{sec:pw:unitary-general}
 
 In a continuous-time Page--Wootters universe,
 one may observe that,
@@ -36,11 +37,11 @@ the problem of time and energy relation cannot be immediately reduced to that of
 a pure state in $\hilb{H}_T$.
 
 The additional difficulty of dealing with infinites and improper state vectors
-motivates the treatment of \emph{proper} states\footnote{
+motivates the study of \emph{proper} states\footnote{
   Introduced in Sec. \ref{sec:properpw}.
 }
 of $\pwspace$
-first, as it will be discussed in Sec.~\ref{sec:for-normalized-elements}.
+instead, whose uncertainty relations for $T$ and $\hbar\Omega$ will be discussed in Sec.~\ref{sec:for-normalized-elements}.
 
 \subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
 
@@ -120,7 +121,7 @@ not in the sense of the probability of a measurement outcome on a \emph{known} p
 (which is what, in its original formulation, the Heisenberg uncertainty principle 
 refers to).
 
-Albeit with this different
+Even with this different
 notion of probability (which we may indicate as ``classical''\footnote{
   See, for example, \cite[eq.~2.20 and following discussion]{Schlosshauer_Decoherence_book}.
 }),
@@ -129,8 +130,8 @@ can still be proven,
 similarly to 
 the Heisenberg uncertainty
 relation for position and linear momentum,
-due to the properties of the Fourier transform
-in relation to $\phi(t)$ and $\tilde{\phi}(\omega)$.
+due to the properties of the Fourier transform,
+which relates $\phi(t)$ and $\tilde{\phi}(\omega)$.
 
 \subsection{Pure-state approach (in the product space)}\label{sec:pure-state-approach}
 
@@ -138,8 +139,10 @@ Another approach considers $\dket{\Phi}$ as a pure state of $\pwspace$
 and the operators $\op{T} \ox \idop_{S}$ and $\hbar\op{\Omega} \ox \idop_{S}$
 defined therein.
 
-The same considerations above still hold, in terms of ``infinite history'' versus
-time-localized, proper elements of $\pwspace$. 
+% The same considerations
+% of Sec.~\ref{sec:pw:unitary-general}
+% still hold, in terms of ``infinite history'' versus
+% time-localized, \emph{proper} elements of $\pwspace$. 
 
 We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
 \begin{multline}
@@ -197,15 +200,16 @@ the orthonormal eigensystems of $\op{T}$ and $\hbar \op{\Omega}$ observables,
 so the distributions $\abs{\phi(t)}^2$ and $\abs{\tilde{\phi}(\omega)}^2$
 have a particular physical significance.
 
-Classical probability emerges out of entanglement. More generally,
-the property of time as a classical external parameter emerges as
-a consequence of entanglement of the (quantum) clock
-with the rest of the universe, where there's a Schmidt decomposition
-that sums over eigenstates of time.
-
-In fact, as we have seen in the last subsection,
+In fact, as we have seen in the Sec.~\ref{sec:pure-state-approach},
 an uncertainty relation for the \emph{quantum} probability distributions does hold,
 but for the whole
 $\textit{clock} + \textit{rest}$ system, which is indeed in a pure state.
 It relates $\op{T}\ox\idop_S$ and $\hbar\op{\Omega}\ox\idop_S$
-in $\pwspace$.
+in the overall space $\pwspace$. The advantage of this approach is that
+it gives a formal proof related to the spread of the probability distributions
+related to measurements
+of $\op{T}\ox\idop_S$ and $\hbar\op{\Omega}\ox\idop_S$ on a pure state of $\pwspace$.
+The important limitation though is that there is no operational
+definition of how to measure such observables \emph{on the whole $\pwspace$},
+which would imply a notion of ``external time'',
+somewhat contradicting the ``timeless universe'' on which the model is based.
