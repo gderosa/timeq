@@ -1,19 +1,27 @@
-\section{Overcoming limitations of finite-dimension spaces}\label{sec:finite-quantum}\label{sec:pw:theory_last}
+\section{Finite-dimensional systems}\label{sec:finite-quantum}\label{sec:pw:theory_last}
 \epigraph{\textelp{} discreteness in the world is simply the Fourier transform of compactness.}{%
   \emph{Physics and the Integers} \parencite{Tong_Integers}%
 }
 
-The experiment mentioned in Sec. \ref{sec:pw:qubit}
-is based on a two-level clock
-The ``frequency'' observable is defined and implemented experimentally
-but the \emph{time} operator is not defined or calculated.
-In finite-dimension Hilbert spaces
-there are diffilcuties in identifying canonically conjugate
-pairs and one cannot use the same explicit formalism
+An experimental illustration of the Page--Wootters model will be discussed in Sec. \ref{sec:pw:qubit}.
+It is based on a clock
+(defined through the corresponding frequency operator)
+which has two discrete levels only.
+
+Finite-dimensional systems are of interest, phenomenologically,
+and in general easier to implement,
+both experimentally and numerically.
+However,
+finite-dimension Hilbert spaces
+present diffilcuties in identifying canonically conjugate
+pairs, and one cannot use the same explicit formalism
 that would be used for observables with a continuous spectrum.
 Moreover, operators satisfying a canonical
-commutation relation like eq.~\eqref{eq:canonical_commutation_in_time}
-cannot be both bounded, which excludes finit-dimensional systems.
+commutation relation such as
+\begin{equation}\label{eq:canonical_commutation_in_time}
+  [\op{T}, \op{\Omega}] = i
+\end{equation}
+cannot be both bounded, therefore cannot exist in a finite-dimensional space.
 
 This problem was studied in detail in
 \cite{FiniteHilb}. It was shown therein
@@ -24,7 +32,7 @@ with the same role of position and momentum.\footnote{
   in $\hilb{H}_T$ for a finite-dimensional Page and Wootters model.
 }
 
-Discrete, bounded position-like and momentum-like operators can be obtained from
+Discrete, bounded, position-like and momentum-like operators can be obtained from
 each other via
 the \term{finite Fourier transform}.
 In our case, we are particularly interested in relating the
