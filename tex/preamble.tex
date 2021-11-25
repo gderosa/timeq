@@ -26,6 +26,7 @@
   %% Default version, for print
   \usepackage[a4paper,lmargin=4cm]{geometry}
 \fi
+\usepackage{multirow}
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
   \fancyhf{}
@@ -40,6 +41,7 @@
   \fancyhead[LO]{}
   \fancyhead[RO]{\thepage}
 }
+\setlength{\headheight}{14.5pt}  %% prevent fancyhead Warning.
 
 % https://tex.stackexchange.com/a/1557
 % https://tex.stackexchange.com/a/176939
@@ -89,7 +91,7 @@
 \hypersetup{
   linkcolor = DarkRed,
   citecolor = Green,
-  urlcolor  = DarkSlateBlue!75!Black
+  urlcolor  = DarkBlue
 }
 
 % https://tex.stackexchange.com/a/65547
@@ -99,14 +101,6 @@
 
 \renewcommand{\arraystretch}{1.6}
 
-%% per UCC recommendation
-% \renewcommand{\baselinestretch}{1.5}
-\setstretch{1.4}
-% \onehalfspacing
-% \doublespacing
-\setlength{\parindent}{4ex}
-\setlength{\parskip}{1ex}
-%
 % https://tex.stackexchange.com/a/325704
 \AtBeginEnvironment{quote}{\singlespace\vspace{-\topsep}}
 \AtEndEnvironment{quote}{\vspace{-\topsep}\endsinglespace}
