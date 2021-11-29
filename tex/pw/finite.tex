@@ -49,8 +49,8 @@ It holds\footnote{
   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
 } \parencite{FiniteHilb}:
 \begin{gather}\label{eq:FourierCanonicalRelations}
-  \op{\Omega} = F \op{T} F^{\dagger}\text{;} \quad
-  \op{T} = F^{\dagger} \op{\Omega} F
+  \op{\Omega}_{\mathrm{nat.}} = F \op{T}_{\mathrm{nat.}} F^{\dagger}\text{;} \quad
+  \op{T}_{\mathrm{nat.}} = F^{\dagger} \op{\Omega}_{\mathrm{nat.}} F
 \end{gather}
 where, in the ``position'' (or \emph{time}) finite eigenbasis,
 \begin{equation}
@@ -58,36 +58,62 @@ where, in the ``position'' (or \emph{time}) finite eigenbasis,
 \end{equation}
 while in the frequency eigenbasis
 \begin{equation}
-  F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\mu,\nu=0}^{N-1} \exp[-i\frac{2\pi \mu\nu}{N}] \ketbra{\mu}{\nu} \, \text{,}
+  F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\omega,\eta=0}^{N-1} \exp[-i\frac{2\pi \omega\eta}{N}] \ketbra{\omega}{\eta} \, \text{,}
 \end{equation}
 with $N$ being the finite dimension of the Hilbert space.
 
-Please note the \eqref{eq:FourierCanonicalRelations} is valid in normalized (``natural'') units
-where ``time'' and ``frequency'' are in fact respectively
-\term{samples} and \emph{cycles/samples rate},
-in a similar sense as in digital signal processing theory
-\parencite[469, 490]{Signal}.
+Please note the \eqref{eq:FourierCanonicalRelations} is valid in ``natural'' units,
+in the sense that
+both ``time'' and ``frequency'' 
+always have (and only have) integer eigenvalues $\setof{0, 1, \dots, N-1}$.
+The operator $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$ are defined indeed as
+$\op{T}_{\mathrm{nat.}} = \sum_{n=0}^{N} n \ketbra{n}$ and
+$\op{\Omega}_{\mathrm{nat.}} = \sum_{\omega=0}^{N} \omega \ketbra{\omega}$
+(\citereset\cite{FiniteHilb} defines ``position'' $\op{x}$ and ``momentum'' $\op{p}$ in a similar fashion).
 
-In SI units, the \eqref{eq:FourierCanonicalRelations} is replaced by
+More generally, one is interested in studying a time interval
+between $t=0$ and an arbitrary real value of $t = \Delta{T}$;
+the interval being split in $N$ sub-intervals of length $\delta{T}$
+so that $N\delta{T} = \Delta{T}$.
+The corresponding time operator $\op{T}$
+is expected therefore to have spectrum $\setof{0, \delta{T}, \dots, (N-1)\delta{T}}$,
+while the eigenvalues of the angular frequency operator $\op{\Omega}$
+are expected to be multiples of
+$\frac{2\pi}{\Delta{T}}$, which is
+the fundamental
+angular frequency for the Fourier analysis of the ``discrete signal''\footnote{
+  See
+  \cite[chapters
+    ``The Discrete Fourier Transform'' and
+    ``Fourier Analysis of Signals Using the Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3}.
+},
+which in this case are the components of a vector of the (finite-dimensional) temporal Hilbert space~$\hilb{H}$.
+The spectrum of $\op{\Omega}$ would then be $\setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}}$.
+By defining $\delta{\Omega} = \frac{2\pi}{T}$,
+one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
+have the same property of $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$.  
+By making such substitution directly in eq.~\eqref{eq:FourierCanonicalRelations},
+with some simple algebra, it follows:
 \begin{gather}
   \label{eq:SI_Fourier:Omega}
     \op{\Omega} = \frac{2\pi}{N(\delta T)^2} F \op{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \op{T} F^{\dagger} \\
   \label{eq:SI_Fourier:T}
     \op{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \op{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \op{\Omega} F
-  \, \text{,}
+  \, \text{.}
 \end{gather}
-where $\delta T$ (and analogously $\delta\Omega$)
+% which is essentially the rescaling property of the Fourier transform
+% \parencite[Ch. ``Fast Fourier Transform'']{NRC}.
+The above ``normalization'' is the same that will be used
+for numerical computation from Sec.~\ref{sec:pw:apps_first} onwards.
+
+To summarize, $\delta T$ (and, analogously, $\delta\Omega$)
 is the size of a ``temporal sample'', or the size of a discrete
 time step in the clock, and $\Delta T = N\delta T$ the range of the clock.
-
 It holds
 \begin{gather}
   \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
   \Delta\Omega \Delta T = 2\pi N \, \text{.}
 \end{gather}
-
-TODO: see \cite[``Fast Fourier Transform'']{NRC} for the rescaling property;
-and \cite[``The Discrete Fourier Transform'' and ``Fourier Analysis etc.'']{Oppenheim:Int1,Oppenheim:Int3} for setting fundamental frequency (harmonic).
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
