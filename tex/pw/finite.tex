@@ -90,12 +90,7 @@ angular frequency for the Fourier analysis of the ``discrete signal''\footnote{
 which in this case are the components of a vector of the (finite-dimensional) temporal Hilbert space~$\hilb{H}$.
 The spectrum of $\op{\Omega}$ would then be $\setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}}$.
 By defining $\delta{\Omega} = \frac{2\pi}{T}$,
-it follows
-\begin{gather}
-  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
-  \Delta\Omega \Delta T = 2\pi N \, \text{.}
-\end{gather}
-Now, one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
+one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
 have the same property of $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$.  
 By making such substitution directly in eq.~\eqref{eq:FourierCanonicalRelations},
 with some simple algebra, it follows:
@@ -106,13 +101,19 @@ with some simple algebra, it follows:
     \op{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \op{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \op{\Omega} F
   \, \text{.}
 \end{gather}
-
+% which is essentially the rescaling property of the Fourier transform
+% \parencite[Ch. ``Fast Fourier Transform'']{NRC}.
 The above ``normalization'' is the same that will be used
 for numerical computation from Sec.~\ref{sec:pw:apps_first} onwards.
 
 To summarize, $\delta T$ (and, analogously, $\delta\Omega$)
 is the size of a ``temporal sample'', or the size of a discrete
 time step in the clock, and $\Delta T = N\delta T$ the range of the clock.
+It holds
+\begin{gather}
+  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
+  \Delta\Omega \Delta T = 2\pi N \, \text{.}
+\end{gather}
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
