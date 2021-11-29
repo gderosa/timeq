@@ -75,19 +75,22 @@ More generally, one is interested in studying a time interval
 between $t=0$ and an arbitrary real value of $t = \Delta{T}$;
 the interval being split in $N$ sub-intervals of length $\delta{T}$
 so that $N\delta{T} = \Delta{T}$.
+In other words, $\delta T$
+is the size of a ``temporal sample'', or the size of a discrete
+time step in the clock,
+and $\Delta T = N\delta T$ is the range of the clock.
 The corresponding time operator $\op{T}$
 is expected therefore to have spectrum $\setof{0, \delta{T}, \dots, (N-1)\delta{T}}$,
 while the eigenvalues of the angular frequency operator $\op{\Omega}$
 are expected to be multiples of
 $\frac{2\pi}{\Delta{T}}$, which is
 the fundamental
-angular frequency for the Fourier analysis of the ``discrete signal''\footnote{
+angular frequency for the discrete Fourier analysis.\footnote{
   See
   \cite[chapters
     ``The Discrete Fourier Transform'' and
     ``Fourier Analysis of Signals Using the Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3}.
-},
-which in this case are the components of a vector of the (finite-dimensional) temporal Hilbert space~$\hilb{H}$.
+}
 The spectrum of $\op{\Omega}$ would then be $\setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}}$.
 By defining $\delta{\Omega} = \frac{2\pi}{T}$,
 one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
@@ -106,9 +109,6 @@ with some simple algebra, it follows:
 The above ``normalization'' is the same that will be used
 for numerical computation from Sec.~\ref{sec:pw:apps_first} onwards.
 
-To summarize, $\delta T$ (and, analogously, $\delta\Omega$)
-is the size of a ``temporal sample'', or the size of a discrete
-time step in the clock, and $\Delta T = N\delta T$ the range of the clock.
 It holds
 \begin{gather}
   \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
