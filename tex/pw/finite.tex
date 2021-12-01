@@ -41,27 +41,35 @@ time operator $\op{T}$ and the ``energy'' operator $-\hbar\op{\Omega}$
 in $\hilb{H}_T$ ---via the angular frequency operator $\op{\Omega}$ which, in the continuous limit, would satisfy
 eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
-%\citereset
-It holds\footnote{
-  Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
-  it can be easily verified that,
-  if $ \op{p} = F x F^{\dagger} $,
-  the correct inverse relation is
-  $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
-} \parencite{FiniteHilb}:
-\begin{gather}\label{eq:FourierCanonicalRelations}
-  \op{\Omega}_{\mathrm{nat.}} = F \op{T}_{\mathrm{nat.}} F^{\dagger}\text{;} \quad
-  \op{T}_{\mathrm{nat.}} = F^{\dagger} \op{\Omega}_{\mathrm{nat.}} F
-\end{gather}
-where, in the ``position'' (or \emph{time}) finite eigenbasis,
-\begin{equation}
-  F = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
-\end{equation}
-while in the frequency eigenbasis
-\begin{equation}
-  F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\omega,\eta=0}^{N-1} \exp[-i\frac{2\pi \omega\eta}{N}] \ketbra{\omega}{\eta} \, \text{,}
-\end{equation}
-with $N$ being the finite dimension of the Hilbert space.
+\subsection{Discrete Fourier transform}
+
+We will add some more details to the analysis of \citereset\cite{FiniteHilb} with
+additional emphasis on sign and scaling conventions which will affect
+our computation.
+
+% %\citereset
+% It holds\footnote{
+%   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
+%   it can be easily verified that,
+%   if $ \op{p} = F x F^{\dagger} $,
+%   the correct inverse relation is
+%   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
+% } \parencite{FiniteHilb}:
+% \begin{gather}\label{eq:FourierCanonicalRelations}
+%   \op{\Omega}_{\mathrm{nat.}} = F \op{T}_{\mathrm{nat.}} F^{\dagger}\text{;} \quad
+%   \op{T}_{\mathrm{nat.}} = F^{\dagger} \op{\Omega}_{\mathrm{nat.}} F
+% \end{gather}
+% where, in the ``position'' (or \emph{time}) finite eigenbasis,
+% \begin{equation}
+%   F = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
+% \end{equation}
+% while in the frequency eigenbasis
+% \begin{equation}
+%   F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\omega,\eta=0}^{N-1} \exp[-i\frac{2\pi \omega\eta}{N}] \ketbra{\omega}{\eta} \, \text{,}
+% \end{equation}
+% with $N$ being the finite dimension of the Hilbert space.
+
+\noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
 
 Please note the \eqref{eq:FourierCanonicalRelations} is valid in ``natural'' units,
 in the sense that
