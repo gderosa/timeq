@@ -3,6 +3,7 @@
   \emph{Physics and the Integers} \parencite{Tong_Integers}%
 }
 
+\noindent
 An experimental illustration of the Page--Wootters model will be discussed in Sec. \ref{sec:pw:qubit}.
 It is based on a clock
 (defined through the corresponding frequency operator)
@@ -34,10 +35,10 @@ with the same role of position and momentum.\footnote{
 
 Discrete, bounded, position-like and momentum-like operators can be obtained from
 each other via
-the \term{finite Fourier transform}.
+the \term{finite} or \term{dicrete} \term{Fourier transform} (DFT).
 In our case, we are particularly interested in relating the
-time operator $\op{T}$ and the ``energy'' operator $\hbar\op{\Omega}$
-in $\hilb{H}_T$ ---which in the continuous limit would satisfy
+time operator $\op{T}$ and the ``energy'' operator $-\hbar\op{\Omega}$
+in $\hilb{H}_T$ ---via the angular frequency operator $\op{\Omega}$ which, in the continuous limit, would satisfy
 eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
 %\citereset
@@ -72,12 +73,12 @@ $\op{\Omega}_{\mathrm{nat.}} = \sum_{\omega=0}^{N} \omega \ketbra{\omega}$
 (\citereset\cite{FiniteHilb} defines ``position'' $\op{x}$ and ``momentum'' $\op{p}$ in a similar fashion).
 
 More generally, one is interested in studying a time interval
-between $t=0$ and an arbitrary real value of $t = \Delta{T}$;
-the interval being split in $N$ sub-intervals of length $\delta{T}$
+between $t=0$ and an arbitrary real value $\Delta{T}$,
+the time interval being split in $N$ sub-intervals of length $\delta{T}$
 so that $N\delta{T} = \Delta{T}$.
 In other words, $\delta T$
 is the size of a ``temporal sample'', or the size of a discrete
-time step in the clock,
+step in the clock;
 and $\Delta T = N\delta T$ is the range of the clock.
 The corresponding time operator $\op{T}$
 is expected therefore to have spectrum $\setof{0, \delta{T}, \dots, (N-1)\delta{T}}$,
