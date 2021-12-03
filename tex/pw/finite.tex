@@ -47,6 +47,26 @@ We will add some more details to the analysis of \citereset\cite{FiniteHilb} wit
 additional emphasis on sign and scaling conventions which will affect
 our computation.
 
+Let us start with a continuous system where the Fourier transform $\phi \eqbydef \mathcal{F}\psi$ of
+an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
+\begin{equation}\label{eq:fourier_transform:def}
+  \phi(\omega) = \left(\mathcal{F}\psi\right) (\omega) =
+    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{- \iu t \omega} \text{,} 
+\end{equation}
+and the well known \term{inversion} property
+\begin{equation}\label{eq:fourier_antitransform:def}
+  \psi(t) = \left(\mathcal{F}^{-1} \phi \right) (t) =
+    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{\iu t \omega} 
+\end{equation}
+can be can be proven (see e.g. \cite{Folland:Fourier}).
+
+Eq.~\eqref{eq:fourier_antitransform:def} can be interpreted
+as a function of time
+expressed as a linear superposition
+of ``pure frequencies'' $\E^{\iu \omega t}$,
+with coefficients given by the Fourier transform $\phi(\omega)$.
+
+
 % %\citereset
 % It holds\footnote{
 %   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
