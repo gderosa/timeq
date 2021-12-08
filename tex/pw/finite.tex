@@ -45,7 +45,9 @@ eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
 We will add some more details to the analysis of \citereset\cite{FiniteHilb} with
 additional emphasis on sign and scaling conventions which will affect
-our computation.
+our computation. We will then interpret the results in the context of
+the Page--Wootters model in particular with regards to the temporal subspace
+$\hilb{H}_T$.
 
 Let us start with a continuous system where the Fourier transform $\phi \eqbydef \mathcal{F}\psi$ of
 an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
@@ -130,6 +132,15 @@ Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform
 Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
 The factor $\frac{1}{\sqrt{N}}$ is chosen to guarantee \emph{unitarity} of the transformation:
 $\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
+
+From eq.~\eqref{eq:DFT:def} and eq~\eqref{eq:IDFT:def} one can identify the
+\term{(Inverse) Fourier Discrete Matrix}
+with elements
+\begin{align}
+  F_{mn}            &= \frac{1}{\sqrt{N}} \E^{-\iu n m 2 \pi / N}    &
+  F_{mn}^{\dagger}  &= \frac{1}{\sqrt{N}} \E^{ \iu n m 2 \pi / N}
+  \text{.}
+\end{align}
 
 The (discrete) Fourier transform $F$ can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
