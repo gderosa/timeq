@@ -117,7 +117,7 @@ It holds
 The discrete reformulation\footnote{
   See e.g.
   \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3};
-  \cite[Ch. 5]{ProakisManolakis}
+  \cite[Ch. 5]{ProakisManolakis}.
 }
 of \eqref{eq:fourier_transform:def} and \eqref{eq:inverse_fourier_transform:def}
 is
@@ -145,11 +145,24 @@ with elements $F_{mn}^{\dagger}$):
 
 The (discrete) Fourier transform can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
-Namley, the sequence $\left\{\braket{t_m}{\psi}\right\}_{m=0, \dots, N-1}$ into
-$\left\{\braket{\omega_n}{\psi}\right\}_{n=0, \dots, N-1}$:
-\begin{equation}
-  \text{look at notebook at ``START HERE!'', maybe invert n and m}
+Namely, the sequence\footnote{
+  We will omit the subscript ``${}_{T}$'' from the following equations
+  when it is assumed ---and obvious, by the context and the other symbols used---
+  that we are operating in the subspace $\hilb{H}_T$
+  of the Page--Wootters model.
+}
+$\left\{\braket{t_n}{\psi}\right\}_{n=0, \dots, N-1}$ into
+$\left\{\braket{\omega_m}{\psi}\right\}_{m=0, \dots, N-1}$:
+\begin{equation}\label{eq:DFT:chrepr}  % TODO: inverse too?
+  \braket{\omega_{m}}{\psi} = \sum_n F_{mn} \braket{t_n}{\psi} \text{.}
 \end{equation}
+It is convenient to write down the ``complex conjugate'' of eq.~\eqref{eq:DFT:chrepr} as well:
+\begin{equation}\label{eq:DFT:chrepr:cconj}  % TODO: inverse too?
+  \braket{\psi}{\omega_{m}} = \sum_n F_{mn}^{\dagger} \braket{\psi}{t_n}
+\end{equation}
+(recalling that $F$ is symmetric and
+$F_{mn}^{*} = F_{mn}^{\dagger}$,
+$\forall m,n \in \setof{0, \dots, N-1}$).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
