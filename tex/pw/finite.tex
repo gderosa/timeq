@@ -72,6 +72,17 @@ $N$ discrete points in time can be considered
 \begin{equation}
   t_n \in \setof{0,\,\hdots,\,(N-1)\delta{T}} \text{.}
 \end{equation} 
+%
+The corresponding frequencies are multiples of the fundamental frequency $\nu_1 = \frac{1}{\Delta{T}}$.
+The fundamental \emph{angular} frequency is therefore $\omega_1 = \frac{2\pi}{\Delta{T}}$ and the
+$N$ sample values are:\footnote{
+  See
+  \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int3}.
+}
+\begin{equation}
+  \omega_n \in \setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}} \text{.}
+\end{equation} 
+
 
 
 % %\citereset
@@ -95,6 +106,12 @@ $N$ discrete points in time can be considered
 %   F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\omega,\eta=0}^{N-1} \exp[-i\frac{2\pi \omega\eta}{N}] \ketbra{\omega}{\eta} \, \text{,}
 % \end{equation}
 % with $N$ being the finite dimension of the Hilbert space.
+
+It holds
+\begin{gather}
+  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
+  \Delta\Omega \Delta T = 2\pi N \, \text{.}
+\end{gather}
 
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
 
@@ -151,11 +168,7 @@ with some simple algebra, it follows:
 The above ``normalization'' is the same that will be used
 for numerical computation from Sec.~\ref{sec:pw:apps_first} onwards.
 
-It holds
-\begin{gather}
-  \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
-  \Delta\Omega \Delta T = 2\pi N \, \text{.}
-\end{gather}
+
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
