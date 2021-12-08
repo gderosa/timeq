@@ -164,6 +164,17 @@ It is convenient to write down the ``complex conjugate'' of eq.~\eqref{eq:DFT:ch
 $F_{mn}^{*} = F_{mn}^{\dagger}$,
 $\forall m,n \in \setof{0, \dots, N-1}$).
 
+As $\ket{\psi}$ (respectively: $\bra{\psi}$) is a generic ket (or bra) of the Hilbert space,
+from eqs.~\eqref{eq:DFT:chrepr:cconj} and~\eqref{eq:DFT:chrepr:cconj} it follows:
+\begin{align}
+  \label{eq:DFT:bra}  \bra{\omega_{m}} &= \sum_n F_{mn}           \bra{t_n} \,\text{,}  \\
+  \label{eq:DFT:ket}  \ket{\omega_{m}} &= \sum_n F_{mn}^{\dagger} \ket{t_n} \,\text{.}
+\end{align}
+This shows that the Fourier matrix can be used, not only to transform the components
+of a vector from one eigenbasis to the canonically conjugate eigenbasis,
+but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
+
+%All is \eqref{eq:DFT:bra-ket}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
