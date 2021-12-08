@@ -20,27 +20,28 @@ a ``double angle bracket'' notation $\dket{\Psi}$ has been adopted
 for vectors in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
 We assume that $\ket{\psi_{n}}_{S}$ are all \emph{normalized} in $\hilb{H}_S$;
 and
-$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $T$) in $\hilb{H}_T$.
+$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $\op{T}$)
+in $\hilb{H}_T$.
 Furthermore, let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
-of an overall Hamiltonian $\mathbb{J}$ in $\hilb{H}_T \ox \hilb{H}_S$:
+of an overall Hamiltonian $\op{\mathbb{J}}$ in $\hilb{H}_T \ox \hilb{H}_S$:
 $$
-  \mathbb{J} \dket{\Psi} = \epsilon \dket{\Psi}\text{,} \quad \text{where} \kuad \epsilon \in \mathbb{R} \text{.}
+  \op{\mathbb{J}} \dket{\Psi} = \epsilon \dket{\Psi}\text{,} \quad \text{where} \kuad \epsilon \in \mathbb{R} \text{.}
 $$
 Finally, we assume that the two subsystems
 are \emph{non interacting},
 meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
 which only act on the respective subspaces $\hilb{H}_T$ and $\hilb{H}_S$
 (and there is no explicit ``interaction term''). In other words,
-$\mathbb{J}$ can be expressed as
+$\op{\mathbb{J}}$ can be expressed as
 $$
-  \mathbb{J} = H_T \ox \idop_S + \idop_T \ox H_S \, \text{.} 
+  \op{\mathbb{J}} = \op{H}_T \ox \idop_S + \idop_T \ox \op{H}_S \, \text{.} 
 $$
 Therefore,
 the evolution of the subsystem described by $\hilb{H}_S$
 will only depend on ``its own''
 Hamiltonian $H_S$, namely
 \begin{equation}\label{eq:pw:ordinary_S}
-  \ket{\psi(t)}_S = e^{- i \hbar t / H_S } \ket{\psi(0)}_S \text{.}  
+  \ket{\psi(t)}_S = e^{- i \op{H}_S t / \hbar} \ket{\psi(0)}_S \text{.}  
 \end{equation}
  
 In the Page--Wootters model, time evolution is based on an internal entanglement
@@ -66,7 +67,7 @@ describe time evolution ``without evolution''\footnote{
 of the other subsystem.
 
 Please note,
-the \emph{time operator} $T$ is defined in $\hilb{H}_T$ ---and canonically conjugate to $H_T$, not $H_S$.
+the \emph{time operator} $\op{T}$ is defined in $\hilb{H}_T$ ---and canonically conjugate to $\op{H}_T$, not $\op{H}_S$.
 In other words, the time operator is defined in a different Hilbert space than the ``system of interest'' $\hilb{H}_S$,
 therefore
 the Pauli objection no longer applies. A suitable entanglement relation ensures that 
@@ -107,11 +108,11 @@ and (``evolved'') states in $\hilb{H}_S$.
 
 The symbols $\hilb{H}_T$ and $\hilb{H}_S$
 naturally indicate
-the Hilbert spaces where a time operator $T$ is defined,
+the Hilbert spaces where a time operator $\op{T}$ is defined,
 and, respectively,
 the ordinary Hilbert space of the \emph{S}ystem.
 This notation is based on \citereset\cite{Lloyd:Time}
-(where also the blackboard bold typeface, e.g. ``$\mathbb{J}$'',
+(where also the blackboard bold typeface, e.g. ``$\op{\mathbb{J}}$'',
 is used for operators defined in a larger space
 than the one of standard quantum mechanics,
 typically the product $\hilb{H}_T \ox \hilb{H}_S$).
