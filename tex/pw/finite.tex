@@ -133,19 +133,23 @@ Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (I
 The factor $\frac{1}{\sqrt{N}}$ is chosen to guarantee \emph{unitarity} of the transformation:
 $\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
 
-From eq.~\eqref{eq:DFT:def} and eq~\eqref{eq:IDFT:def} one can identify the
-\term{(Inverse) Fourier Discrete Matrix}
-with elements
+From eqs.~\eqref{eq:DFT:def} and~\eqref{eq:IDFT:def} one can identify the
+\term{Discrete Fourier Matrix}, with elements $F_{mn}$
+(and its inverse,
+with elements $F_{mn}^{\dagger}$):
 \begin{align}
-  F_{mn}            &= \frac{1}{\sqrt{N}} \E^{-\iu n m 2 \pi / N}    &
+  F_{mn}            &= \frac{1}{\sqrt{N}} \E^{-\iu n m 2 \pi / N} \;\text{;} &
   F_{mn}^{\dagger}  &= \frac{1}{\sqrt{N}} \E^{ \iu n m 2 \pi / N}
   \text{.}
 \end{align}
 
-The (discrete) Fourier transform $F$ can be used to transform the time representation
+The (discrete) Fourier transform can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
 Namley, the sequence $\left\{\braket{t_m}{\psi}\right\}_{m=0, \dots, N-1}$ into
-$\left\{\braket{\omega_n}{\psi}\right\}_{n=0, \dots, N-1}$. 
+$\left\{\braket{\omega_n}{\psi}\right\}_{n=0, \dots, N-1}$:
+\begin{equation}
+  \text{look at notebook at ``START HERE!'', maybe invert n and m}
+\end{equation}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
