@@ -112,7 +112,12 @@ It holds
   \Delta\Omega \Delta T = 2\pi N \, \text{.}
 \end{gather}
 
-The discrete reformulation of \eqref{eq:fourier_transform:def} and \eqref{eq:inverse_fourier_transform:def}
+The discrete reformulation\footnote{
+  See e.g.
+  \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3};
+  \cite[Ch. 5]{ProakisManolakis}
+}
+of \eqref{eq:fourier_transform:def} and \eqref{eq:inverse_fourier_transform:def}
 is
 \begin{equation}\label{eq:DFT:def}
   \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
@@ -128,6 +133,7 @@ $\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Please note the \eqref{eq:FourierCanonicalRelations} is valid in ``natural'' units,
 in the sense that
