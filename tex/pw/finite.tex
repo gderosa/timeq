@@ -54,13 +54,13 @@ an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
     \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{- \iu t \omega} \text{,} 
 \end{equation}
 and the well known \term{inversion} property
-\begin{equation}\label{eq:fourier_antitransform:def}
+\begin{equation}\label{eq:inverse_fourier_transform:def}
   \psi(t) = \left(\mathcal{F}^{-1} \phi \right) (t) =
     \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{\iu t \omega} 
 \end{equation}
 can be can be proven (see e.g. \cite{Folland:Fourier}).
 
-Eq.~\eqref{eq:fourier_antitransform:def} can be interpreted
+Eq.~\eqref{eq:inverse_fourier_transform:def} can be interpreted
 as a function of time
 expressed as a linear superposition
 of ``pure frequencies'' $\E^{\iu \omega t}$,
@@ -82,7 +82,6 @@ $N$ sample values are:\footnote{
 \begin{equation}
   \omega_n \in \setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}} \text{.}
 \end{equation} 
-
 
 
 % %\citereset
@@ -113,6 +112,21 @@ It holds
   \Delta\Omega \Delta T = 2\pi N \, \text{.}
 \end{gather}
 
+The discrete reformulation of \eqref{eq:fourier_transform:def} and \eqref{eq:inverse_fourier_transform:def}
+is
+\begin{equation}\label{eq:DFT:def}
+  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
+\end{equation}
+and, respectively,
+\begin{equation}\label{eq:IDFT:def}
+  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{\iu n m 2 \pi / N} \text{.}
+\end{equation}
+Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT).
+Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
+The factor $\frac{1}{\sqrt{N}}$ is chosen to guarantee \emph{unitarity} of the transformation:
+$\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
 
 Please note the \eqref{eq:FourierCanonicalRelations} is valid in ``natural'' units,
