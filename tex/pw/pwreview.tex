@@ -79,15 +79,16 @@ represented as $-i\pdv{t}$ and having as eigenfunctions
 those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 Canonical commutation relation should hold and can be easily verified
-between $\op{t}$ and $\op{\Omega}$
-i.e. $[\op{t}, \op{\Omega}] = i$,
+between $\op{T}$ and $\op{\Omega}$
+i.e. $[\op{T}, \op{\Omega}] = i$,
 therefore $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
 in the Hilbert space of time.
 
 From another point of view, $\hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
 in that it plays a similar role of $H_S$ in the construction of
 $\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. Some authors (e.g. in \citereset\cite{Wootters:Loyola})
-use the symbol $H_C$ (where the supscript ``$C$'' stands for ``clock'') in place of $\hbar\Omega$, to emphasize this.
+use the symbol $H_C$ (where the subscript ``$C$'' stands for ``clock'') in place of
+$\hbar\op{\Omega}$, to emphasize this.
 
 Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized in Table \ref{tbl:op_comparison_pw}.
 
@@ -100,12 +101,12 @@ Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized i
       & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}   \\
       \hline
       \multirow{2}{11em}{Canonical commutation relation} 
-      & $\op{t}$                            & $\op{x}$                            \\
+      & $\op{t}$                                & $\op{x}$                            \\
       %
-      & $\hbar\op{\Omega}$                  & $\op{p}$                            \\
+      & $\hbar\op{\Omega}$                      & $\op{p}$                            \\
       \hline
       ``Energy operator''
-      & $\hbar\op{\Omega}$ (or ``$H_C$'')   & $\op{H_S}$
+      & $\hbar\op{\Omega}$ (or ``$\op{H}_C$'')  & $\op{H_S}$
     \end{tabular}
     {\caption{
       Analogies between observables in the two Hilbert spaces.
@@ -123,7 +124,7 @@ made up of
 eigenstates of $\op{\Omega}$ in $\hilb{H}_T$
 entangled, respectively, with
 eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
-or eigenstates of $\op{t}$ in $\hilb{H}_T$
+or eigenstates of $\op{T}$ in $\hilb{H}_T$
 entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
 (according to the evolution that is embedded in $\op{\mathbb{J}}$):
 \begin{equation}\label{eq:pw:time_freq_mu}
@@ -135,7 +136,7 @@ Here $\mu(\omega)$ is a measure on the real axis which selects
 values of $\omega$ such that~$\hbar\omega$ is part of the system's energy spectrum
 (in ordinary quantum mechanics terms). See \cite[eq. (10)]{Lloyd:Time}.
 
-\subsection{Example: eigenstate of the Hamiltonian $H_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
+\subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
 
 An extreme case for the measure $\mu$ in \eqref{eq:pw:time_freq_mu}
 is the evolution of an energy eigenstate
