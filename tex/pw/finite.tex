@@ -63,7 +63,7 @@ in full analogy with position and momentum in $\hilb{H}_S$.
 
 We will add some more details to the analysis of \citereset\cite{FiniteHilb} with
 additional emphasis on sign and scaling conventions which will affect
-our computation. We will then interpret the results in the context of
+our computation. Results will be interpreted in the context of
 the Page--Wootters model, in particular with regards to the temporal subspace
 $\hilb{H}_T$.
 
@@ -93,52 +93,29 @@ $N$ discrete points in time can be considered
   t_n \in \setof{0,\,\hdots,\,(N-1)\delta{T}} \text{.}
 \end{equation} 
 %
-The corresponding frequencies are multiples of the fundamental frequency $\nu_1 = \frac{1}{\Delta{T}}$.
+The corresponding frequencies are multiples of the \term{fundamental} frequency $\nu_1 = \frac{1}{\Delta{T}}$.
 The fundamental \emph{angular} frequency is therefore $\omega_1 = \frac{2\pi}{\Delta{T}}$ and the
-$N$ sample values are:\footnote{
-  See
-  \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3}.
-}
+$N$ sample values are:
 \begin{equation}\label{eq:DFT:omega_spectrum}
   \omega_n \in \setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}} \text{.}
 \end{equation} 
-
-
-% %\citereset
-% It holds\footnote{
-%   Contrary to what indicated in eq. (8) of \cite{FiniteHilb},
-%   it can be easily verified that,
-%   if $ \op{p} = F x F^{\dagger} $,
-%   the correct inverse relation is
-%   $ x = F^{\dagger} p F$ and not $ -x = F p F^{\dagger} $.
-% } \parencite{FiniteHilb}:
-% \begin{gather}\label{eq:FourierCanonicalRelations}
-%   \op{\Omega}_{\mathrm{nat.}} = F \op{T}_{\mathrm{nat.}} F^{\dagger}\text{;} \quad
-%   \op{T}_{\mathrm{nat.}} = F^{\dagger} \op{\Omega}_{\mathrm{nat.}} F
-% \end{gather}
-% where, in the ``position'' (or \emph{time}) finite eigenbasis,
-% \begin{equation}
-%   F = \frac{1}{\sqrt{N}} \sum_{m,n=0}^{N-1} \exp[i\frac{2\pi mn}{N}] \ketbra{m}{n} \, \text{,}
-% \end{equation}
-% while in the frequency eigenbasis
-% \begin{equation}
-%   F^{\dagger} = \frac{1}{\sqrt{N}} \sum_{\omega,\eta=0}^{N-1} \exp[-i\frac{2\pi \omega\eta}{N}] \ketbra{\omega}{\eta} \, \text{,}
-% \end{equation}
-% with $N$ being the finite dimension of the Hilbert space.
-
-It holds
+%
+It is easily seen that:
 \begin{gather}\label{eq:DFT:deltas}
   \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
   \Delta\Omega \Delta T = 2\pi N \, \text{.}
 \end{gather}
-
-The discrete reformulation\footnote{
-  See e.g.
-  \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3};
-  \cite[Ch. 5]{ProakisManolakis}.
-}
+Also:
+\begin{equation}\label{eq:DFT:eigenratio}
+  \omega_{n} = \frac{2\pi}{N(\delta{T})^{2}} t_{n}  \, \text{.} 
+\end{equation}
+%
+The discretization
 of \eqref{eq:fourier_transform:def} and \eqref{eq:inverse_fourier_transform:def}
-is
+then reads\footnote{
+  See e.g.
+  \cite{Oppenheim:Int1,Oppenheim:Int3,ProakisManolakis}.
+}
 \begin{equation}\label{eq:DFT:def}
   \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
 \end{equation}
@@ -146,9 +123,12 @@ and, respectively,
 \begin{equation}\label{eq:IDFT:def}
   \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{\iu n m 2 \pi / N} \text{.}
 \end{equation}
-Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT).
-Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
-The factor $\frac{1}{\sqrt{N}}$ is chosen to guarantee \emph{unitarity} of the transformation:
+%
+Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
+eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
+%
+The factor $\frac{1}{\sqrt{N}}$
+is chosen to guarantee \emph{unitarity} of the transformation:
 $\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
 
 From eqs.~\eqref{eq:DFT:def} and~\eqref{eq:IDFT:def} one can identify the
@@ -182,7 +162,7 @@ It is convenient to write down the ``complex conjugate'' of eq.~\eqref{eq:DFT:ch
 $F_{mn}^{*} = F_{mn}^{\dagger}$,
 $\forall m,n \in \setof{0, \dots, N-1}$).
 
-As $\ket{\psi}$ (respectively: $\bra{\psi}$) is a generic ket (or bra) of the Hilbert space,
+As $\ket{\psi}$ (respectively: $\bra{\psi}$) is a generic ket (or bra) in the Hilbert space,
 from eqs.~\eqref{eq:DFT:chrepr:cconj} and~\eqref{eq:DFT:chrepr:cconj} it follows:
 \begin{align}
   \label{eq:DFT:bra}  \bra{\omega_{m}} &= \sum_n F_{mn}           \bra{t_n} \,\text{,}  \\
@@ -204,9 +184,8 @@ Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
 \end{equation}
 %
 Finally, we use the spectral decomposition of $\op{\Omega}$,
-the equations \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
-and the fact that $\omega_{m} = \frac{2\pi}{N(\delta{T})^{2}} t_{m}$
----from eqs.~\eqref{eq:DFT:t_spectrum}, \eqref{eq:DFT:omega_spectrum} and~\eqref{eq:DFT:deltas}---
+the results \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
+and eq.~\eqref{eq:DFT:eigenratio}
 to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
