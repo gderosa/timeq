@@ -71,7 +71,7 @@ with coefficients given by the Fourier transform $\phi(\omega)$.
 In a discrete system, a finite interval $(0, \Delta{T})$ is considered,
 equally divided in $N$ sub-intervals. If we set $\delta{T} = \frac{\Delta{T}}{N}$,
 $N$ discrete points in time can be considered
-\begin{equation}
+\begin{equation}\label{eq:DFT:t_spectrum}
   t_n \in \setof{0,\,\hdots,\,(N-1)\delta{T}} \text{.}
 \end{equation} 
 %
@@ -81,7 +81,7 @@ $N$ sample values are:\footnote{
   See
   \cite[Ch. ``The Discrete Fourier Transform'']{Oppenheim:Int3}.
 }
-\begin{equation}
+\begin{equation}\label{eq:DFT:omega_spectrum}
   \omega_n \in \setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}} \text{.}
 \end{equation} 
 
@@ -109,7 +109,7 @@ $N$ sample values are:\footnote{
 % with $N$ being the finite dimension of the Hilbert space.
 
 It holds
-\begin{gather}
+\begin{gather}\label{eq:DFT:deltas}
   \delta\Omega \delta T = \frac{2\pi}{N} \, \text{;} \quad
   \Delta\Omega \Delta T = 2\pi N \, \text{.}
 \end{gather}
@@ -174,7 +174,29 @@ This shows that the Fourier matrix can be used, not only to transform the compon
 of a vector from one eigenbasis to the canonically conjugate eigenbasis,
 but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
 
-%All is \eqref{eq:DFT:bra-ket}
+If we introduce the \term{Fourier operator}
+$\displaystyle \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n}$,
+eq.~\eqref{eq:DFT:bra} can be reformulated as
+\begin{equation}
+  \label{eq:DFO:bra}  \bra{\omega_{m}} = \bra{t_m} \op{F} \text{.}
+\end{equation}
+Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
+\begin{equation}
+  \label{eq:DFO:ket}  \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
+\end{equation}
+%
+Finally, we use the spectral decomposition of $\op{\Omega}$,
+the equations \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
+and the fact that $\omega_{m} = \frac{2\pi}{N(\delta{T})^{2}} t_{m}$
+from eqs.~\eqref{eq:DFT:t_spectrum}, \eqref{eq:DFT:omega_spectrum} and~\eqref{eq:DFT:deltas}
+to obtain:
+\begin{multline}
+  \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
+  \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
+  \\
+  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
+  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F}
+\end{multline}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
