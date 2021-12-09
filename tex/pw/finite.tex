@@ -41,6 +41,24 @@ time operator $\op{T}$ and the ``energy'' operator $-\hbar\op{\Omega}$
 in $\hilb{H}_T$ ---via the angular frequency operator $\op{\Omega}$ which, in the continuous limit, would satisfy
 eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
+A benefit of finite-dimensional systems is the potential implementation on a finite array of
+qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
+with technology and engineering to the domain of signal processing \parencite{FiniteHilb}.
+In \emph{ordinary} quantum mechanics, the Fourier transform (discrete or continuous)
+is generally used
+to associate wavefunctions in position and momendum space
+(whereas time and frequency are \emph{not} operators),
+while in communication engineering it is used to convert signals
+from the time to the frequency domain and vice versa.
+Thanks to the introduction of the Hilbert space $\hilb{H}_T$,
+the interpretation in terms of time and frequency
+(or time and energy, up to a factor $\hbar$)
+is applicable to quantum theory as well, not only formally
+i.e. not in the sense of a mere operation among (``classical'') parameters;
+but in the sense of conversion between representations of the
+same quantum state vector with respect to different eigenbasis,
+in full analogy with position and momentum in $\hilb{H}_S$.
+
 \subsection{Discrete Fourier transform}
 
 We will add some more details to the analysis of \citereset\cite{FiniteHilb} with
@@ -188,7 +206,7 @@ Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
 Finally, we use the spectral decomposition of $\op{\Omega}$,
 the equations \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
 and the fact that $\omega_{m} = \frac{2\pi}{N(\delta{T})^{2}} t_{m}$
-from eqs.~\eqref{eq:DFT:t_spectrum}, \eqref{eq:DFT:omega_spectrum} and~\eqref{eq:DFT:deltas}
+---from eqs.~\eqref{eq:DFT:t_spectrum}, \eqref{eq:DFT:omega_spectrum} and~\eqref{eq:DFT:deltas}---
 to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
@@ -200,94 +218,37 @@ to obtain:
   \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F}
   \text{.}
 \end{multline}
-%
-Taking the ``conjugate'' of all the computation
-from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}, it can also be proven that
-\begin{multline}
-  \op{T} = \dots \\ = 
-    \frac{2\pi}{N(\delta\Omega)^2}        \op{F} \op{\Omega} \op{F}^{\dagger} =
-    \frac{2\pi N}{\qty(\Delta\Omega)^2}   \op{F} \op{\Omega} \op{F}^{\dagger}
-    \text{.}
-\end{multline}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Please note the % \eqref{eq:FourierCanonicalRelations}
-(\dots)
-is valid in ``natural'' units,
-in the sense that
-both ``time'' and ``frequency'' 
-always have (and only have) integer eigenvalues $\setof{0, 1, \dots, N-1}$.
-The operator $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$ are defined indeed as
-$\op{T}_{\mathrm{nat.}} = \sum_{n=0}^{N} n \ketbra{n}$ and
-$\op{\Omega}_{\mathrm{nat.}} = \sum_{\omega=0}^{N} \omega \ketbra{\omega}$
-(\citereset\cite{FiniteHilb} defines ``position'' $\op{x}$ and ``momentum'' $\op{p}$ in a similar fashion).
-
-% Please note the \eqref{eq:FourierCanonicalRelations} is valid in normalized (``natural'') units
-% where ``time'' and ``frequency'' are in fact respectively
-% \term{samples} and \emph{cycles/samples rate},
-% in a similar sense as in digital signal processing theory
-% \parencite[469, 490]{Carlson}.
-
-More generally, one is interested in studying a time interval
-between $t=0$ and an arbitrary real value $\Delta{T}$,
-the time interval being split in $N$ sub-intervals of length $\delta{T}$
-so that $N\delta{T} = \Delta{T}$.
-In other words, $\delta T$
-is the size of a ``temporal sample'', or the size of a discrete
-step in the clock;
-and $\Delta T = N\delta T$ is the range of the clock.
-The corresponding time operator $\op{T}$
-is expected therefore to have spectrum $\setof{0, \delta{T}, \dots, (N-1)\delta{T}}$,
-while the eigenvalues of the angular frequency operator $\op{\Omega}$
-are expected to be multiples of
-$\frac{2\pi}{\Delta{T}}$, which is
-the fundamental
-angular frequency for the discrete Fourier analysis.\footnote{
-  See
-  \cite[chapters
-    ``The Discrete Fourier Transform'' and
-    ``Fourier Analysis of Signals Using the Discrete Fourier Transform'']{Oppenheim:Int1,Oppenheim:Int3}.
-}
-The spectrum of $\op{\Omega}$ would then be $\setof{0, \frac{2\pi}{\Delta{T}}, \dots, \frac{2\pi(N-1)}{\Delta{T}}}$.
-By defining $\delta{\Omega} = \frac{2\pi}{T}$,
-one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
-have the same property of $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$.  
-By making such substitution directly in (xxx), % eq.~\eqref{eq:FourierCanonicalRelations},
-with some simple algebra, it follows:
+In conclusion:
 \begin{gather}
   \label{eq:SI_Fourier:Omega}
-    \op{\Omega} = \frac{2\pi}{N(\delta T)^2} F \op{T} F^{\dagger} = \frac{2\pi N}{\qty(\Delta T)^2} F \op{T} F^{\dagger} \\
+    \op{\Omega} =
+      \frac{2\pi}{N(\delta T)^2}          \op{F}^{\dagger} \op{T} \op{F} =
+      \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F}
+      \, \text{;}
+      \\
   \label{eq:SI_Fourier:T}
-    \op{T} = \frac{2\pi}{N(\delta\Omega)^2} F^{\dagger} \op{\Omega} F = \frac{2\pi N}{\qty(\Delta\Omega)^2} F^{\dagger} \op{\Omega} F
-  \, \text{.}
+    \op{T} =
+      \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} = 
+      \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger}
+      \, \text{;}
 \end{gather}
-% which is essentially the rescaling property of the Fourier transform
-% \parencite[Ch. ``Fast Fourier Transform'']{NRC}.
-The above ``normalization'' is the same that will be used
-for numerical computation from Sec.~\ref{sec:pw:apps_first} onwards.
+where eq.~\eqref{eq:SI_Fourier:T} is obtained by
+taking the ``conjugate'' of all the computation
+from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
 
-
-
-A benefit of finite-dimensional systems is the potential implementation on a finite array of
-qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
-with technology and engineering to the domain of signal processing \parencite{FiniteHilb}.
-In \emph{ordinary} quantum mechanics, the Fourier transform (discrete or continuous)
-is generally used
-to associate wavefunctions in position and momendum space
-(whereas time and frequency are \emph{not} operators),
-while in communication engineering it is used to convert signals
-from the time to the frequency domain and vice versa.
-Thanks to the introduction of the Hilbert space $\hilb{H}_T$,
-the interpretation in terms of time and frequency
-(or time and energy, up to a factor $\hbar$)
-is applicable to quantum theory as well, not only formally
-i.e. not in the sense of a mere operation among (``classical'') parameters;
-but in the sense of conversion between representations of the
-same quantum state vector with respect to different eigenbasis,
-in full analogy with position and momentum in $\hilb{H}_S$.
+Please note eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
+differs from e.g. the results of \cite{FiniteHilb}.
+This is due to the use of
+``natural'' units,
+in the sense that
+both time and angular frequency
+have (and only have) integer eigenvalues
+and they are adimensional
+i.e. $t_n = \omega_n = 0, 1, \dots, N-1$
+(the paper, in actual fact, defines ``position'' $\op{x}$ and ``momentum'' $\op{p}$, but in a similar fashion).
+Moreover, the roles of the Fourier transform and its inverse are swapped therein.
+Other authors might adopt different conventions and units.
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
