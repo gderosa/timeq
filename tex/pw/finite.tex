@@ -190,19 +190,33 @@ the equations \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
 and the fact that $\omega_{m} = \frac{2\pi}{N(\delta{T})^{2}} t_{m}$
 from eqs.~\eqref{eq:DFT:t_spectrum}, \eqref{eq:DFT:omega_spectrum} and~\eqref{eq:DFT:deltas}
 to obtain:
-\begin{multline}
+\begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
   \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
   \\
   \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
-  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F}
+  \\
+  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
+  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F}
+  \text{.}
+\end{multline}
+%
+Taking the ``conjugate'' of all the computation
+from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}, it can also be proven that
+\begin{multline}
+  \op{T} = \dots \\ = 
+    \frac{2\pi}{N(\delta\Omega)^2}        \op{F} \op{\Omega} \op{F}^{\dagger} =
+    \frac{2\pi N}{\qty(\Delta\Omega)^2}   \op{F} \op{\Omega} \op{F}^{\dagger}
+    \text{.}
 \end{multline}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \noindent{\color{red} \rule{\linewidth}{1pt}}  % 'TODO'
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Please note the \eqref{eq:FourierCanonicalRelations} is valid in ``natural'' units,
+Please note the % \eqref{eq:FourierCanonicalRelations}
+(\dots)
+is valid in ``natural'' units,
 in the sense that
 both ``time'' and ``frequency'' 
 always have (and only have) integer eigenvalues $\setof{0, 1, \dots, N-1}$.
@@ -241,7 +255,7 @@ The spectrum of $\op{\Omega}$ would then be $\setof{0, \frac{2\pi}{\Delta{T}}, \
 By defining $\delta{\Omega} = \frac{2\pi}{T}$,
 one can easily verify that $\frac{\op{T}}{\delta{T}}$ and $\frac{\op{\Omega}}{\delta{\Omega}}$
 have the same property of $\op{T}_{\mathrm{nat.}}$ and $\op{\Omega}_{\mathrm{nat.}}$.  
-By making such substitution directly in eq.~\eqref{eq:FourierCanonicalRelations},
+By making such substitution directly in (xxx), % eq.~\eqref{eq:FourierCanonicalRelations},
 with some simple algebra, it follows:
 \begin{gather}
   \label{eq:SI_Fourier:Omega}
