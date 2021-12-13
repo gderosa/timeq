@@ -172,17 +172,17 @@ This shows that the Fourier matrix can be used, not only to transform the compon
 of a vector from one eigenbasis to the canonically conjugate eigenbasis,
 but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
 
-\pagebreak  % remove if no longer necessary...
-If we introduce the \term{Fourier operator}
-$\displaystyle \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n}$,
-eq.~\eqref{eq:DFT:bra} can be reformulated\footnote{
-  From \eqref{eq:DFT:bra} ---and, similarly, \eqref{eq:DFT:ket}--- multiplying each element of the sum
-  by $\braket{t_m} = 1$ we get
-  $\displaystyle \bra{\omega_{m}} = \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n}$.
-}
-as
+Let us now introduce the \term{Fourier operator}
 \begin{equation}
-  \label{eq:DFO:bra}  \bra{\omega_{m}} = \bra{t_m} \op{F} \text{.}
+  \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
+\end{equation}
+Multiplying each element of the sum in eq.~\eqref{eq:DFT:bra}
+by $\braket{t_m} = 1$
+we immediately get:
+\begin{equation}\label{eq:DFO:bra}
+  \bra{\omega_{m}} =
+  % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} = 
+  \bra{t_m} \op{F} \text{.}
 \end{equation}
 Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
 \begin{equation}
