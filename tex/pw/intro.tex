@@ -143,3 +143,278 @@ then implementing numerical simulations, with a larger number of clock levels.
 Finally, the Page and Wootters model will be compared to the results of
 detection and time-of-arrival models
 based on non-unitary evolution.
+\section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
+
+About three decades after the first publication by
+Don Page and William Wootters \parencite{PageWootters},
+the model was further developed,
+in particular by Lloyd, Giovannetti and Maccone,
+with emphasis on addressing technical issues which have been raised meanwhile
+\parencite{Lloyd:Time}.
+
+In this formulation,
+in addition to the ordinary Hilbert space of the system,
+an extra Hilbert space $\mathcal{H}_T$ is considered,
+where time is an observable
+represented by a self-adjoint operator.
+The ordinary Hilbert space can be labeled $\mathcal{H}_S$;
+and we consider the tensor product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+the space in which both time and position are observables, and they act as
+$T \otimes \idop_S$ and $\idop_T \otimes X$
+respectively.
+
+As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+encompassing both position and time as observables, is given by
+\begin{equation}\label{eq:pwHamiltonian}
+  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
+\end{equation}
+where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
+Also, the \term{Wheeler-DeWitt equation} holds:
+\begin{equation}\label{eq:Wheeler-DeWitt}
+  \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+\end{equation}
+describing a \emph{static} universe, where evolution is only
+in terms of relations between parts of a multipartite system
+(a ``clock'' and ``the rest'').
+
+% Please note the special notation $\dket{\Psi}$ (double angle bracket),
+% to indicate a state vector in the ``larger'' product space $\pwspace$,
+% as opposed to vectors belonging to $\hilb{H}_S$ (or $\hilb{H}_T$) only.
+
+The ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
+can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
+  For the partial inner product,
+  see Definition \ref{def:pBra} and \ref{def:pKet},
+  and \cite[\s 1.3.3]{QMT_Jacobs}.
+}
+with a time eigenstate $\prescript{}{T}{\bra{t}}$:
+\begin{equation*}
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} \, \text{.}
+\end{equation*}
+The function $ t \rightarrow \ket{\psi(t)}_S \; $ is the
+``wavefunction in time representation'', in analogy
+with the wavefunction in position representation of standard quantum mechanics.
+The state vector $\dket{\Psi}$ is univocally identified by the ``coefficients'' $\ket{\psi(t)}_S$
+with respect to the basis $\setof{\ket{t}_T}$:
+\begin{equation*}
+  \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S \, \text{,}
+\end{equation*}
+somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
+which defines the position representation.
+
+Under this time representation (or $T$ representation), the operator $\hbar\Omega$,
+canonically conjugate to the time operator T, is expressed as $-i\hbar\pdv{t}$,
+and the commutation relation $\comm{t, -i\hbar\pdv{t}}{} = i\hbar$ can be proven
+immediately, similarly to the well known position-momentum relation.
+
+%% \hbar\Omega is -E ... and \Omega \repr -i t-derivative ... and [T, \Omega] = i .
+
+Using the $T$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}\label{eq:schrod_from_pw}
+  0 = \qty(\hbar\op{\Omega}\ox\idop_S + \idop_{T}\ox\op{H}_S)\dket{\Psi}
+    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \op{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger equation in $H_S$
+(a detailed proof can be found in \cite[709--710]{Wootters:Loyola}).
+
+Here $\op{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
+
+Canonical commutation relation should hold and can be easily verified
+between $\op{T}$ and $\op{\Omega}$
+i.e. $[\op{T}, \op{\Omega}] = i$,
+therefore $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+From another point of view, $\hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
+in that it plays a similar role of $H_S$ in the construction of
+$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. Some authors (e.g. in \citereset\cite{Wootters:Loyola})
+use the symbol $H_C$ (where the subscript ``$C$'' stands for ``clock'') in place of
+$\hbar\op{\Omega}$, to emphasize this.
+
+Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized in Table \ref{tbl:op_comparison_pw}.
+
+{
+  %% https://tex.stackexchange.com/a/232874
+  %% https://tex.stackexchange.com/a/2836
+  \begin{table}
+    \centering
+    \begin{tabular}{l|l|c}
+      & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}   \\
+      \hline
+      \multirow{2}{11em}{Canonical commutation relation} 
+      & $\op{t}$                                & $\op{x}$                            \\
+      %
+      & $\hbar\op{\Omega}$                      & $\op{p}$                            \\
+      \hline
+      ``Energy operator''
+      & $\hbar\op{\Omega}$ (or ``$\op{H}_C$'')  & $\op{H_S}$
+    \end{tabular}
+    {\caption{
+      Analogies between observables in the two Hilbert spaces.
+    }\label{tbl:op_comparison_pw}}
+  \end{table}
+}
+
+% It would be interesting to a study relativistic extension of the
+% Page and Wootters model that allows, for example, the derivation of the Klein-Gordon
+% equation, thus eliminating the asimmetry between
+% $\hilb{H}_T$ and $\hilb{H}_S$ (and momentum and energy as well).
+
+In the bipartite universe, physical kets $\dket{\Psi}$ can have a Schmidt decomposition
+made up of
+eigenstates of $\op{\Omega}$ in $\hilb{H}_T$
+entangled, respectively, with
+eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
+or eigenstates of $\op{T}$ in $\hilb{H}_T$
+entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
+(according to the evolution that is embedded in $\op{\mathbb{J}}$):
+\begin{equation}\label{eq:pw:time_freq_mu}
+  \dket{\Psi} =
+    \int \dd{\omega} \, \mu(\omega) \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} =
+    \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
+\end{equation}
+Here $\mu(\omega)$ is a measure on the real axis which selects
+values of $\omega$ such that~$\hbar\omega$ is part of the system's energy spectrum
+(in ordinary quantum mechanics terms). See \cite[eq. (10)]{Lloyd:Time}.
+
+\subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
+
+An extreme case for the measure $\mu$ in \eqref{eq:pw:time_freq_mu}
+is the evolution of an energy eigenstate
+(related, say, to eigenvalue\footnote{
+  Some care must be taken with the sign convention used in
+  \cite{Lloyd:Time} where
+  energy and frequency have \emph{opposite} signs.
+}
+$E_0 \eqbydef -\hbar\omega_{0}$):
+in this case the evolution is
+$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+and
+the measure is
+$\mu(\omega) = \delta(\omega-\omega_0)$
+(it  ``selects''only $\omega_0$ among all possible values
+of $\omega$).
+
+Indeed:
+\[
+  \dket{\Psi} = \int \dd{\omega} \delta(\omega-\omega_0)\ket{\omega}_T \ox \ket{\phi(\omega)}_S =
+    \ket{\omega_0}_T \ox \ket{\phi(\omega_0)}_S \text{.}
+\]
+Also, using the relations
+$
+\, \prescript{}{T}{\braket{t}{t'}}_T = \delta(t-t') \,
+$
+and
+$
+  \,
+  \ket{\omega}_T =
+  \frac{1}{\sqrt{2\pi}} \int\dd{t}\E^{\iu\omega t}\ket{t}_T
+  \,
+$
+\parencite{Lloyd:Time},
+it follows that\footnote{%
+  Please note the analogy with the well-known
+  inner product of position and momentum eigenvectors in standard quantum mechanics:
+  $\braket{\vb{x}}{\vb{p}} = (2\pi\hbar)^{-3/2}\E^{\iu \vb{p} \vdot \vb{x}  / \hbar}$
+  (or $\braket{x}{p} = \frac{\E^{\iu p x / \hbar}}{\sqrt{2\pi\hbar}}$ for one-dimensional systems).
+  See, for example, \cite[126--127]{Ballentine}.
+}
+\[
+  \prescript{}{T}{\braket{t}{\omega}}_T =
+  \frac{1}{\sqrt{2\pi}}\prescript{}{T}{\bra{t}} \int\dd{t'}\E^{\iu\omega t'}\ket{t'}_T  =
+  \frac{1}{\sqrt{2\pi}}\int\dd{t'}\E^{\iu\omega t'}\delta(t-t') =
+  \frac{1}{\sqrt{2\pi}} \E^{\iu\omega t} \; \text{;}
+\]
+therefore the \emph{evolution} (in $\hilb{H}_S$) is
+\begin{equation}
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} = \prescript{}{T}{\braket{t}{\omega_0}}_{T} \ket{\phi(\omega_0)}_S =
+    \frac{1}{\sqrt{2\pi}} \E^{\iu\omega_0 t} \ket{\phi(\omega_0)}_S \text{.}
+\label{eq:pw:stat_eigenst_of_H_S}
+\end{equation}
+By evaluating and comparing eq. \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time
+$t_0$~and~$t$,
+one easily gets
+$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
+which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
+
+
+
+
+
+
+\subsection{Normalizable vectors of $\pwspace$}
+\label{sec:properpw}
+
+A vector $\dket{\Psi}$ in $\hilb{H}_T \ox \hilb{H}_S$,
+satisfying \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt},
+encodes the whole (unitary) time evolution of a system.
+\begin{equation}\label{eq:pwexpansion}
+  \dket{\Psi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S =
+    \int \dd{t}\dd[3]{\vec{r}} \ \Psi(t; \vec{r}) \; \ket{t}_T \ox \ket{\vec{r}}_S
+    \,  \text{.}
+\end{equation}
+We know $\setof{\ket{t}_T \ox \ket{\vec{r}}_S}$ is an othonormal basis of $\hilb{H}_T \ox \hilb{H}_S$, therefore
+\begin{equation}
+  \norm{\dket{\Psi}}^2 =
+    \int \dd{t}\dd[3]{\vec{r}} \ \abs{\Psi(t; \vec{r})}^2 =
+    \int \dd{t} \int \dd[3]{\vec{r}} \ \abs{\Psi(t; \vec{r})}^2 =
+    \int \dd{t} 1 \rightarrow +\infty
+    \,  \text{,}
+\end{equation}
+which means that such $\dket{\Psi}$ is an \term{improper} vector of $\hilb{H}_T \ox \hilb{H}_S$.
+
+Proper (i.e. normalizable) states are described in \citereset\cite{Lloyd:Time} as well, by replacing (or generalizing)
+the \eqref{eq:pwexpansion} with
+\begin{equation}\label{eq:pwphi}
+  \dket{\Phi} =
+    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
+\end{equation}
+If the function $\phi \in \mathscr{L}^2(\mathbb{R})$,
+then $\dket{\Psi}$ is a proper element of the product space,
+and $\norm{\dket{\Psi}}^2 = \int \dd{t} \abs{\phi(t)}^2$.
+
+The case of non-normalizable $\dket{\Psi}$ in \eqref{eq:pwphi},
+with normalized $\ket{\psi(t)}_S$ $\forall t \in \mathbb{R}$,
+describes the unitary evolution, as seen throughout Chapter \ref{ch:pw}.
+As observed in \cite{Maccone:QGR},
+``%
+  Quantum mechanics is formulated in terms of \emph{systems},
+  typically limited in space but infinitely extended in time%
+''.
+If the state vector is \emph{conditioned} at a particular time $t$,
+it holds $\norm{_{T}\bradket{t}{\Psi}}_S = \norm{\ket{\psi(t)}}_S = 1$,
+meaning that, at each $t$,
+\emph{the particle must certainly be in some (one) point in space}.
+
+A normalized $\dket{\Psi}$ in the whole $\hilb{H}_T \ox \hilb{H}_S$,
+instead,
+can be interpreted as a total probability of~$1$ in both space and time combined.
+It can be interpreted as describing an \term{event},
+in that it
+must certainly be in some point in space
+\emph{and} time (in terms of outcome of an idealized measurement\footnote{
+  Measurement in quantum mechanics requires the concepts
+  of state of the system
+  (and measurement apparatus)
+  \emph{before} and \emph{after} the measurement and, therefore, the existence
+  of an external time (external with respect of the Hilbert space of states).
+  This logically contradicts the foundation of the Page--Wootters model if
+  time itself is measured as a quantum observable. $\dket{\Psi} \in \pwspace$
+  embeds the whole history of a system and therefore cannot have a
+  ``before'' neither an ``after'' the measurement, ``when'' it collapses
+  into an eigenstate of time. The apparent contradicion is resolved
+  stressing that probability amplitues are intended in the sense of
+  \emph{conditional} probabilities e.g. \emph{provided that the particle
+  is in position} $x \in X$ (or the detector clicks)
+  what is the probability density amplitude of time being (the clock showing) $t$?
+  Consistently, the Bayes rule
+  (see, for example, \cite{Stat:Conditional})
+  is invoked in the following sections
+  and references.
+}).
+Such states have no correspondence with standard quantum mechanics states and their unitary evolution.
