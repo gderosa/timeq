@@ -48,9 +48,9 @@ meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of tw
 which only act on the respective subspaces $\hilb{H}_T$ and $\hilb{H}_S$
 (and there is no explicit ``interaction term''). In other words,
 $\op{\mathbb{J}}$ can be expressed as
-$$
+[{\color{red}TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pwHamiltonian}?]\begin{equation}\label{eq:pw:redundant_J}  
   \op{\mathbb{J}} = \op{H}_T \ox \idop_S + \idop_T \ox \op{H}_S \, \text{.} 
-$$
+\end{equation}
 Therefore,
 the evolution of the subsystem described by $\hilb{H}_S$
 will only depend on ``its own''
@@ -166,7 +166,7 @@ respectively.
 
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
-\begin{equation}\label{eq:pwHamiltonian}
+[{\color{red} TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pw:redundant_J}?]\begin{equation}\label{eq:pwHamiltonian}
   \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
 \end{equation}
 where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
@@ -218,7 +218,7 @@ and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
     \,\text{,}
 \end{equation}
 we recover the usual form of the Schr\"{o}dinger equation in $H_S$
-(a detailed proof can be found in \cite[709--710]{Wootters:Loyola}).
+(see also \cite[709--710]{Wootters:Loyola}).
 
 Here $\op{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
@@ -226,15 +226,17 @@ those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 Canonical commutation relation should hold and can be easily verified
 between $\op{T}$ and $\op{\Omega}$
-i.e. $[\op{T}, \op{\Omega}] = i$,
+i.e. $[\op{T}, \op{\Omega}] = i$ (similar to $\comm{t, -i\hbar\pdv{t}}{} = i\hbar$),
 therefore $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
 in the Hilbert space of time.
 
-From another point of view, $\hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
+From another point of view, $\op{H}_{T} = \hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
 in that it plays a similar role of $H_S$ in the construction of
-$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}. Some authors (e.g. in \citereset\cite{Wootters:Loyola})
-use the symbol $H_C$ (where the subscript ``$C$'' stands for ``clock'') in place of
-$\hbar\op{\Omega}$, to emphasize this.
+$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}.\footnote{
+  Some authors (e.g. in \citereset\cite{Wootters:Loyola})
+  use the symbol $H_C$ (where the subscript ``$C$'' stands for ``clock'') in place of
+  $\hbar\op{\Omega}$, to emphasize this.
+}
 
 Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized in Table \ref{tbl:op_comparison_pw}.
 
@@ -244,15 +246,15 @@ Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized i
   \begin{table}
     \centering
     \begin{tabular}{l|l|c}
-      & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}   \\
+      & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}       \\
       \hline
       \multirow{2}{11em}{Canonical commutation relation} 
       & $\op{t}$                                & $\op{x}$                            \\
       %
       & $\hbar\op{\Omega}$                      & $\op{p}$                            \\
       \hline
-      ``Energy operator''
-      & $\hbar\op{\Omega}$ (or ``$\op{H}_C$'')  & $\op{H_S}$
+      ``Hamiltonian''
+      & $\op{H}_T = \hbar\op{\Omega}$           & $\op{H_S}$
     \end{tabular}
     {\caption{
       Analogies between observables in the two Hilbert spaces.
@@ -271,8 +273,7 @@ eigenstates of $\op{\Omega}$ in $\hilb{H}_T$
 entangled, respectively, with
 eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
 or eigenstates of $\op{T}$ in $\hilb{H}_T$
-entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$
-(according to the evolution that is embedded in $\op{\mathbb{J}}$):
+entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
 \begin{equation}\label{eq:pw:time_freq_mu}
   \dket{\Psi} =
     \int \dd{\omega} \, \mu(\omega) \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} =
