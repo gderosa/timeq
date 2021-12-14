@@ -1,3 +1,17 @@
+Sections \ref{sec:pw:theory_first}--\ref{sec:pw:theory_last}
+will be devoted to outlining the theory, reviewing existing papers,
+with some original considerations ---particularly with regards to
+time--energy (or time--\emph{frequency}) uncertainty relations, and
+finite-dimensional systems (discrete clocks).
+
+Sections \ref{sec:pw:apps_first}--\ref{sec:pw:apps_last} will be dedicated to
+applications of the Page--Wootters model, starting with a critical review of existing
+experiments (or ``experimental illustrations''),
+then implementing numerical simulations, with a larger number of clock levels.
+Finally, the Page and Wootters model will be compared to the results of
+detection and time-of-arrival models
+based on non-unitary evolution.
+
 \section{The Model}
 
 To introduce the Page--Wootters model, let us first consider
@@ -26,7 +40,7 @@ in $\hilb{H}_T$.
 Furthermore, let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
 of an overall Hamiltonian $\op{\mathbb{J}}$ in $\hilb{H}_T \ox \hilb{H}_S$:
 $$
-  \op{\mathbb{J}} \dket{\Psi} = \epsilon \dket{\Psi}\text{,} \quad \text{where} \kuad \epsilon \in \mathbb{R} \text{.}
+  \op{\mathbb{J}} \dket{\Psi} = 0 \text{.}
 $$
 Finally, we assume that the two subsystems
 are \emph{non interacting},
@@ -40,23 +54,19 @@ $$
 Therefore,
 the evolution of the subsystem described by $\hilb{H}_S$
 will only depend on ``its own''
-Hamiltonian $H_S$, namely
+Hamiltonian $H_S$ (assumed as time-independent), namely
 \begin{equation}\label{eq:pw:ordinary_S}
   \ket{\psi(t)}_S = e^{- i \op{H}_S t / \hbar} \ket{\psi(0)}_S \text{.}  
 \end{equation}
  
-In the Page--Wootters model, time evolution is based on an internal entanglement
-relation among subsystems of an isolated system
----including the case where such isolated system is the whole universe \parencite{PageWootters}.
-
-The overall system
----as the one described by $\hilb{H}_T \ox \hilb{H}_S$ in \eqref{eq:pw:finite-entanglement}---
+The overall system state
+%---as the one described by $\hilb{H}_T \ox \hilb{H}_S$ in \eqref{eq:pw:finite-entanglement}---
 is stationary and there is no notion
 of time external to it.
 This is also known as the
 ``timeless'' approach \parencite{Marletto:Evolution}.
 \citereset
-A suitable subsystem is chosen within the ``universe'' so that it acts as
+The suitable subsystem is chosen within the ``universe'' so that it acts as
 \emph{clock} for the \emph{rest} of it, in the sense that
 there is an observable $T$
 that can be used to
@@ -65,13 +75,17 @@ describe time evolution ``without evolution''\footnote{
   is directly quoted from the title of \cite{PageWootters},
   and recalled in \cite{Marletto:Evolution}.
 }
-of the other subsystem.
+of the other subsystem $\hilb{H}_S$.
 
 Please note,
 the \emph{time operator} $\op{T}$ is defined in $\hilb{H}_T$ ---and canonically conjugate to $\op{H}_T$, not $\op{H}_S$.
 In other words, the time operator is defined in a different Hilbert space than the ``system of interest'' $\hilb{H}_S$,
 therefore
-the Pauli objection no longer applies. A suitable entanglement relation ensures that 
+the Pauli objection (Sec.~\ref{proof}) no longer applies. 
+As we will see below, in the Page--Wootters model, time evolution is based on an internal entanglement
+relation among subsystems of an isolated system
+---including the case where such isolated system is the whole universe \parencite{PageWootters}.
+A suitable entanglement relation ensures that 
 the ``time'' measured by a clock in one system $\hilb{H}_T$ is relevant to the evolution of the other
 system $\hilb{H}_S$.
 
@@ -129,21 +143,6 @@ to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``univer
 (or isolated system):
 see, for example, \cite{Marletto:Evolution}.
 
-\subsection*{\it Structure of the Chapter}
-
-Sections \ref{sec:pw:theory_first}--\ref{sec:pw:theory_last}
-will be devoted to outlining the theory, reviewing existing papers,
-with some original considerations ---particularly with regards to
-time--energy (or time--\emph{frequency}) uncertainty relations, and
-finite-dimensional systems (discrete clocks).
-
-Sections \ref{sec:pw:apps_first}--\ref{sec:pw:apps_last} will be dedicated to
-applications of the Page--Wootters model, starting with a critical review of existing
-experiments (or ``experimental illustrations''),
-then implementing numerical simulations, with a larger number of clock levels.
-Finally, the Page and Wootters model will be compared to the results of
-detection and time-of-arrival models
-based on non-unitary evolution.
 \section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
 
 About three decades after the first publication by
