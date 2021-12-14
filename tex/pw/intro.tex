@@ -1,11 +1,11 @@
 Sections \ref{sec:pw:theory_first}--\ref{sec:pw:theory_last}
-will be devoted to outlining the theory, reviewing existing papers,
+will be devoted to outlining the Page and Wootters theory, reviewing existing papers,
 with some original considerations ---particularly with regards to
-time--energy (or time--\emph{frequency}) uncertainty relations, and
+time--energy (or time--frequency) uncertainty relations, and
 finite-dimensional systems (discrete clocks).
 
 Sections \ref{sec:pw:apps_first}--\ref{sec:pw:apps_last} will be dedicated to
-applications of the Page--Wootters model, starting with a critical review of existing
+applications of the Page--Wootters model, starting with a review and discussion of existing
 experiments (or ``experimental illustrations''),
 then implementing numerical simulations, with a larger number of clock levels.
 Finally, the Page and Wootters model will be compared to the results of
@@ -89,23 +89,23 @@ A suitable entanglement relation ensures that
 the ``time'' measured by a clock in one system $\hilb{H}_T$ is relevant to the evolution of the other
 system $\hilb{H}_S$.
 
-Quantitatively,
-the observable $T$ in $\hilb{H}_T$
-has eigenvalues $\tau_n$
-(assuming a discrete spectrum to simplify notation)
-which can be interpreted as possible
-instants of time in the evolution of $\ket{\psi}_S$, in the sense that
-\begin{equation}\label{eq:pw:discrete_Tpprox}
-  \Big[ \ket{\psi(t)}_S \Big]_{t=\tau_n} = \,\,\,\, \ket{\psi_n}_S \, \text{,}
-\end{equation}
-where $\ket{\psi(t)}_S$ is given in~\eqref{eq:pw:ordinary_S} i.e.
-the evolution one would obtain in ``ordinary'' way
-by resolving the Schr\"{o}dinger equation in $\hilb{H}_S$.
-Please note:
-in its original formulation, the Page--Wootters model is based on a continuous
-notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}.
-A discrete formulation, as in eq. \eqref{eq:pw:discrete_Tpprox},
-will be verified numerically in Sections~\ref{sec:beyondMoreva}--\ref{sec:multiLevelClock}.
+% Quantitatively,
+% the observable $T$ in $\hilb{H}_T$
+% has eigenvalues $\tau_n$
+% (assuming a discrete spectrum to simplify notation)
+% which can be interpreted as possible
+% instants of time in the evolution of $\ket{\psi}_S$, in the sense that
+% \begin{equation}\label{eq:pw:discrete_Tpprox}
+%   \Big[ \ket{\psi(t)}_S \Big]_{t=\tau_n} = \,\,\,\, \ket{\psi_n}_S \, \text{,}
+% \end{equation}
+% where $\ket{\psi(t)}_S$ is given in~\eqref{eq:pw:ordinary_S} i.e.
+% the evolution one would obtain in ``ordinary'' way
+% by resolving the Schr\"{o}dinger equation in $\hilb{H}_S$.
+% Please note:
+% in its original formulation, the Page--Wootters model is based on a continuous
+% notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}.
+% A discrete formulation, as in eq. \eqref{eq:pw:discrete_Tpprox},
+% will be verified numerically in Sections~\ref{sec:beyondMoreva}--\ref{sec:multiLevelClock}.
 
 An intuitive description may be as follows.
 From the perspective of the system described by $\hilb{H}_S$,
@@ -121,10 +121,10 @@ and (``evolved'') states in $\hilb{H}_S$.
 % As $H_S$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
 % (how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
 
-The symbols $\hilb{H}_T$ and $\hilb{H}_S$
-naturally indicate
+The symbols $\hilb{H}_T$ % and $\hilb{H}_S$
+naturally indicates
 the Hilbert spaces where a time operator $\op{T}$ is defined,
-and, respectively,
+while $\hilb{H}_S$ indicates
 the ordinary Hilbert space of the \emph{S}ystem.
 This notation is based on \citereset\cite{Lloyd:Time}
 (where also the blackboard bold typeface, e.g. ``$\op{\mathbb{J}}$'',
@@ -135,13 +135,13 @@ It is tempting to relate $\hilb{H}_T$ and $\hilb{H}_S$
 to temporal (T) and spatial (S)
 degrees of freedom, thus forming a sort of
 ``space-time'' (and this will be even more apparent
-with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).
-%
-A slightly different notation
-uses $\hilb{H}_C$ and $\hilb{H}_R$
-to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``universe''
-(or isolated system):
-see, for example, \cite{Marletto:Evolution}.
+with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).\footnote{
+  A slightly different notation
+  uses $\hilb{H}_C$ and $\hilb{H}_R$
+  to indicate the Hilbert spaces of the clock (C) and the rest (R) of the ``universe''
+  (or isolated system):
+  see, for example, \cite{Marletto:Evolution}.
+}
 
 \section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
 
