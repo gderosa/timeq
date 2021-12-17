@@ -285,19 +285,22 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
     \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
 \end{equation}
 
-\begin{tcolorbox}[]%
-  Here the measure $\mu(\omega)$ was removed from the first integral, as requested.
-  However, it needs to be specified that, while $\norm{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$
-  (unitary evolution, consistent to standard QM),
+\begin{tcolorbox}
+
+  Here the measure $\dd{\mu(\omega)}$ was removed from the first integral, as suggested,
+  and replaced simply by $\dd{\omega}$.
+  
+  However, it needs to be specified that, while $\norm{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$ \linebreak
+  (unitary evolution, as in standard QM),
   the same is not guaranteed for $\ket{\phi(\omega)}_S$.
-  Particularly, there are values of $\omega$ such that $\hbar\omega$ does not belong to the energy spectrum of the system
+  For example, there are values of $\omega$ such that $\hbar\omega$ does not belong to the energy spectrum of the system
   (i.e. the spectrum of $\op{H}_S$):
   in such cases, it must be $\ket{\phi(\omega)}_S = 0$.
   ---See \cite[eq. 10 and following short discussion]{Lloyd:Time}, for a rationale behind $\dd{\mu(\omega)}$.
   
-  In other words, we can remove $\mu(\omega)$,
-  or write $\dd{\omega}$ instead of $\dd{\mu(\omega)}$ etc.,
-  but that role must be ``absorbed'' by $\ket{\phi(\omega)}_S$.
+  Essentially,
+  $\dd{\mu(\omega)}$
+  is ``absorbed'' in $\ket{\phi(\omega)}_S$.
 \end{tcolorbox}
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
