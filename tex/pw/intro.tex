@@ -203,7 +203,7 @@ with respect to the basis $\setof{\ket{t}_T}$:
 somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
 which defines the position representation.
 
-Under this time representation (or $T$ representation), the operator $\hbar\Omega$,
+TODO: redundant or remove following. Under this time representation (or $T$ representation), the operator $\hbar\Omega$,
 canonically conjugate to the time operator T, is expressed as $-i\hbar\pdv{t}$,
 and the commutation relation $\comm{t, -i\hbar\pdv{t}}{} = i\hbar$ can be proven
 immediately, similarly to the well known position-momentum relation.
@@ -224,10 +224,15 @@ Here $\op{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
 those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
+TODO: redundant or remove previous similar.
 Canonical commutation relation should hold and can be easily verified
 between $\op{T}$ and $\op{\Omega}$
-i.e. $[\op{T}, \op{\Omega}] = i$ (similar to $\comm{t, -i\hbar\pdv{t}}{} = i\hbar$),
-therefore $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
+i.e.
+$ \displaystyle
+  [\op{T}, \op{\Omega}] \repr_{T} [t, -i\pdv{t}] = i \text{,}
+$
+similarly to $\displaystyle \comm{\op{x}}{\op{p}} \repr_{x} \comm{x}{-i\hbar\pdv{x}} = i\hbar$.
+Thus, $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
 in the Hilbert space of time.
 
 From another point of view, $\op{H}_{T} = \hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
@@ -249,7 +254,7 @@ Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized i
       & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}       \\
       \hline
       \multirow{2}{11em}{Canonical commutation relation} 
-      & $\op{t}$                                & $\op{x}$                            \\
+      & $\op{T}$                                & $\op{x}$                            \\
       %
       & $\hbar\op{\Omega}$                      & $\op{p}$                            \\
       \hline
@@ -289,7 +294,10 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
   (i.e. the spectrum of $\op{H}_S$):
   in such cases, it must be $\ket{\phi(\omega)}_S = 0$.
   ---See \cite[eq. 10 and following short discussion]{Lloyd:Time}, for a rationale behind $\dd{\mu(\omega)}$.
-  We can remove $\mu$, but its role must be ``absorbed'' by $\ket{\phi(\omega)}_S$.
+  
+  In other words, we can remove $\mu(\omega)$,
+  or write $\dd{\omega}$ instead of $\dd{\mu(\omega)}$ etc.,
+  but that role must be ``absorbed'' by $\ket{\phi(\omega)}_S$.
 \end{tcolorbox}
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
