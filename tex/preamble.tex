@@ -97,6 +97,12 @@
 % https://tex.stackexchange.com/a/65547
 \usepackage{bookmark}
 
+% "dev only"
+\usepackage[breakable,skins]{tcolorbox}
+  \definecolor{tcbcolback} {HTML}{FDFDFF}
+  \definecolor{tcbcolframe}{HTML}{4444BB}
+  \tcbset{colback=tcbcolback, colframe=tcbcolframe, breakable, enhanced jigsaw, parbox=false}
+
 \input{tex/lib}
 
 \renewcommand{\arraystretch}{1.6}
