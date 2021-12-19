@@ -286,21 +286,34 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
 \end{equation}
 
 \begin{tcolorbox}
+  Eq.~\eqref{eq:pw:time_freq_mu} here is based on \cite[eq. 10]{Lloyd:Time}.
+  The paper, in the first integral,
+  would use a ``measure'' $\dd{\mu(\omega)}$, instead of simply $\dd{\omega}$.
+  This is to take into account that not all values of $\omega$ necessarily contribute
+  to the integral: in particular if $\hbar\omega$ is not in the spectrum of $\op{H}_S$,
+  the corresponding integrand would be zero.
+  
+  So,
+  I can certainly remove $\dd{\mu(\omega)}$ as requested\footnote{
+    I actually even wrote $\dd{\omega}\mu(\omega)$ in my previous draft,
+    somewhat incorrectly:\linebreak
+    technically I should have written $\dd{\mu(\omega)}$,
+    or $\dd{\omega}\mu'(\omega)$ (with a ``prime'')
+    so that $\dd{\mu(\omega)} = \frac{\dd{\mu}}{\dd{\omega}}\dd{\omega} = \mu'(\omega) \dd{\omega}$
+    to match the paper,
+    but that's probably not the most important point here\dots
+  },
+  and simply write $\dd{\omega}$, but at least I need to specify what follows:
+  %
+  that, while it is $\braket{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$
+  (unitary evolution, as in standard~QM),
+  one should not necessarily expect that
+  $\ket{\phi(\omega)}_S$ has norm $1$ for every real value of $\omega$.
+  Actually, given that the spectrum of $\op{H}_S$ is bounded from below,
+  certainly there are values of $\omega$ for which $\ket{\phi(\omega)}_S = \nullvector$.
 
-  Here the measure $\dd{\mu(\omega)}$ was removed from the first integral, as suggested,
-  and replaced simply by $\dd{\omega}$.
-  
-  However, it needs to be specified that, while $\norm{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$ \linebreak
-  (unitary evolution, as in standard QM),
-  the same is not guaranteed for $\ket{\phi(\omega)}_S$.
-  For example, there are values of $\omega$ such that $\hbar\omega$ does not belong to the energy spectrum of the system
-  (i.e. the spectrum of $\op{H}_S$):
-  in such cases, it must be $\ket{\phi(\omega)}_S = 0$.
-  ---See \cite[eq. 10 and following short discussion]{Lloyd:Time}, for a rationale behind $\dd{\mu(\omega)}$.
-  
-  Essentially,
-  $\dd{\mu(\omega)}$
-  is ``absorbed'' in $\ket{\phi(\omega)}_S$.
+  In other words, we can certainly remove $\mu(\omega)$, but it must be ``absorbed''
+  by the properties of $\ket{\phi(\omega)}_S$.
 \end{tcolorbox}
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}

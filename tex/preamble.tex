@@ -88,20 +88,28 @@
   pdftitle={It's |1> o'clock -- Relational Time and Applications},
   colorlinks
 ]{hyperref}
-\hypersetup{
-  linkcolor = DarkRed,
-  citecolor = Green,
-  urlcolor  = DarkBlue
-}
+  \hypersetup{
+    linkcolor = DarkRed,
+    citecolor = Green,
+    urlcolor  = DarkBlue
+  }
 
 % https://tex.stackexchange.com/a/65547
 \usepackage{bookmark}
 
 % "dev only"
 \usepackage[breakable,skins]{tcolorbox}
-  \definecolor{tcbcolback} {HTML}{FBFBFF}
+  \definecolor{tcbcolback} {HTML}{EEEEFF}
   \definecolor{tcbcolframe}{HTML}{4444BB}
-  \tcbset{colback=tcbcolback, colframe=tcbcolframe, breakable, enhanced jigsaw, parbox=false}
+  \tcbset{
+    colback=tcbcolback, colframe=tcbcolframe,
+    breakable, enhanced jigsaw,
+    parbox=false, before upper={%
+      \setlength{\parskip}{0.666em}%
+      \setlength{\parindent}{0pt}%
+      \setstretch{1.2}%
+    }%
+  }
 
 \input{tex/lib}
 
