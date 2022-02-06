@@ -28,14 +28,14 @@ You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment 
 
 ### Speed-up (development, optional)
 
-Add `-nobibtex opt/dev.tex` if no bibliography needs to be created/updated.
+Add argument ` opt/dev.tex`. This creates large PDF output file but save time on compression.
+Not suitable for sharing.
 
-Also, this creates large PDF output file.
-
-Not suitable for sharing or first execution.
+In following execution (if no bibiliography changes), add also ` -nobibtex`.
 
 Example:
 ```
+latexmk opt/dev.tex
 latexmk -pvc -nobibtex opt/dev.tex
 ```
 
