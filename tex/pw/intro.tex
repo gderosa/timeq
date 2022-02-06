@@ -1,3 +1,5 @@
+\subsection*{\it Structure of the Chapter}
+
 Sections \ref{sec:pw:theory_first}--\ref{sec:pw:theory_last}
 will be devoted to outlining the Page and Wootters theory, reviewing existing papers,
 with some original considerations ---particularly with regards to
@@ -39,16 +41,16 @@ $\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $\o
 in $\hilb{H}_T$.
 Furthermore, let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
 of an overall Hamiltonian $\op{\mathbb{J}}$ in $\hilb{H}_T \ox \hilb{H}_S$:
-$$
+\begin{equation}\label{eq:Wheeler-DeWitt}
   \op{\mathbb{J}} \dket{\Psi} = 0 \text{.}
-$$
+\end{equation}
 Finally, we assume that the two subsystems
 are \emph{non interacting},
 meaning that the global Hamiltonian $\mathbb{J}$ can be expressed as a sum of two terms
 which only act on the respective subspaces $\hilb{H}_T$ and $\hilb{H}_S$
 (and there is no explicit ``interaction term''). In other words,
 $\op{\mathbb{J}}$ can be expressed as
-[{\color{red}TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pwHamiltonian}?]\begin{equation}\label{eq:pw:redundant_J}  
+\begin{equation}\label{eq:pwHamiltonian}
   \op{\mathbb{J}} = \op{H}_T \ox \idop_S + \idop_T \ox \op{H}_S \, \text{.} 
 \end{equation}
 Therefore,
@@ -144,43 +146,45 @@ with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).\footn
 }
 
 %% \section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
+
+The paper by Giovannetti, Lloyd and Maccone \citereset\parencite{Lloyd:Time}
+was published about three decades after the original work
+of Page and Wootters \parencite{PageWootters},
+developing the model further and,
+in particular,
+addressing technical issues which have been raised meanwhile.
+
+Note that both papers deal with a continuous notion of time
+(the spectrum of the time operator include all $t \in \mathbb{R}$).
+A time operator with a discrete, finite spectrum was introduced at the beginning of this Section
+only for simplicity.
+
+% In this formulation,
+% in addition to the ordinary Hilbert space of the system,
+% an extra Hilbert space $\mathcal{H}_T$ is considered,
+% where time is an observable
+% represented by a self-adjoint operator.
+% The ordinary Hilbert space can be labeled $\mathcal{H}_S$;
+% and we consider the tensor product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+% the space in which both time and position are observables, and they act as
+% $T \otimes \idop_S$ and $\idop_T \otimes X$
+% respectively.
+
+% As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+% encompassing both position and time as observables, is given by
+% [{\color{red} TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pw:redundant_J}?]\begin{equation}\label{eq:pwHamiltonian}
+%   \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
+% \end{equation}
+% where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
+% Also, the \term{Wheeler-DeWitt equation} holds:
+% \begin{equation}\label{eq:Wheeler-DeWitt}
+%   \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+% \end{equation}
+% describing a \emph{static} universe, where evolution is only
+% in terms of relations between parts of a multipartite system
+% (a ``clock'' and ``the rest'').
+
 \hrulefill
-
-About three decades after the first publication by
-Don Page and William Wootters \parencite{PageWootters},
-the model was further developed,
-in particular by Lloyd, Giovannetti and Maccone,
-with emphasis on addressing technical issues which have been raised meanwhile
-\parencite{Lloyd:Time}.
-
-In this formulation,
-in addition to the ordinary Hilbert space of the system,
-an extra Hilbert space $\mathcal{H}_T$ is considered,
-where time is an observable
-represented by a self-adjoint operator.
-The ordinary Hilbert space can be labeled $\mathcal{H}_S$;
-and we consider the tensor product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
-the space in which both time and position are observables, and they act as
-$T \otimes \idop_S$ and $\idop_T \otimes X$
-respectively.
-
-As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
-encompassing both position and time as observables, is given by
-[{\color{red} TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pw:redundant_J}?]\begin{equation}\label{eq:pwHamiltonian}
-  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
-\end{equation}
-where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
-Also, the \term{Wheeler-DeWitt equation} holds:
-\begin{equation}\label{eq:Wheeler-DeWitt}
-  \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
-\end{equation}
-describing a \emph{static} universe, where evolution is only
-in terms of relations between parts of a multipartite system
-(a ``clock'' and ``the rest'').
-
-% Please note the special notation $\dket{\Psi}$ (double angle bracket),
-% to indicate a state vector in the ``larger'' product space $\pwspace$,
-% as opposed to vectors belonging to $\hilb{H}_S$ (or $\hilb{H}_T$) only.
 
 The ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
 can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
@@ -382,11 +386,6 @@ $t_0$~and~$t$,
 one easily gets
 $\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
 which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
-
-
-
-
-
 
 \subsection{Normalizable vectors of $\pwspace$}
 \label{sec:properpw}
