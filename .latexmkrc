@@ -9,6 +9,9 @@ $pdf_mode = 1;
 # Enable synctex
 $pdflatex = 'pdflatex -file-line-error -synctex=1 %O %S';
 
+#
+$silent = 1;
+
 # Extra file extensions for lakexmk -C
 $clean_ext = 'run.xml bbl fdb_latexmk synctex.gz';
 

@@ -19,13 +19,9 @@
 \usepackage{subcaption} % https://tex.stackexchange.com/a/43996 + https://tex.stackexchange.com/a/165730
   \captionsetup{subrefformat=parens}
 \usepackage{color}
-\ifscr
-  %% Cropped version, for screen display
-  \usepackage[a4paper,lmargin=1cm,rmargin=1cm,paperwidth=\paperwidth-4cm,paperheight=\paperheight-4.5cm,tmargin=0.85cm,bmargin=1.25cm,includeheadfoot]{geometry}
-\else
-  %% Default version, for print
-  \usepackage[a4paper,lmargin=4cm]{geometry}
-\fi
+
+\usepackage[a4paper,lmargin=4cm]{geometry}
+
 \usepackage{multirow}
 \usepackage{fancyhdr}
 \pagestyle{fancy}  %% prevent long section titles from overflowing page headers
@@ -98,18 +94,24 @@
 \usepackage{bookmark}
 
 % "dev only"
-\usepackage[breakable,skins]{tcolorbox}
-  \definecolor{tcbcolback} {HTML}{EEEEFF}
-  \definecolor{tcbcolframe}{HTML}{4444BB}
-  \tcbset{
-    colback=tcbcolback, colframe=tcbcolframe,
-    breakable, enhanced jigsaw,
-    parbox=false, before upper={%
-      \setlength{\parskip}{0.666em}%
-      \setlength{\parindent}{0pt}%
-      \setstretch{1.2}%
-    }%
-  }
+\ifdev
+  % \usepackage[breakable,skins]{tcolorbox}
+  % \definecolor{tcbcolback} {HTML}{EEEEFF}
+  % \definecolor{tcbcolframe}{HTML}{4444BB}
+  % \tcbset{
+  %   colback=tcbcolback, colframe=tcbcolframe,
+  %   breakable, enhanced jigsaw,
+  %   parbox=false, before upper={%
+  %     \setlength{\parskip}{0.666em}%
+  %     \setlength{\parindent}{0pt}%
+  %     \setstretch{1.2}%
+  %   }
+  % }
+
+  % https://tex.stackexchange.com/a/53252
+  \pdfcompresslevel=0
+  \pdfobjcompresslevel=0
+\fi
 
 \input{tex/lib}
 
