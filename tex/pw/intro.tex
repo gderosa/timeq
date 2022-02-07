@@ -154,10 +154,10 @@ developing the model further and,
 in particular,
 addressing technical issues which have been raised meanwhile.
 
-Note that both papers deal with a continuous notion of time
-(the spectrum of the time operator include all $t \in \mathbb{R}$).
-A time operator with a discrete, finite spectrum was introduced at the beginning of this Section
-only for simplicity.
+% Note that both papers deal with a continuous notion of time
+% (the spectrum of the time operator include all $t \in \mathbb{R}$).
+% A time operator with a discrete, finite spectrum was introduced at the beginning of this Section
+% only for simplicity.
 
 % In this formulation,
 % in addition to the ordinary Hilbert space of the system,
@@ -184,8 +184,6 @@ only for simplicity.
 % in terms of relations between parts of a multipartite system
 % (a ``clock'' and ``the rest'').
 
-\hrulefill
-
 The ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
 can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
   For the partial inner product,
@@ -201,9 +199,9 @@ The function $ t \rightarrow \ket{\psi(t)}_S \; $ is the
 with the wavefunction in position representation of standard quantum mechanics.
 The state vector $\dket{\Psi}$ is univocally identified by the ``coefficients'' $\ket{\psi(t)}_S$
 with respect to the basis $\setof{\ket{t}_T}$:
-\begin{equation*}
+\begin{equation}\label{eq:pw:}
   \dket{\Psi} = \int \dd{t} \ket{t}_T \ox \ket{\psi(t)}_S \, \text{,}
-\end{equation*}
+\end{equation}
 somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
 which defines the position representation.
 
@@ -223,6 +221,8 @@ and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
 \end{equation}
 we recover the usual form of the Schr\"{o}dinger equation in $H_S$
 (see also \cite[709--710]{Wootters:Loyola}).
+
+\hrulefill
 
 Here $\op{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
