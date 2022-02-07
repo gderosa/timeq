@@ -205,10 +205,24 @@ with respect to the basis $\setof{\ket{t}_T}$:
 somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
 which defines the position representation.
 
-TODO: redundant or remove following. Under this time representation (or $T$ representation), the operator $\hbar\Omega$,
-canonically conjugate to the time operator T, is expressed as $-i\hbar\pdv{t}$,
+TODO START
+
+Under this time representation (or $T$ representation), the operator $\hbar\Omega$,
+canonically conjugate to the time operator $\op{T}$, is expressed as $-i\hbar\pdv{t}$,
 and the commutation relation $\comm{t, -i\hbar\pdv{t}}{} = i\hbar$ can be proven
 immediately, similarly to the well known position-momentum relation.
+
+Canonical commutation relation should hold and can be easily verified
+between $\op{T}$ and $\op{\Omega}$
+i.e.
+$ \displaystyle
+  [\op{T}, \op{\Omega}] \repr_{T} [t, -i\pdv{t}] = i \text{,}
+$
+similarly to $\displaystyle \comm{\op{x}}{\op{p}} \repr_{x} \comm{x}{-i\hbar\pdv{x}} = i\hbar$.
+Thus, $\hbar\op{\Omega}$ can be seen as similar to a ``linear momentum''
+in the Hilbert space of time.
+
+TODO END
 
 %% \hbar\Omega is -E ... and \Omega \repr -i t-derivative ... and [T, \Omega] = i .
 
@@ -222,22 +236,9 @@ and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
 we recover the usual form of the Schr\"{o}dinger equation in $H_S$
 (see also \cite[709--710]{Wootters:Loyola}).
 
-\hrulefill
-
 Here $\op{\Omega}$ can be seen as a ``frequency operator''
 represented as $-i\pdv{t}$ and having as eigenfunctions
 those functions evolving in time with a phase factor $e^{i \omega t}$ only.
-
-TODO: redundant or remove previous similar.
-Canonical commutation relation should hold and can be easily verified
-between $\op{T}$ and $\op{\Omega}$
-i.e.
-$ \displaystyle
-  [\op{T}, \op{\Omega}] \repr_{T} [t, -i\pdv{t}] = i \text{,}
-$
-similarly to $\displaystyle \comm{\op{x}}{\op{p}} \repr_{x} \comm{x}{-i\hbar\pdv{x}} = i\hbar$.
-Thus, $\hbar\op{\Omega}$ can be seen as the ``linear momentum''
-in the Hilbert space of time.
 
 From another point of view, $\op{H}_{T} = \hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
 in that it plays a similar role of $H_S$ in the construction of
