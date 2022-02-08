@@ -255,7 +255,7 @@ Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized i
       %
       & $\hbar\op{\Omega}$                      & $\op{p}$                            \\
       \hline
-      ``Hamiltonian''
+      Hamiltonian
       & $\op{H}_T = \hbar\op{\Omega}$           & $\op{H_S}$
     \end{tabular}
     {\caption{
@@ -320,34 +320,34 @@ $\ket{\phi(\omega)}_S$ has norm $1$ for every real value of $\omega$.
 Actually, given that the spectrum of $\op{H}_S$ is bounded from below,
 certainly there are values of $\omega$ for which $\ket{\phi(\omega)}_S = \nullvector$.
 
-{\color{magenta}\hrulefill}
+\subsection{TODO: Spectra and signs in $\hilb{H}_S$ and $\hilb{H}_S$}
+
+See \url{https://drive.google.com/file/d/1Cu5TlM-N0JJjFMkocVR1FJSN61NMzQvb/view?usp=sharing}.
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
 
-TODO: FIX SIGNS: HAMILTONIAN OF THE CLOCK HAS OPPOSITE SIGNS THAN THE HAMILTONIAN OF THE ``REST''.
-ENERGY AND FREQUENCY HAVE OPPOSITE SIGNS (IN STD QM (TOO)). SEE ALSO LAST 3 IMAGE UPLOADS TO
-GDRIVE/timeq.
-
-An extreme case for the measure $\mu$ in \eqref{eq:pw:time_freq_mu}
+An extreme case for the distribution $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_mu}
 is the evolution of an energy eigenstate
-(related, say, to eigenvalue\footnote{
-  Some care must be taken with the sign convention used in
-  \cite{Lloyd:Time} where
-  energy and frequency have \emph{opposite} signs.
-}
-$E_0 \eqbydef -\hbar\omega_{0}$):
+(%
+  related, say, to eigenvalue
+  %\footnote{
+  %   Some care must be taken with the sign convention used in
+  %   \cite{Lloyd:Time} where
+  %   energy and frequency have \emph{opposite} signs.
+  % }
+  $E_0 \eqbydef \hbar\omega_{0}$%
+):
 in this case the evolution is
-$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
-and
-the measure is
-$\mu(\omega) = \delta(\omega-\omega_0)$
-(it  ``selects''only $\omega_0$ among all possible values
-of $\omega$).
+$\ket{\psi(t)}_{S} = \E^{-\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
+and it holds
+$\ket{\phi(\omega)}_{S} = \delta(\omega+\omega_0) \ket{\phi(-\omega_0)}_{S}$,
+thus  ``selecting'' $\ket{-\omega_0}_T$ only, among all possible values
+of $\ket{\omega}_T$.
 
 Indeed:
 \[
-  \dket{\Psi} = \int \dd{\omega} \delta(\omega-\omega_0)\ket{\omega}_T \ox \ket{\phi(\omega)}_S =
-    \ket{\omega_0}_T \ox \ket{\phi(\omega_0)}_S \text{.}
+  \dket{\Psi} = \int \dd{\omega} \delta(\omega-(-\omega_0))\ket{\omega}_T \ox \ket{\phi(\omega)}_S =
+    \ket{-\omega_0}_T \ox \ket{\phi(-\omega_0)}_S \text{.}
 \]
 Also, using the relations
 $
@@ -376,15 +376,17 @@ it follows that\footnote{%
 \]
 therefore the \emph{evolution} (in $\hilb{H}_S$) is
 \begin{equation}
-  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} = \prescript{}{T}{\braket{t}{\omega_0}}_{T} \ket{\phi(\omega_0)}_S =
-    \frac{1}{\sqrt{2\pi}} \E^{\iu\omega_0 t} \ket{\phi(\omega_0)}_S \text{.}
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} = \prescript{}{T}{\braket{t}{-\omega_0}}_{T} \ket{\phi(-\omega_0)}_S =
+    \frac{1}{\sqrt{2\pi}} \E^{-\iu\omega_0 t} \ket{\phi(-\omega_0)}_S \text{.}
 \label{eq:pw:stat_eigenst_of_H_S}
 \end{equation}
 By evaluating and comparing eq. \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time
 $t_0$~and~$t$,
 one easily gets
-$\ket{\psi(t)}_{S} = \E^{\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
+$\ket{\psi(t)}_{S} = \E^{-\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
 which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
+
+{\color{magenta}\hrulefill}
 
 \subsection{Normalizable vectors of $\pwspace$}
 \label{sec:properpw}
