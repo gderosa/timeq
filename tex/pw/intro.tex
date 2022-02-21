@@ -362,22 +362,15 @@ of $\op{\Omega} \ox \idop_S$.
 But $\dket{\Psi_0}$ is an eigenvector itself,
 for the eigenvalue $-\omega_0$,
 therefore the coefficients $\mu_0(\omega)$ must be
-\begin{equation}
+\begin{equation}\label{eq:pw:mudelta}
   \mu_0(\omega) = \delta\qty(\omega - \qty(-\omega_0) ) = \delta\qty(\omega + \omega_0) \text{.}
 \end{equation}
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
 
-[\dots FIXME] in this case the evolution is
-$\ket{\psi(t)}_{S} = \E^{-\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$
-and it holds
-$\ket{\phi(\omega)}_{S} = \delta(\omega+\omega_0) \ket{\phi(-\omega_0)}_{S}$,
-thus  ``selecting'' $\ket{-\omega_0}_T$ only, among all possible values
-of $\ket{\omega}_T$.
-
-Indeed:
+Conversely, if \eqref{eq:pw:mudelta} holds:
 \[
-  \dket{\Psi} = \int \dd{\omega} \delta(\omega-(-\omega_0))\ket{\omega}_T \ox \ket{\phi(\omega)}_S =
+  \dket{\Psi} = \int \dd{\omega} \delta(\omega + \omega_0) \ket{\omega}_T \ox \ket{\phi(\omega)}_S =
     \ket{-\omega_0}_T \ox \ket{\phi(-\omega_0)}_S \text{.}
 \]
 Also, using the relations
@@ -415,7 +408,7 @@ By evaluating and comparing eq. \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitra
 $t_0$~and~$t$,
 one easily gets
 $\ket{\psi(t)}_{S} = \E^{-\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
-which is the expected stationary evolution for an energy eigenstate in standard quantum mechanics. 
+which is the expected stationary evolution for an energy eigenstate in quantum mechanics. 
 
 {\color{magenta}\hrulefill}
 
