@@ -276,9 +276,9 @@ entangled, respectively, with
 eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
 or eigenstates of $\op{T}$ in $\hilb{H}_T$
 entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
-\begin{equation}\label{eq:pw:time_freq_mu}
+\begin{equation}\label{eq:pw:time_freq_nomu}
   \dket{\Psi} =
-    \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\phi(\omega)}_{S} =
+    \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\Phi(\omega)}_{S} =
     \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
 \end{equation}
 %
@@ -314,15 +314,26 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
 % \end{tcolorbox}
 Note that,
 while it is $\braket{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$ (unitary evolution,
-as in standard~QM),
+as in standard quantum mechanics),
 one should not necessarily expect that
-$\ket{\phi(\omega)}_S$ has norm $1$ for every real value of $\omega$.
-Actually, given that the spectrum of $\op{H}_S$ is bounded from below,
-certainly there are values of $\omega$ for which $\ket{\phi(\omega)}_S = \nullvector$.
+$\ket{\Phi(\omega)}_S$ has norm~$1$ for each real value of $\omega$.
+In particular, if $\hbar\omega$ is not in the spectrum of $\op{H}_S$,
+then $\ket{\Phi(\omega)}_S = \nullvector$, the vector does not contribute to the integral.
+Given that the spectrum of $\op{H}_S$ is bounded from below,
+certainly there are values of $\omega$ for which this is the case.
+With these considerations, eq. \eqref{eq:pw:time_freq_nomu}, with regards to the first integral, may also be reformulated as
+\begin{equation}\label{eq:pw:time_freq_mu}
+  \dket{\Psi} =
+    \int \dd{\omega} \mu(\omega) \ket{\omega}_{T} \ox \ket{\phi(\omega)}_{S} \text{,}
+\end{equation}
+with $\ket{\phi(\omega)}_{S}$ normalized for any real value of $\omega$
+--- see also \cite[eq.~(10)]{Lloyd:Time}.
+This notation will be useful in the following example.
 
 \subsection{TODO: Spectra and signs in $\hilb{H}_S$ and $\hilb{H}_S$}
 
-An extreme case for the distribution $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_mu}
+An extreme case for the distribution $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_nomu}
+(or $\mu(\omega)$ in \eqref{eq:pw:time_freq_mu})
 is what in standard quantum mechanics would be the time evolution of an energy eigenstate
 (an eigenstate of $\op{H}_S$ in $\hilb{H}_S$ within Page--Wootters formalism), 
 related, say, to eigenvalue $E_0 \eqbydef \hbar\omega_{0}$%.
