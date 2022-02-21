@@ -333,10 +333,10 @@ This notation will be useful in the following example.
 \subsection{TODO: Spectra and signs in $\hilb{H}_S$ and $\hilb{H}_S$}
 
 An extreme case for the distribution $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_nomu}
-(or $\mu(\omega)$ in \eqref{eq:pw:time_freq_mu})
-is what in standard quantum mechanics would be the time evolution of an energy eigenstate
-(an eigenstate of $\op{H}_S$ in $\hilb{H}_S$ within Page--Wootters formalism), 
-related, say, to eigenvalue $E_0 \eqbydef \hbar\omega_{0}$%.
+---or $\mu(\omega)$ in \eqref{eq:pw:time_freq_mu}---
+is, as an example, what in standard quantum mechanics would be the time evolution of an energy eigenstate
+(or an eigenstate of $\op{H}_S$ in $\hilb{H}_S$, within the Page--Wootters formalism).
+Let the related eigenvalue be $E_0 \eqbydef \hbar\omega_{0}$.
 
 The corresponding ``history vector''
 \[
@@ -350,6 +350,21 @@ is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
 In order to statisfy eq. \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian},
 $\dket{\Psi_0}$ must also be an eigenvector of $\hbar\op{\Omega} \ox \idop$,
 but related to the \emph{opposite} eigenvalue $-E_0 = -\hbar\omega_0$.
+
+From eq.~\eqref{eq:pw:time_freq_mu}, we can write, in particular:
+\begin{equation}
+  \dket{\Psi_0} =
+    \int \dd{\omega} \mu_0(\omega) \ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S} \text{,}
+\end{equation}
+which expands $\dket{\Psi_0}$ over a continuous orthonormal eigenbasis
+$\setof{\ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S}}$
+of $\op{\Omega} \ox \idop_S$.
+But $\dket{\Psi_0}$ is an eigenvector itself,
+for the eigenvalue $-\omega_0$,
+therefore the coefficients $\mu_0(\omega)$ must be
+\begin{equation}
+  \mu_0(\omega) = \delta\qty(\omega - \qty(-\omega_0) ) = \delta\qty(\omega + \omega_0) \text{.}
+\end{equation}
 
 \subsection{Example: eigenstate of the Hamiltonian $\op{H}_S$ in $\hilb{H}_S$}\label{sec:pw:eeigenstate}
 
