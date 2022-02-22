@@ -330,7 +330,7 @@ with $\ket{\phi(\omega)}_{S}$ normalized for any real value of $\omega$
 --- see also \cite[eq.~(10)]{Lloyd:Time}.
 This notation will be useful in the following example.
 
-\subsection{Example: Hamiltonian eigenstate. Spectra and signs in $\hilb{H}_S$ and $\hilb{H}_S$}
+\subsection{Example: Hamiltonian eigenstate. Spectra and signs in $\hilb{H}_T$ and $\hilb{H}_S$}
 
 An extreme case for the distribution $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_nomu}
 ---or $\mu(\omega)$ in \eqref{eq:pw:time_freq_mu}---
@@ -339,13 +339,13 @@ is, as an example, what in standard quantum mechanics would be the time evolutio
 Let the related eigenvalue be $E_0 \eqbydef \hbar\omega_{0}$.
 
 The corresponding ``history vector''
-\begin{multline*}
+\begin{align*}
   \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S %% = \int \dd{t} \ket{t}_T \ox \E^{-\iu \omega_0 (t-t_0)} \ket{\psi_0(t_0)}_S
-  \text{,}
+  \text{,} \, & 
   \\
-  \text{with} \;
-  \op{H}_S \ket{\psi_0(t)} = E_0 \ket{\psi_0(t)} \text{,} \;  \forall t \in \mathbb{R}
-\end{multline*}
+              & \text{with} \;
+  \op{H}_S \ket{\psi_0(t)} = E_0 \ket{\psi_0(t)} \text{,} \;  \forall t \in \mathbb{R} \text{,}
+\end{align*}
 is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
 \[
   \qty(\idop_T \ox \op{H}_S) \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox E_0 \ket{\psi_{0}(t)}_S = E_0 \dket{\Psi_0} \text{.}
@@ -386,7 +386,7 @@ $
   \frac{1}{\sqrt{2\pi}} \int\dd{t}\E^{\iu\omega t}\ket{t}_T
   \,
 $
-\parencite{Lloyd:Time},
+(see also \cite{Lloyd:Time}),
 it follows that\footnote{%
   Please note the analogy with the well-known
   inner product of position and momentum eigenvectors in standard quantum mechanics:
