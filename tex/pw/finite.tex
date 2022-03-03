@@ -4,16 +4,17 @@
 }
 
 \noindent
+Finite-dimensional systems are of interest, phenomenologically,
+and in general easier to implement,
+both experimentally and numerically.
+
 An experimental illustration of the Page--Wootters model will be discussed in Sec. \ref{sec:pw:qubit}.
 It is based on a clock
 (defined through the corresponding frequency operator)
 which has two discrete levels only.
 
-Finite-dimensional systems are of interest, phenomenologically,
-and in general easier to implement,
-both experimentally and numerically.
 However,
-finite-dimension Hilbert spaces
+finite-dimensional formulas
 present diffilcuties in identifying canonically conjugate
 pairs, and one cannot use the same explicit formalism
 that would be used for observables with a continuous spectrum.
@@ -26,7 +27,7 @@ cannot be both bounded, therefore cannot exist in a finite-dimensional space.
 
 This problem was studied in detail in
 \cite{FiniteHilb}. It was shown therein
-that statisfying the canonical commutation relation 
+that statisfying the canonical commutation relation
 is not essential to build operators representing physical observables
 with the same role of position and momentum.\footnote{
   Or $T$ and $\hbar\Omega$
@@ -71,12 +72,12 @@ Let us start with a continuous system where the Fourier transform $\phi \eqbydef
 an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
 \begin{equation}\label{eq:fourier_transform:def}
   \phi(\omega) = \left(\mathcal{F}\psi\right) (\omega) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{- \iu t \omega} \text{,} 
+    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{\iu t \omega} \text{,}
 \end{equation}
 and the well known \term{inversion} property
 \begin{equation}\label{eq:inverse_fourier_transform:def}
   \psi(t) = \left(\mathcal{F}^{-1} \phi \right) (t) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{\iu t \omega} 
+    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{ - \iu t \omega}
 \end{equation}
 can be can be proven (see e.g. \cite{Folland:Fourier}).
 
@@ -107,7 +108,7 @@ It is easily seen that:
 \end{gather}
 Also:
 \begin{equation}\label{eq:DFT:eigenratio}
-  \omega_{n} = \frac{2\pi}{N(\delta{T})^{2}} t_{n}  \, \text{.} 
+  \omega_{n} = \frac{2\pi}{N(\delta{T})^{2}} t_{n}  \, \text{.}
 \end{equation}
 %
 The discretization
@@ -117,11 +118,11 @@ then reads\footnote{
   \cite{Oppenheim:Int1,Oppenheim:Int3,ProakisManolakis}.
 }
 \begin{equation}\label{eq:DFT:def}
-  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
+  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{\iu n m 2 \pi / N}
 \end{equation}
 and, respectively,
 \begin{equation}\label{eq:IDFT:def}
-  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{\iu n m 2 \pi / N} \text{.}
+  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{-\iu n m 2 \pi / N} \text{.}
 \end{equation}
 %
 Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
@@ -140,6 +141,8 @@ with elements $F_{mn}^{\dagger}$):
   F_{mn}^{\dagger}  &= \frac{1}{\sqrt{N}} \E^{ \iu n m 2 \pi / N}
   \text{.}
 \end{align}
+
+{\color{magenta}\hrulefill}
 
 The (discrete) Fourier transform can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
@@ -181,7 +184,7 @@ by $\braket{t_m} = 1$
 we immediately get:
 \begin{equation}\label{eq:DFO:bra}
   \bra{\omega_{m}} =
-  % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} = 
+  % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} =
   \bra{t_m} \op{F} \text{.}
 \end{equation}
 Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
@@ -214,7 +217,7 @@ In conclusion:
       \\
   \label{eq:SI_Fourier:T}
     \op{T} =
-      \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} = 
+      \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} =
       \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger}
       \, \text{;}
 \end{gather}
