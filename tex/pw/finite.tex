@@ -142,7 +142,7 @@ with elements $F_{mn}^{\dagger}$):
   \text{.}
 \end{align}
 
-{\color{magenta}\hrulefill}
+% {\color{magenta}\hrulefill}
 
 The (discrete) Fourier transform can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
@@ -204,6 +204,7 @@ to obtain:
   = \sum_{m} \frac{t_m}{\delta{T}} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
   = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
   \\
+  =
   \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
   \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F} = \frac{\delta\Omega}{\delta{T}} \op{F}^{\dagger} \op{T} \op{F}
   \text{.}
@@ -246,17 +247,17 @@ $t_n = \omega_n = 0, 1, \dots, N-1$
 % }
 (in fact, the paper defines ``position'' $\op{X}$ and ``momentum'' $\op{P}$,
 but in a similar fashion).
-% In other words, the sampling interval and the fundamental harmonic angular frequency
-% are both rescaled to $1$.
-Moreover, the roles of the Fourier transform and its inverse are swapped therein.
-Other authors may adopt different conventions and units
-(see, for example, \cite[Sec. 11.5]{Carlson}).
-The conventions chosen in this Section
-are compatible with the computational software libraries\footnote{
-  See \cite{comp:scipy} and, in particular,
-  \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.dft.html}.
-}
-used later in this work.
+In other words, in \citereset\cite{FiniteHilb}, the sampling interval and the fundamental harmonic angular frequency
+are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of position and momentum).
+% Moreover, the roles of the Fourier transform and its inverse are swapped therein.
+% Other authors may adopt different conventions and units
+% (see, for example, \cite[Sec. 11.5]{Carlson}).
+% The conventions chosen in this Section
+% are compatible with the computational software libraries\footnote{
+%   See \cite{comp:scipy} and, in particular,
+%   \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.dft.html}.
+% }
+% used later in this work.
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
