@@ -199,11 +199,13 @@ to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
   \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
+  \sum_{m} m \qty(\delta\Omega) \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
   \\
-  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
+  = \sum_{m} \frac{t_m}{\delta{T}} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
+  = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
   \\
   \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
-  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F}
+  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F} = \frac{\delta\Omega}{\delta{T}} \op{F}^{\dagger} \op{T} \op{F}
   \text{.}
 \end{multline}
 
@@ -212,16 +214,21 @@ In conclusion:
   \label{eq:SI_Fourier:Omega}
     \op{\Omega} =
       \frac{2\pi}{N(\delta T)^2}          \op{F}^{\dagger} \op{T} \op{F} =
-      \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F}
+      \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F} =
+      \op{F}^{\dagger} \qty(\delta{\Omega} \frac{\op{T}}{\delta{T}}) \op{F}
       \, \text{;}
       \\
   \label{eq:SI_Fourier:T}
     \op{T} =
       \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} =
-      \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger}
+      \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger} =
+      \op{F} \qty(\delta{T} \frac{\op{\Omega}}{\delta{\Omega}}) \op{F}^{\dagger}
       \, \text{;}
 \end{gather}
-where eq.~\eqref{eq:SI_Fourier:T} is obtained by
+where the operator $\frac{\op{T}}{\delta{T}}$ in eq.~\eqref{eq:SI_Fourier:Omega},
+in $T$ representation, is diagonal with integer elements $\setof{0, \dots, N-1}$.
+
+Conversely, eq.~\eqref{eq:SI_Fourier:T} is obtained by
 taking the ``conjugate'' of all the computation
 from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
 
