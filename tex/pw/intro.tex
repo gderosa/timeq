@@ -24,7 +24,8 @@ based on non-unitary evolution.
 \section{The Model}\label{sec:pw:theory_first}
 
 To introduce the Page--Wootters model, let us first consider
-a bipartite system $\hilb{H}_T \ox \hilb{H}_S$.
+a bipartite system $\hilb{H}_T \ox \hilb{H}_S$,
+and a state vector $\dket{\Psi} \in \pwspace$.
 %% Move to finite-dim section? is this just a redundant repetition?
 % the two subsystems of which have finite dimension\footnote{
 %   In general, within the model,
@@ -39,14 +40,15 @@ a bipartite system $\hilb{H}_T \ox \hilb{H}_S$.
 %   =
 %   \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \ket{\tau_{n}}_{T} \ox \ket{\psi_{n}}_{S} \text{.}
 % \end{equation}
-Here
-a ``double angle bracket'' notation $\dket{\Psi}$ has been adopted
-for vectors in the tensor product space $\hilb{H}_T \ox \hilb{H}_S$.
-We assume that $\ket{\psi_{n}}_{S}$ are all \emph{normalized} in $\hilb{H}_S$;
-and
-$\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $\op{T}$)
-in $\hilb{H}_T$.
-Furthermore, let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
+A ``double angle bracket'' notation $\dket{\Psi}$ has been adopted
+for vectors in the tensor product space.
+% We assume that $\ket{\psi_{n}}_{S}$ are all \emph{normalized} in $\hilb{H}_S$;
+% and
+% $\qty{\ket{{\tau}_n}}$ is an orthonormal eigenbasis of some observable (say, $\op{T}$)
+% in $\hilb{H}_T$.
+% Furthermore,
+
+Let $\dket{\Psi}$ be \emph{stationary}, meaning it is an eigenstate
 of an overall Hamiltonian $\op{\mathbb{J}}$ in $\hilb{H}_T \ox \hilb{H}_S$:
 \begin{equation}\label{eq:Wheeler-DeWitt}  %%  eq:Wheeler-DeWitt + eq:pwHamiltonian
   \op{\mathbb{J}} \dket{\Psi} = 0 \text{.}
@@ -58,16 +60,18 @@ which only act on the respective subspaces $\hilb{H}_T$ and $\hilb{H}_S$
 (and there is no explicit ``interaction term''). In other words,
 $\op{\mathbb{J}}$ can be expressed as
 \begin{equation}\label{eq:pwHamiltonian}
-  \op{\mathbb{J}} = \op{H}_T \ox \idop_S + \idop_T \ox \op{H}_S \, \text{.} 
+  \op{\mathbb{J}} = \op{H}_T \ox \idop_S + \idop_T \ox \op{H}_S \, \text{.}
 \end{equation}
 Therefore,
 the evolution of the subsystem described by $\hilb{H}_S$
 will only depend on ``its own''
 Hamiltonian $H_S$ (assumed as time-independent), namely
 \begin{equation}\label{eq:pw:ordinary_S}
-  \ket{\psi(t)}_S = e^{- i \op{H}_S t / \hbar} \ket{\psi(0)}_S \text{.}  
+  \ket{\psi(t)}_S = e^{- i \op{H}_S t / \hbar} \ket{\psi(0)}_S \text{.}
 \end{equation}
- 
+
+{\color{red} \hrule{\textwidth}}
+
 The overall system state
 %---as the one described by $\hilb{H}_T \ox \hilb{H}_S$ in \eqref{eq:pw:finite-entanglement}---
 is stationary and there is no notion
