@@ -137,8 +137,6 @@ and (``evolved'') states in $\hilb{H}_S$.
 % As $H_S$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
 % (how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
 
-{\color{magenta}\hrulefill}
-
 % The symbols $\hilb{H}_T$ % and $\hilb{H}_S$
 % naturally indicates
 % the Hilbert spaces where a time operator $\op{T}$ is defined,
@@ -157,44 +155,16 @@ and (``evolved'') states in $\hilb{H}_S$.
 
 %% \section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
 
-The paper by Giovannetti, Lloyd and Maccone \citereset\parencite{Lloyd:Time}
-was published about three decades after the original work
-of Page and Wootters \parencite{PageWootters},
-developing the model further and,
-in particular,
-addressing technical issues which have been raised meanwhile.
+About three decades after the original work
+by Page and Wootters \parencite{PageWootters},
+the formalism was developed further
+by Giovannetti, Lloyd and Maccone \citereset\parencite{Lloyd:Time}.
+Most technical details introduced below are based
+on that paper.
 
-% Note that both papers deal with a continuous notion of time
-% (the spectrum of the time operator include all $t \in \mathbb{R}$).
-% A time operator with a discrete, finite spectrum was introduced at the beginning of this Section
-% only for simplicity.
+% {\color{magenta}\hrulefill}
 
-% In this formulation,
-% in addition to the ordinary Hilbert space of the system,
-% an extra Hilbert space $\mathcal{H}_T$ is considered,
-% where time is an observable
-% represented by a self-adjoint operator.
-% The ordinary Hilbert space can be labeled $\mathcal{H}_S$;
-% and we consider the tensor product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
-% the space in which both time and position are observables, and they act as
-% $T \otimes \idop_S$ and $\idop_T \otimes X$
-% respectively.
-
-% As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
-% encompassing both position and time as observables, is given by
-% [{\color{red} TODO}: this (and discussion around) redundant with eq.~\eqref{eq:pw:redundant_J}?]\begin{equation}\label{eq:pwHamiltonian}
-%   \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\op{H}_S \,\text{,}
-% \end{equation}
-% where $\hbar\op{\Omega}$ is the canonically conjugate to the operator $\op{T}$ in $\hilb{H}_T$.
-% Also, the \term{Wheeler-DeWitt equation} holds:
-% \begin{equation}\label{eq:Wheeler-DeWitt}
-%   \op{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
-% \end{equation}
-% describing a \emph{static} universe, where evolution is only
-% in terms of relations between parts of a multipartite system
-% (a ``clock'' and ``the rest'').
-
-The ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
+First of all, the ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
 can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
   For the partial inner product,
   see Definition \ref{def:pBra} and \ref{def:pKet},
@@ -215,8 +185,7 @@ with respect to the basis $\setof{\ket{t}_T}$:
 somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
 which defines the position representation.
 
-
-Under this time representation (or $T$ representation), the operator $\hbar\op{\Omega}$,
+Under this time representation (or T representation), the operator $\hbar\op{\Omega}$,
 canonically conjugate to the time operator $\op{T}$, is expressed as $-i\hbar\pdv{t}$,
 and the commutation relation
 $[\op{T}, \op{\Omega}] \repr_{T} \comm{t, -i\hbar\pdv{t}}{} = i\hbar$
@@ -244,11 +213,7 @@ those functions evolving in time with a phase factor $e^{i \omega t}$ only.
 
 From another point of view, $\op{H}_{T} = \hbar\op{\Omega}$ is the ``Hamiltonian'' of $\hilb{H}_T$,
 in that it plays a similar role of $H_S$ in the construction of
-$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}.\footnote{
-  Some authors (e.g. in \citereset\cite{Wootters:Loyola})
-  use the symbol $H_C$ (where the subscript ``$C$'' stands for ``clock'') in place of
-  $\hbar\op{\Omega}$, to emphasize this.
-}
+$\op{\mathbb{J}}$ in \eqref{eq:pwHamiltonian}.
 
 Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized in Table \ref{tbl:op_comparison_pw}.
 
