@@ -251,10 +251,9 @@ entangled, respectively, with
 eigenstates of $\op{H}_S$ in $\hilb{H}_S$;
 or eigenstates of $\op{T}$ in $\hilb{H}_T$
 entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
-({\color{red}TODO}: find a better symbol than $\Phi(\omega)$?)
 \begin{equation}\label{eq:pw:time_freq_nomu}
   \dket{\Psi} =
-    \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\Phi(\omega)}_{S} =
+    \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\tilde{\psi}(\omega)}_{S} =
     \int \dd{t} \, \ket{t}_{T} \ox \ket{\psi(t)}_{S} \text{.}
 \end{equation}
 %
@@ -292,17 +291,18 @@ Note that,
 while it is $\braket{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$ (unitary evolution,
 as in standard quantum mechanics),
 one should not necessarily expect that
-$\ket{\Phi(\omega)}_S$ has norm~$1$ for each real value of $\omega$.
-In particular, if $\hbar\omega$ is not in the spectrum of $\op{H}_S$,
-then $\ket{\Phi(\omega)}_S = \nullvector$, the vector does not contribute to the integral.
-Given that the spectrum of $\op{H}_S$ is bounded from below,
+$\ket{\tilde{\psi}(\omega)}_S$ has norm~$1$ for each real value of $\omega$.
+In particular, if $\hbar\omega$ is not in the energy spectrum of the system,
+then $\ket{\tilde{\psi}(\omega)}_S = \nullvector$, i.e. the vector does not contribute to the integral.
+Given that the energy spectrum is bounded,
 certainly there are values of $\omega$ for which this is the case.
 With these considerations, eq. \eqref{eq:pw:time_freq_nomu}, with regards to the first integral, may also be reformulated as
 \begin{equation}\label{eq:pw:time_freq_mu}
   \dket{\Psi} =
     \int \dd{\omega} \mu(\omega) \ket{\omega}_{T} \ox \ket{\phi(\omega)}_{S} \text{,}
 \end{equation}
-with $\ket{\phi(\omega)}_{S}$ normalized for any real value of $\omega$
+with $\ket{\phi(\omega)}_{S}$ normalized for any real value of $\omega$,
+and $\mu(\omega)\ket{\phi(\omega)}_{S} = \ket{\tilde{\psi}(\omega)}_S$
 --- see also \cite[eq.~(10)]{Lloyd:Time}.
 This notation will be useful in the following example.
 
