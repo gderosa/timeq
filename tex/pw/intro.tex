@@ -132,28 +132,10 @@ which are also eigenvalues of an observable $\op{T}$ defined in \emph{another} s
 with which it is entangled. Such entanglement relation establishes a correspondence
 between ``instants of time'' (eigenvalues and eigenstates of observable $\op{T}$)
 and (``evolved'') states in $\hilb{H}_S$.
-% Thus, time can be regarded as a quantum observable,
-% although defined in a different Hilbert space than the one of the Hamiltonian of interest.
-% As $H_S$ and $T$ acts on two different Hilbert spaces, the Pauli objection is no longer valid
-% (how canonical conjugation and uncertainty relations hold will be clearer in Sec.~\ref{sec:pw:uncertainty}).
 
-% The symbols $\hilb{H}_T$ % and $\hilb{H}_S$
-% naturally indicates
-% the Hilbert spaces where a time operator $\op{T}$ is defined,
-% while $\hilb{H}_S$ indicates
-% the ordinary Hilbert space of the \emph{S}ystem.
-% This notation is based on \citereset\cite{Lloyd:Time}
-% (where also the blackboard bold typeface, e.g. ``$\op{\mathbb{J}}$'',
-% is used for operators defined in a larger space
-% than the one of standard quantum mechanics,
-% typically the product $\hilb{H}_T \ox \hilb{H}_S$).
-% It is tempting to relate $\hilb{H}_T$ and $\hilb{H}_S$
-% to temporal (T) and spatial (S)
-% degrees of freedom, thus forming a sort of
-% ``space-time'' (and this will be even more apparent
-% with a relativistic extension that will be sketched in Sec.~\ref{sec:KG}).%
-
+%%
 %% \section{Development of the Formalism}\label{sec:pw:formalism}\label{sec:pw:theory_first}
+%%
 
 About three decades after the original work
 by Page and Wootters \parencite{PageWootters},
@@ -161,8 +143,6 @@ the formalism was developed further
 by Giovannetti, Lloyd and Maccone \citereset\parencite{Lloyd:Time}.
 Most technical details introduced below are based
 on that paper.
-
-% {\color{magenta}\hrulefill}
 
 First of all, the ``conventional'' state $\ket{\psi(t)}_S$ in $\hilb{H}_S$
 can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
@@ -415,6 +395,7 @@ which means that such $\dket{\Psi}$ is an \term{improper} vector of $\hilb{H}_T 
 
 Proper (i.e. normalizable) states are described in \citereset\cite{Lloyd:Time} as well, by replacing (or generalizing)
 the \eqref{eq:pwexpansion} with
+[{\color{red} TODO}: consistent notation?]
 \begin{equation}\label{eq:pwphi}
   \dket{\Phi} =
     \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S \, \text{.}
@@ -464,4 +445,92 @@ must certainly be in some point in space
 }).
 Such states have no correspondence with standard quantum mechanics states and their unitary evolution.
 
-TODO: move here the open-quantum-system-uncertainty stuff? (now commented out in source).
+TODO BEGIN
+{\color{magenta}\hrulefill}
+
+Thus the spatial degrees of freedom should be \emph{traced out},
+before deriving a time--energy relation in $\hilb{H}_T$.
+
+With a slight change of notation we express:
+\begin{equation}\label{eq:pw:uncertain:schmidt}
+  \dket{\Phi} =
+    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
+\end{equation}
+with
+$\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+being
+orthonormal bases of $\hilb{H}_T$,
+and
+$\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform\footnote{
+  Fourier transform of a
+  vector-valued function
+  (vectors in $\hilb{H}_S$),
+  similar to what found in \cite{Maccone:Pauli}.
+}
+of $\ket{\phi(t)}_S$,
+neither kets being necessarily normalized, which is in fact a requirement
+to satisfy the normalization in $\pwspace$
+\[
+  \int \dd{t} \braket{\phi(t)}_S =
+    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
+    \dbradket{\Phi}{\Phi}_{T \ox S} =
+    1
+    \text{.}
+\]
+
+The vector $\dket{\Phi}$
+cannot,
+in general, be simply expressed as a tensor product of two pure states
+in $\hilb{H}_T$ and $\hilb{H}_S$.
+However,
+a ``temporal part'' of $\dket{\Phi}$
+can be identified as a \emph{mixed} state described
+by a (reduced) density operator $\rho_T$ in $\hilb{H}_T$.
+
+To obtain an explicit expression of $\rho_T$,
+we use the definitions and results from Chapter~\ref{ch:decohere},
+in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
+replacing the discrete sums there with integrals,
+and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
+also we identify the indices\footnote{
+  A particular case of eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
+  therefore it becomes
+  $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
+  which can be compared to eq.~\eqref{eq:pw:uncertain:schmidt}.
+}
+$i = \mu$ therein.
+
+The reduced density operator can so be computed
+as the partial trace
+\begin{align}
+  \label{eq:ptrace_density_matrix_t}
+  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+    \, \text{,}
+  \\
+  \label{eq:ptrace_density_matrix_omega}
+  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+    \,\text{.}
+\end{align}
+Here the probabilty distributions $\norm{\phi(t)}^2$ and $\norm{\tilde{\phi}(\omega)}^2$
+are to be intended in the sense of a mixed state
+i.e. probability that a system is in a certain state $\ket{t}_T$
+(or $\ket{\omega}_T$,~respectively),
+not in the sense of the probability of a measurement outcome on a \emph{known} pure state
+(which is what, in its original formulation, the Heisenberg uncertainty principle
+refers to).
+
+Even with this different
+notion of probability (which we may indicate as ``classical''\footnote{
+  See, for example, \cite[eq.~2.20 and following discussion]{Schlosshauer_Decoherence_book}.
+}),
+the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
+can still be proven,
+similarly to
+the Heisenberg uncertainty
+relation for position and linear momentum,
+due to the properties of the Fourier transform,
+which relates $\phi(t)$ and $\tilde{\phi}(\omega)$.
+
+{\color{magenta}\hrulefill}
+TODO END
