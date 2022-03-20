@@ -450,31 +450,40 @@ TODO BEGIN
 
 \subsubsection*{The clock as an open system}
 
-Let us consider TODO
-
-Thus the spatial degrees of freedom should be \emph{traced out},
-before deriving a time--energy relation in $\hilb{H}_T$.
-
-With a slight change of notation we express:
-\begin{equation}\label{eq:pw:uncertain:schmidt}
+Let us consider again eq.~\eqref{eq:pwphi}. There has:
+\begin{multline}\label{eq:pw:uncertain:schmidt}
   \dket{\Phi} =
-    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
-    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
-\end{equation}
-with
-$\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
-being
-orthonormal bases of $\hilb{H}_T$,
+    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
+    \\
+    = \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S
+    = \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S
+    \text{,}
+\end{multline}
+where we define $\ket{\phi(t)}_S \eqbydef \phi(t)\ket{\psi(t)}_S$;
+%
+% Thus the spatial degrees of freedom should be \emph{traced out},
+% before deriving a time--energy relation in $\hilb{H}_T$.
+%
+% \begin{equation}\label{eq:pw:uncertain:schmidt}
+%   \dket{\Phi} =
+%     \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+%     \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
+% \end{equation}
+the sets $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+are
+orthonormal bases of $\hilb{H}_T$;
 and
-$\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform\footnote{
+$\ket{\tilde{\phi}(\omega)}_S$ is the Fourier transform\footnote{
   Fourier transform of a
   vector-valued function
   (vectors in $\hilb{H}_S$),
   similar to what found in \cite{Maccone:Pauli}.
 }
-of $\ket{\phi(t)}_S$,
-neither kets being necessarily normalized, which is in fact a requirement
-to satisfy the normalization in $\pwspace$
+of $\ket{\phi(t)}_S$. Let us stress again that
+neither $\ket{\phi(t)}_S$ nor $\ket{\tilde{\phi}(\omega)}_S$
+are necessarily normalized for all values of $t, \omega \in \mathbb{R}$,
+which is in fact a requirement
+to satisfy the normalization in $\pwspace$:
 \[
   \int \dd{t} \braket{\phi(t)}_S =
     \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
@@ -490,9 +499,11 @@ in $\hilb{H}_T$ and $\hilb{H}_S$.
 However,
 a ``temporal part'' of $\dket{\Phi}$
 can be identified as a \emph{mixed} state described
-by a (reduced) density operator $\rho_T$ in $\hilb{H}_T$.
+by a (reduced) density operator $\op{\rho}_T$ in $\hilb{H}_T$.
+In other words, the ``spatial'' part (corresponding to the subspaces $\hilb{H}_S$)
+is \term{traced out} as the \term{environment} for the clock.
 
-To obtain an explicit expression of $\rho_T$,
+To obtain an explicit expression of $\op{\rho}_T$,
 we use the definitions and results from Chapter~\ref{ch:decohere},
 in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
 replacing the discrete sums there with integrals,
