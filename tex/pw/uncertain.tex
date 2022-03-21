@@ -6,11 +6,17 @@
 In a continuous-time Page--Wootters universe,
 one may observe that,
 in $\hilb{H}_T$ and in the ``time representation'',
-it is $\op{E} \eqbydef -\hbar\op{\Omega} \repr i\hbar\partial_{t}$,
+it is $\hbar\op{\Omega} \repr -i\hbar\partial_{t}$,
 in analogy with $\op{p} \repr -i\hbar\partial_{q}$ in $\hilb{H}_S$,
 therefore a time-energy uncertainty relation can be derived
 with a proof that is formally identical to the well known
 position-momentum uncertainty relation.
+
+Here by ``energy'' we mean the Hamiltonian in standard quantum mechanics which,
+in Page--Wootters notation can be expressed as $\idop_T \ox \op{H}_S$, which is also equal to
+$-\hbar\op{\Omega} \ox \idop_S$, in order to statisfy eqs. \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian}.
+The different sign does not change considerations related to the spread of statistical distributions.
+A formal proof will follow in Sec.~\ref{sec:for-normalized-elements}.
 
 However, unitary evolution means that a particle exists with
 certainty at all times, i.e. the packet
@@ -20,21 +26,6 @@ one expects the standard deviation
 of the probability distribution of time observable
 to diverge i.e.
 $\sigma_T = \infty$.
-
-An extreme case is when $\dket{\Psi}$ encodes what in ordinary quantum mechanics would be the evolution
-of an energy eigenstate $\ket{\epsilon_0}_S$, as seen in Sec. \ref{sec:pw:eeigenstate}.
-In such case, the system is infinitely spread in time but also infinitely
-``concentrated'' in one particular point of the ``frequency domain'',
-where the point is $\omega_0 = \epsilon_{0}/\hbar$.
-At least intuitively, we do expect the standard deviations to be $\sigma_T = \infty$
-and $\sigma_{\Omega} = 0$
-(in analogy to an eigenstate of linear momentum in ordinary quantum mechanics).
-
-A physical state in $\pwspace$ is not generally
-\emph{separable},
-thus
-the problem of time and energy relation cannot be immediately reduced to that of
-a pure state in $\hilb{H}_T$.
 
 The additional difficulty of dealing with infinites and improper state vectors
 motivates the study of \emph{proper} states\footnote{
@@ -48,101 +39,16 @@ instead, whose uncertainty relations for $T$ and $\hbar\Omega$ will be discussed
 A normalized element of $\hilb{H}_T \ox \hilb{H}_T$ allows in principle for a finite value
 of the uncertainties $\sigma_{T}$ and $\sigma_{\Omega}$.
 
+A physical state in $\pwspace$ is not generally
+\emph{separable},
+thus
+the problem of time and energy relation cannot be immediately reduced to that of
+a pure state in $\hilb{H}_T$.
+
 Still, it is generally an entangled state in the product space $\pwspace$.
-Thus the spatial degrees of freedom should be \emph{traced out},
-before deriving a time--energy relation in $\hilb{H}_T$.
-
-With a slight change of notation we express:
-\begin{equation}\label{eq:pw:uncertain:schmidt}
-  \dket{\Phi} =
-    \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
-    \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
-\end{equation}
-with
-$\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
-being
-orthonormal bases of $\hilb{H}_T$,
-and
-$\ket{\tilde{\phi}(\omega)}_S$ being the Fourier transform\footnote{
-  Fourier transform of a
-  vector-valued function
-  (vectors in $\hilb{H}_S$),
-  similar to what found in \cite{Maccone:Pauli}.
-}
-of $\ket{\phi(t)}_S$,
-neither kets being necessarily normalized, which is in fact a requirement
-to satisfy the normalization in $\pwspace$
-\[
-  \int \dd{t} \braket{\phi(t)}_S =
-    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
-    \dbradket{\Phi}{\Phi}_{T \ox S} =
-    1
-    \text{.}
-\]
-
-The vector $\dket{\Phi}$
-cannot,
-in general, be simply expressed as a tensor product of two pure states
-in $\hilb{H}_T$ and $\hilb{H}_S$.
-However,
-a ``temporal part'' of $\dket{\Phi}$
-can be identified as a \emph{mixed} state described
-by a (reduced) density operator $\rho_T$ in $\hilb{H}_T$.
-
-To obtain an explicit expression of $\rho_T$,
-we use the definitions and results from Chapter~\ref{ch:decohere},
-in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
-replacing the discrete sums there with integrals,
-and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
-also we identify the indices\footnote{
-  A particular case of eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
-  therefore it becomes
-  $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
-  which can be compared to eq.~\eqref{eq:pw:uncertain:schmidt}.
-}
-$i = \mu$ therein.
-
-The reduced density operator can so be computed
-as the partial trace
-\begin{align}
-  \label{eq:ptrace_density_matrix_t}
-  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
-    \, \text{,}
-  \\
-  \label{eq:ptrace_density_matrix_omega}
-  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
-    \,\text{.} 
-\end{align}
-Here the probabilty distributions $\norm{\phi(t)}^2$ and $\norm{\tilde{\phi}(\omega)}^2$
-are to be intended in the sense of a mixed state
-i.e. probability that a system is in a certain state $\ket{t}_T$
-(or $\ket{\omega}_T$,~respectively),
-not in the sense of the probability of a measurement outcome on a \emph{known} pure state
-(which is what, in its original formulation, the Heisenberg uncertainty principle 
-refers to).
-
-Even with this different
-notion of probability (which we may indicate as ``classical''\footnote{
-  See, for example, \cite[eq.~2.20 and following discussion]{Schlosshauer_Decoherence_book}.
-}),
-the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$
-can still be proven,
-similarly to 
-the Heisenberg uncertainty
-relation for position and linear momentum,
-due to the properties of the Fourier transform,
-which relates $\phi(t)$ and $\tilde{\phi}(\omega)$.
-
-\subsection{Pure-state approach (in the product space)}\label{sec:pure-state-approach}
-
-Another approach considers $\dket{\Phi}$ as a pure state of $\pwspace$
-and the operators $\op{T} \ox \idop_{S}$ and $\hbar\op{\Omega} \ox \idop_{S}$
+We can consider the
+operators $\op{T} \ox \idop_{S}$ and $\hbar\op{\Omega} \ox \idop_{S}$
 defined therein.
-
-% The same considerations
-% of Sec.~\ref{sec:pw:unitary-general}
-% still hold, in terms of ``infinite history'' versus
-% time-localized, \emph{proper} elements of $\pwspace$. 
 
 We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
 \begin{multline}
@@ -171,40 +77,41 @@ We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
   \,\text{.}
 \end{multline}
 
-\subsection{Concluding remarks}
+% \subsection{Concluding remarks}
 
-We have shown that a time--``energy'' uncertainty relation,
-mirroring the well known position--momentum uncertainty relation,
-still holds, if we consider the ``clock energy'' $\op{E} \eqbydef \hbar\op{\Omega}$
-in the Page--Wootters model.
+% We have shown that a time--``energy'' uncertainty relation,
+% mirroring the well known position--momentum uncertainty relation,
+% still holds, for normalized states,
+% if we consider the ``clock energy'' $\op{H}_T \eqbydef \hbar\op{\Omega}$
+% in the Page--Wootters model.
 
-In those states of $\pwspace$ where a time evolution actually emerges
-(the ``physical states'' as defined in \cite{Lloyd:Time}),
-the clock is in a maximally mixed state
-(it is maximally entangled with the rest of the universe).
+% In those states of $\pwspace$ where a time evolution actually emerges
+% (the ``physical states'' as defined in \cite{Lloyd:Time}),
+% the clock is in a maximally mixed state
+% (it is maximally entangled with the rest of the universe).
 
-Therefore, it cannot be studied as an independent system
-(and the position--momentum uncertainty relation is proved
-for pure states in ordinary quantum mechanics); but a
-time--energy relation is proved in the sense of probability
-\emph{among states} of a density operator.
+% Therefore, it cannot be studied as an independent system
+% (and the position--momentum uncertainty relation is proved
+% for pure states in ordinary quantum mechanics); but a
+% time--energy relation is proved in the sense of probability
+% \emph{among states} of a density operator.
 
-One might object to the interpretation in terms of (``classical'')
-probability distribution, given
-that the density matrix representation is
-not unique.
-However, the density matrices
-in \eqref{eq:ptrace_density_matrix_t} and~\eqref{eq:ptrace_density_matrix_omega}
-are diagonal with respect to
-the orthonormal eigensystems of $\op{T}$ and $\hbar \op{\Omega}$ observables,
-so the distributions $\abs{\phi(t)}^2$ and $\abs{\tilde{\phi}(\omega)}^2$
-have a particular physical significance.
+% One might object to the interpretation in terms of (``classical'')
+% probability distribution, given
+% that the density matrix representation is
+% not unique.
+% However, the density matrices
+% in \eqref{eq:ptrace_density_matrix_t} and~\eqref{eq:ptrace_density_matrix_omega}
+% are diagonal with respect to
+% the orthonormal eigensystems of $\op{T}$ and $\hbar \op{\Omega}$ observables,
+% so the distributions $\abs{\phi(t)}^2$ and $\abs{\tilde{\phi}(\omega)}^2$
+% have a particular physical significance.
 
-In fact, as we have seen in the Sec.~\ref{sec:pure-state-approach},
-an uncertainty relation
-\emph{related to the probability of a measurement outcome}
-does hold,
-but for the whole
-$\textit{clock} + \textit{rest}$ system, which is indeed in a pure state.
-Namely, it relates $\op{T}\ox\idop_S$ and $\hbar\op{\Omega}\ox\idop_S$
-in the overall space $\pwspace$.
+% In fact, as we have seen in the Sec.~\ref{sec:pure-state-approach},
+% an uncertainty relation
+% \emph{related to the probability of a measurement outcome}
+% does hold,
+% but for the whole
+% $\textit{clock} + \textit{rest}$ system, which is indeed in a pure state.
+% Namely, it relates $\op{T}\ox\idop_S$ and $\hbar\op{\Omega}\ox\idop_S$
+% in the overall space $\pwspace$.

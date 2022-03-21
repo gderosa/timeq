@@ -33,7 +33,7 @@
 
 %% Allows better formatting than \underset
 %% https://tex.stackexchange.com/a/130553
-\DeclareMathOperator*{\repr}{\equiv}      % represented in a basis, or "has components..."
+\DeclareMathOperator*{\repr}{\,\equiv\,}      % represented in a basis, or "has components..."
 
 \renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
 %\renewcommand{\op}{}                      % overwriting physics \op = \ketbra
@@ -67,3 +67,6 @@
 % Functions
 % Heaviside function
 \newcommand{\Hvsd}[1]{\Theta\left(#1\right)}
+
+%\newcommand{\nullvector}{\underline{0}}
+\newcommand{\nullvector}{0}

@@ -8,7 +8,7 @@ A full LaTeX env with [LaTeXMk](https://www.ctan.org/pkg/latexmk) is required.
 PDF outputs will be created under the `build/` directory.
 
 ```
-latexmk main
+latexmk
 ```
 
 or
@@ -16,14 +16,6 @@ or
 ```
 latexmk poster/<name>  # Any .`tex` file name in `poster/` dir
 ```
-
-or
-
-```
-latexmk opt/todo  # To add the TODO chapter to the thesis
-```
-
-You may consider the `latexmk -quiet` option as well.
 
 ### PDF previewer and continuous build
 
@@ -34,6 +26,15 @@ Or `-pvc` to enable continuous build.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
+### Speed-up (development, optional)
+
+Add argument ` opt/dev.tex`. This creates large PDF output file but save time on compression.
+Not suitable for sharing.
+
+Example:
+```
+latexmk -pvc opt/dev.tex
+```
 
 ### Cleanup
 

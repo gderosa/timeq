@@ -4,16 +4,17 @@
 }
 
 \noindent
+Finite-dimensional systems are of interest, phenomenologically,
+and in general easier to implement,
+both experimentally and numerically.
+
 An experimental illustration of the Page--Wootters model will be discussed in Sec. \ref{sec:pw:qubit}.
 It is based on a clock
 (defined through the corresponding frequency operator)
 which has two discrete levels only.
 
-Finite-dimensional systems are of interest, phenomenologically,
-and in general easier to implement,
-both experimentally and numerically.
 However,
-finite-dimension Hilbert spaces
+finite-dimensional formulas
 present diffilcuties in identifying canonically conjugate
 pairs, and one cannot use the same explicit formalism
 that would be used for observables with a continuous spectrum.
@@ -26,7 +27,7 @@ cannot be both bounded, therefore cannot exist in a finite-dimensional space.
 
 This problem was studied in detail in
 \cite{FiniteHilb}. It was shown therein
-that statisfying the canonical commutation relation 
+that statisfying the canonical commutation relation
 is not essential to build operators representing physical observables
 with the same role of position and momentum.\footnote{
   Or $T$ and $\hbar\Omega$
@@ -71,19 +72,19 @@ Let us start with a continuous system where the Fourier transform $\phi \eqbydef
 an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
 \begin{equation}\label{eq:fourier_transform:def}
   \phi(\omega) = \left(\mathcal{F}\psi\right) (\omega) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{- \iu t \omega} \text{,} 
+    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{\iu t \omega} \text{,}
 \end{equation}
 and the well known \term{inversion} property
 \begin{equation}\label{eq:inverse_fourier_transform:def}
   \psi(t) = \left(\mathcal{F}^{-1} \phi \right) (t) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{\iu t \omega} 
+    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{ - \iu t \omega}
 \end{equation}
 can be can be proven (see e.g. \cite{Folland:Fourier}).
 
 Eq.~\eqref{eq:inverse_fourier_transform:def} can be interpreted
 as a function of time
 expressed as a linear superposition
-of ``pure frequencies'' $\E^{\iu \omega t}$,
+of ``pure frequencies'' $\E^{-\iu \omega t}$,
 with coefficients given by the Fourier transform $\phi(\omega)$.
 
 In a discrete system, a finite interval $(0, \Delta{T})$ is considered,
@@ -107,7 +108,7 @@ It is easily seen that:
 \end{gather}
 Also:
 \begin{equation}\label{eq:DFT:eigenratio}
-  \omega_{n} = \frac{2\pi}{N(\delta{T})^{2}} t_{n}  \, \text{.} 
+  \omega_{n} = \frac{2\pi}{N(\delta{T})^{2}} t_{n}  \, \text{.}
 \end{equation}
 %
 The discretization
@@ -117,11 +118,11 @@ then reads\footnote{
   \cite{Oppenheim:Int1,Oppenheim:Int3,ProakisManolakis}.
 }
 \begin{equation}\label{eq:DFT:def}
-  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
+  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{\iu n m 2 \pi / N}
 \end{equation}
 and, respectively,
 \begin{equation}\label{eq:IDFT:def}
-  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{\iu n m 2 \pi / N} \text{.}
+  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{-\iu n m 2 \pi / N} \text{.}
 \end{equation}
 %
 Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
@@ -140,6 +141,8 @@ with elements $F_{mn}^{\dagger}$):
   F_{mn}^{\dagger}  &= \frac{1}{\sqrt{N}} \E^{ \iu n m 2 \pi / N}
   \text{.}
 \end{align}
+
+% {\color{magenta}\hrulefill}
 
 The (discrete) Fourier transform can be used to transform the time representation
 of a vector $\ket{\psi}_T \in \hilb{H}_T$ into its angular frequency representation.
@@ -172,11 +175,17 @@ This shows that the Fourier matrix can be used, not only to transform the compon
 of a vector from one eigenbasis to the canonically conjugate eigenbasis,
 but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
 
-If we introduce the \term{Fourier operator}
-$\displaystyle \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n}$,
-eq.~\eqref{eq:DFT:bra} can be reformulated as
+Let us now introduce the \term{Fourier operator}
 \begin{equation}
-  \label{eq:DFO:bra}  \bra{\omega_{m}} = \bra{t_m} \op{F} \text{.}
+  \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
+\end{equation}
+Multiplying each element of the sum in eq.~\eqref{eq:DFT:bra}
+by $\braket{t_m} = 1$
+we immediately get:
+\begin{equation}\label{eq:DFO:bra}
+  \bra{\omega_{m}} =
+  % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} =
+  \bra{t_m} \op{F} \text{.}
 \end{equation}
 Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
 \begin{equation}
@@ -190,11 +199,14 @@ to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
   \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
+  \sum_{m} m \qty(\delta\Omega) \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
   \\
-  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
+  = \sum_{m} \frac{t_m}{\delta{T}} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
+  = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F}
   \\
+  =
   \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
-  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F}
+  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F} = \frac{\delta\Omega}{\delta{T}} \op{F}^{\dagger} \op{T} \op{F}
   \text{.}
 \end{multline}
 
@@ -203,37 +215,49 @@ In conclusion:
   \label{eq:SI_Fourier:Omega}
     \op{\Omega} =
       \frac{2\pi}{N(\delta T)^2}          \op{F}^{\dagger} \op{T} \op{F} =
-      \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F}
+      \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F} =
+      \op{F}^{\dagger} \qty(\delta{\Omega} \frac{\op{T}}{\delta{T}}) \op{F}
       \, \text{;}
       \\
   \label{eq:SI_Fourier:T}
     \op{T} =
-      \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} = 
-      \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger}
+      \frac{2\pi}{N(\delta\Omega)^2}      \op{F} \op{\Omega} \op{F}^{\dagger} =
+      \frac{2\pi N}{\qty(\Delta\Omega)^2} \op{F} \op{\Omega} \op{F}^{\dagger} =
+      \op{F} \qty(\delta{T} \frac{\op{\Omega}}{\delta{\Omega}}) \op{F}^{\dagger}
       \, \text{;}
 \end{gather}
-where eq.~\eqref{eq:SI_Fourier:T} is obtained by
+where the operator $\frac{\op{T}}{\delta{T}}$ in eq.~\eqref{eq:SI_Fourier:Omega},
+in $T$ representation, is diagonal with integer elements $\setof{0, \dots, N-1}$.
+
+Conversely, eq.~\eqref{eq:SI_Fourier:T} is obtained by
 taking the ``conjugate'' of all the computation
 from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
 
-Please note eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
-differs from e.g. the results of \cite{FiniteHilb}.
+Note that eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
+differ from the results of \cite{FiniteHilb}.
 This is due to the use of
-``natural'' units,
+``natural'' units therein,
 in the sense that
 both time and angular frequency
-have (and only have) integer eigenvalues
-and they are adimensional
-i.e. $t_n = \omega_n = 0, 1, \dots, N-1$
-(the paper, in actual fact, defines ``position'' $\op{x}$ and ``momentum'' $\op{p}$, but in a similar fashion).
-Moreover, the roles of the Fourier transform and its inverse are swapped therein.
-Other authors may                                                                            adopt different conventions and units.
-The conventions chosen in this Section
-are compatible with the computational software libraries\footnote{
-  See \cite{comp:scipy} and, in particular,
-  \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.dft.html}.
-}
-used later in this work.
+have adimensional, integer eigenvalues:
+$t_n = \omega_n = 0, 1, \dots, N-1$
+% ???
+% \footnote{
+%   \cite[pp. 469, 490]{Carlson}.
+% }
+(in fact, the paper defines ``position'' $\op{X}$ and ``momentum'' $\op{P}$,
+but in a similar fashion).
+In other words, in \citereset\cite{FiniteHilb}, the sampling interval and the fundamental harmonic angular frequency
+are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of position and momentum).
+% Moreover, the roles of the Fourier transform and its inverse are swapped therein.
+% Other authors may adopt different conventions and units
+% (see, for example, \cite[Sec. 11.5]{Carlson}).
+% The conventions chosen in this Section
+% are compatible with the computational software libraries\footnote{
+%   See \cite{comp:scipy} and, in particular,
+%   \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.dft.html}.
+% }
+% used later in this work.
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
@@ -245,8 +269,8 @@ $\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{\hb
 
 In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
 in general, and is less essential.
-Canonically conjugate operators are related
-through the (discrete) Fourier transform ($\op{p} = F\op{q}F^{\dagger}$)
+``Canonically conjugate'' operators are related
+through the (discrete) Fourier transform ($\op{p} = \op{F}^{\dagger}\op{q}\op{F}$)
 rather then differentiation,
 and uncertainty relations are based on
 the properties of Fourier transformation
