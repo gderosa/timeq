@@ -84,7 +84,7 @@ can be can be proven (see e.g. \cite{Folland:Fourier}).
 Eq.~\eqref{eq:inverse_fourier_transform:def} can be interpreted
 as a function of time
 expressed as a linear superposition
-of ``pure frequencies'' $\E^{\iu \omega t}$,
+of ``pure frequencies'' $\E^{-\iu \omega t}$,
 with coefficients given by the Fourier transform $\phi(\omega)$.
 
 In a discrete system, a finite interval $(0, \Delta{T})$ is considered,
@@ -199,10 +199,10 @@ to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
   \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
-  \sum_{m} m \qty(\delta\Omega) \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
+  \sum_{m} m \qty(\delta\Omega) \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
   \\
   = \sum_{m} \frac{t_m}{\delta{T}} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
-  = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F} =
+  = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F}
   \\
   =
   \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
