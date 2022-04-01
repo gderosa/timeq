@@ -5,17 +5,18 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.1.1
+#       format_version: '1.3'
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
 
 # %%
 from sympy import *
-from sympy.physics.matrices import mdft
+#from sympy.physics.matrices import mdft  # deprecation https://github.com/sympy/sympy/blob/77f1d79c705da5e9b3dee456a14b1b4e92dd620c/sympy/physics/matrices.py#L159-L176
+from sympy.matrices.expressions.fourier import DFT
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.constants import hbar
 
@@ -39,7 +40,8 @@ Delta = Rational(1,2) # 1/N, N=dimension of H_T
 delta = 0.0001
 
 # %%
-F = mdft(2)
+# F = mdft(2)  # deprecation
+F = DFT(2).as_mutable()
 
 # %%
 T = (pi/omega) * Matrix([

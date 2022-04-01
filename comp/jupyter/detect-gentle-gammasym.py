@@ -5,10 +5,10 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.1.1
+#       format_version: '1.3'
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -113,10 +113,10 @@ re(non_unitary_psi(t)[0]).subs(gamma, GAMMA)
 plot(re(non_unitary_psi(t)[0]).subs(gamma, GAMMA), (t, 0, 100), line_color='r')
 
 # %%
-## TODO: keep using e.g. .subs(gamma, GAMMA) to evaluate at a certain "point" and avoid errors
+## keep using e.g. .subs(gamma, GAMMA) to evaluate at a certain "point" and avoid errors
 
 # %%
-plot(im(non_unitary_psi(t)[1]), (t, 0, 100), line_color='b')
+plot(im(non_unitary_psi(t)[1]).subs(gamma, GAMMA), (t, 0, 100), line_color='b')
 
 
 # %%

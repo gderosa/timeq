@@ -1,0 +1,13 @@
+name: timeq
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab
+  - numpy
+  - scipy
+  - jupytext
+  - sympy
+  - matplotlib
+prefix: /home/jj/miniconda3/envs/timeq
