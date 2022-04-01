@@ -10,8 +10,11 @@ You need to explicitly "Open With" Notebook in Jupyter Lab UI.
 
 ## Python environment (Anaconda/Miniconda)
 
+Download and install:
 
-To avail of latest Python (3.10 at time of writing) use the conda-forge channel.
+https://docs.conda.io/en/latest/miniconda.html
+
+To avail of latest Python (3.10 at time of writing) use the [conda-forge](https://conda-forge.org/) channel.
 ```
 conda create -n timeq -c conda-forge python=3.10
 ```
