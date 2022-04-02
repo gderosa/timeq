@@ -1,3 +1,4 @@
+<!-- #region -->
 Notebooks here are saved as
 [Python/percent](https://github.com/mwouts/jupytext#the-percent-format),
 that's why you don't find the `.ipynb` but the `.py`.
@@ -12,17 +13,24 @@ Download and install:
 
 https://docs.conda.io/en/latest/miniconda.html
 
-To avail of latest Python (3.10 at time of writing) use the [conda-forge](https://conda-forge.org/) channel.
+Setup the environment
 ```
-conda create -n timeq -c conda-forge python=3.10
+conda create -n timeq -f environment.yml
 ```
 
-This may be useful in some cases:
+The file `environment.yml` was originally created by stripping down information from the output of:
+```
+conda env export
+```
+
+
+Optionally, this may be useful in some cases:
 ```
 conda config --set auto_activate_base false
 ```
 
-After all, you want the `timeq` environment, which you will explicitly activate anyway:
+After all, you just want the `timeq` environment, which you will explicitly activate anyway:
 ```
 conda activate timeq
 ```
+<!-- #endregion -->
