@@ -129,10 +129,10 @@ def lossy_norm(_t):
 lossy_norm(t)
 
 # %%
-non_unitary_psi_n = lambdify(t, non_unitary_psi(t), "numpy")
+non_unitary_psi_n = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA), "numpy")
 
 # %%
-_lossy_norm_n = lambdify(t, lossy_norm(t), "numpy")
+_lossy_norm_n = lambdify(t, lossy_norm(t).subs(gamma, GAMMA), "numpy")
 def lossy_norm_n(__t):
     # prevent a warning, even if we know it's real
     return np.real(_lossy_norm_n(__t))
@@ -151,9 +151,12 @@ def non_unitary_psi_renorm_n(_t):
 T = np.linspace(1e-16, 100, 2000)
 
 # %%
-fig = plt.figure(figsize=(12,12))
+#fig = plt.figure(figsize=(12,12))
+#
+#ax = fig.gca(projection='3d')
 
-ax = fig.gca(projection='3d')
+fig, ax = plt.subplots(figsize=(12,12), subplot_kw=dict(projection='3d'))
+
 ax.view_init(15,-45) # rotate 3d point of view
 
 ax.plot(
@@ -161,15 +164,13 @@ ax.plot(
     linewidth=1.25
 )
 
-##ax.legend()
-
 plt.xlabel('Re <0|\u03C8> (pure real)')
 plt.ylabel('Im <1|\u03C8> (pure imag)')
 ax.set_zlabel('t')
 
 
 # %%
-plot(lossy_norm(t),(t, 0, 2*pi), line_color='g')
+plot(lossy_norm(t).subs(gamma, GAMMA), (t, 0, 2*pi), line_color='g')
 
 
 # %%
@@ -239,13 +240,14 @@ def hatpsisquarednorm(_t):
 hatpsisquarednorm(t)
 
 # %%
-plot(hatpsisquarednorm(t), (t, -2, 60), line_color='m')
+plot(hatpsisquarednorm(t).subs(gamma, GAMMA), (t, -2, 60), line_color='m')
 
 # %%
-plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 60))
+# Who is prob_1_detect?
+# plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 60))
 
 # %%
-plot(prob_1_unitary(t), hatpsisquarednorm(t), (t, -0.25, 60))
+plot(prob_1_unitary(t).subs(gamma, GAMMA), hatpsisquarednorm(t).subs(gamma, GAMMA), (t, -0.25, 60))
 
 
 # %%
@@ -259,7 +261,7 @@ def prob_1_hatpsi(_t):
 
 
 # %%
-plot( abs(hatpsi(t)[1]**2), (t, -2, 2*pi), line_color='b')
+plot( abs(hatpsi(t)[1]**2).subs(gamma, GAMMA), (t, -2, 2*pi), line_color='b')
 
 # %%
 
@@ -273,7 +275,7 @@ def fhatpsi1(_nu):
 
 
 # %%
-plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
+plot(abs(fhatpsi1(nu).subs(gamma, GAMMA))**2, (nu, -1, 1), line_color='#bbbbbb')
 
 
 # %% [markdown]
