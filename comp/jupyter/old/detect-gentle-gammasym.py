@@ -56,8 +56,8 @@ def D(_gamma):
 
 # %%
 H = Matrix ([
-[0, 1] ,
-[1, 0]
+    [0, 1] ,
+    [1, 0]
 ])
 
 # %%
@@ -95,7 +95,7 @@ GAMMA = Rational(1, 1001)
 
 # %%
 def non_unitary_psi(_t):
-    return B(gamma)(_t) * Matrix([1,0])
+    return B(gamma)(_t) @ Matrix([1,0])
 
 
 # %%
@@ -129,17 +129,28 @@ def lossy_norm(_t):
 lossy_norm(t)
 
 # %%
-non_unitary_psi_n = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA), "numpy")
+non_unitary_psi_n_0 = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA)[0], "numpy")
+
+# %%
+non_unitary_psi_n_1 = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA)[1], "numpy")
+
+
+# %%
+def non_unitary_psi_n(t):
+    return np.transpose(np.array([
+        non_unitary_psi_n_0(t),
+        non_unitary_psi_n_1(t)
+    ]))
+
+
+# %%
+non_unitary_psi_n(1)
 
 # %%
 _lossy_norm_n = lambdify(t, lossy_norm(t).subs(gamma, GAMMA), "numpy")
 def lossy_norm_n(__t):
     # prevent a warning, even if we know it's real
     return np.real(_lossy_norm_n(__t))
-
-
-# %%
-lossy_norm_n
 
 
 # %%
@@ -160,7 +171,7 @@ fig, ax = plt.subplots(figsize=(12,12), subplot_kw=dict(projection='3d'))
 ax.view_init(15,-45) # rotate 3d point of view
 
 ax.plot(
-    np.real(non_unitary_psi_n(T)[0][0]), np.imag(non_unitary_psi_n(T)[1][0]), T,
+    np.real(non_unitary_psi_n(T)[:,0]), np.imag(non_unitary_psi_n(T)[:,1]), T,
     linewidth=1.25
 )
 
@@ -211,22 +222,24 @@ def hatpsi(_t):
         ]) * \
         non_unitary_psi(_t)
         
-def hatpsi_n(_t):
+def _hatpsi_n(_t):
     return \
         np.heaviside(_t, 0) * \
         2**(3/4) * \
         np.array([
             [0, 0],
             [0, 1]
-        ]) * \
+        ]) @ \
         non_unitary_psi_n(_t)
-        
+
+def hatpsi_n(_T):  # accepts a np.range of times
+    return np.array(list(map(
+        _hatpsi_n, _T
+    )))
+
+
         
     
-
-# %%
-hatpsi(t)
-
 
 # %%
 def hatpsisquarednorm(_t):
@@ -275,8 +288,17 @@ def fhatpsi1(_nu):
 
 
 # %%
-plot(abs(fhatpsi1(nu).subs(gamma, GAMMA))**2, (nu, -1, 1), line_color='#bbbbbb')
+non_unitary_psi_n(1)
 
+# %%
+trange = np.arange(-1, 1, 2e-2)
+
+# %%
+abs(hatpsi_n(trange)[:,1])**2
+
+
+# %%
+# plot(abs(fhatpsi1(nu).subs(gamma, GAMMA))**2, (nu, -1, 1), line_color='#bbbbbb')
 
 # %% [markdown]
 # The above Fourier transform is defined in frequency (\nu) not angular frequency (\omega),
@@ -288,7 +310,7 @@ def fhatpsiomega(_omega):
 
 
 # %%
-plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
+#plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
 
 # %%
 # graphical comparison with a normalized gaussian
@@ -347,14 +369,14 @@ J = np.kron(Omega, np.eye(2)) + np.kron(np.eye(32), K)
 eigenvalues, eigenvectors = np.linalg.eig(J)
 
 # %%
-EnergyCorrectionMatrices = np.zeros((64, 64, 64), np.complex)
+EnergyCorrectionMatrices = np.zeros((64, 64, 64), complex)
 for n in range(64):
     EnergyCorrectionMatrices[n] = np.kron(
         expm(-1j*eigenvalues[n]*T),
         np.eye(2)
     )
 # TODO: DRY
-EnergyCorrectionMatricesT = np.zeros((64, 32, 32), np.complex)
+EnergyCorrectionMatricesT = np.zeros((64, 32, 32), complex)
 for n in range(64):
     EnergyCorrectionMatricesT[n] = expm(-1j*eigenvalues[n]*T)
 
@@ -467,10 +489,10 @@ sqr2D = np.array([
 ])
 
 # %%
-qbhistvec = qbhistvec.astype(np.complex)
+qbhistvec = qbhistvec.astype(complex)
 
 # %%
-sqr2D = sqr2D.astype(np.complex)
+sqr2D = sqr2D.astype(complex)
 
 # %%
 #prob_detect_v = np.kron(np.eye(32), sqr2D) @ qbhistvec

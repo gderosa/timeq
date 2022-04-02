@@ -6,9 +6,9 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.10.0
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -96,7 +96,7 @@ times_extended = np.linspace(TMIN_N, TMAX_EXTENDED, num=NPLOTPOINTS)
 # %%
 probs = [None, None, None]
 for i in 0, 1, 2:
-    probs[i] = np.fromiter((prob(t)[i] for t in times), np.float)
+    probs[i] = np.fromiter((prob(t)[i] for t in times), float)
 #     fig, ax = plt.subplots(figsize=(12, 6*np.max(probs[i])))
 #     ax.plot(times, probs[i])
 #     plt.show()
@@ -196,7 +196,7 @@ plt.savefig('_img/detect3.021/hermitian3lines.pdf', bbox_inches='tight', pad_inc
 # %%
 unitary_psis = [np.zeros(NPLOTPOINTS)] * 3
 for i in 0, 1, 2:
-    unitary_psis[i] = np.fromiter( (unitary_psi(t)[i] for t in times), np.complex )
+    unitary_psis[i] = np.fromiter( (unitary_psi(t)[i] for t in times), complex )
 
 # %%
 PROB_LABELS
@@ -204,10 +204,9 @@ PROB_LABELS
 # %%
 # 3D parametric plot
 for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'center left','side'), (80,-120,12,12,'right','top'):
-    # fig = plt.figure(figsize=(w5dth, height), dpi=250)2
-    fig = plt.figure(figsize=(width, height))
-
-    ax = fig.gca(projection='3d')
+    #fig = plt.figure(figsize=(width, height))
+    #ax = fig.gca(projection='3d')
+    fig, ax = plt.subplots(figsize=(width, height), subplot_kw=dict(projection='3d'))
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
@@ -216,8 +215,8 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'c
     ax.set_zlabel('t')
     
     ax.scatter(
-        np.zeros(NPLOTPOINTS, dtype=np.float),
-        np.zeros(NPLOTPOINTS, dtype=np.float),
+        np.zeros(NPLOTPOINTS, dtype=float),
+        np.zeros(NPLOTPOINTS, dtype=float),
         times,
         c = rgbs,
         s = 24
@@ -252,7 +251,7 @@ def D(_gamma=GAMMA):
         [0, 0,      0],
         [0, 0,      0],
         [0, 0, _gamma]
-    ], dtype=np.complex)
+    ], dtype=complex)
 
 
 # %%
@@ -283,21 +282,21 @@ def non_unitary_psi(_t, _gamma=GAMMA):
 
 
 # %%
-evolution = np.zeros((3, NPLOTPOINTS), dtype=np.complex)
-evolution_extended = np.zeros((3, NPLOTPOINTS), dtype=np.complex)
+evolution = np.zeros((3, NPLOTPOINTS), dtype=complex)
+evolution_extended = np.zeros((3, NPLOTPOINTS), dtype=complex)
 
 for i in 0, 1, 2:
     _iter = (non_unitary_psi(_t)[i] for _t in times)
     _iter_extended = (non_unitary_psi(_t)[i] for _t in times_extended)
 
-    evolution[i] = np.fromiter(_iter, np.complex)
-    evolution_extended[i] = np.fromiter(_iter_extended, np.complex)
+    evolution[i] = np.fromiter(_iter, complex)
+    evolution_extended[i] = np.fromiter(_iter_extended, complex)
 
 _iter_norm = (norm(non_unitary_psi(_t)) for _t in times)
-norms = np.fromiter(_iter_norm, np.float)
+norms = np.fromiter(_iter_norm, float)
 
 _iter_norm_extended = (norm(non_unitary_psi(_t)) for _t in times_extended)
-norms_extended = np.fromiter(_iter_norm_extended, np.float)
+norms_extended = np.fromiter(_iter_norm_extended, float)
 
 # %%
 colors  =  ['#f66', '#6d6', '#88f']
@@ -413,9 +412,10 @@ plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 # 3D parametric plot
 
 for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'center left','side'), (90, -80, 15, 15,'center left','top'):
-    fig = plt.figure(figsize=(width, height))
+    # fig = plt.figure(figsize=(width, height))
+    # ax = fig.gca(projection='3d')
+    fig, ax = plt.subplots(figsize=(width, height), subplot_kw=dict(projection='3d'))
 
-    ax = fig.gca(projection='3d')
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
@@ -424,8 +424,8 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
     ax.set_zlabel('t')
     
     ax.scatter(
-        np.zeros(NPLOTPOINTS, dtype=np.float),
-        np.zeros(NPLOTPOINTS, dtype=np.float),
+        np.zeros(NPLOTPOINTS, dtype=float),
+        np.zeros(NPLOTPOINTS, dtype=float),
         times,
     
         c = np.array([
@@ -572,10 +572,10 @@ times_discrete = np.diag(T)
 psi = history.reshape((-1,NS)).T
 
 for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,'center right','side'), (80,-100,15,25,'center right','top')):
-    fig = plt.figure(figsize=(width, height))
-
-
-    ax = fig.gca(projection='3d')
+    #fig = plt.figure(figsize=(width, height))
+    #ax = fig.gca(projection='3d')
+    
+    fig, ax = plt.subplots(figsize=(width, height), subplot_kw=dict(projection='3d'))
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
@@ -584,8 +584,8 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
     ax.set_zlabel('t')
     
     ax.scatter(
-        np.zeros(NT, dtype=np.float),
-        np.zeros(NT, dtype=np.float),
+        np.zeros(NT, dtype=float),
+        np.zeros(NT, dtype=float),
         times_discrete,
     
         c = np.round((abs(psi.T)**2), 8), # rounding, to avoid number instability causing out-of-range rgb vals
@@ -635,10 +635,10 @@ times_discrete = np.diag(T)
 psi = history.reshape((-1,NS)).T
 
 for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side'), (90,-80,15,15,'top'):
-    # fig = plt.figure(figsize=(width, height), dpi=300)
-    fig = plt.figure(figsize=(width, height))
+    #fig = plt.figure(figsize=(width, height))
+    #ax = fig.gca(projection='3d')
+    fig, ax = plt.subplots(figsize=(width, height), subplot_kw=dict(projection='3d'))
 
-    ax = fig.gca(projection='3d')
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
 
@@ -647,8 +647,8 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
     ax.set_zlabel('t')
     
     ax.scatter(
-        np.zeros(NT, dtype=np.float),
-        np.zeros(NT, dtype=np.float),
+        np.zeros(NT, dtype=float),
+        np.zeros(NT, dtype=float),
         times_discrete,
     
         c = np.round((abs(psi.T)**2), 8), # rounding, to prevent numeric instability from causing out-of-range RGB values
@@ -700,7 +700,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
 
 # %%
 def t_eigenstate(n):
-    v = np.zeros(NT, dtype=np.complex)
+    v = np.zeros(NT, dtype=complex)
     v[n] = 1
     return v
 

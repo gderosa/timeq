@@ -5,10 +5,10 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.2'
-#       jupytext_version: 1.1.1
+#       format_version: '1.3'
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -26,7 +26,8 @@
 # %%
 # Symbolic computation
 from sympy import *
-from sympy.physics.matrices import mdft
+#from sympy.physics.matrices import mdft
+from sympy.matrices.expressions.fourier import DFT
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.constants import hbar
 
@@ -42,7 +43,7 @@ Omega = Symbol(r'\Omega')
 omega = Symbol(r'\omega', real=True)
 
 # %%
-F = mdft(2)
+F = DFT(2).as_mutable()
 
 # %%
 Omega = I*omega*Matrix([

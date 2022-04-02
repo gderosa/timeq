@@ -6,9 +6,9 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.9.1
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -52,7 +52,7 @@ nu = Symbol('nu', real=True)
 
 # %%
 GAMMA = Rational(1, 1000)
-GAMMA_n = np.float(GAMMA)
+GAMMA_n = float(GAMMA)
 
 
 # %%
@@ -311,14 +311,14 @@ J = np.kron(Omega, np.eye(2)) + np.kron(np.eye(32), H)
 eigenvalues, eigenvectors = np.linalg.eig(J)
 
 # %%
-EnergyCorrectionMatrices = np.zeros((64, 64, 64), np.complex)
+EnergyCorrectionMatrices = np.zeros((64, 64, 64), complex)
 for n in range(64):
     EnergyCorrectionMatrices[n] = np.kron(
         expm(-1j*eigenvalues[n]*T),
         np.eye(2)
     )
 # TODO: DRY
-EnergyCorrectionMatricesT = np.zeros((64, 32, 32), np.complex)
+EnergyCorrectionMatricesT = np.zeros((64, 32, 32), complex)
 for n in range(64):
     EnergyCorrectionMatricesT[n] = expm(-1j*eigenvalues[n]*T)
 
@@ -451,7 +451,7 @@ qbhistvec_normalized = qbhistvec / np.linalg.norm(qbhistvec)
 
 # %%
 def t_eigenstate(n):
-    v = np.zeros(32, dtype=np.complex)
+    v = np.zeros(32, dtype=complex)
     v[n] = 1
     return v
 
