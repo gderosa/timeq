@@ -6,9 +6,9 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.9.1
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -174,11 +174,14 @@ def non_unitary_psi_renorm_n(_t):
 T = np.linspace(1e-16, 2*np.pi, 2000)
 
 # %%
-fig = plt.figure(figsize=(8,8))
+#fig = plt.figure(figsize=(8,8))
 #fig = plt.figure()
 
 
-ax = fig.gca(projection='3d')
+#ax = fig.gca(projection='3d')
+
+fig, ax = plt.subplots(figsize=(8 ,8), subplot_kw=dict(projection='3d'))
+
 ax.view_init(10,-45) # rotate 3d point of view
 
 ax.plot(
@@ -209,16 +212,17 @@ def prob_1_detect(t):
 
 
 # %%
-#plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
+plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
 
 # %%
-#plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
+plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
 
 # %%
-#plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='r')
+plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='r')
 
 # %%
-#plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='b')
+plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='b')
+
 
 # %%
 def prob_0_unitary(t):
@@ -231,10 +235,10 @@ def prob_1_unitary(t):
 
 
 # %%
-#plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
+plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
 
 # %%
-#plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
+plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
 
 # %%
 lossy_norm_n(2)
@@ -401,7 +405,7 @@ J = np.kron(Omega, np.eye(2)) + np.kron(np.eye(32), K)
 eigenvalues, eigenvectors = np.linalg.eig(J)
 
 # %%
-EnergyCorrectionMatrices = np.zeros((64, 64, 64), np.complex)
+EnergyCorrectionMatrices = np.zeros((64, 64, 64), complex)
 for n in range(64):
     #EnergyCorrectionMatrices[n] = np.kron(
     #    expm(-1j*eigenvalues[n]*T),
@@ -409,7 +413,7 @@ for n in range(64):
     #)
     EnergyCorrectionMatrices[n] = expm(-1j*eigenvalues[n]*np.kron(T, np.eye(2)))
 # TODO: DRY
-EnergyCorrectionMatricesT = np.zeros((64, 32, 32), np.complex)
+EnergyCorrectionMatricesT = np.zeros((64, 32, 32), complex)
 for n in range(64):
     EnergyCorrectionMatricesT[n] = expm(-1j*eigenvalues[n]*T)
 
@@ -426,7 +430,7 @@ def reshape(v):
 
 # also make the first component real
 def normalize_initial(v):
-    vout = np.zeros(64, np.complex)
+    vout = np.zeros(64, complex)
     # A phase factor to make it real
     vout = v * np.exp(-1j * np.angle(v[0]))
     # And a factor to normalize the initial state
@@ -536,10 +540,10 @@ sqr2D = np.array([
 ])
 
 # %%
-qbhistvec = qbhistvec.astype(np.complex)
+qbhistvec = qbhistvec.astype(complex)
 
 # %%
-sqr2D = sqr2D.astype(np.complex)
+sqr2D = sqr2D.astype(complex)
 
 # %%
 #prob_detect_v = np.kron(np.eye(32), sqr2D) @ qbhistvec

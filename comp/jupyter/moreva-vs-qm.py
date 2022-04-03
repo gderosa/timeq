@@ -6,9 +6,9 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.10.0
+#       jupytext_version: 1.13.7
 #   kernelspec:
-#     display_name: Python 3
+#     display_name: Python 3 (ipykernel)
 #     language: python
 #     name: python3
 # ---
@@ -87,8 +87,9 @@ def psi_fixed_1_im(t, t0, psi0, eigenvalue):
 # %%
 mpl.rcParams['legend.fontsize'] = 10
 
-fig = plt.figure(figsize=(15, 11))
-ax = fig.gca(projection='3d')
+# fig = plt.figure(figsize=(15, 11))
+# ax = fig.gca(projection='3d')
+fig, ax = plt.subplots(figsize=(15, 11), subplot_kw=dict(projection='3d'))
 
 # Prepare arrays x, y, z
 # z is t
@@ -123,8 +124,10 @@ plt.show()
 # %%
 mpl.rcParams['legend.fontsize'] = 10
 
-fig = plt.figure(figsize=(15, 11))
-ax = fig.gca(projection='3d')
+# fig = plt.figure(figsize=(15, 11))
+# ax = fig.gca(projection='3d')
+fig, ax = plt.subplots(figsize=(15, 11), subplot_kw=dict(projection='3d'))
+
 
 # Prepare arrays x, y, z
 # z is t
@@ -155,5 +158,3 @@ ax.legend()
 
 plt.show()
 
-
-# %%

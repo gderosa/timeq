@@ -1,0 +1,12 @@
+name: timeq
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - jupyterlab=2
+  - numpy=1.22
+  - scipy=1.8
+  - jupytext=1
+  - sympy=1.10
+  - matplotlib=3.5
