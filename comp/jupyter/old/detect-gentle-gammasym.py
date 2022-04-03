@@ -5,10 +5,10 @@
 #     text_representation:
 #       extension: .py
 #       format_name: percent
-#       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       format_version: '1.2'
+#       jupytext_version: 1.1.1
 #   kernelspec:
-#     display_name: Python 3 (ipykernel)
+#     display_name: Python 3
 #     language: python
 #     name: python3
 # ---
@@ -56,8 +56,8 @@ def D(_gamma):
 
 # %%
 H = Matrix ([
-    [0, 1] ,
-    [1, 0]
+[0, 1] ,
+[1, 0]
 ])
 
 # %%
@@ -95,7 +95,7 @@ GAMMA = Rational(1, 1001)
 
 # %%
 def non_unitary_psi(_t):
-    return B(gamma)(_t) @ Matrix([1,0])
+    return B(gamma)(_t) * Matrix([1,0])
 
 
 # %%
@@ -113,10 +113,10 @@ re(non_unitary_psi(t)[0]).subs(gamma, GAMMA)
 plot(re(non_unitary_psi(t)[0]).subs(gamma, GAMMA), (t, 0, 100), line_color='r')
 
 # %%
-## keep using e.g. .subs(gamma, GAMMA) to evaluate at a certain "point" and avoid errors
+## TODO: keep using e.g. .subs(gamma, GAMMA) to evaluate at a certain "point" and avoid errors
 
 # %%
-plot(im(non_unitary_psi(t)[1]).subs(gamma, GAMMA), (t, 0, 100), line_color='b')
+plot(im(non_unitary_psi(t)[1]), (t, 0, 100), line_color='b')
 
 
 # %%
@@ -129,28 +129,17 @@ def lossy_norm(_t):
 lossy_norm(t)
 
 # %%
-non_unitary_psi_n_0 = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA)[0], "numpy")
+non_unitary_psi_n = lambdify(t, non_unitary_psi(t), "numpy")
 
 # %%
-non_unitary_psi_n_1 = lambdify(t, non_unitary_psi(t).subs(gamma, GAMMA)[1], "numpy")
-
-
-# %%
-def non_unitary_psi_n(t):
-    return np.transpose(np.array([
-        non_unitary_psi_n_0(t),
-        non_unitary_psi_n_1(t)
-    ]))
-
-
-# %%
-non_unitary_psi_n(1)
-
-# %%
-_lossy_norm_n = lambdify(t, lossy_norm(t).subs(gamma, GAMMA), "numpy")
+_lossy_norm_n = lambdify(t, lossy_norm(t), "numpy")
 def lossy_norm_n(__t):
     # prevent a warning, even if we know it's real
     return np.real(_lossy_norm_n(__t))
+
+
+# %%
+lossy_norm_n
 
 
 # %%
@@ -162,18 +151,17 @@ def non_unitary_psi_renorm_n(_t):
 T = np.linspace(1e-16, 100, 2000)
 
 # %%
-#fig = plt.figure(figsize=(12,12))
-#
-#ax = fig.gca(projection='3d')
+fig = plt.figure(figsize=(12,12))
 
-fig, ax = plt.subplots(figsize=(12,12), subplot_kw=dict(projection='3d'))
-
+ax = fig.gca(projection='3d')
 ax.view_init(15,-45) # rotate 3d point of view
 
 ax.plot(
-    np.real(non_unitary_psi_n(T)[:,0]), np.imag(non_unitary_psi_n(T)[:,1]), T,
+    np.real(non_unitary_psi_n(T)[0][0]), np.imag(non_unitary_psi_n(T)[1][0]), T,
     linewidth=1.25
 )
+
+##ax.legend()
 
 plt.xlabel('Re <0|\u03C8> (pure real)')
 plt.ylabel('Im <1|\u03C8> (pure imag)')
@@ -181,7 +169,7 @@ ax.set_zlabel('t')
 
 
 # %%
-plot(lossy_norm(t).subs(gamma, GAMMA), (t, 0, 2*pi), line_color='g')
+plot(lossy_norm(t),(t, 0, 2*pi), line_color='g')
 
 
 # %%
@@ -222,24 +210,22 @@ def hatpsi(_t):
         ]) * \
         non_unitary_psi(_t)
         
-def _hatpsi_n(_t):
+def hatpsi_n(_t):
     return \
         np.heaviside(_t, 0) * \
         2**(3/4) * \
         np.array([
             [0, 0],
             [0, 1]
-        ]) @ \
+        ]) * \
         non_unitary_psi_n(_t)
-
-def hatpsi_n(_T):  # accepts a np.range of times
-    return np.array(list(map(
-        _hatpsi_n, _T
-    )))
-
-
+        
         
     
+
+# %%
+hatpsi(t)
+
 
 # %%
 def hatpsisquarednorm(_t):
@@ -253,14 +239,13 @@ def hatpsisquarednorm(_t):
 hatpsisquarednorm(t)
 
 # %%
-plot(hatpsisquarednorm(t).subs(gamma, GAMMA), (t, -2, 60), line_color='m')
+plot(hatpsisquarednorm(t), (t, -2, 60), line_color='m')
 
 # %%
-# Who is prob_1_detect?
-# plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 60))
+plot(prob_1_detect(t), hatpsisquarednorm(t), (t, -0.25, 60))
 
 # %%
-plot(prob_1_unitary(t).subs(gamma, GAMMA), hatpsisquarednorm(t).subs(gamma, GAMMA), (t, -0.25, 60))
+plot(prob_1_unitary(t), hatpsisquarednorm(t), (t, -0.25, 60))
 
 
 # %%
@@ -274,7 +259,7 @@ def prob_1_hatpsi(_t):
 
 
 # %%
-plot( abs(hatpsi(t)[1]**2).subs(gamma, GAMMA), (t, -2, 2*pi), line_color='b')
+plot( abs(hatpsi(t)[1]**2), (t, -2, 2*pi), line_color='b')
 
 # %%
 
@@ -288,17 +273,8 @@ def fhatpsi1(_nu):
 
 
 # %%
-non_unitary_psi_n(1)
+plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
 
-# %%
-trange = np.arange(-1, 1, 2e-2)
-
-# %%
-abs(hatpsi_n(trange)[:,1])**2
-
-
-# %%
-# plot(abs(fhatpsi1(nu).subs(gamma, GAMMA))**2, (nu, -1, 1), line_color='#bbbbbb')
 
 # %% [markdown]
 # The above Fourier transform is defined in frequency (\nu) not angular frequency (\omega),
@@ -310,7 +286,7 @@ def fhatpsiomega(_omega):
 
 
 # %%
-#plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
+plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta')
 
 # %%
 # graphical comparison with a normalized gaussian
@@ -369,14 +345,14 @@ J = np.kron(Omega, np.eye(2)) + np.kron(np.eye(32), K)
 eigenvalues, eigenvectors = np.linalg.eig(J)
 
 # %%
-EnergyCorrectionMatrices = np.zeros((64, 64, 64), complex)
+EnergyCorrectionMatrices = np.zeros((64, 64, 64), np.complex)
 for n in range(64):
     EnergyCorrectionMatrices[n] = np.kron(
         expm(-1j*eigenvalues[n]*T),
         np.eye(2)
     )
 # TODO: DRY
-EnergyCorrectionMatricesT = np.zeros((64, 32, 32), complex)
+EnergyCorrectionMatricesT = np.zeros((64, 32, 32), np.complex)
 for n in range(64):
     EnergyCorrectionMatricesT[n] = expm(-1j*eigenvalues[n]*T)
 
@@ -489,10 +465,10 @@ sqr2D = np.array([
 ])
 
 # %%
-qbhistvec = qbhistvec.astype(complex)
+qbhistvec = qbhistvec.astype(np.complex)
 
 # %%
-sqr2D = sqr2D.astype(complex)
+sqr2D = sqr2D.astype(np.complex)
 
 # %%
 #prob_detect_v = np.kron(np.eye(32), sqr2D) @ qbhistvec
