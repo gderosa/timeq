@@ -212,16 +212,17 @@ def prob_1_detect(t):
 
 
 # %%
-#plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
+plot(prob_0_detect(t),(t, 0, 2*pi), line_color='r')
 
 # %%
-#plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
+plot(prob_1_detect(t),(t, -0, 2*pi), line_color='b')
 
 # %%
-#plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='r')
+plot(re(non_unitary_psi(t)[0])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='r')
 
 # %%
-#plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='b')
+plot(im(non_unitary_psi(t)[1])/sqrt(lossy_norm(t)), (t, 0, 2 * 2*sqrt(2)*pi), line_color='b')
+
 
 # %%
 def prob_0_unitary(t):
@@ -234,10 +235,10 @@ def prob_1_unitary(t):
 
 
 # %%
-#plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
+plot(prob_0_unitary(t),(t, -0.25, 8*pi), line_color='r')
 
 # %%
-#plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
+plot(prob_1_unitary(t),(t, -0.25, 8*pi), line_color='b')
 
 # %%
 lossy_norm_n(2)
