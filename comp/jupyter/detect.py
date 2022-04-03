@@ -429,7 +429,7 @@ def reshape(v):
 
 # also make the first component real
 def normalize_initial(v):
-    vout = np.zeros(64, np.complex)
+    vout = np.zeros(64, complex)
     # A phase factor to make it real
     vout = v * np.exp(-1j * np.angle(v[0]))
     # And a factor to normalize the initial state
