@@ -95,3 +95,5 @@ evolve_psi(pi/(2*omega), 0, Matrix([I,0])) * evolve_psi_correction(pi/(2*omega),
 
 # %% [markdown]
 # With the phase correction due to the non-zero eigenvalue of J, there is agreement between PW and ordinary QM.
+
+# %%

@@ -158,3 +158,5 @@ ax.legend()
 
 plt.show()
 
+
+# %%
