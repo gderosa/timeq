@@ -23,6 +23,7 @@ The file `environment.yml` was originally created by stripping down information 
 conda env export
 ```
 
+If you want a stricter versioning, use `conda-list.export` instead of `environment.yml` with `conda create -n timeq -f `.
 
 Optionally, this may be useful in some cases:
 ```
