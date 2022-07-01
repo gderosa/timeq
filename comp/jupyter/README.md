@@ -14,7 +14,7 @@ https://docs.conda.io/en/latest/miniconda.html
 
 Setup the environment
 ```
-conda create -n timeq -f environment.yml
+conda env create --name timeq --file environment.yml
 ```
 
 The file `environment.yml` was originally created by stripping down information from the output of:
