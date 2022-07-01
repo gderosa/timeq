@@ -1,4 +1,3 @@
-<!-- #region -->
 Notebooks here are saved as
 [Python/percent](https://github.com/mwouts/jupytext#the-percent-format),
 that's why you don't find the `.ipynb` but the `.py`.
@@ -15,14 +14,13 @@ https://docs.conda.io/en/latest/miniconda.html
 
 Setup the environment
 ```
-conda create -n timeq -f environment.yml
+conda env create --name timeq --file environment.yml
 ```
 
 The file `environment.yml` was originally created by stripping down information from the output of:
 ```
 conda env export
 ```
-
 
 Optionally, this may be useful in some cases:
 ```
@@ -33,4 +31,3 @@ After all, you just want the `timeq` environment, which you will explicitly acti
 ```
 conda activate timeq
 ```
-<!-- #endregion -->

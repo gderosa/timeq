@@ -1,4 +1,3 @@
-name: timeq
 channels:
   - conda-forge
   - defaults
