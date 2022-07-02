@@ -22,6 +22,11 @@ The file `environment.yml` was originally created by stripping down information 
 conda env export
 ```
 
+Keep the environment up to date with bugfixes etc. with:
+```
+conda env update --name timeq --file environment.yml
+```
+
 Optionally, this may be useful in some cases:
 ```
 conda config --set auto_activate_base false
