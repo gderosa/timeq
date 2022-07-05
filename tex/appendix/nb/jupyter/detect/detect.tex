@@ -1005,48 +1005,48 @@ plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'y^')
 \caption[]{png}
 \end{figure}
 
-\hypertarget{entropic-uncertainties}{%
-\subsubsection{Entropic uncertainty relation}\label{jupy:entropic-uncertainties}}
+% \hypertarget{entropic-uncertainties}{%
+% \subsubsection{Entropic uncertainty relation}\label{jupy:entropic-uncertainties}}
 
-\begin{lstlisting}[language=Python]
-S_t = stats.entropy(prob_detect)
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% S_t = stats.entropy(prob_detect)
+% \end{lstlisting}
 
-\begin{lstlisting}[language=Python]
-S_omega = stats.entropy(prob_detect_fft)
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% S_omega = stats.entropy(prob_detect_fft)
+% \end{lstlisting}
 
-\begin{lstlisting}[language=Python]
-S_t
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% S_t
+% \end{lstlisting}
 
-\[2.6193337590390438\]
+% \[2.6193337590390438\]
 
-\begin{lstlisting}[language=Python]
-S_omega
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% S_omega
+% \end{lstlisting}
 
-\[1.3471684169765332\]
+% \[1.3471684169765332\]
 
-\begin{lstlisting}[language=Python]
-S_t + S_omega
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% S_t + S_omega
+% \end{lstlisting}
 
-\[3.966502176015577\]
+% \[3.966502176015577\]
 
-\begin{lstlisting}[language=Python]
-np.log(32)
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% np.log(32)
+% \end{lstlisting}
 
-\[3.4657359027997265\]
+% \[3.4657359027997265\]
 
-\begin{lstlisting}[language=Python]
-(S_t + S_omega - np.log(32)) / np.log(32)
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% (S_t + S_omega - np.log(32)) / np.log(32)
+% \end{lstlisting}
 
-\[0.14449060380259104\]
+% \[0.14449060380259104\]
 
-$14\%$ more than the minumum per entropic uncertainty relation.
+% $14\%$ more than the minumum per entropic uncertainty relation.
 
 \hypertarget{use-scipy-routines-to-compute-sigmas}{%
 \subsubsection{Use Scipy routines to compute

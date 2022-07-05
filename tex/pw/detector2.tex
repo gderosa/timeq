@@ -408,36 +408,37 @@ the result from the model of \cite{RuschhauptAbsorption}.
 
 \subsubsection{Time--energy uncertainty relation}
 
-In quantum systems described by a finite Hilbert space,
-uncertainty relations are quantified in terms of \term{entropies}
-of the canonically conjugate probability distributions
----see Section \ref{sec:finite_uncertainty} and references therein,
-in particular \cite{FiniteHilb}.
+% In quantum systems described by a finite Hilbert space,
+% uncertainty relations are quantified in terms of \term{entropies}
+% of the canonically conjugate probability distributions
+% ---see Section \ref{sec:finite_uncertainty} and references therein,
+% in particular \cite{FiniteHilb}.
 
-In our example, the entropic uncertainty relation explicitly reads:
-\begin{multline}
- S_T + S_{\Omega} =
-  -\sum_t \norm{\bradket{t}{\Phi}}_S^2 \ln \norm{\bradket{t}{\Phi}}_S^2
-  -\sum_{\omega} \norm{\bradket{\omega}{\Phi}}_S^2 \ln \norm{\bradket{\omega}{\Phi}}_S^2 \\
-%
-  = -\sum_{n=0}^{N-1} \left(\abs{\Phi_{2n}}^2 + \abs{\Phi_{2n+1}}^2\right) \ln \left(\abs{\Phi_{2n}}^2 + \abs{\Phi_{2n+1}}^2\right) \\
-    -\sum_{m=0}^{N-1}
-          \left(\abs{\tilde{\Phi}_{2m}}^2 + \abs{\tilde{\Phi}_{2m+1}}^2\right)
-      \ln \left(\abs{\tilde{\Phi}_{2m}}^2 + \abs{\tilde{\Phi}_{2m+1}}^2\right) \\
-%
-  \geq \ln N
-\end{multline}
----where we had computed previously the probability values in parenthesis.
+% In our example, the entropic uncertainty relation explicitly reads:
+% \begin{multline}
+%  S_T + S_{\Omega} =
+%   -\sum_t \norm{\bradket{t}{\Phi}}_S^2 \ln \norm{\bradket{t}{\Phi}}_S^2
+%   -\sum_{\omega} \norm{\bradket{\omega}{\Phi}}_S^2 \ln \norm{\bradket{\omega}{\Phi}}_S^2 \\
+% %
+%   = -\sum_{n=0}^{N-1} \left(\abs{\Phi_{2n}}^2 + \abs{\Phi_{2n+1}}^2\right) \ln \left(\abs{\Phi_{2n}}^2 + \abs{\Phi_{2n+1}}^2\right) \\
+%     -\sum_{m=0}^{N-1}
+%           \left(\abs{\tilde{\Phi}_{2m}}^2 + \abs{\tilde{\Phi}_{2m+1}}^2\right)
+%       \ln \left(\abs{\tilde{\Phi}_{2m}}^2 + \abs{\tilde{\Phi}_{2m+1}}^2\right) \\
+% %
+%   \geq \ln N
+% \end{multline}
+% ---where we had computed previously the probability values in parenthesis.
 
-In Section \ref{jupy:entropic-uncertainties}, we numerically find that
-\begin{equation*}
-  S_{T} + S_{\Omega} \approx 1.14 \cdot \ln N
-\end{equation*}
-i.e. circa $14\%$ more than the theoretical minimal uncertainty.
+% In Section \ref{jupy:entropic-uncertainties}, we numerically find that
+% \begin{equation*}
+%   S_{T} + S_{\Omega} \approx 1.14 \cdot \ln N
+% \end{equation*}
+% i.e. circa $14\%$ more than the theoretical minimal uncertainty.
 
-In terms of uncertainty relation based on standard deviations,
-which is the standard formulation, particularly for continuous distributions,
-and allows a comparison with \cite{RuschhauptAbsorption}, we compute numerically
+% In terms of uncertainty relation based on standard deviations,
+% which is the standard formulation, particularly for continuous distributions,
+% and allows a comparison with \cite{RuschhauptAbsorption},
+We compute numerically
 \begin{equation}\label{eq:uncertainty-us}
   \sigma_{T} \sigma_{\Omega} \approx 0.716 \, \text{,}
 \end{equation} \citereset

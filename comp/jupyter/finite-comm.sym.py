@@ -15,7 +15,6 @@
 
 # %%
 from sympy import *
-#from sympy.physics.matrices import mdft  # deprecation https://github.com/sympy/sympy/blob/77f1d79c705da5e9b3dee456a14b1b4e92dd620c/sympy/physics/matrices.py#L159-L176
 from sympy.matrices.expressions.fourier import DFT
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.constants import hbar
