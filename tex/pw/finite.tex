@@ -251,20 +251,23 @@ are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of pos
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
 $\op{q}$ and $\op{p} \eqbydef -i\hbar\op{\partial}_{q}$,
 it is in general straightforward to prove that
-$\qty[\op{q}, \op{p}] = i\hbar$ and therefore
-$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{\hbar}{2}}$.
+\begin{equation}\label{eq:commconstant}
+  \qty[\op{q}, \op{p}] = i\hbar
+\end{equation}
+and therefore
+the Robertson form of the uncertainty relation
+$$
+  \Delta q \Delta p \geq { \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| }
+$$
+yields
+$$
+  \Delta q \Delta p \geq { \frac{\hbar}{2} } \, \text{.}
+$$
 
-In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
-in general, and is less essential.
-``Canonically conjugate'' operators are related
-through the (discrete) Fourier transform ($\op{p} = \op{F}^{\dagger}\op{q}\op{F}$)
-rather then differentiation,
-and uncertainty relations are based on
-the properties of Fourier transformation
-rather than commutation relations.
-
-TODO: Weyl, uncertainty/commutator not constant. Entropy uncertainty logic not what we want\dots
-Sympy: see \ref{sec:jpynb:finite-comm}.
+In finite $d$-dimensional Hilbert spaces, the commutator of canonically conjugate operators
+is not a constant \parencite{Weyl:FiniteComm}. In other words, eq. \eqref{eq:commconstant} does not longer hold.
+A simple example is provided in Appendix \ref{sec:jpynb:finite-comm}.
+TODO: make it explicit here, do not rely on a SymPy notebook.
 
 % Particularly, the entropic uncertainty relation holds
 % (\cite[\s 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
