@@ -275,9 +275,8 @@ hence such matrix cannot represent a constant operator, in any basis
 (as the right side of the equation would otherwise indicate).
 
 In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
-satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.\footnote{
-  A simple numeric example is provided in Appendix \ref{sec:jpynb:finite-comm}.
-}
+satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.
+
 The value of $\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
 would depend on the particular state vector $\ket{\psi} \in \hilb{H}_d$,
 and one should compute, explicitly, the minimum of such value over $\ket{\psi} \in \hilb{H}_d$
@@ -286,11 +285,11 @@ Nonetheless, if the discrete system is meant as an approximation of a continuous
 one
 (and canonical operators are obtained from each other by means of discrete Fourier transformation rather than differentiation),
 it can still be of interest to compare the spread product $\Delta{q}\Delta{p}$
-(of the two discrete operators)
-with the value predicted by the continuous theory.
+(of two discrete operators)
+with the lower limit predicted by the continuous theory.
 
-% Nevertheless, if the finite-dimensional system of interest is simply the discrete
-% approximation
+%% Below: it is not even necessary that one is DFT of the other...
+% A simple numeric example is provided in Appendix \ref{sec:jpynb:finite-comm}.
 
 % Particularly, the entropic uncertainty relation holds
 % (\cite[\s 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
