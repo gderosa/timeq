@@ -246,7 +246,7 @@ but in a similar fashion).
 In other words, in \citereset\cite{FiniteHilb}, the sampling interval and the fundamental harmonic angular frequency
 are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of position and momentum).
 
-\subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
+\subsection{Canonical comutation in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
 $\op{q}$ and $\op{p} \eqbydef -i\hbar\op{\partial}_{q}$,
@@ -265,12 +265,19 @@ $$
 $$
 
 In finite $d$-dimensional Hilbert spaces, the commutator of canonically conjugate operators
-is not a constant.
-As shown in \cite{Weyl:FiniteComm}, in an eigenbasis of q TODO Weyl page 85, second paragraph
+is not a constant ---see \cite{Weyl:FiniteComm}.
+Indeed, in an eigenbasis of $\op{q}$,
+the latter is obviously represented by a diagonal matrix $q_{mn} = \delta_{mn}q_{n}$,
+with $q_n$ being its eigenvalues. Let also $p_{mn}$ be the matrix representation of $\op{p}$
+in the same basis. The left side of \eqref{eq:commconstant} then has components
+$p_{mn}(q_n - q_m)$, and all diagonal elements are thus zero,
+hence such matrix cannot represent a constant operator, in any basis
+(as the right side of the equation would otherwise indicate).
 
-In other words, eq. \eqref{eq:commconstant} does not longer hold.
-A simple example is provided in Appendix \ref{sec:jpynb:finite-comm}.
-TODO?: make it explicit here, do not rely on a SymPy notebook.
+In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
+satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.\footnote{
+  A simple numeric example is provided in Appendix \ref{sec:jpynb:finite-comm}.
+}
 
 % Particularly, the entropic uncertainty relation holds
 % (\cite[\s 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
