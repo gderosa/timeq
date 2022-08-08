@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.14.0
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -603,28 +603,28 @@ plt.ylabel(r'$|\!|\langle \omega | \Phi \rangle\!\rangle|\!|_{S}^2$')
 plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'm^')
 
 # %%
-S_t = stats.entropy(prob_detect)
+#S_t = stats.entropy(prob_detect)
 
 # %%
-S_omega = stats.entropy(prob_detect_fft)
+#S_omega = stats.entropy(prob_detect_fft)
 
 # %%
-S_t
+#S_t
 
 # %%
-S_omega
+#S_omega
 
 # %%
-S_t + S_omega
+#S_t + S_omega
 
 # %%
-np.log(32)
+#np.log(32)
 
 # %%
-(S_t + S_omega - np.log(32)) / np.log(32)
+#(S_t + S_omega - np.log(32)) / np.log(32)
 
-# %% [markdown]
-# 14% more than the minumum per entropic uncertainty relation.
+# %%
+# # 14% more than the minumum per entropic uncertainty relation.
 
 # %% [markdown]
 # ### Use Scipy routines to compute sigmas

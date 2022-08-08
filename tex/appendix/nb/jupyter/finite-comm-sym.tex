@@ -1,0 +1,79 @@
+\section{Commutator of finite-dimensional conjugate operators}\label{sec:jpynb:finite-comm}
+
+\begin{lstlisting}[language=Python]
+from sympy import *
+from sympy.matrices.expressions.fourier import DFT
+from sympy.physics.quantum.dagger import Dagger
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+# Remeber this to have LaTeX rendered output in Jupyter
+init_printing()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+N      = Symbol(r'N', real=True)
+deltaT = Symbol(r'\delta{T}', real=True)
+DeltaT = Symbol(r'\Delta{T}', real=True)
+T      = Symbol(r'T')
+F      = Symbol(r'F')
+Omega  = Symbol(r'\Omega')
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+N = Integer(4)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+deltaT = Rational(1, 1)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+DeltaT = N * deltaT
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+T = diag(*Range(N))
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+T
+\end{lstlisting}
+
+\(\displaystyle \left[\begin{matrix}0 & 0 & 0 & 0\\0 & 1 & 0 & 0\\0 & 0 & 2 & 0\\0 & 0 & 0 & 3\end{matrix}\right]\)
+
+\begin{lstlisting}[language=Python]
+F = DFT(N)
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+F.as_explicit()
+\end{lstlisting}
+
+\(\displaystyle \left[\begin{matrix}\frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}\\\frac{1}{2} & - \frac{i}{2} & - \frac{1}{2} & \frac{i}{2}\\\frac{1}{2} & - \frac{1}{2} & \frac{1}{2} & - \frac{1}{2}\\\frac{1}{2} & \frac{i}{2} & - \frac{1}{2} & - \frac{i}{2}\end{matrix}\right]\)
+
+\begin{lstlisting}[language=Python]
+Dagger(F).as_explicit()
+\end{lstlisting}
+
+\(\displaystyle \left[\begin{matrix}\frac{1}{2} & \frac{1}{2} & \frac{1}{2} & \frac{1}{2}\\\frac{1}{2} & \frac{i}{2} & - \frac{1}{2} & - \frac{i}{2}\\\frac{1}{2} & - \frac{1}{2} & \frac{1}{2} & - \frac{1}{2}\\\frac{1}{2} & - \frac{i}{2} & - \frac{1}{2} & \frac{i}{2}\end{matrix}\right]\)
+
+\begin{lstlisting}[language=Python]
+Omega = (Dagger(F) @ T @ F).as_explicit()
+\end{lstlisting}
+
+\begin{lstlisting}[language=Python]
+Omega
+\end{lstlisting}
+
+\(\displaystyle \left[\begin{matrix}\frac{3}{2} & - \frac{1}{2} + \frac{i}{2} & - \frac{1}{2} & - \frac{1}{2} - \frac{i}{2}\\- \frac{1}{2} - \frac{i}{2} & \frac{3}{2} & - \frac{1}{2} + \frac{i}{2} & - \frac{1}{2}\\- \frac{1}{2} & - \frac{1}{2} - \frac{i}{2} & \frac{3}{2} & - \frac{1}{2} + \frac{i}{2}\\- \frac{1}{2} + \frac{i}{2} & - \frac{1}{2} & - \frac{1}{2} - \frac{i}{2} & \frac{3}{2}\end{matrix}\right]\)
+
+\begin{lstlisting}[language=Python]
+T @ Omega - Omega @ T
+\end{lstlisting}
+
+\(\displaystyle \left[\begin{matrix}0 & \frac{1}{2} - \frac{i}{2} & 1 & \frac{3}{2} + \frac{3 i}{2}\\- \frac{1}{2} - \frac{i}{2} & 0 & \frac{1}{2} - \frac{i}{2} & 1\\-1 & - \frac{1}{2} - \frac{i}{2} & 0 & \frac{1}{2} - \frac{i}{2}\\- \frac{3}{2} + \frac{3 i}{2} & -1 & - \frac{1}{2} - \frac{i}{2} & 0\end{matrix}\right]\)
+
+Zero-valued diagonal, as argued in \cite{Weyl:FiniteComm}.
+
+The commutator is not a constant.

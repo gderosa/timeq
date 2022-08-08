@@ -23,7 +23,7 @@ commutation relation such as
 \begin{equation}\label{eq:canonical_commutation_in_time}
   [\op{T}, \op{\Omega}] = i
 \end{equation}
-cannot be both bounded, therefore cannot exist in a finite-dimensional space.
+cannot be both bounded, therefore cannot exist in a finite-dimensional space \parencite{Weyl:FiniteComm}.
 
 This problem was studied in detail in
 \cite{FiniteHilb}. It was shown therein
@@ -251,36 +251,64 @@ are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of pos
 For canonical pairs of operators with a continuous, unbounded spectrum i.e.
 $\op{q}$ and $\op{p} \eqbydef -i\hbar\op{\partial}_{q}$,
 it is in general straightforward to prove that
-$\qty[\op{q}, \op{p}] = i\hbar$ and therefore
-$\Delta q \Delta p \geq {\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{\hbar}{2}}$.
-
-In finite $d$-dimensional Hilbert spaces, the above commutation relation doesn't hold
-in general, and is less essential.
-``Canonically conjugate'' operators are related
-through the (discrete) Fourier transform ($\op{p} = \op{F}^{\dagger}\op{q}\op{F}$)
-rather then differentiation,
-and uncertainty relations are based on
-the properties of Fourier transformation
-rather than commutation relations.
-
-Particularly, the entropic uncertainty relation holds
-(\cite[\s 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
-\begin{equation}
-  S_q + S_p \geq \ln d
+\begin{equation}\label{eq:commconstant}
+  \qty[\op{q}, \op{p}] = i\hbar
 \end{equation}
-where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
-\parencite[\s {\it I}.A]{Wehner:Uncertainty}; in this case:
-\begin{align}
-  S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
-  S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
-  \,\text{,}
-\end{align}
-with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
-(generalized) position and momentum basis.
+and therefore
+the Robertson form of the uncertainty relation
+\begin{equation}\label{eq:robertsonconstant}
+  \Delta q \Delta p \geq { \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| }
+\end{equation}
+yields
+\begin{equation}\label{eq:min_uncertain_constant}
+  \Delta q \Delta p \geq { \frac{\hbar}{2} } \, \text{.}
+\end{equation}
 
-{\color{magenta}TODO} \url{https://arxiv.org/pdf/1511.04857.pdf} \S III.A.1.
--- .2 also interesting. Also: \url{https://en.wikipedia.org/wiki/Entropic_uncertainty}.
-Mabye \url{https://www.math.ru.nl/~maassen/papers/EntrUncert.pdf}.
-Perhaps more importantly: \cite{Lloyd:Entropic}.
+In finite $d$-dimensional Hilbert spaces, the commutator of canonically conjugate operators
+is not a constant ---see \cite{Weyl:FiniteComm}.
+Indeed, in an eigenbasis of $\op{q}$,
+the latter is obviously represented by a diagonal matrix $q_{mn} = \delta_{mn}q_{n}$,
+with $q_n$ being its eigenvalues.
+Let also $p_{mn}$ be the matrix representation of $\op{p}$ in the same basis.
+The left side of \eqref{eq:commconstant} has then components
+$p_{mn}(q_n - q_m)$. All diagonal elements are thus zero,
+hence such matrix cannot represent a constant operator in any basis.
+
+In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
+satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.
+%
+The value of $\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
+would then  depend on the particular state vector $\ket{\psi} \in \hilb{H}_d$,
+and one should compute, explicitly, the value of
+$\displaystyle \min_{\ket{\psi} \in \hilb{H}_d} \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
+to obtain an uncertainty relation.
+
+Nonetheless, if the discrete system is meant as an approximation of a continuous
+one, %
+% (and canonical operators are obtained from each other by means of discrete Fourier transformation rather than differentiation),
+it can still be of interest to compare the spread product $\Delta{q}\Delta{p}$
+(of two discrete operators)
+with the lower limit predicted by the continuous theory.
 
 
+% TODO? Excercise: ppendix \ref{sec:jpynb:finite-comm}.
+% BUT it is not even necessary that one is DFT of the other...
+
+
+%% REMOVED:
+% Particularly, the entropic uncertainty relation holds
+% (\cite[\s 2.4]{FiniteHilb}; \cite{Deutsch:Uncertainty}):
+% \begin{equation}
+%   S_q + S_p \geq \ln d
+% \end{equation}
+% where the quantities $S_q$ and $S_p$ are the \term{R\'enyi}-\term{Shannon} entropies
+% \parencite[\s {\it I}.A]{EntroUncertaintyApp}; in this case:
+% \begin{align}
+%   S_q &= -\sum_n \qty|\lambda_n |^2  \ln\qty|\lambda_n|^2 \\
+%   S_p &= -\sum_n \qty|\mu_n     |^2  \ln\qty|\mu_n    |^2
+%   \,\text{,}
+% \end{align}
+% with $\lambda_n$ and $\mu_n$ being the discrete ``wave functions'' in the
+% (generalized) position and momentum basis.
+
+% TODO: See also \cite[\s III.A.1--2]{EntroUncertaintyApp}. Perhaps more importantly \cite{Deutsch:Uncertainty} (cited therein).
