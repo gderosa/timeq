@@ -22,13 +22,13 @@ while, ``internally'', the first photon can be interpreted as a clock for the ``
 The authors choose, for their experiment,
 a particular
 frequency operator $\op{\Omega}$
-defined explicitly by eq. \eqref{eq:MorevaOmegaT}.
+as defined explicitly by eq. \eqref{eq:MorevaOmegaT}.
 Let us recall that it is $\hbar\op{\Omega} = \op{H}_T$, i.e. the ``Hamiltonian of the clock''.
 
-With respect to the polarization basis
-$\qty{\ket{H}_T, \ket{V}_T}$ of the first photon,
+With respect to the polarization basis of the first photon
+$\qty{\ket{H}_T, \ket{V}_T}$,
 the operator $\op{H}_T$ is then represented in matrix form as
-\begin{equation}
+\begin{equation}\label{eq:H_T}
   \op{H}_T = \hbar\op{\Omega} \repr {
     i\hbar\omega
     \begin{pmatrix}
@@ -48,14 +48,17 @@ its Hamiltonian is chosen as
     \end{pmatrix}
   } \, \text{,}
 \end{equation}
-with respect to the basis $\qty{\ket{H}_S, \ket{V}_S}$.
+with respect to the polarization basis $\qty{\ket{H}_S, \ket{V}_S}$.
 
 Note that there is no particular physical reason
 (other than simplicity of realization)
-for the matrices of $\op{H}_S$ and $\op{H}_T$ to be formally identical.
-They represent operators acting on two different Hilbert spaces.
-In another experiment, they may even act on spaces of different dimensionality.
-
+for the matrices in eq.~\eqref{eq:H_T} and \eqref{eq:H_S} to be formally identical.
+They represent operators acting on two different Hilbert spaces, $\hilb{H}_T$ and $\hilb{H}_S$.
+In another experiment,
+in principle,
+the clock may be described by a different definition of $\op{\Omega}$;
+or $\hilb{H}_T$ and $\hilb{H}_S$ may even have different dimensions
+---and so would the matrices representing $\op{H}_S$ and $\op{H}_T$ therein.
 
 The spectrum of $\op{\Omega}$ is $\qty{-\omega, \omega}$.
 Therefore, it's $N=2$ and $\delta\Omega = 2\omega$ in the sense of
