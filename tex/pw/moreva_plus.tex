@@ -5,15 +5,28 @@
 \subsection{Time operator, diagonalization, evolution}
 \label{1qubitExp}
 
-In \cite{Moreva:illustration},
-the authors choose, for their experiment,
+The experiment described in \cite{Moreva:illustration},
+in its essence,
+is based on two qubits,
+physically realized through the polarization states
+(vertical or horizontal) of two photons.
+Let the first one be the ``clock'' and the second one the ``rest of the universe''
+in the Page--Wootters model sense.
+The notation $\ket{H}_T, \ket{V}_T, \ket{H}_S, \ket{V}_S$
+will be used to refer to the horizontal and vertical polarization states of the two photons respectively.
+Consistently with the model, the experiment is prepared in such way
+to show that the overall system 
+is stationary (i.e. it is an eigenstate of the overall Hamiltonian)
+while, ``internally'', the first photon can be interpreted as a clock for the ``evolution'' of the second one.
+
+The authors choose, for their experiment,
 a particular
 frequency operator $\op{\Omega}$
 defined explicitly by eq. \eqref{eq:MorevaOmegaT}.
 Let us recall that it is $\hbar\op{\Omega} = \op{H}_T$, i.e. the ``Hamiltonian of the clock''.
 
 With respect to the polarization basis
-$\qty{\ket{H}, \ket{V}}$ the operator $\op{H}_T$ is then represented, in matrix form, as
+$\qty{\ket{H}_T, \ket{V}_T}$ the operator $\op{H}_T$ is then represented in matrix form as
 \begin{equation}
   \op{H}_T = \hbar\op{\Omega} \repr {
     i\hbar\omega
