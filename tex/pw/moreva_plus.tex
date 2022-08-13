@@ -184,9 +184,9 @@ The basis of interest is therefore
 \end{equation}
 
 Let us define $T_d$ as the diagonal matrix in Eq.~\eqref{eq:moreva_diag_T}.
-In the basis $\qty{t} \eqbydef \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T$,
+In the eigenbasis of time $\qty{t} \eqbydef \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T$,
 the matrix $\Omega_{T_d}$ representing $\op{\Omega}$
-can be obtained using Eq.~\eqref{eq:SI_Fourier:Omega}.
+can be obtained via Eq.~\eqref{eq:SI_Fourier:Omega} in that basis:
 %
 % How does the matrix of $\op{\Omega}$ transform? In general, it's
 % \begin{equation}
@@ -198,7 +198,25 @@ can be obtained using Eq.~\eqref{eq:SI_Fourier:Omega}.
 % (let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
 % In conclusion, with some algebra, it's simply
 \begin{equation}
-  \Omega_{T_d} \eqbydef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+  \Omega_{T_d} =
+  \frac{\delta\Omega}{\delta{T}} F^{\dagger} T_d F
+  \text{.}
+\end{equation}
+The value of $\delta\Omega$ is already known as $2\omega$.
+Similarly, $\delta{T}$, for this system, is simply the difference between the two eigenvalues of $\op{T}$,
+that is
+$\delta{T} = \frac{\pi}{2\omega}$. Hence:
+\begin{equation}
+\Omega_{T_d} =
+\omega
+F^{\dagger}
+\begin{pmatrix}
+  -1    & 0   \\
+   0    & 1
+\end{pmatrix}
+F =
+\left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+\text{,}
 \end{equation}
 and we are interested in the eigensystem of
 \begin{multline}
