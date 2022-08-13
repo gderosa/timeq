@@ -40,7 +40,7 @@ the \term{finite} or \term{dicrete} \term{Fourier transform} (DFT).
 In our case, we are particularly interested in relating the
 time operator $\op{T}$ and the ``energy'' operator $-\hbar\op{\Omega}$
 in $\hilb{H}_T$ ---via the angular frequency operator $\op{\Omega}$ which, in the continuous limit, would satisfy
-eq.~\eqref{eq:canonical_commutation_in_time} exactly.
+Eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
@@ -126,7 +126,7 @@ and, respectively,
 \end{equation}
 %
 Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
-eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
+Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
 %
 The factor $\frac{1}{\sqrt{N}}$
 is chosen to guarantee \emph{unitarity} of the transformation:
@@ -157,7 +157,7 @@ $\left\{\braket{\omega_m}{\psi}\right\}_{m=0, \dots, N-1}$:
 \begin{equation}\label{eq:DFT:chrepr}  % TODO: inverse too?
   \braket{\omega_{m}}{\psi} = \sum_n F_{mn} \braket{t_n}{\psi} \text{.}
 \end{equation}
-It is convenient to write down the ``complex conjugate'' of eq.~\eqref{eq:DFT:chrepr} as well:
+It is convenient to write down the ``complex conjugate'' of Eq.~\eqref{eq:DFT:chrepr} as well:
 \begin{equation}\label{eq:DFT:chrepr:cconj}  % TODO: inverse too?
   \braket{\psi}{\omega_{m}} = \sum_n F_{mn}^{\dagger} \braket{\psi}{t_n}
 \end{equation}
@@ -179,7 +179,7 @@ Let us now introduce the \term{Fourier operator}
 \begin{equation}
   \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
 \end{equation}
-Multiplying each element of the sum in eq.~\eqref{eq:DFT:bra}
+Multiplying each element of the sum in Eq.~\eqref{eq:DFT:bra}
 by $\braket{t_m} = 1$
 we immediately get:
 \begin{equation}\label{eq:DFO:bra}
@@ -187,14 +187,14 @@ we immediately get:
   % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} =
   \bra{t_m} \op{F} \text{.}
 \end{equation}
-Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
+Similarly, Eq.~\eqref{eq:DFT:ket} can be expressed as
 \begin{equation}
   \label{eq:DFO:ket}  \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
 \end{equation}
 %
 Finally, we use the spectral decomposition of $\op{\Omega}$,
 the results \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
-and eq.~\eqref{eq:DFT:eigenratio}
+and Eq.~\eqref{eq:DFT:eigenratio}
 to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
@@ -226,12 +226,12 @@ In conclusion:
       \op{F} \qty(\delta{T} \frac{\op{\Omega}}{\delta{\Omega}}) \op{F}^{\dagger}
       \, \text{;}
 \end{gather}
-where the operator $\frac{\op{T}}{\delta{T}}$ in eq.~\eqref{eq:SI_Fourier:Omega},
+where the operator $\frac{\op{T}}{\delta{T}}$ in Eq.~\eqref{eq:SI_Fourier:Omega},
 in $T$ representation, is diagonal with integer elements $\setof{0, \dots, N-1}$.
 
-Conversely, eq.~\eqref{eq:SI_Fourier:T} is obtained by
+Conversely, Eq.~\eqref{eq:SI_Fourier:T} is obtained by
 taking the ``conjugate'' of all the computation
-from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
+from Eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
 
 Note that eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
 differ from the results of \cite{FiniteHilb}.
@@ -275,7 +275,7 @@ $p_{mn}(q_n - q_m)$. All diagonal elements are thus zero,
 hence such matrix cannot represent a constant operator in any basis.
 
 In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
-satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.
+satisfying Eq.~\eqref{eq:commconstant} in a finite-dimensional Hilbert space.
 %
 The value of $\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
 would then  depend on the particular state vector $\ket{\psi} \in \hilb{H}_d$,

@@ -213,7 +213,7 @@ ax.scatter(times, np.zeros(NPLOTPOINTS)-0.1, c=rgbs, marker='|', s=400)
 \subsection{Complex potential -- non-Hermitian evolution}\label{sec:3lev:complexPotential}
 
 In a similar fashion to what seen in Section \ref{sec:hist:detect},
-the Hermitian Hamiltonian $\op{H}$, from eq.~\eqref{eq:3lev:H},
+the Hermitian Hamiltonian $\op{H}$, from Eq.~\eqref{eq:3lev:H},
 is replaced by
 \begin{equation}\label{eq:3lev:nonUnitaryH}
   K \eqbydef \op{H} - \iu \op{D} \text{,}
@@ -437,7 +437,7 @@ F_dagger = F.conj().T
 Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
 \end{lstlisting}
 
-Then the ``Hamiltonian'' ${\mathbb{J}}$, acting on $\pwspace$, and defined in eq.~\eqref{eq:pwHamiltonian:nonUnitary}
+Then the ``Hamiltonian'' ${\mathbb{J}}$, acting on $\pwspace$, and defined in Eq.~\eqref{eq:pwHamiltonian:nonUnitary}
 is derived, with eigenvalues and eigenvectors::
 \begin{lstlisting}[language=Python]
 J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
@@ -445,7 +445,7 @@ J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
 eigenvalues, eigenvectors = np.linalg.eig(J)
 eigenvectors = eigenvectors.T
 \end{lstlisting}
-where the Python function \verb|K()| is the non-Hermitian operator $K$ of eq.~\eqref{eq:3lev:nonUnitaryH}.
+where the Python function \verb|K()| is the non-Hermitian operator $K$ of Eq.~\eqref{eq:3lev:nonUnitaryH}.
 
 Eigenvectors need to be ``initially normalized in $\hilb{H}_S$'' in the sense
 of a state vector $\ket{\psi(t)}$ satisfying
@@ -459,7 +459,7 @@ for i in range(NT*NS):
     eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
 \end{lstlisting}
 
-Similarly to what illustrated in eq.~\eqref{eq:pw-vs-qm} ---and Sec.~\ref{sec:qubit:pw-vs-qm} in general---
+Similarly to what illustrated in Eq.~\eqref{eq:pw-vs-qm} ---and Sec.~\ref{sec:qubit:pw-vs-qm} in general---
 a ``phase correction'' may be needed in order to allow a comparison with
 the time evolution predicted with ``standard'' quantum mechanics
 (although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
