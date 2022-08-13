@@ -148,7 +148,7 @@ In terms of the physics of the experiment,
 time eigenstates coincide with
 the two circular polarization states of the clock photon.
 
-It's worth observing that
+It is worth observing that
 only if $\op{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
@@ -175,7 +175,7 @@ or, in general:
 where
 $t_0, t_1, \dots, t_{N_{T}-1}$ are the eigenvalues of the time operator,
 and
-$N_{S}$ and $N_{T}-1$ the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
+$N_{S}$ and $N_{T}$ the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
 
 The basis of interest is therefore
 \begin{equation}
@@ -184,16 +184,19 @@ The basis of interest is therefore
 \end{equation}
 
 Let us define $T_d$ as the diagonal matrix in Eq.~\eqref{eq:moreva_diag_T}.
-
-How does the matrix of $\op{\Omega}$ transform? In general, it's
-\begin{equation}
-  \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
-  \, \text{,}
-\end{equation}
-but we already know $F^{\dagger} \Omega F = T$,
-and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
-(let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
-In conclusion, with some algebra, it's simply
+In the basis $\qty{t} \eqbydef \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T$,
+the matrix $\Omega_{T_d}$ representing $\op{\Omega}$
+can be obtained using Eq.~\eqref{eq:SI_Fourier:Omega}.
+%
+% How does the matrix of $\op{\Omega}$ transform? In general, it's
+% \begin{equation}
+%   \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
+%   \, \text{,}
+% \end{equation}
+% but we already know $F^{\dagger} \Omega F = T$,
+% and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
+% (let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
+% In conclusion, with some algebra, it's simply
 \begin{equation}
   \Omega_{T_d} \eqbydef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
 \end{equation}
