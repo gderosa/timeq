@@ -178,7 +178,7 @@ and
 $N_{S}$ and $N_{T}$ the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
 
 The basis of interest is therefore
-\begin{equation}
+\begin{equation}\label{eq:moreva:t_overall_basis}
   \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
   \, \text{.}
 \end{equation}
@@ -216,39 +216,45 @@ F^{\dagger}
 \end{pmatrix}
 F =
 \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
-\text{,}
+\text{.}
 \end{equation}
-and we are interested in the eigensystem of
-\begin{multline}
+We are interested in the eigensystem of the overall ``Hamiltonian'' $\op{\mathbb{J}}$.
+Let $\mathbb{J}_{T_d}$ be its matrix representation with respect to the basis \eqref{eq:moreva:t_overall_basis}.
+It is:
+\begin{multline}\label{eq:moreva:t_J}
   \mathbb{J}_{T_d} \eqbydef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
-    \hbar
-    \begin{pmatrix}0 & - \omega\\- \omega & 0\end{pmatrix}
+    \hbar\omega
+    \begin{pmatrix}0 & - 1\\- 1 & 0\end{pmatrix}
     \ox
     \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
     + \\
     \hbar\omega
     \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
     \ox
-    \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+    \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}
     =
     \hbar\omega
     \begin{pmatrix}
       0   &i  &-1 &0  \\
       -i  &0  &0  &-1 \\
       -1  &0  &0  &i  \\
-      0   &-1 &-i &0  
+      0   &-1 &-i &0
     \end{pmatrix}
-  \text{,}
+  \text{.}
 \end{multline}
-which is
+From Eq.~\eqref{eq:moreva:t_J},
+the eigenvalues of $\op{\mathbb{J}}$
+(which we will label $j_{-1, \: 0, \: +1}$),
+and the components of corresponding eigenvectors over the basis \eqref{eq:moreva:t_overall_basis},
+can be calculated, bringing:
 \begin{align}
-  j_0     &= 0\,\text{;}              &\ket{j_{0}1}   \repr (0, -i, 1, 0) \quad \ket{j_0 2} \repr (i, 0, 0 ,1)
+  j_0     &= 0\,\text{,}              &\ket{j_{0}1}   \repr (0, -i, 1, 0) \text{,}\quad \ket{j_0 2} \repr (i, 0, 0 ,1) \text{;}
     \label{eq:moreva:eigenJ0} \\
-  j_{-1}  &= -2\hbar\omega\,\text{;}  &\ket{j_{-1}}   \repr (-i, 1, -i, 1) \\
-  j_{+1}   &= 2\hbar\omega\,\text{;}  &\ket{j_{+1}}   \repr (-i, -1, i, 1)
+  j_{-1}  &= -2\hbar\omega\,\text{,}  &\ket{j_{-1}}   \repr (-i, 1, -i, 1) \text{;} \\
+  j_{+1}   &= 2\hbar\omega\,\text{,}  &\ket{j_{+1}}   \repr (-i, -1, i, 1) \text{.}
 \end{align}
 
-See \ref{nb:jupyter:moreva} for more details.
+% See Appendix \ref{nb:jupyter:moreva} for more details.
 
 
 \subsection{Consistency with predictions of ordinary quantum theory}
