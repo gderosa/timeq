@@ -272,6 +272,7 @@ with diagonal elements $q_1, \dots, q_d$.
 Let also P  be the matrix representation of $\op{p}$ in the same basis, and $p_{mn}$ its elements, with $m, n = 1 \dots d$.
 The left side of \eqref{eq:commconstant} is then represented as
 \begin{multline}
+  \displaybreak[2]  %% https://tex.stackexchange.com/a/24905
   QP - PQ =
   \mqty(
     q_1   &{}     &{} \\
@@ -308,7 +309,7 @@ The left side of \eqref{eq:commconstant} is then represented as
     q_{1}p_{d1} &\ldots &q_{d}p_{dd}
   )
   =
-  \qty\Big{\qty(q_{m}-q_{n})p_{mn}}_{m, n = 1 \, \dots \, d}
+  \qty\bigg{\qty(q_{m}-q_{n})p_{mn}}_{m, n = 1 \, \dots \, d}
   \;\text{.}
 \end{multline}
 All diagonal elements are thus zero,
