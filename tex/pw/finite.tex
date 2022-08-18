@@ -267,11 +267,51 @@ yields
 In finite $d$-dimensional Hilbert spaces, the commutator of canonically conjugate operators
 is not a constant ---see \cite{Weyl:FiniteComm}.
 Indeed, in an eigenbasis of $\op{q}$,
-the latter is obviously represented by a diagonal matrix $q_{mn} = \delta_{mn}q_{n}$,
-with $q_n$ being its eigenvalues.
-Let also $p_{mn}$ be the matrix representation of $\op{p}$ in the same basis.
-The left side of \eqref{eq:commconstant} has then components
-$p_{mn}(q_n - q_m)$. All diagonal elements are thus zero,
+the latter is represented by a diagonal matrix Q,
+with diagonal elements $q_1, \dots, q_d$.
+Let also P  be the matrix representation of $\op{p}$ in the same basis, and $p_{mn}$ its elements, with $m, n = 1 \dots d$.
+The left side of \eqref{eq:commconstant} is then represented as
+\begin{multline}
+  QP - PQ =
+  \mqty(
+    q_1   &{}     &{} \\
+    {}    &\ddots &{} \\
+    {}    &{}     &q_d
+  )
+  \mqty(
+    p_{11}  &\ldots &p_{1d} \\
+    \vdots  &\ddots &\vdots \\
+    p_{d1}  &\ldots &p_{dd}
+  )
+  -
+  \mqty(
+    p_{11}  &\ldots &p_{1d} \\
+    \vdots  &\ddots &\vdots \\
+    p_{d1}  &\ldots &p_{dd}
+  )
+  \mqty(
+    q_1   &{}     &{} \\
+    {}    &\ddots &{} \\
+    {}    &{}     &q_d
+  )
+  \\
+  =
+  \mqty(
+    q_{1}p_{11} &\ldots &q_{1}p_{1d}  \\
+    \vdots      &\ddots &\vdots       \\
+    q_{d}p_{d1} &\ldots &q_{d}p_{dd}
+  )
+  -
+  \mqty(
+    q_{1}p_{11} &\ldots &q_{d}p_{1d}  \\
+    \vdots      &\ddots &\vdots       \\
+    q_{1}p_{d1} &\ldots &q_{d}p_{dd}
+  )
+  =
+  \qty\Big{\qty(q_{m}-q_{n})p_{mn}}_{m, n = 1 \, \dots \, d}
+  \;\text{.}
+\end{multline}
+All diagonal elements are thus zero,
 hence such matrix cannot represent a constant operator in any basis.
 
 In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
@@ -281,7 +321,7 @@ The value of $\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{1}{2} \qty|\ev
 would then  depend on the particular state vector $\ket{\psi} \in \hilb{H}_d$,
 and one should compute, explicitly, the value of
 $\displaystyle \min_{\ket{\psi} \in \hilb{H}_d} \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
-to obtain an uncertainty relation.
+to obtain a general lower bound.
 
 Nonetheless, if the discrete system is meant as an approximation of a continuous
 one, %
