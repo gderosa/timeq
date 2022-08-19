@@ -141,12 +141,18 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of $\op{T}$ as columns
 Thus the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$
 (or superpositions of them):
 \begin{align}
-  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqbydef \ket{L} \\
-  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqbydef \ket{R} \, \text{.}
+  \ket{-\frac{\pi}{4\omega}}_T &= \frac{1}{\sqrt{2}} \qty\big(\ket{V}+i\ket{H})_T \eqbydef \ket{L}_T \\
+  \ket{ \frac{\pi}{4\omega}}_T &= \frac{1}{\sqrt{2}} \qty\big(\ket{V}-i\ket{H})_T \eqbydef \ket{R}_T \, \text{.}
 \end{align}
 In terms of the physics of the experiment,
 time eigenstates coincide with
 the two circular polarization states of the clock photon.
+
+The basis in the product space is
+\begin{equation}\label{eq:moreva:t_overall_basis}
+  \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
+  \, \text{.}
+\end{equation}
 
 It is worth observing that
 only if $\op{T}$ is diagonal in a certain basis $\qty{t}$,
@@ -156,13 +162,13 @@ can be interpreted as a ``time evolution'':
 \begin{equation}\label{eq:timepicks2}
   \dket{\Psi}
   \repr_{\qty{t} \ox \qty{H,V}}
-  \qty{\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1)}
+  \qty(\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1))^T
 \end{equation}
 or, in general:
 \begin{equation}\label{eq:timepicksN}
   \dket{\Psi}
   \repr
-  \qty{
+  \qty(
     \psi_0(t_0),
     \dotsc,
     \psi_{N_{S} - 1}(t_0),
@@ -170,18 +176,12 @@ or, in general:
     \psi_0(t_{N_{T}-1}),
     \dotsc,
     \psi_{N_{S} - 1}(t_{N_{T}-1})
-  } \,\text{,}
+  )^T \,\text{,}
 \end{equation}
 where
 $t_0, t_1, \dots, t_{N_{T}-1}$ are the eigenvalues of the time operator,
 and
 $N_{S}$ and $N_{T}$ the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
-
-The basis of interest is therefore
-\begin{equation}\label{eq:moreva:t_overall_basis}
-  \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
-  \, \text{.}
-\end{equation}
 
 Let us define $T_d$ as the diagonal matrix in Eq.~\eqref{eq:moreva_diag_T}.
 In the eigenbasis of time $\qty{t} \eqbydef \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T$,
