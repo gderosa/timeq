@@ -281,27 +281,32 @@ $-\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$
 ---i.e.,~the diagonal elements in Eq.~\eqref{eq:moreva_diag_T}.
 The vector $(0, -i, 1, 0)$ encodes
 the following time evolution:
-\begin{align}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef& \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}}&& &=& -i\ket{V}_S&
-  \, \text{,} &
+\begin{alignat}{5}
+  % \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef&
+  \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}} &= -i&&\ket{V}_S
+  \, \text{,} \label{eq:moreva:psi_PW_minus}
   \\
-  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef& \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}}&&  &=&   \ket{H}_S&
-  \, \text{;} &
-\end{align}
-while the standard time evolution \eqref{eq:ordinary_evolution}if we put
+  % \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef&
+  \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}}  &=   &&\ket{H}_S
+  \, \text{;} \label{eq:moreva:psi_PW_plus}
+\end{alignat}
+while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
 $t_0 = -\frac{\pi}{4\omega}$, $t = \mp\frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
 yields (see \ref{nb:jupyter:moreva:qm}):
 \begin{align}
   \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\Schr} &= -i\ket{V}
-  \, \text{,}
+  \, \text{,} \label{eq:moreva:psi_Schr_minus}
   \\
   \ket{\psi\qty( \frac{\pi}{4\omega})}_{\Schr} &= -i\ket{H}
-  \, \text{.}
+  \, \text{.} \label{eq:moreva:psi_Schr_plus}
 \end{align}
-This shows that the two theories are consistent \emph{up to a phase} factor
+Let us define $\ket{\psi\qty(t)}_{S} \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$.
+A comparison of Eq.~\eqref{eq:moreva:psi_PW_minus} and \eqref{eq:moreva:psi_PW_plus},
+with Eq.~\eqref{eq:moreva:psi_PW_minus} and \eqref{eq:moreva:psi_PW_plus} respectively,
+shows that the two theories are consistent \emph{up to a phase} factor
 $e^{-i\omega'(t - t_{0})}$
 \begin{equation}
-  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
+  \ket{\psi(t)}_S e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
 \end{equation}
 with $\omega' = -\omega$ in this case.
 
@@ -315,7 +320,7 @@ with a ground eigenvalue $T_0 \ne 0$.
 A further generalization would consider non-zero eigenvalues $j$ of $\op{\mathbb{J}}$
 (or $\epsilon$ in \cite[eq. 16]{Lloyd:Time}):
 \begin{equation}\label{eq:pw-vs-qm}
-  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega_{j}(t - t_{0})} e^{-i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}
+  \ket{\psi(t)}_{S} e^{-i\omega_{j}(t - t_{0})} e^{-i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
 \end{equation}
 where $\hbar\omega_j = \epsilon$,
 and $\mathbb{J}\dket{\Psi} = \epsilon \dket{\Psi}$
