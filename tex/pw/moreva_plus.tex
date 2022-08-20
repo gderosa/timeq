@@ -162,7 +162,7 @@ can be interpreted as a ``time evolution'':
 \begin{equation}\label{eq:timepicks2}
   \dket{\Psi}
   \repr_{\qty{t} \ox \qty{H,V}}
-  \qty(\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1))^\transpose
+  \qty(\psi_H(t_0), \psi_V(t_0); \psi_H(t_1), \psi_V(t_1))^\transpose
 \end{equation}
 or, in general:
 \begin{equation}\label{eq:timepicksN}
@@ -171,8 +171,8 @@ or, in general:
   \qty(
     \psi_0(t_0),
     \dotsc,
-    \psi_{N_{S} - 1}(t_0),
-    \dots,
+    \psi_{N_{S} - 1}(t_0);
+    \dots;
     \psi_0(t_{N_{T}-1}),
     \dotsc,
     \psi_{N_{S} - 1}(t_{N_{T}-1})
@@ -281,12 +281,13 @@ $-\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$
 ---i.e.,~the diagonal elements in Eq.~\eqref{eq:moreva_diag_T}.
 The vector $(0, -i, 1, 0)$ encodes
 the following time evolution:
-\begin{equation}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
-  \text{;} \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})} =   \ket{H}
+\begin{alignat}{4}
+  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{PW}&{} \eqbydef&{\quad} \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}}&{} =\kuad -i&\ket{V}_S
   \, \text{,}
-\end{equation}
+  \\
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{PW}&{} \eqbydef&{\quad} \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}} &{} =\kuad   &\ket{H}_S
+  \, \text{;}
+\end{alignat}
 while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
 $t_0 = -\frac{\pi}{4\omega}$, $t = \frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
 yields (see \ref{nb:jupyter:moreva:qm}):
