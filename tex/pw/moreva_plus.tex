@@ -268,7 +268,7 @@ For each value of $t \in \mathbb{R}$
 ---and assuming the Hamiltonian $\op{H}_{S}$ is \emph{time-in\-de\-pend\-ent}---
 there is:
 \begin{equation}\label{eq:ordinary_evolution}
-  \ket{\psi(t)}_{\text{Schr\"od.}} =
+  \ket{\psi(t)}_{\Schr} =
   %\sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} =
   e^{-i\op{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
   \text{.}
@@ -282,25 +282,26 @@ $-\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$
 The vector $(0, -i, 1, 0)$ encodes
 the following time evolution:
 \begin{align}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\mathrm{PW}} \kuad &\eqbydef& \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}}&& &=& -i\ket{V}_S&
+  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef& \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}}&& &=& -i\ket{V}_S&
   \, \text{,} &
   \\
-  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} \kuad &\eqbydef& \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}}&&  &=&   \ket{H}_S&
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef& \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}}&&  &=&   \ket{H}_S&
   \, \text{;} &
 \end{align}
-while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
-$t_0 = -\frac{\pi}{4\omega}$, $t = \frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
+while the standard time evolution \eqref{eq:ordinary_evolution}if we put
+$t_0 = -\frac{\pi}{4\omega}$, $t = \mp\frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
 yields (see \ref{nb:jupyter:moreva:qm}):
-\begin{equation}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
-  \quad \rightarrow \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{Schr\ddot{o}d.}} = -i\ket{H}
+\begin{align}
+  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\Schr} &= -i\ket{V}
   \, \text{,}
-\end{equation}
-showing that the two theories are consistent \emph{up to a phase} factor
+  \\
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\Schr} &= -i\ket{H}
+  \, \text{.}
+\end{align}
+This shows that the two theories are consistent \emph{up to a phase} factor
 $e^{-i\omega'(t - t_{0})}$
 \begin{equation}
-  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}
+  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
 \end{equation}
 with $\omega' = -\omega$ in this case.
 
