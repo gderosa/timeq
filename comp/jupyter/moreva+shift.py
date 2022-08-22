@@ -70,10 +70,19 @@ T_d = diag(-pi/(4*omega), pi/(4*omega))
 T_d
 
 # %%
-Omega_T_d = (pi/((pi/(2*omega))**2))*F*T_d*F.adjoint()
+tshift = -T_d[0, 0]
 
 # %%
-Omega_T_d
+T_prime_d =  tshift*eye(2) + T_d
+
+# %%
+T_prime_d
+
+# %%
+Omega_prime_T_d = (pi/((pi/(2*omega))**2))*F*T_prime_d*F.adjoint()
+
+# %%
+Omega_prime_T_d
 
 # %%
 Hs = I*hbar*omega*Matrix([
@@ -82,7 +91,7 @@ Hs = I*hbar*omega*Matrix([
 ])
 
 # %%
-J = TensorProduct(hbar*Omega_T_d, eye(2)) + TensorProduct(eye(2), Hs)
+J = TensorProduct(hbar*Omega_prime_T_d, eye(2)) + TensorProduct(eye(2), Hs)
 
 # %%
 J
