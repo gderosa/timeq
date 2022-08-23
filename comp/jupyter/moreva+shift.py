@@ -105,15 +105,21 @@ J.eigenvects()
 # %%
 t = Symbol('t')
 t0 = Symbol('t_0')
+psi0 = Matrix([-I, 1])
 
 # %%
 exp(-I*Hs*(t-t0)/hbar)
 
 # %%
-exp(-I*Hs*(t-t0)/hbar) * Matrix([0, -I])
+psi = exp(-I*Hs*(t-t0)/hbar) * psi0 * exp(-I*omega*(t-t0))  # correction term due to non-zero eigevalue of J
 
 # %%
-(exp(-I*Hs*(t-t0)/hbar) * Matrix([0, -I])).subs({t: pi/(4*omega), t0: -pi/(4*omega)})
+psi
+
+# %%
+psi.subs({t: pi/(4*omega), t0: -pi/(4*omega)})
 
 # %% [markdown]
-# There is consistency in predicting the probability (square modulus), but not probability amplitute: at $t=\frac{\pi}{4\omega}$ P-W finds $(1, 0)$ instead of $(-i, 0)$. But the Rabi oscillation in terms of probability from 100% $\left|V\right>$ at $t=t_0=-\frac{\pi}{4\omega}$, to 100% $\left|H\right>$ at $t=\frac{\pi}{4\omega}$ is correctly predicted.
+# With an initial time of 0, and the correction term due to non-zero eigenvalue, there is perfect accordance betweem P-W and QM.
+
+# %%
