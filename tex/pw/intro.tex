@@ -290,9 +290,9 @@ This notation will be useful in the example of Sec.~\ref{sec:pw:ex-hamiltonian-e
 Generalizing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}, let us consider the case when
 $\dket{\Psi}$ is an eigenvector of $\op{\mathbb{J}}$ related to a general eigenvale $\epsilon$
 instead of zero. This brings to
-\[
+\begin{equation}
   \epsilon \dket{\Psi} = \qty(\hbar\op{\Omega} \ox \idop_S + \idop_T \ox \op{H}_S) \dket{\Psi} \text{.}
-\]
+\end{equation}
 Partial scalar product by $\prescript{}{T}{\bra{t}}$ on the left yields
 \begin{equation}\label{eq:pw:nonzero-schrod-1}
   \epsilon\ket{\psi(t)}_{S} = -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \op{H}_S\ket{\psi(t)}_{S}
@@ -307,6 +307,22 @@ Rearranging Eq.~\eqref{eq:pw:nonzero-schrod-1}:
 which is, formally, the Schr\"{o}dinger equation
 for the state $\ket{\psi(t)}_{S}$ with
 the Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
+Therefore, the ``evolution''
+---if the value of $\ket{\psi(t_0)}_S$ for a certain ``initial time'' $t=t_0$ is known---
+will be
+\begin{equation}
+  \ket{\psi(t)}_S = \E^{\frac{\iu \epsilon t}{\hbar}} \E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(t)}_S
+  \text{,}
+\end{equation}
+showing that the projection of the eigenstate $\dket{\Psi}$ over an eigenbasis of time within the Page--Wootters model,
+namely $\ket{\psi(t)}_S \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$,
+is compatible with the prediction of standard quantum mechanichs $\E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(t)}_S$
+only \emph{up to a corrective phase} $\E^{\frac{\iu \epsilon t}{\hbar}}$.
+In other terms, with non-zero eigenvalues $\epsilon$ of $\op{\mathbb{J}}$,
+the model, as outlined above, can return the standard quantum evolution, but
+only in the sense of
+an ``energy-shifted'' Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
+See also \cite[\it ``The Zero-eigenvalue'']{Lloyd:Time}.
 
 \subsection{Example: Hamiltonian eigenstate}\label{sec:pw:ex-hamiltonian-eigenstate}
 
