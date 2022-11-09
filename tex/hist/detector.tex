@@ -209,7 +209,7 @@ $\ket{\psi(t)} = e^{-i\mathit{K}t}\ket{0}$
 with the aid of \term{SymPy} \parencite{comp:sympy} within a \term{Jupyter} \parencite{comp:jupyter} notebook
 (see Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner} for all the details of the calculation).
 
-Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
+Simplifying the result in Eq.~\eqref{eq:sympy:non-unitary-evol}, we have:
 \begin{equation}
   \ket{\psi(t)} \repr e^{-\frac{\sqrt{2}}{t}} \mqty[
     \cos(\frac{\sqrt{2}}{2}t) + \sin(\frac{\sqrt{2}}{2}t)& \\
@@ -258,7 +258,7 @@ Simplifying the result in eq. \eqref{eq:sympy:non-unitary-evol}, we have:
     \subref{fig:absorbed-qubit-normalization-loss:t}
       Detection probability in time. It's equal to the
       loss of normalization $-\dv{\norm{\psi}^2}{t}$
-      (but also to the squared norm of $\hat{\psi}(t)$ as of eq. \eqref{eq:analytic:hatpsi}.
+      (but also to the squared norm of $\hat{\psi}(t)$ as of Eq.~\eqref{eq:analytic:hatpsi}.
     \subref{fig:absorbed-qubit-normalization-loss:omega}
       Detection probability in the frequency domain.
   }
@@ -278,7 +278,7 @@ whose squared norm across time is equal to the said probability distribution.\fo
 Within the framework of \cite{RuschhauptAbsorption}, a ``wavefunction in time'' in such sense
 is the $\hat{\psi}$, as in \eqref{eq:phi_psi_kiukas}.
 It is computed in detail within the
-notebook in Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}, eq. \eqref{eq:sympy:hatpsi},
+notebook in Appendix \ref{detector-model-kiukas-ruschhaupt-schmidt-werner}, Eq.~\eqref{eq:sympy:hatpsi},
 simplifying which we obtain:
 \begin{equation}\label{eq:analytic:hatpsi}
   \hat{\psi}(t) =
@@ -296,7 +296,7 @@ the linear span of states with zero probability of triggering the detector.
 Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
 for example in \eqref{eq:phi_psi_kiukas},
 the components in such eigenspace are cut off and the resulting
-$\hat{\psi}$, eq. \eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
+$\hat{\psi}$, Eq.~\eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
 i.e. it's a multiple of $\ket{1}$ in this case.
 \end{remark}
 

@@ -40,7 +40,7 @@ the \term{finite} or \term{dicrete} \term{Fourier transform} (DFT).
 In our case, we are particularly interested in relating the
 time operator $\op{T}$ and the ``energy'' operator $-\hbar\op{\Omega}$
 in $\hilb{H}_T$ ---via the angular frequency operator $\op{\Omega}$ which, in the continuous limit, would satisfy
-eq.~\eqref{eq:canonical_commutation_in_time} exactly.
+Eq.~\eqref{eq:canonical_commutation_in_time} exactly.
 
 A benefit of finite-dimensional systems is the potential implementation on a finite array of
 qubits in a quantum computer. The use of Discrete Fourier Transform extends the overlap
@@ -126,13 +126,13 @@ and, respectively,
 \end{equation}
 %
 Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
-eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
+Eq.~\eqref{eq:IDFT:def} defines the \term{Inverse Discrete Fourier Transform} (IDFT).
 %
 The factor $\frac{1}{\sqrt{N}}$
 is chosen to guarantee \emph{unitarity} of the transformation:
 $\sum_{n=0}^{N-1} \abs{\psi_n}^2 = \sum_{n=0}^{N-1} \abs{\phi_n}^2$.
 
-From eqs.~\eqref{eq:DFT:def} and~\eqref{eq:IDFT:def} one can identify the
+From Eqs.~\eqref{eq:DFT:def} and~\eqref{eq:IDFT:def} one can identify the
 \term{Discrete Fourier Matrix}, with elements $F_{mn}$
 (and its inverse,
 with elements $F_{mn}^{\dagger}$):
@@ -157,7 +157,7 @@ $\left\{\braket{\omega_m}{\psi}\right\}_{m=0, \dots, N-1}$:
 \begin{equation}\label{eq:DFT:chrepr}  % TODO: inverse too?
   \braket{\omega_{m}}{\psi} = \sum_n F_{mn} \braket{t_n}{\psi} \text{.}
 \end{equation}
-It is convenient to write down the ``complex conjugate'' of eq.~\eqref{eq:DFT:chrepr} as well:
+It is convenient to write down the ``complex conjugate'' of Eq.~\eqref{eq:DFT:chrepr} as well:
 \begin{equation}\label{eq:DFT:chrepr:cconj}  % TODO: inverse too?
   \braket{\psi}{\omega_{m}} = \sum_n F_{mn}^{\dagger} \braket{\psi}{t_n}
 \end{equation}
@@ -166,7 +166,7 @@ $F_{mn}^{*} = F_{mn}^{\dagger}$,
 $\forall m,n \in \setof{0, \dots, N-1}$).
 
 As $\ket{\psi}$ (respectively: $\bra{\psi}$) is a generic ket (or bra) in the Hilbert space,
-from eqs.~\eqref{eq:DFT:chrepr:cconj} and~\eqref{eq:DFT:chrepr:cconj} it follows:
+from Eqs.~\eqref{eq:DFT:chrepr:cconj} and~\eqref{eq:DFT:chrepr:cconj} it follows:
 \begin{align}
   \label{eq:DFT:bra}  \bra{\omega_{m}} &= \sum_n F_{mn}           \bra{t_n} \,\text{,}  \\
   \label{eq:DFT:ket}  \ket{\omega_{m}} &= \sum_n F_{mn}^{\dagger} \ket{t_n} \,\text{.}
@@ -179,7 +179,7 @@ Let us now introduce the \term{Fourier operator}
 \begin{equation}
   \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
 \end{equation}
-Multiplying each element of the sum in eq.~\eqref{eq:DFT:bra}
+Multiplying each element of the sum in Eq.~\eqref{eq:DFT:bra}
 by $\braket{t_m} = 1$
 we immediately get:
 \begin{equation}\label{eq:DFO:bra}
@@ -187,14 +187,14 @@ we immediately get:
   % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} =
   \bra{t_m} \op{F} \text{.}
 \end{equation}
-Similarly, eq.~\eqref{eq:DFT:ket} can be expressed as
+Similarly, Eq.~\eqref{eq:DFT:ket} can be expressed as
 \begin{equation}
   \label{eq:DFO:ket}  \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
 \end{equation}
 %
 Finally, we use the spectral decomposition of $\op{\Omega}$,
 the results \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
-and eq.~\eqref{eq:DFT:eigenratio}
+and Eq.~\eqref{eq:DFT:eigenratio}
 to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
   \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
@@ -226,14 +226,14 @@ In conclusion:
       \op{F} \qty(\delta{T} \frac{\op{\Omega}}{\delta{\Omega}}) \op{F}^{\dagger}
       \, \text{;}
 \end{gather}
-where the operator $\frac{\op{T}}{\delta{T}}$ in eq.~\eqref{eq:SI_Fourier:Omega},
+where the operator $\frac{\op{T}}{\delta{T}}$ in Eq.~\eqref{eq:SI_Fourier:Omega},
 in $T$ representation, is diagonal with integer elements $\setof{0, \dots, N-1}$.
 
-Conversely, eq.~\eqref{eq:SI_Fourier:T} is obtained by
+Conversely, Eq.~\eqref{eq:SI_Fourier:T} is obtained by
 taking the ``conjugate'' of all the computation
-from eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
+from Eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
 
-Note that eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
+Note that Eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:Omega}
 differ from the results of \cite{FiniteHilb}.
 This is due to the use of
 ``natural'' units therein,
@@ -267,21 +267,62 @@ yields
 In finite $d$-dimensional Hilbert spaces, the commutator of canonically conjugate operators
 is not a constant ---see \cite{Weyl:FiniteComm}.
 Indeed, in an eigenbasis of $\op{q}$,
-the latter is obviously represented by a diagonal matrix $q_{mn} = \delta_{mn}q_{n}$,
-with $q_n$ being its eigenvalues.
-Let also $p_{mn}$ be the matrix representation of $\op{p}$ in the same basis.
-The left side of \eqref{eq:commconstant} has then components
-$p_{mn}(q_n - q_m)$. All diagonal elements are thus zero,
+the latter is represented by a diagonal matrix Q,
+with diagonal elements $q_1, \dots, q_d$.
+Let also P  be the matrix representation of $\op{p}$ in the same basis, and $p_{mn}$ its elements, with $m, n = 1 \dots d$.
+The left side of \eqref{eq:commconstant} is then represented as
+\begin{multline}
+  \displaybreak[2]  %% https://tex.stackexchange.com/a/24905
+  QP - PQ =
+  \mqty(
+    q_1   &{}     &{} \\
+    {}    &\ddots &{} \\
+    {}    &{}     &q_d
+  )
+  \mqty(
+    p_{11}  &\ldots &p_{1d} \\
+    \vdots  &\ddots &\vdots \\
+    p_{d1}  &\ldots &p_{dd}
+  )
+  -
+  \mqty(
+    p_{11}  &\ldots &p_{1d} \\
+    \vdots  &\ddots &\vdots \\
+    p_{d1}  &\ldots &p_{dd}
+  )
+  \mqty(
+    q_1   &{}     &{} \\
+    {}    &\ddots &{} \\
+    {}    &{}     &q_d
+  )
+  \\
+  =
+  \mqty(
+    q_{1}p_{11} &\ldots &q_{1}p_{1d}  \\
+    \vdots      &\ddots &\vdots       \\
+    q_{d}p_{d1} &\ldots &q_{d}p_{dd}
+  )
+  -
+  \mqty(
+    q_{1}p_{11} &\ldots &q_{d}p_{1d}  \\
+    \vdots      &\ddots &\vdots       \\
+    q_{1}p_{d1} &\ldots &q_{d}p_{dd}
+  )
+  =
+  \qty\bigg{\qty(q_{m}-q_{n})p_{mn}}_{m, n = 1 \, \dots \, d}
+  \;\text{.}
+\end{multline}
+All diagonal elements are thus zero,
 hence such matrix cannot represent a constant operator in any basis.
 
 In other words, it is not possible to identify a pair of operators $\op{q}$ and $\op{p}$
-satisfying eq. \eqref{eq:commconstant} in a finite-dimensional Hilbert space.
+satisfying Eq.~\eqref{eq:commconstant} in a finite-dimensional Hilbert space.
 %
 The value of $\frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}| = \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
 would then  depend on the particular state vector $\ket{\psi} \in \hilb{H}_d$,
 and one should compute, explicitly, the value of
 $\displaystyle \min_{\ket{\psi} \in \hilb{H}_d} \frac{1}{2} \qty|\ev{\qty[\op{q}, \op{p}]}{\psi}|$
-to obtain an uncertainty relation.
+to obtain a general lower bound.
 
 Nonetheless, if the discrete system is meant as an approximation of a continuous
 one, %

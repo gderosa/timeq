@@ -1,23 +1,63 @@
-\section{Beyond the $1+1$ qubit experiment}\label{sec:beyondMoreva}
+\subsection{Beyond the $1+1$ qubit experiment}\label{sec:beyondMoreva}
 
-[TODO? : short intro to stress this is mostly original work, and rationale for it]
+In this Subsection, a closer look is given at the experimental illustration from \cite{Moreva:illustration};
+and some original results are achieved in addition to the findings therein.
+%
+First, an explicit expression of the time operator $\op{T}$
+is obtained.
+The \mbox{paper} \parencite{Moreva:illustration}
+only defines the frequency operator $\op{\Omega}$,
+without exploring the relation between the two canonically conjugate operators
+---which, in a finite-dimensional system, has some peculiarities, as seen in Sec.~\ref{sec:finite-quantum}.
+%
+A time eigenbasis is then identified, thus diagonalizing the related matrix.
+%
+Finally, a discrete-time evolution of the system of interest is computed from the Page--Wooters model,
+and compared to the predictions of
+standard quantum mechanics in continuous time.
 
-\subsection{Time operator, diagonalization, evolution}
+\subsubsection{Time operator, diagonalization, evolution}
 \label{1qubitExp}
 
-In \cite{Moreva:illustration}, the frequency operator $\op{\Omega} = H_T / \hbar$
-is given by the \eqref{eq:MorevaOmegaT}. With respect to the polarization basis
-$\qty{\ket{H}, \ket{V}}$ it is represented in the the matrix form
-\begin{equation}
-  \op{\Omega} \repr {
-    i\omega
+The experiment described in \citereset\cite{Moreva:illustration}
+reproduces the basic features of the Page--Wootters model
+by identifying the overall state of the ``universe'' with an entangled state of the vertical
+and
+horizontal polarization degree of freedom of two photons
+---as expressed in Eq.~\eqref{eq:moreva:overall_state}.
+A {first} photon is identified as the ``clock'',
+and the {second} one as the ``rest of the universe'',
+in Page--Wootters sense.
+The notation $\ket{H}_T, \ket{V}_T; \ket{H}_S, \ket{V}_S$
+is used to refer to the horizontal and vertical polarization states of the two photons respectively.
+
+Consistently to the Model, the experiment is prepared in such a way
+as to show that the overall system $\dket{\Psi}$ ---Eq.~\eqref{eq:moreva:overall_state}---
+is stationary,
+i.e. it is in an eigenstate of the overall Hamiltonian $\op{\mathbb{J}}$ ---Eq.~\eqref{eq:pwHamiltonian}---;
+while, ``internally'', the first photon can be interpreted as a clock for the ``evolution'' of the second one.
+
+The authors choose, for their experiment,
+a particular
+frequency operator $\op{\Omega}$
+defined by Eq.~\eqref{eq:MorevaOmegaT}.
+Let us recall that it is $\hbar\op{\Omega} = \op{H}_T$,
+i.e., up to a constant $\hbar$, the frequency operator is the ``Hamiltonian of the clock''.
+With respect to the polarization basis of the first photon
+$\qty{\ket{H}_T, \ket{V}_T}$,
+the operator $\op{H}_T$ is then represented in matrix form as
+\begin{equation}\label{eq:H_T}
+  \op{H}_T = \hbar\op{\Omega} \repr {
+    i\hbar\omega
     \begin{pmatrix}
       0 & 1 \\
      -1 & 0
     \end{pmatrix}
   } \, \text{.}
 \end{equation}
-The Hamiltonian in $\hilb{H}_S$, in that particular experiment, is represented as
+
+As per the second photon (the ``rest of the universe''),
+its Hamiltonian is defined as
 \begin{equation}\label{eq:H_S}
   \op{H}_S \repr {
     i\hbar\omega
@@ -27,14 +67,26 @@ The Hamiltonian in $\hilb{H}_S$, in that particular experiment, is represented a
     \end{pmatrix}
   } \, \text{,}
 \end{equation}
-with respect to horizontal/vertical polarization \emph{of the second photon},
-acting as ``the rest of the universe''.
-There is no particular physical reason for being $H_S = H_T$
-(in principle they could even act on spaces of different dimensionality)
-other than simplicity of experimental realization.
+with respect to the polarization basis $\qty{\ket{H}_S, \ket{V}_S}$.
 
-The spectrum of $\op{\Omega}$ is $\qty{-\omega, \omega}$.
-Therefore, it's $N=2$ and $\delta\Omega = 2\omega$ in the sense of
+Note that there is no particular physical reason
+(other than simplicity of realization)
+for the matrices in Eq.~\eqref{eq:H_T} and \eqref{eq:H_S} to be formally identical.
+They represent operators acting on two different Hilbert spaces, $\hilb{H}_T$ and $\hilb{H}_S$.
+  In principle, say, in another hypothetical experiment,
+  the clock may be described by a different $\op{\Omega}$
+  (consequently, the whole system, by a different expression of the overall stationary state);
+  and $\op{\Omega}$ even defined in a Hilbert space $\hilb{H}_T$ of a different dimension than $\hilb{H}_S$
+  ---and so would be the dimension of the matrices representing $\op{H}_T$ and $\op{H}_S$.\footnote{
+    This is specifically the case discussed in Sec.~\ref{sec:multiLevelClock}.
+  }
+
+Within the definitions of \citereset\cite{Moreva:illustration}, however,
+one can easily obtain
+the spectrum of $\op{\Omega}$
+as being comprised of eigenvalues
+$\qty{-\omega, \omega}$.
+Therefore, it is $N=2$ and $\delta\Omega = 2\omega$ in the sense of
 \eqref{eq:SI_Fourier:T}.
 We can thus derive the time operator matrix:
 \begin{equation}
@@ -75,7 +127,7 @@ It can be diagonalized with:
 \end{pmatrix}
 \,\text{,}
 \end{equation}
-and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
+and $\mathcal{E}_T$ being the matrix of eigenvectors of $\op{T}$ as columns
 \begin{equation}
   \mathcal{E}_T
   =
@@ -89,14 +141,20 @@ and $\mathcal{E}_T$ being the matrix of eigenvectors of T as columns
 Thus the clock can measure (only) the two times: $-\frac{\pi}{4\omega}$ and $\frac{\pi}{4\omega}$
 (or superpositions of them):
 \begin{align}
-  \ket{-\frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}+i\ket{H}) \eqbydef \ket{L} \\
-  \ket{ \frac{\pi}{4\omega}} &= \frac{1}{\sqrt{2}} \qty(\ket{V}-i\ket{H}) \eqbydef \ket{R} \, \text{.}
+  \ket{-\frac{\pi}{4\omega}}_T &= \frac{1}{\sqrt{2}} \qty\big(\ket{V}+i\ket{H})_T \eqbydef \ket{L}_T \\
+  \ket{ \frac{\pi}{4\omega}}_T &= \frac{1}{\sqrt{2}} \qty\big(\ket{V}-i\ket{H})_T \eqbydef \ket{R}_T \, \text{.}
 \end{align}
 In terms of the physics of the experiment,
-time is determined with quantum certainty when the clock photon is
-in one of the two circular polarization states.
+time eigenstates coincide with
+the two circular polarization states of the clock photon.
 
-It's worth observing that
+The basis in the product space is
+\begin{equation}\label{eq:moreva:t_overall_basis}
+  \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
+  \, \text{.}
+\end{equation}
+
+It is worth observing that
 only if $\op{T}$ is diagonal in a certain basis $\qty{t}$,
 the components of a vector in $\hilb{H}_T \ox \hilb{H}_S$
 over that basis
@@ -104,114 +162,151 @@ can be interpreted as a ``time evolution'':
 \begin{equation}\label{eq:timepicks2}
   \dket{\Psi}
   \repr_{\qty{t} \ox \qty{H,V}}
-  \qty{\psi_H(t_0), \psi_V(t_0), \psi_H(t_1), \psi_V(t_1)}
+  \qty(\psi_H(t_0), \psi_V(t_0); \psi_H(t_1), \psi_V(t_1))^\transpose
 \end{equation}
 or, in general:
 \begin{equation}\label{eq:timepicksN}
   \dket{\Psi}
   \repr
-  \qty{
+  \qty(
     \psi_0(t_0),
     \dotsc,
-    \psi_{N_{S} - 1}(t_0),
-    \dots,
+    \psi_{N_{S} - 1}(t_0);
+    \dots;
     \psi_0(t_{N_{T}-1}),
     \dotsc,
     \psi_{N_{S} - 1}(t_{N_{T}-1})
-  } \,\text{,}
+  )^\transpose \,\text{,}
 \end{equation}
-with $N_{S}$ and $N_{T}-1$ being the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
+where
+$t_0, t_1, \dots, t_{N_{T}-1}$ are the eigenvalues of the time operator,
+and
+$N_{S}$ and $N_{T}$ the dimensions of $\hilb{H}_T$ and $\hilb{H}_S$ respectively.
 
-The basis of interest is therefore
+Let us define $T_d$ as the diagonal matrix in Eq.~\eqref{eq:moreva_diag_T}.
+In the eigenbasis of time $\qty{t} \eqbydef \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T$,
+the matrix $\Omega_{T_d}$ representing $\op{\Omega}$
+can be obtained via Eq.~\eqref{eq:SI_Fourier:Omega} in that basis:
+%
+% How does the matrix of $\op{\Omega}$ transform? In general, it's
+% \begin{equation}
+%   \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
+%   \, \text{,}
+% \end{equation}
+% but we already know $F^{\dagger} \Omega F = T$,
+% and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
+% (let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
+% In conclusion, with some algebra, it's simply
 \begin{equation}
-  \qty{\ket{-\frac{\pi}{4\omega}}, \ket{\frac{\pi}{4\omega}}}_T \ox \qty{\ket{H}, \ket{V}}_S
-  \, \text{.}
+  \Omega_{T_d} =
+  \frac{\delta\Omega}{\delta{T}} F^{\dagger} T_d F
+  \text{.}
 \end{equation}
-How does the matrix of $\op{\Omega}$ transform? In general, it's
+The value of $\delta\Omega$ is already known as $2\omega$.
+Similarly, $\delta{T}$, for this system, is simply the difference between the two eigenvalues of $\op{T}$,
+that is
+$\delta{T} = \frac{\pi}{2\omega}$. Hence:
 \begin{equation}
-  \Omega \rightarrow F \mathcal{E}_T^{\dagger} F^{\dagger} \Omega F \mathcal{E}_T F^{\dagger}
-  \, \text{,}
+\Omega_{T_d} =
+\omega
+F^{\dagger}
+\begin{pmatrix}
+  -1    & 0   \\
+   0    & 1
+\end{pmatrix}
+F =
+\left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
+\text{.}
 \end{equation}
-but we already know $F^{\dagger} \Omega F = T$,
-and $\mathcal{E}_T^{\dagger} T \mathcal{E}_T$ is the diagonal matrix
-(let's call it $T_d$) of the \eqref{eq:moreva_diag_T}.
-In conclusion, with some algebra, it's simply
-\begin{equation}
-  \Omega_{T_d} \eqbydef F^{\dagger} T_d F = \left(\begin{matrix}0 & - \omega\\- \omega & 0\end{matrix}\right)
-\end{equation}
-and we are interested in the eigensystem of
-\begin{multline}
+We are interested in the eigensystem of the overall ``Hamiltonian'' $\op{\mathbb{J}}$.
+Let $\mathbb{J}_{T_d}$ be its matrix representation with respect to the basis \eqref{eq:moreva:t_overall_basis}.
+It is:
+\begin{multline}\label{eq:moreva:t_J}
   \mathbb{J}_{T_d} \eqbydef \hbar \Omega_{T_d} \ox \idop_{S} + \idop_{T_d} \ox H_S =
-    \hbar
-    \begin{pmatrix}0 & - \omega\\- \omega & 0\end{pmatrix}
+    \hbar\omega
+    \begin{pmatrix}0 & - 1\\- 1 & 0\end{pmatrix}
     \ox
     \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
     + \\
     \hbar\omega
     \begin{pmatrix} 1 & 0 \\  0 & 1 \end{pmatrix}
     \ox
-    \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}
+    \begin{pmatrix} 0 & i \\ -i & 0 \end{pmatrix}
     =
     \hbar\omega
     \begin{pmatrix}
       0   &i  &-1 &0  \\
       -i  &0  &0  &-1 \\
       -1  &0  &0  &i  \\
-      0   &-1 &-i &0  
+      0   &-1 &-i &0
     \end{pmatrix}
-  \text{,}
+  \text{.}
 \end{multline}
-which is
+From Eq.~\eqref{eq:moreva:t_J},
+the eigenvalues of $\op{\mathbb{J}}$
+(which we will label $j_{-1}$, $j_{0}$, $j_{+1}$),
+and the components of corresponding eigenvectors over the basis \eqref{eq:moreva:t_overall_basis},
+can be calculated, bringing:
 \begin{align}
-  j_0     &= 0\,\text{;}              &\ket{j_{0}1}   \repr (0, -i, 1, 0) \quad \ket{j_0 2} \repr (i, 0, 0 ,1)
+  j_0     &= 0\,\text{,}              &\ket{j_{0,1}}  \repr (0, -i, 1, 0)^\transpose \text{,}\quad \ket{j_{0,2}} \repr (i, 0, 0 ,1)^\transpose \text{;}
     \label{eq:moreva:eigenJ0} \\
-  j_{-1}  &= -2\hbar\omega\,\text{;}  &\ket{j_{-1}}   \repr (-i, 1, -i, 1) \\
-  j_{+1}   &= 2\hbar\omega\,\text{;}  &\ket{j_{+1}}   \repr (-i, -1, i, 1)
+  j_{-1}  &= -2\hbar\omega\,\text{,}  &\ket{j_{-1}}   \repr (-i, 1, -i, 1)^\transpose \text{;} \\
+  j_{+1}   &= 2\hbar\omega\,\text{,}  &\ket{j_{+1}}   \repr (-i, -1, i, 1)^\transpose \text{.}
 \end{align}
 
-See \ref{nb:jupyter:moreva} for more details.
+% See Appendix \ref{nb:jupyter:moreva} for more details.
 
 
-\subsection{Consistency with predictions of ordinary quantum theory}
+\subsubsection{Consistency with predictions of ordinary quantum theory}
 \label{sec:qubit:pw-vs-qm}
 
 In ordinary quantum theory, time is an absolute, external, ``classical'' \emph{parameter},
 with respect to $\ket{\psi} \in \hilb{H}_S$; and $\hilb{H}_S$
 is the only Hilbert space under consideration.
 
-For each value of $t \in \mathbb{R}$ there is
+For each value of $t \in \mathbb{R}$
+---and assuming the Hamiltonian $\op{H}_{S}$ is \emph{time-in\-de\-pend\-ent}---
+there is:
 \begin{equation}\label{eq:ordinary_evolution}
-  \ket{\psi(t)}_{\text{Schr\"od.}} =
+  \ket{\psi(t)}_{\Schr} =
   %\sum_{k=H,V}\ket{k}\braket{k}{\psi(t)} =
   e^{-i\op{H}_{S}(t-t_0)/\hbar}\ket{\psi(t_0)}
+  \text{.}
 \end{equation}
 
 In terms of the Page and Wootters model,
-let's pick instead as an example the first eigenstate in \eqref{eq:moreva:eigenJ0}.
-It's related to a time operator whose eigenvalues are
+let us pick instead as an example the first eigenstate in \eqref{eq:moreva:eigenJ0}.
+It is related to a time operator whose eigenvalues are
 $-\frac{\pi}{4\omega}, \frac{\pi}{4\omega}$
-per eq. \eqref{eq:moreva_diag_T}.
-The vector $(0, -i, 1, 0)$ indicates ---in ordinary quantum mechanics terms---
+---i.e.,~the diagonal elements in Eq.~\eqref{eq:moreva_diag_T}.
+The vector $(0, -i, 1, 0)$ encodes
 the following time evolution:
-\begin{equation}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
-  \quad \rightarrow \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} =   \ket{H}
-  \, \text{,}
-\end{equation}
+\begin{alignat}{5}
+  % \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef&
+  \prescript{}{T}{\braDket{-\frac{\pi}{4\omega}}{\Psi}} &= -i&&\ket{V}_S
+  \, \text{,} \label{eq:moreva:psi_PW_minus}
+  \\
+  % \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{PW}} \quad &\eqbydef&
+  \prescript{}{T}{\braDket{\frac{\pi}{4\omega}}{\Psi}}  &=   &&\ket{H}_S
+  \, \text{;} \label{eq:moreva:psi_PW_plus}
+\end{alignat}
 while the standard time evolution \eqref{eq:ordinary_evolution}, if we put
-$t_0 = -\frac{\pi}{4\omega}$, $t = \frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
+$t_0 = -\frac{\pi}{4\omega}$, $t = \mp\frac{\pi}{4\omega}$, $\ket{\psi\qty(t_0)} = -i\ket{V}$,
 yields (see \ref{nb:jupyter:moreva:qm}):
-\begin{equation}
-  \ket{\psi\qty(-\frac{\pi}{4\omega})} = -i\ket{V}
-  \quad \rightarrow \quad
-  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\mathrm{Schr\ddot{o}d.}} = -i\ket{H}
-  \, \text{,}
-\end{equation}
-showing that the two theories are consistent \emph{up to a phase} factor
+\begin{align}
+  \ket{\psi\qty(-\frac{\pi}{4\omega})}_{\Schr} &= -i\ket{V}
+  \, \text{,} \label{eq:moreva:psi_Schr_minus}
+  \\
+  \ket{\psi\qty( \frac{\pi}{4\omega})}_{\Schr} &= -i\ket{H}
+  \, \text{.} \label{eq:moreva:psi_Schr_plus}
+\end{align}
+Let us define $\ket{\psi\qty(t)}_{S} \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$.
+A comparison of Eq.~\eqref{eq:moreva:psi_PW_minus} and \eqref{eq:moreva:psi_PW_plus},
+with Eq.~\eqref{eq:moreva:psi_PW_minus} and \eqref{eq:moreva:psi_PW_plus} respectively,
+shows that the two theories are consistent \emph{up to a phase} factor
 $e^{-i\omega'(t - t_{0})}$
 \begin{equation}
-  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}  
+  \ket{\psi(t)}_S e^{-i\omega'(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
 \end{equation}
 with $\omega' = -\omega$ in this case.
 
@@ -225,7 +320,7 @@ with a ground eigenvalue $T_0 \ne 0$.
 A further generalization would consider non-zero eigenvalues $j$ of $\op{\mathbb{J}}$
 (or $\epsilon$ in \cite[eq. 16]{Lloyd:Time}):
 \begin{equation}\label{eq:pw-vs-qm}
-  \ket{\psi(t)}_{\mathrm{PW}} e^{-i\omega_{j}(t - t_{0})} e^{-i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\mathrm{Schr\ddot{o}d.}} \,\text{,}
+  \ket{\psi(t)}_{S} e^{-i\omega_{j}(t - t_{0})} e^{-i\omega_{T_0}(t - t_{0})} = \ket{\psi(t)}_{\Schr} \,\text{,}
 \end{equation}
 where $\hbar\omega_j = \epsilon$,
 and $\mathbb{J}\dket{\Psi} = \epsilon \dket{\Psi}$

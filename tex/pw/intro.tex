@@ -14,7 +14,7 @@ finite-dimensional systems and discrete clocks
 A second part
 (Sections \ref{sec:pw:apps_first}--\ref{sec:pw:apps_last})
 will be dedicated to
-applications, starting with a discussion of existing
+applications of the Page--Wootters model, starting with a discussion of existing
 experiments (or ``experimental illustrations''),
 then implementing numerical simulations, with a larger number of clock levels.
 Finally, the Page and Wootters model will be compared to the results of
@@ -121,7 +121,7 @@ relation among elements of subspaces $\hilb{H}_S$ and $\hilb{H}_T$ respectively.
 % Please note:
 % in its original formulation, the Page--Wootters model is based on a continuous
 % notion of time, and the same applies to more recent developments \parencite{Lloyd:Time}.
-% A discrete formulation, as in eq. \eqref{eq:pw:discrete_Tpprox},
+% A discrete formulation, as in Eq.~\eqref{eq:pw:discrete_Tpprox},
 % will be verified numerically in Sections~\ref{sec:beyondMoreva}--\ref{sec:multiLevelClock}.
 
 An intuitive description may be as follows.
@@ -276,7 +276,7 @@ In particular, if $\hbar\omega$ is not in the energy spectrum of the system,
 then $\ket{\tilde{\psi}(\omega)}_S = \nullvector$, i.e. the vector does not contribute to the integral.
 Given that the energy spectrum is bounded,
 certainly there are values of $\omega$ for which this is the case.
-With these considerations, eq. \eqref{eq:pw:time_freq_nomu}, with regards to the first integral, may also be reformulated as
+With these considerations, Eq.~\eqref{eq:pw:time_freq_nomu}, with regards to the first integral, may also be reformulated as
 \begin{equation}\label{eq:pw:time_freq_mu}
   \dket{\Psi} =
     \int \dd{\omega} \mu(\omega) \ket{\omega}_{T} \ox \ket{\phi(\omega)}_{S} \text{,}
@@ -284,11 +284,49 @@ With these considerations, eq. \eqref{eq:pw:time_freq_nomu}, with regards to the
 with $\ket{\phi(\omega)}_{S}$ normalized for any real value of $\omega$,
 and $\mu(\omega)\ket{\phi(\omega)}_{S} = \ket{\tilde{\psi}(\omega)}_S$
 --- see also \cite[eq.~(10)]{Lloyd:Time}.
-This notation will be useful in the following example.
+This notation will be useful in the example of Sec.~\ref{sec:pw:ex-hamiltonian-eigenstate}.
 
-\subsection{Example: Hamiltonian eigenstate}
+\subsubsection{Non-zero eigenvalues}
+Generalizing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}, let us consider the case when
+$\dket{\Psi}$ is an eigenvector of $\op{\mathbb{J}}$ related to a general eigenvale $\epsilon$
+instead of zero. This brings to
+\begin{equation}
+  \epsilon \dket{\Psi} = \qty(\hbar\op{\Omega} \ox \idop_S + \idop_T \ox \op{H}_S) \dket{\Psi} \text{.}
+\end{equation}
+Partial scalar product by $\prescript{}{T}{\bra{t}}$ on the left yields
+\begin{equation}\label{eq:pw:nonzero-schrod-1}
+  \epsilon\ket{\psi(t)}_{S} = -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \op{H}_S\ket{\psi(t)}_{S}
+  \text{,}
+\end{equation}
+which is a generalization of \eqref{eq:schrod_from_pw}.
+Rearranging Eq.~\eqref{eq:pw:nonzero-schrod-1}:
+\begin{equation}\label{eq:pw:nonzero-schrod-2}
+   \qty(\op{H}_S - \epsilon \idop_{S}) \ket{\psi(t)}_{S} = i\hbar\pdv{t}\ket{\psi(t)}_{S}
+   \text{,}
+\end{equation}
+which is, formally, the Schr\"{o}dinger equation
+for the state $\ket{\psi(t)}_{S}$ with
+the Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
+Therefore, the ``evolution''
+---if the value of $\ket{\psi(t_0)}_S$ for a certain ``initial time'' $t=t_0$ is known---
+will be
+\begin{equation}
+  \ket{\psi(t)}_S = \E^{\frac{\iu \epsilon t}{\hbar}} \E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(t)}_S
+  \text{,}
+\end{equation}
+showing that the projection of the eigenstate $\dket{\Psi}$ over an eigenbasis of time within the Page--Wootters model,
+namely $\ket{\psi(t)}_S \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$,
+is compatible with the prediction of standard quantum mechanichs $\E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(t)}_S$
+only \emph{up to a corrective phase} $\E^{\frac{\iu \epsilon t}{\hbar}}$.
+In other terms, with non-zero eigenvalues $\epsilon$ of $\op{\mathbb{J}}$,
+the model, as outlined above, can return the standard quantum evolution, but
+only in the sense of
+an ``energy-shifted'' Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
+See also \cite[\it ``The Zero-eigenvalue'']{Lloyd:Time}.
 
-An extreme case for the distribution % $\ket{\phi(\omega)}_{S}$ in eq. \eqref{eq:pw:time_freq_nomu} ---or
+\subsection{Example: Hamiltonian eigenstate}\label{sec:pw:ex-hamiltonian-eigenstate}
+
+An extreme case for the distribution % $\ket{\phi(\omega)}_{S}$ in Eq.~\eqref{eq:pw:time_freq_nomu} ---or
 $\mu(\omega)$ in \eqref{eq:pw:time_freq_mu} % ---
 is, as an example, what in standard quantum mechanics would be the time evolution of an energy eigenstate
 (or an eigenstate of $\op{H}_S$ in $\hilb{H}_S$, within the Page--Wootters formalism).
@@ -307,11 +345,11 @@ is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
   \qty(\idop_T \ox \op{H}_S) \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox E_0 \ket{\psi_{0}(t)}_S = E_0 \dket{\Psi_0} \text{.}
 \]
 
-In order to statisfy eq. \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian},
+In order to statisfy Eq.~\eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian},
 $\dket{\Psi_0}$ must also be an eigenvector of $\hbar\op{\Omega} \ox \idop$,
 but related to the \emph{opposite} eigenvalue $-E_0 = -\hbar\omega_0$.
 
-From eq.~\eqref{eq:pw:time_freq_mu}, we can write, in particular:
+From Eq.~\eqref{eq:pw:time_freq_mu}, we can write, in particular:
 \begin{equation}
   \dket{\Psi_0} =
     \int \dd{\omega} \mu_0(\omega) \ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S} \text{,}
@@ -362,7 +400,7 @@ therefore the \emph{evolution} (in $\hilb{H}_S$) is
     \frac{1}{\sqrt{2\pi}} \E^{-\iu\omega_0 t} \ket{\phi(-\omega_0)}_S \text{.}
 \label{eq:pw:stat_eigenst_of_H_S}
 \end{equation}
-By evaluating and comparing eq. \eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time
+By evaluating and comparing Eq.~\eqref{eq:pw:stat_eigenst_of_H_S} at two arbitrary instants of time
 $t_0$~and~$t$,
 one easily gets
 $\ket{\psi(t)}_{S} = \E^{-\iu\omega_{0}(t-t_{0})} \ket{\psi(t_0)}_{S}$,
@@ -447,7 +485,7 @@ Such states have no correspondence with standard quantum mechanics states and th
 
 \subsubsection*{The clock as an open system}
 
-Let us consider again eq.~\eqref{eq:pwphi}. There has:
+Let us consider again Eq.~\eqref{eq:pwphi}. There has:
 \begin{multline}\label{eq:pw:uncertain:schmidt}
   \dket{\Phi} =
     \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
@@ -503,14 +541,14 @@ is \term{traced out} as the \term{environment} for the clock.
 
 To obtain an explicit expression of $\op{\rho}_T$,
 we use the definitions and results from Chapter~\ref{ch:decohere},
-in particular eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
+in particular Eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
 replacing the discrete sums there with integrals,
 and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
 also we identify the indices\footnote{
-  A particular case of eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
+  A particular case of Eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
   therefore it becomes
   $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
-  which can be compared to eq.~\eqref{eq:pw:uncertain:schmidt}.
+  which can be compared to Eq.~\eqref{eq:pw:uncertain:schmidt}.
 }
 $i = \mu$ therein.
 
