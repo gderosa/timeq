@@ -39,7 +39,10 @@
 
 %% Allows better formatting than \underset
 %% https://tex.stackexchange.com/a/130553
+\usepackage{amsmath}
 \DeclareMathOperator*{\repr}{\,\equiv\,}      % represented in a basis, or "has components..."
+\newcommand{\repru}[1]{\displaystyle{\repr_{#1}}}
+\newcommand{\reprn}{\repr}
 
 \renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
 %\renewcommand{\op}{}                      % overwriting physics \op = \ketbra

@@ -168,7 +168,7 @@ which defines the position representation.
 Under this time representation (or T representation), the operator $\op{H}_T = -\hbar\op{\Omega}$,
 canonically conjugate to the time operator $\op{T}$, is expressed as $-i\hbar\pdv{t}$,
 and the commutation relation
-$[\op{T}, \op{H}_T] \repr_{T} \comm{t, -i\hbar\pdv{t}}{} = i\hbar$
+$[\op{T}, \op{H}_T] \displaystyle{\repr_{T}} \comm{t, -i\hbar\pdv{t}}{} = i\hbar$
 can be proven
 immediately, similarly to the well known position-momentum relation
 $\comm{\op{x}}{\op{p}} \repr_{x} \comm{x}{-i\hbar\pdv{x}} = i\hbar$.
@@ -203,16 +203,15 @@ Such analogies among operators in $\hilb{H}_T$ and $\hilb{H}_S$ are summarized i
   \begin{table}
     \centering
     \begin{tabular}{l|l|l}
-      & \multicolumn{1}{c|}{$\hilb{H}_T$}   & \multicolumn{1}{|c}{$\hilb{H}_S$}       \\
+      & \multicolumn{1}{c|}{$\hilb{H}_T$}                 & \multicolumn{1}{|c}{$\hilb{H}_S$}       \\
       \hline
       \multirow{2}{11em}{Canonical commutation relation}
-      & $\op{T}$                                & $\op{x}$                            \\
+      & $\op{T}$                                          & $\op{x}$                            \\
       %
-      & $\op{H}_T \repr -i\hbar\pdv{t} $        & $\op{p} \repr -i\hbar\pdv{x}$       \\
+      & $\op{H}_T \reprn -i\hbar\pdv{t} $  & $\op{p} \repr -i\hbar\pdv{x}$       \\
       \hline
       Hamiltonian
-      % & $\op{H}_T = -\hbar\op{\Omega}$           & $\op{H_S}$
-      & $\op{H}_T$           & $\op{H_S}$
+      & $\op{H}_T$                                        & $\op{H_S}$
     \end{tabular}
     {\caption{
       Analogies between observables in the two Hilbert spaces.
