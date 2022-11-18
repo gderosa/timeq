@@ -37,15 +37,13 @@
 %\newcommand{\Schr}{\mathrm{Schr\ddot{o}d.}}
 \newcommand{\PW}{\mathrm{PW}}
 
-%% Allows better formatting than \underset
-%% https://tex.stackexchange.com/a/130553
-\usepackage{amsmath}
-\DeclareMathOperator*{\repr}{\,\equiv\,}      % represented in a basis, or "has components..."
-\newcommand{\repru}[1]{\displaystyle{\repr_{#1}}}
-\newcommand{\reprn}{\repr}
+% Ensure proper spacing/fonts?
+\DeclareMathOperator{\reprop}{\,\equiv\,}
+% represented in a basis or "has components"
+\newcommand{\repr}[1][]{\underset{#1}{\equiv}}
+% Usage: \repr, \repr[x]
 
 \renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
-%\renewcommand{\op}{}                      % overwriting physics \op = \ketbra
 \newcommand{\eqbydef}{\coloneqq}
 %\newcommand{\eqbydef}{\triangleq}
 \newcommand{\superop}{\mathcal}
