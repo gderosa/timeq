@@ -268,6 +268,33 @@ entangled with time-evolved spatial states~$\ket{\psi(t)}_S$ in $\hilb{H}_S$:
 %   In other words, we can certainly remove $\mu(\omega)$, but it must be ``absorbed''
 %   in the properties of $\ket{\phi(\omega)}_S$.
 % \end{tcolorbox}
+
+Using the relations
+$
+\, \prescript{}{T}{\braket{t}{t'}}_T = \delta(t-t') \,
+$
+and
+$
+  \,
+  \ket{\omega}_T =
+  \frac{1}{\sqrt{2\pi}} \int\dd{t}\E^{-\iu\omega t}\ket{t}_T
+  \,
+$
+(see also \cite[2]{Lloyd:Time}),
+it follows that\footnote{%
+  Please note the analogy with the well-known
+  inner product of position and momentum eigenvectors in standard quantum mechanics:
+  $\braket{\vb{x}}{\vb{p}} = (2\pi\hbar)^{-3/2}\E^{\iu \vb{p} \vdot \vb{x}  / \hbar}$
+  (or $\braket{x}{p} = \frac{\E^{\iu p x / \hbar}}{\sqrt{2\pi\hbar}}$ for one-dimensional systems).
+  See, for example, \cite[126--127]{Ballentine}.
+}
+\begin{equation}\label{eq:pw:tscalaromega}
+  \prescript{}{T}{\braket{t}{\omega}}_T =
+  \frac{1}{\sqrt{2\pi}}\prescript{}{T}{\bra{t}} \int\dd{t'}\E^{-\iu\omega t'}\ket{t'}_T  =
+  \frac{1}{\sqrt{2\pi}}\int\dd{t'}\E^{-\iu\omega t'}\delta(t-t') =
+  \frac{1}{\sqrt{2\pi}} \E^{-\iu\omega t} \; \text{.}
+\end{equation}
+
 Note that,
 while it is $\braket{\psi(t)}_S = 1 \ \forall t \in \mathbb{R}$ (unitary evolution,
 as in standard quantum mechanics),
@@ -370,32 +397,7 @@ Now, from \eqref{eq:pw:mudelta} and \eqref{eq:pw:time_freq_mu} it holds:
   \dket{\Psi_0} = \int \dd{\omega} \delta(\omega + \omega_0) \ket{\omega}_T \ox \ket{\phi(\omega)}_S =
     \ket{-\omega_0}_T \ox \ket{\phi(-\omega_0)}_S \text{,}
 \]
-then, using the relations
-$
-\, \prescript{}{T}{\braket{t}{t'}}_T = \delta(t-t') \,
-$
-and
-$
-  \,
-  \ket{\omega}_T =
-  \frac{1}{\sqrt{2\pi}} \int\dd{t}\E^{\iu\omega t}\ket{t}_T
-  \,
-$
-(see also \cite[2]{Lloyd:Time}),
-it follows that\footnote{%
-  Please note the analogy with the well-known
-  inner product of position and momentum eigenvectors in standard quantum mechanics:
-  $\braket{\vb{x}}{\vb{p}} = (2\pi\hbar)^{-3/2}\E^{\iu \vb{p} \vdot \vb{x}  / \hbar}$
-  (or $\braket{x}{p} = \frac{\E^{\iu p x / \hbar}}{\sqrt{2\pi\hbar}}$ for one-dimensional systems).
-  See, for example, \cite[126--127]{Ballentine}.
-}
-\[
-  \prescript{}{T}{\braket{t}{\omega}}_T =
-  \frac{1}{\sqrt{2\pi}}\prescript{}{T}{\bra{t}} \int\dd{t'}\E^{\iu\omega t'}\ket{t'}_T  =
-  \frac{1}{\sqrt{2\pi}}\int\dd{t'}\E^{\iu\omega t'}\delta(t-t') =
-  \frac{1}{\sqrt{2\pi}} \E^{\iu\omega t} \; \text{;}
-\]
-therefore the \emph{evolution} (in $\hilb{H}_S$) is
+therefore, using Eq. \eqref{eq:pw:tscalaromega}, the \emph{evolution} (in $\hilb{H}_S$) is
 \begin{equation}
   \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi_0}} = \prescript{}{T}{\braket{t}{-\omega_0}}_{T} \ket{\phi(-\omega_0)}_S =
     \frac{1}{\sqrt{2\pi}} \E^{-\iu\omega_0 t} \ket{\phi(-\omega_0)}_S \text{.}
