@@ -360,18 +360,15 @@ is, as an example, what in standard quantum mechanics would be the time evolutio
 (or an eigenstate of $\op{H}_S$ in $\hilb{H}_S$, within the Page--Wootters formalism).
 Let the eigenvalue be $E_0 \eqbydef \hbar\omega_{0}$;
 and let $\ket{\phi_0}_S$ a related eigenstate, such that $\op{H}_{S}\ket{\phi_0}_S = E_{0}\ket{\phi_0}_S$.
-If the initial condition is $\ket{\psi_{0}(0)}_S = \ket{\phi_0}_S$ then the time evolution is
+If the initial condition is $\ket{\psi_{0}(0)}_S = \ket{\phi_0}_S$, then the time evolution is
 $\ket{\psi_{0}(t)}_S = \E^{-\frac{i}{\hbar}t}\ket{\phi_0}_S$.
 
-The corresponding ``history vector''
-\begin{align*}
-  \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S %% = \int \dd{t} \ket{t}_T \ox \E^{-\iu \omega_0 (t-t_0)} \ket{\psi_0(t_0)}_S
-  \text{,} \, &
-  \\
-              & \text{with} \;
-  \op{H}_S \ket{\psi_0(t)} = E_0 \ket{\psi_0(t)} \text{,} \;  \forall t \in \mathbb{R} \text{,}
-\end{align*}
-is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
+In Page--Wootters terms, the corresponding ``history vector'' is
+\begin{equation*}
+  \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S \text{.}
+\end{equation*}
+
+It is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
 \[
   \qty(\idop_T \ox \op{H}_S) \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox E_0 \ket{\psi_{0}(t)}_S = E_0 \dket{\Psi_0} \text{.}
 \]
