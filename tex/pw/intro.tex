@@ -365,9 +365,19 @@ $\ket{\psi_{0}(t)}_S = \E^{-\frac{i}{\hbar}t}\ket{\phi_0}_S$.
 
 In Page--Wootters terms, the corresponding ``history vector'' is
 \begin{equation*}
-  \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S \text{.}
+  \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S \text{,}
 \end{equation*}
-TODO See also \eqref{eq:pw:time_freq_nomu}.
+where the integrand is the tensor product of an eigenvector of $\op{T}$ in $\hilb{H}_T$
+and the time-evolved state vector in $\hilb{H}_S$;
+but $\dket{\Psi_0}$ can also be expressed as
+\begin{equation*}
+  \dket{\Psi_0} = \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\tilde{\psi}_{0}(\omega)}_{S} \text{,}
+\end{equation*}
+integrating the tensor product of eigenvectors of the two ``Hamiltonians''
+$\op{H}_T$ and $\op{H}_S$ respectively in $\hilb{H}_T$ and $\hilb{H}_S$
+---see also Eq. \eqref{eq:pw:time_freq_nomu}.
+
+
 
 It is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue:
 \[
