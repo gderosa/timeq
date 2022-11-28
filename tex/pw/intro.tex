@@ -366,23 +366,27 @@ If the initial condition is $\ket{\psi_{0}(0)}_S = \ket{\phi_0}_S$, then the tim
 \end{equation}
 %
 In Page--Wootters terms, the corresponding ``history vector'' is
-\begin{equation*}
+\begin{equation}\label{eq:pw:Psi_0_t}
   \dket{\Psi_0} = \int \dd{t} \ket{t}_T \ox \ket{\psi_0(t)}_S \text{,}
-\end{equation*}
+\end{equation}
 where the integrand is the tensor product of an eigenvector of $\op{T}$ in $\hilb{H}_T$
 and the time-evolved state vector in $\hilb{H}_S$;
 but $\dket{\Psi_0}$ can also be expressed as
-\begin{equation*}
+\begin{equation}\label{eq:pw:Psi_0_omega}
   \dket{\Psi_0} = \int \dd{\omega} \, \ket{\omega}_{T}\ox\ket{\tilde{\psi}_{0}(\omega)}_{S} \text{,}
-\end{equation*}
+\end{equation}
 in terms of eigenvectors of the ``Hamiltonians''
 $\op{H}_T$ and $\op{H}_S$ in the two spaces respectively % $\hilb{H}_T$ and $\hilb{H}_S$ respectively
 ---see also Eq. \eqref{eq:pw:time_freq_nomu}.
-%
+
 As $\ket{\tilde{\psi}_{0}(\omega)}_{S}$ is the Fourier transform of $\ket{\psi_0(t)}_S$, and using Eq. \eqref{eq:pw:eigenevol}, it holds:
 \[
-  \ket{\tilde{\psi}_0(\omega)} = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{iwt} \E^{-i\omega_{0}t} \ket{\phi_0}
-  = \delta(\omega-\omega_0) \text{.}
+  \ket{\tilde{\psi}_0(\omega)}_S = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{iwt} \E^{-i\omega_{0}t} \ket{\phi_0}_S
+  = \delta(\omega-\omega_0) \text{;}
+\]
+then, replacing into Eq.~\eqref{eq:pw:Psi_0_omega}:
+\[
+  \dket{\Psi_0} = \ket{\omega_0}_{T}\ox\ket{\tilde{\psi}_{0}(\omega_0)}_{S} \text{.}
 \]
 
 $\dket{\Psi_0}$ is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue $E_0$:
@@ -394,29 +398,32 @@ In order to statisfy Eq.~\eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian},
 $\dket{\Psi_0}$ must also be an eigenvector of $\hbar\op{\Omega} \ox \idop$,
 but related to the \emph{opposite} eigenvalue $-E_0 = -\hbar\omega_0$.
 
-From Eq.~\eqref{eq:pw:time_freq_mu}, we can write, in particular:
-\begin{equation}
-  \dket{\Psi_0} =
-    \int \dd{\omega} \mu_0(\omega) \ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S} \text{,}
-\end{equation}
-which expands $\dket{\Psi_0}$ over a continuous orthonormal eigenbasis
-$\setof{\ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S}}$
-of $\op{\Omega} \ox \idop_S$.
-But $\dket{\Psi_0}$ is an eigenvector itself,
-for the eigenvalue $-\omega_0$,
-therefore the coefficients $\mu_0(\omega)$ must be
-\begin{equation}\label{eq:pw:mudelta}
-  \mu_0(\omega) = \delta\qty(\omega - \qty(-\omega_0) ) = \delta\qty(\omega + \omega_0) \text{.}
-\end{equation}
+% %% FROM HERE
+% From Eq.~\eqref{eq:pw:time_freq_mu}, we can write, in particular:
+% \begin{equation}
+%   \dket{\Psi_0} =
+%     \int \dd{\omega} \mu_0(\omega) \ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S} \text{,}
+% \end{equation}
+% which expands $\dket{\Psi_0}$ over a continuous orthonormal eigenbasis
+% $\setof{\ket{\omega}_{T} \ox \ket{\phi_0(\omega)}_{S}}$
+% of $\op{\Omega} \ox \idop_S$.
+% But $\dket{\Psi_0}$ is an eigenvector itself,
+% for the eigenvalue $-\omega_0$,
+% therefore the coefficients $\mu_0(\omega)$ must be
+% \begin{equation}\label{eq:pw:mudelta}
+%   \mu_0(\omega) = \delta\qty(\omega - \qty(-\omega_0) ) = \delta\qty(\omega + \omega_0) \text{.}
+% \end{equation}
 
-Now, from \eqref{eq:pw:mudelta} and \eqref{eq:pw:time_freq_mu} it holds:
-\[
-  \dket{\Psi_0} = \int \dd{\omega} \delta(\omega + \omega_0) \ket{\omega}_T \ox \ket{\phi(\omega)}_S =
-    \ket{-\omega_0}_T \ox \ket{\phi(-\omega_0)}_S \text{,}
-\]
-therefore, using Eq. \eqref{eq:pw:tscalaromega}, the \emph{evolution} (in $\hilb{H}_S$) is
+% Now, from \eqref{eq:pw:mudelta} and \eqref{eq:pw:time_freq_mu} it holds:
+% \[
+%   \dket{\Psi_0} = \int \dd{\omega} \delta(\omega + \omega_0) \ket{\omega}_T \ox \ket{\phi(\omega)}_S =
+%     \ket{-\omega_0}_T \ox \ket{\phi(-\omega_0)}_S \text{,}
+% \]
+% %% TO HERE
+
+Using Eq. \eqref{eq:pw:tscalaromega}, the \emph{evolution} (in $\hilb{H}_S$) is
 \begin{equation}
-  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi_0}} = \prescript{}{T}{\braket{t}{-\omega_0}}_{T} \ket{\phi(-\omega_0)}_S =
+  \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi_0}} = \prescript{}{T}{\braket{t}{\omega_0}}_{T} \ket{\tilde{\psi}(\omega_0)}_S =
     \frac{1}{\sqrt{2\pi}} \E^{-\iu\omega_0 t} \ket{\phi(-\omega_0)}_S \text{.}
 \label{eq:pw:stat_eigenst_of_H_S}
 \end{equation}
