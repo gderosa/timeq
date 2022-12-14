@@ -1,5 +1,8 @@
 \documentclass[a4paper,12pt]{book}
 
+% It is mentioned in more than one place, so better DRY
+\newcommand{\thetitle}{Time in Quantum Mechanics and the Page--Wootters Formalism}
+
 \usepackage[svgnames]{xcolor}
 \usepackage{lipsum}  %% dev
 \usepackage{dpfloat}
@@ -81,7 +84,9 @@
 \usepackage{etoolbox}
 \usepackage[  %% be (almost) the last -- https://tex.stackexchange.com/a/326953
   %% pdfusetitle would not render the ket <1| correctly -- title is a plain text
-  pdftitle={It's |1> o'clock -- Relational Time and Applications},
+  %% pdftitle={It's |1> o'clock -- Relational Time and Applications},
+  %% "problem solved" due to a more "formal" title requested:
+  pdftitle={\thetitle},
   colorlinks
 ]{hyperref}
   \hypersetup{
@@ -126,7 +131,7 @@
 \AtEndEnvironment{quote}{\vspace{-\topsep}\endsinglespace}
 
 \author{Guido De Rosa \\ \small\tt{gderosa@umail.ucc.ie}}
-\title{It's $\ket{1}$ o'clock -- Relational Time and Applications}
+\title{\thetitle}
 
 \addbibresource{bib/main.bib}
 \addbibresource{bib/comp.bib}
