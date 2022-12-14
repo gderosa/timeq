@@ -537,96 +537,97 @@ by rearranging its integration variables.
 
 % Relativistic extension? connect also somewhat with our work, Ch. 5?
 
-\subsubsection*{The clock as an open system}
+% \subsubsection*{The clock as an open system}
 
-Let us consider again Eq.~\eqref{eq:pwphi}. There has:
-\begin{multline}\label{eq:pw:uncertain:schmidt}
-  \dket{\Phi} =
-    \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
-    \\
-    = \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S
-    = \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S
-    \text{,}
-\end{multline}
-where we define $\ket{\phi(t)}_S \eqbydef \phi(t)\ket{\psi(t)}_S$;
-%
-% Thus the spatial degrees of freedom should be \emph{traced out},
-% before deriving a time--energy relation in $\hilb{H}_T$.
-%
-% \begin{equation}\label{eq:pw:uncertain:schmidt}
+% Let us consider again Eq.~\eqref{eq:pwphi}. There has:
+% \begin{multline}\label{eq:pw:uncertain:schmidt}
 %   \dket{\Phi} =
-%     \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
-%     \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
-% \end{equation}
-the sets $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
-are
-orthonormal bases of $\hilb{H}_T$;
-and
-$\ket{\tilde{\phi}(\omega)}_S$ is the Fourier transform\footnote{
-  Fourier transform of a
-  vector-valued function
-  (vectors in $\hilb{H}_S$),
-  similar to what found in \cite{Maccone:Pauli}.
-}
-of $\ket{\phi(t)}_S$. Let us stress again that
-neither $\ket{\phi(t)}_S$ nor $\ket{\tilde{\phi}(\omega)}_S$
-are necessarily normalized (in $\hilb{H}_S$)
-for all values of $t, \omega \in \mathbb{R}$,
-which is in fact a requirement
-to satisfy the normalization in $\pwspace$:
-\[
-  \int \dd{t} \braket{\phi(t)}_S =
-    \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
-    \dbradket{\Phi}{\Phi}_{T \ox S} =
-    1
-    \text{.}
-\]
+%     \int \dd{t} \phi(t) \ket{t}_T \ox \ket{\psi(t)}_S
+%     \\
+%     = \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S
+%     = \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S
+%     \text{,}
+% \end{multline}
+% where we define $\ket{\phi(t)}_S \eqbydef \phi(t)\ket{\psi(t)}_S$;
+% %
+% % Thus the spatial degrees of freedom should be \emph{traced out},
+% % before deriving a time--energy relation in $\hilb{H}_T$.
+% %
+% % \begin{equation}\label{eq:pw:uncertain:schmidt}
+% %   \dket{\Phi} =
+% %     \int \dd{t} \ket{t}_T \ox \ket{\phi(t)}_S =
+% %     \int \dd\omega \ket{\omega}_T \ox \ket{\tilde{\phi}(\omega)}_S \, \text{,}
+% % \end{equation}
+% the sets $\setof{\ket{t}_T}$ and $\setof{\ket{\omega}_T}$
+% are
+% orthonormal bases of $\hilb{H}_T$;
+% and
+% $\ket{\tilde{\phi}(\omega)}_S$ is the Fourier transform%\footnote{
+% %   Fourier transform of a
+% %   vector-valued function
+% %   (vectors in $\hilb{H}_S$),
+% %   similar to what found in \cite{Maccone:Pauli}.
+% % }
+%  of $\ket{\phi(t)}_S$. Let us stress again that
+% neither $\ket{\phi(t)}_S$ nor $\ket{\tilde{\phi}(\omega)}_S$
+% are necessarily normalized (in $\hilb{H}_S$)
+% for all values of $t, \omega \in \mathbb{R}$,
+% which is in fact a requirement
+% to satisfy the normalization in $\pwspace$:
+% \[
+%   \int \dd{t} \braket{\phi(t)}_S =
+%     \int \dd{\omega} \braket{\tilde{\phi}(\omega)}_S =
+%     \dbradket{\Phi}{\Phi}_{T \ox S} =
+%     1
+%     \text{.}
+% \]
 
-The vector $\dket{\Phi}$
-cannot,
-in general, be simply expressed as a tensor product of two pure states
-in $\hilb{H}_T$ and $\hilb{H}_S$.
-However,
-a ``temporal part'' of $\dket{\Phi}$
-can be identified as a \emph{mixed} state described
-by a (reduced) density operator $\op{\rho}_T$ in $\hilb{H}_T$.
-In other words, the ``spatial'' part (corresponding to the subspaces $\hilb{H}_S$)
-is \term{traced out} as the \term{environment} for the clock.
+% %% Andreas: "unclear"
+% % The vector $\dket{\Phi}$
+% % cannot,
+% % in general, be simply expressed as a tensor product of two pure states
+% % in $\hilb{H}_T$ and $\hilb{H}_S$.
+% % However,
+% % a ``temporal part'' of $\dket{\Phi}$
+% % can be identified as a \emph{mixed} state described
+% % by a (reduced) density operator $\op{\rho}_T$ in $\hilb{H}_T$.
+% % In other words, the ``spatial'' part (corresponding to the subspaces $\hilb{H}_S$)
+% % is \term{traced out} as the \term{environment} for the clock.
 
-To obtain an explicit expression of $\op{\rho}_T$,
-we use the definitions and results from Chapter~\ref{ch:decohere},
-in particular Eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
-replacing the discrete sums there with integrals,
-and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
-also we identify the indices\footnote{
-  A particular case of Eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
-  therefore it becomes
-  $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
-  which can be compared to Eq.~\eqref{eq:pw:uncertain:schmidt}.
-}
-$i = \mu$ therein.
+% % To obtain an explicit expression of $\op{\rho}_T$,
+% % we use the definitions and results from Chapter~\ref{ch:decohere},
+% % in particular Eqs. \eqref{eq:bipartite_expansion} and \eqref{eq:density_A_expand},
+% % replacing the discrete sums there with integrals,
+% % and the index $j$ with the integration variable $t$ (or $\omega$, respectively);
+% % also we identify the indices%\footnote{
+% % %   A particular case of Eq.~\eqref{eq:bipartite_expansion} is when $\alpha_{i\mu} = \delta_{i\mu}$,
+% % %   therefore it becomes
+% % %   $$\ket{\psi_S} = \sum_{i} |\alpha_{i}|^{2} \ket{i}_A \ox \ket{i}_B \text{,}$$
+% % %   which can be compared to Eq.~\eqref{eq:pw:uncertain:schmidt}.
+% % % }
+% % $i = \mu$ therein.
 
-The reduced density operator can so be computed
-as the partial trace
-\begin{align}
-  \label{eq:ptrace_density_matrix_t}
-  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
-    \, \text{,}
-  \\
-  \label{eq:ptrace_density_matrix_omega}
-  \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) &= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
-    \,\text{.}
-\end{align}
-Here the probabilty distributions $\norm{\phi(t)}^2$ and $\norm{\tilde{\phi}(\omega)}^2$
-are to be intended in the sense of a mixed state
-i.e. probability that a system is in a certain state $\ket{t}_T$
-(or $\ket{\omega}_T$,~respectively),
-not in the sense of the probability of a measurement outcome on a \emph{known} pure state
-(which is what, in its original formulation, the Heisenberg uncertainty principle
-refers to).
-Although with these limitations, it is still of interest to observe that
-the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$,
-formally resembling a time--energy uncertainty relation,
-can be proven
-due to the properties of the Fourier transform,
-which relates $\phi(t)$ and $\tilde{\phi}(\omega)$.
+% The reduced density operator can so be computed
+% as the partial trace
+% \begin{align}
+%   \label{eq:ptrace_density_matrix_t}
+%   \op{\rho}_T = \Tr_S\qty(\dketdbra{\Phi}{\Phi}) %&= \int \dd t \norm{\phi(t)}^2_S \ketbra{t}{t}
+%     \, \text{,}
+%   \\
+%   \label{eq:ptrace_density_matrix_omega}
+%   \op{\rho}_S = \Tr_T\qty(\dketdbra{\Phi}{\Phi}) %&= \int \dd \omega \norm{\tilde{\phi}(\omega)}^2_S \ketbra{\omega}{\omega}
+%     \,\text{.}
+% \end{align}
+% % Here the probabilty distributions $\norm{\phi(t)}^2$ and $\norm{\tilde{\phi}(\omega)}^2$
+% % are to be intended in the sense of a mixed state
+% % i.e. probability that a system is in a certain state $\ket{t}_T$
+% % (or $\ket{\omega}_T$,~respectively),
+% % not in the sense of the probability of a measurement outcome on a \emph{known} pure state
+% % (which is what, in its original formulation, the Heisenberg uncertainty principle
+% % refers to).
+% % Although with these limitations, it is still of interest to observe that
+% % the relation $\sigma_T\sigma_{\hbar\Omega} = \hbar \sigma_{\phi} \sigma_{\tilde{\phi}} \geq \frac{\hbar}{2}$,
+% % formally resembling a time--energy uncertainty relation,
+% % can be proven
+% % due to the properties of the Fourier transform,
+% % which relates $\phi(t)$ and $\tilde{\phi}(\omega)$.
