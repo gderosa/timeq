@@ -74,22 +74,22 @@ Let us start with a continuous system where the Fourier transform $\phi \eqbydef
 an integrable function $\psi: \mathbb{R} \to \mathbb{C}$ is defined as
 \begin{equation}\label{eq:fourier_transform:def}
   \phi(\omega) = \left(\mathcal{F}\psi\right) (\omega) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{\iu t \omega} \text{,}
+    \frac{1}{\sqrt{2\pi}} \int \dd{t} \psi(t) \E^{-\iu t \omega} \text{,}
 \end{equation}
 and the well known \term{inversion} property
 \begin{equation}\label{eq:inverse_fourier_transform:def}
   \psi(t) = \left(\mathcal{F}^{-1} \phi \right) (t) =
-    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{ - \iu t \omega}
+    \frac{1}{\sqrt{2\pi}} \int \dd{\omega} \phi(\omega) \E^{ \iu t \omega}
 \end{equation}
-can be can be proven (see e.g. \cite{Folland:Fourier}).
+can be can be proven (see e.g. \cite[Eq.~7.1]{Folland:Fourier}).
 
 Eq.~\eqref{eq:inverse_fourier_transform:def} can be interpreted
 as a function of time
 expressed as a linear superposition
-of ``pure frequencies'' $\E^{-\iu \omega t}$,
+of ``pure frequencies'' $\E^{\iu \omega t}$,
 with coefficients given by the Fourier transform $\phi(\omega)$.
 
-In a discrete system, a finite interval $(0, \Delta{T})$ is considered,
+In a discrete system of dimension $N$, a finite interval $(0, \Delta{T})$ is considered,
 equally divided in $N$ sub-intervals. If we set $\delta{T} = \frac{\Delta{T}}{N}$,
 $N$ discrete points in time can be considered
 \begin{equation}\label{eq:DFT:t_spectrum}
@@ -120,11 +120,11 @@ then reads\footnote{
   \cite{Oppenheim:Int1,Oppenheim:Int3,ProakisManolakis}.
 }
 \begin{equation}\label{eq:DFT:def}
-  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{\iu n m 2 \pi / N}
+  \phi_n \eqbydef \phi(\omega_n) = \frac{1}{\sqrt{N}} \sum_{m=0}^{N-1} \psi_m \E^{-\iu n m 2 \pi / N}
 \end{equation}
 and, respectively,
 \begin{equation}\label{eq:IDFT:def}
-  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{-\iu n m 2 \pi / N} \text{.}
+  \psi_m \eqbydef \psi(t_m) = \frac{1}{\sqrt{N}} \sum_{n=0}^{N-1} \phi_n \E^{\iu n m 2 \pi / N} \text{.}
 \end{equation}
 %
 Eq.~\eqref{eq:DFT:def} is the definition of the \term{Discrete Fourier Transform} (DFT);
@@ -177,7 +177,7 @@ This shows that the Fourier matrix can be used, not only to transform the compon
 of a vector from one eigenbasis to the canonically conjugate eigenbasis,
 but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
 
-Let us now introduce the \term{Fourier operator}
+Let us now introduce the \term{Fourier operator} \parencite[Sec. 2.1, Eq. 2]{FiniteHilb}
 \begin{equation}
   \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
 \end{equation}
