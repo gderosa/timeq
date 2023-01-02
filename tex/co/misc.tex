@@ -1,185 +1,29 @@
-\section{An intro chap on motivation and experiments?}\label{sec:outlook-misc}
-\begin{itemize}
-  \item Time crystals?
-  \item Time-resolved diffraction patters, temporal double slit experiment + Muga theory \url{https://arxiv.org/abs/0812.3034}
-\end{itemize}
+\section{Other topics}\label{sec:outlook-misc}
 
-%\clearpage\includegraphics[width=\linewidth]{img/diffraction.jpg}
+\subsection{Quantum computing and decomposition}
 
-\section{Misc}
+In Sec.~\ref{sec:finite-quantum}, it was noted that
+``a benefit of finite-dimensional systems is the potential implementation on a finite array of
+qubits in a quantum computer''.
+Indeed,
+experimentally,
+besides looking for a suitable $N$-level system to act as a clock,
+we may want to ``encode'' $2^{n}$ levels into the combined state of $n$
+qubits and
+decompose $\mathbb{J}$ (or, actually, $e^{-i\mathbb{J}\tau/\hbar}$)
+into simpler hamiltonians (respectively: evolutions)
+acting on individual qubits (\term{gates}),
+therefore allowing the experiment to be run on a quantum processor.
+A decomposition method that can be considered for the purpose
+is the Trotter-Suzuki scheme
+\parencite{Trotter-Suzuki:exp, Trotter-Suzuki:GPU}.
 
-\subsection{Quantum reference frames}
+\subsection{Time crystals}
 
-\_
-
-\url{https://youtu.be/eydbGKyEMt0}
-
-\url{https://www.youtube.com/watch?v=3NkCnVi4bLg} clocks!
-
-\url{https://www.youtube.com/watch?v=WyyuYEryRjI} cites P-W GLM at about 19 mins.
-
-\url{https://www.youtube.com/watch?v=oB-Ol1zNAJQ}
-
-\url{https://vqf.iqoqi.oeaw.ac.at/speakers/}
-
-
-\subsection{Half-line spectrum}
-Even if time was bounded from below (Big Bang), that would not invalidate the \textbf{Pauli objection}.
-(Look at the proof of Pauli objection).
-Though, it would be worth mentioning the momentum in the half-line (Ruschhaupt)
-and develop some considerations then\dots
+References: \cite{crystal3,crystal2012}.
 
 
-\subsection{Quantum computing, IBM, decomposition, Trotter-SUzuki, Sine-cosine, qubiter dir}
-
-Previous section(s) read(s):
-\begin{quote}
-  A benefit of finite-dimensional systems is the potential implementation on a finite array of
-  qubits in a quantum computer.
-\end{quote}
-Make a ref from there to here, and talk about qubiter and stuff.
-
-Moved here:
-\begin{remark}
-  Experimentally,
-  besides looking for a suitable $N$-level system to act as a clock,
-  we may want to ``encode'' $2^{n}$ levels into the combined state of $n$
-  qubits and
-  decompose $\mathbb{J}$ ---or, actually, $e^{-i\mathbb{J}\tau/\hbar}$---
-  into simpler hamiltonians (evolutions)
-  acting on individual qubits (\term{gates}),
-  therefore allowing the experiment to be run on a quantum computer.\footnote{
-    Nevertheless, a quantum computation model based on
-    $N$-dimensional \term{qudits}
-    (with $N > 2$)
-    is considered in the literature \parencite{QuditComp, Qudit}
-    as a possible approach to \emph{simplify} implementation
-    of more general purpose quantum processors, not only specific experiments.
-  }
-  A decomposition method that can be considered for the purpose
-  is the Trotter-Suzuki scheme
-  \parencite{Trotter-Suzuki:exp, Trotter-Suzuki:GPU}.
-  This is a potential line of further study.
-\end{remark}
-
-
-Also, \cite{Moreva:illustration} has FIG.1 gate array repr\dots
-
-\subsection{Quantum Blockchain and Entanglement in Time}
-
-\url{https://spectrum.ieee.org/tech-talk/computing/networks/quantum-blockchains-could-act-like-time-machines}
-\url{https://arxiv.org/abs/1804.05979}
-
-
-\subsection{Misc}
-
-Extra: \cite{TimeAnyons}.
-
-TQM Book: time of residence: applicable to qubits, therefore Moreva experiment.
-
-\url{https://arxiv.org/abs/1708.04302} majorization, thermo.
-
-
-\subsection{and dwell time}
-
-\cite[\s 5]{TQM2}, \cite{YearsleyHalliwell_Clocks}. (create an @inbook for this)
-
-\subsection{In relation with the \term{time of residence}}
-
-Here we compare \cite{Moreva:synthetic, Moreva:illustration}
-(a Page and Wootters problem)
-with the ``standard'' \term{time of residence}
-treated in \cite[\s 5.5.2]{TQM2} (create an @inbook for the chapter), 
-the only usable concept since there is no notion of position
-for a qubit. This can also be connected with the time-slices
-in the notion of conditional time-of-arrival probability  by Leon and Maccone
-which is used in the jupyter notebook.
-
-\subsection[Comparison with Kijowski/Aharonov-Bohm]{Comparison with (Kijowski/Aharonov-Bohm) time of arrival}
-
-Time of arrival is derived for non-relativistic \parencite{Delgado_TOA, Delgado_TOA2}
-and relativisitic \parencite{Leon_TOA_R}
-particle.
-
-Kijowski: \cite{Kijowski_Time, Kijowski_Comment}.
-
-\subsection{In relation to Leggett-Garg inequalities}
-(Also mentioned in \cite{Moreva_position}).
-
-Ref \cite{LeggettGarg+PageWootters}.
-
-But also Lloyd: \url{https://arxiv.org/abs/1608.05672},
-\emph{Decoherent histories approach to the cosmological measure problem}.
-Lindbladt, Markov, Open Systems.
-
-Halliwell, \url{https://arxiv.org/abs/1604.01659}. Ancilla, decay (spontaneous emission?).
-
-A phylosophical object to decoherent histories / Everett (Everett mentioned in Marletto/ref)
-is at
-\url{https://arxiv.org/abs/1603.04845}.
-
-
-
-\subsection[On ``taking time seriously'']{On ``taking time seriously'' (time is real) and why it can still be real in Page and Wootters}
-
-No, Smolin
-(\term{Time Reborn}, \term{The Singular Universe and the Reality of Time})
-pushes this too far, even Special Relativity's time is too ``virtual'' for him.
-Similarly, the philosopher Tim Maudlin
-
-\url{https://www.quantamagazine.org/a-defense-of-the-reality-of-time-20170516/}
-
-Here instead we just argue that the clock can actually be really time, not any observable.
-We use notation $T$ as in time instead of $C$ as in clock etc.
-
-In this sense, the Moreva experiment is a quantum analogue simulation.
-
-
-\section{Time crystals}
-
-References: \cite{crystal2,crystal3,crystal2012}.
-
-
-\section{Irrev}
-
-\cite[\s IV. UNBOUNDED-ENERGY CLOCKS?]{Maccone:Pauli}
-
-\subsection{Use open quantum systems theory in ``Decoherence and measurement'' chapter + Entropy}
-Schmidt decompositions, spatial and temporal states in
-$\hilb{H}_T$ and $\hilb{H}_S$
-are described as density operators
-(mixed states).
-
-This has been actually used to prove clock time-frequency uncertainty relation
-in terms of mixture.
-
-What if there isn't a ``perfect entanglement'' between space and time.
-
-Use the Von Neumann entropy (or other methods) to quantify entanglement?
-
-When the entanglement is perfect, the notion of time evolution emerges, just
-like between two dimensions in space, it may or may not ``emerge'' that
-$y$ ``depends'' upon $y$ for a given distribution of positions.
-
-Where the entanglement is maximal, the Von Neumann entropy is also maximal.
-
-Arrow of time as increasing entanglement (and entropy!). See Also
-\cite{Marletto:Evolution}.
-Connect this with our jupyter notebook with complex potential: Marletto mentions
-clock + rest, and rest = observed + observer. Think ``observed'' is the atom
-and ``observer'' is the photon bath. Their entanglement increases as
-more photon are spontaneously (i.e. irreversibly) emitted.
-One might want to study the atom+photon system exactly,
-with explicit density matrices also,
-instead of using
-complex potential/quantum jump etc.
-
-Also Lloyd recent on entropic uncertainty (for time\dots \cite{Lloyd:Entropic}).
-Maybe also \cite{Wehner:Uncertainty}.
-
-Subadditivity.
-
-\subsubsection{Quantifying entanglement}
+\subsection{Quantifying entanglement}
 
 Vedral: \url{https://arxiv.org/abs/quant-ph/9702027}.
 
