@@ -38,7 +38,7 @@ then decay into a metastable state $\ket{1}$ at an intermediate energy
 (see the above references, although they might use a slightly different notation).
 This prevents the atom from decaying again and altering the ``arrival'' detection.
 
-As usual, we're going to set $\hbar = 1$ in the following numerical computation,
+As usual, we are going to set $\hbar = 1$ in the following numerical computation,
 based, once again, on the
 \emph{NumPy} framework \parencite{comp:numpy},
 within a
@@ -83,7 +83,7 @@ def unitary_psi(t):
     return U(t) @ psi_0
 \end{lstlisting}
 
-We're interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
+We are interested in the probability of the system to be in $\ket{0}$, $\ket{1}$, or $\ket{2}$,
 which is given by $\abs{\braket{0, 1, 2}{\psi(t)}}^2$:
 \begin{lstlisting}[language=Python]
 def prob(t):

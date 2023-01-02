@@ -17,7 +17,9 @@ position--momentum uncertainty relation.
 Here by ``energy'' we mean the Hamiltonian in standard quantum mechanics which,
 in Page--Wootters notation,
 can be expressed as $\idop_T \ox \op{H}_S$, which is also equal to
-$-\hbar\op{\Omega} \ox \idop_S$, in order to statisfy Eqs. \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian}.
+$-\hbar\op{\Omega} \ox \idop_S$,
+if applied to a solution of $\op{\mathbb{J}}\dket{\Psi} = 0$
+---Eqs. \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian}.
 The different sign does not change considerations related to the spread of statistical distributions.
 A formal proof will follow in Sec.~\ref{sec:for-normalized-elements}.
 
@@ -31,15 +33,15 @@ to diverge i.e.
 $\sigma_T = \infty$.
 
 The additional difficulty of dealing with infinites and improper state vectors
-motivates the study of \emph{proper} states\footnote{
+motivates the study of \emph{proper} (i.e. normalizable) states\footnote{
   Introduced in Sec. \ref{sec:properpw}.
 }
 of $\pwspace$
 instead, whose uncertainty relations for $T$ and $\hbar\Omega$ will be discussed in Sec.~\ref{sec:for-normalized-elements}.
 
-\subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_T$}\label{sec:for-normalized-elements}
+\subsection{For normalized elements of $\hilb{H}_T \ox \hilb{H}_S$}\label{sec:for-normalized-elements}
 
-A normalized element of $\hilb{H}_T \ox \hilb{H}_T$ allows in principle for a finite value
+A normalized element of $\hilb{H}_T \ox \hilb{H}_S$ allows in principle for a finite value
 of the uncertainties $\sigma_{T}$ and $\sigma_{\Omega}$.
 
 A physical state in $\pwspace$ is not generally
@@ -53,32 +55,33 @@ We can consider the
 operators $\op{T} \ox \idop_{S}$ and $\hbar\op{\Omega} \ox \idop_{S}$
 defined therein.
 
-We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:
+We use the general Robertson--Schr\"{o}dinger uncertainty relation which yields:%
 \begin{multline}
   \sigma_T \sigma_E \eqbydef
   \sigma_{T \ox \idop_S} \sigma_{\hbar\Omega \ox \idop_S} \geq
   \frac{1}{2} \abs{\expval{\comm
     {\op{T}\ox\idop_S} {\hbar\op{\Omega}\ox\idop_S}
-  }} =
+  }}
   \\
-  {\scriptstyle
-    \frac{1}{2} \abs{\expval{
+  = \frac{1}{2} \abs{\expval{
       \qty(\op{T}\ox\idop_S) \qty(\hbar\op{\Omega}\ox\idop_S) -
       \qty(\hbar\op{\Omega}\ox\idop_S) \qty(\op{T}\ox\idop_S)
     }}
-  } =
-  \frac{\hbar}{2} \abs{\expval{
+  \\
+  = \frac{\hbar}{2} \abs{\expval{
     \op{T}\op{\Omega}\ox\idop_S - \op{\Omega}\op{T}\ox\idop_S
-  }} = \\
-  \frac{\hbar}{2} \abs{\expval{
+  }}
+  \\ 
+  = \frac{\hbar}{2} \abs{\expval{
     \comm{\op{T}}{\op{\Omega}}_T \ox \idop_S
   }} =
   \frac{\hbar}{2} \abs{\expval{\comm
     {\op{T}}{\op{\Omega}}
   }_T} =
   \frac{\hbar}{2}
-  \,\text{.}
+  \,\text{,}
 \end{multline}
+showing that $\sigma_T \sigma_E \geq \frac{\hbar}{2}$. 
 
 % \subsection{Concluding remarks}
 

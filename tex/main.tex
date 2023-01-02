@@ -14,10 +14,9 @@
 \onehalfspacing
 \setlength{\parskip}{0.5ex}
 
-% [final only] !!! % frontespice
-% \pagenumbering{alph}
-% \pdfbookmark[section]{Front}{front}
-% \input{tex/pre/front}
+\pagenumbering{alph}
+\pdfbookmark[section]{Front}{front}
+\input{tex/pre/front}
 
 \pagenumbering{roman}
 \maketitle
@@ -37,7 +36,7 @@
 \chapter*{Acknowledgements}
 \markboth{Acknowledgements}{Acknowledgements}  %% No ugly "Chapter 0".
 \addcontentsline{toc}{section}{Acknowledgements}
-\input{tex/pre/thanks}
+{\it\input{tex/pre/thanks}}
 
 \chapter*{Abstract}
 \markboth{Abstract}{Abstract}  %% No ugly "Chapter 0".
@@ -77,7 +76,7 @@
 \input{tex/pw/finite}
 % applications
 \input{tex/pw/moreva}
-\input{tex/pw/moreva_plus}
+% \input{tex/pw/moreva_plus}  %% something wrong: we're not in an omega eigenbasis and we've not computed Fourier on omega repr even...
 \input{tex/pw/multi}
 \input{tex/pw/detector2}
 \input{tex/pw/detector3}
