@@ -573,12 +573,12 @@ T = DT * np.diag(np.arange(NT)) / NT
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-F = dft(NT, scale='sqrtn').conj()
+F = dft(NT, scale='sqrtn')
 F_dagger = F.conj().T
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
+Omega = F_dagger @ T @ F * 2*np.pi * NT / DT**2
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]

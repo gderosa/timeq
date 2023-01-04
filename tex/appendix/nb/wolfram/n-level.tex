@@ -9,6 +9,7 @@
 }
 \label{appendix:n-level}
 
+
 \begin{Verbatim}
 NN := 32
 \end{Verbatim}
@@ -21,7 +22,14 @@ T := DiagonalMatrix[Range[0,NN-1]] * \[Pi] / 16
 F := FourierMatrix[NN]
 \end{Verbatim}
 
-For simplicity, $\hbar = \omega = 1$
+For simplicity, $\hbar = \omega = 1$.
+
+Also, note that Mathematica uses a different sign convention\footnote{
+  See \url{https://reference.wolfram.com/language/ref/FourierMatrix.html}
+}
+than Python\footnote{
+  See \url{https://github.com/sympy/sympy/blob/77f1d79c705da5e9b3dee456a14b1b4e92dd620c/sympy/matrices/expressions/fourier.py\#L52}
+}, hence $F$ and $F^{\dagger}$ have a swapped role in the two platforms:
 
 \begin{Verbatim}
 \[CapitalOmega] := F.T.F\[ConjugateTranspose]  * 16 / \[Pi]
