@@ -432,11 +432,11 @@ DT = TMAX_N  # assume we start with time 0
 T = DT * np.diag(np.arange(NT)) / NT
 
 # Discrete Fourier
-F = dft(NT, scale='sqrtn').conj()
+F = dft(NT, scale='sqrtn')
 F_dagger = F.conj().T
 
 # Frequency operator
-Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
+Omega = F_dagger @ T @ F * 2*np.pi * NT / DT**2
 \end{lstlisting}
 
 Then the ``Hamiltonian'' ${\mathbb{J}}$, acting on $\pwspace$, and defined in Eq.~\eqref{eq:pwHamiltonian:nonUnitary}
