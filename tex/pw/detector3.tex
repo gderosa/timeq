@@ -28,15 +28,15 @@ and the
 \term{Electromagnetically induced transparency}
 ---EIT \parencite{EIT_Review}.
 
-Also, it is shown that a three-level atom can model
-a more robust and realistic
-detector for time-of-arrival measurement, compared to the one implemented
-with a two-level atom (as introduced in Sec.~\ref{sec:hist:detect}).
-The atom can be ``driven'' by a laser
-from the ground state $\ket{0}$ into the excited state $\ket{2}$,
-then decay into a metastable state $\ket{1}$ at an intermediate energy
-(see the above references, although they might use a slightly different notation).
-This prevents the atom from decaying again and altering the ``arrival'' detection.
+% Also, it is shown that a three-level atom can model
+% a more robust and realistic
+% detector for time-of-arrival measurement, compared to the one implemented
+% with a two-level atom (as introduced in Sec.~\ref{sec:hist:detect}).
+% The atom can be ``driven'' by a laser
+% from the ground state $\ket{0}$ into the excited state $\ket{2}$,
+% then decay into a metastable state $\ket{1}$ at an intermediate energy
+% (see the above references, although they might use a slightly different notation).
+% This prevents the atom from decaying again and altering the ``arrival'' detection.
 
 As usual, we are going to set $\hbar = 1$ in the following numerical computation,
 based, once again, on the
@@ -58,7 +58,9 @@ Hamiltonian is considered:
   )
   \text{,}
 \end{equation}
-with respect to the fiducial basis $\qty{\ket{0}, \ket{1}, \ket{2}}$.
+with respect to the
+%fiducial
+basis $\qty{\ket{0}, \ket{1}, \ket{2}}$.
 Let also
 the initial state be $\ket{\psi(0)} = \ket{0} \repr \mqty(1 \\ 0 \\ 0)$.
 
@@ -561,13 +563,15 @@ form an orthonormal basis in $\hilb{H}_S$.%
   $.
 }
 Then it's elementary linear algebra to find out the $N_S$
-coefficients\footnote{
-  $N_S$ coefficients (3 in our example),
-  instead of $N_S N_T$ (180 in our example)
-  as the dimension of $\pwspace$ would otherwise suggest.
-  This is because the condition is only on $\prescript{}{T}{\bradket{0}{\Psi}}$
-  and not on the ``entire'' $\dket{\Psi}$.
-} ---say $a$, $b$ and $c$---
+coefficients
+% \footnote{
+%   $N_S$ coefficients (3 in our example),
+%   instead of $N_S N_T$ (180 in our example)
+%   as the dimension of $\pwspace$ would otherwise suggest.
+%   This is because the condition is only on $\prescript{}{T}{\bradket{0}{\Psi}}$
+%   and not on the ``entire'' $\dket{\Psi}$.
+% }
+---say $a$, $b$ and $c$---
 so that \begin{equation}\label{eq:3lev:initialLinEq}
   a\cdot\prescript{}{T}{\bradket{0}{\Phi_i}} +
   b\cdot\prescript{}{T}{\bradket{0}{\Phi_j}} +
@@ -587,15 +591,16 @@ for comparison with standard quantum mechanics.
 Full implementation code is available at Appendix
 \ref{appendix:jupyter:3lev:page-wootters},
 function \\
-\Verb#find_linear_independent_initial()#\footnote{
-  The current implementation is strongly based on the assumption that $N_S = 3$.
-  From a computing perspective,
-  efficient and scalable support for higher $N_S$
-  would require some \term{refactoring} \parencite{comp:refactor}.
-  However,
-  the aim in this case is merely illustrating the \emph{physics} of this class of systems,
-  providing an effective \term{proof of concept} \parencite{comp:poc}.
-}
+\Verb#find_linear_independent_initial()#
+% \footnote{
+%   The current implementation is strongly based on the assumption that $N_S = 3$.
+%   From a computing perspective,
+%   efficient and scalable support for higher $N_S$
+%   would require some \term{refactoring} \parencite{comp:refactor}.
+%   However,
+%   the aim in this case is merely illustrating the \emph{physics} of this class of systems,
+%   providing an effective \term{proof of concept} \parencite{comp:poc}.
+% }
 returns:
 \begin{lstlisting}[language=Python]
 def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
@@ -691,7 +696,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
     \end{subfigure}
     \caption{
       Discrete Page--Wootters results (points)
-      interpolate
+      compared to continuous
       Schr\"{o}dinger
       evolution (continuous lines).
     }
@@ -708,7 +713,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
     \caption{
       \textit{Continued from Fig.~\ref{fig:3lev:PWSpaceTimeFit:side}}.
       Discrete Page--Wootters results (points)
-      interpolate
+      compared to continuous
       Schr\"{o}dinger
       evolution (continuous lines).
     }
