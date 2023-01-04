@@ -11,25 +11,28 @@ such click times over repeated measurements is studied. Due the Pauli objection,
 probabilities in this distribution cannot simply be given in terms of projectors related to eigenspaces of a self-adjoint operator.
 A more general formulation than projective measurement is therefore necessary.
 
-Detectors can be treated more or less explicitly in quantum models of arrival time:
+Detectors can be treated (more or less explicitly) in quantum models of arrival time on different levels:
 \begin{enumerate}
   \item
-    Without making the detector explicit. This is the case of the Kijowski model (Sec. \ref{sec:kijowski}),
-    which is based on positive-operator measurement\linebreak(POVM). Given there's no detector in the model,
+    Without making the detector explicit: this is the case of the Kijowski model \parencite{Kijowski, Leavens_TOA},
+    which is based on positive-operator measures (POVM). Given there is no explicit detector in the model,
     the best candidate statistical distribution and operator are essentially obtained
     through consistency arguments, including a ``reasonable'' classical limit.
+    See also the Aharonov--Bohm approach, described in Sec.~\ref{sec:AharonovBohm}.
   \item
-    Early attempts at incorporating the measurement apparatus
-    (namely Allcock, Sec. \ref{sec:allcock}) which
+    Phenomenological detector models:
+    early attempts to incorporate the measurement apparatus
+    (namely Allcock, Sec. \ref{sec:allcock}), which
     focus on the irreversible process of absorption.
-    Normalization of the quantum state is not preserved, the Hamiltonian is not\linebreak{Hermitian}
+    Normalization of the quantum state is not preserved, the Hamiltonian is not Hermitian
     because the potential is not real. The rate of normalization-loss is interpreted as
-    absorption (detection, arrival) probability over time. The detector and the environment are fact
-    ``traced out'' and the particle is treated as an open system (Sec. \ref{sec:halliwell}).
+    absorption (or detection) probability over time.
+    % The detector and the environment are fact
+    % ``traced out'' and the particle is treated as an open system (Sec. \ref{sec:halliwell}).
   \item
-    Full detector models. For example the Atom-Laser model. Two-level atoms in the ground state
-    are sent to a laser-illuminated region (we're interested in the time-of-arrival into this region),
-    get excited, and the first photon which is spontaneously emitted following the excitation
+    Full detector models: for example the Atom-Laser model. A two-level atoms in the ground state
+    is sent to a laser-illuminated region (we are interested in the time-of-arrival into this region),
+    is excited, and the first photon which is spontaneously emitted following the excitation
     is interpreted as detection of the arrival in the region. Problems related to
     reflection, low absorption rate, and delay in the spontaneous emission are fully taken into account in the model.
 \end{enumerate}
@@ -46,32 +49,35 @@ since no connection is made with any specific measuring
 system''. The work by Damborenea et al. gives instead an operational
 description of the notion of \emph{arrival time}.
 
-In its essence, the model describes an atom sent toward a laser-illuminated region,
-and the arrival time into the region is taken as the time\footnote{
+The model describes an atom sent towards a laser-illuminated region.
+The arrival time into the region is taken as the time\footnote{
   Please note, while there is an operational definition of detection,
-  there is no operational definition of time, in other words,
+  there is no operational definition of time; in other words,
   while this model does include an explicit description of the detector,
-  there is still no description or definition of a ``clock'',
-  which is still somewhat implicitly assumed as a ``classical'' one.
-  This further motivates theories modeling quantum clocks instead,
-  as will be seen from Chapter \ref{ch:pw} on.
+  there is still no description or definition of a ``clock''.
+  % ,
+  % which is still somewhat implicitly assumed as a ``classical'' one.
+  % This further motivates theories modeling quantum clocks instead,
+  % as will be seen from Chapter \ref{ch:pw} on.
 }
 when the first photon is spontaneously emitted by the atom,
 following its excitation by the laser.
 The spontaneous photon emission is therefore the ``click'' of the detector.
 
-This time-of-arrival formulation has been shown in excellent numerical agreement
-with Kijowski axiomatic distribution.
+% This time-of-arrival formulation has been shown in excellent numerical agreement
+% with Kijowski axiomatic distribution.
 
-One limitation of the model is given by delays:
+There are ``delays'':
 \begin{enumerate*}[label=\arabic*)]
   \item in the transition of the atom to the excited state, and
   \item in the spontaneous emission.
 \end{enumerate*}
 This cannot be addressed by simply increasing the laser intensity
 (therefore shortening the excitation and decay time)
-because this would lead to elastic reflection,
-and the most likely outcome would be no detection/absorption at all.
+because this would lead to %
+% elastic
+reflection,
+and the most likely outcome would be no detection and no absorption at all.
 This is similar to the issue encountered, at a theoretical level,
 by Allcock when the imaginary absorbing potential was too large.
 
@@ -82,7 +88,7 @@ by computing the
 deconvolution with the decay time distribution of an atom at rest.
 
 The weak driving regime is characterized by longer lifetimes.
-However, the paper shows that,
+However, in \cite{Damborenea}, it is shown that,
 as a limit for shorter lifetimes,
 the deconvoluted distribution converges
 to
@@ -93,29 +99,30 @@ distribution, due to the backflow effect
 ---for instance in a one dimensional system, a superposition of only positive momentum eigenfunctions may still lead to a
 negative current, as it was initially noted by Allcock himself \parencite{Allcock-3}.
 
-A possible experimental implementation is actually based on a \emph{3-level} atom,
+A possible experimental implementation can be based on a \emph{3-level} atom,
 which decades into an intermediate, metastable, 
-``sink'' state after emission \parencite{Metastable, TQM2} so 
-that the atom can't immediately be excited again.\footnote{
-  This motivates studying 3-level systems with
-  relational models as well, as we'll see in \ref{sec:pw3l}.
-}
+``sink'' state after emission \parencite{Metastable, TQM2}.
+% so 
+% that the atom can't immediately be excited again.\footnote{
+%   This motivates studying 3-level systems with
+%   relational models as well, as we'll see in \ref{sec:pw3l}.
+% }
 
 The model is based on treating the laser classically
 while the atom and the spontaneously emitted photons are
 described with the \term{quantum jump} or \term{quatum trajectories}
-approach: similar to what we have seen in Sec. \ref{sec:halliwell},
-tracing out the photon leads to an effective
-imaginary term in the potential, and to an effective
-wavefunction which does not conserve its norm.
+approach: similar to what we have seen in Sec. \ref{sec:halliwell}.
+% , tracing out the photon leads to an effective
+% imaginary term in the potential, and to an effective
+% wavefunction which does not conserve its norm.
 
-A number of techniques and symmetry assumptions are also employed
-to simplify the model and ultimately reduce it
-to a time-independent one-dimensional problem
----namely,
-the rotating wave approximation
-and
-a laser-adapted interaction picture.
+% A number of techniques and symmetry assumptions are also employed
+% to simplify the model and ultimately reduce it
+% to a time-independent one-dimensional problem
+% ---namely,
+% the rotating wave approximation
+% and
+% a laser-adapted interaction picture.
 
 The effective \term{conditional Hamiltonian} reads:
 \begin{equation}\label{eq:eff_atom_laser_detect_H}
@@ -143,10 +150,10 @@ by setting normal incidence and adjusting the laser frequency
 (more details in \cite{Damborenea} and \cite[\s 4.2]{TQM2}).
 
 The Hamiltonian in \eqref{eq:eff_atom_laser_detect_H} has an imaginary term $\iu\gamma$
-which makes the Hamiltonian $H_c$ non Hermitian. Eigenfunctions of such Hamiltonian
-evolve, according to the Schr\"odinger equation, with a finite \term{loss of normalization}
-$-\dv{\norm{\psi}^2}{t}$ which is interpreted as the probability density
-of the atom arrival being detected at time $t$. If the norm vanishes for $t\rightarrow+\infty$,
+which makes the Hamiltonian $H_c$ non-Hermitian. Wavefunctions
+evolve, according to the Schr\"odinger equation, while \emph{loosing normalization};
+the rate $-\dv{\norm{\psi}^2}{t}$ is then interpreted as the probability density
+of the atom arrival being detected at time $t$. If the norm $\norm{\psi}^2$ vanishes for $t\rightarrow+\infty$,
 that means that the detection will certainly occur at some time.
 But that limit can be finite, indicating a certain probability of never being detected
 (for example due to reflection).
@@ -160,7 +167,7 @@ would not be a solution as it would either increase reflection rate dramatically
 or simply increase the probability that atoms pass through the region undetected. 
 
 Nonetheless, one can focus on the state transition of the atom itself i.e.
-the ``arrival'' at the ground state of the atom from the excited one,
+the ``arrival'' at the excited state of the atom from the ground state,
 rather than the arrival at a particular region in space. This is the
 focus of Sec. \ref{sec:hist:detect:kiukas} below.
 
@@ -168,19 +175,17 @@ The general atom--laser
 model gives, anyway, an operational justification for the interest
 in more idealized (and tractable) models too.
 
-\subsection{Ruschhaupt, Kiukas et al}\label{sec:hist:detect:kiukas}
+\subsection{Arrival in an excited level}\label{sec:hist:detect:kiukas}
 
-Similar to what seen in previous Sections,
-the detection-by-absorption model in \cite{RuschhauptAbsorption}
+The detection-by-absorption model in \cite{RuschhauptAbsorption}
 is also based on a complex potential that, plugged into the Schr\"odinger equation,
 leads to a non-unitary evolution of the state vector
 (with loss of normalization).
 
 Specifically, the Hamiltonian $\hat{H}$ is replaced by a $\hat{H} - i\hat{D}$
-(with $\hat{D}$ self-adjoint, bounded, positive)
-and, consequently:
+(with $\hat{D}$ self-adjoint, bounded, positive):
 \begin{equation}\label{eq:schrod_complex_pot}
-  \hat{H} \ket{\psi(t)} = i\hbar\dv{t}\ket{\psi(t)} +i\hat{D}\ket{\psi(t)} \text{.}
+  \qty(\hat{H}  - i\hat{D})\ket{\psi(t)} = i\hbar\dv{t}\ket{\psi(t)}  \text{.}
 \end{equation}
 
 A two-level example is considered to provide a concrete example.
@@ -234,7 +239,7 @@ Simplifying the result in Eq.~\eqref{eq:sympy:non-unitary-evol}, we have:
   ]{
     Non-unitary evolution of the absorbed qubit
     according to the model in
-    ref. \cite[\it ``Emission from a two-level system'']{RuschhauptAbsorption}.
+    \cite{RuschhauptAbsorption}.
     The component along $\ket{0}$ is purely real,
     and the one along $\ket{1}$ is purely imaginary,
     therefore only their their respective parts are plotted.
@@ -266,7 +271,7 @@ Simplifying the result in Eq.~\eqref{eq:sympy:non-unitary-evol}, we have:
 \end{figure}
 
 The ``lossy'' evolution, with the two components of the qubit, is shown in Fig.~\ref{fig:absorbed-qubit-components}.
-The loss of normalization $-\dv{\norm{\psi}^2}{t}$, indicating the probability of detection by absorption,
+The loss of normalization $-\dv{\norm{\psi}^2}{t}$, indicating the probability of arrival in state $\ket{1}$ by absorption,
 is then derived directly and shown in Fig.~\ref{fig:absorbed-qubit-normalization-loss}.
 
 This yields the \emph{probability} of detection.
@@ -288,22 +293,22 @@ simplifying which we obtain:
 \end{equation}
 with $\theta(t)$ the Heaviside step function.
 
-\begin{remark}\label{remark:detection_area}
-In general, the operator $\hat{D}$ as in \eqref{eq:schrod_complex_pot}
-is such that the eigen-space corresponding to its zero eigenvalue
-is the ``area'' where the detector is not sensitive. Or, in other words,
-the linear span of states with zero probability of triggering the detector.
-Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
-for example in \eqref{eq:phi_psi_kiukas},
-the components in such eigenspace are cut off and the resulting
-$\hat{\psi}$, Eq.~\eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
-i.e. it's a multiple of $\ket{1}$ in this case.
-\end{remark}
+% \begin{remark}\label{remark:detection_area}
+% In general, the operator $\hat{D}$ as in \eqref{eq:schrod_complex_pot}
+% is such that the eigen-space corresponding to its zero eigenvalue
+% is the ``area'' where the detector is not sensitive. Or, in other words,
+% the linear span of states with zero probability of triggering the detector.
+% Therefore, when $\hat{D}$ (or its square root) is applied to a state vector,
+% for example in \eqref{eq:phi_psi_kiukas},
+% the components in such eigenspace are cut off and the resulting
+% $\hat{\psi}$, Eq.~\eqref{eq:analytic:hatpsi} in the example, lies at all times in the ``area of detection''
+% i.e. it's a multiple of $\ket{1}$ in this case.
+% \end{remark}
 
-Taking the squared modulus, a probability distribution over angular frequency
-(or, equivalently, energy) is obtained:
-\[
-  P(\omega) = \frac{\sqrt{2}}{\pi \left(\omega^{4} + 1\right)}
-  \,\text{.}
-\]
-See Fig. \ref{fig:absorbed-qubit-normalization-loss:omega}.
+% Taking the squared modulus, a probability distribution over angular frequency
+% (or, equivalently, energy) is obtained:
+% \[
+%   P(\omega) = \frac{\sqrt{2}}{\pi \left(\omega^{4} + 1\right)}
+%   \,\text{.}
+% \]
+% See Fig. \ref{fig:absorbed-qubit-normalization-loss:omega}.

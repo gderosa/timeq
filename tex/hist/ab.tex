@@ -1,14 +1,12 @@
-\section{Aharonov--Bohm}
+\section{Aharonov--Bohm}\label{sec:AharonovBohm}
 
 In their 1961 paper, Aharonov and Bohm \parencite{AharonovBohm}
-shown that ``energy can be measured
+showed that ``energy can be measured
   reproducibly in an arbitrarily short time'',
 thus apparently contradicting the time--energy indeterminacy theorized
 by
 Mandelstam and Tamm (see also Sec. \ref{sec:T--H}) and by other authors.
-It is worth observing,
-as they do in their paper,
-that in the Mandelstam--Tamm derivation time has a different meaning:
+As observed by Aharonov and Bohm, in the Mandelstam--Tamm derivation, \emph{time} has a different meaning:
 it is essentially the lifetime of a system in a particular state
 and not the duration of the energy measurement process.
 They also critically reviewed previous works by Landau and Peierls \parencite{LandauPeierls}
@@ -24,13 +22,13 @@ The corresponding time operator has then expression:
 \begin{equation}
   \hat{T}_{AB} = \frac{m}{2} \qty( \hat{Y} \frac{1}{\hat{P}_y} + \frac{1}{\hat{P}_y} \hat{Y} ) \,\text{.}
 \end{equation}
-Such operator is claimed to be Hermitian, although with a singularity for $p_{y} = 0$.\footnote{
+In the paper, this operator is claimed to be Hermitian, although with a singularity for $p_{y} = 0$.\footnote{
   This is stressed in a footnote of Aharonov--Bohm's paper.
   The reader might have noticed the irony of fundamental historical papers
   relegating important information at the level of footnotes
   ---and the present work, in many parts, not even trying to ``improve'' such a traditional trend.
 }
-With some simple algebra, a commutation relation $[\hat{H}_{c}, \hat{T}_{AB}] = \hbar/2$
+With some simple algebra, a commutation relation $[\hat{H}_{c}, \hat{T}_{AB}] = \iu\hbar$
 can be proved, where $\hat{H}_c = \hat{P}_y^2/2m$ is the Hamiltonian of the free particle that is used as a ``clock''.
 
 This seems to contradict Pauli's argument: however, more recent studies
@@ -50,8 +48,8 @@ Among other applications, suitable positive operators can be used to extend von 
 in order to describe
 open quantum systems and ``unsharp'' measurements.
 
-Another apparent contradiction is the commutator $[\hat{H}_{c}, \hat{T}_{AB}] = \hbar/2$
----and the consequent uncertainty relation---
+Another apparent contradiction is the commutator $[\hat{H}_{c}, \hat{T}_{AB}] = \iu\hbar$
+(and the consequent uncertainty relation $\sigma_{H_{c}} \sigma_{T_{AB}} \geq \frac{\hbar}{2}$)
 with Aharonov--Bohm's conclusion that
 energy can be measured, in principle, with arbitrary precision in an arbitrarily short time;
 but it should be noted that $\hat{H}_{c}$ is the energy of the clock, not of the system under energy-measurement,
@@ -76,7 +74,7 @@ This idea of a quantum description of time through modeling a ``clock''
 has a certain historical relevance because later models, independently developed,
 have been based on that idea too.
 In particular, we can mention
-the Page--Wootters model (1983), where a peculiar relation is in place between the clock and the system,
+the Page--Wootters model \parencite{PageWootters}, where a peculiar relation is in place between the clock and the system,
 of which we will not explore the details at this stage though,
 as those will be discussed extensively (with numerical applications, experiments, and comparisons with other models)
-from Chapter \ref{ch:pw} on.
+in Chapter \ref{ch:pw}.

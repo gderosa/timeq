@@ -1,3 +1,6 @@
+# Backups
+*.bak
+
 # Compute output
 comp/qubiter/io_folder/
 .ipynb_checkpoints/
