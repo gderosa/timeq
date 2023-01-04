@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.8
+#       jupytext_version: 1.14.4
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -470,11 +470,11 @@ T = DT * np.diag(np.arange(NT)) / NT
 # %%
 
 # %%
-F = dft(NT, scale='sqrtn').conj()
+F = dft(NT, scale='sqrtn')
 F_dagger = F.conj().T
 
 # %%
-Omega = F @ T @ F_dagger * 2*np.pi * NT / DT**2
+Omega = F_dagger @ T @ F * 2*np.pi * NT / DT**2
 
 # %%
 J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())

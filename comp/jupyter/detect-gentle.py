@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.13.7
+#       jupytext_version: 1.14.4
 #   kernelspec:
 #     display_name: Python 3 (ipykernel)
 #     language: python
@@ -282,15 +282,13 @@ from scipy import stats
 T = np.diag(np.arange(0,32)) * np.pi / 16
 
 # %%
-# The NumPy Fourier matrix is the conjugate of Mathematica's one,
-# hence the trailing .conj() 
-F = dft(32, scale='sqrtn').conj()
+F = dft(32, scale='sqrtn')
 
 # %%
 F_dagger = F.conj().T
 
 # %%
-Omega = F @ T @ F_dagger * 16 / np.pi
+Omega = F_dagger @ T @ F * 16 / np.pi
 
 # %%
 oeigenvalues, oeigenvectors = np.linalg.eig(Omega)
