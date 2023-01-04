@@ -459,12 +459,11 @@ for i in range(NT*NS):
     eigenvectors_normalized_in_S[i] = eigenvectors[i] / norm(eigenvectors[i][:3])
 \end{lstlisting}
 
-Similarly to what illustrated in Eq.~\eqref{eq:pw-vs-qm} ---and Sec.~\ref{sec:qubit:pw-vs-qm} in general---
-a ``phase correction'' may be needed in order to allow a comparison with
+A ``phase correction'' may be needed in order to allow a comparison with
 the time evolution predicted with ``standard'' quantum mechanics
 (although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
-As the initial time is $t_0=0$ in the current example, only
-corrections related to non-zero eigenvalues are required.
+Namely,
+corrections related to non-zero eigenvalues are required ---see Eq.~\eqref{eq:pw:non0e:last}.
 It's worth recalling that,
 as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
 eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{i}$---
