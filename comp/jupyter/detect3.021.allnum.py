@@ -346,6 +346,17 @@ ax.plot(times, -np.gradient(norms**2, times), c='y', linewidth=3)
 plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 
 # %%
+# Andreas: "CUT at 100"...
+times_extended_cut = list((filter(lambda t: t<100, times_extended)))
+NPLOTPOINTS_CUT = len(times_extended_cut)
+norms_extdended_cut = norms_extended[:NPLOTPOINTS_CUT]
+evolution_extended_cut = evolution_extended[:, :NPLOTPOINTS_CUT]
+norms_extended_cut = norms_extended[:NPLOTPOINTS_CUT]
+
+# %%
+evolution_extended_cut[0].shape
+
+# %%
 labels = PROB_LABELS
 
 colors  =  ['r', 'g', '#ccf']
@@ -355,14 +366,14 @@ fig, ax = plt.subplots(figsize=(14, 7))
 
 ax.set_xlabel('t')
 
-ax.plot(times_extended, np.ones(NPLOTPOINTS), c='grey', linestyle='dashed', label='Initial norm')
+ax.plot(times_extended_cut, np.ones(NPLOTPOINTS_CUT), c='grey', linestyle='dashed', label='Initial norm')
 
-ax.plot(times_extended, norms_extended**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
+ax.plot(times_extended_cut, norms_extended_cut**2, c='m', linewidth=1, label='||\u03C8(t)||\u00B2')
 
-stacks = ax.stackplot(times_extended, (
-    np.abs(evolution_extended[0])**2,
-    np.abs(evolution_extended[1])**2,
-    np.abs(evolution_extended[2])**2
+stacks = ax.stackplot(times_extended_cut, (
+    np.abs(evolution_extended_cut[0])**2,
+    np.abs(evolution_extended_cut[1])**2,
+    np.abs(evolution_extended_cut[2])**2
 ))
 
 for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
@@ -378,7 +389,7 @@ handles = [ handles[i] for i in desired_order ]
 labels  = [  labels[i] for i in desired_order ]
 ax.legend(handles, labels, loc='center')
 
-plt.savefig('_img/detect3.021/loss3color_ext.pdf', bbox_inches='tight', pad_inches=0)
+plt.savefig('_img/detect3.021/loss3color_ext_cut.pdf', bbox_inches='tight', pad_inches=0)
 plt.show()
 
 
@@ -399,11 +410,12 @@ norms_extended[-1]**2
 
 # %%
 _detection_prob = -np.gradient(norms_extended**2, times_extended)
+_detection_prob_cut = _detection_prob[:NPLOTPOINTS_CUT]
 fig, ax = plt.subplots(figsize=(14, 7))
 ax.set_xlabel('t')
 ax.set_ylabel('Detection probability density  =  - d||\u03C8(t)||\u00B2 / dt')
-ax.plot(times_extended, _detection_prob, c='y', linewidth=3)
-plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
+ax.plot(times_extended_cut, _detection_prob_cut, c='y', linewidth=3)
+plt.savefig('_img/detect3.021/loss_ext_cut.pdf', bbox_inches='tight', pad_inches=0)
 
 # %% [markdown]
 # #### "3D"
