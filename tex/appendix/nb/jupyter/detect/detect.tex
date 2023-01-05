@@ -595,7 +595,7 @@ T = np.diag(np.arange(0,32)) * np.pi / 16
 \begin{lstlisting}[language=Python]
 # The NumPy Fourier matrix is the conjugate of Mathematica's one,
 # hence the trailing .conj() 
-F = dft(32, scale='sqrtn').conj()
+F = dft(32, scale='sqrtn')
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
@@ -603,7 +603,7 @@ F_dagger = F.conj().T
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-Omega = F @ T @ F_dagger * 16 / np.pi
+Omega = F_dagger @ T @ F * 16 / np.pi
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]

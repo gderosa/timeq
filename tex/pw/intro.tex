@@ -151,9 +151,9 @@ can be obtained from $\dket{\Psi}$ via partial inner product\footnote{
   and \cite[\s 1.3.3]{QMT_Jacobs}.
 }
 with a time eigenstate $\prescript{}{T}{\bra{t}}$:
-\begin{equation*}
+\begin{equation}\label{eq:pw:standard_evolution}
   \ket{\psi(t)}_S = \prescript{}{T}{\bradket{t}{\Psi}} \, \text{.}
-\end{equation*}
+\end{equation}
 The function $ t \rightarrow \ket{\psi(t)}_S \; $ is the
 ``wavefunction in time representation'', in analogy
 with the wavefunction in position representation of standard quantum mechanics.
@@ -335,33 +335,50 @@ instead of zero. This brings to
 \end{equation}
 Partial scalar product by $\prescript{}{T}{\bra{t}}$ on the left yields
 \begin{equation}\label{eq:pw:nonzero-schrod-1}
-  \epsilon\ket{\psi(t)}_{S} = -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \op{H}_S\ket{\psi(t)}_{S}
+  \epsilon\ket{\psi_{PW}(t)}_{S} = -i\hbar\pdv{t}\ket{\psi_{PW}(t)}_{S} + \op{H}_S\ket{\psi_{PW}(t)}_{S}
   \text{,}
 \end{equation}
-which is a generalization of \eqref{eq:schrod_from_pw}.
+where we have defined $\psi_{PW}(t) \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$.
+% This is a generalization of \eqref{eq:schrod_from_pw}.
 Rearranging Eq.~\eqref{eq:pw:nonzero-schrod-1}:
 \begin{equation}\label{eq:pw:nonzero-schrod-2}
-   \qty(\op{H}_S - \epsilon \idop_{S}) \ket{\psi(t)}_{S} = i\hbar\pdv{t}\ket{\psi(t)}_{S}
+   \qty(\op{H}_S - \epsilon \idop_{S}) \ket{\psi_{PW}(t)}_{S} = i\hbar\pdv{t}\ket{\psi_{PW}(t)}_{S}
    \text{,}
 \end{equation}
 which is, formally, the Schr\"{o}dinger equation
-for the state $\ket{\psi(t)}_{S}$ with
+for the state $\ket{\psi_{PW}(t)}_{S}$ with
 the Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
-Therefore, the ``evolution''
----if the initial value $\ket{\psi(0)}_S$ is known---
-will be
+With the initial condition $\ket{\psi_{PW}(0)} \eqbydef \ket{\psi_0}$, we have therefore:
 \begin{equation}\label{eq:pw:non0e:last}
-  \ket{\psi(t)}_S = \E^{\frac{\iu \epsilon t}{\hbar}} \E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(0)}_S
+  \ket{\psi_{PW}(t)}_S = 
+  \E^{-\frac{\iu \qty(\op{H}_{S} - \epsilon) t}{\hbar}} \ket{\psi_0}_S =
+  \E^{\frac{\iu \epsilon t}{\hbar}} \E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi_0}_S
   \text{,}
 \end{equation}
-showing that the projection of the eigenstate $\dket{\Psi}$ over an eigenbasis of time within the Page--Wootters model,
-namely $\ket{\psi(t)}_S \eqbydef \prescript{}{T}{\bradket{t}{\Psi}}$,
-is compatible with the prediction of standard quantum mechanics $\E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi(t)}_S$
-only \emph{up to a corrective phase} $\E^{\frac{\iu \epsilon t}{\hbar}}$.
-In other terms, with non-zero eigenvalues $\epsilon$ of $\op{\mathbb{J}}$,
-the model, as outlined above, can return the standard quantum evolution, but
-only in the sense of
-an ``energy-shifted'' Hamiltonian $\qty(\op{H}_S - \epsilon \idop_{S})$.
+hence:
+\begin{equation}
+  \E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi_0}_S = \E^{-\frac{\iu \epsilon t}{\hbar}} \ket{\psi_{PW}(t)}_S
+  \,\text{,}
+\end{equation}
+where we recognize $\E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi_0}_S$ as the time evolution
+from an initial state $\ket{\psi_0}_S$ at time $t = 0$,
+under the Hamiltonian $\op{H}_S$,
+in standard quantum mechanics.
+If we define this evolved state as, simply, $\ket{\psi(t)}_S$, and recall the definition of $\ket{\psi_{PW}(t)}_S$,
+we have
+\begin{equation}
+  \ket{\psi(t)}_S = \E^{-\frac{\iu \epsilon t}{\hbar}} \prescript{}{T}{\bradket{t}{\Psi}} \, \text{,}
+\end{equation}
+which, compared to Eq.~\eqref{eq:pw:standard_evolution},
+shows that the projection of the eigenstate $\dket{\Psi}$ of $\op{\mathbb{J}}$
+over an eigenbasis of time within the Page--Wootters model,
+namely $\prescript{}{T}{\bradket{t}{\Psi}}$,
+is compatible with the prediction $\ket{\psi(t)}_S$ of standard quantum mechanics
+% $\E^{-\frac{\iu \op{H}_{S} t}{\hbar}} \ket{\psi_0}_S$
+only \emph{up to a corrective phase} $\E^{-\frac{\iu \epsilon t}{\hbar}}$.
+In other terms, with a non-zero eigenvalue $\epsilon$ of $\op{\mathbb{J}}$,
+the model can still return the ordinary quantum mechanics evolution, but
+with an ``energy shift'' of value $\epsilon$.
 See also \cite[\it ``The Zero-eigenvalue'']{Lloyd:Time}.
 
 \subsection{Example: Hamiltonian eigenstate}\label{sec:pw:ex-hamiltonian-eigenstate}
