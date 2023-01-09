@@ -30,7 +30,13 @@ J_hv = TensorProduct(HT_hv, eye(2)) + TensorProduct(eye(2), HS_hv)
 
 J_hv @ Psi_hv
 
-F = DFT(2).as_explicit()
+F = DFT(2).as_explicit().as_mutable()
+
+F
+
+Dagger(F)
+
+F.__class__
 
 eigensys = HT_hv.eigenvects()
 
@@ -40,7 +46,13 @@ U = Matrix([eigensys[0][2][0].T, eigensys[1][2][0].T]).T / sqrt(2)
 
 Dagger(U) @ HS_hv @ U
 
-UU = TensorProduct(F@U, eye(2))
+TensorProduct(F, eye(2))
+
+TensorProduct(U, eye(2))
+
+UU = TensorProduct(F, eye(2)) @ TensorProduct(U, eye(2)) 
+
+UU
 
 Psi_t = UU @ Psi_hv
 
@@ -58,7 +70,7 @@ t1 = eigensys[1][0]
 
 t0, t1
 
-U_evol = exp(-I*HS_hv*(t1-t0+2))
+U_evol = exp(-I*HS_hv*(t1-t0))
 
 U_evol
 
@@ -69,5 +81,7 @@ evolved_PW = psi_1
 evolved_Schrod.evalf()
 
 evolved_PW.evalf()
+
+
 
 
