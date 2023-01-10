@@ -18,12 +18,12 @@ V_hv = Matrix([
 Psi_hv = (1 / sqrt(2)) * (TensorProduct(H_hv, V_hv) - TensorProduct(V_hv, H_hv))
 
 HT_hv = Matrix([
-    [ 0, I],
-    [-I, 0]
+    [ 1, I],
+    [-I, 1]
 ])
 HS_hv = Matrix([
-    [ 0, I],
-    [-I, 0]
+    [ -1, I],
+    [-I, -1]
 ])
 
 J_hv = TensorProduct(HT_hv, eye(2)) + TensorProduct(eye(2), HS_hv)
@@ -36,7 +36,7 @@ F
 
 Dagger(F)
 
-F.__class__
+F @ Dagger(F)
 
 eigensys = HT_hv.eigenvects()
 
@@ -44,13 +44,37 @@ eigensys
 
 U = Matrix([eigensys[0][2][0].T, eigensys[1][2][0].T]).T / sqrt(2)
 
-Dagger(U) @ HS_hv @ U
+U
+
+U @ Dagger(U)
+
+HT_HT = Dagger(U) @ HT_hv @ U
+
+HT_HT
+
+delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
+
+delta_HT
+
+T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
+
+T_HT
+
+eigenvals_T = list(T_HT.eigenvals().keys())
+
+eigenvals_T.sort()
+
+eigenvals_T
+
+delta_T = eigenvals_T[1] - eigenvals_T[0]
+
+delta_T
 
 TensorProduct(F, eye(2))
 
 TensorProduct(U, eye(2))
 
-UU = TensorProduct(F, eye(2)) @ TensorProduct(U, eye(2)) 
+UU = TensorProduct(Dagger(F), eye(2)) @ TensorProduct(Dagger(U), eye(2)) 
 
 UU
 
@@ -65,12 +89,7 @@ psi_0
 
 psi_1
 
-t0 = eigensys[0][0]
-t1 = eigensys[1][0]
-
-t0, t1
-
-U_evol = exp(-I*HS_hv*(t1-t0))
+U_evol = exp(-I*HS_hv*delta_T)
 
 U_evol
 
@@ -78,9 +97,9 @@ evolved_Schrod = U_evol @ psi_0
 
 evolved_PW = psi_1
 
-evolved_Schrod.evalf()
+evolved_Schrod
 
-evolved_PW.evalf()
+evolved_PW
 
 
 
