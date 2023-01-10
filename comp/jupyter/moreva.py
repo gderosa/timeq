@@ -124,7 +124,3 @@ psi_f_Schrod = U_evol @ psi_i
 psi_f_Schrod
 
 psi_f_PW
-
-
-
-
