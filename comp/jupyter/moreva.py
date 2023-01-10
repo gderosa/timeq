@@ -75,9 +75,9 @@ delta_T = eigenvals_T[1] - eigenvals_T[0]
 
 delta_T
 
-TensorProduct(F, eye(2))
+TensorProduct(Dagger(F), eye(2))
 
-TensorProduct(U, eye(2))
+TensorProduct(Dagger(U), eye(2))
 
 UU = TensorProduct(Dagger(F), eye(2)) @ TensorProduct(Dagger(U), eye(2)) 
 
