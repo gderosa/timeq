@@ -6,6 +6,8 @@ from sympy.physics.quantum.dagger import Dagger
 
 init_printing()
 
+# **Polarization eigensates (our computational or fiducial basis)**
+
 H_hv = Matrix([
     [1],
     [0]
@@ -42,6 +44,8 @@ eigensys = HT_hv.eigenvects()
 
 eigensys
 
+# **Change to H_T representation**
+
 U = Matrix([eigensys[0][2][0].T, eigensys[1][2][0].T]).T / sqrt(2)
 
 U
@@ -52,9 +56,13 @@ HT_HT = Dagger(U) @ HT_hv @ U
 
 HT_HT
 
+# **Clock frequency (or energy) resolution**
+
 delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
 
 delta_HT
+
+# **Time operator in clock frequency (or energy) eigenbasis**
 
 T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
 
@@ -66,9 +74,21 @@ eigenvals_T.sort()
 
 eigenvals_T
 
+# **Time resolution of the clock (difference between contiguous eigenvalues)**
+
 delta_T = eigenvals_T[1] - eigenvals_T[0]
 
 delta_T
+
+# **(Double) change of basis:**
+#
+# Now, the $U^{\dagger}$ matrix translates components **from Polarization into Energy/Frequency eigenbasis** representation in the clock space.
+#
+# The (inverse) Fourier $F^{\dagger}$ does the same **from Energy/Frequency into Time**.
+#
+# As we are operating in the product space, we need the tensor product by the Identity in the "system" space $\mathcal{H}_S$.
+#
+#
 
 TensorProduct(Dagger(F), eye(2))
 
@@ -77,6 +97,8 @@ TensorProduct(Dagger(U), eye(2))
 UU = TensorProduct(Dagger(F), eye(2)) @ TensorProduct(Dagger(U), eye(2)) 
 
 UU
+
+# **Page--Wootters history vector in time represantation (or time $\otimes$ polarization, more correctly)**
 
 Psi_t = UU @ Psi_hv
 
@@ -88,6 +110,8 @@ psi_1 = Matrix(Psi_t[2:])
 psi_0
 
 psi_1
+
+# **Time evolution in standard quantum mechanics (for comparison)**
 
 U_evol = exp(-I*HS_hv*delta_T)
 
@@ -101,6 +125,4 @@ evolved_Schrod
 
 evolved_PW
 
-
-
-
+# *Results from the two theories coincide. &square;*
