@@ -278,15 +278,19 @@ From \eqref{eq:DFO:bra} and \eqref{eq:DFO:ket}:
   \bra{t_m} &= \bra{\omega_m}\op{F}^{\dagger} \, \text{;} \\
   \ket{t_m} &= \op{F} \ket{\omega_m} \, \text{.} 
 \end{align}
-Hence, from \eqref{eq:pw:def_fourier_op},
+Hence, from \eqref{eq:pw:def_fourier_op}:
 \begin{equation}
   \op{F} = \sum_{mn} F_{mn} \op{F} \ketbra{\omega_m}{\omega_n} \op{F}^{\dagger} \, \text{;}
 \end{equation}
 but, from the unitarity $\op{F}^{\dagger}\op{F} = \idop$:
-\begin{equation}
+\begin{equation}\label{eq:pw:proof_same_repr}
   \op{F} = \op{F}^{\dagger}\op{F}\op{F} = \sum_{mn} F_{mn} \op{F}^{\dagger}\op{F} \ketbra{\omega_m}{\omega_n} \op{F}^{\dagger}\op{F}
-  = \sum_{mn} F_{mn} \ketbra{\omega_m}{\omega_n}
+  = \sum_{mn} F_{mn} \ketbra{\omega_m}{\omega_n} \, \text{.}
 \end{equation}
+Comparing \eqref{eq:pw:proof_same_repr} and \eqref{eq:pw:def_fourier_op}
+it is seen that the Fourier operator $\op{F}$
+has the same matrix representation $F_{mn}$
+in both $\setof{\ket{t}}$ and $\setof{\ket{\omega}}$ basis. 
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
