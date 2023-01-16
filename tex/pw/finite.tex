@@ -178,7 +178,7 @@ of a vector from one eigenbasis to the canonically conjugate eigenbasis,
 but also to obtain the eigenvectors themselves (of the canonically conjugate operator).
 
 Let us now introduce the \term{Fourier operator}: %\parencite[Sec. 2.1, Eq. 2]{FiniteHilb}
-\begin{equation}
+\begin{equation}\label{eq:pw:def_fourier_op}
   \op{F} \eqbydef \sum_{m,n=0}^{N-1} F_{mn} \ketbra{t_m}{t_n} \text{.}
 \end{equation}
 Multiplying each element of the sum in Eq.~\eqref{eq:DFT:bra}
@@ -258,21 +258,35 @@ are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of pos
 
 \subsubsection{Fourier operator in frequency representation}
 
-In analogy to
-Eqs. \eqref{eq:DFT:chrepr} and \eqref{eq:DFT:chrepr:cconj},
-we can also obtain, from \eqref{eq:IDFT:def} and the definitions \eqref{eq:pw:F_mn:def}:
+% In analogy to
+% Eqs. \eqref{eq:DFT:chrepr} and \eqref{eq:DFT:chrepr:cconj},
+% we can also obtain, from \eqref{eq:IDFT:def} and the definitions \eqref{eq:pw:F_mn:def}:
 
+% \begin{align}
+%    \braket{t_{m}}{\psi} &= \sum_n F^{\dagger}_{mn} \braket{\omega_n}{\psi}\label{eq:IDFT:chrepr} \\
+%    \braket{\psi}{t_{m}} &= \sum_n F_{mn} \braket{\psi}{\omega_n}\label{eq:IDFT:chrepr:cconj}
+% \end{align}
+
+% hence
+% \begin{align}
+%   \label{eq:IDFT:bra}  \bra{t_{m}} &= \sum_n F_{mn}^{\dagger} \bra{\omega_n} \,\text{,}  \\
+%   \label{eq:IDFT:ket}  \ket{t_{m}} &= \sum_n F_{mn}           \ket{\omega_n} \,\text{.}
+% \end{align}
+
+From \eqref{eq:DFO:bra} and \eqref{eq:DFO:ket}:
 \begin{align}
-   \braket{t_{m}}{\psi} &= \sum_n F^{\dagger}_{mn} \braket{\omega_n}{\psi}\label{eq:IDFT:chrepr} \\
-   \braket{\psi}{t_{m}} &= \sum_n F_{mn} \braket{\psi}{\omega_n}\label{eq:IDFT:chrepr:cconj}
+  \bra{t_m} &= \bra{\omega_m}\op{F}^{\dagger} \, \text{;} \\
+  \ket{t_m} &= \op{F} \ket{\omega_m} \, \text{.} 
 \end{align}
-
-hence
-\begin{align}
-  \label{eq:IDFT:bra}  \bra{t_{m}} &= \sum_n F_{mn}^{\dagger} \bra{\omega_n} \,\text{,}  \\
-  \label{eq:IDFT:ket}  \ket{t_{m}} &= \sum_n F_{mn}           \ket{\omega_n} \,\text{.}
-\end{align}
-
+Hence, from \eqref{eq:pw:def_fourier_op},
+\begin{equation}
+  \op{F} = \sum_{mn} F_{mn} \op{F} \ketbra{\omega_m}{\omega_n} \op{F}^{\dagger} \, \text{;}
+\end{equation}
+but, from the unitarity $\op{F}^{\dagger}\op{F} = \idop$:
+\begin{equation}
+  \op{F} = \op{F}^{\dagger}\op{F}\op{F} = \sum_{mn} F_{mn} \op{F}^{\dagger}\op{F} \ketbra{\omega_m}{\omega_n} \op{F}^{\dagger}\op{F}
+  = \sum_{mn} F_{mn} \ketbra{\omega_m}{\omega_n}
+\end{equation}
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
