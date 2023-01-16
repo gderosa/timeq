@@ -6,7 +6,13 @@ the code repository, ref. \cite{OwnJupyterRepo}.
 Printable and embeddable \TeX{} files have been generated with
 \begin{itemize}
   \item
-    ``Download as Markdown'' from Jupyter user interface
+    ``Download as Markdown''\footnote{
+      This may not work if \term{Jupytext} \parencite{Jupytext} is used,
+      although manual embedding of
+      Python code in verbatim blocks or similar should be easier, as Python code 
+      is available ``as is''.
+    }
+    from Jupyter user interface
   \item
     Installing and running \verb#pandoc#\footnote{ \url{http://pandoc.org/}}
     on the generated \verb#.md# file\footnote{ See also \url{https://tex.stackexchange.com/a/314785}.}
