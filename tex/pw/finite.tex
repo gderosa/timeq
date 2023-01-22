@@ -204,7 +204,13 @@ Similarly, Eq.~\eqref{eq:DFT:ket} can be expressed as
 \begin{equation}\label{eq:DFO:ket}
   \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
 \end{equation}
-%
+Also, applying $\op{F}^{\dagger}$ to the right of \eqref{eq:DFO:bra},
+and $\op{F}$ to the left of \eqref{eq:DFO:ket}:
+\begin{align}
+  \label{eq:IDFO:bra} \bra{t_m} &= \bra{\omega_m}\op{F}^{\dagger} \, \text{;} \\
+  \label{eq:IDFO:ket} \ket{t_m} &= \op{F} \ket{\omega_m} \, \text{.} 
+\end{align}
+
 Finally, we use the spectral decomposition of $\op{\Omega}$,
 the results \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
 and Eq.~\eqref{eq:DFT:eigenratio}
@@ -230,7 +236,7 @@ In conclusion:
       \frac{2\pi}{N(\delta T)^2}          \op{F}^{\dagger} \op{T} \op{F} =
       \frac{2\pi N}{\qty(\Delta T)^2}     \op{F}^{\dagger} \op{T} \op{F} =
       \op{F}^{\dagger} \qty(\delta{\Omega} \frac{\op{T}}{\delta{T}}) \op{F}
-      \, \text{;}
+      \, \text{,}
       \\
   \label{eq:SI_Fourier:T}
     \op{T} =
@@ -242,9 +248,12 @@ In conclusion:
 where the operator $\frac{\op{T}}{\delta{T}}$ in Eq.~\eqref{eq:SI_Fourier:Omega},
 in $T$ representation, is diagonal with integer elements $\setof{0, \dots, N-1}$.
 
-Conversely, Eq.~\eqref{eq:SI_Fourier:T} is obtained by
-taking the ``conjugate'' of all the computation
-from Eq.~\eqref{eq:DFT:chrepr} to \eqref{eq:DFT:OmegaFTF}.
+Conversely, Eq.~\eqref{eq:SI_Fourier:T} is obtained using
+the spectral decomposition of $\op{T}$
+and Eqs.~\eqref{eq:IDFO:bra} and~\eqref{eq:IDFO:ket};
+and $\frac{\op{\Omega}}{\delta{\Omega}}$
+is diagonal in $\Omega$ representation,
+with elements $\setof{0, \dots, N-1}$.
 
 Note that Eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:T}
 differ from the results of \cite{FiniteHilb}.
@@ -269,12 +278,8 @@ are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of pos
 
 \subsubsection{Fourier operator in frequency representation}
 
-From \eqref{eq:DFO:bra} and \eqref{eq:DFO:ket}:
-\begin{align}
-  \bra{t_m} &= \bra{\omega_m}\op{F}^{\dagger} \, \text{;} \\
-  \ket{t_m} &= \op{F} \ket{\omega_m} \, \text{.} 
-\end{align}
-Hence, from \eqref{eq:pw:def_fourier_op}:
+From Eqs.~\eqref{eq:IDFO:bra} and~\eqref{eq:IDFO:ket},
+and the definition \eqref{eq:pw:def_fourier_op}:
 \begin{equation}
   \op{F} = \sum_{mn} F_{mn} \op{F} \ketbra{\omega_m}{\omega_n} \op{F}^{\dagger} \, \text{;}
 \end{equation}
