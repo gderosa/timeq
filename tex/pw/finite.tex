@@ -303,14 +303,16 @@ The formalism presented in this Section assumes that the lowest eigenvalues
 of time and frequency are equal to zero. 
 
 When this is not the case, namely $t_0 \neq 0$,
-the \term{time-shifting} property of the Discrete Fourier Transform
-\parencite[\s~4.3.2]{ProakisManolakis} generalizes Eq.~\eqref{eq:DFT:chrepr} into
+the \term{time shifting} property of the Discrete Fourier Transform
+\parencite[\s~4.3.2]{ProakisManolakis} allows the generalization of
+Eq.~\eqref{eq:DFT:chrepr} to
 \begin{equation}\label{eq:DFT:chrepr:tshift}
   \braket{\omega_{m}}{\psi} = \E^{-\iu\omega_{m}t_0} \sum_n F_{mn} \braket{t_n}{\psi} \text{.}
 \end{equation}
 
 Analogously, to include the case $\omega_0 \neq 0$, the \term{frequency shifting} property
-allows  the generalization of Eq~\eqref{eq:IDFT:chrepr} to:
+\parencite{ProakisManolakis}
+allows the generalization of Eq~\eqref{eq:IDFT:chrepr} to
 \begin{equation}\label{eq:IDFT:chrepr:tshift}
   \braket{t_{m}}{\psi} = \E^{\iu\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \braket{\omega_n}{\psi} \text{.}
 \end{equation}
