@@ -198,13 +198,11 @@ Multiplying each element of the sum in Eq.~\eqref{eq:DFT:bra}
 by $\braket{t_m} = 1$
 we immediately get:
 \begin{equation}\label{eq:DFO:bra}
-  \bra{\omega_{m}} =
-  % \bra{t_m} \sum_{n} F_{mn} \ketbra{t_m}{t_n} =
-  \bra{t_m} \op{F} \text{.}
+  \bra{\omega_{m}} = \bra{t_m} \op{F} \text{.}
 \end{equation}
 Similarly, Eq.~\eqref{eq:DFT:ket} can be expressed as
-\begin{equation}
-  \label{eq:DFO:ket}  \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
+\begin{equation}\label{eq:DFO:ket}
+  \ket{\omega_{m}} = \op{F}^{\dagger} \ket{t_m} \text{.}
 \end{equation}
 %
 Finally, we use the spectral decomposition of $\op{\Omega}$,
@@ -270,21 +268,6 @@ In other words, in \citereset\cite{FiniteHilb}, the sampling interval and the fu
 are set to $\delta{T} = \delta{\Omega} = 1$ (or their equivalent in terms of position and momentum).
 
 \subsubsection{Fourier operator in frequency representation}
-
-% In analogy to
-% Eqs. \eqref{eq:DFT:chrepr} and \eqref{eq:DFT:chrepr:cconj},
-% we can also obtain, from \eqref{eq:IDFT:def} and the definitions \eqref{eq:pw:F_mn:def}:
-
-% \begin{align}
-%    \braket{t_{m}}{\psi} &= \sum_n F^{\dagger}_{mn} \braket{\omega_n}{\psi}\label{eq:IDFT:chrepr} \\
-%    \braket{\psi}{t_{m}} &= \sum_n F_{mn} \braket{\psi}{\omega_n}\label{eq:IDFT:chrepr:cconj}
-% \end{align}
-
-% hence
-% \begin{align}
-%   \label{eq:IDFT:bra}  \bra{t_{m}} &= \sum_n F_{mn}^{\dagger} \bra{\omega_n} \,\text{,}  \\
-%   \label{eq:IDFT:ket}  \ket{t_{m}} &= \sum_n F_{mn}           \ket{\omega_n} \,\text{.}
-% \end{align}
 
 From \eqref{eq:DFO:bra} and \eqref{eq:DFO:ket}:
 \begin{align}
