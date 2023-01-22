@@ -104,6 +104,14 @@ Psi_t = UU @ Psi_hv
 
 Psi_t
 
+# But (`\label{eq:IDFT:chrepr:tshift}`)
+# \begin{equation}
+#   \langle{t_{m}}|{\psi}\rangle = e^{i\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \langle{\omega_n}|{\psi}\rangle \text{.}
+# \end{equation}
+#
+
+
+
 psi_0 = Matrix(Psi_t[0:2])
 psi_1 = Matrix(Psi_t[2:])
 
@@ -124,5 +132,3 @@ evolved_PW = psi_1
 evolved_Schrod
 
 evolved_PW
-
-# *Results from the two theories coincide. &square;*
