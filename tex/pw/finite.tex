@@ -257,7 +257,7 @@ the spectral decomposition of $\op{T}$
 and Eqs.~\eqref{eq:IDFO:bra} and~\eqref{eq:IDFO:ket};
 and $\frac{\op{\Omega}}{\delta{\Omega}}$
 is diagonal in $\Omega$ representation,
-with elements $\setof{0, \dots, N-1}$.
+with elements $\setof{0, \dots, N-1}$ as well.
 
 Note that Eqs.~\eqref{eq:SI_Fourier:Omega} and~\eqref{eq:SI_Fourier:T}
 differ from the results of \cite{FiniteHilb}.
@@ -295,7 +295,25 @@ but, from the unitarity $\op{F}^{\dagger}\op{F} = \idop$:
 Comparing \eqref{eq:pw:proof_same_repr} and \eqref{eq:pw:def_fourier_op}
 it is seen that the Fourier operator $\op{F}$
 has the same matrix representation $F_{mn}$
-in both $\setof{\ket{t}}$ and $\setof{\ket{\omega}}$ basis. 
+in both $\setof{\ket{t}}$ and $\setof{\ket{\omega}}$ basis.
+
+\subsubsection{Non-zero initial value}
+
+The formalism presented in this Section assumes that the lowest eigenvalues
+of time and frequency are equal to zero. 
+
+When this is not the case, namely $t_0 \neq 0$,
+the \term{time-shifting} property of the Discrete Fourier Transform
+\parencite[\s~4.3.2]{ProakisManolakis} generalizes Eq.~\eqref{eq:DFT:chrepr} into
+\begin{equation}\label{eq:DFT:chrepr:tshift}
+  \braket{\omega_{m}}{\psi} = \E^{-\iu\omega_{m}t_0} \sum_n F_{mn} \braket{t_n}{\psi} \text{.}
+\end{equation}
+
+Analogously, to include the case $\omega_0 \neq 0$, the \term{frequency shifting} property
+allows  the generalization of Eq~\eqref{eq:IDFT:chrepr} to:
+\begin{equation}\label{eq:IDFT:chrepr:tshift}
+  \braket{t_{m}}{\psi} = \E^{\iu\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \braket{\omega_n}{\psi} \text{.}
+\end{equation}
 
 \subsection{Uncertainty in finite-dimensional systems}\label{sec:finite_uncertainty}
 \citereset
