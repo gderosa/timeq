@@ -6,7 +6,9 @@ from sympy.physics.quantum.dagger import Dagger
 
 init_printing()
 
-# **Polarization eigensates (our computational or fiducial basis)**
+# $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
+
+# **Polarization eigensates (our computational or fiducial basis) in $\mathcal{H}_T$**
 
 H_hv = Matrix([
     [1],
@@ -40,13 +42,15 @@ Dagger(F)
 
 F @ Dagger(F)
 
-eigensys = HT_hv.eigenvects()
+eigensys_H_T = HT_hv.eigenvects()
 
-eigensys
+eigensys_H_T
+
+eigenvalues_H_T = list(map(lambda el: el[0], eigensys_H_T))
 
 # **Change to H_T representation**
 
-U = Matrix([eigensys[0][2][0].T, eigensys[1][2][0].T]).T / sqrt(2)
+U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
 
 U
 
@@ -90,11 +94,27 @@ delta_T
 #
 #
 
-TensorProduct(Dagger(F), eye(2))
+# **Correction term due to $\omega_0 \neq 0$ (freq. shift of Fourier transform)**
+#
+# See `{eq:IDFT:chrepr:tshift}` in the thesis, "Non-zero initial values":
+# \begin{equation}
+#   \langle{t_{m}}|{\psi}\rangle = e^{i\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \langle{\omega_n}|{\psi}\rangle \text{.}
+# \end{equation}
+#
+# Shift term: $e^{i\omega_{0}t_m} \text{,} \; \forall m = 0, 1$.
 
-TensorProduct(Dagger(U), eye(2))
+omega_0 = eigenvalues_H_T[0]
 
-UU = TensorProduct(Dagger(F), eye(2)) @ TensorProduct(Dagger(U), eye(2)) 
+shift = list(map(lambda t_m: exp(t_m * omega_0 * I), eigenvals_T))
+
+shift
+
+# matrix form
+Shift = diag(*shift)
+
+Shift
+
+UU = TensorProduct(Shift @ Dagger(F) @ Dagger(U), eye(2))
 
 UU
 
@@ -103,14 +123,6 @@ UU
 Psi_t = UU @ Psi_hv
 
 Psi_t
-
-# But (`{eq:IDFT:chrepr:tshift}` in the thesis):
-# \begin{equation}
-#   \langle{t_{m}}|{\psi}\rangle = e^{i\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \langle{\omega_n}|{\psi}\rangle \text{.}
-# \end{equation}
-#
-
-
 
 psi_0 = Matrix(Psi_t[0:2])
 psi_1 = Matrix(Psi_t[2:])
@@ -129,6 +141,8 @@ evolved_Schrod = U_evol @ psi_0
 
 evolved_PW = psi_1
 
-evolved_Schrod
+simplify(evolved_Schrod)
 
-evolved_PW
+simplify(evolved_PW)
+
+# With the shift term, results from the two theories coincide! &square;
