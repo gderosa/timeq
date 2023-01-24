@@ -107,6 +107,7 @@ omega_0 = eigenvalues_H_T[0]
 
 shift = list(map(lambda t_m: exp(t_m * omega_0 * I), eigenvals_T))
 
+
 shift
 
 # matrix form
@@ -118,17 +119,19 @@ UU = TensorProduct(Shift @ Dagger(F) @ Dagger(U), eye(2))
 
 UU
 
-# **Page--Wootters history vector in time represantation (or time $\otimes$ polarization, more correctly)**
+# **Page--Wootters history vector in time representation (or time $\otimes$ polarization, more correctly)**
 
-Psi_t = UU @ Psi_hv
+Psi_t = (UU @ Psi_hv)
 
 Psi_t
 
 psi_0 = Matrix(Psi_t[0:2])
 psi_1 = Matrix(Psi_t[2:])
 
+psi_0 = (psi_0 / psi_0.norm())
 psi_0
 
+psi_1 = (psi_1 / psi_1.norm())
 psi_1
 
 # **Time evolution in standard quantum mechanics (for comparison)**
@@ -141,8 +144,8 @@ evolved_Schrod = U_evol @ psi_0
 
 evolved_PW = psi_1
 
-simplify(evolved_Schrod)
+(evolved_Schrod)
 
-simplify(evolved_PW)
+(evolved_PW)
 
 # With the shift term, results from the two theories coincide! &square;

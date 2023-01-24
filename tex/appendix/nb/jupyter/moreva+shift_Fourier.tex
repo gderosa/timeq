@@ -1,19 +1,19 @@
 \section{Moreva et al.}
 
 \begin{lstlisting}[language=Python]
-
 from sympy import *
 from sympy.matrices.expressions.fourier import DFT
 from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.dagger import Dagger
 
-
 init_printing()
+\end{lstlisting}
 
-# $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
+$\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
 
-# **Polarization eigensates (our computational or fiducial basis) in $\mathcal{H}_T$**
+\subsection*{Polarization eigensates (``computational'' basis) in $\mathcal{H}_T$}
 
+\begin{lstlisting}[language=Python]
 H_hv = Matrix([
     [1],
     [0]
@@ -33,109 +33,134 @@ HS_hv = Matrix([
     [ 0, I],
     [-I, 0]
 ])
+\end{lstlisting}
 
+\subsection*{Verification of the Wheeler--DeWitt condition}
+
+\begin{lstlisting}[language=Python]
 J_hv = TensorProduct(HT_hv, eye(2)) + TensorProduct(eye(2), HS_hv)
 
 J_hv @ Psi_hv
-
+\end{lstlisting}
+$$
+\left[\begin{matrix}0\\0\\0\\0\end{matrix}\right]
+$$
+\begin{lstlisting}[language=Python]
 F = DFT(2).as_explicit().as_mutable()
-
-F
-
-Dagger(F)
-
-F @ Dagger(F)
 
 eigensys_H_T = HT_hv.eigenvects()
 
 eigensys_H_T
-
+\end{lstlisting}
+$$
+  \left[ \left( -1, \  1, \  \left[ \left[\begin{matrix}- i\\1\end{matrix}\right]\right]\right), \  \left( 1, \  1, \  \left[ \left[\begin{matrix}i\\1\end{matrix}\right]\right]\right)\right]
+$$
+\begin{lstlisting}[language=Python]
 eigenvalues_H_T = list(map(lambda el: el[0], eigensys_H_T))
+\end{lstlisting}
 
-# **Change to H_T representation**
+\subsection*{Change to $H_T$ representation}
 
+\begin{lstlisting}[language=Python]
 U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
 
-U
-
-U @ Dagger(U)
-
 HT_HT = Dagger(U) @ HT_hv @ U
+\end{lstlisting}
 
-HT_HT
+\subsection*{Clock frequency (or energy) resolution}
 
-# **Clock frequency (or energy) resolution**
-
+\begin{lstlisting}[language=Python]
 delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
+\end{lstlisting}
 
-delta_HT
+\subsection*{Time operator in clock frequency (or energy) eigenbasis}
 
-# **Time operator in clock frequency (or energy) eigenbasis**
-
+\begin{lstlisting}[language=Python]
 T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
 
 T_HT
-
+\end{lstlisting}
+$$
+  \left[\begin{matrix}0 & - \frac{\pi}{4}\\- \frac{\pi}{4} & 0\end{matrix}\right]
+$$
+\begin{lstlisting}[language=Python]
 eigenvals_T = list(T_HT.eigenvals().keys())
 
 eigenvals_T.sort()
+\end{lstlisting}
 
-eigenvals_T
+\subsection*{Time resolution of the clock (difference between contiguous eigenvalues)}
 
-# **Time resolution of the clock (difference between contiguous eigenvalues)**
-
+\begin{lstlisting}[language=Python]
 delta_T = eigenvals_T[1] - eigenvals_T[0]
+\end{lstlisting}
 
-delta_T
+\subsection*{(Double) change of basis}
 
-# **(Double) change of basis:**
-#
-# Now, the $U^{\dagger}$ matrix translates components **from Polarization into Energy/Frequency eigenbasis** representation in the clock space.
-#
-# The (inverse) Fourier $F^{\dagger}$ does the same **from Energy/Frequency into Time**.
-#
-# As we are operating in the product space, we need the tensor product by the Identity in the "system" space $\mathcal{H}_S$.
-#
-#
+Now, the $U^{\dagger}$ matrix translates components \emph{from Polarization into Energy/Frequency} eigenbasis representation in the clock space.
 
-# **Correction term due to $\omega_0 \neq 0$ (freq. shift of Fourier transform)**
-#
-# See `{eq:IDFT:chrepr:tshift}` in the thesis, "Non-zero initial values":
-# \begin{equation}
-#   \langle{t_{m}}|{\psi}\rangle = e^{i\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \langle{\omega_n}|{\psi}\rangle \text{.}
-# \end{equation}
-#
-# Shift term: $e^{i\omega_{0}t_m} \text{,} \; \forall m = 0, 1$.
+The (inverse) Fourier $F^{\dagger}$ does the same \emph{from Energy/Frequency into Time}.
 
+As we are operating in the product space, we need the tensor product by $\idop$ in the ``system'' space $\mathcal{H}_S$.
+
+\subsubsection*{Correction term due to $\omega_0 \neq 0$ (frequency shift of Fourier transform)}
+
+See Eq.~\eqref{eq:IDFT:chrepr:tshift}:
+\begin{equation}
+  \langle{t_{m}}|{\psi}\rangle = e^{i\omega_{0}t_m} \sum_n F^{\dagger}_{mn} \langle{\omega_n}|{\psi}\rangle \text{.}
+\end{equation}
+
+Shift term: $e^{i\omega_{0}t_m} \text{,} \; \forall m = 0, 1$.
+
+\begin{lstlisting}[language=Python]
 omega_0 = eigenvalues_H_T[0]
 
 shift = list(map(lambda t_m: exp(t_m * omega_0 * I), eigenvals_T))
-
-shift
 
 # matrix form
 Shift = diag(*shift)
 
 Shift
+\end{lstlisting}
+$$
+  \left[\begin{matrix}e^{\frac{i \pi}{4}} & 0\\0 & e^{- \frac{i \pi}{4}}\end{matrix}\right]
+$$
 
+\begin{lstlisting}[language=Python]
 UU = TensorProduct(Shift @ Dagger(F) @ Dagger(U), eye(2))
 
 UU
+\end{lstlisting}
+$$
+  \left[\begin{matrix}0 & 0 & e^{\frac{i \pi}{4}} & 0\\0 & 0 & 0 & e^{\frac{i \pi}{4}}\\i e^{- \frac{i \pi}{4}} & 0 & 0 & 0\\0 & i e^{- \frac{i \pi}{4}} & 0 & 0\end{matrix}\right]
+$$
 
-# **Page--Wootters history vector in time represantation (or time $\otimes$ polarization, more correctly)**
+\subsection*{Page--Wootters history vector in time $\otimes$ polarization basis}
 
+\begin{lstlisting}[language=Python]
 Psi_t = UU @ Psi_hv
-
-Psi_t
 
 psi_0 = Matrix(Psi_t[0:2])
 psi_1 = Matrix(Psi_t[2:])
 
+psi_0 = psi_0 / psi_0.norm()
+psi_1 = psi_0 / psi_1.norm()
+
 psi_0
-
+\end{lstlisting}
+$$
+  \left[\begin{matrix}- e^{\frac{i \pi}{4}}\\0\end{matrix}\right]
+$$
+\begin{lstlisting}[language=Python]
 psi_1
+\end{lstlisting}
+$$
+  \left[\begin{matrix}0\\i e^{- \frac{i \pi}{4}}\end{matrix}\right]
+$$
 
-# **Time evolution in standard quantum mechanics (for comparison)**
+\subsection*{Time evolution in standard quantum mechanics (for comparison)}
+
+\begin{lstlisting}[language=Python]
 
 U_evol = exp(-I*HS_hv*delta_T)
 
