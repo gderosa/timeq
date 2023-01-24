@@ -1,4 +1,12 @@
-\section{Moreva et al.}
+\section{Analysis of the Moreva et al. experiment}
+
+This notebook is, in its essence, an analysis of the experiment in \cite{Moreva:illustration, Moreva:synthetic}.
+In addition to the findings therein, an explicit form of the time operator is derived.
+Through change of basis, a suitable 
+representation of the Page--Wootters history vector $\dket{\Psi}$
+is obtained,
+thus allowing a comparison with the time evolution
+as predicted by ordinary quantum theory.
 
 \begin{lstlisting}[language=Python]
 from sympy import *
@@ -9,7 +17,9 @@ from sympy.physics.quantum.dagger import Dagger
 init_printing()
 \end{lstlisting}
 
-$\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
+\subsection*{Basic assumptions and units}
+
+It is set $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
 
 \subsection*{Polarization eigensates (``computational'' basis) in $\mathcal{H}_T$}
 
@@ -22,9 +32,17 @@ V_hv = Matrix([
     [0],
     [1]
 ])
+\end{lstlisting}
 
+\subsection*{Page--Wootters history vector $\dket{\Psi}$, in polarization representation}
+
+\begin{lstlisting}[language=Python]
 Psi_hv = (1 / sqrt(2)) * (TensorProduct(H_hv, V_hv) - TensorProduct(V_hv, H_hv))
+\end{lstlisting}
 
+\subsection*{Hamiltonians in $\hilb{H}_T$ and $\hilb{H}_S$}
+
+\begin{lstlisting}[language=Python]
 HT_hv = Matrix([
     [ 0, I],
     [-I, 0]
@@ -42,9 +60,13 @@ J_hv = TensorProduct(HT_hv, eye(2)) + TensorProduct(eye(2), HS_hv)
 
 J_hv @ Psi_hv
 \end{lstlisting}
+
 $$
-\left[\begin{matrix}0\\0\\0\\0\end{matrix}\right]
+  \left[\begin{matrix}0\\0\\0\\0\end{matrix}\right]
 $$
+
+\subsection*{Eigenvalues and eigenvectors of $\op{H}_T$}
+
 \begin{lstlisting}[language=Python]
 F = DFT(2).as_explicit().as_mutable()
 
@@ -97,7 +119,8 @@ delta_T = eigenvals_T[1] - eigenvals_T[0]
 
 \subsection*{(Double) change of basis}
 
-Now, the $U^{\dagger}$ matrix translates components \emph{from Polarization into Energy/Frequency} eigenbasis representation in the clock space.
+Now, the $U^{\dagger}$ matrix translates components \emph{from Polarization into Energy/Frequency} eigenbasis representation
+in the clock space $\hilb{H}_T$.
 
 The (inverse) Fourier $F^{\dagger}$ does the same \emph{from Energy/Frequency into Time}.
 
@@ -135,17 +158,23 @@ $$
   \left[\begin{matrix}0 & 0 & e^{\frac{i \pi}{4}} & 0\\0 & 0 & 0 & e^{\frac{i \pi}{4}}\\i e^{- \frac{i \pi}{4}} & 0 & 0 & 0\\0 & i e^{- \frac{i \pi}{4}} & 0 & 0\end{matrix}\right]
 $$
 
+\begin{lstlisting}[language=Python]
+Psi_t = UU @ Psi_hv
+\end{lstlisting}
+
 \subsection*{Page--Wootters history vector in time $\otimes$ polarization basis}
 
 \begin{lstlisting}[language=Python]
-Psi_t = UU @ Psi_hv
-
 psi_0 = Matrix(Psi_t[0:2])
 psi_1 = Matrix(Psi_t[2:])
 
 psi_0 = psi_0 / psi_0.norm()
 psi_1 = psi_0 / psi_1.norm()
+\end{lstlisting}
 
+\subsection*{``Initial'' and ``evolved'' normalized states extracted from the components of the Page--Wootters history vector $\dket{\Psi}$}
+
+\begin{lstlisting}[language=Python]
 psi_0
 \end{lstlisting}
 $$
@@ -161,19 +190,30 @@ $$
 \subsection*{Time evolution in standard quantum mechanics (for comparison)}
 
 \begin{lstlisting}[language=Python]
-
 U_evol = exp(-I*HS_hv*delta_T)
-
-U_evol
 
 evolved_Schrod = U_evol @ psi_0
 
 evolved_PW = psi_1
 
-simplify(evolved_Schrod)
-
-simplify(evolved_PW)
-
-# With the shift term, results from the two theories coincide! &square;
-
+evolved_Schrod
 \end{lstlisting}
+$$
+  \left[\begin{matrix}0\\e^{\frac{i \pi}{4}}\end{matrix}\right]
+$$
+\begin{lstlisting}[language=Python]
+evolved_PW
+\end{lstlisting}
+$$
+  \left[\begin{matrix}0\\i e^{- \frac{i \pi}{4}}\end{matrix}\right]
+$$
+Thanks to the shift term (``\verb|Shift|'')
+(and simply recalling that $i=e^{\frac{i\pi}{2}}$),
+it is seen that
+results from the two theories coincide.
+\begin{lstlisting}[language=Python]
+simplify(evolved_Schrod - evolved_PW)
+\end{lstlisting}
+$$
+  \left[\begin{matrix}0\\0\end{matrix}\right] \, \text{.} \; \qed
+$$

@@ -144,8 +144,15 @@ evolved_Schrod = U_evol @ psi_0
 
 evolved_PW = psi_1
 
-(evolved_Schrod)
+evolved_Schrod
 
-(evolved_PW)
+evolved_PW
 
-# With the shift term, results from the two theories coincide! &square;
+# With the shift term
+# (and simply recalling that $i=e^{\frac{i\pi}{2}}$),
+# it is seen that
+# results from the two theories coincide.
+
+simplify(evolved_Schrod - evolved_PW)
+
+# &square;
