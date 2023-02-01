@@ -49,9 +49,9 @@ two-level quantum systems for both the clock and the rest of the universe.
 While we cannot derive a $\op{T}$ such that $[\op{T}, \op{\Omega}] = i$
 because of the finite dimension of the space $\hilb{H}_T$, both $\op{\Omega}$
 and $\op{H}_S$ are given an explicit expression:
-\begin{align}\label{eq:MorevaOmegaT}
-  \op{\Omega}            &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_T \\
-  \op{H}_S/{\hbar}       &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_S
+\begin{align}
+  \op{\Omega}            &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_T \label{eq:MorevaOmegaT}\\
+  \op{H}_S/{\hbar}       &= i\omega(\ketbra{H}{V}- \ketbra{V}{H})_S \label{eq:MorevaH_S}
   \,\text{,}
 \end{align}
 as well as a zero-eigenstate of $\op{\mathbb{J}}$ (as in eq. \ref{eq:pwHamiltonian}):
@@ -86,22 +86,11 @@ It is set $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
 
 \subsubsection*{Page--Wootters history vector $\dket{\Psi}$, in terms of polarization eigenstates}
 
-\begin{lstlisting}[language=Python]
-Psi_hv = (1 / sqrt(2)) * (TensorProduct(H_hv, V_hv) - TensorProduct(V_hv, H_hv))
-\end{lstlisting}
+See Eq.~\eqref{eq:moreva:overall_state}.
 
 \subsubsection*{Hamiltonians in $\hilb{H}_T$ and $\hilb{H}_S$}
 
-\begin{lstlisting}[language=Python]
-HT_hv = Matrix([
-    [ 0, I],
-    [-I, 0]
-])
-HS_hv = Matrix([
-    [ 0, I],
-    [-I, 0]
-])
-\end{lstlisting}
+See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 
 \subsubsection*{Verification of the Wheeler--DeWitt condition}
 
