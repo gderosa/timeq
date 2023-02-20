@@ -96,15 +96,33 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 
 \subsubsection*{Verification of the Wheeler--DeWitt condition}
 
-\begin{lstlisting}[language=Python]
-J_hv = TensorProduct(HT_hv, eye(2)) + TensorProduct(eye(2), HS_hv)
-
-J_hv @ Psi_hv
-\end{lstlisting}
-
-$$
-  \left[\begin{matrix}0\\0\\0\\0\end{matrix}\right]
-$$
+\begin{multline}
+  \op{\mathbb{J}} \dket{\Psi} \repr[\setof{H, V}] \left( 
+    \left[\begin{matrix}0 & i\\- i & 0\end{matrix}\right]
+    \ox
+    \idop
+    +
+    \idop
+    \ox
+    \left[\begin{matrix}0 & i\\- i & 0\end{matrix}\right]
+  \right)
+  \left(
+    \left[\begin{matrix}1\\0\end{matrix}\right] \ox \left[\begin{matrix}0\\1\end{matrix}\right]
+    -
+    \left[\begin{matrix}0\\1\end{matrix}\right] \ox \left[\begin{matrix}1\\0\end{matrix}\right] 
+  \right)
+  \\
+  = \left(
+    \left[\begin{matrix}  &   & i & 0\\  &   & 0 & i\\- i & 0 &   &  \\0 & - i &   &  \end{matrix}\right]
+    +
+    \left[\begin{matrix}0 & i &   &  \\- i & 0 &   &  \\  &   & 0 & i\\  &   & - i & 0\end{matrix}\right]
+  \right)
+  \mqty[0 \\ 1 \\ -1 \\ 0]
+  =
+  \mqty[0 \\ 0 \\ 0 \\ 0]
+  \text{.}
+  \qed
+\end{multline}
 
 \subsubsection*{Eigenvalues and eigenvectors of $\op{H}_T$}
 
