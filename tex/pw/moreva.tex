@@ -94,7 +94,7 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 
 \subsubsection*{Verification of the Wheeler--DeWitt condition}
 
-\begin{multline}
+\begin{multline}\label{eq:pw:moreva:WheelerDeWittVerification}
   \op{\mathbb{J}} \dket{\Psi} 
   \repr[\setof{H, V}] 
   \frac{\hbar\omega}{\sqrt{2}}
@@ -130,13 +130,19 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 \subsubsection*{Eigenvalues and eigenvectors of $\op{H}_T$}
 
 Diagonalizing the matrix $\frac{\hbar\omega}{\sqrt{2}}\mqty[0 &i\\-i &0]$,
-representing $\op{H}_T = \hbar\op{\Omega}$ in the photon polarization basis $\setof{\ket{H}_T, \ket{V}_T}$,
+representing $\op{H}_T = \hbar\op{\Omega}$ in the photon polarization basis,
 one easily finds the eigenvalues $\mp\hbar\omega$ and the corresponding eigenbasis 
 $\setof{\mp i \ket{H} + \ket{V}}_T$.
 
 \subsubsection*{Change to $H_T$ representation}
 
-The Page--Wootters history vector $\dket{\Psi}$
+The Page--Wootters history vector $\dket{\Psi}$ is expressed in Eq.~\eqref{eq:moreva:overall_state}
+in terms of the polarization eigenstates. In matrix form (see also Eq.~\eqref{eq:pw:moreva:WheelerDeWittVerification}):
+\begin{equation}
+  \dket{\Psi} \repr[\setof{H, V}] \mqty[0 \\ 1 \\ -1 \\ 0] \text{.}
+\end{equation}
+Elements of this column vector are the components of $\dket{\Psi}$
+with respect to the basis $\setof{\ket{H}, \ket{V}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
 
 \begin{lstlisting}[language=Python]
 U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
