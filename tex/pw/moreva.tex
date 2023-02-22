@@ -80,11 +80,9 @@ in order to have the \eqref{eq:Wheeler-DeWitt} satisfied
 
 \subsection{Analysis}
 
-Notebook Appendix \ref{sec:moreva:shit_Fourier}. 
+\subsubsection*{Notebook}
 
-\subsubsection*{Basic assumptions and units}
-
-It is set $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
+See Appendix \ref{sec:moreva:shit_Fourier}, where it is set $\hbar = \omega = 1$, hence $\hat{H}_T = \hat{\Omega}$.
 
 \subsubsection*{Page--Wootters history vector $\dket{\Psi}$, in terms of polarization eigenstates}
 
@@ -97,7 +95,10 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 \subsubsection*{Verification of the Wheeler--DeWitt condition}
 
 \begin{multline}
-  \op{\mathbb{J}} \dket{\Psi} \repr[\setof{H, V}] \left( 
+  \op{\mathbb{J}} \dket{\Psi} 
+  \repr[\setof{H, V}] 
+  \frac{\hbar\omega}{\sqrt{2}}
+  \left( 
     \left[\begin{matrix}0 & i\\- i & 0\end{matrix}\right]
     \ox
     \idop
@@ -112,7 +113,9 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
     \left[\begin{matrix}0\\1\end{matrix}\right] \ox \left[\begin{matrix}1\\0\end{matrix}\right] 
   \right)
   \\
-  = \left(
+  =
+  \frac{\hbar\omega}{\sqrt{2}}
+  \left(
     \left[\begin{matrix}  &   & i & 0\\  &   & 0 & i\\- i & 0 &   &  \\0 & - i &   &  \end{matrix}\right]
     +
     \left[\begin{matrix}0 & i &   &  \\- i & 0 &   &  \\  &   & 0 & i\\  &   & - i & 0\end{matrix}\right]
@@ -126,19 +129,10 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 
 \subsubsection*{Eigenvalues and eigenvectors of $\op{H}_T$}
 
-\begin{lstlisting}[language=Python]
-F = DFT(2).as_explicit().as_mutable()
-
-eigensys_H_T = HT_hv.eigenvects()
-
-eigensys_H_T
-\end{lstlisting}
-$$
-  \left[ \left( -1, \  1, \  \left[ \left[\begin{matrix}- i\\1\end{matrix}\right]\right]\right), \  \left( 1, \  1, \  \left[ \left[\begin{matrix}i\\1\end{matrix}\right]\right]\right)\right]
-$$
-\begin{lstlisting}[language=Python]
-eigenvalues_H_T = list(map(lambda el: el[0], eigensys_H_T))
-\end{lstlisting}
+Diagonalizing the matrix $\frac{\hbar\omega}{\sqrt{2}}\mqty[0 &i\\-i &0]$,
+representing $\op{H}_T = \hbar\op{\Omega}$ in the photon polarization basis $\setof{\ket{H}_T, \ket{V}_T}$,
+one easily finds the eigenvalues $\mp\hbar\omega$ and the corresponding eigenbasis 
+$\setof{\mp i \ket{H} + \ket{V}}_T$.
 
 \subsubsection*{Change to $H_T$ representation}
 
