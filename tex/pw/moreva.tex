@@ -136,6 +136,8 @@ $\setof{\mp i \ket{H} + \ket{V}}_T$.
 
 \subsubsection*{Change to $H_T$ representation}
 
+The Page--Wootters history vector $\dket{\Psi}$
+
 \begin{lstlisting}[language=Python]
 U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
 
@@ -171,6 +173,15 @@ delta_T = eigenvals_T[1] - eigenvals_T[0]
 \end{lstlisting}
 
 \subsubsection*{(Double) change of basis}
+
+HERE Symbols
+\begin{equation}
+\op{S}^{\dagger}\op{F}^{\dagger}\op{U}^{\dagger}
+\end{equation}
+
+\begin{equation}
+  \hat{\mathcal{S}}_{\omega_0}^{\dagger} \hat{F}^{\dagger} \hat{\mathcal{E}}_{\Omega}^{\dagger}
+\end{equation}
 
 Now, the $U^{\dagger}$ matrix translates components \emph{from Polarization into Energy/Frequency} eigenbasis representation
 in the clock space $\hilb{H}_T$.
