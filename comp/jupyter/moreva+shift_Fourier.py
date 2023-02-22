@@ -21,8 +21,6 @@ V_hv = Matrix([
 
 Psi_hv = (1 / sqrt(2)) * (TensorProduct(H_hv, V_hv) - TensorProduct(V_hv, H_hv))
 
-Psi_hv
-
 HT_hv = Matrix([
     [ 0, I],
     [-I, 0]
