@@ -145,11 +145,9 @@ we must compute the components of $\dket{\Psi}$ with respect to an eigenbasis of
 ---or, more correctly, the tensor product of the Time eigenbasis in $\hilb{H}_T$,
 and the (``familiar'') polarization basis in $\hilb{H}_S$: $\setof{\ket{t_0}, \ket{t_1}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
 
-\begin{lstlisting}[language=Python]
-U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
-
-HT_HT = Dagger(U) @ HT_hv @ U
-\end{lstlisting}
+Also, if the lowest eigenvalues of $\op{\Omega}$ (or $\op{T}$) is not zero,
+the shift property, Eq.~\eqref{eq:IDFT:chrepr:tshift}, or Eq.~\eqref{eq:DFT:chrepr:tshift},
+must be taken into account.  
 
 \subsubsection*{Clock frequency (or energy) resolution}
 
