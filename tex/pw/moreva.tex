@@ -140,6 +140,11 @@ in terms of the polarization eigenstates. In matrix form ---see also Eq.~\eqref{
 Elements of this column vector are the components of $\dket{\Psi}$
 with respect to the basis $\setof{\ket{H}, \ket{V}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
 
+To facilitate a comparison of the the Page--Wootters history with standard quantum mechanics time evolution,
+we must compute the components of $\dket{\Psi}$ with respect to an eigenbasis of the Time operator
+---or, more correctly, the tensor product of the Time eigenbasis in $\hilb{H}_T$,
+and the (``familiar'') polarization basis in $\hilb{H}_S$.  
+
 \begin{lstlisting}[language=Python]
 U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
 
