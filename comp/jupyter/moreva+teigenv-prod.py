@@ -56,7 +56,7 @@ delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
 
 delta_HT
 
-T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
+T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
 
 T_HT
 
@@ -87,14 +87,14 @@ T_hv
 # \begin{align}
 #   \left|\psi_i\right\rangle :=
 #   \left|\psi_i\right\rangle_{PW} &:=
-#   \left|\psi_i\right\rangle_S &= 
+#   \left|\psi_i\right\rangle_S &=
 #   \left._{T}\left\langle{T; t_i}\middle|\Psi\right\rangle\right\rangle &=
 #   \left._{T}\left\langle{V}\middle|\Psi\right\rangle\right\rangle &=
-#   -\left|H\right\rangle_S 
+#   -\left|H\right\rangle_S
 #   \\
 #   \left|\psi_f\right\rangle_{PW} &:=
-#   \left|\psi_f\right\rangle_S &= 
-#   \left._{T}\left\langle{T; t_f}\middle|\Psi\right\rangle\right\rangle &= 
+#   \left|\psi_f\right\rangle_S &=
+#   \left._{T}\left\langle{T; t_f}\middle|\Psi\right\rangle\right\rangle &=
 #   \left._{T}\left\langle{H}\middle|\Psi\right\rangle\right\rangle &=
 #   \; \left|V\right\rangle_S
 #   \;.

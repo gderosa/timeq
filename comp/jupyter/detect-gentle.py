@@ -182,7 +182,7 @@ def hatpsi(_t, _gamma=GAMMA):
             [0, sqrt(_gamma)]
         ]) * \
         non_unitary_psi(_t, _gamma)
-        
+
 def hatpsi_n(_t):
     return \
         np.heaviside(_t, 0) * \
@@ -191,9 +191,9 @@ def hatpsi_n(_t):
             [0, np.sqrt(GAMMA_n)]
         ]) @ \
         non_unitary_psi_n(_t)
-        
-        
-    
+
+
+
 
 # %%
 def hatpsisquarednorm(_t, _gamma=GAMMA):
@@ -244,7 +244,7 @@ plot( abs(hatpsi(t)[1]**2)/bayesian_denominator_nonpw, (t, -2, 2*pi), line_color
 #### TODO: Fourier transform...
 
 
-# TODO: switch to numeric and use FFT 
+# TODO: switch to numeric and use FFT
 # https://docs.scipy.org/doc/numpy-1.15.0/reference/routines.fft.html#real-and-hermitian-transforms
 # The below takes ages to complete
 
@@ -363,14 +363,14 @@ def find_best():
                 max_prob0_j = j
     print (max_prob0_i, max_prob0_j, max_prob0)
     return (max_prob0_i, max_prob0_j)
-    
+
 
 
 # %%
 # start with |0> as close as possible
 i, j = find_best()
 qbhistvec = normalize_initial(history_vector(i) + history_vector(j))
-qbhist = reshape(qbhistvec) 
+qbhist = reshape(qbhistvec)
 
 # %%
 qbhist = qbhist.astype(complex)
@@ -424,7 +424,7 @@ plt.plot(times, imag_parts1, 'bs')
 
 # %% [markdown]
 # \begin{equation}
-#     p(t|1) = \frac{\left|\psi(1|t)\right|^2}{\int_0^\mathcal{T} dt \left|\psi(1|t)\right|^2} = 
+#     p(t|1) = \frac{\left|\psi(1|t)\right|^2}{\int_0^\mathcal{T} dt \left|\psi(1|t)\right|^2} =
 #     \frac{
 #         \left| {}_{T}\langle n | \otimes {}_{S}\langle 1 | \Psi \rangle\rangle \right|^2
 #     }{

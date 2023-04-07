@@ -6,8 +6,8 @@ init_printing(use_unicode=True)
 F = DFT(3).as_explicit()
 
 U = Matrix([
-    [0, 1, 0], 
-    [I, 0, 0], 
+    [0, 1, 0],
+    [I, 0, 0],
     [0, 0,-I]
 ])
 

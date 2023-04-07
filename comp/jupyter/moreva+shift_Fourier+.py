@@ -84,7 +84,7 @@ delta_HT
 
 # **Time operator in clock frequency (or energy) eigenbasis**
 
-T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
+T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
 
 T_HT
 

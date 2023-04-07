@@ -2,7 +2,7 @@
 
 This notebook is, in its essence, an analysis of the experiment in \cite{Moreva:illustration, Moreva:synthetic}.
 In addition to the findings therein, an explicit form of the time operator is derived.
-Through change of basis, a suitable 
+Through change of basis, a suitable
 representation of the Page--Wootters history vector $\dket{\Psi}$
 is obtained,
 thus allowing a comparison with the time evolution
@@ -98,7 +98,7 @@ delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
 \subsection*{Time operator in clock frequency (or energy) eigenbasis}
 
 \begin{lstlisting}[language=Python]
-T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F) 
+T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
 
 T_HT
 \end{lstlisting}

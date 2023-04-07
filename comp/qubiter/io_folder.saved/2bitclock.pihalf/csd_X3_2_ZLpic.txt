@@ -3,27 +3,27 @@ NOTA	include "qelib1.inc";
 NOTA	qreg q[5];
 NOTA	creg c[5];
 NOTA	PHAS	11.249999459286126	AT	0
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
-|   Ry  
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |
+|   Ry
 NOTA	barren node
-Ry  |   
-X---@   
-Ry  |   
-X---@   
+Ry  |
+X---@
+Ry  |
+X---@
 NOTA	PHAS	-11.249998662355253	AT	0
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |
 NOTA	PHAS	-89.99999749552184	AT	0
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |
 NOTA	measure q -> c;

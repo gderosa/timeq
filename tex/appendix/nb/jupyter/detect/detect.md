@@ -24,7 +24,7 @@ matplotlib.rcParams['text.usetex'] = True
 #    \usepackage{amsmath}
 #    \usepackage{physics}
 #'''
-#matplotlib.rcParams['mathtext.fontset'] = 'dejavusans' 
+#matplotlib.rcParams['mathtext.fontset'] = 'dejavusans'
 #matplotlib.rcParams['mathtext.default'] = 'sf'
 matplotlib.rcParams['figure.dpi'] = 140
 # matplotlib.rcParams['figure.figsize'] = (8,8/sqrt(2))
@@ -510,7 +510,7 @@ def hatpsi(_t):
             [0, 1]
         ]) * \
         non_unitary_psi(_t)
-        
+
 def hatpsi_n(_t):
     return \
         np.heaviside(_t, 0) * \
@@ -520,9 +520,9 @@ def hatpsi_n(_t):
             [0, 1]
         ]) * \
         non_unitary_psi_n(_t)
-        
-        
-    
+
+
+
 ```
 
 
@@ -691,7 +691,7 @@ $$1$$
 
 
 ```python
-plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta', 
+plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta',
      xlabel=r'$\omega$', ylabel=r'$P(\omega)$')
 ```
 
@@ -740,7 +740,7 @@ T = np.diag(np.arange(0,32)) * np.pi / 16
 
 ```python
 # The NumPy Fourier matrix is the conjugate of Mathematica's one,
-# hence the trailing .conj() 
+# hence the trailing .conj()
 F = dft(32, scale='sqrtn').conj()
 ```
 
@@ -879,7 +879,7 @@ def find_best():
                 max_prob0_j = j
     print (max_prob0_i, max_prob0_j, max_prob0)
     return (max_prob0_i, max_prob0_j)
-    
+
 ```
 
 
@@ -887,7 +887,7 @@ def find_best():
 # start with |0> as close as possible
 i, j = find_best()
 qbhistvec = normalize_initial(history_vector(i) + history_vector(j))
-qbhist = reshape(qbhistvec) 
+qbhist = reshape(qbhistvec)
 ```
 
     1 21 1.0
@@ -1110,12 +1110,12 @@ prob_detect_fft = np.zeros(32)
 for o in range(32):
     prob_detect_fft[o] = \
         np.abs(detect_fft[2*o]**2) + \
-        np.abs(detect_fft[2*o + 1]**2) 
+        np.abs(detect_fft[2*o + 1]**2)
 ```
 
 
 ```python
-# Arrays are "rolled" because the second half 
+# Arrays are "rolled" because the second half
 # of the spectrum is identified with
 # negative frequencies.
 plt.plot(range(-16, 16), np.roll(prob_detect_fft, -16), 'y^')

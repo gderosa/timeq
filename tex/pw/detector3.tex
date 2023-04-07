@@ -94,7 +94,7 @@ def prob(t):
       probabilities[i] = norm(unitary_psi(t)[i])**2
       return probabilities
 \end{lstlisting}
-Such probabilities over time are shown in Figure \ref{fig:3lev:probs}. 
+Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
 
 \begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
@@ -136,7 +136,7 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
 
 We are also interested in probability \term{amplitudes}:
 complex values of
-$\braket{0}{\psi(t)}$, 
+$\braket{0}{\psi(t)}$,
 $\braket{1}{\psi(t)}$, and
 $\braket{2}{\psi(t)}$
 are represented in the three-dimensional
@@ -168,7 +168,7 @@ while the independent variable $t$ (time) is represented on the vertical axis.
     on the third axis.
     -- Additionally, the vertical axis is coloured to encode \emph{probabilities}
     (absolute values)
-    in a similar fashion to Fig. \ref{fig:3lev:probs:lines}. 
+    in a similar fashion to Fig. \ref{fig:3lev:probs:lines}.
   }
   \label{fig:3lev:hermitianEvol}
 \end{figure}
@@ -238,7 +238,7 @@ and can be compared with the Hermitian (i.e. unitary) case,
 Figs. \ref{fig:3lev:probs:stack} and \ref{fig:3lev:hermitianEvol} respectively.
 It appears clearly, in Fig. \ref{fig:3lev:loss3color},
 that the norm of the state vector is not
-conserved, but decreases monotonically. 
+conserved, but decreases monotonically.
 %
 \begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
@@ -443,7 +443,7 @@ Then the ``Hamiltonian'' ${\mathbb{J}}$, acting on $\pwspace$, and defined in Eq
 is derived, with eigenvalues and eigenvectors::
 \begin{lstlisting}[language=Python]
 J = np.kron(Omega, np.eye(3)) + np.kron(np.eye(NT), K())
- 
+
 eigenvalues, eigenvectors = np.linalg.eig(J)
 eigenvectors = eigenvectors.T
 \end{lstlisting}
@@ -651,7 +651,7 @@ is
 \end{equation*}
 and can be compared with
 \begin{equation*}
-  \braket{m}{\psi(t_n)} 
+  \braket{m}{\psi(t_n)}
 \end{equation*}
 from ``ordinary'' quantum mechanics, $
   \forall \; m \in \{0, \dots, N_S - 1\} \text{ and } n \in \{0, \dots, N_T - 1\}
@@ -661,7 +661,7 @@ Such comparison is visualized in Fig.~\ref{fig:3lev:PWSpaceTimeFit},
 showing excellent agreement between the discrete Page--Wootters model (square points)
 and ``standard'' quantum evolution (continuous line).
 Page--Wootters ``history vector'' components are also shown on their own
-in Fig.~\ref{fig:3lev:PWSpaceTime}. 
+in Fig.~\ref{fig:3lev:PWSpaceTime}.
 
 \begin{figure}[]
   \begin{subfigure}[b]{\textwidth}
@@ -731,7 +731,7 @@ same paper,
   [\dots] the whole discussion can be easily extended to the “time at which any
   event happens”. For example, if one considers a spin instead of a particle on a line, one can define the “time at
   which the spin is up”.
-  
+
   [\dots] the notion of ``event'' in quantum mechanics [can be] defined as ``something that happens to a
   quantum system'', where ``something'' means ``a system
   observable property taking some value [\dots]''.

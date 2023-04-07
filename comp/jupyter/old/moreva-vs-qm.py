@@ -14,7 +14,7 @@
 # ---
 
 # %% [markdown]
-# ## Comparison with ordinary QM 
+# ## Comparison with ordinary QM
 
 # %% [markdown]
 # Conversions from symbolic to numeric (including implicit one) for plotting seems problematic, either with `subs()` or `lambdify()`, therefore we start over, with a new notebook. We also assume
@@ -99,9 +99,9 @@ z = np.linspace(-np.pi/4, 3*np.pi/4, 500)
 # map the z vector via `np.vectorize()`
 
 # x is real part of psi[0] or Re(psi_H) as in psi = psi_H|H> + psi_V|V>
-x = np.vectorize(lambda t: psi_fixed_0_re(t, -np.pi/4, [0, -1j], 0))(z) 
+x = np.vectorize(lambda t: psi_fixed_0_re(t, -np.pi/4, [0, -1j], 0))(z)
 # y is imag part of psi[0] or Im(psi_H) as in psi = psi_H|H> + psi_V|V>
-y = np.vectorize(lambda t: psi_fixed_0_im(t, -np.pi/4, [0, -1j], 0))(z) 
+y = np.vectorize(lambda t: psi_fixed_0_im(t, -np.pi/4, [0, -1j], 0))(z)
 
 plt.plot([0, 0], [0, 0], [-np.pi/4, 3*np.pi/4], lw=1, c='pink', label='Time (clock cycle)')
 
@@ -137,9 +137,9 @@ z = np.linspace(-np.pi/4, 3*np.pi/4, 500)
 # map the z vector via `np.vectorize()`
 
 # x is real part of psi[1] or Re(psi_V) as in psi = psi_H|H> + psi_V|V>
-x = np.vectorize(lambda t: psi_fixed_1_re(t, -np.pi/4, [0, -1j], 0))(z) 
+x = np.vectorize(lambda t: psi_fixed_1_re(t, -np.pi/4, [0, -1j], 0))(z)
 # y is imag part of psi[0] or Im(psi_H) as in psi = psi_H|H> + ps_V|V>
-y = np.vectorize(lambda t: psi_fixed_1_im(t, -np.pi/4, [0, -1j], 0))(z) 
+y = np.vectorize(lambda t: psi_fixed_1_im(t, -np.pi/4, [0, -1j], 0))(z)
 
 plt.plot([0, 0], [0, 0], [-np.pi/4, 3*np.pi/4], lw=1, c='pink', label='Time (clock cycle)')
 
