@@ -1,24 +1,24 @@
-|   Ph  
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
-|   Ry  
+|   Ph
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |
+|   Ry
 NOTA	barren node
-Ry  |   
-X---@   
-Ry  |   
-X---@   
-|   Ph  
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
-|   Ph  
-|   Rz  
-@---X   
-|   Rz  
-@---X   
-Rz  |   
+Ry  |
+X---@
+Ry  |
+X---@
+|   Ph
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |
+|   Ph
+|   Rz
+@---X
+|   Rz
+@---X
+Rz  |

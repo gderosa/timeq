@@ -75,7 +75,7 @@ J.eigenvects()
 
 
 # %% [markdown]
-# ## Comparison with ordinary QM 
+# ## Comparison with ordinary QM
 
 # %%
 def evolve_psi(t, t0, psi0):

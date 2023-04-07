@@ -17,8 +17,8 @@
 # ## Detector model: 3-level system
 
 # %% [markdown]
-# Three-level "$\Lambda$" system, of interest for 
-# * detector models (decay into a metastable state), 
+# Three-level "$\Lambda$" system, of interest for
+# * detector models (decay into a metastable state),
 # * STIRAP
 # * EIT
 
@@ -114,11 +114,11 @@ UNISYM = {
 PROB_LABELS        = ['', '', '']
 PROB_AMP_LABELS    = ['', '', '']
 PROB_AMP_LABELS_PW = ['', '', '']
-                
+
 for i in 0, 1, 2:
     PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '(t)' + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
-    
+
     PROB_AMP_LABELS_PW[i] = '<t|\u2297<%d|\u03A8>>' % i
 
 # %% [markdown]
@@ -147,7 +147,7 @@ for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels
     stack.set_label(label)
     stack.set_hatch(hatch)
     stack.set_linewidth(linewidth)
-        
+
 ax.plot(times, probs[0] + probs[1] + probs[2], c='m', label='||\u03C8(t)||\u00B2', linewidth=1.5)
 
 desired_order   = [0, 3, 2, 1]
@@ -184,7 +184,7 @@ for i in 0, 1, 2:
         c=_c[i],
         linewidth=2,
     )
-    
+
 ax.legend(
     PROB_LABELS,
     loc='upper right'
@@ -213,7 +213,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'c
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=float),
         np.zeros(NPLOTPOINTS, dtype=float),
@@ -324,7 +324,7 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_edgecolor(color)
     stack.set_label(label)
     stack.set_hatch(hatch)
-    
+
 handles, labels = ax.get_legend_handles_labels()
 desired_order = [0, 1, 4, 3, 2]
 handles = [ handles[i] for i in desired_order ]
@@ -434,12 +434,12 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=float),
         np.zeros(NPLOTPOINTS, dtype=float),
         times,
-    
+
         c = np.array([
             np.abs(evolution[0])**2,
             np.abs(evolution[1])**2,
@@ -449,7 +449,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
         marker='o'
     )
     _c = ['r', 'g', 'b']
-        
+
     for i in 0, 1, 2:
         ax.plot(
             np.real(evolution[i]),
@@ -551,7 +551,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
         print(
             str(percent) + '% scanned' + "\tabs(best_det) = " + str(abs(best_det)),
             end="\r", flush=True)
-        
+
     return best_i, best_j, best_k, best_det
 
 
@@ -586,7 +586,7 @@ psi = history.reshape((-1,NS)).T
 for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,'center right','side'), (80,-100,15,25,'center right','top')):
     #fig = plt.figure(figsize=(width, height))
     #ax = fig.gca(projection='3d')
-    
+
     fig, ax = plt.subplots(figsize=(width, height), subplot_kw=dict(projection='3d'))
 
     ax.view_init(vertical_angle, horizontal_angle) # rotate 3d point of view
@@ -594,12 +594,12 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
     ax.set_xlabel('Re <t|\u2297<0,1,2|\u03A8>>')
     ax.set_ylabel('Im <t|\u2297<0,1,2|\u03A8>>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=float),
         np.zeros(NT, dtype=float),
         times_discrete,
-    
+
         c = np.round((abs(psi.T)**2), 8), # rounding, to avoid number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
@@ -657,12 +657,12 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
     ax.set_xlabel('Re')
     ax.set_ylabel('Im')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=float),
         np.zeros(NT, dtype=float),
         times_discrete,
-    
+
         c = np.round((abs(psi.T)**2), 8), # rounding, to prevent numeric instability from causing out-of-range RGB values
         s = 75,
         marker='o'
@@ -687,7 +687,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             linewidth = 0.8,
             label = PROB_AMP_LABELS_PW[i]
         )
-        
+
     # QM continuous
     for i in 0, 1, 2:
         ax.plot(

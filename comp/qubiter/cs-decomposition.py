@@ -32,7 +32,7 @@ def expand_with_identity(ml, n):
         row = [0]*n
         row[i] = 1
         ml.append(row)
-        
+
 
 init_unitary_mat_l = [
   [0, 0, 0, 0, 0, 0, 0, 1],

@@ -65,6 +65,6 @@ Omega
 T @ Omega - Omega @ T
 
 # %% [markdown]
-# Zero-valued diagonal, as argued in Weyl, H. (1950), "The theory of groups and quantum mechanics". 
+# Zero-valued diagonal, as argued in Weyl, H. (1950), "The theory of groups and quantum mechanics".
 #
 # The commutator is not a constant.

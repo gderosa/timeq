@@ -153,7 +153,7 @@ UNISYM = {
 }
 PROB_LABELS     = ['', '', '']
 PROB_AMP_LABELS = ['', '', '']
-                
+
 for i in 0, 1, 2:
     PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
@@ -198,7 +198,7 @@ for i in 0, 1, 2:
         c=_c[i],
         #linewidth=1,
     )
-    
+
 ax.legend(
     PROB_LABELS,
     loc='upper right'
@@ -329,7 +329,7 @@ ax.stackplot(
     np.abs(evolution[0])**2,
     np.abs(evolution[1])**2,
     np.abs(evolution[2])**2,
-    
+
     labels=labels, colors=colors
 )
 
@@ -358,7 +358,7 @@ ax.stackplot(
     np.abs(evolution_extended[0])**2,
     np.abs(evolution_extended[1])**2,
     np.abs(evolution_extended[2])**2,
-    
+
     labels=labels, colors=colors
 )
 
@@ -455,7 +455,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
         print(
             str(percent) + '% scanned' + "\tabs(best_det) = " + str(abs(best_det)),
             end="\r", flush=True)
-        
+
     return best_i, best_j, best_k, best_det
 
 
@@ -517,7 +517,7 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -30, 15, 13), (80,
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
         times_discrete,
-    
+
         c = (abs(psi.T)**2),
         s = 75,
         marker='o'

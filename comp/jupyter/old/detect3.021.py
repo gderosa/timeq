@@ -17,7 +17,7 @@
 # ## Detector model: 3-level system
 
 # %% [markdown]
-# Three-level "$\Lambda$" system, of interest for 
+# Three-level "$\Lambda$" system, of interest for
 # * detector models
 # * EIT
 # * ...
@@ -172,7 +172,7 @@ UNISYM = {
 }
 PROB_LABELS     = ['', '', '']
 PROB_AMP_LABELS = ['', '', '']
-                
+
 for i in 0, 1, 2:
     PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
@@ -217,7 +217,7 @@ for i in 0, 1, 2:
         c=_c[i],
         #linewidth=1,
     )
-    
+
 ax.legend(
     PROB_LABELS,
     loc='upper right'
@@ -348,7 +348,7 @@ ax.stackplot(
     np.abs(evolution[0])**2,
     np.abs(evolution[1])**2,
     np.abs(evolution[2])**2,
-    
+
     labels=labels, colors=colors
 )
 
@@ -379,7 +379,7 @@ ax.stackplot(
     np.abs(evolution_extended[0])**2,
     np.abs(evolution_extended[1])**2,
     np.abs(evolution_extended[2])**2,
-    
+
     labels=labels, colors=colors
 )
 
@@ -485,7 +485,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
         print(
             str(percent) + '% scanned' + "\tabs(best_det) = " + str(abs(best_det)),
             end="\r", flush=True)
-        
+
     return best_i, best_j, best_k, best_det
 
 
@@ -528,12 +528,12 @@ for (vertical_angle, horizontal_angle, height, width) in (10, -120, 15, 13), (60
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
         times_discrete,
-    
+
         c = (abs(psi.T)**2),
         s = 75,
         marker='o'
@@ -583,12 +583,12 @@ for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
         times_discrete,
-    
+
         c = (abs(psi.T)**2),
         s = 75,
         marker='o'
@@ -610,7 +610,7 @@ for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90
             s = 30,
             c = _c[i]
         )
-        
+
     # QM continuous
     for i in 0, 1, 2:
         ax.scatter(
@@ -618,7 +618,7 @@ for (vertical_angle, horizontal_angle, height, width) in (60, -110, 25, 13), (90
             np.imag(evolution[i]),
             times,
             depthshade=False,
-            
+
             marker = '.',
             c = _c[i],
             s = 0.01
