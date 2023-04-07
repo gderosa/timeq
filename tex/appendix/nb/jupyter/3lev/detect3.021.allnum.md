@@ -1,7 +1,7 @@
 ## Detector model: 3-level system
 
-Three-level "$\Lambda$" system, of interest for 
-* detector models (decay into a metastable state), 
+Three-level "$\Lambda$" system, of interest for
+* detector models (decay into a metastable state),
 * STIRAP
 * EIT
 
@@ -128,11 +128,11 @@ UNISYM = {
 PROB_LABELS        = ['', '', '']
 PROB_AMP_LABELS    = ['', '', '']
 PROB_AMP_LABELS_PW = ['', '', '']
-                
+
 for i in 0, 1, 2:
     PROB_AMP_LABELS[i] = '<' + str(i) + '|' + UNISYM['psi'] + '(t)' + '>'
     PROB_LABELS[i]     = '|' + PROB_AMP_LABELS[i] + '|' + UNISYM['^2']
-    
+
     PROB_AMP_LABELS_PW[i] = '<t|\u2297<%d|\u03A8>>' % i
 ```
 
@@ -164,7 +164,7 @@ for stack, hatch, color, label, linewidth in zip(stacks, hatches, colors, labels
     stack.set_label(label)
     stack.set_hatch(hatch)
     stack.set_linewidth(linewidth)
-        
+
 ax.plot(times, probs[0] + probs[1] + probs[2], c='m', label='||\u03C8(t)||\u00B2', linewidth=1.5)
 
 desired_order   = [0, 3, 2, 1]
@@ -178,9 +178,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_20_0.png)
-    
+
 
 
 
@@ -211,7 +211,7 @@ for i in 0, 1, 2:
         c=_c[i],
         linewidth=2,
     )
-    
+
 ax.legend(
     PROB_LABELS,
     loc='upper right'
@@ -221,9 +221,9 @@ plt.savefig('_img/detect3.021/hermitian3lines.pdf', bbox_inches='tight', pad_inc
 ```
 
 
-    
+
 ![png](output_22_0.png)
-    
+
 
 
 
@@ -259,7 +259,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'c
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=np.float),
         np.zeros(NPLOTPOINTS, dtype=np.float),
@@ -281,15 +281,15 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (10,-70,12,12,'c
 ```
 
 
-    
+
 ![png](output_25_0.png)
-    
 
 
 
-    
+
+
 ![png](output_25_1.png)
-    
+
 
 
 ## Complex potential (detection by absorption)
@@ -421,7 +421,7 @@ for stack, hatch, color, label in zip(stacks, hatches, colors, labels):
     stack.set_edgecolor(color)
     stack.set_label(label)
     stack.set_hatch(hatch)
-    
+
 handles, labels = ax.get_legend_handles_labels()
 desired_order = [0, 1, 4, 3, 2]
 handles = [ handles[i] for i in desired_order ]
@@ -433,9 +433,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_37_0.png)
-    
+
 
 
 
@@ -454,9 +454,9 @@ plt.savefig('_img/detect3.021/loss.pdf', bbox_inches='tight', pad_inches=0)
 ```
 
 
-    
+
 ![png](output_39_0.png)
-    
+
 
 
 
@@ -498,9 +498,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_40_0.png)
-    
+
 
 
 #### "Asymptotic" fidelity for |1>
@@ -554,9 +554,9 @@ plt.savefig('_img/detect3.021/loss_ext.pdf', bbox_inches='tight', pad_inches=0)
 ```
 
 
-    
+
 ![png](output_46_0.png)
-    
+
 
 
 #### "3D"
@@ -575,12 +575,12 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
     ax.set_xlabel('Re <0,1,2|\u03C8>')
     ax.set_ylabel('Im <0,1,2|\u03C8>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NPLOTPOINTS, dtype=np.float),
         np.zeros(NPLOTPOINTS, dtype=np.float),
         times,
-    
+
         c = np.array([
             np.abs(evolution[0])**2,
             np.abs(evolution[1])**2,
@@ -590,7 +590,7 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
         marker='o'
     )
     _c = ['r', 'g', 'b']
-        
+
     for i in 0, 1, 2:
         ax.plot(
             np.real(evolution[i]),
@@ -606,15 +606,15 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in (15,-80,15,15,'c
 ```
 
 
-    
+
 ![png](output_48_0.png)
-    
 
 
 
-    
+
+
 ![png](output_48_1.png)
-    
+
 
 
 ## Page-Wootters
@@ -724,7 +724,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
         print(
             str(percent) + '% scanned' + "\tabs(best_det) = " + str(abs(best_det)),
             end="\r", flush=True)
-        
+
     return best_i, best_j, best_k, best_det
 
 
@@ -777,12 +777,12 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
     ax.set_xlabel('Re <t|\u2297<0,1,2|\u03A8>>')
     ax.set_ylabel('Im <t|\u2297<0,1,2|\u03A8>>')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
         times_discrete,
-    
+
         c = np.round((abs(psi.T)**2), 8), # rounding, to avoid number instability causing out-of-range rgb vals
         s = 75,
         marker='o'
@@ -814,15 +814,15 @@ for (vertical_angle,horizontal_angle,height,width,lloc,view) in ((10,-120,15,25,
 ```
 
 
-    
+
 ![png](output_64_0.png)
-    
 
 
 
-    
+
+
 ![png](output_64_1.png)
-    
+
 
 
 
@@ -870,12 +870,12 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
     ax.set_xlabel('Re')
     ax.set_ylabel('Im')
     ax.set_zlabel('t')
-    
+
     ax.scatter(
         np.zeros(NT, dtype=np.float),
         np.zeros(NT, dtype=np.float),
         times_discrete,
-    
+
         c = np.round((abs(psi.T)**2), 8), # rounding, to prevent numeric instability from causing out-of-range RGB values
         s = 75,
         marker='o'
@@ -900,7 +900,7 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
             linewidth = 0.8,
             label = PROB_AMP_LABELS_PW[i]
         )
-        
+
     # QM continuous
     for i in 0, 1, 2:
         ax.plot(
@@ -917,15 +917,15 @@ for (vertical_angle,horizontal_angle,height,width,view) in (15,-80,15,15,'side')
 ```
 
 
-    
+
 ![png](output_68_0.png)
-    
 
 
 
-    
+
+
 ![png](output_68_1.png)
-    
+
 
 
 ## TOA prob as in Maccone/Sacha arXiv:1810.12869
@@ -1005,9 +1005,9 @@ plt.show()
 ```
 
 
-    
+
 ![png](output_79_0.png)
-    
+
 
 
 

@@ -80,7 +80,7 @@ NormalizationB := Sqrt[Abs[chosenEigenvectorB[[1]]^2] + Abs[chosenEigenvectorB[[
 
 chosenEigenvectorNormalized  := chosenEigenvector / Normalization
 
-chosenEigenvectorNormalizedB := chosenEigenvectorB / NormalizationB  
+chosenEigenvectorNormalizedB := chosenEigenvectorB / NormalizationB
 
 probability := Abs[chosenEigenvectorNormalized ^2]
 
@@ -98,7 +98,7 @@ ListPlot[probability,
   \centering
   \includegraphics[width=.75\textwidth]{img/N32.png}
   \caption[]{png}{P-W ``evolution'' for $\hat{\mathbb{J}}$ eigenvalue $=12$}
-\end{figure}  
+\end{figure}
 \begin{Verbatim}
 
 ListPlot[probabilityB,
@@ -196,7 +196,7 @@ Show[zAxis, psi0plot,psi1plot, ImageSize->Medium,
   \includegraphics[width=0.25\textwidth]{img/qubit-evo-schrod.png}
   \caption[]{png}{
     Schr{\"o}dinger full complex evolution of components
-    $\braket{0}{\psi(t)}$ (red) and 
+    $\braket{0}{\psi(t)}$ (red) and
     $\braket{1}{\psi(t)}$ (blue) for
     $t \in (0, 2\pi) $. The initial state
     has been chosen as the first two components of an eigenstate of

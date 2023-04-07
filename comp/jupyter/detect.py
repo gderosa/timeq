@@ -356,7 +356,7 @@ plot(abs(fhatpsiomega(omega))**2, (omega, -16, 16), line_color='magenta',
 # %%
 # graphical comparison with a normalized gaussian
 sigma = 1.0
-plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi), 
+plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi),
      line_color='magenta', adaptive=False)
 
 # %% [markdown]
