@@ -26,6 +26,22 @@ Or `-pvc` to enable continuous build.
 
 You can force a different PDF viewer by setting the `PDF_PREVIEWER` environment variable in your system.
 
+#### Extra: Okular recommended on Linux
+You might want to append this to your `~/.bashrc`:
+
+```bash
+export PDF_PREVIEWER="okular"
+```
+
+One useful feature is "Trim margins". Due to a bug, you might need a newer version than the one available with your distribution.
+In this case, [intalling via Flatpack](https://flathub.org/apps/details/org.kde.okular)
+might be an option, but the invocation will be different:
+
+```bash
+export PDF_PREVIEWER="flatpak run org.kde.okular"
+```
+
+
 ### Speed-up (development, optional)
 
 Add argument ` opt/dev.tex`. This creates large PDF output file but save time on compression.
