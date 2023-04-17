@@ -116,7 +116,9 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
     +
     \left[\begin{matrix}0 & i &   &  \\- i & 0 &   &  \\  &   & 0 & i\\  &   & - i & 0\end{matrix}\right]
   \right)
-  \mqty[0 \\ 1 \\ -1 \\ 0]
+  \begin{bmatrix*}[r]
+    0 \\ 1 \\ -1 \\ 0
+  \end{bmatrix*}
   =
   \mqty[0 \\ 0 \\ 0 \\ 0]
   \text{.}
@@ -135,7 +137,11 @@ $\setof{\mp i \ket{H} + \ket{V}}_T$.
 The Page--Wootters history vector $\dket{\Psi}$ is expressed in Eq.~\eqref{eq:moreva:overall_state}
 in terms of the polarization eigenstates. In matrix form ---see also Eq.~\eqref{eq:pw:moreva:WheelerDeWittVerification}:
 \begin{equation}
-  \dket{\Psi} \repr[\setof{H, V}] \mqty[0 \\ 1 \\ -1 \\ 0] \text{.}
+  \dket{\Psi} \repr[\setof{H, V}]
+  \begin{pmatrix*}[r]
+    0 \\ 1 \\ -1 \\ 0
+  \end{pmatrix*}
+  \text{.}
 \end{equation}
 Elements of this column vector are the components of $\dket{\Psi}$
 with respect to the basis $\setof{\ket{H}, \ket{V}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
