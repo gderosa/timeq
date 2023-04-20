@@ -184,15 +184,25 @@ delta_T = eigenvals_T[1] - eigenvals_T[0]
 \end{lstlisting}
 
 \subsubsection*{(Double) change of basis}
+========================\\
+HERE Symbols.
 
-HERE Symbols
-\begin{equation}
-\op{S}^{\dagger}\op{F}^{\dagger}\op{U}^{\dagger}
-\end{equation}
+Matrices, from right to left,
+\begin{itemize}
+  \item change of basis (polarization/computational basis to $H_T$ or $\Omega$ eigenbasis)
+  \item Fourier (from frequency to time)
+  \item "Shift" due to non-zero initial frequency (Fourier translation property)
+\end{itemize}
+They all act in $\mathcal{H}_T$:
+$$\mathcal{S}_{\omega_0}^{\dagger} F^{\dagger} \mathcal{E}_{\Omega}^{\dagger} .$$
 
-\begin{equation}
-  \hat{\mathcal{S}}_{\omega_0}^{\dagger} \hat{F}^{\dagger} \hat{\mathcal{E}}_{\Omega}^{\dagger}
-\end{equation}
+Time evolution as in std QM (acts in $\mathcal{H}_S$):
+
+$$U(t, t_0) .$$
+
+TODO update symbols here, and possibly in the jupyter notebook (or ``map'').
+
+========================
 
 Now, the $U^{\dagger}$ matrix translates components \emph{from Polarization into Energy/Frequency} eigenbasis representation
 in the clock space $\hilb{H}_T$.
