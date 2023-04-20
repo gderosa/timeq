@@ -4,17 +4,6 @@ from sympy.physics.quantum import TensorProduct
 from sympy.physics.quantum.dagger import Dagger
 
 
-MyM = Matrix([
-    [I, I],
-    [I, I]
-])
-
-MyM
-
-Dagger(MyM)
-
-Dagger(Dagger(MyM))
-
 init_printing()
 
 # $\hbar = \omega = 0$, hence $\hat{H}_T = \hat{\Omega}$.
@@ -61,12 +50,24 @@ eigenvalues_H_T = list(map(lambda el: el[0], eigensys_H_T))
 
 eigenvalues_H_T
 
-# **Change to H_T representation**
+# **Change to H_T representation (then Time, then application of correction term)**
+#
+# #### Alt. symbols?
+# Matrices, from right to left,
+#
+# * change of basis (polarization/computational basis to $H_T$ or $\Omega$ eigenbasis)
+# * Fourier (from frequency to time)
+# * "Shift" due to non-zero initial frequency (Fourier translation property)
+#
+# They all act in $\mathcal{H}_T$:
+#
+# $$\mathcal{S}_{\omega_0}^{\dagger} F^{\dagger} \mathcal{E}_{\Omega}^{\dagger} .$$
+#
+# Time evolution as in std QM (acts in $\mathcal{H}_S$):
+#
+# $$U(t, t_0) .$$
 
-# #### Symbols?
-# $\hat{\mathcal{S}}_{\omega_0}^{\dagger} \hat{F}^{\dagger} \hat{\mathcal{E}}_{\Omega}^{\dagger}$
-
-# U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
+U = Matrix([eigensys_H_T[0][2][0].T, eigensys_H_T[1][2][0].T]).T / sqrt(2)
 
 U
 
