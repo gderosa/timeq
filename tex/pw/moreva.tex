@@ -146,7 +146,7 @@ in terms of the polarization eigenstates. In matrix form ---see also Eq.~\eqref{
 Elements of this column vector are the components of $\dket{\Psi}$
 with respect to the basis $\setof{\ket{H}, \ket{V}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
 
-To facilitate a comparison of the the Page--Wootters history with standard quantum mechanics time evolution,
+For a direct comparison of the the Page--Wootters history with standard quantum mechanics time evolution,
 we must compute the components of $\dket{\Psi}$ with respect to an eigenbasis of the Time operator
 ---or, more correctly, the tensor product of the Time eigenbasis in $\hilb{H}_T$,
 and the (``familiar'') polarization basis in $\hilb{H}_S$: $\setof{\ket{t_0}, \ket{t_1}}_T \ox \setof{\ket{H}, \ket{V}}_S$.
@@ -155,13 +155,20 @@ Also, if the lowest eigenvalues of $\op{\Omega}$ (or $\op{T}$) is not zero,
 the shift property, Eq.~\eqref{eq:IDFT:chrepr:tshift}, or Eq.~\eqref{eq:DFT:chrepr:tshift},
 must be taken into account.
 
-\subsubsection*{Clock frequency (or energy) resolution}
+% \subsubsection*{Clock frequency (or energy) resolution}
 
-\begin{lstlisting}[language=Python]
-delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
+% \end{lstlisting}
 
-\subsubsection*{Time operator in clock frequency (or energy) eigenbasis}
+\subsubsection*{$\op{H}_T = \hbar\op{\Omega}$ in its eigenbasis}
+
+Diagonal matrix of the eigenvalues of $\op{H}_T$.
+\begin{equation*}
+  \mqty(\dmat{-\hbar\omega, \hbar\omega})
+\end{equation*}
+
+\subsubsection*{Time operator in clock frequency (or clock energy) eigenbasis}
 
 \begin{lstlisting}[language=Python]
 T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
@@ -177,11 +184,11 @@ eigenvals_T = list(T_HT.eigenvals().keys())
 eigenvals_T.sort()
 \end{lstlisting}
 
-\subsubsection*{Time resolution of the clock (difference between contiguous eigenvalues)}
+% \subsubsection*{Time resolution of the clock (difference between contiguous eigenvalues)}
 
-\begin{lstlisting}[language=Python]
-delta_T = eigenvals_T[1] - eigenvals_T[0]
-\end{lstlisting}
+% \begin{lstlisting}[language=Python]
+% delta_T = eigenvals_T[1] - eigenvals_T[0]
+% \end{lstlisting}
 
 \subsubsection*{(Double) change of basis}
 ========================\\
