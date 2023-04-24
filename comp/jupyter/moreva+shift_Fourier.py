@@ -70,6 +70,8 @@ delta_HT
 
 T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
 
+F @ HT_HT @ Dagger(F)
+
 T_HT
 
 eigenvals_T = list(T_HT.eigenvals().keys())

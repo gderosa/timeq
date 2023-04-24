@@ -161,14 +161,14 @@ Difference between the two eigenvalues of $\op{H}_T$:
 % delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
 % \end{lstlisting}
 \begin{equation}
-  \Delta{H_T} = \delta{H_T} = \hbar\qty|\omega_0 - \omega_1|
+  \delta{H_T} = \hbar\qty|\omega_0 - \omega_1| = 2\hbar\omega
 \end{equation}
 
-\subsubsection*{$\op{H}_T = \hbar\op{\Omega}$ in its eigenbasis}
+\subsubsection*{$\op{H}_T = \hbar\op{\Omega}$ in its own eigenbasis}
 
 Diagonal matrix of the eigenvalues of $\op{H}_T$:
 \begin{equation}\label{eq:pw:moreva:H_T_diag}
-  H_T \repr[H_T] \mqty(\dmat{-\hbar\omega, \hbar\omega})
+  \hbar\op{\Omega} = \op{H}_T \repr[H_T] \hbar\mqty(\dmat{-\omega, \omega})
 \end{equation}
 
 \subsubsection*{Time operator in clock frequency (or clock energy) eigenbasis}
@@ -176,21 +176,25 @@ Diagonal matrix of the eigenvalues of $\op{H}_T$:
 We use Eqs.~\eqref{eq:SI_Fourier:T} and \eqref{eq:pw:moreva:H_T_diag}.
 
 \begin{equation}
-  \op{T} \repr[H_T] \frac{\pi}{(\delta{H_T})^2} F \mqty(\dmat{-\hbar\omega, \hbar\omega}) F^{\dagger}
+  \op{T} \repr[H_T] \frac{\pi}{4\omega} F \mqty(\dmat{-1, 1}) F^{\dagger}
   =
-  \left(\begin{matrix}0 & - \frac{\pi}{4}\\- \frac{\pi}{4} & 0\end{matrix}\right)
+  \frac{\pi}{4\omega} \mqty(\admat{-1, -1})
+  \text{.}
 \end{equation}
-\begin{lstlisting}[language=Python]
-eigenvals_T = list(T_HT.eigenvals().keys())
-
-eigenvals_T.sort()
-\end{lstlisting}
-
-% \subsubsection*{Time resolution of the clock (difference between contiguous eigenvalues)}
-
 % \begin{lstlisting}[language=Python]
-% delta_T = eigenvals_T[1] - eigenvals_T[0]
+% eigenvals_T = list(T_HT.eigenvals().keys())
+%
+% eigenvals_T.sort()
 % \end{lstlisting}
+Eigenvalues of $\op{T}$:
+$$
+t_0, t_1 = - \frac{\pi}{4\omega}, \  \frac{\pi}{4\omega} \text{,}
+$$
+hence
+$$
+\delta{t} = t_1 - t_0 = \frac{\pi}{2\omega} \text{.}
+$$
+
 
 \subsubsection*{(Double) change of basis}
 ========================\\
