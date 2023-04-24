@@ -129,7 +129,7 @@ See Eq.~\eqref{eq:MorevaOmegaT} and \eqref{eq:MorevaH_S}.
 
 Diagonalizing the matrix $\frac{\hbar\omega}{\sqrt{2}}\mqty[0 &i\\-i &0]$,
 representing $\op{H}_T = \hbar\op{\Omega}$ in the photon polarization basis,
-one easily finds the eigenvalues $\mp\hbar\omega$ and the corresponding eigenbasis
+one easily finds the eigenvalues $\hbar\omega_0, \hbar\omega_1 = -\hbar\omega, \hbar\omega$ and the corresponding eigenbasis
 $\setof{\mp i \ket{H} + \ket{V}}_T$.
 
 \subsubsection*{Change to $H_T$ representation}
@@ -155,29 +155,31 @@ Also, if the lowest eigenvalues of $\op{\Omega}$ (or $\op{T}$) is not zero,
 the shift property, Eq.~\eqref{eq:IDFT:chrepr:tshift}, or Eq.~\eqref{eq:DFT:chrepr:tshift},
 must be taken into account.
 
-% \subsubsection*{Clock frequency (or energy) resolution}
-
+\subsubsection*{Clock frequency (or energy) resolution}
+Difference between the two eigenvalues of $\op{H}_T$:
 % \begin{lstlisting}[language=Python]
 % delta_HT = abs(HT_HT[1,1] - HT_HT[0,0])
 % \end{lstlisting}
+\begin{equation}
+  \Delta{H_T} = \delta{H_T} = \hbar\qty|\omega_0 - \omega_1|
+\end{equation}
 
 \subsubsection*{$\op{H}_T = \hbar\op{\Omega}$ in its eigenbasis}
 
-Diagonal matrix of the eigenvalues of $\op{H}_T$.
-\begin{equation*}
-  \mqty(\dmat{-\hbar\omega, \hbar\omega})
-\end{equation*}
+Diagonal matrix of the eigenvalues of $\op{H}_T$:
+\begin{equation}\label{eq:pw:moreva:H_T_diag}
+  H_T \repr[H_T] \mqty(\dmat{-\hbar\omega, \hbar\omega})
+\end{equation}
 
 \subsubsection*{Time operator in clock frequency (or clock energy) eigenbasis}
 
-\begin{lstlisting}[language=Python]
-T_HT = (pi / (delta_HT**2)) * F @ HT_HT @ Dagger(F)
+We use Eqs.~\eqref{eq:SI_Fourier:T} and \eqref{eq:pw:moreva:H_T_diag}.
 
-T_HT
-\end{lstlisting}
-$$
-  \left[\begin{matrix}0 & - \frac{\pi}{4}\\- \frac{\pi}{4} & 0\end{matrix}\right]
-$$
+\begin{equation}
+  \op{T} \repr[H_T] \frac{\pi}{(\delta{H_T})^2} F \mqty(\dmat{-\hbar\omega, \hbar\omega}) F^{\dagger}
+  =
+  \left(\begin{matrix}0 & - \frac{\pi}{4}\\- \frac{\pi}{4} & 0\end{matrix}\right)
+\end{equation}
 \begin{lstlisting}[language=Python]
 eigenvals_T = list(T_HT.eigenvals().keys())
 
