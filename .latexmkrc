@@ -30,7 +30,7 @@ $hash_calc_ignore_pattern{'aux'} = '^';
 $hash_calc_ignore_pattern{'log'} = '^';
 $hash_calc_ignore_pattern{'bbl'} = '^';
 
-# $max_repeat = 3;
+$max_repeat = 7;
 
 if ($ENV{'PDF_PREVIEWER'}) {
     # Allow using a OS environment variable to change previewer

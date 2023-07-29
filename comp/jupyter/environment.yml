@@ -3,9 +3,9 @@ channels:
   - defaults
 dependencies:
   - python=3.10
-  - jupyterlab=2
+  - jupyterlab=3
   - numpy=1.22
   - scipy=1.8
   - jupytext=1.14
-  - sympy=1.10
+  - sympy=1.11
   - matplotlib=3.5
