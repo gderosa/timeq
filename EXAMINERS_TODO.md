@@ -1,6 +1,6 @@
 - the abstract could represent better the content of the thesis
-- the proof of proposition 2.2.1 uses a discrete eigenbasis of the 
-operator, this could be included in the formulation of the proposition
+- ~~the proof of proposition 2.2.1 uses a discrete eigenbasis of the 
+operator, this could be included in the formulation of the proposition~~
 - it is unclear if the example on p.27 has been developed by the author 
 or is also part of the review, this should be underlined better
 - Figure 3.2 (b), is there a specific motivation to look at the 
