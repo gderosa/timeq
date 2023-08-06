@@ -92,6 +92,10 @@ Inverse search: in [Okular](https://okular.kde.org/):
 
 Shift+click on a point in the PDF and you will get the editor at the corresponding line in source.
 
+#### ...and qpdfview on Linux
+
+*Edit* -> *Settings* -> *Behavior* tab -> *Source editor:* -> `code --goto %1:%2`
+
 ### Known conflicts and limitations
 
 #### IDE/editor autobuild
