@@ -1,8 +1,11 @@
 - the abstract could represent better the content of the thesis
 - ~~the proof of proposition 2.2.1 uses a discrete eigenbasis of the 
 operator, this could be included in the formulation of the proposition~~
-- it is unclear if the example on p.27 has been developed by the author 
-or is also part of the review, this should be underlined better
+  - &rightarrow; proposition formulation edited
+- ~~it is unclear if the example on p.27 has been developed by the author 
+or is also part of the review, this should be underlined better~~
+  - &rightarrow; added a reference to John Preskill's notes on the first paragraph of the Subsection,
+    thus makiing it clear that the exmaples are part of a review of existing literature
 - Figure 3.2 (b), is there a specific motivation to look at the 
 detection probability in the frequency domain?
 - chapter 4: IMPORTANT: the operator Omega is not consistently defined 
