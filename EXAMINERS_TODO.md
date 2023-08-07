@@ -8,7 +8,7 @@ or is also part of the review, this should be underlined better~~
     thus makiing it clear that the exmaples are part of a review of existing literature
 - ~~Figure 3.2 (b), is there a specific motivation to look at the 
 detection probability in the frequency domain?~~
-  - &rightarrow; added an extra Note to the Figure caption which should answer the question
+  - &rightarrow; added an extra Note to the Figure caption to answer the question
 - chapter 4: IMPORTANT: the operator Omega is not consistently defined 
 in the whole chapter, sometimes H_T = - hbar Omega, sometimes H_T= hbar 
 Omega, it is essential that the author chooses one definition and use 
