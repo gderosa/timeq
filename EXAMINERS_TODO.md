@@ -9,10 +9,14 @@ or is also part of the review, this should be underlined better~~
 - ~~Figure 3.2 (b), is there a specific motivation to look at the 
 detection probability in the frequency domain?~~
   - &rightarrow; added an extra Note to the Figure caption to answer the question
-- chapter 4: IMPORTANT: the operator Omega is not consistently defined 
+- ~~chapter 4: IMPORTANT: the operator Omega is not consistently defined 
 in the whole chapter, sometimes H_T = - hbar Omega, sometimes H_T= hbar 
 Omega, it is essential that the author chooses one definition and use 
-that definition consistently during the whole chapter 4
+that definition consistently during the whole chapter 4~~
+  - &rightarrow; I adopted the sign convention of arXiv:1504.04215. With this choice,
+    I found only one place with inconsistent sign, on p. 51, at the beginning of 
+    the last paragraph (inline formula), now fixed.
+    If there are any other inconsistencies, which I may have overlooked, please let  me know.  
 - IMPORTANT: as the definition of Omega is not consistent in chapter 4, 
 it is also not clear if the definition of the Fourier transformation and 
 the inverse Fourier transformation is consistent and correctly used in 
