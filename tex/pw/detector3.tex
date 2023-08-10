@@ -304,7 +304,7 @@ over a longer time interval
 in Fig.~\ref{fig:3lev:nonHermitianProbs_ext}.
 By comparing the latter,
 back with Fig.~\ref{fig:3lev:probs:stack},
-it's apparent that in the unitary case the system
+it is apparent that in the unitary case the system
 periodically oscillates between $\ket{0}$ and $\ket{2}$
 ---transitioning through the intermediate level $\ket{1}$,
 but with a small value of $\abs{\braket{1}{\psi(t)}}^2$.
@@ -330,7 +330,7 @@ The result is about $94\%$.
 \begin{lstlisting}
 0.9414855990054901
 \end{lstlisting}
-It's also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
+It is also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
 meaning there is a finite probability that detection (or ``absorption'', or spontaneous decay) never happens:
 \begin{equation*}
   P_{\mathrm{nd}} = \lim_{t \rightarrow +\infty} 1 - \norm{\psi(t)}^2 \text{.}
@@ -407,7 +407,7 @@ And the frequency operator $\op{\Omega}$ is computed via \term{Discrete Fourier 
 \begin{equation}
   \op{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F^{\dagger} \op{T} F \text{.}
 \end{equation}
-It's worth noting that, from a numerical computation perspective,
+It is worth noting that, from a numerical computation perspective,
 different library implementations use different conventions and definitions
 for the discrete Fourier matrix. Therefore,
 appropriate factors in the relation between $\op{T}$ and $\op{\Omega}$
@@ -466,7 +466,7 @@ the time evolution predicted with ``standard'' quantum mechanics
 (although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
 Namely,
 corrections related to non-zero eigenvalues are required ---see Eq.~\eqref{eq:pw:non0e:last}.
-It's worth recalling that,
+It is worth recalling that,
 as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
 eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{i}$---
 which are not zero,
@@ -516,7 +516,7 @@ so that
 
 \subsubsection*{Initial value problem}
 
-As there isn't an individual $\dket{\Phi_i}$,
+As there is no individual $\dket{\Phi_i}$,
 in our numeric example,
 satisfying the \eqref{eq:3lev:PWInitialCond},
 a suitable linear combination
@@ -562,7 +562,7 @@ form an orthonormal basis in $\hilb{H}_S$.%
     )}
   $.
 }
-Then it's elementary linear algebra to find out the $N_S$
+Then, with some elementary linear algebra, one can obtain the $N_S$
 coefficients
 % \footnote{
 %   $N_S$ coefficients (3 in our example),
@@ -608,7 +608,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
   # [...]
   return best_i, best_j, best_k, best_det
 \end{lstlisting}
-Then it's invoked:
+Then it is invoked:
 \begin{lstlisting}[language=Python]
 best_i, best_j, best_k, best_det = find_linear_independent_initial()
 \end{lstlisting}
@@ -725,7 +725,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
 From \cite{Maccone:QMOT}, a time-of-arrival probability distribution can be derived
 for the three-level system at hand, within the Page--Wootters formalism.
 In a finite-dimensional
-Hilbert space there's no notion of position or ``region of space'', but, as stated in the
+Hilbert space there is no notion of position or ``region of space'', but, as stated in the
 same paper,
 \begin{quote}
   [\dots] the whole discussion can be easily extended to the “time at which any
