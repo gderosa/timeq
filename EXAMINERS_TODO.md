@@ -22,8 +22,9 @@ it is also not clear if the definition of the Fourier transformation and
 the inverse Fourier transformation is consistent and correctly used in
 Chapter 4; the author should check the consistent definition and correct
 use of the Fourier transformations in Chapter 4~~
-  - &rightarrow; Once removed the occurrence of H_t with the "wrong sign", the Fourier transform and inverse should be used correctly. (TODO TODO TODO: sec 4.1.1 should be revised: F. transf. applies to components not the vector... )
-      To summarize everything related to sign conventions (in pseudocode):
+  - &rightarrow; Once removed the occurrence of H_t with the "wrong sign", the Fourier transform and inverse should be used correctly.
+      With the exception of eq. (4.19) and the Fourier transform just before, now fixed.
+      Now, to summarize everything related to sign conventions (in pseudocode):
       - H_T = \hbar\Omega = -i\hbar (d/dt)
       - H_T is in analogy with linear momentum p = -i\hbar (d/dx)
       - The Fourier transform has minus sign in the exponent in the integrand,
@@ -32,7 +33,7 @@ use of the Fourier transformations in Chapter 4~~
           transforms frequency (momentum) representation into time (position) representation
       - "up to a Planck constant", we use Fourier transformation and its inverse for time and frequency
           in the same formal way they are used (in almost every textbook) for position and momentum
-          in ordinary quantum mechanics
+          in standard quantum mechanics
 - ~~the calculation shown in eq. (4.41) is not correct and should be
 corrected, in line with this, eqs. (4.42) and (4.43) should be better
 discussed in the text~~

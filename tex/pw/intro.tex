@@ -409,20 +409,24 @@ in terms of eigenvectors of the ``Hamiltonians''
 $\op{H}_T$ and $\op{H}_S$ in the two spaces respectively % $\hilb{H}_T$ and $\hilb{H}_S$ respectively
 ---see also Eq. \eqref{eq:pw:time_freq_nomu}.
 
-As $\prescript{}{S}{\braDket{\tilde{\psi}_{0}(\omega)}{\Psi_0}}$
-is the Fourier transform of $\prescript{}{S}{\bradket{\psi_0(t)}{\Psi_0}}$,
-and using Eq. \eqref{eq:pw:eigenevol}, it holds:
+As $\ket{\tilde{\psi}_{0}(\omega)}_{S}$ is the Fourier transform of $\ket{\psi_0(t)}_S$, and using Eq. \eqref{eq:pw:eigenevol}, it holds:
 \[
-  \prescript{}{S}{\braDket{\tilde{\psi}_{0}(\omega)}{\Psi_0}}
-  = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{-iwt} \E^{i\omega_{0}t} \prescript{}{S}{\bradket{\psi_0(t)}{\Psi_0}}
-  = \delta(\omega-\omega_0)\ket{\psi_0^i}_S \text{;}
+  \ket{\tilde{\psi}_0(\omega)}_S = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{-iwt} \E^{-i\omega_{0}t} \ket{\psi_0^i}_S
+  = \delta(\omega+\omega_0)\ket{\psi_0^i}_S \text{;}
 \]
 then, replacing into Eq.~\eqref{eq:pw:Psi_0_omega__int}:
 \begin{equation}\label{eq:pw:Psi_0_omega}
-  \dket{\Psi_0} = \ket{\omega_0}_{T}\ox\ket{\tilde{\psi}_{0}(\omega_0)}_{S} \text{,}
+  \dket{\Psi_0} = \ket{-\omega_0}_{T}\ox\ket{\tilde{\psi}_{0}(-\omega_0)}_{S} \text{,}
 \end{equation}
 %
-showing that the frequency distribution in $\hilb{H}_T$ is in fact concentrated at $\omega = \omega_0$.
+showing that the frequency distribution in $\hilb{H}_T$ is in fact concentrated at $\omega = -\omega_0$.\footnote{The
+  negative value should not be a surprise to the reader.
+  The vector $\dket{\Psi_0}$ is an eigenstate of $H_S$ (or, more correctly, $\idop_T \ox \op{H}_S$)
+  in relation to the eigenvalue $\hbar\omega_0$.
+  The same vector is also
+  an eigenstate of $\hbar\op{\Omega} \ox \idop_S$ for the eigenvalue $-\hbar\omega_0$.
+  This guarantees the zero sum in \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian}.
+}
 
 % $\dket{\Psi_0}$ is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue $E_0$:
 % \[
