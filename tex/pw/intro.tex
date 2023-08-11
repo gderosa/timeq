@@ -409,10 +409,16 @@ in terms of eigenvectors of the ``Hamiltonians''
 $\op{H}_T$ and $\op{H}_S$ in the two spaces respectively % $\hilb{H}_T$ and $\hilb{H}_S$ respectively
 ---see also Eq. \eqref{eq:pw:time_freq_nomu}.
 
+TODO TODO TODO: redo with no explicit Fourier.
+Just use $\op{H}_T \ox \idop$ and $\idop \ox \op{H}_S$
+and the fat that $\dket{\Psi_0}$ \emph{must} be an eigenvector for both,
+related to \emph{opposite} eigenvalues.
+
+
 As $\ket{\tilde{\psi}_{0}(\omega)}_{S}$ is the Fourier transform of $\ket{\psi_0(t)}_S$, and using Eq. \eqref{eq:pw:eigenevol}, it holds:
 \[
   \ket{\tilde{\psi}_0(\omega)}_S = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{-iwt} \E^{-i\omega_{0}t} \ket{\psi_0^i}_S
-  = \delta(\omega+\omega_0)\ket{\psi_0^i}_S \text{;}
+  = \delta(-\omega-\omega_0)\ket{\psi_0^i}_S \text{;}
 \]
 then, replacing into Eq.~\eqref{eq:pw:Psi_0_omega__int}:
 \begin{equation}\label{eq:pw:Psi_0_omega}
