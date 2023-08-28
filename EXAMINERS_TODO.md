@@ -41,9 +41,15 @@ discussed in the text~~
       one of which redundant and the other incorrect. By removing them, the whole calculation in (4.41)
       appears now correct and hopefully clearer, together with (4.42) and (4.43).
       Eq. (4.42) is mostly a copy-paste of (the correct part of) of (4.41) with a minor rearrangement of factors at the end.
-- p.68: the author should explain in the text why the 40th and 41th
+- ~~p.68: the author should explain in the text why the 40th and 41th
 eigenvectors are used here and not some others, is there no eigenvector
-with eigenvalue 0 is this case?
+with eigenvalue 0 is this case?~~
+  - Reference to the 40th eigenvector has been removed now, as it is not mentioned any further, in fact.
+  - As per eigenvector 41th, the text already explains "In order to illustrate interesting examples, not correspondin
+      to the trivial
+      evolution of an eigenstate of HS , but to some kind of Rabi oscillation or Larmor
+      precession (...), we pick ... *just as an example* ..."
+  - However, another paragraph has ben added, hopefully adding some more clarity.
 - Figure 4.1: the figure caption is unclear and need to be improved
 - ~~the axis labels of Figs. 4.1, 4.2 are too small~~
   - &rightarrow; Axis labels increased in size.

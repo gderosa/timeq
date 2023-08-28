@@ -79,14 +79,25 @@ In order to illustrate interesting examples, not corresponding to the
 trivial evolution of an eigenstate of $H_S$,
 but to some kind of Rabi oscillation or Larmor precession
 \parencite[\ch IV]{Cohen-Tannoudji}, we pick, in \term{Mathematica}'s ordering,
-just as an example,
-eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\op{\mathbb{J}}$
-in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
-$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+\emph{just as an example},
+an eigenvector $\dket{\Phi_{41}}$ of $\op{\mathbb{J}}$
+in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalue
+$\epsilon_{41} = 11$.
 
-Please not the choice of TODO TODO
+Please note, \emph{any} of the eigenvectors of $\op{\mathbb{J}}$ could  be chosen,
+even if related to a non-zero eigenvalue
+(with suitable phase correction term, as seen below and in Eq.~\eqref{eq:pw:nonzero_eigenJ__phase_term},
+when comparing with standard quantum mechanics).
+However, one may consider
+an eigenstate of $\op{\mathbb{J}}$ in $\pwspace$,
+such as the above example, where
+$\dbradket{t=0}{\Phi_{41}} \in \hilb{H}_S$
+is \emph{not} an eigenstate of the ``ordinary'' Hamiltonian $\op{H}_S$,
+thus avoiding the ``trivial'' evolution of a Hamiltonian eigenstate,
+where the probabilities of the qubit being $\ket{0}_S$ or $\ket{1}_S$
+would be simply constant.
 
-Each eigenvector encodes a whole possible discrete-time history
+Indeed, each eigenvector of $\op{\mathbb{J}}$ encodes a whole possible discrete-time history
 of the qubit over a cycle.
 % as stated in \eqref{eq:timepicks2} or \eqref{eq:timepicksN}.
 
