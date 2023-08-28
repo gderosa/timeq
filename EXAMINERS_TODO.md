@@ -50,7 +50,8 @@ with eigenvalue 0 is this case?~~
       evolution of an eigenstate of HS , but to some kind of Rabi oscillation or Larmor
       precession (...), we pick ... *just as an example* ..."
   - However, another paragraph has ben added, hopefully adding some more clarity.
-- Figure 4.1: the figure caption is unclear and need to be improved
+- ~~Figure 4.1: the figure caption is unclear and need to be improved~~
+  - Done, hopefully to satisfaction.
 - ~~the axis labels of Figs. 4.1, 4.2 are too small~~
   - &rightarrow; Axis labels increased in size.
 - eq. (4.60) is unclear and should be motivated better
