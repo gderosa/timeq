@@ -54,7 +54,10 @@ with eigenvalue 0 is this case?~~
   - Done, hopefully to satisfaction.
 - ~~the axis labels of Figs. 4.1, 4.2 are too small~~
   - &rightarrow; Axis labels increased in size.
-- eq. (4.60) is unclear and should be motivated better
+- ~~eq. (4.60) is unclear and should be motivated better~~
+  - It is a compact / "vector" form of correction terms already seen.
+    - The equation is not referred to anywhere in the thesis. so I am just removing it.
+    - Have no time for a formal "proof"...  
 - it should be explained why there is a difference between the numerical
 numbers in eqs. (4.69) and (4.70)
 - Figure 4.5, 4.7: the captions need to be extended
