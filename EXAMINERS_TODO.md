@@ -45,7 +45,8 @@ discussed in the text~~
 eigenvectors are used here and not some others, is there no eigenvector
 with eigenvalue 0 is this case?
 - Figure 4.1: the figure caption is unclear and need to be improved
-- the axis labels of Figs. 4.1, 4.2 are too small
+- ~~the axis labels of Figs. 4.1, 4.2 are too small~~
+  - &rightarrow; Axis labels increased in size.
 - eq. (4.60) is unclear and should be motivated better
 - it should be explained why there is a difference between the numerical
 numbers in eqs. (4.69) and (4.70)
