@@ -1,4 +1,5 @@
-- the abstract could represent better the content of the thesis
+- ~~the abstract could represent better the content of the thesis~~
+  - Abstract modified, hopefully for the better.
 - ~~the proof of proposition 2.2.1 uses a discrete eigenbasis of the
 operator, this could be included in the formulation of the proposition~~
   - proposition formulation edited
