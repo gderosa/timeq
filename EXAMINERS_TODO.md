@@ -70,6 +70,7 @@ numbers in eqs. (4.69) [now 4.68] and (4.70) [now 4.69]~~
       different model of arrival time has been tackled recently in Roncallo et al. 2022''
   - However, small modifications have been made to the text so to make the connection
       a bit more clear, hopefully.
-- Figure 4.5, 4.7: the captions need to be extended
+- ~~Figure 4.5, 4.7: the captions need to be extended~~
+  - More details or comments added to the Figures.
 
 There are also minor typos that will be discussed by the internal examiner and the student.

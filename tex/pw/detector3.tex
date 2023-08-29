@@ -101,7 +101,7 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3lines.pdf}
     \subcaption{
-      Probabilities for the three-level system.
+      Probabilities for the three-level system (see legend on top-right).
       \emph{Note}:
         a three-level system allows a graphical representation
         where primary colors can be combined
@@ -116,20 +116,24 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3color.pdf}
     \subcaption{\setstretch{1.25}
-      \emph{Stacked} probability chart shows that their sum
+      \emph{Stacked} probability chart shows that the sum
       $\sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
-      is constantly equal to 1 at any time $t$.
+      is equal to 1 at any time $t$.
       That is equal to the norm $\norm{\psi(t)}^2$, which is indeed conserved
       as
       the system evolves \emph{unitarily}.
+      It can be compared with Fig.~\ref{fig:3lev:loss3color}
+      where the norm is not conserved and the evolution is non-unitary.
     }
     \label{fig:3lev:probs:stack}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Probabilities
-      $\abs{\braket{i}{\psi(t)}}^2$ for $i \in \qty{0, 1, 2}.$
+    \emph{Unitary} time evolution of a three-level system, showing the probabilities
+      $\abs{\braket{i}{\psi(t)}}^2$ 
+    for the system to be in state $\ket{i}$,
+    $\forall \, i \in \qty{0, 1, 2}$.
   }
   \label{fig:3lev:probs}
 \end{figure}
@@ -245,10 +249,14 @@ conserved, but decreases monotonically.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
     \subcaption{\setstretch{1.33}
-      \emph{Stacked} probability chart (non-Hermitian case) shows that norm
+      \emph{Stacked} probability chart for the non-Hermitian case (absorption model),
+      showing that the norm
       $\norm{\psi(t)}^2 = \sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
-      is monotonically decreasing. The actual state probabilities
-      will need to be renormalized due to the norm loss of $\ket{\psi(t)}$.
+      is not constant and is, in fact, monotonically decreasing. 
+      The actual probability of the system to be in state
+      $\ket{0}$, $\ket{1}$ or $\ket{2}$ 
+      will need to be renormalized due to the loss of normalization.
+      Namely, $P_{i} = \abs{\braket{i}{\psi(t)}}^2 / \norm{\psi(t)}^2$, $\forall\,i \in \setof{0, 1, 2}$.
     }
     \label{fig:3lev:loss3color}
   \end{subfigure}
@@ -258,15 +266,19 @@ conserved, but decreases monotonically.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss.pdf}
     \subcaption{
-      Normalization loss rate $-\dv{\norm{\psi}^2}{t}$.
-      Equates the time-of-arrival probability distribution (at the ``absorbing'' state $\ket{2}$).
+      According to the absorptive detection model,
+      the probability distribution of
+      the time-of-arrival  (at the ``absorbing'' state $\ket{2}$)
+      is given by the
+      normalization loss rate~$-\dv{\norm{\psi}^2}{t}$,
+      shown in the plot.
     }
     \label{fig:3lev:loss}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Absorptive detector model: norm loss and probabilities.
+    Absorptive detector model: norm loss and state probabilities.
   }
   \label{fig:3lev:nonHermitianProbs}
 \end{figure}
