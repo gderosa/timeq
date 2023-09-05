@@ -52,15 +52,18 @@ The answer is negative, as it will be shown.
 Indeed, we can rewrite \eqref{eq:qubit_ortho_measurement} as
 \begin{multline}\label{eq:qubit_gen_measurement}
   \ket{\Psi'}                                               =
-  U( \ket{\psi}_A \ox \ket{0}_B )                           =         \\
+  U( \ket{\psi}_A \ox \ket{0}_B )                           \\
+  =
   \frac{1}{\sqrt{2}} \qty\Big(
     \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
     \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
-  )                                                         =         \\
+  )                                                         \\
+  =
   \frac{1}{\sqrt{2}} \qty\Big(
     \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
     \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
-  )                                               \eqbydef            \\
+  )                                                         \\
+  \eqbydef
   M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
   \,\text{,}
 \end{multline}

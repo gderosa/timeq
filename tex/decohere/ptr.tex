@@ -14,8 +14,9 @@ Its expectation value is
 (using the expansion in Eq.~\eqref{eq:bipartite_expansion},
 and the notation of Latin indices for system $A$ and Greek ones for system $B$)
 \begin{multline}\label{eq:exp_subsys}
-  \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} = \\[1em]
-  \sum_{j,\nu}a^{*}_{j\nu}\left(\bra{j}\otimes\bra{\nu}\right)\left(M_A\otimes\idop_B\right)\sum_{i,\mu}a_{i\mu}\left(\ket{i}\otimes\ket{\mu}\right) = \\
+  \expval{M_A} = \matrixel{\psi_S}{M_A\otimes\idop_B}{\psi_S} \\[1em] =
+  \sum_{j,\nu}a^{*}_{j\nu}\left(\bra{j}\otimes\bra{\nu}\right)\left(M_A\otimes\idop_B\right)\sum_{i,\mu}a_{i\mu}\left(\ket{i}\otimes\ket{\mu}\right) \\
+  =
   \sum_{j,\nu,i,\mu}a^{*}_{j\nu}a_{i\mu}\matrixel{j}{M}{i}\matrixel{\mu}{\idop}{\nu} =
   \sum_{j,\mu,i}a^{*}_{j\mu}a_{i\mu}\matrixel{j}{M}{i}
 \end{multline}
@@ -138,7 +139,8 @@ as\footnote{
 Finally, we can see that
 \begin{multline*}
   \tr(M_A \rho_A) = \sum_k \mel{k}{M_A \rho_A}{k} =
-    \sum_k \mel {k} {M_A \left(\sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j}\right)} {k} = \\
+    \sum_k \mel {k} {M_A \left(\sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*}\ketbra{i}{j}\right)} {k} \\
+    =
     \sum_{ijk\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{k}{M_A}{i} \braket{j}{k} =
     \sum_{ij\mu} \alpha_{i\mu}\alpha_{j\mu}^{*} \mel{j}{M_A}{i}
     \, \text{,}
