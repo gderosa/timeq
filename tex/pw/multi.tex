@@ -12,7 +12,7 @@ The experiment described in
   introducing varying time delays to the clock photon, implemented through quartz plates of
   variable thickness.
 \end{quote}
-But it's worth noting that such delay is in fact a classical external parameter.
+However, it must be noted that such delay is in fact a classical external parameter.
 %
 In what follows, instead, our approach to a more interesting clock will be based on simply
 increasing the number of levels of the clock, or in other words increasing the
@@ -35,7 +35,7 @@ two-level clock experiment described in Section \ref{sec:pw:qubit}.
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis\footnote{
-  Here there's no explicit reference to any particular physical implementation.
+  Here there is no explicit reference to any particular physical implementation.
 }:
 \[
   \op{T} \repr \frac{2\pi}{N}
@@ -79,12 +79,25 @@ In order to illustrate interesting examples, not corresponding to the
 trivial evolution of an eigenstate of $H_S$,
 but to some kind of Rabi oscillation or Larmor precession
 \parencite[\ch IV]{Cohen-Tannoudji}, we pick, in \term{Mathematica}'s ordering,
-just as an example,
-eigenvectors $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ of $\op{\mathbb{J}}$
-in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalues
-$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+\emph{just as an example},
+an eigenvector $\dket{\Phi_{41}}$ of $\op{\mathbb{J}}$
+in $\hilb{H}_T \ox \hilb{H}_T$, corresponding to eigenvalue
+$\epsilon_{41} = 11$.
 
-Each eigenvector encodes a whole possible discrete-time history
+Please note, \emph{any} of the eigenvectors of $\op{\mathbb{J}}$ could  be chosen,
+even if related to a non-zero eigenvalue
+(with suitable phase correction term, as seen below and in Eq.~\eqref{eq:pw:nonzero_eigenJ__phase_term},
+when comparing with standard quantum mechanics).
+However, one may consider
+an eigenstate of $\op{\mathbb{J}}$ in $\pwspace$,
+such as the above example, where
+$\prescript{}{T}{\bradket{t=0}{\Phi_{41}}} \in \hilb{H}_S$
+is \emph{not} an eigenstate of the ``ordinary'' Hamiltonian $\op{H}_S$,
+thus avoiding the ``trivial'' evolution of a Hamiltonian eigenstate,
+where the probabilities of the qubit being $\ket{0}_S$ or $\ket{1}_S$
+would be simply constant.
+
+Indeed, each eigenvector of $\op{\mathbb{J}}$ encodes a whole possible discrete-time history
 of the qubit over a cycle.
 % as stated in \eqref{eq:timepicks2} or \eqref{eq:timepicksN}.
 
@@ -109,14 +122,22 @@ and algebraic operations in the product space $\hilb{H}_T \ox \hilb{H}_S$.
 
 \begin{figure}
   \centering
-  \includegraphics[height=.3\textheight]{img/N32-B.png}
-  \includegraphics[height=.3\textheight]{img/probB_0.png}
-  \includegraphics[height=.3\textheight]{img/probB_1.png}
+  \includegraphics[height=.3\textheight]{img/N32-B-largelabels.png}
+  \includegraphics[height=.3\textheight]{img/probB_0-largelabels+0.png}
+  \includegraphics[height=.3\textheight]{img/probB_1-largelabels+0.png}
   \caption[
     Page-Wootters vs Schr{\"o}dinger probability evolution
   ]{
-    Page-Wootters ({\it top}) vs Schr{\"o}dinger probability evolution. % for $\op{\mathbb{J}}$ eigenvalue $=11$.
-    See also Eqs. \eqref{eq:comparison0} and \eqref{eq:comparison0}.
+    \emph{Top}: probability of the qubit being measured $\ket{0}$ or $\ket{1}$
+    according to the discrete Page--Wootters model, computed as
+    $P(0)|_{t=t_k} =  \qty|\dbradket{2k+1}{\Phi_{41}}|^2$
+    and
+    $P(1)|_{t=t_k} =  \qty|\dbradket{2k+2}{\Phi_{41}}|^2$.
+    \emph{Centre, bottom}: same probabilities (in continuous time) according
+    to ordinary quantum mechanics,
+    $P(0)|_t = \qty|\braket{0}{\psi(t)}_{\mathrm{S}}|^2$,
+    $P(1)|_t = \qty|\braket{1}{\psi(t)}_{\mathrm{S}}|^2$.
+    See also Eqs. \eqref{eq:comparison0} and \eqref{eq:comparison1}.
   }
   \label{fig:prob-comparison}
 \end{figure}
@@ -142,8 +163,8 @@ with the Schr{\"o}dinger evolution of probability $\qty|\braket{1}{\psi}|^{2}$
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.45\textwidth]{img/PWfit32.png}
-  \includegraphics[width=0.5\textwidth]{img/PWfit32top.png}
+  \includegraphics[width=0.45\textwidth]{img/PWfit32-largelabels.png}
+  \includegraphics[width=0.5\textwidth]{img/PWfit32top-largelabels.png}
   \caption[
     P-W vs Schr{\"o}dinger evolution (complex values)
   ]{

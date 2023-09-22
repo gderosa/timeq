@@ -521,7 +521,7 @@ plot(abs(fhatpsi1(nu))**2, (nu, -1, 1), line_color='#bbbbbb')
 \end{lstlisting}
 
 The above Fourier transform is defined in frequency ($\nu$) not angular
-frequency ($\omega$), therefore needs rescaling.
+frequency~($\omega$), therefore needs rescaling.
 
 \begin{lstlisting}[language=Python]
 def fhatpsiomega(_omega):
@@ -564,7 +564,7 @@ plot(abs(fhatpsiomega(omega))**2, (omega, -2*pi, 2*pi), line_color='magenta',
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-# graphical comparison with a normalized gaussian
+# graphical comparison with a normalized Gaussian
 sigma = 1.0
 plot((1/(sqrt(2*pi)*sigma)) * exp(-omega**2/(2*(sigma)**2)), (omega, -2*pi, 2*pi), line_color='magenta')
 \end{lstlisting}
@@ -731,7 +731,7 @@ qbhist = reshape(qbhistvec)
 qbhist = qbhist.astype(complex)
 \end{lstlisting}
 
-Consitently with ``odinary QM'' findings, the component along
+Consistently with ``ordinary QM'' findings, the component along
 \textbar0\textgreater{} stays purely real, and the component along
 \textbar1\textgreater{} stays purely imaginary.
 
@@ -741,7 +741,7 @@ times = np.arange(0, 2*np.pi, np.pi/16)
 norms = np.zeros(32)
 probs0 = np.zeros(32)
 probs1 = np.zeros(32)
-# Components 0 are pure real, componets 1 are pure imag
+# Components 0 are pure real, components 1 are pure imag
 real_parts0 = np.real(qbhist.T[0])
 imag_parts1 = np.imag(qbhist.T[1])
 
@@ -951,7 +951,7 @@ array([-1.34148089, -1.34148089, -1.34148089, -1.34148089, -1.34148089,
 which shows that the two vectors are essentially the same,
 up to a renormalization and change of sign.
 Of course, probability over time and over space require a different normalization.
-The two would be conceptually uncomparable, but an explaination is in \cite[eq. 6]{Maccone:QMOT}.
+The two would be conceptually incomparable, but an explanation is in \cite[eq. 6]{Maccone:QMOT}.
 
 \begin{lstlisting}[language=Python]
 prob_detect = np.zeros(32)

@@ -16,7 +16,7 @@ i.e. the projectors have the properties
   P_i P_j     &= \delta_{ij}P_i \, \text{.}
 \end{align}
 
-On $\hilb{H}_B$ instead, describing the measurement device, let's consider
+On $\hilb{H}_B$ instead, describing the measurement device, let us consider
 the
 % fiducial\footnote{
 %   In the sense that it's assumed
@@ -74,15 +74,18 @@ Therefore
 \begin{eqsplit}\label{eq:measurement_entangled}
   \ket{\Psi^{\prime}} &= \sum_a \qty\Big(P_a\ox\ketbra{a}{0}) \qty\Big(\ket{\psi}\ox\ket{0}) \\
                       &= \sum_a P_a \ket{\psi} \ox \ket{a}
+  \text{.}
 \end{eqsplit}
 
 The probability of an outcome $a$ is
 \begin{multline}\label{eq:measurement_probability}
-  \pi_{a} = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} = \\
+  \pi_{a} = \expval{\qty\Big(\idop\ox\ketbra{a})}{\Psi^{\prime}} \\
+  =
     \sum_{b,c}
       \qty(\bra{\psi}P_{b}\ox\bra{b})
       \qty\Big(\idop\ox\ketbra{a})
-      \qty(P_{c}\ket{\psi}\ox\ket{c}) = \\
+      \qty(P_{c}\ket{\psi}\ox\ket{c}) \\
+  =
     \sum_{b,c}\qty\Big(\expval{P_bP_c}{\psi} \braket{b}{a} \braket{a}{c}) =
     \expval{P_a}{\psi} \text{.}
 \end{multline}
@@ -129,7 +132,7 @@ It can be proven that the transformation
   \rho \rightarrow \sum_a P_a \rho P_a
 \end{equation}
 is also valid in the more general case of $\rho$ being a mixed state before the measurement
----in this case, it's transformed into another mixed state,
+---in this case, it is transformed into another mixed state,
 but still described by the \eqref{eq:irreversible_measurement}.
 A generalization to observables with a continuous spectrum is also possible
 (see e.g. \cite[\s 3.1.1]{PreskillNotes} for more details).
