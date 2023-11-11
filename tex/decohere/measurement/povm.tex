@@ -7,6 +7,9 @@ let us again consider
 a system under measurement
 and the measurement apparatus,
 but, for further simplicity, let both their Hilbert spaces have finite dimension $N=2$.
+%
+The examples in this Subsection are based on \citereset\cite[\s 3.1.2]{PreskillNotes},
+with the details of some calculations expanded further. 
 
 Let $\ket{0}_A, \ket{1}_A \in \hilb{H}_A$ be the eigenstates
 of the observable subject of measurement,
@@ -49,15 +52,18 @@ The answer is negative, as it will be shown.
 Indeed, we can rewrite \eqref{eq:qubit_ortho_measurement} as
 \begin{multline}\label{eq:qubit_gen_measurement}
   \ket{\Psi'}                                               =
-  U( \ket{\psi}_A \ox \ket{0}_B )                           =         \\
+  U( \ket{\psi}_A \ox \ket{0}_B )                           \\
+  =
   \frac{1}{\sqrt{2}} \qty\Big(
     \alpha\ket{0}_A \ox \qty(\ket{+}+\ket{-}) +
     \beta \ket{1}_A \ox \qty(\ket{+}-\ket{-})
-  )                                                         =         \\
+  )                                                         \\
+  =
   \frac{1}{\sqrt{2}} \qty\Big(
     \qty(\alpha\ket{0}_A + \beta\ket{1}_A) \ox \ket{+} +
     \qty(\alpha\ket{0}_A - \beta\ket{1}_A) \ox \ket{-}
-  )                                               \eqbydef            \\
+  )                                                         \\
+  \eqbydef
   M_+\ket{\psi}_A \ox \ket{+} + M_-\ket{\psi}_A \ox \ket{-}
   \,\text{,}
 \end{multline}
@@ -79,8 +85,8 @@ with respect to such basis!
 Moreover, $M_-$ in the example is not even idempotent,
 therefore it is not a projector onto \emph{any} linear subspace of $\hilb{H}_A$.
 The lack of idempotency means, physically,
-that if we repeat the measurement we don't generally
-obtain the same result (and don't leave the system $A$ in the same state).
+that, if we repeat the measurement, we do not generally
+obtain the same result (and do not leave the system $A$ in the same state).
 
 On the other hand,
 while $M_{\pm}$ are not (a complete set of) orthogonal projectors,
@@ -116,7 +122,7 @@ measurement operator $M_m$ itself. So one can define the positive operators $E_m
 However, the state \emph{after} the measurement, as in Eq.~\eqref{eq:qmt:postulate:after}
 \emph{does} depend on $M_m$.
 
-It's important to note that, given a positive operator $E_m$, the operator
+It is important to note that, given a positive operator $E_m$, the operator
 $M_m$ such that
 \begin{equation}\label{eq:qmt:positive-measurement}
   E_m = M_{m}^{\dagger} M_m

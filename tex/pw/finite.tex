@@ -220,16 +220,15 @@ the results \eqref{eq:DFO:bra} and~\eqref{eq:DFO:ket} above,
 and Eq.~\eqref{eq:DFT:eigenratio}
 to obtain:
 \begin{multline}\label{eq:DFT:OmegaFTF}
-  \op{\Omega} = \sum_{m} \omega_{m} \ketbra{\omega_{m}} =
-  \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F} =
-  \sum_{m} m \qty(\delta\Omega) \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
+  \op{\Omega}
+  = \sum_{m} \omega_{m} \ketbra{\omega_{m}}
+  = \sum_{m} \omega_{m} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
   \\
-  = \sum_{m} \frac{t_m}{\delta{T}} \op{F}^{\dagger} \ketbra{t_{m}} \op{F}
   = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \left(\sum_{m}t_{m}\ketbra{t_{m}}\right) \op{F}
+  = \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F}
   \\
-  =
-  \frac{2\pi}{N(\delta{T})^{2}} \op{F}^{\dagger} \op{T} \op{F} =
-  \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F} = \frac{\delta\Omega}{\delta{T}} \op{F}^{\dagger} \op{T} \op{F}
+  = \frac{2\pi N}{\qty(\Delta T)^2} \op{F}^{\dagger} \op{T} \op{F}
+  = \frac{\delta\Omega}{\delta{T}} \op{F}^{\dagger} \op{T} \op{F}
   \text{.}
 \end{multline}
 

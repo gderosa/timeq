@@ -101,7 +101,7 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3lines.pdf}
     \subcaption{
-      Probabilities for the three-level system.
+      Probabilities for the three-level system (see legend on top-right).
       \emph{Note}:
         a three-level system allows a graphical representation
         where primary colors can be combined
@@ -116,20 +116,24 @@ Such probabilities over time are shown in Figure \ref{fig:3lev:probs}.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/hermitian3color.pdf}
     \subcaption{\setstretch{1.25}
-      \emph{Stacked} probability chart shows that their sum
+      \emph{Stacked} probability chart shows that the sum
       $\sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
-      is constantly equal to 1 at any time $t$.
+      is equal to 1 at any time $t$.
       That is equal to the norm $\norm{\psi(t)}^2$, which is indeed conserved
       as
       the system evolves \emph{unitarily}.
+      It can be compared with Fig.~\ref{fig:3lev:loss3color}
+      where the norm is not conserved and the evolution is non-unitary.
     }
     \label{fig:3lev:probs:stack}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Probabilities
-      $\abs{\braket{i}{\psi(t)}}^2$ for $i \in \qty{0, 1, 2}.$
+    \emph{Unitary} time evolution of a three-level system, showing the probabilities
+      $\abs{\braket{i}{\psi(t)}}^2$ 
+    for the system to be in state $\ket{i}$,
+    $\forall \, i \in \qty{0, 1, 2}$.
   }
   \label{fig:3lev:probs}
 \end{figure}
@@ -166,7 +170,7 @@ while the independent variable $t$ (time) is represented on the vertical axis.
     the first two axes, while the independent variable (time, $t$)
     is represented
     on the third axis.
-    -- Additionally, the vertical axis is coloured to encode \emph{probabilities}
+    -- Additionally, the vertical axis is colored to encode \emph{probabilities}
     (absolute values)
     in a similar fashion to Fig. \ref{fig:3lev:probs:lines}.
   }
@@ -245,10 +249,14 @@ conserved, but decreases monotonically.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss3color.pdf}
     \subcaption{\setstretch{1.33}
-      \emph{Stacked} probability chart (non-Hermitian case) shows that norm
+      \emph{Stacked} probability chart for the non-Hermitian case (absorption model),
+      showing that the norm
       $\norm{\psi(t)}^2 = \sum_{i=0}^{2} \abs{\braket{i}{\psi(t)}}^2$
-      is monotonically decreasing. The actual state probabilities
-      will need to be renormalized due to the norm loss of $\ket{\psi(t)}$.
+      is not constant and is, in fact, monotonically decreasing. 
+      The actual probability of the system to be in state
+      $\ket{0}$, $\ket{1}$ or $\ket{2}$ 
+      will need to be renormalized due to the loss of normalization.
+      Namely, $P_{i} = \abs{\braket{i}{\psi(t)}}^2 / \norm{\psi(t)}^2$, $\forall\,i \in \setof{0, 1, 2}$.
     }
     \label{fig:3lev:loss3color}
   \end{subfigure}
@@ -258,15 +266,19 @@ conserved, but decreases monotonically.
     \centering
     \includegraphics[width=.8\textwidth]{img/3ldetect/loss.pdf}
     \subcaption{
-      Normalization loss rate $-\dv{\norm{\psi}^2}{t}$.
-      Equates the time-of-arrival probability distribution (at the ``absorbing'' state $\ket{2}$).
+      According to the absorptive detection model,
+      the probability distribution of
+      the time-of-arrival  (at the ``absorbing'' state $\ket{2}$)
+      is given by the
+      normalization loss rate~$-\dv{\norm{\psi}^2}{t}$,
+      shown in the plot.
     }
     \label{fig:3lev:loss}
   \end{subfigure}
   \par\bigskip
   \par\bigskip
   \caption{
-    Absorptive detector model: norm loss and probabilities.
+    Absorptive detector model: norm loss and state probabilities.
   }
   \label{fig:3lev:nonHermitianProbs}
 \end{figure}
@@ -304,7 +316,7 @@ over a longer time interval
 in Fig.~\ref{fig:3lev:nonHermitianProbs_ext}.
 By comparing the latter,
 back with Fig.~\ref{fig:3lev:probs:stack},
-it's apparent that in the unitary case the system
+it is apparent that in the unitary case the system
 periodically oscillates between $\ket{0}$ and $\ket{2}$
 ---transitioning through the intermediate level $\ket{1}$,
 but with a small value of $\abs{\braket{1}{\psi(t)}}^2$.
@@ -330,7 +342,7 @@ The result is about $94\%$.
 \begin{lstlisting}
 0.9414855990054901
 \end{lstlisting}
-It's also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
+It is also worth noting that the norm does not fully vanish with $t \rightarrow +\infty$,
 meaning there is a finite probability that detection (or ``absorption'', or spontaneous decay) never happens:
 \begin{equation*}
   P_{\mathrm{nd}} = \lim_{t \rightarrow +\infty} 1 - \norm{\psi(t)}^2 \text{.}
@@ -407,7 +419,7 @@ And the frequency operator $\op{\Omega}$ is computed via \term{Discrete Fourier 
 \begin{equation}
   \op{\Omega} = \frac{2\pi N_T}{\Delta{T}^2} F^{\dagger} \op{T} F \text{.}
 \end{equation}
-It's worth noting that, from a numerical computation perspective,
+It is worth noting that, from a numerical computation perspective,
 different library implementations use different conventions and definitions
 for the discrete Fourier matrix. Therefore,
 appropriate factors in the relation between $\op{T}$ and $\op{\Omega}$
@@ -466,7 +478,7 @@ the time evolution predicted with ``standard'' quantum mechanics
 (although, still, with a non-Hermitian Hamiltonian, or \emph{complex potential}).
 Namely,
 corrections related to non-zero eigenvalues are required ---see Eq.~\eqref{eq:pw:non0e:last}.
-It's worth recalling that,
+It is worth recalling that,
 as the Wheeler-DeWitt equation reads $\mathbb{J} \dket{\Psi} = 0$,
 eigenvectors of $\mathbb{J}$ related to eigenvalues ---say, $\epsilon_{i}$---
 which are not zero,
@@ -516,7 +528,7 @@ so that
 
 \subsubsection*{Initial value problem}
 
-As there isn't an individual $\dket{\Phi_i}$,
+As there is no individual $\dket{\Phi_i}$,
 in our numeric example,
 satisfying the \eqref{eq:3lev:PWInitialCond},
 a suitable linear combination
@@ -562,7 +574,7 @@ form an orthonormal basis in $\hilb{H}_S$.%
     )}
   $.
 }
-Then it's elementary linear algebra to find out the $N_S$
+Then, with some elementary linear algebra, one can obtain the $N_S$
 coefficients
 % \footnote{
 %   $N_S$ coefficients (3 in our example),
@@ -608,7 +620,7 @@ def find_linear_independent_initial(eigenvectors=eigenvectors_normalized_in_S):
   # [...]
   return best_i, best_j, best_k, best_det
 \end{lstlisting}
-Then it's invoked:
+Then it is invoked:
 \begin{lstlisting}[language=Python]
 best_i, best_j, best_k, best_det = find_linear_independent_initial()
 \end{lstlisting}
@@ -725,7 +737,7 @@ in Fig.~\ref{fig:3lev:PWSpaceTime}.
 From \cite{Maccone:QMOT}, a time-of-arrival probability distribution can be derived
 for the three-level system at hand, within the Page--Wootters formalism.
 In a finite-dimensional
-Hilbert space there's no notion of position or ``region of space'', but, as stated in the
+Hilbert space there is no notion of position or ``region of space'', but, as stated in the
 same paper,
 \begin{quote}
   [\dots] the whole discussion can be easily extended to the “time at which any

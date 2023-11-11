@@ -165,19 +165,8 @@ with respect to the basis $\setof{\ket{t}_T}$:
 somewhat similar to the well known expression $\ket{\psi}_S = \int \dd{x} \psi_{S}(x) \ket{x}_S$
 which defines the position representation.
 
-Under this time representation%\footnote{  % no, we're not...
-%   Please note we are using use the following sign convention:
-%   \begin{align*}
-%     \op{\Omega} &\repr[T] i\pdv{t} \text{,} \\
-%     \op{H}_T = -\hbar\op{\Omega} &\repr[T] -i\hbar\pdv{t} \text{;}
-%   \end{align*}
-%   as opposed to the sign convention used in \cite{Lloyd:Time}, and by other authors, where
-%   \begin{align*}
-%     \op{\Omega} &\repr[T] -i\pdv{t} \text{,} \\
-%     \op{H}_T = \hbar\op{\Omega} &\repr[T] -i\hbar\pdv{t} \text{.}
-%   \end{align*}
-% }
-(or $T$ representation), the operator $\op{H}_T = -\hbar\op{\Omega}$,
+Under this time representation
+(or $T$ representation), the operator $\op{H}_T = \hbar\op{\Omega}$,
 canonically conjugate to the time operator $\op{T}$, is expressed as $-i\hbar\pdv{t}$,
 and the commutation relation
 $[\op{T}, \op{H}_T] \repr[T] \comm{t, -i\hbar\pdv{t}}{} = i\hbar$
@@ -366,7 +355,7 @@ under the Hamiltonian $\op{H}_S$,
 in standard quantum mechanics.
 If we define this evolved state as, simply, $\ket{\psi(t)}_S$, and recall the definition of $\ket{\psi_{PW}(t)}_S$,
 we have
-\begin{equation}
+\begin{equation}\label{eq:pw:nonzero_eigenJ__phase_term}
   \ket{\psi(t)}_S = \E^{-\frac{\iu \epsilon t}{\hbar}} \prescript{}{T}{\bradket{t}{\Psi}} \, \text{,}
 \end{equation}
 which, compared to Eq.~\eqref{eq:pw:standard_evolution},
@@ -411,15 +400,22 @@ $\op{H}_T$ and $\op{H}_S$ in the two spaces respectively % $\hilb{H}_T$ and $\hi
 
 As $\ket{\tilde{\psi}_{0}(\omega)}_{S}$ is the Fourier transform of $\ket{\psi_0(t)}_S$, and using Eq. \eqref{eq:pw:eigenevol}, it holds:
 \[
-  \ket{\tilde{\psi}_0(\omega)}_S = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{iwt} \E^{-i\omega_{0}t} \ket{\psi_0^i}_S
-  = \delta(\omega-\omega_0)\ket{\psi_0^i}_S \text{;}
+  \ket{\tilde{\psi}_0(\omega)}_S = \frac{1}{\sqrt{2\pi}} \int \dd{t} \E^{-iwt} \E^{-i\omega_{0}t} \ket{\psi_0^i}_S
+  = \delta(\omega+\omega_0)\ket{\psi_0^i}_S \text{;}
 \]
 then, replacing into Eq.~\eqref{eq:pw:Psi_0_omega__int}:
 \begin{equation}\label{eq:pw:Psi_0_omega}
-  \dket{\Psi_0} = \ket{\omega_0}_{T}\ox\ket{\tilde{\psi}_{0}(\omega_0)}_{S} \text{,}
+  \dket{\Psi_0} = \ket{-\omega_0}_{T}\ox\ket{\tilde{\psi}_{0}(-\omega_0)}_{S} \text{,}
 \end{equation}
 %
-showing that the frequency distribution in $\hilb{H}_T$ is in fact concentrated at $\omega = \omega_0$.
+showing that the frequency distribution in $\hilb{H}_T$ is in fact concentrated at $\omega = -\omega_0$.\footnote{The
+  negative value should not be a surprise to the reader.
+  The vector $\dket{\Psi_0}$ is an eigenstate of $H_S$ (or, more correctly, of $\idop_T \ox \op{H}_S$)
+  in relation to the eigenvalue $\hbar\omega_0$.
+  The same vector is also
+  an eigenstate of $\hbar\op{\Omega} \ox \idop_S$ for the eigenvalue $-\hbar\omega_0$.
+  This guarantees the zero sum in \eqref{eq:Wheeler-DeWitt} and \eqref{eq:pwHamiltonian}.
+}
 
 % $\dket{\Psi_0}$ is also an egienstate of $\idop_T \ox \op{H}_S$, related to the same eigenvalue $E_0$:
 % \[

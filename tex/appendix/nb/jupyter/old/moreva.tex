@@ -1,5 +1,5 @@
 \hypertarget{nb:moreva}{%
-\section{Analysys of the Moreva et
+\section{Analysis of the Moreva et
 al.~experiment}\label{nb:jupyter:moreva}}
 
 \hypertarget{nb:jupyter:moreva:preliminaries}{%
@@ -14,7 +14,7 @@ from sympy.physics.quantum.constants import hbar
 \end{lstlisting}
 
 \begin{lstlisting}[language=Python]
-# Remeber this to have LaTeX rendered output in Jupyter
+# Remember this to have LaTeX rendered output in Jupyter
 init_printing()
 \end{lstlisting}
 
@@ -69,7 +69,7 @@ T_d
 
 \[\left[\begin{matrix}- \frac{\pi}{4 \omega} & 0\\0 & \frac{\pi}{4 \omega}\end{matrix}\right]\]
 
-Check: this is what we would obtain with matric of cols egeinv
+Check: this is what we would obtain with matrix of cols egeinv
 
 \begin{lstlisting}[language=Python]
 R = (1/sqrt(2)) * Matrix([
@@ -144,7 +144,7 @@ exp(-I*Hs*(t-t0)/hbar) * Matrix([0, -I])
 \[\left[\begin{matrix}- i\\0\end{matrix}\right]\]
 
 There is consistency in predicting the probability (square modulus), but
-not probability amplitute: at \(t=\frac{\pi}{4\omega}\) P-W finds
+not probability amplitude: at \(t=\frac{\pi}{4\omega}\) P-W finds
 \((1, 0)\) instead of \((-i, 0)\). But the Rabi oscillation in terms of
 probability from 100\% \(\left|V\right>\) at
 \(t=t_0=-\frac{\pi}{4\omega}\), to 100\% \(\left|H\right>\) at
