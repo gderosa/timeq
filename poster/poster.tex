@@ -201,7 +201,7 @@ A detailed proof is expanded in~\cite{Galapon2002}.
 
 \color{maincolor} % DarkSlateGray color for the rest of the content
 
-\section*{Evolution without evolution: the Page and Wootters model}
+\section*{Evolution without evolution: the \underline{Page and Wootters} model}
 
 The model \cite{Lloyd:Time, Maccone:Pauli} is based on
 an additional Hilbert space $\mathcal{H}_T$,
@@ -270,7 +270,7 @@ The Pauli objection no longer holds as time as a quantum observable operates in 
 % a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
 % with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
-\section*{Example: One qubit and a $N=32$-level clock ``universe''}
+\section*{Application: One qubit and a $N=32$-level clock ``universe''}
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis:
@@ -296,17 +296,16 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-
-\begin{wrapfigure}[20]{r}{0.2\textwidth}
-  \begin{center}
-    \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
-  \end{center}
-  \caption{
-    \color{Green}
-    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-    Complex values.
-  }
-\end{wrapfigure}
+% \begin{wrapfigure}[21]{r}{0.2\textwidth}
+%   \begin{center}
+%     \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
+%   \end{center}
+%   \caption{
+%     \color{Green}
+%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+%     Complex values.
+%   }
+% \end{wrapfigure}
 
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
@@ -339,16 +338,29 @@ In general, the components
 $2k$\nobreakdash-th and $2k+1$\nobreakdash-th
 are compared to the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
 
-% \begin{center}\vspace{1cm}
-%   \includegraphics[width=0.3\linewidth]{PWfit32-largelabels.png}
-%   \includegraphics[width=0.4\linewidth]{PWfit32top-largelabels.png}
-%   \captionof{figure}{
-%     \color{Green}
-%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-%     Complex values.
-%   }
-% \end{center}\vspace{1cm}
+\begin{center}\vspace{1cm}
+  \includegraphics[width=0.3\linewidth,height=0.5\linewidth]{PWfit32-largelabels.png}
+  \includegraphics[width=0.4\linewidth]{PWfit32top-largelabels.png}
+  \captionof{figure}{
+    \color{Green}
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+    Complex values. 3-D plot shown on two angles.
+  }
+\end{center}\vspace{1cm}
 
+\section*{Application: Qutrit, {\underline{absorptive detector}}, $N=60$-level clock}
+
+Ciao.
+
+\begin{center}\vspace{1cm}
+  \includegraphics[width=.22\textwidth]{3ldetect/loss3color.pdf}
+  \hspace{1cm}
+  \includegraphics[width=.22\textwidth]{3ldetect/conditionalProbFit.pdf}
+  \captionof{figure}{
+    \color{Green}
+    Normalization losss and detection probability.
+  }
+\end{center}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
