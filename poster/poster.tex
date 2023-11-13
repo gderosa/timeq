@@ -7,7 +7,7 @@
 %
 % The a0poster class was created by:
 % Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
-% 
+%
 % This template has been downloaded from:
 % https://www.latextemplates.com/template/a0poster-portrait-poster
 %
@@ -22,6 +22,11 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass[a0,portrait]{a0poster}
+
+\usepackage[backend=biber]{biblatex}
+\addbibresource{bib/main.bib}
+\addbibresource{bib/comp.bib}
+\addbibresource{bib/misc.bib}
 
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
 \columnsep=100pt % This is the amount of white space between the columns in the poster
@@ -97,7 +102,7 @@
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	POSTER HEADER 
+%	POSTER HEADER
 %----------------------------------------------------------------------------------------
 
 % The header is divided into two boxes:
@@ -105,12 +110,14 @@
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 \begin{minipage}[c]{0.70\linewidth}
-\VeryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\ % Title
-\Huge\textit{Overcoming Pauli's Objection: Relational Time and \\Applications}\\[2cm] % Subtitle
-\huge \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
-\huge University College Cork, Department of Physics\\[0.4cm] % University/organization
+\VeryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\[0.5cm] % Title
+\huge\textit{Relational Time and Applications}\\[1cm] % Subtitle
+\huge University College Cork, School of Physics\\[0.66cm] % University/organization
 \large%
-\texttt{gderosa@umail.ucc.ie}
+Guido De Rosa (MSc.)
+|
+Andreas Ruschhaupt (Supervisor)%
+
 \end{minipage}%
 %
 \begin{minipage}[t]{0.30\linewidth}
@@ -133,17 +140,16 @@
 %\noindent % abstract hacks
 This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
 As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
-
+%
 Here we present some first results related to
 the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
-particularly with discrete clocks on discrete systems (lattice).
+particularly with discrete clocks on finite-level systems.
 We show how the predictions of the model fits with
 ordinary quantum mechanics, with the conceptual difference that
-time is an observable with an associated self-adjoint operator in this case.
-
-\emph{Not included in this poster} ---
-we've more recently also compared the Page-Wootters mechanism to models based
-on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
+time is an observable with an associated self-adjoint operator.
+We also apply the Page-Wootters formalism
+to absorptive detector models with
+on-unitary evolution \cite{RuschhauptAbsorption}.
 
 %\end{abstract}
 
@@ -373,8 +379,9 @@ Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as 
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\bibliographystyle{plain}
-\bibliography{bib/main}
+%\bibliographystyle{plain}
+%\bibliography{bib/main}
+\printbibliography
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
