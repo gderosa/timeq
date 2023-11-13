@@ -41,7 +41,7 @@
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
 % \usepackage{newtxtext} % Use the times font for text, newer flavor
-\usepackage{helvet}
+% \usepackage{helvet}
 % \usepackage{mathpazo}
 \renewcommand{\familydefault}{\sfdefault} % sans serif font
 
@@ -49,8 +49,8 @@
 \graphicspath{{img/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
-\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 \usepackage{wrapfig} % Allows wrapping text around tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
 
 \usepackage{physics}
 %\usepackage[T1]{fontenc}
@@ -105,8 +105,9 @@
 \newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
 \newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
-\definecolor{boxedcolor}{RGB}{32, 48, 32}
-
+%\definecolor{boxedcolor}{RGB}{32, 48, 32}
+\definecolor{maincolor}{RGB}{16, 48, 16}
+%\definecolor{boxedcolor}{maincolor}
 
 
 %\renewcommand{\abstractname}{\large Abstract} % abstract hacks
@@ -145,10 +146,9 @@
 
 \color{Navy} % Navy color for the abstract
 
-\section*{\large Abstract}
+\section*{Abstract}
 %\noindent % abstract hacks
-This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
-As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
+Time in quantum mechanics is treated as an external (classical) parameter \cite{TQM1, TQM2}.
 %
 Here we present some first results related to
 the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
@@ -199,7 +199,7 @@ A detailed proof is expanded in~\cite{Galapon2002}.
 %	THE MODEL
 %----------------------------------------------------------------------------------------
 
-\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
+\color{maincolor} % DarkSlateGray color for the rest of the content
 
 \section*{Evolution without evolution: the Page and Wootters model}
 
@@ -225,12 +225,12 @@ the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
-    \boxed{\color{boxedcolor} \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S}
+    \boxed{\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S}
     \;\text{,}
 \end{equation}
 while the \term{Wheeler-DeWitt equation} holds:
 \begin{equation}\label{eq:Wheeler-DeWitt}
-  \boxed{\color{boxedcolor} \hat{\mathbb{J}}\dket{\Psi} = 0}
+  \boxed{\hat{\mathbb{J}}\dket{\Psi} = 0}
   \;\text{,}
 \end{equation}
 describing a \emph{static} universe, where evolution is only
@@ -296,16 +296,28 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
+
+\begin{wrapfigure}[20]{r}{0.2\textwidth}
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
+  \end{center}
+  \caption{
+    \color{Green}
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+    Complex values.
+  }
+\end{wrapfigure}
+
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
 \emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
 \begin{equation}
-  \boxed{ \color{boxedcolor}
+  \boxed{
     \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N}
   }
-  \, \text{.}
+  \; \text{.}
 \end{equation}
-
+%
 We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}.
 Such eigensolutions
 will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
@@ -322,20 +334,21 @@ We pick $\dket{\Phi_{41}}$ corresponding to eigenvalue
 $\epsilon_{41} = 11$.
 
 The first two components
-are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. 
+are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$.
 In general, the components
 $2k$\nobreakdash-th and $2k+1$\nobreakdash-th
 are compared to the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
 
-\begin{center}\vspace{1cm}
-  \includegraphics[width=0.3\linewidth]{PWfit32.png}
-  \includegraphics[width=0.4\linewidth]{PWfit32top.png}
-  \captionof{figure}{
-    \color{Green}
-    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-    Complex values.
-  }
-\end{center}\vspace{1cm}
+% \begin{center}\vspace{1cm}
+%   \includegraphics[width=0.3\linewidth]{PWfit32-largelabels.png}
+%   \includegraphics[width=0.4\linewidth]{PWfit32top-largelabels.png}
+%   \captionof{figure}{
+%     \color{Green}
+%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+%     Complex values.
+%   }
+% \end{center}\vspace{1cm}
+
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
