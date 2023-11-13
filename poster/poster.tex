@@ -56,7 +56,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage{setspace}
 
-\setlength{\fboxsep}{5\fboxsep}
+\setlength{\fboxsep}{.66em}
 
 \usepackage{bbm}
 
@@ -105,7 +105,8 @@
 \newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
 \newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
-\newcommand{\boxedcolor}{DarkSlateGrey}
+\definecolor{boxedcolor}{RGB}{32, 48, 32}
+
 
 
 %\renewcommand{\abstractname}{\large Abstract} % abstract hacks
@@ -224,13 +225,13 @@ the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
-    \color{\boxedcolor}\boxed{\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S}
-    \,\text{,}
+    \boxed{\color{boxedcolor} \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S}
+    \;\text{,}
 \end{equation}
 while the \term{Wheeler-DeWitt equation} holds:
 \begin{equation}\label{eq:Wheeler-DeWitt}
-  \color{\boxedcolor}\boxed{\hat{\mathbb{J}}\dket{\Psi} = 0}
-  \,\text{,}
+  \boxed{\color{boxedcolor} \hat{\mathbb{J}}\dket{\Psi} = 0}
+  \;\text{,}
 \end{equation}
 describing a \emph{static} universe, where evolution is only
 in terms of relations between parts of a multipartite system
@@ -299,7 +300,7 @@ The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
 \emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
 \begin{equation}
-  \color{\boxedcolor}\boxed{
+  \boxed{ \color{boxedcolor}
     \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N}
   }
   \, \text{.}
