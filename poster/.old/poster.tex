@@ -1,0 +1,390 @@
+%% Based on:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% a0poster Portrait Poster
+% LaTeX Template
+% Version 1.0 (22/06/13)
+%
+% The a0poster class was created by:
+% Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
+% 
+% This template has been downloaded from:
+% https://www.latextemplates.com/template/a0poster-portrait-poster
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a0,portrait]{a0poster}
+
+\usepackage{multicol} % This is so we can have multiple columns of text side-by-side
+\columnsep=100pt % This is the amount of white space between the columns in the poster
+\columnseprule=3pt % This is the thickness of the black line between the columns in the poster
+
+\usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
+
+%\usepackage{newtxtext} % Use the times font for text, newer flavor
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault} % sans serif font
+
+\usepackage{graphicx} % Required for including images
+\graphicspath{{img/}} % Location of the graphics files
+\usepackage{booktabs} % Top and bottom rules for table
+\usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
+\usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
+
+\usepackage{physics}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+
+\usepackage{bbm}
+
+\usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
+
+\usepackage{lipsum}
+
+% %% https://tex.stackexchange.com/a/366170
+% \makeatletter
+% \renewenvironment{abstract}{%
+%   \begin{center}%
+%     {\bfseries \large\abstractname\vspace{\z@}}
+%   \end{center}%
+%   \quotation
+% }
+% \makeatother
+
+%----------------------------------------------------------------------------------------
+% FROM tex/lib.tex
+%----------------------------------------------------------------------------------------
+% TODO: DRY
+\newcommand{\term}[1]{\emph{#1}}
+\newcommand{\idop}{\mathbbm{1}}           % Identity operator
+\newcommand{\hilb}[1]{\mathcal{#1}}       % Hilbert space
+\newcommand{\setof}[1]{\left\{#1\right\}}
+\newcommand{\ox}{\otimes}
+%
+%% Allows better formatting than \underset
+%% https://tex.stackexchange.com/a/130553
+\DeclareMathOperator*{\repr}{\equiv}      % represented in a basis, or "has components..."
+%
+\renewcommand{\op}{\hat}                  % overwriting physics \op = \ketbra
+\newcommand{\eqbydef}{\coloneqq}
+%\newcommand{\eqbydef}{\triangleq}
+\newcommand{\superop}{\mathcal}
+%
+\newcommand{\smallback}{\hspace{-0.115em}}
+\newcommand{\largeback}{\hspace{-0.365em}}
+%
+\newcommand{\dket}[1]{\left.\left| #1 \right\rangle\smallback\right\rangle}
+\newcommand{\Dket}[1]{\left.\left| #1 \right\rangle\largeback\right\rangle}
+% and similar...
+\newcommand{\dbra}[1]{\left\langle\smallback\left\langle #1 \right|\right.}
+\newcommand{\dbraket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\right.}
+\newcommand{\bradket}[2]{\left.\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
+\newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
+\newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
+
+
+%\renewcommand{\abstractname}{\large Abstract} % abstract hacks
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	POSTER HEADER 
+%----------------------------------------------------------------------------------------
+
+% The header is divided into two boxes:
+% The first is 75% wide and houses the title, subtitle, names, university/organization and contact information
+% The second is 25% wide and houses a logo for your university/organization or a photo of you
+% The widths of these boxes can be easily edited to accommodate your content as you see fit
+\begin{minipage}[c]{0.70\linewidth}
+\VeryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\ % Title
+\Huge\textit{Overcoming Pauli's Objection: Relational Time and \\Applications}\\[2cm] % Subtitle
+\huge \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
+\huge University College Cork, Department of Physics\\[0.4cm] % University/organization
+\large%
+\texttt{gderosa@umail.ucc.ie}
+\end{minipage}%
+%
+\begin{minipage}[t]{0.30\linewidth}
+\includegraphics[width=19cm]{ucc_logo.pdf}\\  %% vector, from original SVG
+\end{minipage}
+
+\vspace{2cm} % A bit of extra whitespace between the header and poster content
+
+%----------------------------------------------------------------------------------------
+
+\begin{multicols}{2} % This is how many columns your poster will be broken into, a portrait poster is generally split into 2 columns
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+\color{Navy} % Navy color for the abstract
+
+\section*{\large Abstract}
+%\noindent % abstract hacks
+This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
+As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
+
+Here we present some first results related to
+the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
+particularly with discrete clocks on discrete systems (lattice).
+We show how the predictions of the model fits with
+ordinary quantum mechanics, with the conceptual difference that
+time is an observable with an associated self-adjoint operator in this case.
+
+\emph{Not included in this poster} ---
+we've more recently also compared the Page-Wootters mechanism to models based
+on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
+
+%\end{abstract}
+
+\setlength{\parindent}{1.5em} % Default is 15pt.
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\color{SaddleBrown} % SaddleBrown color for the introduction
+
+\large
+
+\section*{Historical background: The Pauli Objection}
+The idea of time as an observable in quantum mechanics,
+with an associated self-adjoint operator in a Hilbert space of quantum states,
+was first excluded by W. Pauli,
+and not given particular attention by the Author himself,
+if only a footnote was dedicated to dismiss the whole subject. \cite{PauliFootnote}
+
+Quoting \cite{Maccone:Pauli},
+``Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
+to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''.
+
+Pauli's argument
+is based on showing that
+the existence of
+a canonically conjugate operator $\hat{T}$ of the Hamiltonian $\hat{H}$,
+i.e. one satisfying
+$
+  \label{THcommutator}
+  [\hat{T}, \hat{H}] = i\hbar
+$
+implies that the spectrum of \emph{any} Hamiltonian must be the whole real line
+(contradicting the property of being bounded from below).
+A detailed proof is expanded in the paper by E. Galapon \cite{Galapon2002}.
+
+% Since T is self-adjoint, then for all
+% $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
+% is unitary. A formal
+% expansion of the exponential yields the commutator
+
+% \begin{multline}
+% [U_{\beta}, H]  =
+% \left[
+%     \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+% \right]         =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
+% =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] \\ =
+% \beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} =
+% \beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta T}{\hbar} \right)^{\kappa}  =
+% \beta U_{\beta}
+% \end{multline}
+% where the term for $k=0$ in the first sum vanishes, hence we can start the sum from
+% $k=1$ then set $\kappa=k-1$.
+
+% Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+
+% $$
+% HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
+% EU_{\beta}\varphi_{E} - \beta U_{\beta}\varphi_{E} = (E-\beta)U_{\beta}\varphi_{E}
+% $$
+% showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
+% $E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
+% hence the spectrum of a generic Hamiltonian $H$ should
+% be the whole real line, which contradicts the semi-bounded nature of its spectrum.
+
+%----------------------------------------------------------------------------------------
+%	THE MODEL
+%----------------------------------------------------------------------------------------
+
+\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
+
+\section*{Evolution without evolution: the Page and Wootters model}
+
+The model \cite{Lloyd:Time, Maccone:Pauli} is based on
+an additional Hilbert space $\mathcal{H}_T$,
+where time is an observable
+represented by a self-adjoint operator
+whose properties are similar to the ones of position
+in ordinary quantum mechanics.
+
+In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
+and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
+the space in which both time and position are observables, and they act as
+$\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
+respectively.
+
+The Page and Wootters mechanism is rooted in the ``problem of time''
+in quantum cosmology.
+In principle, an appropriate system (a ``clock'') can be identified in such a way
+to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
+the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
+
+As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
+encompassing both position and time as observables, is given by
+\begin{equation}\label{eq:pwHamiltonian}
+  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
+\end{equation}
+while the \term{Wheeler-DeWitt equation} holds:
+\begin{equation}\label{eq:Wheeler-DeWitt}
+  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
+\end{equation}
+describing a \emph{static} universe, where evolution is only
+in terms of relations between parts of a multipartite system
+(a clock, and the rest of the universe).
+
+Using the $T$ representation in $\hilb{H}_T$,
+and comparing \eqref{eq:pwHamiltonian} and \eqref{eq:Wheeler-DeWitt}:
+\begin{equation}\label{eq:schrod_from_pw}
+  0 = \qty(\hbar\hat{\Omega}\ox\idop_S + \idop_{T}\ox\hat{H}_S)\dket{\Psi}
+    \repr -i\hbar\pdv{t}\ket{\psi(t)}_{S} + \hat{H}_S\ket{\psi(t)}_{S}
+    \,\text{,}
+\end{equation}
+we recover the usual form of the Schr\"{o}dinger equation in $H_S$.
+
+Here $\hat{\Omega}$ can be seen as a ``frequency operator''
+represented as $-i\pdv{t}$ and having as eigenfunctions
+those functions evolving in time with a phase factor $e^{i \omega t}$ only.
+
+Canonical commutation relation holds and can be easily verified
+between $\hat{t}$ and $\hat{\Omega}$
+i.e. $[\hat{t}, \hat{\Omega}] = i$,
+therefore $\hbar\hat{\Omega}$ can be seen as the ``linear momentum''
+in the Hilbert space of time.
+
+The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
+
+\subsection*{Non-zero eigenvalues}
+
+Up to an irrelevant global
+phase, the physical vectors $\dket{\Psi}$ can be identified also by
+imposing the constraint
+\[
+  \hat{\mathbb{J}}\dket{\Psi} = \epsilon \dket{\Psi}
+\]
+with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
+a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
+with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
+
+\section*{Example: One qubit ``universe'' and a $N=32$-level clock}
+
+The clock is built as having a time operator which is diagonal in the
+chosen computational basis:
+\[
+  \hat{T} \repr \frac{2\pi}{N}
+  \begin{pmatrix}
+    0           &       &       &       \\
+                &1      &       &       \\
+                &       &\ddots &       \\
+                &       &       &N-1
+  \end{pmatrix} \,\text{.}
+\]
+With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
+
+The system is modeled by a 2-level Hamiltonian
+\[
+  \hat{H}_S \repr
+  i \hbar \omega
+  \begin{pmatrix}
+    0   & 1   \\
+    -1  & 0
+  \end{pmatrix}
+  \, \text{.}
+\]
+
+The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
+of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
+\emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
+\[
+  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
+\]
+
+We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}
+(a $2N \times 2N$ matrix obtained as a Kronecker product). Such eigensolutions
+will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
+not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
+
+In our example, we take $N = 32$ and resolve numerically.
+With the chosen $\hat{H}_S$,
+of some interest are solutions that show
+Rabi oscillation / Larmor precession,
+i.e. solutions that do not correspond to eigenstates of
+the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
+
+We pick $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ corresponding to eigenvalues
+$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
+
+The first two components of each eigenvector in the computational basis
+are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
+$2k$\nobreakdash-th and $2k+1$\nobreakdash-th
+as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
+Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in picture.
+
+\begin{center}\vspace{1cm}
+  \includegraphics[width=0.3\linewidth]{PWfit32.png}
+  \includegraphics[width=0.4\linewidth]{PWfit32top.png}
+  \captionof{figure}{
+    \color{Green}
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
+    for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
+  }
+\end{center}\vspace{1cm}
+
+%----------------------------------------------------------------------------------------
+%	CONCLUSIONS
+%----------------------------------------------------------------------------------------
+
+\color{SaddleBrown} % SaddleBrown color for the conclusions to make them stand out
+
+
+% \section*{Conclusions and Outlook}
+
+% \begin{itemize}
+% \item Pellentesque eget orci eros. Fusce ultricies, tellus et pellentesque fringilla, ante massa luctus libero, quis tristique purus urna nec nibh. Phasellus fermentum rutrum elementum. Nam quis justo lectus.
+% \item Vestibulum sem ante, hendrerit a gravida ac, blandit quis magna.
+% \item Donec sem metus, facilisis at condimentum eget, vehicula ut massa. Morbi consequat, diam sed convallis tincidunt, arcu nunc.
+% \item Nunc at convallis urna. isus ante. Pellentesque condimentum dui. Etiam sagittis purus non tellus tempor volutpat. Donec et dui non massa tristique adipiscing.
+% \end{itemize}
+
+\color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
+
+\normalsize
+
+ %----------------------------------------------------------------------------------------
+%	REFERENCES
+%----------------------------------------------------------------------------------------
+
+\bibliographystyle{plain}
+\bibliography{bib/main}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+% \section*{Acknowledgements}
+
+% Etiam fermentum, arcu ut gravida fringilla, dolor arcu laoreet justo, ut imperdiet urna arcu a arcu. Donec nec ante a dui tempus consectetur. Cras nisi turpis, dapibus sit amet mattis sed, laoreet.
+
+%----------------------------------------------------------------------------------------
+
+\end{multicols}
+\end{document}
