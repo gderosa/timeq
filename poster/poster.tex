@@ -31,6 +31,7 @@
   \clearfield{issn}
   \clearfield{month}
   \clearfield{doi}
+  \clearfield{title}
 }
 
 
@@ -56,7 +57,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage{setspace}
 
-\setlength{\fboxsep}{.66em}
+\setlength{\fboxsep}{5mm}
 
 \usepackage{bbm}
 
@@ -126,7 +127,7 @@
 \VeryHuge\color{NavyBlue}\textbf{It's $\ket{1}$ o'clock} \color{Black}\\[0.5cm] % Title
 \huge\textit{Relational Time and Applications}\\[1cm] % Subtitle
 \huge University College Cork, School of Physics\\[0.66cm] % University/organization
-\Large{Guido De Rosa (MSc.) -- Andreas Ruschhaupt (Supervisor)}
+\Large{Guido De Rosa (M.Res.) -- Andreas Ruschhaupt (Supervisor)}
 
 \end{minipage}%
 %
@@ -350,7 +351,22 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
 
 \section*{Application: Qutrit, {\underline{absorptive detector}}, $N=60$-level clock}
 
-Ciao.
+Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence non-unitary evolution, in the Page--Wootters Hamiltonian:
+\begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
+  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -i \op{D}_S) \,\text{.}
+\end{equation*}
+Detection probability according to detector models, $-\dv{\norm{\psi}^2}{t}$, is compared with Page-Wootters
+time of arrival probability distribution obtained in terms of (conditional) Bayesian theory:
+\begin{multline*}\label{eq:3lev:bayesPW}
+  P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) = \frac{
+    \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
+  }{
+    \sum_{n'=0}^{N_{T} - 1} \abs{\bra{t_{n'}} \ox \bra{2} \cdot \dket{\Psi}}^2
+  }
+  \text{,}\;
+  \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
+  \text{.}
+\end{multline*}
 
 \begin{center}\vspace{1cm}
   \includegraphics[width=.23\textwidth]{3ldetect/loss3color.pdf}
@@ -361,9 +377,8 @@ Ciao.
     Normalization losss and detection probability.
   }
 \end{center}
-
 \begin{center}\vspace{1cm}
-  \includegraphics[width=.26\textwidth]{3ldetect/PWSpaceTimeFit_side.pdf}\includegraphics[width=.26\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
+  \includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_side.pdf}\includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
   \captionof{figure}{
     \color{Green}
     Discrete Page--Wootters results (points)
