@@ -357,7 +357,7 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
 
 \section*{Application: Qutrit, absorptive detector, $N=60$-level clock}
 
-\begin{wrapfigure}[15]{r}{0.25\textwidth}
+\begin{wrapfigure}[17]{r}{0.25\textwidth}
   \begin{center}
     \includegraphics[width=0.25\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
   \end{center}
@@ -369,11 +369,11 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
   }
 \end{wrapfigure}
 
-Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence non-unitary evolution, in the Page--Wootters Hamiltonian:
+Plugging the anti-Hermitian absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, in the Page--Wootters Hamiltonian:
 \begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
-  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -i \op{D}_S) \,\text{.}
+  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -i \op{D}_S) \,\text{,}
 \end{equation*}
-Detection probability according to detector models, $-\dv{\norm{\psi}^2}{t}$, is compared with Page-Wootters
+the detection probability according to the detector model, $-\dv{\norm{\psi}^2}{t}$, is compared with the Page-Wootters
 time of arrival probability distribution obtained in terms of (conditional) Bayesian theory:
 \begin{multline}\label{eq:3lev:bayesPW}
   P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) \\
@@ -385,10 +385,11 @@ time of arrival probability distribution obtained in terms of (conditional) Baye
   \,\text{,}
   \\
   \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
-  \text{.}
+  \text{,}
 \end{multline}
+where Eq.~\eqref{eq:3lev:bayesPW} is a discretization of the time of arrival distribution in Ref.~\cite{Maccone:QMOT}.
 
-Eq.~\eqref{eq:3lev:bayesPW} is a discretization of the time of arrival distribution in Ref.~\cite{Maccone:QMOT}.
+Explicit expressions of $\op{H}_S$ and $\op{D}_S$ are found in \cite[s.~4.7]{DeRosaMSc}.
 
 \vspace{8cm}
 
