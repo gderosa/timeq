@@ -31,7 +31,7 @@
   \clearfield{issn}
   \clearfield{month}
   \clearfield{doi}
-  \clearfield{title}
+  \clearfield{note}
 }
 
 
@@ -57,7 +57,7 @@
 %\usepackage[T1]{fontenc}
 \usepackage{setspace}
 
-\setlength{\fboxsep}{5mm}
+\setlength{\fboxsep}{2.5mm}
 
 \usepackage{bbm}
 
@@ -177,26 +177,31 @@ A time-of-arrival statistical distribution is derived.
 %\large
 
 \section*{Historical background: The Pauli Objection}
-The idea of time a quantum observable,
-with an associated self-adjoint operator in a Hilbert space,
-was first objected to by Wolfgang Pauli \cite{PauliFootnote}.
+
+% ``[As] a matter of fact, a number of time observables are already routinely measured in
+% laboratories, for example arrival times in time-of-flight experiments, but the theoretical foundation
+% of these measurements is still being discussed'' \cite{TQM1}.
 %
-Quoting \cite{Maccone:Pauli},
-``Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
-to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''.
-%
-Pauli's argument
-is based on showing that
-the existence of
-a canonically conjugate operator $\hat{T}$ of the Hamiltonian $\hat{H}$,
-i.e. one satisfying
+``The Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
+to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''~\cite{Maccone:Pauli}.
+
+Despite these considerations,
+the idea of
+such time operator
+is hindered by the \emph{Pauli's argument} \cite{PauliFootnote}.
+The objection
+is that
+an operator~$\hat{T}$,
+canonically conjugate to the Hamiltonian $\hat{H}$,
+i.e.
 $
   \label{THcommutator}
   [\hat{T}, \hat{H}] = i\hbar
+  \text{,}
 $
-implies that the spectrum of \emph{any} Hamiltonian must be the whole real line
-(contradicting the property of being bounded from below).
-A detailed proof is expanded in~\cite{Galapon2002}.
+implies that the spectrum of \emph{any} Hamiltonian must be the whole real line $\mathbb{R}$
+(thus contradicting the property of being bounded from below).
+A formal proof is detailed in~\cite{Galapon2002}.
 
 
 %----------------------------------------------------------------------------------------
@@ -205,24 +210,20 @@ A detailed proof is expanded in~\cite{Galapon2002}.
 
 \color{maincolor} % DarkSlateGray color for the rest of the content
 
-\section*{Evolution without evolution: the \underline{Page and Wootters} model}
+\section*{Evolution without evolution: the Page and Wootters model}
 
 The model \cite{Lloyd:Time, Maccone:Pauli} is based on
 an additional Hilbert space $\mathcal{H}_T$,
 where time is an observable
-represented by a self-adjoint operator
-whose properties are similar to the ones of position
-in ordinary quantum mechanics.
-
+represented by a self-adjoint operator.
+%
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
 the space in which both time and position are observables, and they act as
 $\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
 respectively.
-
-The Page and Wootters mechanism is rooted in the ``problem of time''
-in quantum cosmology.
-In principle, an appropriate system (a ``clock'') can be identified in such a way
+%
+An appropriate system (a ``clock'') can be identified in such a way
 to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
 the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 
@@ -300,16 +301,16 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-% \begin{wrapfigure}[21]{r}{0.2\textwidth}
-%   \begin{center}
-%     \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
-%   \end{center}
-%   \caption{
-%     \color{Green}
-%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-%     Complex values.
-%   }
-% \end{wrapfigure}
+\begin{wrapfigure}[21]{r}{0.2\textwidth}
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
+  \end{center}
+  \caption{
+    \color{Green}
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+    Complex values.
+  }
+\end{wrapfigure}
 
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
@@ -327,12 +328,12 @@ will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but d
 not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
 
 In our example, we take $N = 32$ and resolve numerically.
-With the chosen $\hat{H}_S$,
-of some interest are solutions that show
-Rabi oscillation / Larmor precession,
-i.e. solutions that do not correspond to eigenstates of
-the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
-
+% With the chosen $\hat{H}_S$,
+% of some interest are solutions that show
+% Rabi oscillation / Larmor precession,
+% i.e. solutions that do not correspond to eigenstates of
+% the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
+%
 We pick $\dket{\Phi_{41}}$ corresponding to eigenvalue
 $\epsilon_{41} = 11$.
 
@@ -342,17 +343,17 @@ In general, the components
 $2k$\nobreakdash-th and $2k+1$\nobreakdash-th
 are compared to the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
 
-\begin{center}\vspace{1cm}
-  \includegraphics[width=0.3\linewidth,height=0.5\linewidth]{PWfit32-largelabels.png}
-  \includegraphics[width=0.4\linewidth]{PWfit32top-largelabels.png}
-  \captionof{figure}{
-    \color{Green}
-    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-    Complex values. 3-D plot shown on two angles.
-  }
-\end{center}\vspace{1cm}
+% \begin{center}\vspace{0.5cm}
+%   \includegraphics[width=0.15\linewidth]{PWfit32-largelabels.png}
+%   \includegraphics[width=0.25\linewidth]{PWfit32top-largelabels.png}
+%   \captionof{figure}{
+%     \color{Green}
+%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+%     Complex values. 3-D plot shown on two angles.
+%   }
+% \end{center}
 
-\section*{Application: Qutrit, {\underline{absorptive detector}}, $N=60$-level clock}
+\section*{Application: Qutrit, absorptive detector, $N=60$-level clock}
 
 Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence non-unitary evolution, in the Page--Wootters Hamiltonian:
 \begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
