@@ -178,9 +178,9 @@ A time-of-arrival statistical distribution is derived.
 
 \section*{Historical background: The Pauli Objection}
 
-% ``[As] a matter of fact, a number of time observables are already routinely measured in
-% laboratories, for example arrival times in time-of-flight experiments, but the theoretical foundation
-% of these measurements is still being discussed'' \cite{TQM1}.
+``[As] a matter of fact, a number of time observables are already routinely measured in
+laboratories, for example arrival times in time-of-flight experiments, but the theoretical foundation
+of these measurements is still being discussed'' \cite{TQM1}.
 %
 ``The Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
 to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''~\cite{Maccone:Pauli}.
@@ -301,13 +301,13 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-\begin{wrapfigure}[21]{r}{0.2\textwidth}
+\begin{wrapfigure}[12]{r}{0.22\textwidth}
   \begin{center}
-    \includegraphics[width=0.2\textwidth]{PWfit32top-largelabels.png}
+    \includegraphics[width=0.22\textwidth]{PWfit32top-largelabels.png}
   \end{center}
   \caption{
     \color{Green}
-    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+    Comparison of discrete PaW model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
     Complex values.
   }
 \end{wrapfigure}
@@ -328,11 +328,11 @@ will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but d
 not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
 
 In our example, we take $N = 32$ and resolve numerically.
-% With the chosen $\hat{H}_S$,
-% of some interest are solutions that show
-% Rabi oscillation / Larmor precession,
-% i.e. solutions that do not correspond to eigenstates of
-% the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
+With the chosen $\hat{H}_S$,
+of some interest are solutions that show
+Rabi oscillation / Larmor precession,
+i.e. solutions that do not correspond to eigenstates of
+the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
 %
 We pick $\dket{\Phi_{41}}$ corresponding to eigenvalue
 $\epsilon_{41} = 11$.
@@ -348,12 +348,25 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
 %   \includegraphics[width=0.25\linewidth]{PWfit32top-largelabels.png}
 %   \captionof{figure}{
 %     \color{Green}
-%     Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
+%     Comparison of discrete PaW model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
 %     Complex values. 3-D plot shown on two angles.
 %   }
 % \end{center}
 
 \section*{Application: Qutrit, absorptive detector, $N=60$-level clock}
+
+\begin{wrapfigure}[13]{r}{0.23\textwidth}
+  \begin{center}
+    \includegraphics[width=0.23\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
+  \end{center}
+  \caption{
+    \color{Green}
+    Non-unitary (absorptive) evolution of a 3-level system.
+    Comparison of discrete PaW prediction (points) with the detector-model, ``Schr\"odinger'' solution (continuous line).
+    Complex values.
+  }
+\end{wrapfigure}
+
 
 Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence non-unitary evolution, in the Page--Wootters Hamiltonian:
 \begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
@@ -362,17 +375,21 @@ Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence no
 Detection probability according to detector models, $-\dv{\norm{\psi}^2}{t}$, is compared with Page-Wootters
 time of arrival probability distribution obtained in terms of (conditional) Bayesian theory:
 \begin{multline*}\label{eq:3lev:bayesPW}
-  P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) = \frac{
+  P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) \\
+  = \frac{
     \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
   }{
     \sum_{n'=0}^{N_{T} - 1} \abs{\bra{t_{n'}} \ox \bra{2} \cdot \dket{\Psi}}^2
   }
   \text{,}\;
+  \\
   \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
   \text{.}
 \end{multline*}
 
-\begin{center}\vspace{1cm}
+\vspace{10cm}
+
+\begin{center}
   \includegraphics[width=.23\textwidth]{3ldetect/loss3color.pdf}
   \hspace{0.4cm}
   \includegraphics[width=.23\textwidth]{3ldetect/conditionalProbFit.pdf}
@@ -381,16 +398,18 @@ time of arrival probability distribution obtained in terms of (conditional) Baye
     Normalization losss and detection probability.
   }
 \end{center}
-\begin{center}\vspace{1cm}
-  \includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_side.pdf}\includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
-  \captionof{figure}{
-    \color{Green}
-    Discrete Page--Wootters results (points)
-    compared to continuous
-    Schr\"{o}dinger
-    evolution (continuous lines). Complex values.  3-D plot shown on two angles.
-  }
-\end{center}
+% \begin{center}\vspace{1cm}
+%   %\includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_side.pdf}
+%   \includegraphics[width=.3\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
+%   \captionof{figure}{
+%     \color{Green}
+%     Discrete Page--Wootters results (points)
+%     compared to continuous
+%     Schr\"{o}dinger
+%     evolution (continuous lines). Complex values.
+%     %3-D plot shown on two angles.
+%   }
+% \end{center}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
