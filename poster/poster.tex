@@ -127,7 +127,7 @@
 \VeryHuge\color{NavyBlue}\textbf{It's $\ket{1}$ o'clock} \color{Black}\\[0.5cm] % Title
 \huge\textit{Relational Time and Applications}\\[1cm] % Subtitle
 \huge University College Cork, School of Physics\\[0.66cm] % University/organization
-\Large{Guido De Rosa, Andreas Ruschhaupt}
+\Large{Guido De Rosa {\large (gderosa@umail.ucc.ie)}, Andreas Ruschhaupt}
 
 \end{minipage}%
 %
@@ -159,12 +159,12 @@ of a “universe” in a stationary state.
 An opportune subsystem can be identified as a “clock” for the “rest”
 of it \cite{Lloyd:Time}.
 %
-In this work~\cite{DeRosaMSc}, \emph{discrete} clocks are implemented,
+In this work~\cite{DeRosaMSc}, \emph{discrete} clock examples are implemented,
 and PaW predictions are compared to
 standard quantum mechanics for some simple systems.
 %
-Non-unitary evolution is also studied, in relation to \emph{absorptive} detector models \cite{RuschhauptAbsorption}.
-A time-of-arrival statistical distribution is derived.
+Non-unitary evolution is also studied, in relation to \emph{absorptive} detector models~\cite{RuschhauptAbsorption}.
+Time-of-arrival statistical distributions are compared.
 
 \setlength{\parindent}{2em} % Default is 15pt.
 
@@ -301,7 +301,7 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-\begin{wrapfigure}[18]{r}{0.22\textwidth}
+\begin{wrapfigure}[21]{r}{0.22\textwidth}
   \begin{center}
     \includegraphics[width=0.22\textwidth]{PWfit32top-largelabels.png}
   \end{center}
@@ -337,6 +337,8 @@ the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
 We pick $\dket{\Phi_{41}}$ corresponding to eigenvalue
 $\epsilon_{41} = 11$.
 
+\,\\
+
 The first two components
 are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$.
 In general, the components
@@ -355,7 +357,7 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
 
 \section*{Application: Qutrit, absorptive detector, $N=60$-level clock}
 
-\begin{wrapfigure}[13]{r}{0.25\textwidth}
+\begin{wrapfigure}[15]{r}{0.25\textwidth}
   \begin{center}
     \includegraphics[width=0.25\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
   \end{center}
@@ -367,14 +369,13 @@ are compared to the components of the qubit at $k$-th discrete temporal step ($t
   }
 \end{wrapfigure}
 
-
 Plugging the absoption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, hence non-unitary evolution, in the Page--Wootters Hamiltonian:
 \begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
   \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -i \op{D}_S) \,\text{.}
 \end{equation*}
 Detection probability according to detector models, $-\dv{\norm{\psi}^2}{t}$, is compared with Page-Wootters
 time of arrival probability distribution obtained in terms of (conditional) Bayesian theory:
-\begin{multline*}\label{eq:3lev:bayesPW}
+\begin{multline}\label{eq:3lev:bayesPW}
   P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) \\
   = \frac{
     \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
@@ -385,9 +386,11 @@ time of arrival probability distribution obtained in terms of (conditional) Baye
   \\
   \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
   \text{.}
-\end{multline*}
+\end{multline}
 
-\vspace{10cm}
+Eq.~\eqref{eq:3lev:bayesPW} is a discretization of the time of arrival distribution in Ref.~\cite{Maccone:QMOT}.
+
+\vspace{8cm}
 
 \begin{center}
   \includegraphics[width=.23\textwidth]{3ldetect/loss3color.pdf}
