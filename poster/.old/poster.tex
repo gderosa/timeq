@@ -7,7 +7,7 @@
 %
 % The a0poster class was created by:
 % Gerlinde Kettl and Matthias Weiser (tex@kettl.de)
-%
+% 
 % This template has been downloaded from:
 % https://www.latextemplates.com/template/a0poster-portrait-poster
 %
@@ -23,45 +23,30 @@
 
 \documentclass[a0,portrait]{a0poster}
 
-\usepackage[backend=biber]{biblatex}
-\addbibresource{bib/main.bib}
-\addbibresource{bib/comp.bib}
-\addbibresource{bib/misc.bib}
-\AtEveryBibitem{
-  \clearfield{issn}
-  \clearfield{month}
-  \clearfield{doi}
-  \clearfield{note}
-}
-
-
 \usepackage{multicol} % This is so we can have multiple columns of text side-by-side
 \columnsep=100pt % This is the amount of white space between the columns in the poster
 \columnseprule=3pt % This is the thickness of the black line between the columns in the poster
 
 \usepackage[svgnames]{xcolor} % Specify colors by their 'svgnames', for a full list of all colors available see here: http://www.latextemplates.com/svgnames-colors
 
-% \usepackage{newtxtext} % Use the times font for text, newer flavor
-% \usepackage{helvet}
-% \usepackage{mathpazo}
+%\usepackage{newtxtext} % Use the times font for text, newer flavor
+\usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault} % sans serif font
 
 \usepackage{graphicx} % Required for including images
 \graphicspath{{img/}} % Location of the graphics files
 \usepackage{booktabs} % Top and bottom rules for table
 \usepackage[font=small,labelfont=bf]{caption} % Required for specifying captions to tables and figures
-\usepackage{wrapfig} % Allows wrapping text around tables and figures
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{wrapfig} % Allows wrapping text around tables and figures
 
 \usepackage{physics}
-%\usepackage[T1]{fontenc}
+\usepackage[T1]{fontenc}
 \usepackage{setspace}
-
-\setlength{\fboxsep}{2.5mm}
 
 \usepackage{bbm}
 
-\usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.8cm]{geometry}
+\usepackage[top=2.8cm,right=2.8cm,bottom=2.8cm,left=2.6cm]{geometry}
 
 \usepackage{lipsum}
 
@@ -106,17 +91,13 @@
 \newcommand{\dbradket}[2]{\left\langle\smallback\left\langle #1 \middle| #2 \right\rangle\smallback\right\rangle}
 \newcommand{\dketdbra}[2]{\left| #1 \left\rangle\smallback\left\rangle \smallback \right\langle\smallback\right\langle #2 \right|}
 
-%\definecolor{boxedcolor}{RGB}{32, 48, 32}
-\definecolor{maincolor}{RGB}{16, 48, 16}
-%\definecolor{boxedcolor}{maincolor}
-
 
 %\renewcommand{\abstractname}{\large Abstract} % abstract hacks
 
 \begin{document}
 
 %----------------------------------------------------------------------------------------
-%	POSTER HEADER
+%	POSTER HEADER 
 %----------------------------------------------------------------------------------------
 
 % The header is divided into two boxes:
@@ -124,15 +105,16 @@
 % The second is 25% wide and houses a logo for your university/organization or a photo of you
 % The widths of these boxes can be easily edited to accommodate your content as you see fit
 \begin{minipage}[c]{0.70\linewidth}
-\VeryHuge\color{NavyBlue}\textbf{It's $\ket{1}$ o'clock} \color{Black}\\[0.5cm] % Title
-\huge\textit{Relational Time and Applications}\\[1cm] % Subtitle
-\huge University College Cork, School of Physics\\[0.66cm] % University/organization
-\Large{Guido De Rosa {\large (gderosa@umail.ucc.ie)}, Andreas Ruschhaupt}
-
+\VeryHuge \color{NavyBlue} \textbf{It's $\ket{1}$ o'clock} \color{Black}\\ % Title
+\Huge\textit{Overcoming Pauli's Objection: Relational Time and \\Applications}\\[2cm] % Subtitle
+\huge \textbf{Guido De Rosa, Andreas Ruschhaupt}\\[0.5cm] % Author(s)
+\huge University College Cork, Department of Physics\\[0.4cm] % University/organization
+\large%
+\texttt{gderosa@umail.ucc.ie}
 \end{minipage}%
 %
 \begin{minipage}[t]{0.30\linewidth}
-\includegraphics[width=18cm]{ucc_logo.pdf}\\  %% vector, from original SVG
+\includegraphics[width=19cm]{ucc_logo.pdf}\\  %% vector, from original SVG
 \end{minipage}
 
 \vspace{2cm} % A bit of extra whitespace between the header and poster content
@@ -147,27 +129,25 @@
 
 \color{Navy} % Navy color for the abstract
 
-\section*{Abstract}
-{Time} in quantum mechanics is generally regarded as a (classical) parameter \cite{TQM1, TQM2}.
-%
-The \emph{Page and Wootters}~(PaW) model
-describes time as a quantum observable with its associated self-adjoint operator.
-%
-Within this formalism, unitary {evolution} {emerges} in terms of \emph{entanglement} between non-interacting subsystems
-of a “universe” in a stationary state.
-%
-A subsystem, with the required properties,  can be identified as a “clock” for the “rest”
-of such universe \cite{Lloyd:Time} (or isolated system).
-%
-In the present work \cite{DeRosaMSc},
-{discrete} clock examples are implemented,
-and PaW predictions are compared to
-standard quantum mechanics for some simple systems.
-%
-Non-unitary evolution is also studied, in relation to \emph{absorptive} detector models~\cite{RuschhauptAbsorption}.
-Time-of-arrival statistical distributions are compared.
+\section*{\large Abstract}
+%\noindent % abstract hacks
+This work relates to the problem of time in quantum physics \cite{TQM1, TQM2}.
+As it's well known, time in quantum mechanics is treated as an external (classical) parameter.
 
-\setlength{\parindent}{2em} % Default is 15pt.
+Here we present some first results related to
+the Page-Wootters model of quantum time~\cite{Lloyd:Time, Maccone:Pauli},
+particularly with discrete clocks on discrete systems (lattice).
+We show how the predictions of the model fits with
+ordinary quantum mechanics, with the conceptual difference that
+time is an observable with an associated self-adjoint operator in this case.
+
+\emph{Not included in this poster} ---
+we've more recently also compared the Page-Wootters mechanism to models based
+on non-unitary evolution and detection by absorption \cite{RuschhauptAbsorption}.
+
+%\end{abstract}
+
+\setlength{\parindent}{1.5em} % Default is 15pt.
 
 %----------------------------------------------------------------------------------------
 %	INTRODUCTION
@@ -175,69 +155,98 @@ Time-of-arrival statistical distributions are compared.
 
 \color{SaddleBrown} % SaddleBrown color for the introduction
 
-%\large
+\large
 
 \section*{Historical background: The Pauli Objection}
+The idea of time as an observable in quantum mechanics,
+with an associated self-adjoint operator in a Hilbert space of quantum states,
+was first excluded by W. Pauli,
+and not given particular attention by the Author himself,
+if only a footnote was dedicated to dismiss the whole subject. \cite{PauliFootnote}
 
-``[As] a matter of fact, a number of time observables are already routinely measured in
-laboratories, for example arrival times in time-of-flight experiments, but the theoretical foundation
-of these measurements is still being discussed'' \cite{TQM1}.
-%
-``The Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
-to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''~\cite{Maccone:Pauli}.
+Quoting \cite{Maccone:Pauli},
+``Schr\"odinger's equation says that the Hamiltonian is the generator of time translations. This seems
+to imply that any reasonable definition of time operator must be conjugate to the Hamiltonian''.
 
-Despite these considerations,
-the idea of
-such time operator
-is hindered by the \emph{Pauli's argument} \cite{PauliFootnote}.
-The objection
-is that
-an operator~$\hat{T}$,
-canonically conjugate to the Hamiltonian $\hat{H}$,
-i.e.
+Pauli's argument
+is based on showing that
+the existence of
+a canonically conjugate operator $\hat{T}$ of the Hamiltonian $\hat{H}$,
+i.e. one satisfying
 $
   \label{THcommutator}
   [\hat{T}, \hat{H}] = i\hbar
-  \text{,}
 $
-implies that the spectrum of \emph{any} Hamiltonian must be the whole real line $\mathbb{R}$
-(thus contradicting the property of being bounded from below).
-A formal proof is detailed in~\cite{Galapon2002}.
+implies that the spectrum of \emph{any} Hamiltonian must be the whole real line
+(contradicting the property of being bounded from below).
+A detailed proof is expanded in the paper by E. Galapon \cite{Galapon2002}.
 
+% Since T is self-adjoint, then for all
+% $\beta\in\mathbb{R}$, $U_{\beta} = \exp(- i \beta T / \hbar)$
+% is unitary. A formal
+% expansion of the exponential yields the commutator
+
+% \begin{multline}
+% [U_{\beta}, H]  =
+% \left[
+%     \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta T}{\hbar} \right)^k, H
+% \right]         =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k [T^k, H]
+% =
+% \sum_{k=0}^{\infty} \frac{1}{k!} \left(- \frac{i\beta}{\hbar} \right)^k kT^{k-1}[T, H] \\ =
+% \beta\sum_{k=1}^{\infty} \frac{1}{(k-1)!} \left(- \frac{i\beta}{\hbar} \right)^{k-1} T^{k-1} =
+% \beta\sum_{\kappa=0}^{\infty} \frac{1}{\kappa!} \left(- \frac{i\beta T}{\hbar} \right)^{\kappa}  =
+% \beta U_{\beta}
+% \end{multline}
+% where the term for $k=0$ in the first sum vanishes, hence we can start the sum from
+% $k=1$ then set $\kappa=k-1$.
+
+% Now, given an eigenvector $\varphi_{E}$ so that $H\varphi_{E}=E\varphi_{E}$, there has:
+
+% $$
+% HU_{\beta}\varphi_{E} = (U_{\beta}H - [U_{\beta}, H])\varphi_{E} =
+% EU_{\beta}\varphi_{E} - \beta U_{\beta}\varphi_{E} = (E-\beta)U_{\beta}\varphi_{E}
+% $$
+% showing that $U_{\beta}\varphi_{E}$ is another eigenvector of $H$ with eigenvalue
+% $E-\beta$. But $\beta$ is an arbitrary real number and $H$ a \emph{generic} Hamiltonian,
+% hence the spectrum of a generic Hamiltonian $H$ should
+% be the whole real line, which contradicts the semi-bounded nature of its spectrum.
 
 %----------------------------------------------------------------------------------------
 %	THE MODEL
 %----------------------------------------------------------------------------------------
 
-\color{maincolor} % DarkSlateGray color for the rest of the content
+\color{DarkSlateGray} % DarkSlateGray color for the rest of the content
 
 \section*{Evolution without evolution: the Page and Wootters model}
 
 The model \cite{Lloyd:Time, Maccone:Pauli} is based on
 an additional Hilbert space $\mathcal{H}_T$,
 where time is an observable
-represented by a self-adjoint operator.
-%
+represented by a self-adjoint operator
+whose properties are similar to the ones of position
+in ordinary quantum mechanics.
+
 In this language, the ordinary Hilbert space can be labeled $\mathcal{H}_S$;
 and we consider the product space $\mathcal{H}_T \otimes \mathcal{H}_S$ as
 the space in which both time and position are observables, and they act as
 $\hat{t} \otimes \idop_S$ and $\idop_T \otimes \hat{x}$
 respectively.
-%
-An appropriate system (a ``clock'') can be identified in such a way
+
+The Page and Wootters mechanism is rooted in the ``problem of time''
+in quantum cosmology.
+In principle, an appropriate system (a ``clock'') can be identified in such a way
 to be described in $\mathcal{H}_T$, while $\mathcal{H}_S$ describes
 the quantum states of \emph{the rest of the universe} \cite{Marletto:Evolution}.
 
 As explained in \cite{Lloyd:Time, Maccone:Pauli}, the overall Hamiltonian,
 encompassing both position and time as observables, is given by
 \begin{equation}\label{eq:pwHamiltonian}
-    \boxed{\hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S}
-    \;\text{,}
+  \hat{\mathbb{J}} = \hbar\hat{\Omega}\ox\idop_S + \idop_T\ox\hat{H}_S \,\text{,}
 \end{equation}
 while the \term{Wheeler-DeWitt equation} holds:
 \begin{equation}\label{eq:Wheeler-DeWitt}
-  \boxed{\hat{\mathbb{J}}\dket{\Psi} = 0}
-  \;\text{,}
+  \hat{\mathbb{J}}\dket{\Psi} = 0 \,\text{,}
 \end{equation}
 describing a \emph{static} universe, where evolution is only
 in terms of relations between parts of a multipartite system
@@ -264,30 +273,30 @@ in the Hilbert space of time.
 
 The Pauli objection no longer holds as time as a quantum observable operates in a separate Hilbert space.
 
-% \subsection*{Non-zero eigenvalues}
+\subsection*{Non-zero eigenvalues}
 
-% Up to an irrelevant global
-% phase, the physical vectors $\dket{\Psi}$ can be identified also by
-% imposing the constraint
-% \[
-%   \hat{\mathbb{J}}\dket{\Psi} = \epsilon \dket{\Psi}
-% \]
-% with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
-% a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
-% with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
+Up to an irrelevant global
+phase, the physical vectors $\dket{\Psi}$ can be identified also by
+imposing the constraint
+\[
+  \hat{\mathbb{J}}\dket{\Psi} = \epsilon \dket{\Psi}
+\]
+with real $\epsilon$. The corresponding evolution in $\hilb{H}_S$ will then need
+a rigid energy shift of its spectrum by replacing $\ket{\psi(t)}_S$
+with $e^{-i \epsilon t / \hbar} \ket{\psi(t)}_S$
 
-\section*{Application: One qubit and a $N=32$-level clock}
+\section*{Example: One qubit ``universe'' and a $N=32$-level clock}
 
 The clock is built as having a time operator which is diagonal in the
 chosen computational basis:
 \[
-  \hat{T} \repr \frac{2\pi}{N} \,\;\! \mathrm{diag}\qty(0, \dots, N-1)
-  % \begin{pmatrix}
-  %   0           &       &       &       \\
-  %               &1      &       &       \\
-  %               &       &\ddots &       \\
-  %               &       &       &N-1
-  % \end{pmatrix} \,\text{.}
+  \hat{T} \repr \frac{2\pi}{N}
+  \begin{pmatrix}
+    0           &       &       &       \\
+                &1      &       &       \\
+                &       &\ddots &       \\
+                &       &       &N-1
+  \end{pmatrix} \,\text{.}
 \]
 With this choice, the clock spans the characteristic period of $\Delta T = 2\pi$.
 
@@ -302,29 +311,15 @@ The system is modeled by a 2-level Hamiltonian
   \, \text{.}
 \]
 
-\begin{wrapfigure}[21]{r}{0.22\textwidth}
-  \begin{center}
-    \includegraphics[width=0.22\textwidth]{PWfit32top-largelabels.png}
-  \end{center}
-  \caption{
-    \color{Green}
-    Comparison of discrete PaW model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-    Complex values.
-  }
-\end{wrapfigure}
-
 The frequency operator in $\hilb{H}_T$, as the canonically conjugate operator
 of $\hat{T}$ in a finite-dimensional Hilbert space, is derived via
 \emph{discrete Fourier transformation} \cite{FiniteHilb} (with $F_N$ unitary):
-\begin{equation}
-  \boxed{
-    \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N}
-  }
-  \; \text{.}
-\end{equation}
-%
-We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}.
-Such eigensolutions
+\[
+  \hat{\Omega} = \frac{N}{2\pi} F^{}_{N} \hat{T} F^{\dagger}_{N} \, \text{.}
+\]
+
+We therefore need to find the eigenvectors of $\hat{\mathbb{J}}$ as in \eqref{eq:pwHamiltonian}
+(a $2N \times 2N$ matrix obtained as a Kronecker product). Such eigensolutions
 will encode the whole (periodic) evolution of the qubit (in $\hilb{H}_S$), but do
 not ``evolve'' themselves (as there's no external ``time'' outside $\hilb{H}_T \ox \hilb{H}_S$).
 
@@ -334,87 +329,25 @@ of some interest are solutions that show
 Rabi oscillation / Larmor precession,
 i.e. solutions that do not correspond to eigenstates of
 the ``ordinary'' Hamiltonian $\hat{H}_S$ of the qubit.
-%
-We pick $\dket{\Phi_{41}}$ corresponding to eigenvalue
-$\epsilon_{41} = 11$.
 
-\,\\
+We pick $\dket{\Phi_{40}}$ and $\dket{\Phi_{41}}$ corresponding to eigenvalues
+$\epsilon_{40} = 12$ and $\epsilon_{41} = 11$.
 
-The first two components
-are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$.
-In general, the components
+The first two components of each eigenvector in the computational basis
+are interpreted as the components of the qubit in $\hilb{H}_S$ at $t=0$. The components
 $2k$\nobreakdash-th and $2k+1$\nobreakdash-th
-are compared to the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
+as the components of the qubit at $k$-th discrete temporal step ($t = k \frac{2\pi}{N}$).
+Comparison with ordinary quantum mechanics solution (Schr\"odinger equation) as shown in picture.
 
-% \begin{center}\vspace{0.5cm}
-%   \includegraphics[width=0.15\linewidth]{PWfit32-largelabels.png}
-%   \includegraphics[width=0.25\linewidth]{PWfit32top-largelabels.png}
-%   \captionof{figure}{
-%     \color{Green}
-%     Comparison of discrete PaW model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line).
-%     Complex values. 3-D plot shown on two angles.
-%   }
-% \end{center}
-
-\section*{Application: Qutrit, absorptive detector, $N=60$-level clock}
-
-\begin{wrapfigure}[17]{r}{0.25\textwidth}
-  \begin{center}
-    \includegraphics[width=0.25\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
-  \end{center}
-  \caption{
-    \color{Green}
-    Non-unitary (absorptive) evolution of a 3-level system.
-    Comparison of discrete PaW prediction (points) with the detector-model, ``Schr\"odinger'' solution (continuous line).
-    Complex values.
-  }
-\end{wrapfigure}
-
-Plugging the anti-Hermitian absorption term \cite{RuschhauptAbsorption}, $-i \op{D}_S$, in the Page--Wootters Hamiltonian:
-\begin{equation*}\label{eq:pwHamiltonian:nonUnitary}
-  \op{\mathbb{J}} = \hbar\op{\Omega}\ox\idop_S + \idop_T\ox\qty(\op{H}_S -i \op{D}_S) \,\text{,}
-\end{equation*}
-the detection probability according to the detector model, $-\dv{\norm{\psi}^2}{t}$, is compared to the Page--Wootters
-time of arrival probability distribution obtained in terms of (conditional) Bayesian theory:
-\begin{multline}\label{eq:3lev:bayesPW}
-  P^{PW}(t_n|2) := P^{PW}\Big( t_n \Big| 2, \left[0,\Delta{T}\right]\Big) \\
-  = \frac{
-    \abs{\bra{t_n} \ox \bra{2} \cdot \dket{\Psi}}^2
-  }{
-    \sum_{n'=0}^{N_{T} - 1} \abs{\bra{t_{n'}} \ox \bra{2} \cdot \dket{\Psi}}^2
-  }
-  \,\text{,}
-  \\
-  \text{ where } t_{n'} = n'\delta{T} = \frac{n'\Delta{T}}{N_{T}}
-  \text{,}
-\end{multline}
-where Eq.~\eqref{eq:3lev:bayesPW} is a discretization of the time of arrival distribution in Ref.~\cite{Maccone:QMOT}.
-
-Explicit expressions of $\op{H}_S$ and $\op{D}_S$ are found in \cite[s.~4.7]{DeRosaMSc}.
-
-\vspace{5cm}
-
-\begin{center}
-  \includegraphics[width=.23\textwidth]{3ldetect/loss3color.pdf}
-  \hspace{0.4cm}
-  \includegraphics[width=.23\textwidth]{3ldetect/conditionalProbFit.pdf}
+\begin{center}\vspace{1cm}
+  \includegraphics[width=0.3\linewidth]{PWfit32.png}
+  \includegraphics[width=0.4\linewidth]{PWfit32top.png}
   \captionof{figure}{
     \color{Green}
-    Normalization loss and detection probability.
+    Comparison of discrete P-W model prediction (points) with the ordinary QM Schr\"odinger solution (continuous line)
+    for eigensolutions of $\hat{\mathbb{J}}$ labeled as $\epsilon_{40}$ and $\epsilon_{41}$. Complex values.
   }
-\end{center}
-% \begin{center}\vspace{1cm}
-%   %\includegraphics[width=.25\textwidth]{3ldetect/PWSpaceTimeFit_side.pdf}
-%   \includegraphics[width=.3\textwidth]{3ldetect/PWSpaceTimeFit_top.pdf}
-%   \captionof{figure}{
-%     \color{Green}
-%     Discrete Page--Wootters results (points)
-%     compared to continuous
-%     Schr\"{o}dinger
-%     evolution (continuous lines). Complex values.
-%     %3-D plot shown on two angles.
-%   }
-% \end{center}
+\end{center}\vspace{1cm}
 
 %----------------------------------------------------------------------------------------
 %	CONCLUSIONS
@@ -434,11 +367,14 @@ Explicit expressions of $\op{H}_S$ and $\op{D}_S$ are found in \cite[s.~4.7]{DeR
 
 \color{DarkSlateGray} % Set the color back to DarkSlateGray for the rest of the content
 
+\normalsize
+
  %----------------------------------------------------------------------------------------
 %	REFERENCES
 %----------------------------------------------------------------------------------------
 
-\printbibliography
+\bibliographystyle{plain}
+\bibliography{bib/main}
 
 %----------------------------------------------------------------------------------------
 %	ACKNOWLEDGEMENTS
